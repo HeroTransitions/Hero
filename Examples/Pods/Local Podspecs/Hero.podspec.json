@@ -1,0 +1,27 @@
+{
+  "name": "Hero",
+  "version": "0.0.1",
+  "summary": "Powerful automated animated transitions between any view controllers without code.",
+  "description": "Powerful automated animated transitions between any view controllers without code.\n  1. Move (from source view to destination view)\n  2. Translation\n  3. Rotation\n  4. Scale",
+  "homepage": "https://github.com/lkzhao/Hero",
+  "screenshots": "https://github.com/lkzhao/Hero/blob/master/imgs/demo.gif?raw=true",
+  "license": "MIT",
+  "authors": {
+    "Luke": "lzhaoyilun@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/lkzhao/Hero.git",
+    "tag": "0.0.1"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "ios": {
+    "frameworks": [
+      "UIKit",
+      "Foundation"
+    ]
+  },
+  "requires_arc": true,
+  "source_files": "*.swift"
+}

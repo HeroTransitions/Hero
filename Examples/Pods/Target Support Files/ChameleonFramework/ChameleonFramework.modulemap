@@ -1,0 +1,6 @@
+framework module ChameleonFramework {
+  umbrella header "ChameleonFramework-umbrella.h"
+
+  export *
+  module * { export * }
+}
