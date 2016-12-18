@@ -2,7 +2,7 @@ platform :ios, '9.0'
 
 target 'HeroExamples' do
   use_frameworks!
-  pod "Hero", :path=>"../Hero"
+  pod "Hero", :path=>".."
   pod "ZCAnimatedLabel"
   pod 'ChameleonFramework/Swift', :git => 'https://github.com/ViccAlexander/Chameleon.git'
 end
