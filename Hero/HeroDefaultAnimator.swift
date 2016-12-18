@@ -47,7 +47,7 @@ public class HeroDefaultAnimator:HeroAnimator{
   
   public func resume(from progress:Double, reverse:Bool) -> TimeInterval{
     paused = false
-    var timePassed = (reverse ? 1 - progress : progress) * duration
+    let timePassed = (reverse ? 1 - progress : progress) * duration
     
     var neededTime:TimeInterval = self.duration - timePassed
     for (layer, anim) in removedAnimations{
@@ -80,7 +80,7 @@ public class HeroDefaultAnimator:HeroAnimator{
         group.beginTime = layer.convertTime(CACurrentMediaTime(), from: nil) + delay - timePassed
       }
     }
-    for (layer, (delay, group)) in animationGroups{
+    for (layer, (_, group)) in animationGroups{
       layer.removeAnimation(forKey: "hero")
       layer.add(group, forKey: "hero")
     }

@@ -23,8 +23,8 @@
 import UIKit
 
 internal class Hero:NSObject {
-  var toViewController:UIViewController!
-  var fromViewController:UIViewController!
+  var toViewController:UIViewController?
+  var fromViewController:UIViewController?
   
   var interactive:Bool = false
 
@@ -40,8 +40,8 @@ internal class Hero:NSObject {
   fileprivate var inContainerController = false
   fileprivate weak var transitionContext:UIViewControllerContextTransitioning?
   
-  fileprivate var toView:UIView { return toViewController.view }
-  fileprivate var fromView:UIView { return fromViewController.view }
+  fileprivate var toView:UIView { return toViewController!.view }
+  fileprivate var fromView:UIView { return fromViewController!.view }
   
   fileprivate var context:HeroContext!
   fileprivate var animatingViewContainer:UIView!
@@ -98,18 +98,18 @@ internal extension Hero {
     }
     
     if let delegate = fromViewController as? HeroViewControllerDelegate{
-      delegate.heroWillStartAnimatingTo?(viewController: toViewController)
+      delegate.heroWillStartAnimatingTo?(viewController: toViewController!)
     }
     if let navigationController = fromViewController as? UINavigationController,
       let delegate = navigationController.topViewController as? HeroViewControllerDelegate{
-      delegate.heroWillStartAnimatingTo?(viewController: toViewController)
+      delegate.heroWillStartAnimatingTo?(viewController: toViewController!)
     }
     if let delegate = toViewController as? HeroViewControllerDelegate{
-      delegate.heroWillStartAnimatingFrom?(viewController: fromViewController)
+      delegate.heroWillStartAnimatingFrom?(viewController: fromViewController!)
     }
     if let navigationController = toViewController as? UINavigationController,
       let delegate = navigationController.topViewController as? HeroViewControllerDelegate{
-      delegate.heroWillStartAnimatingFrom?(viewController: fromViewController)
+      delegate.heroWillStartAnimatingFrom?(viewController: fromViewController!)
     }
 
     transitionContainer.isUserInteractionEnabled = false

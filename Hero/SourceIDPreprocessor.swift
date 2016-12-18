@@ -42,8 +42,6 @@ class SourceIDPreprocessor:HeroPreprocessor {
 extension SourceIDPreprocessor {
   fileprivate func prepareFor(view:UIView, targetView:UIView, context:HeroContext){
     let targetPos = context.container.layer.convert(targetView.layer.position, from: targetView.layer.superlayer)
-    let targetAnchor = targetView.layer.anchorPoint
-    let targetFrame = context.container.convert(targetView.bounds, from: targetView)
     
     context[view, "position"] = targetPos.modifierParameters
     if view.bounds != targetView.bounds{
