@@ -25,7 +25,7 @@ import UIKit
 public class ClearPreprocessor:HeroPreprocessor {
   public func process(context:HeroContext, fromViews:[UIView], toViews:[UIView]) {
     for view in fromViews + toViews{
-      guard let options = context[view, "clearSubviewClasses"] else { continue }
+      guard context[view, "clearSubviewClasses"] != nil else { continue }
       var parentView = view
       if let _  = view as? UITableView, let wrapperView = view.subviews.get(0) {
         parentView = wrapperView

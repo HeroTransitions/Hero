@@ -36,7 +36,7 @@ public class HeroDebugPlugin: HeroPlugin {
   }
 
   public override func resume(from progress: Double, reverse: Bool) -> TimeInterval {
-    guard let interactiveContext = interactiveContext, let debugView = debugView else { return 0.4 }
+    guard interactiveContext != nil, let debugView = debugView else { return 0.4 }
     debugView.delegate = nil
     
     UIView.animate(withDuration: 0.4){
