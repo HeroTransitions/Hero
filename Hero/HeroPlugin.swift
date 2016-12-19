@@ -108,7 +108,16 @@ open class HeroPlugin: HeroPreprocessor, HeroAnimator{
 // methods for enable/disable the current plugin
 extension HeroPlugin{
   public static var isEnabled:Bool{
-    return Hero.isEnabled(plugin: self)
+    get{
+      return Hero.isEnabled(plugin: self)
+    }
+    set{
+      if newValue {
+        enable()
+      } else {
+        disable()
+      }
+    }
   }
   public static func enable(){
     Hero.enable(plugin: self)

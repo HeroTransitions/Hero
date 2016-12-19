@@ -13,11 +13,7 @@ import ZCAnimatedLabel
 class LabelTransformViewController: UIViewController {
   @IBOutlet weak var pluginSwitch: UISwitch!
   @IBAction func togglePlugin(_ sender: UISwitch) {
-    if sender.isOn{
-      LabelMorphPlugin.enable()
-    } else {
-      LabelMorphPlugin.disable()
-    }
+    LabelMorphPlugin.isEnabled = sender.isOn
   }
   
   override func viewDidLoad() {

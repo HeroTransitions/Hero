@@ -12,11 +12,7 @@ import Hero
 class DebugViewController: UIViewController {
   @IBOutlet weak var pluginSwitch: UISwitch!
   @IBAction func togglePlugin(_ sender: UISwitch) {
-    if sender.isOn{
-      HeroDebugPlugin.enable()
-    } else {
-      HeroDebugPlugin.disable()
-    }
+    HeroDebugPlugin.isEnabled = sender.isOn
   }
   
   override func viewDidLoad() {
