@@ -22,10 +22,10 @@
 
 import UIKit
 
-public class ClearPreprocessor:HeroPreprocessor {
+public class ClearModifierPreprocessor:HeroPreprocessor {
   public func process(context:HeroContext, fromViews:[UIView], toViews:[UIView]) {
     for view in fromViews + toViews{
-      guard context[view, "clearSubviewClasses"] != nil else { continue }
+      guard context[view, "clearSubviewModifiers"] != nil else { continue }
       var parentView = view
       if let _  = view as? UITableView, let wrapperView = view.subviews.get(0) {
         parentView = wrapperView

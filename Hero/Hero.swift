@@ -51,7 +51,7 @@ internal class Hero:NSObject {
   fileprivate var plugins:[HeroPlugin]!
   
   fileprivate static let builtInProcessors:[HeroPreprocessor] = [
-    ClearPreprocessor(),
+    ClearModifierPreprocessor(),
     ViewToViewPreprocessor(),
     SourceIDPreprocessor(),
     CascadePreprocessor()

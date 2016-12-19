@@ -67,7 +67,7 @@ extension GridCollectionViewController:HeroViewControllerDelegate{
        let index = collectionView!.indexPathsForSelectedItems?[0],
        let cell = collectionView!.cellForItem(at: index) as? GridImageCell{
       let cellPos = view.convert(cell.imageView.center, from: cell)
-      collectionView!.heroModifiers = "scale(\(3)) translate(\(view.center.x - cellPos.x),\(view.center.y + collectionView!.contentInset.top/2/3 - cellPos.y)) clearSubviewClasses fade"
+      collectionView!.heroModifiers = "scale(\(3)) translate(\(view.center.x - cellPos.x),\(view.center.y + collectionView!.contentInset.top/2/3 - cellPos.y)) clearSubviewModifiers fade"
     } else {
       collectionView!.heroModifiers = "cascade(0.02, topToBottom)"
     }

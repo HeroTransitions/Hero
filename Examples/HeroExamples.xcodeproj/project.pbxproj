@@ -112,12 +112,12 @@
 		A33E60B71DE7621C0065CBD8 /* Examples */ = {
 			isa = PBXGroup;
 			children = (
-				B10FDD461E00DD9D00B7B66E /* Debug */,
-				B195F5781DFE517500B1343C /* LabelTransform */,
 				B185A4E91DFA6FE700C3B85D /* ListToGrid */,
 				A3499D9D1DF202350049B541 /* ImageGallery */,
 				A33E60C31DE76D000065CBD8 /* MusicPlayer */,
 				A33E60B81DE7621C0065CBD8 /* CityGuide */,
+				B10FDD461E00DD9D00B7B66E /* Debug */,
+				B195F5781DFE517500B1343C /* LabelTransform */,
 			);
 			path = Examples;
 			sourceTree = "<group>";

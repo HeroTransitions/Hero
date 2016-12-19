@@ -64,14 +64,14 @@ class ListTableViewController: UITableViewController {
 extension ListTableViewController:HeroViewControllerDelegate{
   func heroWillStartAnimatingTo(viewController: UIViewController) {
     if let _ = viewController as? GridCollectionViewController{
-      tableView.heroModifiers = "clearSubviewClasses"
+      tableView.heroModifiers = "clearSubviewModifiers"
     } else {
       tableView.heroModifiers = "cascade(0.02)"
     }
   }
   func heroWillStartAnimatingFrom(viewController: UIViewController) {
     if let _ = viewController as? GridCollectionViewController{
-      tableView.heroModifiers = "clearSubviewClasses"
+      tableView.heroModifiers = "clearSubviewModifiers"
     } else {
       tableView.heroModifiers = "cascade(0.02)"
     }
