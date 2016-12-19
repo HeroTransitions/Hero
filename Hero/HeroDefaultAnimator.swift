@@ -31,7 +31,7 @@ public class HeroDefaultAnimator:HeroAnimator{
   var context:HeroContext!
   var animationGroups:[CALayer:(TimeInterval, CAAnimationGroup)] = [:]
   let animatableOptions:Set<String> = ["fade", "opacity", "position", "bounds", "anchorPoint", "cornerRadius", "transform", "scale", "translate", "rotate", "forceAnimate"]
-  var removedAnimations:[(CALayer, CABasicAnimation)] = []
+  var removedAnimations:[(CALayer, CAPropertyAnimation)] = []
   var paused = true
   
   public func seekTo(progress:Double) {
@@ -60,7 +60,7 @@ public class HeroDefaultAnimator:HeroAnimator{
         }
         anim.fromValue = layer.value(forKeyPath: anim.keyPath!)
         neededTime = max(neededTime, anim.settlingDuration)
-      } else {
+      } else if let anim = anim as? CABasicAnimation{
         anim.speed = reverse ? -1 : 1
         anim.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
         if reverse{
@@ -99,8 +99,8 @@ public class HeroDefaultAnimator:HeroAnimator{
     let (_, group) = animationGroups[snapshot.layer]!
     let state = viewState(for: view, with: modifiers)
     for (key, targetValue) in state{
-      if let index = group.animations!.index(where:{ return ($0 as! CABasicAnimation).keyPath == key }) {
-        let anim = group.animations!.remove(at: index) as! CABasicAnimation
+      if let index = group.animations!.index(where:{ return ($0 as! CAPropertyAnimation).keyPath == key }) {
+        let anim = group.animations!.remove(at: index) as! CAPropertyAnimation
         removedAnimations.append((snapshot.layer, anim))
       } else if removedAnimations.index(where: { return $0.0 == snapshot.layer && $0.1.keyPath == key }) == nil{
         let originValue = snapshot.layer.value(forKeyPath: key)
@@ -113,7 +113,7 @@ public class HeroDefaultAnimator:HeroAnimator{
         if removedAnimations.index(where: { return $0.0 == contentLayer }) == nil{
           if let (_, group) = animationGroups[contentLayer]{
             for anim in group.animations!{
-              removedAnimations.append((contentLayer, anim as! CABasicAnimation))
+              removedAnimations.append((contentLayer, anim as! CAPropertyAnimation))
             }
           } else {
             let originBounds = contentLayer.value(forKeyPath: "bounds")
@@ -280,7 +280,7 @@ private extension HeroDefaultAnimator {
     return rtn
   }
   
-  func animation(for view:UIView, key:String, fromValue:Any?, toValue:Any?) -> CABasicAnimation {
+  func animation(for view:UIView, key:String, fromValue:Any?, toValue:Any?) -> CAPropertyAnimation {
     let anim:CABasicAnimation
     
     if #available(iOS 9.0, *), key != "cornerRadius", context[view, "duration"] == nil, context[view, "curve"] == nil {
