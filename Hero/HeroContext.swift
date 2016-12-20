@@ -169,15 +169,17 @@ extension HeroContext{
   }
   
   internal static func processViewTree(view:UIView, container:UIView, idMap:inout [String:UIView], modifierMap:inout [UIView:HeroModifiers]) -> [UIView]{
-    if let heroID = view.heroID{
-      idMap[heroID] = view
-    }
-    if let className = view.heroModifiers{
-      modifierMap[view] = extractModifiers(modifierString: className)
-    }
-    var rtn:[UIView] = []
+    var rtn:[UIView]
     if container.convert(view.bounds, from: view).intersects(container.bounds){
-      rtn.append(view)
+      rtn = [view]
+      if let heroID = view.heroID{
+        idMap[heroID] = view
+      }
+      if let className = view.heroModifiers{
+        modifierMap[view] = extractModifiers(modifierString: className)
+      }
+    } else {
+      rtn = []
     }
     for sv in view.subviews{
       rtn.append(contentsOf: processViewTree(view: sv, container:container, idMap:&idMap, modifierMap:&modifierMap))
