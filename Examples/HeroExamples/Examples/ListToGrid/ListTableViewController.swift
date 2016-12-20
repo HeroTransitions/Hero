@@ -33,7 +33,7 @@ class ListTableViewController: UITableViewController {
 
     cell.heroModifiers = "fade translate(-100, 0)"
     cell.imageView?.heroID = "image_\(indexPath.item)"
-    cell.imageView?.heroModifiers = "arc"
+    cell.imageView?.heroModifiers = "arc zPosition(10)"
     cell.imageView?.image = UIImage(named: "Unsplash\(indexPath.item % 10)")
     cell.textLabel?.text = "Item \(indexPath.item)"
     cell.detailTextLabel?.text = "Description \(indexPath.item)"
