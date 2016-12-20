@@ -25,8 +25,10 @@ import UIKit
 public class HeroDefaultAnimator:HeroAnimator{
   var snapshots:[UIView:UIView] = [:]
   
+  // TODO: calculate duration based on distance travelled
+  // https://material.io/guidelines/motion/duration-easing.html
   var duration:TimeInterval = HeroDefaultAnimator.defaultAnimationDuration
-  static let defaultAnimationDuration:TimeInterval = 0.3
+  static let defaultAnimationDuration:TimeInterval = 0.375
 
   var context:HeroContext!
   var animationGroups:[CALayer:(TimeInterval, CAAnimationGroup)] = [:]
@@ -287,7 +289,7 @@ private extension HeroDefaultAnimator {
   
   func animation(for view:UIView, key:String, fromValue:Any?, toValue:Any?, ignoreArc:Bool = false) -> CAPropertyAnimation {
     let anim:CAPropertyAnimation
-    var timingFunction:CAMediaTimingFunction = .sharp
+    var timingFunction:CAMediaTimingFunction = .standard
     let duration:Double = context[view, "duration"]?.getDouble(0) ?? HeroDefaultAnimator.defaultAnimationDuration
     
     // get the timing function

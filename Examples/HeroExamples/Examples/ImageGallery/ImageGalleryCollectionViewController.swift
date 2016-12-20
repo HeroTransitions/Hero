@@ -67,7 +67,7 @@ extension ImageGalleryViewController:HeroViewControllerDelegate{
     // the third is the initial delay
     // the forth is whether or not to delay matched views
     //
-    // NOTE: matched views(same heroID on both View controllers) won't have 
+    // NOTE: matched views(views with the same `heroID`) won't have
     // the cascading effect. however, you can use the 4th parameter to delay
     // the start time until the last cascading animation have started
     // by default: the matched views will animate simutanously with the cascading views
