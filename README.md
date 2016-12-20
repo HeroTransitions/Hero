@@ -8,6 +8,9 @@ Supercharged transition engine for iOS. Build your custom view transitions with 
 ![iOS 8.0+](https://img.shields.io/badge/iOS-8.0%2B-blue.svg)
 ![Swift 3.0+](https://img.shields.io/badge/Swift-3.0%2B-orange.svg)
 
+## Video Demo
+**[View here](https://youtu.be/-6L79or6Iq8)
+
 ## Usage Guide
 **[Read here](https://github.com/lkzhao/Hero/wiki/Usage-Guide)**
 
