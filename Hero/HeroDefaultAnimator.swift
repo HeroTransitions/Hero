@@ -26,7 +26,7 @@ public class HeroDefaultAnimator:HeroAnimator{
   var snapshots:[UIView:UIView] = [:]
   
   var duration:TimeInterval = HeroDefaultAnimator.defaultAnimationDuration
-  static let defaultAnimationDuration:TimeInterval = 0.5
+  static let defaultAnimationDuration:TimeInterval = 0.3
 
   var context:HeroContext!
   var animationGroups:[CALayer:(TimeInterval, CAAnimationGroup)] = [:]
@@ -100,11 +100,16 @@ public class HeroDefaultAnimator:HeroAnimator{
     let state = viewState(for: view, with: modifiers)
     for (key, targetValue) in state{
       if let index = group.animations!.index(where:{ return ($0 as! CAPropertyAnimation).keyPath == key }) {
-        let anim = group.animations!.remove(at: index) as! CAPropertyAnimation
-        removedAnimations.append((snapshot.layer, anim))
+        let anim = group.animations!.remove(at: index)
+        if let anim = anim as? CABasicAnimation{
+          removedAnimations.append((snapshot.layer, anim))
+        } else if let anim = anim as? CAKeyframeAnimation {
+          let anim = animation(for:view, key: key, fromValue: anim.values![0], toValue: anim.values![1], ignoreArc: true)
+          removedAnimations.append((snapshot.layer, anim))
+        }
       } else if removedAnimations.index(where: { return $0.0 == snapshot.layer && $0.1.keyPath == key }) == nil{
         let originValue = snapshot.layer.value(forKeyPath: key)
-        let anim = animation(for:view, key: key, fromValue: originValue, toValue: originValue)
+        let anim = animation(for:view, key: key, fromValue: originValue, toValue: originValue, ignoreArc: true)
         removedAnimations.append((snapshot.layer, anim))
       }
       snapshot.layer.setValue(targetValue, forKeyPath: key)
@@ -280,44 +285,62 @@ private extension HeroDefaultAnimator {
     return rtn
   }
   
-  func animation(for view:UIView, key:String, fromValue:Any?, toValue:Any?) -> CAPropertyAnimation {
-    let anim:CABasicAnimation
+  func animation(for view:UIView, key:String, fromValue:Any?, toValue:Any?, ignoreArc:Bool = false) -> CAPropertyAnimation {
+    let anim:CAPropertyAnimation
+    var timingFunction:CAMediaTimingFunction = .sharp
+    let duration:Double = context[view, "duration"]?.getDouble(0) ?? HeroDefaultAnimator.defaultAnimationDuration
     
-    if #available(iOS 9.0, *), key != "cornerRadius", context[view, "duration"] == nil, context[view, "curve"] == nil {
-      let sanim = CASpringAnimation(keyPath: key)
-      sanim.stiffness = (context[view, "spring"]?.getCGFloat(0) ?? 150)
-      sanim.damping = (context[view, "spring"]?.getCGFloat(1) ?? 20)
-      anim = sanim
-      anim.duration = sanim.settlingDuration * 0.9
-    } else {
-      anim = CABasicAnimation(keyPath: key)
-      anim.duration = context[view, "duration"]?.getDouble(0) ?? HeroDefaultAnimator.defaultAnimationDuration
-      anim.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
-      if let curveOptions = context[view, "curve"]{
-        if let c1 = curveOptions.getFloat(0),
-           let c2 = curveOptions.getFloat(1),
-           let c3 = curveOptions.getFloat(2),
-           let c4 = curveOptions.getFloat(3){
-          anim.timingFunction = CAMediaTimingFunction(controlPoints: c1, c2, c3, c4)
-        } else if let ease = curveOptions.get(0){
-          switch ease {
-          case "linear":
-            anim.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionLinear)
-          case "easeIn":
-            anim.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseIn)
-          case "easeOut":
-            anim.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
-          default:
-            break
-          }
-        }
+    // get the timing function
+    if let curveOptions = context[view, "curve"]{
+      if let c1 = curveOptions.getFloat(0),
+        let c2 = curveOptions.getFloat(1),
+        let c3 = curveOptions.getFloat(2),
+        let c4 = curveOptions.getFloat(3){
+        timingFunction = CAMediaTimingFunction(controlPoints: c1, c2, c3, c4)
+      } else if let ease = curveOptions.get(0), let tf = CAMediaTimingFunction.from(name:ease){
+        timingFunction = tf
       }
+    }
+    
+    if !ignoreArc, key == "position", let arcOptions = context[view, "arc"],
+      let fromPos = (fromValue as? NSValue)?.cgPointValue,
+      let toPos = (toValue as? NSValue)?.cgPointValue {
+      let arcIntensity = arcOptions.getCGFloat(0) ?? 1
+      let kanim = CAKeyframeAnimation(keyPath: key)
+      
+      var path = CGMutablePath()
+      let maxControl = fromPos.y > toPos.y ? CGPoint(x: toPos.x, y: fromPos.y) : CGPoint(x: fromPos.x, y: toPos.y)
+      let minControl = (toPos - fromPos) / 2 + fromPos
+      let diff = abs(toPos - fromPos)
+      let curveRadius = min(diff.x, diff.y)
+      
+      path.move(to: fromPos)
+      path.addQuadCurve(to: toPos, control: minControl + (maxControl - minControl) * arcIntensity)
+      
+      kanim.values = [fromValue, toValue]
+      kanim.path = path
+      kanim.duration = duration
+      kanim.timingFunctions = [timingFunction]
+      anim = kanim
+    } else if #available(iOS 9.0, *), key != "cornerRadius", context[view, "spring"] != nil {
+      let sanim = CASpringAnimation(keyPath: key)
+      sanim.stiffness = (context[view, "spring"]?.getCGFloat(0) ?? 200)
+      sanim.damping = (context[view, "spring"]?.getCGFloat(1) ?? 25)
+      sanim.duration = sanim.settlingDuration * 0.9
+      sanim.fromValue = fromValue
+      sanim.toValue = toValue
+      anim = sanim
+    } else {
+      let banim = CABasicAnimation(keyPath: key)
+      banim.duration = duration
+      banim.fromValue = fromValue
+      banim.toValue = toValue
+      banim.timingFunction = timingFunction
+      anim = banim
     }
     
     anim.fillMode = kCAFillModeBoth
     anim.isRemovedOnCompletion = false
-    anim.fromValue = fromValue
-    anim.toValue = toValue
     return anim
   }
   
@@ -329,10 +352,10 @@ private extension HeroDefaultAnimator {
     group.duration = duration
     group.fillMode = kCAFillModeBoth
     group.isRemovedOnCompletion = false
-    group.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
     group.animations = animations
     layer.add(group, forKey: "hero")
     layer.needsDisplayOnBoundsChange = true
+
     self.animationGroups[layer] = (delay, group)
   }
   
@@ -344,6 +367,7 @@ private extension HeroDefaultAnimator {
 
     var animations:[CAAnimation] = []
     var contentViewAnims:[CAAnimation] = []
+
     for (k, disappearedState) in disappeared{
       let appearingState = snapshot.layer.value(forKeyPath: k)
       let toValue = appearing ? appearingState : disappearedState
@@ -367,7 +391,7 @@ private extension HeroDefaultAnimator {
           
           let fromPosn = NSValue(cgPoint:fromBounds.center)
           let toPosn = NSValue(cgPoint:toBounds.center)
-          let positionAnim = animation(for: view, key: "position", fromValue: fromPosn, toValue: toPosn)
+          let positionAnim = animation(for: view, key: "position", fromValue: fromPosn, toValue: toPosn, ignoreArc: true)
           let boundsAnim = animation(for: view, key: "bounds", fromValue: fromValue, toValue: toValue)
           contentViewAnims.append(positionAnim)
           contentViewAnims.append(boundsAnim)

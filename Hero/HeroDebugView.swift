@@ -12,6 +12,7 @@ protocol HeroDebugViewDelegate {
   func onProcessSliderChanged(progress:Float)
   func onPerspectiveChanged(translation:CGPoint, rotation:CGFloat, scale:CGFloat)
   func on3D(wants3D:Bool)
+  func onDisplayArcCurve(wantsCurve:Bool)
   func onDone()
 }
 
@@ -20,6 +21,7 @@ public class HeroDebugView: UIView{
   var debugSlider:UISlider!
   var perspectiveButton:UIButton!
   var doneButton:UIButton!
+  var arcCurveButton:UIButton?
   
   var delegate:HeroDebugViewDelegate?
   var panGR:UIPanGestureRecognizer!
@@ -38,7 +40,7 @@ public class HeroDebugView: UIView{
     return debugSlider.value
   }
   
-  init(initialProcess:Float) {
+  init(initialProcess:Float, showCurveButton:Bool) {
     super.init(frame:.zero)
     
     backgroundView = UIView(frame:.zero)
@@ -57,6 +59,13 @@ public class HeroDebugView: UIView{
     perspectiveButton.setTitle("3D View", for: .normal)
     perspectiveButton.addTarget(self, action: #selector(onPerspective), for: .touchUpInside)
     backgroundView.addSubview(perspectiveButton)
+    
+    if showCurveButton{
+      arcCurveButton = UIButton(type: .system)
+      arcCurveButton!.setTitle("Show Arcs", for: .normal)
+      arcCurveButton!.addTarget(self, action: #selector(onDisplayArcCurve), for: .touchUpInside)
+      backgroundView.addSubview(arcCurveButton!)
+    }
     
     debugSlider = UISlider(frame: .zero)
     debugSlider.layer.zPosition = 1000
@@ -97,6 +106,8 @@ public class HeroDebugView: UIView{
     perspectiveButton.frame.origin = CGPoint(x:bounds.maxX - perspectiveButton.bounds.width - 10, y: 4)
     doneButton.sizeToFit()
     doneButton.frame.origin = CGPoint(x:10, y: 4)
+    arcCurveButton?.sizeToFit()
+    arcCurveButton?.center = CGPoint(x: center.x, y: doneButton.center.y)
   }
   
   var startRotation:CGFloat = 0
@@ -140,6 +151,10 @@ public class HeroDebugView: UIView{
   @objc public func onPerspective(){
     perspectiveButton.isSelected = !perspectiveButton.isSelected
     delegate?.on3D(wants3D: perspectiveButton.isSelected)
+  }
+  @objc public func onDisplayArcCurve(){
+    arcCurveButton!.isSelected = !arcCurveButton!.isSelected
+    delegate?.onDisplayArcCurve(wantsCurve: arcCurveButton!.isSelected)
   }
   @objc public func onSlide(){
     delegate?.onProcessSliderChanged(progress: debugSlider.value)

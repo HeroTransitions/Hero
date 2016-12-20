@@ -12,6 +12,7 @@ public class HeroDebugPlugin: HeroPlugin {
   var interactiveContext:HeroInteractiveContext?
   var debugView:HeroDebugView?
   var zPositionMap = [UIView:CGFloat]()
+  var addedLayers:[CALayer] = []
 
   override public func wantInteractiveHeroTransition(context: HeroInteractiveContext) -> Bool {
     interactiveContext = context
@@ -21,7 +22,14 @@ public class HeroDebugPlugin: HeroPlugin {
   override public func animate(context: HeroContext, fromViews: [UIView], toViews: [UIView]) -> TimeInterval {
     guard let interactiveContext = interactiveContext else { return 0 }
     
-    debugView = HeroDebugView(initialProcess: interactiveContext.presenting ? 0.0 : 1.0)
+    var hasArc = false
+    for v in context.fromViews + context.toViews{
+      if context[v, "arc"] != nil && context[v, "position"] != nil{
+        hasArc = true
+        break
+      }
+    }
+    debugView = HeroDebugView(initialProcess: interactiveContext.presenting ? 0.0 : 1.0, showCurveButton:hasArc)
     debugView!.frame = interactiveContext.container.bounds
     debugView!.delegate = self
     UIApplication.shared.keyWindow!.addSubview(debugView!)
@@ -90,6 +98,31 @@ extension HeroDebugPlugin:HeroDebugViewDelegate{
     a.duration = 0.4
     view.layer.add(a, forKey: "zPosition")
     view.layer.zPosition = to
+  }
+  
+  func onDisplayArcCurve(wantsCurve: Bool){
+    guard let context = interactiveContext else { return }
+    for layer in addedLayers{
+      layer.removeFromSuperlayer()
+      addedLayers.removeAll()
+    }
+    if wantsCurve {
+      for layer in context.container.layer.sublayers!{
+        if let groupAnim = layer.animation(forKey: "hero") as? CAAnimationGroup, let anims = groupAnim.animations{
+          for anim in anims{
+            if let keyframeAnim = anim as? CAKeyframeAnimation, let path = keyframeAnim.path{
+              let s = CAShapeLayer()
+              s.zPosition = layer.zPosition + 10
+              s.path = path
+              s.strokeColor = UIColor.blue.cgColor
+              s.fillColor = UIColor.clear.cgColor
+              context.container.layer.addSublayer(s)
+              addedLayers.append(s)
+            }
+          }
+        }
+      }
+    }
   }
 
   func on3D(wants3D: Bool) {

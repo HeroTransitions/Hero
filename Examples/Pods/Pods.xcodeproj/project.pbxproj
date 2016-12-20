@@ -68,6 +68,7 @@
 		AB80F4B71FE40B7325FE19FE7920BE1A /* ZCFlyinLabel.h in Headers */ = {isa = PBXBuildFile; fileRef = B306F35D55098B8275E41406708680C3 /* ZCFlyinLabel.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		ACF084933B3CBF65307BBC8484191FA0 /* ZCDashLabel.h in Headers */ = {isa = PBXBuildFile; fileRef = E61802497B0C82082771903678DD88F1 /* ZCDashLabel.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B091706205DBEA2827284B7060E64096 /* ZCCoreTextLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 42395ED6C338D1F0111188ECCAC326C9 /* ZCCoreTextLayout.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		B124B4A71E088BA9000F1DF2 /* CAMediaTimingFunction+Hero.swift in Sources */ = {isa = PBXBuildFile; fileRef = B124B4A61E088BA9000F1DF2 /* CAMediaTimingFunction+Hero.swift */; };
 		B26038F91C7C4CC322D7F25C5D16FE9E /* ChameleonConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 0164C4141F6109C4519447CEFDCDA6FB /* ChameleonConstants.m */; };
 		B4EA53699AA19822E674188743266B2B /* ChameleonMacros.h in Headers */ = {isa = PBXBuildFile; fileRef = 25530C1B2B3BCE67679DE2C38D8C8C3F /* ChameleonMacros.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B9A618F6A32F37FCCB911669072ADAD1 /* HeroDefaultAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 009813FF767BFAE2357DA856652EEEE7 /* HeroDefaultAnimator.swift */; };
@@ -201,6 +202,7 @@
 		AC559FE89B18815721B5D20117D33F86 /* Pods-HeroExamples-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-HeroExamples-dummy.m"; sourceTree = "<group>"; };
 		ACC1D3350CBFB86A70E6108AA2C11DBD /* Chameleon.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Chameleon.h; path = "Pod/Classes/Objective-C/Chameleon.h"; sourceTree = "<group>"; };
 		AFA3B00CC9CD7B05A1FCFA3B76888F46 /* ZCFocusLabel.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ZCFocusLabel.m; path = ZCAnimatedLabel/ZCAnimatedLabel/ZCFocusLabel.m; sourceTree = "<group>"; };
+		B124B4A61E088BA9000F1DF2 /* CAMediaTimingFunction+Hero.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CAMediaTimingFunction+Hero.swift"; sourceTree = "<group>"; };
 		B306F35D55098B8275E41406708680C3 /* ZCFlyinLabel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ZCFlyinLabel.h; path = ZCAnimatedLabel/ZCAnimatedLabel/ZCFlyinLabel.h; sourceTree = "<group>"; };
 		B3B9625BB8675FB84F57FAEC62E860DF /* UIViewController+Chameleon.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIViewController+Chameleon.m"; path = "Pod/Classes/Objective-C/UIViewController+Chameleon.m"; sourceTree = "<group>"; };
 		B7845278D818AA0933253B32BF79AB28 /* ZCAnimatedLabel.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = ZCAnimatedLabel.xcconfig; sourceTree = "<group>"; };
@@ -439,6 +441,7 @@
 			isa = PBXGroup;
 			children = (
 				F9DF90DEF699C530738BF36F7EC08F4A /* CG+Hero.swift */,
+				B124B4A61E088BA9000F1DF2 /* CAMediaTimingFunction+Hero.swift */,
 				53F7BF54988B62579662B3EBF1570192 /* DispatchQueue+Hero.swift */,
 				4EA92FDB8DCF56BE10918981146E71D9 /* UIKit+Hero.swift */,
 				BA962E8A0090A3F508472C2A41382DB4 /* UIKit+HeroModifier.swift */,
@@ -752,6 +755,7 @@
 				B9A618F6A32F37FCCB911669072ADAD1 /* HeroDefaultAnimator.swift in Sources */,
 				BAFF28FB3D799010C983A03EE434F262 /* HeroPlugin.swift in Sources */,
 				704C71A8D826D94BE3F463A1E39DDE08 /* HeroTypes.swift in Sources */,
+				B124B4A71E088BA9000F1DF2 /* CAMediaTimingFunction+Hero.swift in Sources */,
 				3B7E296D2722377B0EB6FD076A716081 /* SourceIDPreprocessor.swift in Sources */,
 				A6AC4C9DCE32429CE5D6CF2EAA3C52DE /* UIKit+Hero.swift in Sources */,
 				9ADBC3165E0411E5DFAAFE05C96EDC2D /* UIKit+HeroModifier.swift in Sources */,

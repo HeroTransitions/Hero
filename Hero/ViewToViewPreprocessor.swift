@@ -26,22 +26,13 @@ public class ViewToViewPreprocessor:HeroPreprocessor {
   public func process(context:HeroContext, fromViews:[UIView], toViews:[UIView]) {
     for tv in toViews{
       guard let id = tv.heroID, let fv = context.sourceView(for: id) else { continue }
-      context[fv, "matchedHeroID"] = []
       context[tv, "matchedHeroID"] = []
-      
-      // viewToView effect is basically sourceID effect applied to both view
       context[tv, "sourceID"] = [id]
-      context[fv, "sourceID"] = [id]
-      
-      let tvZPos = context[tv, "zPositionIfMatched"]?.getCGFloat(0)
-      let fvZPos = context[fv, "zPositionIfMatched"]?.getCGFloat(0)
-      if let tvZPos = tvZPos{
-        context[tv, "zPosition"] = ["\(tvZPos)"]
-        context[fv, "zPosition"] = ["\(fvZPos ?? tvZPos)"]
-      } else if let fvZPos = fvZPos{
-        context[tv, "zPosition"] = ["\(fvZPos)"]
-        context[fv, "zPosition"] = ["\(fvZPos)"]
+      if let zPos = context[tv, "zPositionIfMatched"]?.getCGFloat(0){
+        context[tv, "zPosition"] = ["\(zPos)"]
       }
+      
+      context[fv] = context[tv]
       
       context[tv, "fade"] = []
       if let _ = fv as? UILabel, !fv.isOpaque{

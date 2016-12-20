@@ -88,3 +88,6 @@ internal func *(left: CGPoint, right: CGPoint) -> CGPoint {
 internal prefix func -(point:CGPoint) -> CGPoint {
   return CGPoint.zero - point
 }
+internal func abs(_ p: CGPoint) -> CGPoint {
+  return CGPoint(x: abs(p.x), y: abs(p.y))
+}
