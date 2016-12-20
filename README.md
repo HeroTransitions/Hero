@@ -1,4 +1,4 @@
-<img src="https://github.com/lkzhao/Hero/blob/master/Resources/HeroLogo@4x.png?raw=true" width="388"/>
+<img src="https://github.com/lkzhao/Hero/blob/master/Resources/HeroLogo@2x.png?raw=true" width="388"/>
 
 Supercharged transition engine for iOS. Build your custom view transitions with few lines of code or even no code at all. Inspired by Polymer's [neon-animated-pages](https://elements.polymer-project.org/elements/neon-animation) and Keynote's `Magic Move`.
 
@@ -9,7 +9,7 @@ Supercharged transition engine for iOS. Build your custom view transitions with 
 ![Swift 3.0+](https://img.shields.io/badge/Swift-3.0%2B-orange.svg)
 
 ## Usage Guide
-**[Read here](https://github.com/lkzhao/Hero/blob/master/Resources/guide.md)**
+**[Read here](https://github.com/lkzhao/Hero/wiki/Usage-Guide)**
 
 ## What is Hero?
 
@@ -43,17 +43,7 @@ Hero does all of these without any assumption about how the view is built or str
 * Apply `cascade` effects to these animations
 * Super slim API for making all of these interactive!
 
-## Gallery
-
-These transition examples can be done in minutes. download or clone the **[Project](http://github.com/lkzhao/Hero/zipball/master/)** to see how they are implemented.
-
-<img src="https://github.com/lkzhao/Hero/blob/master/Resources/musicPlayerShort.gif?raw=true" width="250"/>
-<img src="https://github.com/lkzhao/Hero/blob/master/Resources/cityGuide.gif?raw=true" width="250"/>
-<img src="https://github.com/lkzhao/Hero/blob/master/Resources/menu.gif?raw=true" width="250"/>
-<img src="https://github.com/lkzhao/Hero/blob/master/Resources/listToGrid.gif?raw=true" width="250"/>
-<img src="https://github.com/lkzhao/Hero/blob/master/Resources/imageGallery.gif?raw=true" width="250"/>
-
-## Tutorials
+## Quick Guide
 
 ### Basic HeroID Tutorial
 <img src="https://github.com/lkzhao/Hero/blob/master/Resources/basic.gif?raw=true" width="362"/>
@@ -85,10 +75,9 @@ These transition examples can be done in minutes. download or clone the **[Proje
   viewController2.isHeroEnabled = true
   ```
 
-### [Music Player Tutorial](Resources/musicPlayer.md)
 #### More to come
 
-For detailed explaination about how **Hero ID**, **Hero Modifiers**, and supported animations, read the **[Usage Guide](https://github.com/lkzhao/Hero/blob/master/Resources/guide.md)**, or download the **[Source Code](http://github.com/lkzhao/Hero/zipball/master/)**.
+For detailed explaination about how **Hero ID**, **Hero Modifiers**, and supported animations, read the **[Usage Guide](https://github.com/lkzhao/Hero/wiki/Usage-Guide)**, or download the **[Source Code](http://github.com/lkzhao/Hero/zipball/master/)**.
 
 ## License
 
