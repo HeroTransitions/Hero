@@ -309,16 +309,15 @@ private extension HeroDefaultAnimator {
       let arcIntensity = arcOptions.getCGFloat(0) ?? 1
       let kanim = CAKeyframeAnimation(keyPath: key)
       
-      var path = CGMutablePath()
+      let path = CGMutablePath()
       let maxControl = fromPos.y > toPos.y ? CGPoint(x: toPos.x, y: fromPos.y) : CGPoint(x: fromPos.x, y: toPos.y)
       let minControl = (toPos - fromPos) / 2 + fromPos
       let diff = abs(toPos - fromPos)
-      let curveRadius = min(diff.x, diff.y)
       
       path.move(to: fromPos)
       path.addQuadCurve(to: toPos, control: minControl + (maxControl - minControl) * arcIntensity)
       
-      kanim.values = [fromValue, toValue]
+      kanim.values = [fromValue!, toValue!]
       kanim.path = path
       kanim.duration = duration
       kanim.timingFunctions = [timingFunction]
