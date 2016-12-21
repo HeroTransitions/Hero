@@ -37,6 +37,12 @@ internal struct KeySet<Key:Hashable, Value:Hashable>{
   }
 }
 
+internal extension CGSize{
+  internal var center:CGPoint{
+    return CGPoint(x: width / 2, y: height / 2)
+  }
+}
+
 internal extension CGRect{
   internal var center:CGPoint{
     return CGPoint(x: origin.x + size.width/2, y: origin.y + size.height/2)
@@ -96,4 +102,7 @@ internal func abs(_ p: CGPoint) -> CGPoint {
 
 internal func *(left: CGSize, right: CGFloat) -> CGSize {
   return CGSize(width: left.width*right, height: left.height*right)
+}
+internal func /(left: CGSize, right: CGSize) -> CGSize {
+  return CGSize(width: left.width/right.width, height: left.height/right.height)
 }
