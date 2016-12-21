@@ -22,9 +22,93 @@
 
 import UIKit
 
+
+func viewState(for view:UIView, with modifiers:HeroModifiers) -> [String:Any]{
+  var rtn = [String:Any]()
+  for (className, option) in modifiers{
+    switch className {
+    case "size":
+      if let size = CGSize(modifierParameters:option){
+        rtn["bounds.size"] = NSValue(cgSize:size)
+      }
+    case "position":
+      if let point = CGPoint(modifierParameters:option){
+        rtn["position"] = NSValue(cgPoint:point)
+      }
+    case "fade":
+      rtn["opacity"] = NSNumber(value: 0)
+    case "cornerRadius":
+      if let cr = option.getFloat(0) {
+        rtn["cornerRadius"] = NSNumber(value: cr)
+      }
+    case "transform":
+      if let transform = CATransform3D(modifierParameters: option){
+        rtn["transform"] = NSValue(caTransform3D:transform)
+      }
+    case "perspective", "scale", "translate", "rotate":
+      var t = (rtn["transform"] as? NSValue)?.caTransform3DValue ?? view.layer.transform
+      switch className {
+      case "perspective":
+        t.m34 = 1.0 / -(option.getCGFloat(0) ?? 500)
+      case "scale":
+        if option.count == 1{
+          // default scale on both x & y
+          t = CATransform3DScale(t,
+                                 CGFloat(Float(option.get(0) ?? "") ?? 1),
+                                 CGFloat(Float(option.get(0) ?? "") ?? 1),
+                                 1)
+        } else {
+          t = CATransform3DScale(t,
+                                 CGFloat(Float(option.get(0) ?? "") ?? 1),
+                                 CGFloat(Float(option.get(1) ?? "") ?? 1),
+                                 CGFloat(Float(option.get(2) ?? "") ?? 1))
+        }
+      case "translate":
+        t = CATransform3DTranslate(t,
+                                   option.getCGFloat(0) ?? 0,
+                                   option.getCGFloat(1) ?? 0,
+                                   option.getCGFloat(2) ?? 0)
+      case "rotate":
+        if option.count == 1{
+          // default rotate on z axis
+          t = CATransform3DRotate(t, CGFloat(Float(option.get(0) ?? "") ?? 0), 0, 0, 1)
+        } else {
+          t = CATransform3DRotate(t, CGFloat(Float(option.get(0) ?? "") ?? 0), 1, 0, 0)
+          t = CATransform3DRotate(t, CGFloat(Float(option.get(1) ?? "") ?? 0), 0, 1, 0)
+          t = CATransform3DRotate(t, CGFloat(Float(option.get(2) ?? "") ?? 0), 0, 0, 1)
+        }
+      default: break
+      }
+      rtn["transform"] = NSValue(caTransform3D:t)
+    default: break
+    }
+  }
+  return rtn
+}
+
+
+internal struct AnimationState {
+  var view:UIView
+  var snapshot:UIView
+  var state = [String:(Any, Any)]()
+  var appearing:Bool
+
+  init(view:UIView, snapshot:UIView, modifiers:HeroModifiers, appearing:Bool){
+    self.view = view
+    self.snapshot = snapshot
+    self.appearing = appearing
+
+    let disappeared = viewState(for: view, with: modifiers)
+    for (key, disappearedState) in disappeared{
+      let appearingState = snapshot.layer.value(forKeyPath: key)
+      let toValue = appearing ? appearingState : disappearedState
+      let fromValue = !appearing ? appearingState : disappearedState
+      state[key] = (fromValue, toValue)
+    }
+  }
+}
+
 public class HeroDefaultAnimator:HeroAnimator{
-  var snapshots:[UIView:UIView] = [:]
-  
   // TODO: calculate duration based on distance travelled
   // https://material.io/guidelines/motion/duration-easing.html
   var duration:TimeInterval = HeroDefaultAnimator.defaultAnimationDuration
@@ -34,8 +118,10 @@ public class HeroDefaultAnimator:HeroAnimator{
   var animationGroups:[CALayer:(TimeInterval, CAAnimationGroup)] = [:]
   let animatableOptions:Set<String> = ["fade", "opacity", "position", "size", "cornerRadius", "transform", "scale", "translate", "rotate"]
   var removedAnimations:[(CALayer, CAPropertyAnimation)] = []
-  var paused = true
+  var animationStates:[UIView: AnimationState] = [:]
   
+  var paused = true
+
   public func seekTo(progress:Double) {
     paused = true
     for (layer, (delay, anim)) in animationGroups{
@@ -93,7 +179,7 @@ public class HeroDefaultAnimator:HeroAnimator{
   }
   
   public func temporarilySet(view:UIView, to modifiers:HeroModifiers){
-    guard let snapshot = snapshots[view] else {
+    guard let snapshot = animationStates[view]?.snapshot else {
       print("HERO: unable to temporarily set to \(view). The view must be running at least one animation before it can be interactively changed")
       return
     }
@@ -143,56 +229,52 @@ public class HeroDefaultAnimator:HeroAnimator{
     return false
   }
   
+  public func takeSnapshot(for v:UIView) -> UIView{
+    v.isHidden = false
+    
+    // capture a snapshot without cornerRadius
+    let oldCornerRadius = v.layer.cornerRadius
+    v.layer.cornerRadius = 0
+    let snapshot = v.snapshotView(afterScreenUpdates: true)!
+    v.layer.cornerRadius = oldCornerRadius
+    
+    // the Snapshot's contentView must have hold the cornerRadius value,
+    // since the snapshot might not have maskToBounds set
+    let contentView = snapshot.subviews[0]
+    contentView.layer.cornerRadius = v.layer.cornerRadius
+    contentView.layer.masksToBounds = true
+    
+    snapshot.layer.cornerRadius = v.layer.cornerRadius
+    if let zPos = context[v, "zPosition"]?.getCGFloat(0){
+      snapshot.layer.zPosition = zPos
+    } else {
+      snapshot.layer.zPosition = v.layer.zPosition
+    }
+    snapshot.layer.opacity = v.layer.opacity
+    snapshot.layer.isOpaque = v.layer.isOpaque
+    snapshot.layer.anchorPoint = v.layer.anchorPoint
+    snapshot.layer.masksToBounds = v.layer.masksToBounds
+    snapshot.layer.borderColor = v.layer.borderColor
+    snapshot.layer.borderWidth = v.layer.borderWidth
+    snapshot.layer.transform = v.layer.transform
+    snapshot.layer.shadowRadius = v.layer.shadowRadius
+    snapshot.layer.shadowOpacity = v.layer.shadowOpacity
+    snapshot.layer.shadowColor = v.layer.shadowColor
+    snapshot.layer.shadowOffset = v.layer.shadowOffset
+    
+    snapshot.frame = context.container.convert(v.bounds, from: v)
+    snapshot.heroID = v.heroID
+
+    v.isHidden = true
+    
+    // insert below views from other plugins
+    context.container.addSubview(snapshot)
+    
+    return snapshot
+  }
   public func animate(context:HeroContext, fromViews:[UIView], toViews:[UIView]) -> TimeInterval{
     self.paused = false
     self.context = context
-    let container = context.container
-
-    let animatingViews = fromViews + toViews
-    
-    // take a snapshot view for each animating views
-    for v in animatingViews {
-      v.isHidden = false
-
-      // capture a snapshot without cornerRadius
-      let oldCornerRadius = v.layer.cornerRadius
-      v.layer.cornerRadius = 0
-      let snapshot = v.snapshotView(afterScreenUpdates: true)!
-      v.layer.cornerRadius = oldCornerRadius
-      
-      // the Snapshot's contentView must have hold the cornerRadius value,
-      // since the snapshot might not have maskToBounds set
-      let contentView = snapshot.subviews[0]
-      contentView.layer.cornerRadius = v.layer.cornerRadius
-      contentView.layer.masksToBounds = true
-      
-      snapshot.layer.cornerRadius = v.layer.cornerRadius
-      if let zPos = context[v, "zPosition"]?.getCGFloat(0){
-        snapshot.layer.zPosition = zPos
-      } else {
-        snapshot.layer.zPosition = v.layer.zPosition
-      }
-      snapshot.layer.opacity = v.layer.opacity
-      snapshot.layer.isOpaque = v.layer.isOpaque
-      snapshot.layer.anchorPoint = v.layer.anchorPoint
-      snapshot.layer.masksToBounds = v.layer.masksToBounds
-      snapshot.layer.borderColor = v.layer.borderColor
-      snapshot.layer.borderWidth = v.layer.borderWidth
-      snapshot.layer.transform = v.layer.transform
-      snapshot.layer.shadowRadius = v.layer.shadowRadius
-      snapshot.layer.shadowOpacity = v.layer.shadowOpacity
-      snapshot.layer.shadowColor = v.layer.shadowColor
-      snapshot.layer.shadowOffset = v.layer.shadowOffset
-      
-      snapshot.frame = container.convert(v.bounds, from: v)
-      snapshot.heroID = v.heroID
-
-      snapshots[v] = snapshot
-      v.isHidden = true
-      
-      // insert below views from other plugins
-      container.addSubview(snapshot)
-    }
     
     // animate
     for v in fromViews{
@@ -206,81 +288,16 @@ public class HeroDefaultAnimator:HeroAnimator{
   }
 
   public func clean(){
-    for (_, snapshot) in snapshots{
-      snapshot.removeFromSuperview()
-    }
     paused = true
     context = nil
+    animationStates.removeAll()
     removedAnimations.removeAll()
     animationGroups.removeAll()
-    snapshots.removeAll()
   }
 }
 
 
 private extension HeroDefaultAnimator {
-  func viewState(for view:UIView, with modifiers:HeroModifiers) -> [String:Any]{
-    var rtn = [String:Any]()
-    for (className, option) in modifiers{
-      switch className {
-      case "size":
-        if let size = CGSize(modifierParameters:option){
-          rtn["bounds.size"] = NSValue(cgSize:size)
-        }
-      case "position":
-        if let point = CGPoint(modifierParameters:option){
-          rtn["position"] = NSValue(cgPoint:point)
-        }
-      case "fade":
-        rtn["opacity"] = NSNumber(value: 0)
-      case "cornerRadius":
-        if let cr = option.getFloat(0) {
-          rtn["cornerRadius"] = NSNumber(value: cr)
-        }
-      case "transform":
-        if let transform = CATransform3D(modifierParameters: option){
-          rtn["transform"] = NSValue(caTransform3D:transform)
-        }
-      case "perspective", "scale", "translate", "rotate":
-        var t = (rtn["transform"] as? NSValue)?.caTransform3DValue ?? view.layer.transform
-        switch className {
-        case "perspective":
-          t.m34 = 1.0 / -(option.getCGFloat(0) ?? 500)
-        case "scale":
-          if option.count == 1{
-            // default scale on both x & y
-            t = CATransform3DScale(t,
-                                   CGFloat(Float(option.get(0) ?? "") ?? 1),
-                                   CGFloat(Float(option.get(0) ?? "") ?? 1),
-                                   1)
-          } else {
-            t = CATransform3DScale(t,
-                                   CGFloat(Float(option.get(0) ?? "") ?? 1),
-                                   CGFloat(Float(option.get(1) ?? "") ?? 1),
-                                   CGFloat(Float(option.get(2) ?? "") ?? 1))
-          }
-        case "translate":
-          t = CATransform3DTranslate(t,
-                                     option.getCGFloat(0) ?? 0,
-                                     option.getCGFloat(1) ?? 0,
-                                     option.getCGFloat(2) ?? 0)
-        case "rotate":
-          if option.count == 1{
-            // default rotate on z axis
-            t = CATransform3DRotate(t, CGFloat(Float(option.get(0) ?? "") ?? 0), 0, 0, 1)
-          } else {
-            t = CATransform3DRotate(t, CGFloat(Float(option.get(0) ?? "") ?? 0), 1, 0, 0)
-            t = CATransform3DRotate(t, CGFloat(Float(option.get(1) ?? "") ?? 0), 0, 1, 0)
-            t = CATransform3DRotate(t, CGFloat(Float(option.get(2) ?? "") ?? 0), 0, 0, 1)
-          }
-        default: break
-        }
-        rtn["transform"] = NSValue(caTransform3D:t)
-      default: break
-      }
-    }
-    return rtn
-  }
   
   func getTimingFunction(for view:UIView) -> CAMediaTimingFunction{
     // get the timing function
@@ -296,6 +313,7 @@ private extension HeroDefaultAnimator {
     }
     return .standard
   }
+
   func animation(for view:UIView, key:String, fromValue:Any?, toValue:Any?, ignoreArc:Bool = false) -> CAPropertyAnimation {
     let anim:CAPropertyAnimation
     let duration:Double = context[view, "duration"]?.getDouble(0) ?? HeroDefaultAnimator.defaultAnimationDuration
@@ -359,18 +377,16 @@ private extension HeroDefaultAnimator {
   }
   
   func animate(view:UIView, appearing:Bool){
-    let snapshot = snapshots[view]!
-    let disappeared = viewState(for: view, with: context[view]!)
+    let snapshot = takeSnapshot(for: view)
+    let state = AnimationState(view: view, snapshot: snapshot, modifiers: context[view]!, appearing: appearing)
+    animationStates[view] = state
 
     var maxDuration:TimeInterval = HeroDefaultAnimator.defaultAnimationDuration
 
     var animations:[CAAnimation] = []
     var contentViewAnims:[CAAnimation] = []
 
-    for (k, disappearedState) in disappeared{
-      let appearingState = snapshot.layer.value(forKeyPath: k)
-      let toValue = appearing ? appearingState : disappearedState
-      let fromValue = !appearing ? appearingState : disappearedState
+    for (k, (fromValue, toValue)) in state.state{
       let anim = animation(for:view, key: k, fromValue: fromValue, toValue: toValue)
       maxDuration = max(maxDuration, anim.duration)
       
