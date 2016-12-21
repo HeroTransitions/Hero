@@ -103,6 +103,18 @@ extension HeroContext{
       modifiers[view] = newValue
     }
   }
+
+  /**
+   - Returns: a list of all the modifiers for a given view
+   */
+  public subscript(view: UIView) -> String {
+    get {
+      return modifiers[view]?.map{ return "\($0.0)(\($0.1.joined(separator:", ")))" }.joined(separator:" ") ?? ""
+    }
+    set(newValue) {
+      modifiers[view] = HeroContext.extractModifiers(modifierString: newValue)
+    }
+  }
   
   /**
    - Returns: a list of all the parameters for a given view, and modifierName
@@ -134,6 +146,7 @@ extension HeroContext{
         for (i, o) in modifiers[view]!.enumerated(){
           if o.0 == modifierName{
             modifiers[view]!.remove(at: i)
+            return
           }
         }
       }

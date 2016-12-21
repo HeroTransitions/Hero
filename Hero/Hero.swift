@@ -36,7 +36,7 @@ internal class Hero:NSObject {
 
   fileprivate var completionCallback:(() -> Void)?
   
-  fileprivate var maxDurationNeeded:TimeInterval = 0.5
+  fileprivate var maxDurationNeeded:TimeInterval = 0.1
   fileprivate var inContainerController = false
   fileprivate weak var transitionContext:UIViewControllerContextTransitioning?
   
@@ -51,6 +51,7 @@ internal class Hero:NSObject {
   fileprivate var plugins:[HeroPlugin]!
   
   fileprivate static let builtInProcessors:[HeroPreprocessor] = [
+    TrackSubviewPreprocessor(),
     ClearModifierPreprocessor(),
     ViewToViewPreprocessor(),
     SourceIDPreprocessor(),

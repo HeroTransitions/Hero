@@ -22,24 +22,32 @@
 
 import UIKit
 
-public class ViewToViewPreprocessor:HeroPreprocessor {
+public class TrackSubviewPreprocessor:HeroPreprocessor {
   public func process(context:HeroContext, fromViews:[UIView], toViews:[UIView]) {
-    for tv in toViews{
-      guard let id = tv.heroID, let fv = context.sourceView(for: id) else { continue }
-      context[tv, "matchedHeroID"] = []
-      context[tv, "sourceID"] = [id]
-      if let zPos = context[tv, "zPositionIfMatched"]?.getCGFloat(0){
-        context[tv, "zPosition"] = ["\(zPos)"]
+    process(context: context, views: fromViews, appearing:false)
+    process(context: context, views: toViews, appearing:true)
+  }
+  
+  private func process(context:HeroContext, views:[UIView], appearing:Bool){
+    for (i, zoomView) in views.enumerated(){
+      guard context[zoomView, "trackSubview"] != nil else { continue }
+      var pairedSubview:(UIView, UIView)?
+      for j in i+1..<views.count{
+        if views[j].superview == zoomView.superview{
+          break
+        }
+        if let pairedView = context.pairedView(for: views[j]){
+          pairedSubview = (views[j], pairedView)
+          break
+        }
       }
-      
-      context[fv] = context[tv] as HeroModifiers?
-      
-      context[tv, "fade"] = []
-      if let _ = fv as? UILabel, !fv.isOpaque{
-        // cross fade if toView is a label
-        context[fv, "fade"] = []
-      } else {
-        context[fv, "fade"] = nil
+      if let (from, to) = pairedSubview{
+        let scale = to.frame.width / from.frame.width
+        let diff = zoomView.bounds.center - zoomView.convert(from.center, from: from.superview!)
+        let final = context.container.convert(to.center, from: to.superview!) + diff * scale
+        let size = zoomView.bounds.size * scale
+        context[zoomView] = "trackSubview position(\(final.x),\(final.y)) bounds(0,0,\(size.width),\(size.height)) clearSubviewModifiers fade"
+        context[zoomView, "arc"] = context[appearing ? from : to, "arc"]
       }
     }
   }
