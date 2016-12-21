@@ -91,3 +91,9 @@ internal prefix func -(point:CGPoint) -> CGPoint {
 internal func abs(_ p: CGPoint) -> CGPoint {
   return CGPoint(x: abs(p.x), y: abs(p.y))
 }
+
+
+
+internal func *(left: CGSize, right: CGFloat) -> CGSize {
+  return CGSize(width: left.width*right, height: left.height*right)
+}

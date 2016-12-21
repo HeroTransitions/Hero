@@ -326,8 +326,8 @@ private extension HeroDefaultAnimator {
       anim = kanim
     } else if #available(iOS 9.0, *), key != "cornerRadius", context[view, "duration"] == nil, context[view, "curve"] == nil {
       let sanim = CASpringAnimation(keyPath: key)
-      sanim.stiffness = (context[view, "spring"]?.getCGFloat(0) ?? 220)
-      sanim.damping = (context[view, "spring"]?.getCGFloat(1) ?? 25)
+      sanim.stiffness = (context[view, "spring"]?.getCGFloat(0) ?? 250)
+      sanim.damping = (context[view, "spring"]?.getCGFloat(1) ?? 30)
       sanim.duration = sanim.settlingDuration * 0.9
       sanim.fromValue = fromValue
       sanim.toValue = toValue

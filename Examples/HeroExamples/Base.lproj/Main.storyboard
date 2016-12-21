@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2657" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="WQJ-W3-mcX">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16A313a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="WQJ-W3-mcX">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -1914,7 +1914,7 @@
         <scene sceneID="mhF-Dz-E2h">
             <objects>
                 <collectionViewController id="g7d-8I-CRf" customClass="ImageViewController" customModule="HeroExamples" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" dataMode="prototypes" id="6BB-nJ-Fl2">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" pagingEnabled="YES" dataMode="prototypes" id="6BB-nJ-Fl2">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.2192357513" green="0.2192357513" blue="0.2192357513" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -2211,8 +2211,8 @@
         <image name="ic_view_module" width="24" height="24"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="DbP-Hq-MdB"/>
         <segue reference="LHK-UA-B2h"/>
-        <segue reference="dfl-Em-JtM"/>
         <segue reference="1SO-89-lIh"/>
         <segue reference="uHq-Xz-e1s"/>
     </inferredMetricsTieBreakers>
