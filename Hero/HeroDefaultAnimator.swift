@@ -32,7 +32,7 @@ public class HeroDefaultAnimator:HeroAnimator{
 
   var context:HeroContext!
   var animationGroups:[CALayer:(TimeInterval, CAAnimationGroup)] = [:]
-  let animatableOptions:Set<String> = ["fade", "opacity", "position", "bounds", "anchorPoint", "cornerRadius", "transform", "scale", "translate", "rotate", "forceAnimate"]
+  let animatableOptions:Set<String> = ["fade", "opacity", "position", "size", "cornerRadius", "transform", "scale", "translate", "rotate"]
   var removedAnimations:[(CALayer, CAPropertyAnimation)] = []
   var paused = true
   
