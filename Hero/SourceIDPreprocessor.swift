@@ -41,11 +41,16 @@ class SourceIDPreprocessor:HeroPreprocessor {
 
 extension SourceIDPreprocessor {
   fileprivate func prepareFor(view:UIView, targetView:UIView, context:HeroContext){
-    let targetPos = context.container.layer.convert(targetView.layer.position, from: targetView.layer.superlayer)
+    let targetPos = context.container.convert(targetView.layer.position, from: targetView.superview!)
+    
+    // remove incompatible options
+    for option in ["scale", "translate", "transform"]{
+      context[view, option] = nil
+    }
     
     context[view, "position"] = targetPos.modifierParameters
-    if view.bounds != targetView.bounds{
-      context[view, "bounds"] = targetView.bounds.modifierParameters
+    if view.bounds.size != targetView.bounds.size{
+      context[view, "size"] = targetView.bounds.size.modifierParameters
     }
     if view.layer.cornerRadius != targetView.layer.cornerRadius{
       context[view, "cornerRadius"] = ["\(targetView.layer.cornerRadius)"]
@@ -54,10 +59,6 @@ extension SourceIDPreprocessor {
       context[view, "transform"] = targetView.layer.transform.modifierParameters
     }
     
-    // remove incompatible options
-    for option in ["scale", "translate"]{
-      context[view, option] = nil
-    }
     if let rotateOptions = context[view, "rotate"]{
       if let z = rotateOptions.get(3){
         context[view, "rotate"] = [z]

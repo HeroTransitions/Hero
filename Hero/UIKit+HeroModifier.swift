@@ -83,6 +83,22 @@ internal extension CGPoint{
   }
 }
 
+internal extension CGSize{
+  var modifierParameters:[String]{
+    return ["\(width)","\(height)"]
+  }
+  init?(modifierParameters:[String]){
+    if let w = modifierParameters.getCGFloat(0),
+      let h = modifierParameters.getCGFloat(1){
+      self.width = w
+      self.height = h
+    } else {
+      return nil
+    }
+  }
+}
+
+
 internal extension CGRect{
   var modifierParameters:[String]{
     return ["\(origin.x)","\(origin.y)","\(size.width)","\(size.height)"]

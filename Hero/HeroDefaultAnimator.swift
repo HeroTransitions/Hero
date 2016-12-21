@@ -64,7 +64,6 @@ public class HeroDefaultAnimator:HeroAnimator{
         neededTime = max(neededTime, anim.settlingDuration)
       } else if let anim = anim as? CABasicAnimation{
         anim.speed = reverse ? -1 : 1
-        anim.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
         if reverse{
           anim.toValue = layer.value(forKeyPath: anim.keyPath!)
         } else {
@@ -115,7 +114,7 @@ public class HeroDefaultAnimator:HeroAnimator{
         removedAnimations.append((snapshot.layer, anim))
       }
       snapshot.layer.setValue(targetValue, forKeyPath: key)
-      if key == "bounds"{
+      if key == "bounds.size"{
         let contentLayer = snapshot.subviews[0].layer
         if removedAnimations.index(where: { return $0.0 == contentLayer }) == nil{
           if let (_, group) = animationGroups[contentLayer]{
@@ -123,8 +122,8 @@ public class HeroDefaultAnimator:HeroAnimator{
               removedAnimations.append((contentLayer, anim as! CAPropertyAnimation))
             }
           } else {
-            let originBounds = contentLayer.value(forKeyPath: "bounds")
-            removedAnimations.append((contentLayer, animation(for:view, key: "bounds", fromValue: originBounds, toValue: originBounds)))
+            let originSize = contentLayer.value(forKeyPath: "bounds.size")
+            removedAnimations.append((contentLayer, animation(for:view, key: "bounds.size", fromValue: originSize, toValue: originSize)))
             let originPos = contentLayer.value(forKeyPath: "position")
             removedAnimations.append((contentLayer, animation(for:view, key: "position", fromValue: originPos, toValue: originPos)))
           }
@@ -224,17 +223,13 @@ private extension HeroDefaultAnimator {
     var rtn = [String:Any]()
     for (className, option) in modifiers{
       switch className {
-      case "bounds":
-        if let rect = CGRect(modifierParameters:option){
-          rtn["bounds"] = NSValue(cgRect:rect)
+      case "size":
+        if let size = CGSize(modifierParameters:option){
+          rtn["bounds.size"] = NSValue(cgSize:size)
         }
       case "position":
         if let point = CGPoint(modifierParameters:option){
           rtn["position"] = NSValue(cgPoint:point)
-        }
-      case "anchorPoint":
-        if let point = CGPoint(modifierParameters:option){
-          rtn["anchorPoint"] = NSValue(cgPoint:point)
         }
       case "fade":
         rtn["opacity"] = NSNumber(value: 0)
@@ -287,26 +282,30 @@ private extension HeroDefaultAnimator {
     return rtn
   }
   
-  func animation(for view:UIView, key:String, fromValue:Any?, toValue:Any?, ignoreArc:Bool = false) -> CAPropertyAnimation {
-    let anim:CAPropertyAnimation
-    var timingFunction:CAMediaTimingFunction = .standard
-    let duration:Double = context[view, "duration"]?.getDouble(0) ?? HeroDefaultAnimator.defaultAnimationDuration
-    
+  func getTimingFunction(for view:UIView) -> CAMediaTimingFunction{
     // get the timing function
     if let curveOptions = context[view, "curve"]{
       if let c1 = curveOptions.getFloat(0),
         let c2 = curveOptions.getFloat(1),
         let c3 = curveOptions.getFloat(2),
         let c4 = curveOptions.getFloat(3){
-        timingFunction = CAMediaTimingFunction(controlPoints: c1, c2, c3, c4)
+        return CAMediaTimingFunction(controlPoints: c1, c2, c3, c4)
       } else if let ease = curveOptions.get(0), let tf = CAMediaTimingFunction.from(name:ease){
-        timingFunction = tf
+        return  tf
       }
     }
+    return .standard
+  }
+  func animation(for view:UIView, key:String, fromValue:Any?, toValue:Any?, ignoreArc:Bool = false) -> CAPropertyAnimation {
+    let anim:CAPropertyAnimation
+    let duration:Double = context[view, "duration"]?.getDouble(0) ?? HeroDefaultAnimator.defaultAnimationDuration
+    
+    let timingFunction = getTimingFunction(for: view)
     
     if !ignoreArc, key == "position", let arcOptions = context[view, "arc"],
       let fromPos = (fromValue as? NSValue)?.cgPointValue,
-      let toPos = (toValue as? NSValue)?.cgPointValue {
+      let toPos = (toValue as? NSValue)?.cgPointValue,
+      abs(fromPos.x - toPos.x) >= 1, abs(fromPos.y - toPos.y) >= 1 {
       let arcIntensity = arcOptions.getCGFloat(0) ?? 1
       let kanim = CAKeyframeAnimation(keyPath: key)
       
@@ -324,10 +323,10 @@ private extension HeroDefaultAnimator {
       kanim.duration = duration
       kanim.timingFunctions = [timingFunction]
       anim = kanim
-    } else if #available(iOS 9.0, *), key != "cornerRadius", context[view, "duration"] == nil, context[view, "curve"] == nil {
+    } else if #available(iOS 9.0, *), key != "cornerRadius", let springOptions = context[view, "spring"] {
       let sanim = CASpringAnimation(keyPath: key)
-      sanim.stiffness = (context[view, "spring"]?.getCGFloat(0) ?? 250)
-      sanim.damping = (context[view, "spring"]?.getCGFloat(1) ?? 30)
+      sanim.stiffness = (springOptions.getCGFloat(0) ?? 250)
+      sanim.damping = (springOptions.getCGFloat(1) ?? 30)
       sanim.duration = sanim.settlingDuration * 0.9
       sanim.fromValue = fromValue
       sanim.toValue = toValue
@@ -340,7 +339,6 @@ private extension HeroDefaultAnimator {
       banim.timingFunction = timingFunction
       anim = banim
     }
-    
     anim.fillMode = kCAFillModeBoth
     anim.isRemovedOnCompletion = false
     return anim
@@ -381,9 +379,9 @@ private extension HeroDefaultAnimator {
       if k == "cornerRadius"{
         contentViewAnims.append(anim)
       } else {
-        if k == "bounds"{
-          let fromBounds = (fromValue as! NSValue).cgRectValue
-          let toBounds = (toValue as! NSValue).cgRectValue
+        if k == "bounds.size"{
+          let fromSize = (fromValue as! NSValue).cgSizeValue
+          let toSize = (toValue as! NSValue).cgSizeValue
           
           // for the snapshotView(UIReplicantView): there is a
           // subview(UIReplicantContentView) that is hosting the real snapshot image.
@@ -391,12 +389,11 @@ private extension HeroDefaultAnimator {
           // The snapshotView will not layout during animations.
           // we have to add two more animations to manually layout the content view.
           
-          let fromPosn = NSValue(cgPoint:fromBounds.center)
-          let toPosn = NSValue(cgPoint:toBounds.center)
+          let fromPosn = NSValue(cgPoint:fromSize.center)
+          let toPosn = NSValue(cgPoint:toSize.center)
           let positionAnim = animation(for: view, key: "position", fromValue: fromPosn, toValue: toPosn, ignoreArc: true)
-          let boundsAnim = animation(for: view, key: "bounds", fromValue: fromValue, toValue: toValue)
           contentViewAnims.append(positionAnim)
-          contentViewAnims.append(boundsAnim)
+          contentViewAnims.append(anim)
         }
       }
     }
