@@ -36,7 +36,7 @@ internal class Hero:NSObject {
 
   fileprivate var completionCallback:(() -> Void)?
   
-  fileprivate var maxDurationNeeded:TimeInterval = 0.1
+  fileprivate var maxDurationNeeded:TimeInterval = 0.0
   fileprivate var inContainerController = false
   fileprivate weak var transitionContext:UIViewControllerContextTransitioning?
   
@@ -232,7 +232,7 @@ internal extension Hero {
     inContainerController = false
     interactive = false
     lastProgress = 0
-    maxDurationNeeded = 0.5
+    maxDurationNeeded = 0
     
     self.transitionContainer!.isUserInteractionEnabled = true
     let transitionContext = self.transitionContext
@@ -271,14 +271,14 @@ extension Hero:HeroInteractiveContext{
     let p = max(0, min(1, progress))
     lastProgress = p
     for a in animators{
-      a.seekTo(progress: p)
+      a.seekTo(timePassed: p * maxDurationNeeded)
     }
     transitionContext?.updateInteractiveTransition(CGFloat(p))
   }
   func end() {
     var maxTime:TimeInterval = 0
     for a in animators{
-      maxTime = max(maxTime, a.resume(from:lastProgress, reverse: false))
+      maxTime = max(maxTime, a.resume(timePassed:lastProgress*maxDurationNeeded, reverse: false))
     }
     transitionContext?.finishInteractiveTransition()
     delay(maxTime){
@@ -288,7 +288,7 @@ extension Hero:HeroInteractiveContext{
   func cancel() {
     var maxTime:TimeInterval = 0
     for a in animators{
-      maxTime = max(maxTime, a.resume(from:lastProgress, reverse: true))
+      maxTime = max(maxTime, a.resume(timePassed:lastProgress*maxDurationNeeded, reverse: true))
     }
     transitionContext?.cancelInteractiveTransition()
     delay(maxTime){
@@ -321,7 +321,7 @@ extension Hero:UIViewControllerAnimatedTransitioning {
   }
   
   func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
-    return maxDurationNeeded
+    return 0.375
   }
 }
 

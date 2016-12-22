@@ -84,19 +84,20 @@ open class HeroPlugin: HeroPreprocessor, HeroAnimator{
    This method is called when an interactive animation is in place
    The plugin should pause the animation, and seek to the given progress
    - Parameters:
-     - progress: 0 to 1 Double, progress of the animation
+     - timePassed: time of the animation to seek to.
    */
-  open func seekTo(progress:Double){}
+  open func seekTo(timePassed:TimeInterval){}
   
   /**
    For supporting interactive animation only.
    
    This method is called when an interactive animation is ended
-   The plugin should pause the animation, and seek to the given progress
+   The plugin should resume the animation.
    - Parameters:
-   - progress: 0 to 1 Double, progress of the animation
+   - timePassed: will be the same value since last `seekTo`
+   - reverse: a boolean value indicating whether or not the animation should reverse
    */
-  open func resume(from progress:Double, reverse:Bool) -> TimeInterval { return 0 }
+  open func resume(timePassed:TimeInterval, reverse:Bool) -> TimeInterval { return 0 }
   
   /**
    For supporting interactive animation only.

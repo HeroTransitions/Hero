@@ -42,8 +42,8 @@ public protocol HeroAnimator {
   func animate(context:HeroContext, fromViews:[UIView], toViews:[UIView]) -> TimeInterval
   func clean()
   
-  func seekTo(progress:Double)
-  func resume(from progress:Double, reverse:Bool) -> TimeInterval
+  func seekTo(timePassed:TimeInterval)
+  func resume(timePassed:TimeInterval, reverse:Bool) -> TimeInterval
   func temporarilySet(view:UIView, to modifiers:HeroModifiers)
 }
 
