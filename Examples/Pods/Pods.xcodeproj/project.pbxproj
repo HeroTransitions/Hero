@@ -62,6 +62,9 @@
 		9ADBC3165E0411E5DFAAFE05C96EDC2D /* UIKit+HeroModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA962E8A0090A3F508472C2A41382DB4 /* UIKit+HeroModifier.swift */; };
 		9B6AD39C81FAF37861FC0FEC41022146 /* UIAppearance+Swift.h in Headers */ = {isa = PBXBuildFile; fileRef = 8912F16BF2FEA16A2CE0D547636D8650 /* UIAppearance+Swift.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A37850921E099C0A002854A8 /* TrackSubviewPreprocessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37850911E099C0A002854A8 /* TrackSubviewPreprocessor.swift */; };
+		A37850B41E0B60FC002854A8 /* HeroDefaultAnimatorViewContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37850B31E0B60FC002854A8 /* HeroDefaultAnimatorViewContext.swift */; };
+		A37850B61E0B619F002854A8 /* HeroDefaultAnimatorViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37850B51E0B619F002854A8 /* HeroDefaultAnimatorViewState.swift */; };
+		A37850B91E0B6487002854A8 /* CALayer+Hero.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37850B81E0B6487002854A8 /* CALayer+Hero.swift */; };
 		A664D0A12D5F3DBD08A7E8DFE3AE83E2 /* UIView+ChameleonPrivate.m in Sources */ = {isa = PBXBuildFile; fileRef = AC11BE14A0EC12C71F91EE5621D4D7FB /* UIView+ChameleonPrivate.m */; };
 		A6AC4C9DCE32429CE5D6CF2EAA3C52DE /* UIKit+Hero.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA92FDB8DCF56BE10918981146E71D9 /* UIKit+Hero.swift */; };
 		A6DA81627CEB670BBFBBAC365EEFBAF8 /* CascadePreprocessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A91722A49C98F39B7953A0624D18A0D /* CascadePreprocessor.swift */; };
@@ -195,6 +198,9 @@
 		A32E96E330F1BE794E0ACA67C394BA33 /* ZCDashLabel.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ZCDashLabel.m; path = ZCAnimatedLabel/ZCAnimatedLabel/ZCDashLabel.m; sourceTree = "<group>"; };
 		A342FA1E8FD5F3163DC753B8A3400FAF /* ZCRevealLabel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ZCRevealLabel.h; path = ZCAnimatedLabel/ZCAnimatedLabel/ZCRevealLabel.h; sourceTree = "<group>"; };
 		A37850911E099C0A002854A8 /* TrackSubviewPreprocessor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackSubviewPreprocessor.swift; sourceTree = "<group>"; };
+		A37850B31E0B60FC002854A8 /* HeroDefaultAnimatorViewContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeroDefaultAnimatorViewContext.swift; sourceTree = "<group>"; };
+		A37850B51E0B619F002854A8 /* HeroDefaultAnimatorViewState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeroDefaultAnimatorViewState.swift; sourceTree = "<group>"; };
+		A37850B81E0B6487002854A8 /* CALayer+Hero.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CALayer+Hero.swift"; sourceTree = "<group>"; };
 		A5484756A421B1C208D66F6701E1925E /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A860B4A3090B5CB38F4D6EE2285600A1 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A9584A1F2D6F127A85944AD33BEA278D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/QuartzCore.framework; sourceTree = DEVELOPER_DIR; };
@@ -444,6 +450,7 @@
 			isa = PBXGroup;
 			children = (
 				F9DF90DEF699C530738BF36F7EC08F4A /* CG+Hero.swift */,
+				A37850B81E0B6487002854A8 /* CALayer+Hero.swift */,
 				B124B4A61E088BA9000F1DF2 /* CAMediaTimingFunction+Hero.swift */,
 				53F7BF54988B62579662B3EBF1570192 /* DispatchQueue+Hero.swift */,
 				4EA92FDB8DCF56BE10918981146E71D9 /* UIKit+Hero.swift */,
@@ -459,6 +466,16 @@
 				9ABC44921DBAFE81EDBF72413F25CA66 /* HeroDebugView.swift */,
 			);
 			name = DebugPlugin;
+			sourceTree = "<group>";
+		};
+		A37850B71E0B61BD002854A8 /* DefaultAnimator */ = {
+			isa = PBXGroup;
+			children = (
+				009813FF767BFAE2357DA856652EEEE7 /* HeroDefaultAnimator.swift */,
+				A37850B31E0B60FC002854A8 /* HeroDefaultAnimatorViewContext.swift */,
+				A37850B51E0B619F002854A8 /* HeroDefaultAnimatorViewState.swift */,
+			);
+			name = DefaultAnimator;
 			sourceTree = "<group>";
 		};
 		A59C55F6013CB7643F4B4030B09B2D1E /* Swift */ = {
@@ -488,9 +505,9 @@
 			children = (
 				8ACA52D8C3BB32DE76F65BE7A770A52F /* Hero.swift */,
 				68F0DA52F9FD4863B90F36540967E1AC /* HeroContext.swift */,
-				009813FF767BFAE2357DA856652EEEE7 /* HeroDefaultAnimator.swift */,
-				9D2EF3BAF433FDE6F713EC6723EF776C /* HeroPlugin.swift */,
 				90410D05047B40B99B553954960BF82B /* HeroTypes.swift */,
+				9D2EF3BAF433FDE6F713EC6723EF776C /* HeroPlugin.swift */,
+				A37850B71E0B61BD002854A8 /* DefaultAnimator */,
 				A378508E1E083BC6002854A8 /* Preprocessors */,
 				A37850901E083BDB002854A8 /* DebugPlugin */,
 				A378508F1E083BD3002854A8 /* Extensions */,
@@ -755,13 +772,16 @@
 				87180A87859AD4B9B5656F52A3E64013 /* HeroContext.swift in Sources */,
 				A37850921E099C0A002854A8 /* TrackSubviewPreprocessor.swift in Sources */,
 				F34ADE4638ABE9E687A005E1B4CCD2A0 /* HeroDebugPlugin.swift in Sources */,
+				A37850B91E0B6487002854A8 /* CALayer+Hero.swift in Sources */,
 				96ADBD9B612F8A5B2A417A3BCED08B78 /* HeroDebugView.swift in Sources */,
 				B9A618F6A32F37FCCB911669072ADAD1 /* HeroDefaultAnimator.swift in Sources */,
+				A37850B61E0B619F002854A8 /* HeroDefaultAnimatorViewState.swift in Sources */,
 				BAFF28FB3D799010C983A03EE434F262 /* HeroPlugin.swift in Sources */,
 				704C71A8D826D94BE3F463A1E39DDE08 /* HeroTypes.swift in Sources */,
 				B124B4A71E088BA9000F1DF2 /* CAMediaTimingFunction+Hero.swift in Sources */,
 				3B7E296D2722377B0EB6FD076A716081 /* SourceIDPreprocessor.swift in Sources */,
 				A6AC4C9DCE32429CE5D6CF2EAA3C52DE /* UIKit+Hero.swift in Sources */,
+				A37850B41E0B60FC002854A8 /* HeroDefaultAnimatorViewContext.swift in Sources */,
 				9ADBC3165E0411E5DFAAFE05C96EDC2D /* UIKit+HeroModifier.swift in Sources */,
 				BBACBB79A5CCE24F3BF31BEFDADD80DA /* ViewToViewPreprocessor.swift in Sources */,
 			);

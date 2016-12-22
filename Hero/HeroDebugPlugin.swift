@@ -57,7 +57,7 @@ public class HeroDebugPlugin: HeroPlugin {
     return 0
   }
 
-  public override func resume(from progress: Double, reverse: Bool) -> TimeInterval {
+  public override func resume(timePassed: TimeInterval, reverse: Bool) -> TimeInterval {
     guard interactiveContext != nil, let debugView = debugView else { return 0.4 }
     debugView.delegate = nil
     
@@ -122,17 +122,15 @@ extension HeroDebugPlugin:HeroDebugViewDelegate{
     }
     if wantsCurve {
       for layer in context.container.layer.sublayers!{
-        if let groupAnim = layer.animation(forKey: "hero") as? CAAnimationGroup, let anims = groupAnim.animations{
-          for anim in anims{
-            if let keyframeAnim = anim as? CAKeyframeAnimation, let path = keyframeAnim.path{
-              let s = CAShapeLayer()
-              s.zPosition = layer.zPosition + 10
-              s.path = path
-              s.strokeColor = UIColor.blue.cgColor
-              s.fillColor = UIColor.clear.cgColor
-              context.container.layer.addSublayer(s)
-              addedLayers.append(s)
-            }
+        for (_, anim) in layer.animations{
+          if let keyframeAnim = anim as? CAKeyframeAnimation, let path = keyframeAnim.path{
+            let s = CAShapeLayer()
+            s.zPosition = layer.zPosition + 10
+            s.path = path
+            s.strokeColor = UIColor.blue.cgColor
+            s.fillColor = UIColor.clear.cgColor
+            context.container.layer.addSublayer(s)
+            addedLayers.append(s)
           }
         }
       }
