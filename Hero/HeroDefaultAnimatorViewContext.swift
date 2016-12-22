@@ -26,47 +26,40 @@ internal class HeroDefaultAnimatorViewContext {
   weak var animator:HeroDefaultAnimator?
   var view:UIView
   var snapshot:UIView
+  var state = [String:(Any, Any)]()
+  var parameters = [String:[String]] ()
+  var baseDelay:TimeInterval = 0
+  var duration:TimeInterval = 0
+  
+  var parsedDuration:TimeInterval?
+  var parsedTimingFunction:CAMediaTimingFunction?
+  var defaultTiming:(TimeInterval, CAMediaTimingFunction)!
+  
+  // computed
   var contentLayer:CALayer{
     return snapshot.subviews[0].layer
   }
   var currentTime:TimeInterval{
     return snapshot.layer.convertTime(CACurrentMediaTime(), from: nil)
   }
-  var state = [String:(Any, Any)]()
-  var parameters = [String:[String]] ()
-  var baseDelay:TimeInterval = 0
-  var duration:TimeInterval = 0
+  var container:UIView{
+    return animator!.context.container
+  }
   
-  func getTimingFunction(key:String, fromValue:Any?, toValue:Any?) -> CAMediaTimingFunction{
-    // get the timing function
-    if let curveOptions = parameters["curve"]{
-      if let c1 = curveOptions.getFloat(0),
-        let c2 = curveOptions.getFloat(1),
-        let c3 = curveOptions.getFloat(2),
-        let c4 = curveOptions.getFloat(3){
-        return CAMediaTimingFunction(controlPoints: c1, c2, c3, c4)
-      } else if let ease = curveOptions.get(0), let tf = CAMediaTimingFunction.from(name:ease){
-        return  tf
-      }
+  func getTiming(key:String, fromValue:Any?, toValue:Any?) -> (TimeInterval, TimeInterval, CAMediaTimingFunction){
+    // delay should be for a specific animation. this shouldn't include the baseDelay
+    switch key {
+    case "opacity":
+      return (0, defaultTiming.0, defaultTiming.1)
+    default:
+      return (0, defaultTiming.0, defaultTiming.1)
     }
-    return .standard
-  }
-  
-  // return a delay for specific animation. this shouldn't include the baseDelay
-  func getDelay(key:String, fromValue:Any?, toValue:Any?) -> TimeInterval{
-    return 0
-  }
-  
-  func getDuration(key:String, fromValue:Any?, toValue:Any?) -> TimeInterval{
-    return parameters["duration"]?.getDouble(0) ?? 0.375
   }
   
   func getAnimation(key:String, beginTime:TimeInterval, fromValue:Any?, toValue:Any?, ignoreArc:Bool = false) -> CAPropertyAnimation {
     let anim:CAPropertyAnimation
     
-    let delay:TimeInterval = getDelay(key: key, fromValue: fromValue, toValue: toValue)
-    let duration:Double = getDuration(key: key, fromValue: fromValue, toValue: toValue)
-    let timingFunction = getTimingFunction(key: key, fromValue: fromValue, toValue: toValue)
+    let (delay, duration, timingFunction) = getTiming(key: key, fromValue: fromValue, toValue: toValue)
     
     if !ignoreArc, key == "position", let arcOptions = parameters["arc"],
       let fromPos = (fromValue as? NSValue)?.cgPointValue,
@@ -142,24 +135,75 @@ internal class HeroDefaultAnimatorViewContext {
     return anim.duration + anim.beginTime - beginTime
   }
   
+  func animate(delay:TimeInterval) {
+    // calculate timing default
+    let defaultDuration:TimeInterval
+    let defaultTimingFunction:CAMediaTimingFunction
+    
+    // timing function
+    let fromPos = (state["position"]?.0 as? NSValue)?.cgPointValue ?? snapshot.layer.position
+    let toPos = (state["position"]?.1 as? NSValue)?.cgPointValue ?? fromPos
+    let fromTransform = (state["transform"]?.0 as? NSValue)?.caTransform3DValue ?? CATransform3DIdentity
+    let toTransform = (state["transform"]?.1 as? NSValue)?.caTransform3DValue ?? CATransform3DIdentity
+    let realFromPos = CGPoint.zero.transform(fromTransform) + fromPos
+    let realToPos = CGPoint.zero.transform(toTransform) + toPos
+    
+    if let parsedTimingFunction = parsedTimingFunction{
+      defaultTimingFunction = parsedTimingFunction
+    } else if !container.bounds.contains(realToPos){
+      // acceleration if leaving screen
+      defaultTimingFunction = .acceleration
+    } else if !container.bounds.contains(realFromPos){
+      // deceleration if entering screen
+      defaultTimingFunction = .deceleration
+    } else {
+      defaultTimingFunction = .standard
+    }
+
+    if let parsedDuration = parsedDuration {
+      defaultDuration = parsedDuration
+    } else {
+      let fromSize = (state["bounds.size"]?.0 as? NSValue)?.cgSizeValue ?? .zero
+      let toSize = (state["bounds.size"]?.1 as? NSValue)?.cgSizeValue ?? .zero
+      let realFromSize = fromSize.transform(fromTransform)
+      let realToSize = toSize.transform(toTransform)
+      
+      var movePoints = (realFromPos.distance(realToPos) + realFromSize.point.distance(realToSize.point))
+      
+      // duration is 0.125 @ 0 to 0.375 @ 500
+      defaultDuration = 0.125 + Double(movePoints) / 2000
+    }
+    
+    defaultTiming = (defaultDuration, defaultTimingFunction)
+
+    duration = 0
+    let beginTime = currentTime + delay
+    for (key, (fromValue, toValue)) in state{
+      let neededTime = addAnimation(key: key, beginTime:beginTime, fromValue: fromValue, toValue: toValue)
+      duration = max(duration, neededTime + delay)
+    }
+  }
+  
   func temporarilySet(modifiers:HeroModifiers){
     let targetState = viewState(for: view, with: modifiers)
     for (key, targetValue) in targetState{
+      if state[key] == nil{
+        let currentValue = snapshot.layer.value(forKeyPath: key)
+        state[key] = (currentValue, currentValue)
+      }
       addAnimation(key: key, beginTime: 0, fromValue: targetValue, toValue: targetValue)
     }
   }
   
   func resume(timePassed:TimeInterval, reverse:Bool){
-    duration = 0
-    var realDelay = max(0, baseDelay - timePassed)
-    var realBeginTime = currentTime + realDelay
     for (key, (fromValue, toValue)) in state{
-      var realFromValue = (snapshot.layer.presentation() ?? snapshot.layer).value(forKeyPath: key)
       var realToValue = !reverse ? toValue : fromValue
-      
-      let neededTime = addAnimation(key: key, beginTime:realBeginTime, fromValue: realFromValue, toValue: realToValue)
-      duration = max(duration, neededTime + realDelay)
+      var realFromValue = (snapshot.layer.presentation() ?? snapshot.layer).value(forKeyPath: key)
+      state[key] = (realFromValue, realToValue)
     }
+    
+    var realDelay = max(0, baseDelay - timePassed)
+    animate(delay: realDelay)
   }
   
   func seek(layer:CALayer, timePassed:TimeInterval){
@@ -186,6 +230,18 @@ internal class HeroDefaultAnimatorViewContext {
       parameters[key] = param
     }
     
+    parsedDuration = parameters["duration"]?.getDouble(0)
+    if let curveOptions = parameters["curve"]{
+      if let c1 = curveOptions.getFloat(0),
+        let c2 = curveOptions.getFloat(1),
+        let c3 = curveOptions.getFloat(2),
+        let c4 = curveOptions.getFloat(3){
+        parsedTimingFunction = CAMediaTimingFunction(controlPoints: c1, c2, c3, c4)
+      } else if let ease = curveOptions.get(0), let tf = CAMediaTimingFunction.from(name:ease){
+        parsedTimingFunction = tf
+      }
+    }
+    
     if let value = parameters["delay"]?.getFloat(0){
       baseDelay = TimeInterval(value)
     }
@@ -198,10 +254,6 @@ internal class HeroDefaultAnimatorViewContext {
       state[key] = (fromValue, toValue)
     }
     
-    let beginTime = currentTime + baseDelay
-    for (key, (fromValue, toValue)) in state{
-      let neededTime = addAnimation(key: key, beginTime:beginTime, fromValue: fromValue, toValue: toValue)
-      duration = max(duration, neededTime + baseDelay)
-    }
+    animate(delay: baseDelay)
   }
 }
