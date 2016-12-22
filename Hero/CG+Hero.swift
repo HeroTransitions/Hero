@@ -41,6 +41,15 @@ internal extension CGSize{
   internal var center:CGPoint{
     return CGPoint(x: width / 2, y: height / 2)
   }
+  internal var point:CGPoint{
+    return CGPoint(x: width, y: height)
+  }
+  internal func transform(_ t:CGAffineTransform) -> CGSize{
+    return self.applying(t)
+  }
+  internal func transform(_ t:CATransform3D) -> CGSize{
+    return self.applying(CATransform3DGetAffineTransform(t))
+  }
 }
 
 internal extension CGRect{
@@ -67,6 +76,10 @@ extension CGPoint{
   
   internal func transform(_ t:CGAffineTransform) -> CGPoint{
     return self.applying(t)
+  }
+  
+  internal func transform(_ t:CATransform3D) -> CGPoint{
+    return self.applying(CATransform3DGetAffineTransform(t))
   }
   
   internal func distance(_ b:CGPoint)->CGFloat{
