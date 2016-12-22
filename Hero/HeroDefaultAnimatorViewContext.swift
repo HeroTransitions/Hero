@@ -23,17 +23,21 @@
 import UIKit
 
 internal class HeroDefaultAnimatorViewContext {
+  weak var animator:HeroDefaultAnimator?
   var view:UIView
   var snapshot:UIView
   var contentLayer:CALayer{
     return snapshot.subviews[0].layer
   }
+  var currentTime:TimeInterval{
+    return snapshot.layer.convertTime(CACurrentMediaTime(), from: nil)
+  }
   var state = [String:(Any, Any)]()
   var parameters = [String:[String]] ()
-  var delay:TimeInterval = 0
+  var baseDelay:TimeInterval = 0
   var duration:TimeInterval = 0
   
-  var timingFunction:CAMediaTimingFunction{
+  func getTimingFunction(key:String, fromValue:Any?, toValue:Any?) -> CAMediaTimingFunction{
     // get the timing function
     if let curveOptions = parameters["curve"]{
       if let c1 = curveOptions.getFloat(0),
@@ -48,11 +52,21 @@ internal class HeroDefaultAnimatorViewContext {
     return .standard
   }
   
-  func animation(key:String, fromValue:Any?, toValue:Any?, ignoreArc:Bool = false) -> CAPropertyAnimation {
+  // return a delay for specific animation. this shouldn't include the baseDelay
+  func getDelay(key:String, fromValue:Any?, toValue:Any?) -> TimeInterval{
+    return 0
+  }
+  
+  func getDuration(key:String, fromValue:Any?, toValue:Any?) -> TimeInterval{
+    return parameters["duration"]?.getDouble(0) ?? 0.375
+  }
+  
+  func getAnimation(key:String, beginTime:TimeInterval, fromValue:Any?, toValue:Any?, ignoreArc:Bool = false) -> CAPropertyAnimation {
     let anim:CAPropertyAnimation
-    let duration:Double = parameters["duration"]?.getDouble(0) ?? 0.375
     
-    let timingFunction = self.timingFunction
+    let delay:TimeInterval = getDelay(key: key, fromValue: fromValue, toValue: toValue)
+    let duration:Double = getDuration(key: key, fromValue: fromValue, toValue: toValue)
+    let timingFunction = getTimingFunction(key: key, fromValue: fromValue, toValue: toValue)
     
     if !ignoreArc, key == "position", let arcOptions = parameters["arc"],
       let fromPos = (fromValue as? NSValue)?.cgPointValue,
@@ -90,14 +104,16 @@ internal class HeroDefaultAnimatorViewContext {
       banim.timingFunction = timingFunction
       anim = banim
     }
+    
     anim.fillMode = kCAFillModeBoth
     anim.isRemovedOnCompletion = false
+    anim.beginTime = beginTime + delay
     return anim
   }
   
-  func addAnimation(key:String, delay:TimeInterval, fromValue:Any?, toValue:Any?) -> TimeInterval{
-    let anim = animation(key: key, fromValue: fromValue, toValue: toValue)
-    anim.beginTime = snapshot.layer.convertTime(CACurrentMediaTime(), from: nil) + delay
+  // return the completion duration of the animation (duration + initial delay, not counting the beginTime)
+  func addAnimation(key:String, beginTime:TimeInterval, fromValue:Any?, toValue:Any?) -> TimeInterval{
+    let anim = getAnimation(key: key, beginTime:beginTime, fromValue: fromValue, toValue: toValue)
     
     snapshot.layer.add(anim, forKey: key)
     if key == "cornerRadius"{
@@ -111,39 +127,43 @@ internal class HeroDefaultAnimatorViewContext {
       // because we are using CAAnimations and not UIView animations,
       // The snapshotView will not layout during animations.
       // we have to add two more animations to manually layout the content view.
-      
       let fromPosn = NSValue(cgPoint:fromSize.center)
       let toPosn = NSValue(cgPoint:toSize.center)
-      let positionAnim = animation(key: "position", fromValue: fromPosn, toValue: toPosn, ignoreArc: true)
+      
+      let positionAnim = getAnimation(key: "position", beginTime:0, fromValue: fromPosn, toValue: toPosn, ignoreArc: true)
       positionAnim.beginTime = anim.beginTime
+      positionAnim.timingFunction = anim.timingFunction
+      positionAnim.duration = anim.duration
+      
       contentLayer.add(positionAnim, forKey: "position")
       contentLayer.add(anim, forKey: key)
     }
     
-    return anim.duration
+    return anim.duration + anim.beginTime - beginTime
   }
   
   func temporarilySet(modifiers:HeroModifiers){
     let targetState = viewState(for: view, with: modifiers)
     for (key, targetValue) in targetState{
-      addAnimation(key: key, delay: 0, fromValue: targetValue, toValue: targetValue)
+      addAnimation(key: key, beginTime: 0, fromValue: targetValue, toValue: targetValue)
     }
   }
   
   func resume(timePassed:TimeInterval, reverse:Bool){
     duration = 0
-    var realDelay = max(0, delay - timePassed)
+    var realDelay = max(0, baseDelay - timePassed)
+    var realBeginTime = currentTime + realDelay
     for (key, (fromValue, toValue)) in state{
       var realFromValue = (snapshot.layer.presentation() ?? snapshot.layer).value(forKeyPath: key)
       var realToValue = !reverse ? toValue : fromValue
       
-      let neededTime = addAnimation(key: key, delay:realDelay, fromValue: realFromValue, toValue: realToValue)
+      let neededTime = addAnimation(key: key, beginTime:realBeginTime, fromValue: realFromValue, toValue: realToValue)
       duration = max(duration, neededTime + realDelay)
     }
   }
   
   func seek(layer:CALayer, timePassed:TimeInterval){
-    let timeOffset = timePassed - delay
+    let timeOffset = timePassed - baseDelay
     for (key, anim) in layer.animations {
       anim.speed = 0
       anim.timeOffset = max(0, min(anim.duration - 0.01, timeOffset))
@@ -157,7 +177,8 @@ internal class HeroDefaultAnimatorViewContext {
     seek(layer:contentLayer, timePassed:timePassed)
   }
   
-  init(view:UIView, snapshot:UIView, modifiers:HeroModifiers, appearing:Bool){
+  init(animator:HeroDefaultAnimator, view:UIView, snapshot:UIView, modifiers:HeroModifiers, appearing:Bool){
+    self.animator = animator
     self.view = view
     self.snapshot = snapshot
     
@@ -166,7 +187,7 @@ internal class HeroDefaultAnimatorViewContext {
     }
     
     if let value = parameters["delay"]?.getFloat(0){
-      delay = TimeInterval(value)
+      baseDelay = TimeInterval(value)
     }
     
     let disappeared = viewState(for: view, with: modifiers)
@@ -177,9 +198,10 @@ internal class HeroDefaultAnimatorViewContext {
       state[key] = (fromValue, toValue)
     }
     
+    let beginTime = currentTime + baseDelay
     for (key, (fromValue, toValue)) in state{
-      let neededTime = addAnimation(key: key, delay:delay, fromValue: fromValue, toValue: toValue)
-      duration = max(duration, neededTime + delay)
+      let neededTime = addAnimation(key: key, beginTime:beginTime, fromValue: fromValue, toValue: toValue)
+      duration = max(duration, neededTime + baseDelay)
     }
   }
 }
