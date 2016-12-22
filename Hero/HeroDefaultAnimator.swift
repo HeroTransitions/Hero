@@ -27,29 +27,29 @@ public class HeroDefaultAnimator:HeroAnimator{
 
   var context:HeroContext!
   let animatableOptions:Set<String> = ["fade", "opacity", "position", "size", "cornerRadius", "transform", "scale", "translate", "rotate"]
-  var animationStates:[UIView: HeroDefaultAnimatorViewContext] = [:]
+  var viewContexts:[UIView: HeroDefaultAnimatorViewContext] = [:]
 
   public func seekTo(timePassed:TimeInterval) {
-    for (_, state) in animationStates{
-      state.seek(timePassed: timePassed)
+    for (_, viewContext) in viewContexts{
+      viewContext.seek(timePassed: timePassed)
     }
   }
   
   public func resume(timePassed:TimeInterval, reverse:Bool) -> TimeInterval{
     duration = 0
-    for view in animationStates.keys{
-      animationStates[view]!.resume(timePassed: timePassed, reverse: reverse)
-      duration = max(duration, animationStates[view]!.duration)
+    for view in viewContexts.keys{
+      viewContexts[view]!.resume(timePassed: timePassed, reverse: reverse)
+      duration = max(duration, viewContexts[view]!.duration)
     }
     return duration
   }
   
   public func temporarilySet(view:UIView, to modifiers:HeroModifiers){
-    guard animationStates[view] != nil else {
+    guard viewContexts[view] != nil else {
       print("HERO: unable to temporarily set to \(view). The view must be running at least one animation before it can be interactively changed")
       return
     }
-    animationStates[view]!.temporarilySet(modifiers:modifiers)
+    viewContexts[view]!.temporarilySet(modifiers:modifiers)
   }
 
   public func canAnimate(context:HeroContext, view:UIView, appearing:Bool) -> Bool{
@@ -119,13 +119,13 @@ public class HeroDefaultAnimator:HeroAnimator{
   
   func animate(view:UIView, appearing:Bool){
     let snapshot = takeSnapshot(for: view)
-    let state = HeroDefaultAnimatorViewContext(view: view, snapshot: snapshot, modifiers: context[view]!, appearing: appearing)
-    animationStates[view] = state
-    duration = max(duration, state.duration)
+    let viewContext = HeroDefaultAnimatorViewContext(animator:self, view: view, snapshot: snapshot, modifiers: context[view]!, appearing: appearing)
+    viewContexts[view] = viewContext
+    duration = max(duration, viewContext.duration)
   }
   
   public func clean(){
     context = nil
-    animationStates.removeAll()
+    viewContexts.removeAll()
   }
 }
