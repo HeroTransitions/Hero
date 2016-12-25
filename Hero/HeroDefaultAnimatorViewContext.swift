@@ -46,14 +46,32 @@ internal class HeroDefaultAnimatorViewContext {
     return animator!.context.container
   }
   
+  // return (delay, duration, easing)
   func getTiming(key:String, fromValue:Any?, toValue:Any?) -> (TimeInterval, TimeInterval, CAMediaTimingFunction){
     // delay should be for a specific animation. this shouldn't include the baseDelay
+    
+    // TODO: dynamic delay and duration for different key
+    // https://material.io/guidelines/motion/choreography.html#choreography-continuity
+    /*
     switch key {
     case "opacity":
-      return (0, defaultTiming.0, defaultTiming.1)
+      if let value = (toValue as? NSNumber)?.floatValue{
+        switch value {
+        case 0.0:
+          // disappearing element
+          return (0, 0.075, .standard)
+        case 1.0:
+          // appearing element
+          return (0.075, defaultTiming.0 - 0.075, .standard)
+        default:
+          break
+        }
+      }
     default:
-      return (0, defaultTiming.0, defaultTiming.1)
+      break
     }
+    */
+    return (0, defaultTiming.0, defaultTiming.1)
   }
   
   func getAnimation(key:String, beginTime:TimeInterval, fromValue:Any?, toValue:Any?, ignoreArc:Bool = false) -> CAPropertyAnimation {
@@ -163,15 +181,15 @@ internal class HeroDefaultAnimatorViewContext {
     if let parsedDuration = parsedDuration {
       defaultDuration = parsedDuration
     } else {
-      let fromSize = (state["bounds.size"]?.0 as? NSValue)?.cgSizeValue ?? .zero
-      let toSize = (state["bounds.size"]?.1 as? NSValue)?.cgSizeValue ?? .zero
+      let fromSize = (state["bounds.size"]?.0 as? NSValue)?.cgSizeValue ?? snapshot.layer.bounds.size
+      let toSize = (state["bounds.size"]?.1 as? NSValue)?.cgSizeValue ?? fromSize
       let realFromSize = fromSize.transform(fromTransform)
       let realToSize = toSize.transform(toTransform)
       
       var movePoints = (realFromPos.distance(realToPos) + realFromSize.point.distance(realToSize.point))
       
-      // duration is 0.125 @ 0 to 0.375 @ 500
-      defaultDuration = 0.125 + Double(movePoints) / 2000
+      // duration is 0.2 @ 0 to 0.375 @ 500
+      defaultDuration = 0.208 + Double(movePoints.clamp(0, 500)) / 3000
     }
     
     defaultTiming = (defaultDuration, defaultTimingFunction)
