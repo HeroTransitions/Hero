@@ -23,8 +23,8 @@
 import UIKit
 
 internal class Hero:NSObject {
-  var toViewController:UIViewController?
-  var fromViewController:UIViewController?
+  weak var toViewController:UIViewController?
+  weak var fromViewController:UIViewController?
   
   var interactive:Bool = false
 
@@ -51,7 +51,6 @@ internal class Hero:NSObject {
   fileprivate var plugins:[HeroPlugin]!
   
   fileprivate static let builtInProcessors:[HeroPreprocessor] = [
-    TrackSubviewPreprocessor(),
     ClearModifierPreprocessor(),
     ViewToViewPreprocessor(),
     SourceIDPreprocessor(),

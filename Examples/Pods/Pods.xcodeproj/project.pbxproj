@@ -61,7 +61,6 @@
 		9A3EAF15D3C58FD56A552FD703A9154C /* ChameleonConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = 6BA841517A854B30F7AC8B896BE29F62 /* ChameleonConstants.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9ADBC3165E0411E5DFAAFE05C96EDC2D /* UIKit+HeroModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA962E8A0090A3F508472C2A41382DB4 /* UIKit+HeroModifier.swift */; };
 		9B6AD39C81FAF37861FC0FEC41022146 /* UIAppearance+Swift.h in Headers */ = {isa = PBXBuildFile; fileRef = 8912F16BF2FEA16A2CE0D547636D8650 /* UIAppearance+Swift.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		A37850921E099C0A002854A8 /* TrackSubviewPreprocessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37850911E099C0A002854A8 /* TrackSubviewPreprocessor.swift */; };
 		A37850B41E0B60FC002854A8 /* HeroDefaultAnimatorViewContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37850B31E0B60FC002854A8 /* HeroDefaultAnimatorViewContext.swift */; };
 		A37850B61E0B619F002854A8 /* HeroDefaultAnimatorViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37850B51E0B619F002854A8 /* HeroDefaultAnimatorViewState.swift */; };
 		A37850B91E0B6487002854A8 /* CALayer+Hero.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37850B81E0B6487002854A8 /* CALayer+Hero.swift */; };
@@ -197,7 +196,6 @@
 		A0B3C6ED9393F5E55D698B677D8CC5F4 /* ZCShapeshiftLabel.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ZCShapeshiftLabel.m; path = ZCAnimatedLabel/ZCAnimatedLabel/ZCShapeshiftLabel.m; sourceTree = "<group>"; };
 		A32E96E330F1BE794E0ACA67C394BA33 /* ZCDashLabel.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ZCDashLabel.m; path = ZCAnimatedLabel/ZCAnimatedLabel/ZCDashLabel.m; sourceTree = "<group>"; };
 		A342FA1E8FD5F3163DC753B8A3400FAF /* ZCRevealLabel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ZCRevealLabel.h; path = ZCAnimatedLabel/ZCAnimatedLabel/ZCRevealLabel.h; sourceTree = "<group>"; };
-		A37850911E099C0A002854A8 /* TrackSubviewPreprocessor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrackSubviewPreprocessor.swift; sourceTree = "<group>"; };
 		A37850B31E0B60FC002854A8 /* HeroDefaultAnimatorViewContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeroDefaultAnimatorViewContext.swift; sourceTree = "<group>"; };
 		A37850B51E0B619F002854A8 /* HeroDefaultAnimatorViewState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeroDefaultAnimatorViewState.swift; sourceTree = "<group>"; };
 		A37850B81E0B6487002854A8 /* CALayer+Hero.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CALayer+Hero.swift"; sourceTree = "<group>"; };
@@ -438,7 +436,6 @@
 			isa = PBXGroup;
 			children = (
 				8A91722A49C98F39B7953A0624D18A0D /* CascadePreprocessor.swift */,
-				A37850911E099C0A002854A8 /* TrackSubviewPreprocessor.swift */,
 				7DDFB6D7D1D131792D16BCA568C70E07 /* ClearPreprocessor.swift */,
 				32920F1C14AABE3E6324EB718DB4F22A /* SourceIDPreprocessor.swift */,
 				EAF1CB44B1532BE35326641A01B38EA5 /* ViewToViewPreprocessor.swift */,
@@ -770,7 +767,6 @@
 				EB192542076198CC9C636DDFCCF28D64 /* Hero-dummy.m in Sources */,
 				CA19F7D3C407140A4858D71B94EDC523 /* Hero.swift in Sources */,
 				87180A87859AD4B9B5656F52A3E64013 /* HeroContext.swift in Sources */,
-				A37850921E099C0A002854A8 /* TrackSubviewPreprocessor.swift in Sources */,
 				F34ADE4638ABE9E687A005E1B4CCD2A0 /* HeroDebugPlugin.swift in Sources */,
 				A37850B91E0B6487002854A8 /* CALayer+Hero.swift in Sources */,
 				96ADBD9B612F8A5B2A417A3BCED08B78 /* HeroDebugView.swift in Sources */,
