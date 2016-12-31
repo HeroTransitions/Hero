@@ -23,20 +23,18 @@
 import UIKit
 
 public class HeroDefaultAnimator:HeroAnimator{
-  var duration:TimeInterval = 0
-
   var context:HeroContext!
   let animatableOptions:Set<String> = ["fade", "opacity", "position", "size", "cornerRadius", "transform", "scale", "translate", "rotate"]
   var viewContexts:[UIView: HeroDefaultAnimatorViewContext] = [:]
 
   public func seekTo(timePassed:TimeInterval) {
-    for (_, viewContext) in viewContexts{
+    for viewContext in viewContexts.values{
       viewContext.seek(timePassed: timePassed)
     }
   }
   
   public func resume(timePassed:TimeInterval, reverse:Bool) -> TimeInterval{
-    duration = 0
+    var duration:TimeInterval = 0
     for view in viewContexts.keys{
       viewContexts[view]!.resume(timePassed: timePassed, reverse: reverse)
       duration = max(duration, viewContexts[view]!.duration)
@@ -96,8 +94,7 @@ public class HeroDefaultAnimator:HeroAnimator{
     snapshot.heroID = v.heroID
 
     v.isHidden = true
-    
-    // insert below views from other plugins
+
     context.container.addSubview(snapshot)
     
     return snapshot
@@ -106,12 +103,18 @@ public class HeroDefaultAnimator:HeroAnimator{
   public func animate(context:HeroContext, fromViews:[UIView], toViews:[UIView]) -> TimeInterval{
     self.context = context
     
+    var duration:TimeInterval = 0
+
     // animate
     for v in fromViews{
       animate(view: v, appearing: false)
     }
     for v in toViews{
       animate(view: v, appearing: true)
+    }
+    
+    for viewContext in viewContexts.values{
+      duration = max(duration, viewContext.duration)
     }
 
     return duration
@@ -121,7 +124,6 @@ public class HeroDefaultAnimator:HeroAnimator{
     let snapshot = takeSnapshot(for: view)
     let viewContext = HeroDefaultAnimatorViewContext(animator:self, view: view, snapshot: snapshot, modifiers: context[view]!, appearing: appearing)
     viewContexts[view] = viewContext
-    duration = max(duration, viewContext.duration)
   }
   
   public func clean(){

@@ -46,13 +46,14 @@ internal class HeroDefaultAnimatorViewContext {
     return animator!.context.container
   }
   
+  /*
   // return (delay, duration, easing)
   func getTiming(key:String, fromValue:Any?, toValue:Any?) -> (TimeInterval, TimeInterval, CAMediaTimingFunction){
     // delay should be for a specific animation. this shouldn't include the baseDelay
     
     // TODO: dynamic delay and duration for different key
     // https://material.io/guidelines/motion/choreography.html#choreography-continuity
-    /*
+    
     switch key {
     case "opacity":
       if let value = (toValue as? NSNumber)?.floatValue{
@@ -70,14 +71,15 @@ internal class HeroDefaultAnimatorViewContext {
     default:
       break
     }
-    */
-    return (0, defaultTiming.0, defaultTiming.1)
+    return (0.0, defaultTiming.0, defaultTiming.1)
   }
+  */
   
   func getAnimation(key:String, beginTime:TimeInterval, fromValue:Any?, toValue:Any?, ignoreArc:Bool = false) -> CAPropertyAnimation {
     let anim:CAPropertyAnimation
     
-    let (delay, duration, timingFunction) = getTiming(key: key, fromValue: fromValue, toValue: toValue)
+    let (delay, duration, timingFunction) = (0.0, defaultTiming.0, defaultTiming.1)
+    // getTiming(key: key, fromValue: fromValue, toValue: toValue)
     
     if !ignoreArc, key == "position", let arcOptions = parameters["arc"],
       let fromPos = (fromValue as? NSValue)?.cgPointValue,
