@@ -8,6 +8,8 @@ Supercharged transition engine for iOS. Build your custom view transitions with 
 ![iOS 8.0+](https://img.shields.io/badge/iOS-8.0%2B-blue.svg)
 ![Swift 3.0+](https://img.shields.io/badge/Swift-3.0%2B-orange.svg)
 
+#####NOTE: Hero won't work on iPhone 7 Simulators due to a [bug](https://forums.developer.apple.com/thread/63438) by Apple. Try using other simulators or a real device when working with Hero.
+
 ## Video Demo
 **[View here](https://youtu.be/-6L79or6Iq8)**
 
