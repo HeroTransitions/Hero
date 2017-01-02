@@ -8,9 +8,6 @@ Supercharged transition engine for iOS. Build your custom view transitions with 
 ![iOS 8.0+](https://img.shields.io/badge/iOS-8.0%2B-blue.svg)
 ![Swift 3.0+](https://img.shields.io/badge/Swift-3.0%2B-orange.svg)
 
-#####NOTE: Hero won't work on iPhone 7 Simulators due to a [bug](https://forums.developer.apple.com/thread/63438) by Apple. Try using other simulators or a real device when working with Hero.
-
-
 ## Video Demo
 **[View here](https://youtu.be/-6L79or6Iq8)**
 
@@ -19,7 +16,7 @@ Supercharged transition engine for iOS. Build your custom view transitions with 
 
 ## Introduction
 
-**Hero** is a library for building iOS view controller transitions. It provides an layer on top of the UIKit's cumbersome transition APIs. Making custom transitions a easy task for developers.
+**Hero** is a library for building iOS view controller transitions. It provides an layer on top of the UIKit's cumbersome transition APIs. Making custom transitions an easy task for developers.
 
 ### Features
 <img src="https://cdn.rawgit.com/lkzhao/Hero/master/Resources/basic.svg"/>
@@ -28,9 +25,12 @@ Supercharged transition engine for iOS. Build your custom view transitions with 
 
 At its core, Hero provides a automatic transition similar to Keynote's `Magic Move`. It checks the `heroID` property on all source and destinations views. Every matched view pairs are then automatically transitioned from it's old state to it's new state.
 
-Hero is also able to construct animations for unmatched views. It is easy to define these animations via the `heroModifiers` property. Hero will run these animations alongside the `Magic Move` animations. All of these can by interactive, too.
+Hero can also construct animations for unmatched views. It is easy to define these animations via the `heroModifiers` property. Hero will run these animations alongside the `Magic Move` animations. All of these can by interactive, too.
 
-Hero does all of these without any assumption about how the view is built or structured. It will not modify any of your views' states other than hidding them during the animation. This means that it works great with autolayout, programmatic layout, UICollectionView, UITableView, UINavigationController etc... 
+Hero does not make any assumption about how the view is built or structured. It will not modify any of your views' states other than hidding them during the animation. This means that it works with autolayout, programmatic layout, UICollectionView, UITableView, UINavigationController etc... 
+
+### This library is completely new and under heavy development. Might not be stable for production use, but there will be more things to come.
+##### NOTE: Hero won't work on iPhone 7 Simulators due to a [bug](https://forums.developer.apple.com/thread/63438) by Apple. Try using other simulators or a real device when working with Hero.
 
 ## A Simple Tutorial
 
