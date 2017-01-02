@@ -18,7 +18,7 @@ Supercharged transition engine for iOS. Build your custom view transitions with 
 
 #### With Hero, you can easily mix & match these effects to build your own custom transition.
 
-At its core, Hero provides a automatic transition similar to Keynote's `Magic Move`. It checks the `heroID` property on all source and destinations views. Every matched view pairs are then automatically transitioned from it's old state to it's new state.
+At its core, Hero is similar to Keynote's `Magic Move`. It checks the `heroID` property on all source and destinations views. Every matched view pairs are then automatically transitioned from it's old state to it's new state.
 
 Hero can also construct animations for unmatched views. It is easy to define these animations via the `heroModifiers` property. Hero will run these animations alongside the `Magic Move` animations. All of these can by interactive, too.
 
@@ -36,9 +36,9 @@ Hero does not make any assumption about how the view is built or structured. It 
 
 For detailed explaination about how **Hero ID**, **Hero Modifiers**, and supported animations:
 
-Read **[detailed usage guide](https://github.com/lkzhao/Hero/wiki/Usage-Guide)**
+#### Read **[detailed usage guide](https://github.com/lkzhao/Hero/wiki/Usage-Guide)**
 
-##### This library is completely new and under heavy development. Might not be stable for production use, but there will be more things to come.
+This library is completely new and under heavy development. Might not be stable for production use, but there will be more things to come.
 
 ## License
 
