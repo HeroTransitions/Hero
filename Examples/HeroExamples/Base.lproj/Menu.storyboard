@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16A313a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="XkC-20-WHm">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="VeJ-js-8F3">
+            <objects>
+                <viewController id="XkC-20-WHm" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="u84-va-ysw"/>
+                        <viewControllerLayoutGuide type="bottom" id="7Yb-th-bB8"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="xoC-lR-COt">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Snd-sQ-1vx">
+                                <rect key="frame" x="263" y="547" width="72" height="72"/>
+                                <color key="backgroundColor" red="0.92933028939999995" green="0.92946392300000003" blue="0.92930108310000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="72" id="DKy-pZ-yLr"/>
+                                    <constraint firstAttribute="width" constant="72" id="sSg-WQ-V2b"/>
+                                </constraints>
+                                <color key="tintColor" red="0.25490196079999999" green="0.28627450980000002" blue="0.30980392159999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" image="ic_menu_36pt"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="36"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="menu"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="heroModifiers" value="zPosition(10) arc"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <segue destination="hDE-vd-kLY" kind="presentation" id="REW-4R-Q2f"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i8D-uT-ivk">
+                                <rect key="frame" x="4" y="28" width="48" height="48"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="48" id="O59-EE-RPX"/>
+                                    <constraint firstAttribute="width" constant="48" id="sZm-fI-jyX"/>
+                                </constraints>
+                                <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" image="ic_keyboard_arrow_down"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="24"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="heroModifiers" value="fade translate(0, -150)"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="back"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="ht_dismiss:" destination="a39-7c-afk" eventType="touchUpInside" id="IoM-vu-VmN"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="i8D-uT-ivk" firstAttribute="leading" secondItem="xoC-lR-COt" secondAttribute="leadingMargin" constant="-12" id="6An-OS-T6s"/>
+                            <constraint firstItem="i8D-uT-ivk" firstAttribute="top" secondItem="u84-va-ysw" secondAttribute="bottom" constant="8" id="Lji-UG-FJU"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Snd-sQ-1vx" secondAttribute="trailing" constant="24" id="gcf-15-boF"/>
+                            <constraint firstItem="7Yb-th-bB8" firstAttribute="top" secondItem="Snd-sQ-1vx" secondAttribute="bottom" constant="48" id="p81-At-FYy"/>
+                        </constraints>
+                    </view>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabled" value="YES"/>
+                    </userDefinedRuntimeAttributes>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="a39-7c-afk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="0.0" y="0.0"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="FLe-99-9Fd">
+            <objects>
+                <viewController id="hDE-vd-kLY" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Dh5-EJ-KLE"/>
+                        <viewControllerLayoutGuide type="bottom" id="7yD-25-9Jm"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="pwy-p7-BFt">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Tw-b7-MDk">
+                                <rect key="frame" x="200" y="106" width="96" height="96"/>
+                                <color key="backgroundColor" red="0.8536429405" green="0.3644335568" blue="0.24528044460000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="96" id="3zb-uc-Xuy"/>
+                                    <constraint firstAttribute="height" constant="96" id="Vhg-M4-ik1"/>
+                                </constraints>
+                                <color key="tintColor" red="0.25490196079999999" green="0.28627450980000002" blue="0.30980392159999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" image="ic_insert_photo_48pt"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="48"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="heroModifiers" value="sourceID(menu)"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="ht_dismiss:" destination="n6n-Yr-iiD" eventType="touchUpInside" id="CqK-7C-bu0"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dC5-La-4Q6">
+                                <rect key="frame" x="80" y="106" width="96" height="96"/>
+                                <color key="backgroundColor" red="0.65110915899999999" green="0.49157077069999999" blue="0.75600677729999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="96" id="RfA-nf-3t0"/>
+                                    <constraint firstAttribute="width" constant="96" id="e0q-On-d2j"/>
+                                </constraints>
+                                <color key="tintColor" red="0.25490196079999999" green="0.28627450980000002" blue="0.30980392159999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" image="ic_audiotrack_48pt"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="48"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="heroModifiers" value="sourceID(menu)"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="ht_dismiss:" destination="hDE-vd-kLY" eventType="touchUpInside" id="nhU-vM-gD4"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2mS-M0-ozC">
+                                <rect key="frame" x="200" y="226" width="96" height="96"/>
+                                <color key="backgroundColor" red="0.96249228720000002" green="0.86748665570000005" blue="0.2182745636" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="96" id="4jG-A8-Yeg"/>
+                                    <constraint firstAttribute="width" constant="96" id="K69-Nh-CHE"/>
+                                </constraints>
+                                <color key="tintColor" red="0.25490196079999999" green="0.28627450980000002" blue="0.30980392159999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" image="ic_gif_48pt"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="48"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="heroModifiers" value="sourceID(menu)"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="ht_dismiss:" destination="hDE-vd-kLY" eventType="touchUpInside" id="hzw-Ib-HSk"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SLa-DC-TkS">
+                                <rect key="frame" x="80" y="226" width="96" height="96"/>
+                                <color key="backgroundColor" red="0.60663342480000004" green="0.63835191729999996" blue="0.68026506900000006" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="96" id="27k-2m-Hc5"/>
+                                    <constraint firstAttribute="width" constant="96" id="V6h-pa-ElO"/>
+                                </constraints>
+                                <color key="tintColor" red="0.25490196079999999" green="0.28627450980000002" blue="0.30980392159999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" image="ic_videocam_48pt"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="48"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="heroModifiers" value="sourceID(menu)"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="ht_dismiss:" destination="hDE-vd-kLY" eventType="touchUpInside" id="UxU-sx-z5s"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GXz-0P-hCB">
+                                <rect key="frame" x="200" y="346" width="96" height="96"/>
+                                <color key="backgroundColor" red="0.3231979311" green="0.62352418899999995" blue="0.80385208129999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="96" id="4f5-Kc-9Ah"/>
+                                    <constraint firstAttribute="width" constant="96" id="tcU-Vc-X6B"/>
+                                </constraints>
+                                <color key="tintColor" red="0.25490196079999999" green="0.28627450980000002" blue="0.30980392159999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" image="ic_chat_48pt"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="48"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="heroModifiers" value="sourceID(menu)"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="ht_dismiss:" destination="hDE-vd-kLY" eventType="touchUpInside" id="AjR-sf-LVr"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0eU-DD-3fj">
+                                <rect key="frame" x="80" y="346" width="96" height="96"/>
+                                <color key="backgroundColor" red="0.33910316229999998" green="0.73554944990000004" blue="0.53971123700000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="96" id="RLN-z9-AYa"/>
+                                    <constraint firstAttribute="width" constant="96" id="cpJ-QV-Wwp"/>
+                                </constraints>
+                                <color key="tintColor" red="0.25490196079999999" green="0.28627450980000002" blue="0.30980392159999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" image="ic_link_48pt"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="48"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="heroModifiers" value="sourceID(menu)"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="ht_dismiss:" destination="hDE-vd-kLY" eventType="touchUpInside" id="Tfd-PU-wnG"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BB9-pA-7KT">
+                                <rect key="frame" x="200" y="466" width="96" height="96"/>
+                                <color key="backgroundColor" red="0.96854275469999995" green="0.96868163350000003" blue="0.96851247549999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="96" id="I3r-Zq-Baz"/>
+                                    <constraint firstAttribute="width" constant="96" id="ZKk-nU-nbX"/>
+                                </constraints>
+                                <color key="tintColor" red="0.25490196079999999" green="0.28627450980000002" blue="0.30980392159999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" image="ic_text_fields_48pt"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="48"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="menu"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="heroModifiers" value="zPosition(10)"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="ht_dismiss:" destination="hDE-vd-kLY" eventType="touchUpInside" id="I5f-aH-3I8"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zna-x2-9LS">
+                                <rect key="frame" x="80" y="466" width="96" height="96"/>
+                                <color key="backgroundColor" red="0.92462307210000005" green="0.58727717400000001" blue="0.17350399490000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="96" id="F1K-LL-2Tj"/>
+                                    <constraint firstAttribute="height" constant="96" id="ZDA-s1-a8A"/>
+                                </constraints>
+                                <color key="tintColor" red="0.25490196079999999" green="0.28627450980000002" blue="0.30980392159999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" image="ic_format_quote_48pt"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="48"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="heroModifiers" value="sourceID(menu)"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="quote"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="ht_dismiss:" destination="hDE-vd-kLY" eventType="touchUpInside" id="oAg-lf-v0I"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="0eU-DD-3fj" firstAttribute="centerY" secondItem="pwy-p7-BFt" secondAttribute="centerY" constant="60" id="4QG-2X-gyK"/>
+                            <constraint firstItem="4Tw-b7-MDk" firstAttribute="centerY" secondItem="pwy-p7-BFt" secondAttribute="centerY" constant="-180" id="6P2-Ic-ToX"/>
+                            <constraint firstItem="zna-x2-9LS" firstAttribute="centerY" secondItem="pwy-p7-BFt" secondAttribute="centerY" constant="180" id="7Qe-sN-lrk"/>
+                            <constraint firstItem="4Tw-b7-MDk" firstAttribute="centerX" secondItem="pwy-p7-BFt" secondAttribute="centerX" constant="60" id="83r-2f-xmQ"/>
+                            <constraint firstItem="BB9-pA-7KT" firstAttribute="centerX" secondItem="pwy-p7-BFt" secondAttribute="centerX" constant="60" id="8Nn-fI-BFG"/>
+                            <constraint firstItem="2mS-M0-ozC" firstAttribute="centerX" secondItem="pwy-p7-BFt" secondAttribute="centerX" constant="60" id="Ahd-br-luF"/>
+                            <constraint firstItem="dC5-La-4Q6" firstAttribute="centerX" secondItem="pwy-p7-BFt" secondAttribute="centerX" constant="-60" id="D0h-0l-LiF"/>
+                            <constraint firstItem="GXz-0P-hCB" firstAttribute="centerY" secondItem="pwy-p7-BFt" secondAttribute="centerY" constant="60" id="H1D-fx-7zK"/>
+                            <constraint firstItem="SLa-DC-TkS" firstAttribute="centerX" secondItem="pwy-p7-BFt" secondAttribute="centerX" constant="-60" id="MpM-YC-35S"/>
+                            <constraint firstItem="GXz-0P-hCB" firstAttribute="centerX" secondItem="pwy-p7-BFt" secondAttribute="centerX" constant="60" id="P79-wN-jmc"/>
+                            <constraint firstItem="zna-x2-9LS" firstAttribute="centerX" secondItem="pwy-p7-BFt" secondAttribute="centerX" constant="-60" id="RNn-ei-S13"/>
+                            <constraint firstItem="0eU-DD-3fj" firstAttribute="centerX" secondItem="pwy-p7-BFt" secondAttribute="centerX" constant="-60" id="cAN-nB-mOH"/>
+                            <constraint firstItem="dC5-La-4Q6" firstAttribute="centerY" secondItem="pwy-p7-BFt" secondAttribute="centerY" constant="-180" id="iof-bH-JlS"/>
+                            <constraint firstItem="BB9-pA-7KT" firstAttribute="centerY" secondItem="pwy-p7-BFt" secondAttribute="centerY" constant="180" id="kLY-bQ-Flt"/>
+                            <constraint firstItem="2mS-M0-ozC" firstAttribute="centerY" secondItem="pwy-p7-BFt" secondAttribute="centerY" constant="-60" id="kvZ-gW-rSK"/>
+                            <constraint firstItem="SLa-DC-TkS" firstAttribute="centerY" secondItem="pwy-p7-BFt" secondAttribute="centerY" constant="-60" id="z4C-l9-EYo"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="menuBackground"/>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabled" value="YES"/>
+                    </userDefinedRuntimeAttributes>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="n6n-Yr-iiD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="800" y="0.0"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="ic_audiotrack_48pt" width="48" height="48"/>
+        <image name="ic_chat_48pt" width="48" height="48"/>
+        <image name="ic_format_quote_48pt" width="48" height="48"/>
+        <image name="ic_gif_48pt" width="48" height="48"/>
+        <image name="ic_insert_photo_48pt" width="48" height="48"/>
+        <image name="ic_keyboard_arrow_down" width="24" height="24"/>
+        <image name="ic_link_48pt" width="48" height="48"/>
+        <image name="ic_menu_36pt" width="36" height="36"/>
+        <image name="ic_text_fields_48pt" width="48" height="48"/>
+        <image name="ic_videocam_48pt" width="48" height="48"/>
+    </resources>
+</document>

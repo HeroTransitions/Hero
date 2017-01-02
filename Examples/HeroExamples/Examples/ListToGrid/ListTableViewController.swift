@@ -60,19 +60,17 @@ class ListTableViewController: UITableViewController {
   }
   
   @IBAction func toGrid(_ sender: Any) {
-    let next = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "grid") as! GridCollectionViewController
+    let next = UIStoryboard(name: "ListToGrid", bundle: nil).instantiateViewController(withIdentifier: "grid") as! GridCollectionViewController
     next.collectionView?.contentOffset.y = tableView.contentOffset.y + tableView.contentInset.top
     heroReplaceViewController(with: next)
   }
   
-  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    if let currentCell = sender as? ListTableViewCell,
-      let vc = segue.destination as? ImageViewController,
-      let currentCellIndex = tableView.indexPath(for: currentCell){
-      vc.selectedIndex = currentCellIndex
-      vc.view.backgroundColor = UIColor.white
-      vc.collectionView!.backgroundColor = UIColor.white
-    }
+  override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    let vc = viewController(forStoryboardName: "ImageViewer") as! ImageViewController
+    vc.selectedIndex = indexPath
+    vc.view.backgroundColor = UIColor.white
+    vc.collectionView!.backgroundColor = UIColor.white
+    navigationController!.pushViewController(vc, animated: true)
   }
 }
 
