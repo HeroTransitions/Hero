@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16A313a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="iN8-OP-4Ho">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Label Transform View Controller-->
+        <scene sceneID="bi3-hK-SAH">
+            <objects>
+                <viewController id="iN8-OP-4Ho" customClass="LabelTransformViewController" customModule="HeroExamples" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="JNQ-FJ-lQ1"/>
+                        <viewControllerLayoutGuide type="bottom" id="j3F-TW-c8n"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="gkV-OL-vbV">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label Transform Plugin" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qqY-v9-0h5">
+                                <rect key="frame" x="70" y="170" width="236" height="27"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="using ZCAnimatedLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qZ9-bg-jSy">
+                                <rect key="frame" x="91" y="235" width="193" height="22"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ep9-YA-0Yd">
+                                <rect key="frame" x="4" y="28" width="48" height="48"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="48" id="8VR-uP-TIG"/>
+                                    <constraint firstAttribute="height" constant="48" id="9EC-aa-AMF"/>
+                                </constraints>
+                                <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" image="ic_keyboard_arrow_down"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="24"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="heroModifiers" value="fade translate(0, -150)"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="back"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="ht_dismiss:" destination="9hx-AQ-GRD" eventType="touchUpInside" id="vkQ-Ye-5kp"/>
+                                </connections>
+                            </button>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zId-Ss-SLS">
+                                <rect key="frame" x="163" y="318" width="51" height="31"/>
+                                <connections>
+                                    <action selector="togglePlugin:" destination="iN8-OP-4Ho" eventType="valueChanged" id="pmm-9l-3uM"/>
+                                </connections>
+                            </switch>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="zId-Ss-SLS" firstAttribute="centerY" secondItem="gkV-OL-vbV" secondAttribute="centerY" id="AHv-Md-96L"/>
+                            <constraint firstItem="Ep9-YA-0Yd" firstAttribute="leading" secondItem="gkV-OL-vbV" secondAttribute="leadingMargin" constant="-12" id="DsY-DL-C1S"/>
+                            <constraint firstItem="zId-Ss-SLS" firstAttribute="centerX" secondItem="gkV-OL-vbV" secondAttribute="centerX" id="aT6-XO-KlB"/>
+                            <constraint firstItem="qZ9-bg-jSy" firstAttribute="top" secondItem="qqY-v9-0h5" secondAttribute="bottom" constant="38" id="i2v-xd-GWH"/>
+                            <constraint firstItem="Ep9-YA-0Yd" firstAttribute="top" secondItem="JNQ-FJ-lQ1" secondAttribute="bottom" constant="8" id="j4G-vL-tyL"/>
+                            <constraint firstItem="qqY-v9-0h5" firstAttribute="centerX" secondItem="gkV-OL-vbV" secondAttribute="centerX" id="jmZ-qF-Ih6"/>
+                            <constraint firstItem="qZ9-bg-jSy" firstAttribute="centerX" secondItem="gkV-OL-vbV" secondAttribute="centerX" id="l9P-LQ-XEI"/>
+                            <constraint firstItem="qqY-v9-0h5" firstAttribute="centerY" secondItem="gkV-OL-vbV" secondAttribute="centerY" constant="-150" id="w3h-i2-5sO"/>
+                        </constraints>
+                    </view>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabled" value="YES"/>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <outlet property="pluginSwitch" destination="zId-Ss-SLS" id="mVh-Cm-pgv"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9hx-AQ-GRD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2278" y="2220"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="ic_keyboard_arrow_down" width="24" height="24"/>
+    </resources>
+</document>

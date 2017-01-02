@@ -20,6 +20,16 @@
 		A33E60C01DE7621C0065CBD8 /* CityGuideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A33E60BB1DE7621C0065CBD8 /* CityGuideViewController.swift */; };
 		A33E60C11DE7621C0065CBD8 /* CityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A33E60BC1DE7621C0065CBD8 /* CityViewController.swift */; };
 		A3499D9F1DF2024E0049B541 /* ImageGalleryCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3499D9E1DF2024E0049B541 /* ImageGalleryCollectionViewController.swift */; };
+		A35949131E1A29800095F407 /* Basic.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A35949111E1A29800095F407 /* Basic.storyboard */; };
+		A35949161E1A2A6A0095F407 /* MusicPlayer.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A35949141E1A2A6A0095F407 /* MusicPlayer.storyboard */; };
+		A35949181E1A2BE60095F407 /* InitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A35949171E1A2BE60095F407 /* InitialViewController.swift */; };
+		A359491B1E1A31E20095F407 /* Menu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A35949191E1A31E20095F407 /* Menu.storyboard */; };
+		A359491E1E1A325A0095F407 /* CityGuide.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A359491C1E1A325A0095F407 /* CityGuide.storyboard */; };
+		A35949211E1A32C50095F407 /* ImageGallery.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A359491F1E1A32C50095F407 /* ImageGallery.storyboard */; };
+		A35949241E1A36D00095F407 /* ImageViewer.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A35949221E1A36D00095F407 /* ImageViewer.storyboard */; };
+		A35949271E1A384E0095F407 /* ListToGrid.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A35949251E1A384E0095F407 /* ListToGrid.storyboard */; };
+		A359492A1E1A39B30095F407 /* Debug.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A35949281E1A39B30095F407 /* Debug.storyboard */; };
+		A359492D1E1A39D00095F407 /* LabelTransform.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A359492B1E1A39D00095F407 /* LabelTransform.storyboard */; };
 		B10FDD451E00DD9800B7B66E /* DebugViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10FDD441E00DD9800B7B66E /* DebugViewController.swift */; };
 		B15C85D51DF75E8F00586E64 /* CG+HeroExamples.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15C85D41DF75E8F00586E64 /* CG+HeroExamples.swift */; };
 		B185A4E61DFA6E0C00C3B85D /* ListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B185A4E51DFA6E0C00C3B85D /* ListTableViewController.swift */; };
@@ -43,6 +53,16 @@
 		A33E60BB1DE7621C0065CBD8 /* CityGuideViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CityGuideViewController.swift; sourceTree = "<group>"; };
 		A33E60BC1DE7621C0065CBD8 /* CityViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CityViewController.swift; sourceTree = "<group>"; };
 		A3499D9E1DF2024E0049B541 /* ImageGalleryCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageGalleryCollectionViewController.swift; path = ImageGallery/ImageGalleryCollectionViewController.swift; sourceTree = "<group>"; };
+		A35949121E1A29800095F407 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Basic.storyboard; sourceTree = "<group>"; };
+		A35949151E1A2A6A0095F407 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = HeroExamples/Base.lproj/MusicPlayer.storyboard; sourceTree = SOURCE_ROOT; };
+		A35949171E1A2BE60095F407 /* InitialViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InitialViewController.swift; sourceTree = "<group>"; };
+		A359491A1E1A31E20095F407 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = HeroExamples/Base.lproj/Menu.storyboard; sourceTree = SOURCE_ROOT; };
+		A359491D1E1A325A0095F407 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = HeroExamples/Base.lproj/CityGuide.storyboard; sourceTree = SOURCE_ROOT; };
+		A35949201E1A32C50095F407 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = HeroExamples/Base.lproj/ImageGallery.storyboard; sourceTree = SOURCE_ROOT; };
+		A35949231E1A36D00095F407 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/ImageViewer.storyboard; sourceTree = "<group>"; };
+		A35949261E1A384E0095F407 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = HeroExamples/Base.lproj/ListToGrid.storyboard; sourceTree = SOURCE_ROOT; };
+		A35949291E1A39B30095F407 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Debug.storyboard; sourceTree = "<group>"; };
+		A359492C1E1A39D00095F407 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LabelTransform.storyboard; sourceTree = "<group>"; };
 		B10FDD441E00DD9800B7B66E /* DebugViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DebugViewController.swift; path = Debug/DebugViewController.swift; sourceTree = "<group>"; };
 		B15C85D41DF75E8F00586E64 /* CG+HeroExamples.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CG+HeroExamples.swift"; sourceTree = "<group>"; };
 		B185A4E51DFA6E0C00C3B85D /* ListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ListTableViewController.swift; path = ListToGrid/ListTableViewController.swift; sourceTree = "<group>"; };
@@ -103,6 +123,7 @@
 			isa = PBXGroup;
 			children = (
 				A33E60A81DE761C90065CBD8 /* Main.storyboard */,
+				A35949171E1A2BE60095F407 /* InitialViewController.swift */,
 				A33E60B71DE7621C0065CBD8 /* Examples */,
 				A33E60C21DE76CEF0065CBD8 /* Resources */,
 			);
@@ -112,6 +133,9 @@
 		A33E60B71DE7621C0065CBD8 /* Examples */ = {
 			isa = PBXGroup;
 			children = (
+				A35949111E1A29800095F407 /* Basic.storyboard */,
+				A35949141E1A2A6A0095F407 /* MusicPlayer.storyboard */,
+				A35949191E1A31E20095F407 /* Menu.storyboard */,
 				B185A4E91DFA6FE700C3B85D /* ListToGrid */,
 				A3499D9D1DF202350049B541 /* ImageGallery */,
 				A33E60B81DE7621C0065CBD8 /* CityGuide */,
@@ -124,6 +148,7 @@
 		A33E60B81DE7621C0065CBD8 /* CityGuide */ = {
 			isa = PBXGroup;
 			children = (
+				A359491C1E1A325A0095F407 /* CityGuide.storyboard */,
 				A33E60B91DE7621C0065CBD8 /* City.swift */,
 				A33E60BA1DE7621C0065CBD8 /* CityGuideCell.swift */,
 				A33E60BB1DE7621C0065CBD8 /* CityGuideViewController.swift */,
@@ -148,6 +173,8 @@
 		A3499D9D1DF202350049B541 /* ImageGallery */ = {
 			isa = PBXGroup;
 			children = (
+				A359491F1E1A32C50095F407 /* ImageGallery.storyboard */,
+				A35949221E1A36D00095F407 /* ImageViewer.storyboard */,
 				A3499D9E1DF2024E0049B541 /* ImageGalleryCollectionViewController.swift */,
 				A304BF831DF2717900A03345 /* ImageViewController.swift */,
 				A304BF891DF647FC00A03345 /* ImageCells.swift */,
@@ -158,6 +185,7 @@
 		B10FDD461E00DD9D00B7B66E /* Debug */ = {
 			isa = PBXGroup;
 			children = (
+				A35949281E1A39B30095F407 /* Debug.storyboard */,
 				B10FDD441E00DD9800B7B66E /* DebugViewController.swift */,
 			);
 			name = Debug;
@@ -166,6 +194,7 @@
 		B185A4E91DFA6FE700C3B85D /* ListToGrid */ = {
 			isa = PBXGroup;
 			children = (
+				A35949251E1A384E0095F407 /* ListToGrid.storyboard */,
 				B185A4E51DFA6E0C00C3B85D /* ListTableViewController.swift */,
 				B185A4E71DFA6FE200C3B85D /* GridCollectionViewController.swift */,
 			);
@@ -175,6 +204,7 @@
 		B195F5781DFE517500B1343C /* LabelTransform */ = {
 			isa = PBXGroup;
 			children = (
+				A359492B1E1A39D00095F407 /* LabelTransform.storyboard */,
 				B195F5761DFE516F00B1343C /* LabelTransformViewController.swift */,
 			);
 			name = LabelTransform;
@@ -243,9 +273,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A359491B1E1A31E20095F407 /* Menu.storyboard in Resources */,
+				A35949271E1A384E0095F407 /* ListToGrid.storyboard in Resources */,
+				A35949211E1A32C50095F407 /* ImageGallery.storyboard in Resources */,
+				A359491E1E1A325A0095F407 /* CityGuide.storyboard in Resources */,
 				A33E60AF1DE761C90065CBD8 /* LaunchScreen.storyboard in Resources */,
+				A359492A1E1A39B30095F407 /* Debug.storyboard in Resources */,
 				A33E60AC1DE761C90065CBD8 /* Assets.xcassets in Resources */,
+				A35949241E1A36D00095F407 /* ImageViewer.storyboard in Resources */,
 				A33E60AA1DE761C90065CBD8 /* Main.storyboard in Resources */,
+				A35949131E1A29800095F407 /* Basic.storyboard in Resources */,
+				A35949161E1A2A6A0095F407 /* MusicPlayer.storyboard in Resources */,
+				A359492D1E1A39D00095F407 /* LabelTransform.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -304,6 +343,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A35949181E1A2BE60095F407 /* InitialViewController.swift in Sources */,
 				A33E60C01DE7621C0065CBD8 /* CityGuideViewController.swift in Sources */,
 				A33E60BD1DE7621C0065CBD8 /* UIKit+HeroExamples.swift in Sources */,
 				A3499D9F1DF2024E0049B541 /* ImageGalleryCollectionViewController.swift in Sources */,
@@ -338,6 +378,83 @@
 				A33E60AE1DE761C90065CBD8 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		A35949111E1A29800095F407 /* Basic.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A35949121E1A29800095F407 /* Base */,
+			);
+			name = Basic.storyboard;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		A35949141E1A2A6A0095F407 /* MusicPlayer.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A35949151E1A2A6A0095F407 /* Base */,
+			);
+			name = MusicPlayer.storyboard;
+			sourceTree = "<group>";
+		};
+		A35949191E1A31E20095F407 /* Menu.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A359491A1E1A31E20095F407 /* Base */,
+			);
+			name = Menu.storyboard;
+			sourceTree = "<group>";
+		};
+		A359491C1E1A325A0095F407 /* CityGuide.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A359491D1E1A325A0095F407 /* Base */,
+			);
+			name = CityGuide.storyboard;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		A359491F1E1A32C50095F407 /* ImageGallery.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A35949201E1A32C50095F407 /* Base */,
+			);
+			name = ImageGallery.storyboard;
+			sourceTree = "<group>";
+		};
+		A35949221E1A36D00095F407 /* ImageViewer.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A35949231E1A36D00095F407 /* Base */,
+			);
+			name = ImageViewer.storyboard;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		A35949251E1A384E0095F407 /* ListToGrid.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A35949261E1A384E0095F407 /* Base */,
+			);
+			name = ListToGrid.storyboard;
+			sourceTree = "<group>";
+		};
+		A35949281E1A39B30095F407 /* Debug.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A35949291E1A39B30095F407 /* Base */,
+			);
+			name = Debug.storyboard;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		A359492B1E1A39D00095F407 /* LabelTransform.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A359492C1E1A39D00095F407 /* Base */,
+			);
+			name = LabelTransform.storyboard;
+			path = ..;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

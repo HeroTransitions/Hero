@@ -38,21 +38,19 @@ class ImageGalleryViewController: UIViewController {
   @IBAction func switchLayout(_ sender: Any) {
     // just replace the root view controller with the same view controller
     // animation is automatic! Holy
-    let next = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "imageGallery") as! ImageGalleryViewController
+    let next = UIStoryboard(name: "ImageGallery", bundle: nil).instantiateViewController(withIdentifier: "imageGallery") as! ImageGalleryViewController
     next.columns = columns == 3 ? 5 : 3
     heroReplaceViewController(with: next)
-  }
-  
-  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    if let currentCell = sender as? ImageCell,
-      let vc = segue.destination as? ImageViewController,
-      let currentCellIndex = collectionView.indexPath(for: currentCell){
-      vc.selectedIndex = currentCellIndex
-    }
   }
 }
 
 extension ImageGalleryViewController:UICollectionViewDataSource{
+  func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    let vc = viewController(forStoryboardName: "ImageViewer") as! ImageViewController
+    vc.selectedIndex = indexPath
+    navigationController!.pushViewController(vc, animated: true)
+  }
+  
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
     return 50
   }

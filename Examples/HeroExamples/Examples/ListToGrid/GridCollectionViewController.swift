@@ -31,28 +31,23 @@ class GridImageCell:UICollectionViewCell{
 }
 
 class GridCollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
-  
-  override func viewDidLoad() {
-    super.viewDidLoad()
-  }
-  
-  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    if let currentCell = sender as? GridImageCell,
-      let vc = segue.destination as? ImageViewController,
-      let currentCellIndex = collectionView!.indexPath(for: currentCell){
-      vc.selectedIndex = currentCellIndex
-      vc.view.backgroundColor = UIColor.white
-      vc.collectionView!.backgroundColor = UIColor.white
-    }
+  @IBAction func toList(_ sender: Any) {
+    let next = UIStoryboard(name: "ListToGrid", bundle: nil).instantiateViewController(withIdentifier: "list") as! ListTableViewController
+    next.tableView.contentOffset.y = collectionView!.contentOffset.y + collectionView!.contentInset.top
+    heroReplaceViewController(with: next)
   }
   
   override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
     return 50
   }
   
+  func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+    return CGSize(width: view.frame.width / 3, height: 52*3)
+  }
+  
   override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
     let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "item", for: indexPath) as! GridImageCell
-
+    
     let image = UIImage(named: "Unsplash\(indexPath.item % 10)")!
     cell.heroModifiers = "fade translate(0, 20)"
     cell.imageView?.image = image
@@ -61,18 +56,16 @@ class GridCollectionViewController: UICollectionViewController, UICollectionView
     cell.textLabel?.text = "Item \(indexPath.item)"
     cell.detailTextLabel?.text = "Description \(indexPath.item)"
     cell.backgroundColor = UIColor(averageColorFrom: image)
-
+    
     return cell
   }
-
-  @IBAction func toList(_ sender: Any) {
-    let next = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "list") as! ListTableViewController
-    next.tableView.contentOffset.y = collectionView!.contentOffset.y + collectionView!.contentInset.top
-    heroReplaceViewController(with: next)
-  }
   
-  func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-    return CGSize(width: view.frame.width / 3, height: 52*3)
+  override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    let vc = viewController(forStoryboardName: "ImageViewer") as! ImageViewController
+    vc.selectedIndex = indexPath
+    vc.view.backgroundColor = UIColor.white
+    vc.collectionView!.backgroundColor = UIColor.white
+    navigationController!.pushViewController(vc, animated: true)
   }
 }
 

@@ -101,3 +101,26 @@ public extension UIView{
     }
   }
 }
+
+
+func delay(_ time:Double, execute: @escaping ()->Void){
+  DispatchQueue.main.asyncAfter(deadline: .now() + time, execute: execute)
+}
+
+extension UIViewController{
+  @IBInspectable public var timeStay:TimeInterval  {
+    get {
+      return 0
+    }
+    
+    set {
+      delay(newValue) { 
+        self.performSegue(withIdentifier: "next", sender: nil)
+      }
+    }
+  }
+  
+  func viewController(forStoryboardName:String) -> UIViewController{
+    return UIStoryboard(name: forStoryboardName, bundle: nil).instantiateInitialViewController()!
+  }
+}
