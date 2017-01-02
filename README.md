@@ -20,6 +20,7 @@ Supercharged transition engine for iOS. Build your custom view transitions with 
 
 ### Features
 <img src="https://cdn.rawgit.com/lkzhao/Hero/master/Resources/basic.svg"/>
+<img src="https://cdn.rawgit.com/lkzhao/Hero/master/Resources/effects.svg"/>
 
 #### With Hero, you can easily mix & match these effects to build your own custom transition.
 
