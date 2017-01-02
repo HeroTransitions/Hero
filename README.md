@@ -10,47 +10,30 @@ Supercharged transition engine for iOS. Build your custom view transitions with 
 
 #####NOTE: Hero won't work on iPhone 7 Simulators due to a [bug](https://forums.developer.apple.com/thread/63438) by Apple. Try using other simulators or a real device when working with Hero.
 
+
 ## Video Demo
 **[View here](https://youtu.be/-6L79or6Iq8)**
 
 ## Usage Guide
 **[Read here](https://github.com/lkzhao/Hero/wiki/Usage-Guide)**
 
-## What is Hero?
+## Introduction
 
-Hero is a library for building iOS view controller transitions. It provides extensions and an API layer on top of the UIKit's cumbersome transition APIs. Making custom transitions a easy task for developers.
+**Hero** is a library for building iOS view controller transitions. It provides an layer on top of the UIKit's cumbersome transition APIs. Making custom transitions a easy task for developers.
 
-At its core, Hero provides a automatic transition similar to Keynote's `Magic Move`. It does this by checking the `heroID` property on both view controllers' subviews. Every matched view pairs are then automatically transitioned from it's old state to it's new state.
+### Features
+<img src="https://cdn.rawgit.com/lkzhao/Hero/master/Resources/basic.svg"/>
 
-Hero is also able to construct animations for other views that are not matched. It is super easy to define those animations via the `heroModifiers` property. and Hero will run these animations alongside the `Magic Move` animations. Not only that, Hero is able to handle everything interactively, too.
+#### With Hero, you can easily mix & match these effects to build your own custom transition.
+
+At its core, Hero provides a automatic transition similar to Keynote's `Magic Move`. It checks the `heroID` property on all source and destinations views. Every matched view pairs are then automatically transitioned from it's old state to it's new state.
+
+Hero is also able to construct animations for unmatched views. It is easy to define these animations via the `heroModifiers` property. Hero will run these animations alongside the `Magic Move` animations. All of these can by interactive, too.
 
 Hero does all of these without any assumption about how the view is built or structured. It will not modify any of your views' states other than hidding them during the animation. This means that it works great with autolayout, programmatic layout, UICollectionView, UITableView, UINavigationController etc... 
 
-## Tl;dr: This is what Hero does:
-* Automatically transition matched views between view controllers
-* Built in animations for unmatched views:
-  * Fade
-  * Scale
-  * Rotate
-  * Translate
-  * Position
-  * Bounds
-* Attributes to tweak animation properties for each views independently
-  * Easing (Timing Functions)
-  * Spring Damping
-  * Spring Stiffness
-* Works with
-  * Autolayout
-  * Programmatic Layout
-  * UINavigationController
-  * UITableView
-  * UICollectionView (without messing with UICollectionViewLayout)
-* Apply `cascade` effects to these animations
-* Super slim API for making all of these interactive!
+## A Simple Tutorial
 
-## Quick Guide
-
-### Basic HeroID Tutorial
 <img src="https://github.com/lkzhao/Hero/blob/master/Resources/basic.gif?raw=true" width="362"/>
 
 #### To achieve the transition above (3 steps)
@@ -79,8 +62,6 @@ Hero does all of these without any assumption about how the view is built or str
   ```swift
   viewController2.isHeroEnabled = true
   ```
-
-#### More to come
 
 For detailed explaination about how **Hero ID**, **Hero Modifiers**, and supported animations, read the **[Usage Guide](https://github.com/lkzhao/Hero/wiki/Usage-Guide)**, or download the **[Source Code](http://github.com/lkzhao/Hero/zipball/master/)**.
 
