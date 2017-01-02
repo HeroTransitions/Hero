@@ -24,47 +24,21 @@ Hero can also construct animations for unmatched views. It is easy to define the
 
 Hero does not make any assumption about how the view is built or structured. It will not modify any of your views' states other than hidding them during the animation. This means that it works with autolayout, programmatic layout, UICollectionView, UITableView, UINavigationController etc... 
 
-### This library is completely new and under heavy development. Might not be stable for production use, but there will be more things to come.
 ##### NOTE: Hero won't work on iPhone 7 Simulators due to a [bug](https://forums.developer.apple.com/thread/63438) by Apple. Try using other simulators or a real device when working with Hero.
 
 ## Video Demo (Example Project)
 **[View here](https://youtu.be/-6L79or6Iq8)**
 
-## Usage Guide
-**[Read here](https://github.com/lkzhao/Hero/wiki/Usage-Guide)**
+## Usage
 
-## A Simple Tutorial
+<img src="https://cdn.rawgit.com/lkzhao/Hero/master/Resources/simpleTutorial.svg"/>
+<img src="https://cdn.rawgit.com/lkzhao/Hero/master/Resources/scaleTutorial.svg"/>
 
-<img src="https://github.com/lkzhao/Hero/blob/master/Resources/basic.gif?raw=true" width="362"/>
+For detailed explaination about how **Hero ID**, **Hero Modifiers**, and supported animations:
 
-#### To achieve the transition above (3 steps)
-1. **Setup the view controllers and construct the view hierarchy**
+Read **[detailed usage guide](https://github.com/lkzhao/Hero/wiki/Usage-Guide)**
 
-  <img src="https://github.com/lkzhao/Hero/blob/master/Resources/basic.png?raw=true" width="548"/>
-
-2. **Using either the StoryBoard's Identity Inspector or by code, set views' heroID**
-
-  <img src="https://github.com/lkzhao/Hero/blob/master/Resources/blue@2x.png?raw=true" width="267"/>
-
-  or
-
-  ```swift
-  blueView.heroID = "blue"
-  ```
-  
-  **Remember to set `heroID` to both the source view and the destination view**
-
-3. **Enable Hero Transition to the destination view controller (ViewController2) and UINavigationController if you are using a UINavigationController stack**
-
-  <img src="https://github.com/lkzhao/Hero/blob/master/Resources/ViewController@2x.png?raw=true" width="267"/>
-  
-  or
-  
-  ```swift
-  viewController2.isHeroEnabled = true
-  ```
-
-For detailed explaination about how **Hero ID**, **Hero Modifiers**, and supported animations, read the **[Usage Guide](https://github.com/lkzhao/Hero/wiki/Usage-Guide)**, or download the **[Source Code](http://github.com/lkzhao/Hero/zipball/master/)**.
+##### This library is completely new and under heavy development. Might not be stable for production use, but there will be more things to come.
 
 ## License
 
