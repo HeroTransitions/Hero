@@ -70,7 +70,7 @@ Hero does all of these without any assumption about how the view is built or str
   
   **Remember to set `heroID` to both the source view and the destination view**
 
-3. **Enable Hero Transition to the destination view controller (ViewController2)**
+3. **Enable Hero Transition to the destination view controller (ViewController2) and UINavigationController if you are using a UINavigationController stack**
 
   <img src="https://github.com/lkzhao/Hero/blob/master/Resources/ViewController@2x.png?raw=true" width="267"/>
   
