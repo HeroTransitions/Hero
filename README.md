@@ -8,12 +8,6 @@ Supercharged transition engine for iOS. Build your custom view transitions with 
 ![iOS 8.0+](https://img.shields.io/badge/iOS-8.0%2B-blue.svg)
 ![Swift 3.0+](https://img.shields.io/badge/Swift-3.0%2B-orange.svg)
 
-## Video Demo
-**[View here](https://youtu.be/-6L79or6Iq8)**
-
-## Usage Guide
-**[Read here](https://github.com/lkzhao/Hero/wiki/Usage-Guide)**
-
 ## Introduction
 
 **Hero** is a library for building iOS view controller transitions. It provides an layer on top of the UIKit's cumbersome transition APIs. Making custom transitions an easy task for developers.
@@ -32,6 +26,12 @@ Hero does not make any assumption about how the view is built or structured. It 
 
 ### This library is completely new and under heavy development. Might not be stable for production use, but there will be more things to come.
 ##### NOTE: Hero won't work on iPhone 7 Simulators due to a [bug](https://forums.developer.apple.com/thread/63438) by Apple. Try using other simulators or a real device when working with Hero.
+
+## Video Demo (Example Project)
+**[View here](https://youtu.be/-6L79or6Iq8)**
+
+## Usage Guide
+**[Read here](https://github.com/lkzhao/Hero/wiki/Usage-Guide)**
 
 ## A Simple Tutorial
 
