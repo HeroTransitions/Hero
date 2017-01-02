@@ -158,13 +158,6 @@
                                 repeatCount="indefinite"
                                 fill="freeze" />
                             <animate 
-                                attributeName="height" 
-                                values="18; 36; 36; 18; 18" 
-                                dur="1s"
-                                begin="0.25s"
-                                repeatCount="indefinite"
-                                fill="freeze" />
-                            <animate 
                                 attributeName="width" 
                                 values="18; 36; 36; 18; 18" 
                                 dur="1s"
