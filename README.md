@@ -34,7 +34,7 @@ Hero does not make any assumption about how the view is built or structured. It 
 <img src="https://cdn.rawgit.com/lkzhao/Hero/master/Resources/simpleTutorial.svg"/>
 <img src="https://cdn.rawgit.com/lkzhao/Hero/master/Resources/scaleTutorial.svg"/>
 
-For detailed explaination about how **Hero ID**, **Hero Modifiers**, and supported animations:
+For detailed explaination about **Hero ID**, **Hero Modifiers**, and supported animations:
 
 #### Read **[detailed usage guide](https://github.com/lkzhao/Hero/wiki/Usage-Guide)**
 
