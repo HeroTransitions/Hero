@@ -13,7 +13,7 @@
             <polygon id="rect3006" fill="#FC3A5E" transform="translate(693.304281, 144.084773) scale(-1, 1) translate(-693.304281, -144.084773) " points="684.483934 151.556831 702.124624 169.169546 709.608563 161.697486 691.967864 144.084773 709.608556 126.472067 702.124623 119 684.483935 136.612716 677 144.084771"></polygon>
             <g id="Storyboard" transform="translate(317.000000, 0.000000)">
                 <rect id="Rectangle-5" fill="#99A9BA" x="0" y="0" width="331" height="270" rx="9"></rect>
-                <text id="self.isHeroEnabled-=" font-family="HelveticaNeue, Helvetica Neue" font-size="12" font-weight="normal" line-spacing="16">
+                <text xml:space="preserve" id="self.isHeroEnabled-=" font-family="HelveticaNeue, Helvetica Neue" font-size="12" font-weight="normal" line-spacing="16">
                     <tspan x="154" y="55" fill="#FFFFFF">self.</tspan>
                     <tspan x="175.996" y="55" fill="#FC3A5E">isHeroEnabled</tspan>
                     <tspan x="254.44" y="55" fill="#FFFFFF"> = </tspan>
@@ -33,7 +33,7 @@
                     <tspan x="154" y="156" line-spacing="17" fill="#FFFFFF">  </tspan>
                     <tspan x="160.672" y="156" font-family="HelveticaNeue-Bold, Helvetica Neue" font-weight="bold" line-spacing="17" fill="#FFFFFF">“cascade(0.02)”</tspan>
                     <tspan x="154" y="173" line-spacing="17" fill="#FFFFFF">for cell in redCells{</tspan>
-                    <tspan x="160" y="190" line-spacing="17" fill="#FFFFFF">cell.</tspan>
+                    <tspan x="154" y="190" line-spacing="17" fill="#FFFFFF">  cell.</tspan>
                     <tspan x="182.224" y="190" line-spacing="17" fill="#FC3A5E">heroModifiers</tspan>
                     <tspan x="256" y="190" line-spacing="17" fill="#FFFFFF"> = </tspan>
                     <tspan x="154" y="207" line-spacing="17" fill="#FFFFFF">    </tspan>
@@ -41,7 +41,7 @@
                     <tspan x="154" y="224" line-spacing="17" fill="#FFFFFF">}</tspan>
                     <tspan x="157.996" y="224" font-family="HelveticaNeue-Bold, Helvetica Neue" font-weight="bold" line-spacing="17" fill="#FFFFFF"></tspan>
                 </text>
-                <text id="View-Controller-2" font-family="HelveticaNeue-Bold, Helvetica Neue" font-size="12" font-weight="bold" fill="#FFFFFF">
+                <text xml:space="preserve" id="View-Controller-2" font-family="HelveticaNeue-Bold, Helvetica Neue" font-size="12" font-weight="bold" fill="#FFFFFF">
                     <tspan x="102.016" y="27">View Controller 2</tspan>
                 </text>
                 <g id="screen2" transform="translate(19.000000, 45.000000)">
@@ -70,13 +70,13 @@
                     <rect id="Rectangle-3" fill="#FFFFFF" x="0" y="0" width="120" height="208" rx="10"></rect>
                     <rect id="Rectangle-6" fill="#D8D8D8" x="42" y="86" width="36" height="36" rx="18"></rect>
                 </g>
-                <text id="greyView.heroID-=-“b" font-family="HelveticaNeue, Helvetica Neue" font-size="12" font-weight="normal" line-spacing="17">
+                <text xml:space="preserve" id="greyView.heroID-=-“b" font-family="HelveticaNeue, Helvetica Neue" font-size="12" font-weight="normal" line-spacing="17">
                     <tspan x="152" y="55" fill="#FFFFFF">greyView.</tspan>
                     <tspan x="204.2" y="55" fill="#FC3A5E">heroID</tspan>
                     <tspan x="239.756" y="55" fill="#FFFFFF"> = </tspan>
                     <tspan x="253.628" y="55" font-family="HelveticaNeue-Bold, Helvetica Neue" font-weight="bold" fill="#FFFFFF">“bar”</tspan>
                 </text>
-                <text id="View-Controller-1" font-family="HelveticaNeue-Bold, Helvetica Neue" font-size="12" font-weight="bold" fill="#FFFFFF">
+                <text xml:space="preserve" id="View-Controller-1" font-family="HelveticaNeue-Bold, Helvetica Neue" font-size="12" font-weight="bold" fill="#FFFFFF">
                     <tspan x="102.016" y="27">View Controller 1</tspan>
                 </text>
             </g>
