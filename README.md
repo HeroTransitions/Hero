@@ -27,9 +27,12 @@ Hero does not make any assumption about how the view is built or structured. It 
 ##### NOTE: Hero won't work on iPhone 7 Simulators due to a [bug](https://forums.developer.apple.com/thread/63438) by Apple. Try using other simulators or a real device when working with Hero.
 
 ## Video Demo (Example Project)
-**[View here](https://youtu.be/-6L79or6Iq8)**
+There are many examples shown in the **HeroExamples** project under the **Examples** folder. Clone or download the project to run it yourself. You can also view the **[video overview here](https://youtu.be/-6L79or6Iq8)**.
 
-## Usage Examples
+## Installation & Usage Guide
+Hero is avaliable on Cocoapods. See the **[usage guide](https://github.com/lkzhao/Hero/wiki/Usage-Guide)** for instructions.
+
+## Simple Usage Examples
 
 <img src="https://cdn.rawgit.com/lkzhao/Hero/e6c77629fcf2ea1c9b8526f74d250a2fea68ae5c/Resources/simple.svg"/>
 <img src="https://cdn.rawgit.com/lkzhao/Hero/e6c77629fcf2ea1c9b8526f74d250a2fea68ae5c/Resources/advance.svg"/>
@@ -42,7 +45,7 @@ You can do these in the storyboard too!
 
 For detailed explaination about **Hero ID**, **Hero Modifiers**, and supported animations:
 
-#### Read the **[detailed usage guide](https://github.com/lkzhao/Hero/wiki/Usage-Guide)**
+#### Read the **[usage guide](https://github.com/lkzhao/Hero/wiki/Usage-Guide)**
 
 This library is completely new and under heavy development. Might not be stable for production use, but there will be more things to come.
 
