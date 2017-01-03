@@ -10,7 +10,7 @@ Supercharged transition engine for iOS. Build your custom view transitions with 
 
 ## Introduction
 
-**Hero** is a library for building iOS view controller transitions. It provides an layer on top of the UIKit's cumbersome transition APIs. Making custom transitions an easy task for developers.
+**Hero** is a library for building iOS view controller transitions. It provides a layer on top of the UIKit's cumbersome transition APIs. Making custom transitions an easy task for developers.
 
 ### Features
 <img src="https://cdn.rawgit.com/lkzhao/Hero/master/Resources/basic.svg"/>
@@ -29,7 +29,7 @@ Hero does not make any assumption about how the view is built or structured. It 
 ## Video Demo (Example Project)
 **[View here](https://youtu.be/-6L79or6Iq8)**
 
-## Usage
+## Usage Examples
 
 <img src="https://cdn.rawgit.com/lkzhao/Hero/master/Resources/simple.svg"/>
 <img src="https://cdn.rawgit.com/lkzhao/Hero/master/Resources/advance.svg"/>
