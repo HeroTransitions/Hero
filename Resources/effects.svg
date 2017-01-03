@@ -17,7 +17,12 @@
                     <circle id="Oval" fill="#37D0AB" cx="32" cy="118" r="4"></circle>
                     <g id="Group-2" transform="translate(4.000000, 14.000000)">
                         <rect id="Rectangle-3" fill="#FFFFFF" x="0" y="0" width="56" height="98" rx="6"></rect>
-                        <path d="M22.3624221,61.191233 C15.8624221,52.191233 15,36 15,36 C15,36 15.7248442,52.382466 22.3624221,61.191233 C29,70 41,72 41,72 C41,72 28.8624221,70.191233 22.3624221,61.191233 Z" id="arcPath" stroke="#17a08B" stroke-linecap="round"></path>
+                        <path d="M22.3624221,61.191233 
+                                C15.8624221,52.191233 15,36 15,36 
+                                C15,36 15.7248442,52.382466 22.3624221,61.191233 
+                                C29,70 41,72 41,72 
+                                C41,72 28.8624221,70.191233 22.3624221,61.191233 Z" 
+                              id="arcPath" stroke="#17a08B" stroke-linecap="round"></path>
                         <rect id="Rectangle-2" fill="#37D0AB" x="-8.5" y="-8.5" width="17" height="17" rx="8.5">
                             <animateMotion dur="1s" fill="freeze" repeatCount="indefinite">
                               <mpath xlink:href="#arcPath" />
@@ -136,12 +141,16 @@
                                 values="9;13;13;9;9" 
                                 dur="1s"
                                 begin="0.75s"
+                                calcMode="spline"
+                                keySplines="0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;"
                                 repeatCount="indefinite"
                                 fill="freeze" />
                             <animate 
                                 attributeName="cy" 
                                 values="14;84;84;14;14" 
                                 dur="1s"
+                                calcMode="spline"
+                                keySplines="0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;"
                                 begin="0.75s"
                                 repeatCount="indefinite"
                                 fill="freeze" />
@@ -149,6 +158,8 @@
                                 attributeName="r" 
                                 values="5; 9; 9; 5; 5" 
                                 dur="1s"
+                                calcMode="spline"
+                                keySplines="0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;"
                                 begin="0.75s"
                                 repeatCount="indefinite"
                                 fill="freeze" />
@@ -159,6 +170,8 @@
                                 attributeName="cx" 
                                 values="25;31;31;25;25" 
                                 dur="1s"
+                                calcMode="spline"
+                                keySplines="0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;"
                                 begin="0.8s"
                                 repeatCount="indefinite"
                                 fill="freeze" />
@@ -166,6 +179,8 @@
                                 attributeName="cy" 
                                 values="20;79;79;20;20" 
                                 dur="1s"
+                                calcMode="spline"
+                                keySplines="0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;"
                                 begin="0.8s"
                                 repeatCount="indefinite"
                                 fill="freeze" />
@@ -176,6 +191,8 @@
                                 attributeName="cx" 
                                 values="43;47;47;43;43" 
                                 dur="1s"
+                                calcMode="spline"
+                                keySplines="0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;"
                                 begin="0.85s"
                                 repeatCount="indefinite"
                                 fill="freeze" />
@@ -183,6 +200,8 @@
                                 attributeName="cy" 
                                 values="28;76;76;28;28" 
                                 dur="1s"
+                                calcMode="spline"
+                                keySplines="0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;"
                                 begin="0.85s"
                                 repeatCount="indefinite"
                                 fill="freeze" />
@@ -190,6 +209,8 @@
                                 attributeName="r" 
                                 values="8; 5; 5; 8; 8" 
                                 dur="1s"
+                                calcMode="spline"
+                                keySplines="0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;"
                                 begin="0.85s"
                                 repeatCount="indefinite"
                                 fill="freeze" />

@@ -107,29 +107,39 @@
                             attributeName="rx" 
                             values="8;0;0;8;8" 
                             dur="1s"
+                            calcMode="spline"
+                            keySplines="0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;"
                             repeatCount="indefinite"
                             fill="freeze" />
                         <animate 
                             attributeName="x" 
                             values="22;0;0;22;22" 
+                            calcMode="spline"
+                            keySplines="0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;"
                             dur="1s"
                             repeatCount="indefinite"
                             fill="freeze" />
                         <animate 
                             attributeName="y" 
                             values="37;0;0;37;37" 
+                            calcMode="spline"
+                            keySplines="0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;"
                             dur="1s"
                             repeatCount="indefinite"
                             fill="freeze" />
                         <animate 
                             attributeName="width" 
                             values="76.7091294;120;120;76.7091294;76.7091294" 
+                            calcMode="spline"
+                            keySplines="0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;"
                             dur="1s"
                             repeatCount="indefinite"
                             fill="freeze" />
                         <animate 
                             attributeName="height" 
                             values="76.7091294;120;120;76.7091294;76.7091294" 
+                            calcMode="spline"
+                            keySplines="0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;"
                             dur="1s"
                             repeatCount="indefinite"
                             fill="freeze" />
@@ -139,24 +149,36 @@
                             attributeName="rx" 
                             values="18;0;0;18;18" 
                             dur="1s"
+                            begin="0.05s"
+                            calcMode="spline"
+                            keySplines="0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;"
                             repeatCount="indefinite"
                             fill="freeze" />
                         <animate 
                             attributeName="x" 
                             values="42;0;0;42;42" 
                             dur="1s"
+                            begin="0.05s"
+                            calcMode="spline"
+                            keySplines="0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;"
                             repeatCount="indefinite"
                             fill="freeze" />
                         <animate 
                             attributeName="y" 
                             values="153;173;173;153;153" 
                             dur="1s"
+                            begin="0.05s"
+                            calcMode="spline"
+                            keySplines="0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;"
                             repeatCount="indefinite"
                             fill="freeze" />
                         <animate 
                             attributeName="width" 
                             values="36;120;120;36;36" 
                             dur="1s"
+                            begin="0.05s"
+                            calcMode="spline"
+                            keySplines="0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;"
                             repeatCount="indefinite"
                             fill="freeze" />
                     </rect>
