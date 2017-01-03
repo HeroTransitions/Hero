@@ -13,8 +13,8 @@ Supercharged transition engine for iOS. Build your custom view transitions with 
 **Hero** is a library for building iOS view controller transitions. It provides a layer on top of the UIKit's cumbersome transition APIs. Making custom transitions an easy task for developers.
 
 ### Features
-<img src="https://cdn.rawgit.com/lkzhao/Hero/master/Resources/basic.svg"/>
-<img src="https://cdn.rawgit.com/lkzhao/Hero/master/Resources/effects.svg"/>
+<img src="https://cdn.rawgit.com/lkzhao/Hero/1cfbdcae7b292262710d9d5508eaf3d62705c339/Resources/basic.svg"/>
+<img src="https://cdn.rawgit.com/lkzhao/Hero/1cfbdcae7b292262710d9d5508eaf3d62705c339/Resources/effects.svg"/>
 
 #### With Hero, you can easily mix & match these effects to build your own custom transition.
 
@@ -31,8 +31,8 @@ Hero does not make any assumption about how the view is built or structured. It 
 
 ## Usage Examples
 
-<img src="https://cdn.rawgit.com/lkzhao/Hero/master/Resources/simple.svg"/>
-<img src="https://cdn.rawgit.com/lkzhao/Hero/master/Resources/advance.svg"/>
+<img src="https://cdn.rawgit.com/lkzhao/Hero/1cfbdcae7b292262710d9d5508eaf3d62705c339/Resources/simple.svg"/>
+<img src="https://cdn.rawgit.com/lkzhao/Hero/1cfbdcae7b292262710d9d5508eaf3d62705c339/Resources/advance.svg"/>
 
 You can do these in the storyboard too!
 
