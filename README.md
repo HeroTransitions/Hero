@@ -31,8 +31,14 @@ Hero does not make any assumption about how the view is built or structured. It 
 
 ## Usage
 
-<img src="https://cdn.rawgit.com/lkzhao/Hero/master/Resources/simpleTutorial.svg"/>
-<img src="https://cdn.rawgit.com/lkzhao/Hero/master/Resources/scaleTutorial.svg"/>
+<img src="https://cdn.rawgit.com/lkzhao/Hero/master/Resources/simple.svg"/>
+<img src="https://cdn.rawgit.com/lkzhao/Hero/master/Resources/advance.svg"/>
+
+You can do these in the storyboard too!
+
+<img src="https://cdn.rawgit.com/lkzhao/Hero/master/Resources/storyboardViewController.png" width="267px"/>
+
+<img src="https://cdn.rawgit.com/lkzhao/Hero/master/Resources/storyboardView.png" width="267px"/>
 
 For detailed explaination about **Hero ID**, **Hero Modifiers**, and supported animations:
 
