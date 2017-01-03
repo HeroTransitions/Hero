@@ -33,7 +33,7 @@
                     <tspan x="154" y="156" line-spacing="17" fill="#FFFFFF">  </tspan>
                     <tspan x="160.672" y="156" font-family="HelveticaNeue-Bold, Helvetica Neue" font-weight="bold" line-spacing="17" fill="#FFFFFF">“cascade(0.02)”</tspan>
                     <tspan x="154" y="173" line-spacing="17" fill="#FFFFFF">for cell in redCells{</tspan>
-                    <tspan x="154" y="190" line-spacing="17" fill="#FFFFFF">  cell.</tspan>
+                    <tspan x="160" y="190" line-spacing="17" fill="#FFFFFF">cell.</tspan>
                     <tspan x="182.224" y="190" line-spacing="17" fill="#FC3A5E">heroModifiers</tspan>
                     <tspan x="256" y="190" line-spacing="17" fill="#FFFFFF"> = </tspan>
                     <tspan x="154" y="207" line-spacing="17" fill="#FFFFFF">    </tspan>
