@@ -42,7 +42,7 @@ You can do these in the storyboard too!
 
 For detailed explaination about **Hero ID**, **Hero Modifiers**, and supported animations:
 
-#### Read **[detailed usage guide](https://github.com/lkzhao/Hero/wiki/Usage-Guide)**
+#### Read the **[detailed usage guide](https://github.com/lkzhao/Hero/wiki/Usage-Guide)**
 
 This library is completely new and under heavy development. Might not be stable for production use, but there will be more things to come.
 
