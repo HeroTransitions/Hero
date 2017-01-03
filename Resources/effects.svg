@@ -142,7 +142,7 @@
                                 dur="1s"
                                 begin="0.75s"
                                 calcMode="spline"
-                                keySplines="0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;"
+                                keySplines="0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1"
                                 repeatCount="indefinite"
                                 fill="freeze" />
                             <animate 
@@ -150,7 +150,7 @@
                                 values="14;84;84;14;14" 
                                 dur="1s"
                                 calcMode="spline"
-                                keySplines="0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;"
+                                keySplines="0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1"
                                 begin="0.75s"
                                 repeatCount="indefinite"
                                 fill="freeze" />
@@ -159,7 +159,7 @@
                                 values="5; 9; 9; 5; 5" 
                                 dur="1s"
                                 calcMode="spline"
-                                keySplines="0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;"
+                                keySplines="0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1"
                                 begin="0.75s"
                                 repeatCount="indefinite"
                                 fill="freeze" />
@@ -171,7 +171,7 @@
                                 values="25;31;31;25;25" 
                                 dur="1s"
                                 calcMode="spline"
-                                keySplines="0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;"
+                                keySplines="0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1"
                                 begin="0.8s"
                                 repeatCount="indefinite"
                                 fill="freeze" />
@@ -180,7 +180,7 @@
                                 values="20;79;79;20;20" 
                                 dur="1s"
                                 calcMode="spline"
-                                keySplines="0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;"
+                                keySplines="0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1"
                                 begin="0.8s"
                                 repeatCount="indefinite"
                                 fill="freeze" />
@@ -192,7 +192,7 @@
                                 values="43;47;47;43;43" 
                                 dur="1s"
                                 calcMode="spline"
-                                keySplines="0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;"
+                                keySplines="0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1"
                                 begin="0.85s"
                                 repeatCount="indefinite"
                                 fill="freeze" />
@@ -201,7 +201,7 @@
                                 values="28;76;76;28;28" 
                                 dur="1s"
                                 calcMode="spline"
-                                keySplines="0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;"
+                                keySplines="0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1"
                                 begin="0.85s"
                                 repeatCount="indefinite"
                                 fill="freeze" />
@@ -210,7 +210,7 @@
                                 values="8; 5; 5; 8; 8" 
                                 dur="1s"
                                 calcMode="spline"
-                                keySplines="0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;"
+                                keySplines="0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1"
                                 begin="0.85s"
                                 repeatCount="indefinite"
                                 fill="freeze" />
