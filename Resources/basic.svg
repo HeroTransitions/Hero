@@ -72,7 +72,7 @@
                         dur="1s"
                         repeatCount="indefinite"
                         calcMode="spline"
-                        keySplines="0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;"
+                        keySplines="0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1"
                         fill="freeze" />
                     </path>
                     <path id="matchButton" fill="#C9C9C9">
@@ -130,7 +130,7 @@
                                 L20,80 Z;" 
                         dur="1s"
                         calcMode="spline"
-                        keySplines="0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;"
+                        keySplines="0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1"
                         repeatCount="indefinite"
                         fill="freeze" />
                     </path>
@@ -152,7 +152,7 @@
                                 values="19;10;10;19;19" 
                                 dur="1s"
                                 calcMode="spline"
-                                keySplines="0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;"
+                                keySplines="0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1"
                                 begin="0.25s"
                                 repeatCount="indefinite"
                                 fill="freeze" />
@@ -161,7 +161,7 @@
                                 values="48;39;39;48;48" 
                                 dur="1s"
                                 calcMode="spline"
-                                keySplines="0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;"
+                                keySplines="0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1"
                                 begin="0.25s"
                                 repeatCount="indefinite"
                                 fill="freeze" />
@@ -170,7 +170,7 @@
                                 values="18; 36; 36; 18; 18" 
                                 dur="1s"
                                 calcMode="spline"
-                                keySplines="0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;"
+                                keySplines="0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1"
                                 begin="0.25s"
                                 repeatCount="indefinite"
                                 fill="freeze" />
@@ -179,7 +179,7 @@
                                 values="18; 36; 36; 18; 18" 
                                 dur="1s"
                                 calcMode="spline"
-                                keySplines="0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;"
+                                keySplines="0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1"
                                 begin="0.25s"
                                 repeatCount="indefinite"
                                 fill="freeze" />
@@ -188,7 +188,7 @@
                                 values="white; #3A97FC; #3A97FC; white; white" 
                                 dur="1s"
                                 calcMode="spline"
-                                keySplines="0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;"
+                                keySplines="0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1"
                                 begin="0.25s"
                                 repeatCount="indefinite"
                                 fill="freeze" />
@@ -199,7 +199,7 @@
                                 values="18; 36; 36; 18; 18" 
                                 dur="1s"
                                 calcMode="spline"
-                                keySplines="0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;"
+                                keySplines="0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1"
                                 begin="0.25s"
                                 repeatCount="indefinite"
                                 fill="freeze" />
@@ -208,7 +208,7 @@
                                 values="19;10;10;19;19" 
                                 dur="1s"
                                 calcMode="spline"
-                                keySplines="0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;"
+                                keySplines="0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1"
                                 begin="0.25s"
                                 repeatCount="indefinite"
                                 fill="freeze" />
@@ -217,7 +217,7 @@
                                 values="38;21;21;38;38" 
                                 dur="1s"
                                 calcMode="spline"
-                                keySplines="0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;"
+                                keySplines="0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1"
                                 begin="0.25s"
                                 repeatCount="indefinite"
                                 fill="freeze" />
@@ -240,7 +240,7 @@
                                 values="-50; 10; 10; -50; -50;" 
                                 dur="1s"
                                 calcMode="spline"
-                                keySplines="0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;"
+                                keySplines="0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1"
                                 begin="0.5s"
                                 repeatCount="indefinite"
                                 fill="freeze" />
@@ -251,7 +251,7 @@
                                 values="18; 36; 36; 18; 18" 
                                 dur="1s"
                                 calcMode="spline"
-                                keySplines="0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;"
+                                keySplines="0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1"
                                 begin="0.5s"
                                 repeatCount="indefinite"
                                 fill="freeze" />
@@ -260,7 +260,7 @@
                                 values="19;10;10;19;19" 
                                 dur="1s"
                                 calcMode="spline"
-                                keySplines="0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;"
+                                keySplines="0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1"
                                 begin="0.5s"
                                 repeatCount="indefinite"
                                 fill="freeze" />
@@ -269,7 +269,7 @@
                                 values="38;21;21;38;38" 
                                 dur="1s"
                                 calcMode="spline"
-                                keySplines="0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;"
+                                keySplines="0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1"
                                 begin="0.5s"
                                 repeatCount="indefinite"
                                 fill="freeze" />
@@ -292,7 +292,7 @@
                                 values="-50; 10; 10; -50; -50;" 
                                 dur="1s"
                                 calcMode="spline"
-                                keySplines="0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;"
+                                keySplines="0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1"
                                 begin="0.75s"
                                 repeatCount="indefinite"
                                 fill="freeze" />
@@ -303,7 +303,7 @@
                                 dur="1s"
                                 begin="0.75s"
                                 calcMode="spline"
-                                keySplines="0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;"
+                                keySplines="0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1"
                                 repeatCount="indefinite"
                                 fill="freeze" 
                               />
@@ -314,7 +314,7 @@
                                 values="18; 36; 36; 18; 18" 
                                 dur="1s"
                                 calcMode="spline"
-                                keySplines="0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;"
+                                keySplines="0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1"
                                 begin="0.75s"
                                 repeatCount="indefinite"
                                 fill="freeze" />
@@ -323,7 +323,7 @@
                                 values="19;10;10;19;19" 
                                 dur="1s"
                                 calcMode="spline"
-                                keySplines="0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;"
+                                keySplines="0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1"
                                 begin="0.75s"
                                 repeatCount="indefinite"
                                 fill="freeze" />
@@ -332,7 +332,7 @@
                                 values="38;21;21;38;38" 
                                 dur="1s"
                                 calcMode="spline"
-                                keySplines="0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;"
+                                keySplines="0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1"
                                 begin="0.75s"
                                 repeatCount="indefinite"
                                 fill="freeze" />
