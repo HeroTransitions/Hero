@@ -31,8 +31,8 @@ The following videos give you a general ideas of what you can do with **Hero**
 3. Video overview of the usage with [Injection App](http://johnholdsworth.com/injection.html) to provide dynamic modifications in realtime. Changing **HeroID** or **HeroModifiers** without recompiling!
 
 <a href="https://youtu.be/-6L79or6Iq8"><img src="https://github.com/lkzhao/Hero/blob/master/Resources/overview.png?raw=true" height="300"/></a>
-<a href="https://youtu.be/NFhA6qZdunA"><img src="https://github.com/lkzhao/Hero/blob/master/Resources/debugger.png?raw=true" height="300"/>
-<a href="https://youtu.be/m8eeO_GETeA"><img src="https://github.com/lkzhao/Hero/blob/master/Resources/liveInjection.png?raw=true" height="300"/>
+<a href="https://youtu.be/NFhA6qZdunA"><img src="https://github.com/lkzhao/Hero/blob/master/Resources/debugger.png?raw=true" height="300"/></a>
+<a href="https://youtu.be/m8eeO_GETeA"><img src="https://github.com/lkzhao/Hero/blob/master/Resources/liveInjection.png?raw=true" height="300"/></a>
 
 ## Installation & Usage Guide
 Hero is available on Carthage & Cocoapods. See the **[usage guide](https://github.com/lkzhao/Hero/wiki/Usage-Guide)** for instructions.
