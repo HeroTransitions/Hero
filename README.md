@@ -50,6 +50,10 @@ For detailed explanation about **Hero ID**, **Hero Modifiers**, and supported an
 
 This library is completely new and under heavy development. Might not be stable for production use, but there will be more things to come.
 
+## Contribute
+
+We welcome any contributions. Please read the [Contribution Guide](https://github.com/lkzhao/Hero/wiki/Contribution-Guide).
+
 ## License
 
 Hero is available under the MIT license. See the LICENSE file for more info.
