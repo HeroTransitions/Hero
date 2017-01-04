@@ -31,7 +31,7 @@ Hero does not make any assumption about how the view is built or structured. It 
 There are many examples shown in the **HeroExamples** project under the **Examples** folder. Clone or download the project to run it yourself. You can also view the **[video overview here](https://youtu.be/-6L79or6Iq8)**.
 
 ## Installation & Usage Guide
-Hero is avaliable on Carthage & Cocoapods. See the **[usage guide](https://github.com/lkzhao/Hero/wiki/Usage-Guide)** for instructions.
+Hero is available on Carthage & Cocoapods. See the **[usage guide](https://github.com/lkzhao/Hero/wiki/Usage-Guide)** for instructions.
 
 ## Simple Usage Examples
 
@@ -44,7 +44,7 @@ You can do these in the storyboard too!
 
 <img src="https://cdn.rawgit.com/lkzhao/Hero/master/Resources/storyboardView.png" width="267px"/>
 
-For detailed explaination about **Hero ID**, **Hero Modifiers**, and supported animations:
+For detailed explanation about **Hero ID**, **Hero Modifiers**, and supported animations:
 
 #### Read the **[usage guide](https://github.com/lkzhao/Hero/wiki/Usage-Guide)**
 
