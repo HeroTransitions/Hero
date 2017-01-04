@@ -22,25 +22,25 @@
 
 import UIKit
 
-public class ViewToViewPreprocessor:HeroPreprocessor {
-  public func process(context:HeroContext, fromViews:[UIView], toViews:[UIView]) {
-    for tv in toViews{
-      guard let id = tv.heroID, let fv = context.sourceView(for: id) else { continue }
-      context[tv, "matchedHeroID"] = []
-      context[tv, "sourceID"] = [id]
-      if let zPos = context[tv, "zPositionIfMatched"]?.getCGFloat(0){
-        context[tv, "zPosition"] = ["\(zPos)"]
-      }
-      
-      context[fv] = context[tv] as HeroModifiers?
-      
-      context[tv, "fade"] = []
-      if let _ = fv as? UILabel, !fv.isOpaque{
-        // cross fade if toView is a label
-        context[fv, "fade"] = []
-      } else {
-        context[fv, "fade"] = nil
-      }
+public class ViewToViewPreprocessor: HeroPreprocessor {
+    public func process(context: HeroContext, fromViews: [UIView], toViews: [UIView]) {
+        for tv in toViews {
+            guard let id = tv.heroID, let fv = context.sourceView(for: id) else { continue }
+            context[tv, "matchedHeroID"] = []
+            context[tv, "sourceID"] = [id]
+            if let zPos = context[tv, "zPositionIfMatched"]?.getCGFloat(0) {
+                context[tv, "zPosition"] = ["\(zPos)"]
+            }
+            
+            context[fv] = context[tv] as HeroModifiers?
+            
+            context[tv, "fade"] = []
+            if let _ = fv as? UILabel, !fv.isOpaque {
+                // cross fade if toView is a label
+                context[fv, "fade"] = []
+            } else {
+                context[fv, "fade"] = nil
+            }
+        }
     }
-  }
 }
