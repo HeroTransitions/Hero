@@ -59,7 +59,7 @@ extension ImageGalleryViewController:UICollectionViewDataSource{
     let imageCell = collectionView.dequeueReusableCell(withReuseIdentifier: "item", for: indexPath) as! ImageCell
     imageCell.imageView.image = UIImage(named: "Unsplash\(indexPath.item % 10)_thumb")
     imageCell.heroID = "image_\(indexPath.item)"
-    imageCell.heroModifiers = "fade translate(0, 150) rotate(-1,0,0) scale(0.8) zPosition(50) zPositionIfMatched(100)"
+    imageCell.heroModifiers = HeroComposition().fade().translate(x: 0, y: 150).rotate(x: -1, y: 0, z: 0).scale(s: 0.8).zPosition(z: 50).zPositionIfMatched(z: 100).modifier
     return imageCell
   }
 }

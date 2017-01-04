@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		55F29A161E1D5FF0005959AF /* HeroComposition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F29A151E1D5FF0005959AF /* HeroComposition.swift */; };
 		83043017B73BC66DBB920D5C /* Pods_HeroExamples.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EEE340F89FF0A49DD23A5A6E /* Pods_HeroExamples.framework */; };
 		A304BF841DF2717900A03345 /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A304BF831DF2717900A03345 /* ImageViewController.swift */; };
 		A304BF8A1DF647FC00A03345 /* ImageCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = A304BF891DF647FC00A03345 /* ImageCells.swift */; };
@@ -85,6 +86,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		55F29A151E1D5FF0005959AF /* HeroComposition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HeroComposition.swift; path = ../../Hero/HeroComposition.swift; sourceTree = "<group>"; };
 		5CD4F09A588E81DA75C2BE38 /* Pods-HeroExamples.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HeroExamples.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HeroExamples/Pods-HeroExamples.debug.xcconfig"; sourceTree = "<group>"; };
 		A304BF831DF2717900A03345 /* ImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageViewController.swift; path = ImageGallery/ImageViewController.swift; sourceTree = "<group>"; };
 		A304BF891DF647FC00A03345 /* ImageCells.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageCells.swift; path = ImageGallery/ImageCells.swift; sourceTree = "<group>"; };
@@ -181,6 +183,7 @@
 			isa = PBXGroup;
 			children = (
 				A306D3C51E1C7A3C00B6C23A /* Hero.swift */,
+				55F29A151E1D5FF0005959AF /* HeroComposition.swift */,
 				A306D3C61E1C7A3C00B6C23A /* HeroContext.swift */,
 				A306D3CC1E1C7A3C00B6C23A /* HeroPlugin.swift */,
 				A306D3CD1E1C7A3C00B6C23A /* HeroTypes.swift */,
@@ -539,6 +542,7 @@
 				A306D3D51E1C7A3C00B6C23A /* CG+Hero.swift in Sources */,
 				A306D3E11E1C7A3C00B6C23A /* SourceIDPreprocessor.swift in Sources */,
 				A306D3D81E1C7A3C00B6C23A /* Hero.swift in Sources */,
+				55F29A161E1D5FF0005959AF /* HeroComposition.swift in Sources */,
 				A306D3E31E1C7A3C00B6C23A /* UIKit+HeroModifier.swift in Sources */,
 				A306D3D61E1C7A3C00B6C23A /* ClearPreprocessor.swift in Sources */,
 				A306D3D71E1C7A3C00B6C23A /* DispatchQueue+Hero.swift in Sources */,
