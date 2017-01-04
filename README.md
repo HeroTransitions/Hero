@@ -2,6 +2,7 @@
 
 Supercharged transition engine for iOS. Build your custom view transitions with few lines of code or even no code at all. Inspired by Polymer's [neon-animated-pages](https://elements.polymer-project.org/elements/neon-animation) and Keynote's `Magic Move`.
 
+[![Carthage compatible](https://img.shields.io/badge/Carthage-Compatible-brightgreen.svg?style=flat)](https://github.com/Carthage/Carthage)
 [![Version](https://img.shields.io/cocoapods/v/Hero.svg?style=flat)](http://cocoapods.org/pods/Hero)
 [![License](https://img.shields.io/cocoapods/l/Hero.svg?style=flat)](https://github.com/lkzhao/Hero/blob/master/LICENSE?raw=true)
 ![Xcode 8.0+](https://img.shields.io/badge/Xcode-8.0%2B-blue.svg)
@@ -30,7 +31,7 @@ Hero does not make any assumption about how the view is built or structured. It 
 There are many examples shown in the **HeroExamples** project under the **Examples** folder. Clone or download the project to run it yourself. You can also view the **[video overview here](https://youtu.be/-6L79or6Iq8)**.
 
 ## Installation & Usage Guide
-Hero is avaliable on Cocoapods. See the **[usage guide](https://github.com/lkzhao/Hero/wiki/Usage-Guide)** for instructions.
+Hero is avaliable on Carthage & Cocoapods. See the **[usage guide](https://github.com/lkzhao/Hero/wiki/Usage-Guide)** for instructions.
 
 ## Simple Usage Examples
 
