@@ -56,49 +56,6 @@ public class HeroDefaultAnimator:HeroAnimator{
     }
     return false
   }
-  
-  public func takeSnapshot(for v:UIView) -> UIView{
-    v.isHidden = false
-    
-    // capture a snapshot without cornerRadius
-    let oldCornerRadius = v.layer.cornerRadius
-    v.layer.cornerRadius = 0
-    let snapshot = v.snapshotView(afterScreenUpdates: true)!
-    v.layer.cornerRadius = oldCornerRadius
-    
-    // the Snapshot's contentView must have hold the cornerRadius value,
-    // since the snapshot might not have maskToBounds set
-    let contentView = snapshot.subviews[0]
-    contentView.layer.cornerRadius = v.layer.cornerRadius
-    contentView.layer.masksToBounds = true
-    
-    snapshot.layer.cornerRadius = v.layer.cornerRadius
-    if let zPos = context[v, "zPosition"]?.getCGFloat(0){
-      snapshot.layer.zPosition = zPos
-    } else {
-      snapshot.layer.zPosition = v.layer.zPosition
-    }
-    snapshot.layer.opacity = v.layer.opacity
-    snapshot.layer.isOpaque = v.layer.isOpaque
-    snapshot.layer.anchorPoint = v.layer.anchorPoint
-    snapshot.layer.masksToBounds = v.layer.masksToBounds
-    snapshot.layer.borderColor = v.layer.borderColor
-    snapshot.layer.borderWidth = v.layer.borderWidth
-    snapshot.layer.transform = v.layer.transform
-    snapshot.layer.shadowRadius = v.layer.shadowRadius
-    snapshot.layer.shadowOpacity = v.layer.shadowOpacity
-    snapshot.layer.shadowColor = v.layer.shadowColor
-    snapshot.layer.shadowOffset = v.layer.shadowOffset
-    
-    snapshot.frame = context.container.convert(v.bounds, from: v)
-    snapshot.heroID = v.heroID
-
-    v.isHidden = true
-
-    context.container.addSubview(snapshot)
-    
-    return snapshot
-  }
 
   public func animate(context:HeroContext, fromViews:[UIView], toViews:[UIView]) -> TimeInterval{
     self.context = context
@@ -121,7 +78,7 @@ public class HeroDefaultAnimator:HeroAnimator{
   }
   
   func animate(view:UIView, appearing:Bool){
-    let snapshot = takeSnapshot(for: view)
+    let snapshot = context.snapshotView(for: view)
     let viewContext = HeroDefaultAnimatorViewContext(animator:self, view: view, snapshot: snapshot, modifiers: context[view]!, appearing: appearing)
     viewContexts[view] = viewContext
   }
