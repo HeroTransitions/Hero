@@ -8,130 +8,98 @@
 
 /* Begin PBXBuildFile section */
 		03DCD393DF69EE6DE4AD424B1192DD02 /* UIViewController+Chameleon.h in Headers */ = {isa = PBXBuildFile; fileRef = 303FC65376AD824AF269B17A715AB4D0 /* UIViewController+Chameleon.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		04118D1B8FDD7E7173670C8B07711589 /* ZCAnimatedLabel-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E36AE8CE3D808B3D2BBB747744D39E5 /* ZCAnimatedLabel-dummy.m */; };
-		07FBEEA9B5A846CA380A56E0C4871E70 /* ZCThrownLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B9D36B2F41D2F7FDA079D725D8A9EF5 /* ZCThrownLabel.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		0B60DAA4D34F3C74E1142883A12A8CC2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30A48DB1C8052F1B842C0010D6FE3264 /* Foundation.framework */; };
 		0D7F425CFB628271BFB6FCFF8201BF4F /* UIButton+Chameleon.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A092FCC9003B561AE8D5B50EE5A0AFC /* UIButton+Chameleon.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		10786E27C0CE4E3885C4F18686CF6300 /* ZCShapeshiftLabel.h in Headers */ = {isa = PBXBuildFile; fileRef = 466CFD0F91016EAA8F1AC59F4CB3C975 /* ZCShapeshiftLabel.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0FAA11918BC2377E39A877BC142D1EEF /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 755FAE73277FCB766461DDF0A4841EC5 /* CoreText.framework */; };
 		139A9CEDE5163F58CBB1A3A135DAD6A3 /* UIImage+ChameleonPrivate.m in Sources */ = {isa = PBXBuildFile; fileRef = E3000841A63E13E2E2DA9D1C4294C820 /* UIImage+ChameleonPrivate.m */; };
-		192A0E280366B70ECE34DF53AB848141 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30A48DB1C8052F1B842C0010D6FE3264 /* Foundation.framework */; };
 		1B704F3C816C4532F9B7FDFE0625732E /* ChameleonFramework-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = F421C1312F9063105A65D64D8C5BE410 /* ChameleonFramework-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1BF55DFD1990F68F268B96985726FD34 /* Pods-HeroExamples-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = D4AF34292621395D6290871F5FB22E18 /* Pods-HeroExamples-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1EFA7FF8FA2BF549B4CA3B7056C8A31F /* CG+Hero.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9DF90DEF699C530738BF36F7EC08F4A /* CG+Hero.swift */; };
+		1E162B130F202BB758F70ABF7A79FA55 /* ZCAnimatedLabel-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 4AE5CC8638DDC6FA930E5F3F2249945F /* ZCAnimatedLabel-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		24BE4A3CB29223B7DCC5150F5C08A307 /* ZCSpinLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C580D132560EC3A7BBD0CBD16755E73 /* ZCSpinLabel.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		25CCFF1662CCA3724B76988DD5E6C7DA /* Pods-HeroExamples-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = AC559FE89B18815721B5D20117D33F86 /* Pods-HeroExamples-dummy.m */; };
 		29F74E8A334254C68C6720E3B247CE32 /* NSArray+Chameleon.h in Headers */ = {isa = PBXBuildFile; fileRef = 2E05326F7CD25B55ABD6DD7695EB6391 /* NSArray+Chameleon.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2D10805A1729B26DCB2CAD52F2049BAF /* ZCShapeshiftLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = A0B3C6ED9393F5E55D698B677D8CC5F4 /* ZCShapeshiftLabel.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		2DDDE2C06FB4DCC639CFD100F224D6FD /* UIColor+Chameleon.m in Sources */ = {isa = PBXBuildFile; fileRef = 684B3BBEA8FE40B07E0734FFA0F1E808 /* UIColor+Chameleon.m */; };
-		31355E6EC81B820199C659E233B4E9E8 /* ZCSpinLabel.h in Headers */ = {isa = PBXBuildFile; fileRef = 7FE69F7F97686AC4F7635939FA46FD4E /* ZCSpinLabel.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		36F23BEB8D59F2D7E929B65837955928 /* DispatchQueue+Hero.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53F7BF54988B62579662B3EBF1570192 /* DispatchQueue+Hero.swift */; };
-		3A2A6EF6E339DA1B12A50A2B0CC24B13 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 755FAE73277FCB766461DDF0A4841EC5 /* CoreText.framework */; };
-		3B7E296D2722377B0EB6FD076A716081 /* SourceIDPreprocessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32920F1C14AABE3E6324EB718DB4F22A /* SourceIDPreprocessor.swift */; };
+		2F7F43A4296932FB55CBA489E4D0508C /* ZCDuangLabel.h in Headers */ = {isa = PBXBuildFile; fileRef = 149058506A3D7F88DBFFA52312D9CF87 /* ZCDuangLabel.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3B373CC3F8D9135D5422F0E1092CC6C9 /* ZCFlyinLabel.h in Headers */ = {isa = PBXBuildFile; fileRef = B306F35D55098B8275E41406708680C3 /* ZCFlyinLabel.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3D08C4F4E2E65D192D317AED0A8237B3 /* UIColor+ChameleonPrivate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AFCDC269C1B04B7950F108514B9A002 /* UIColor+ChameleonPrivate.m */; };
-		3FF66D2B989569989DA1ECEF022D0911 /* ClearPreprocessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DDFB6D7D1D131792D16BCA568C70E07 /* ClearPreprocessor.swift */; };
-		40E1F04D4C2801329BB14841B24C005A /* ZCRevealLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C1E8493C19D7AB4A77A873BC29D979F /* ZCRevealLabel.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		40183767C9BA63FB5F28CFD448568CF7 /* ZCAnimatedLabel.h in Headers */ = {isa = PBXBuildFile; fileRef = 945885D650D2539467D95A8A5338C137 /* ZCAnimatedLabel.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		44117424757A5E62D87B8BF4B41A4207 /* UIColor+ChameleonPrivate.h in Headers */ = {isa = PBXBuildFile; fileRef = 56565CE08ADACD79CEA130925F0CDE8F /* UIColor+ChameleonPrivate.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		459048ECD9FAA42B77566EC56ECAD793 /* UINavigationController+Chameleon.m in Sources */ = {isa = PBXBuildFile; fileRef = F1C22F078BD061D6FC9619141BDA695E /* UINavigationController+Chameleon.m */; };
 		4A7F6945FC35DB43E7C78876DD95CB2F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85FDCAA1EADCFD367E1698CDE25DE0DF /* UIKit.framework */; };
-		56989A7BF080012B0F0637436E6EABB0 /* ZCDashLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = A32E96E330F1BE794E0ACA67C394BA33 /* ZCDashLabel.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		598E88F95330D05C0D644897CEF4B469 /* ZCTransparencyLabel.h in Headers */ = {isa = PBXBuildFile; fileRef = BACBC4D8BC433BCFBAE3E48B295C5936 /* ZCTransparencyLabel.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		5BCC9986918F1504E617CF4EB6650D46 /* Hero-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = A95F120A3DF8F7A911658AE7298E614B /* Hero-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4CC5AE1E0D4700767EC56DF7B8E2AE4D /* ZCFallLabel.h in Headers */ = {isa = PBXBuildFile; fileRef = 1B291C4D1C35D63E1383F43604CC8C2F /* ZCFallLabel.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4F588C05B1BD6255AC3A7E1759D015B4 /* ZCFlyinLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 10C119B874C2B68D6B332014EFA18131 /* ZCFlyinLabel.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		5EA9F0ED011B06DEFA8542EEE72508C3 /* UIViewController+Chameleon.m in Sources */ = {isa = PBXBuildFile; fileRef = B3B9625BB8675FB84F57FAEC62E860DF /* UIViewController+Chameleon.m */; };
-		5FBDE142FFC1B2E3A8590427B8F1CBA9 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85FDCAA1EADCFD367E1698CDE25DE0DF /* UIKit.framework */; };
 		604286A8F8A2ACB063BDF97B09D4987C /* UILabel+Chameleon.h in Headers */ = {isa = PBXBuildFile; fileRef = 199950B620AFA6023EECBB662A39C21C /* UILabel+Chameleon.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		61288CA5CDDA4889540D904296FC9BF1 /* ZCEasingUtil.h in Headers */ = {isa = PBXBuildFile; fileRef = E4F249051A59B13F862BA33EFFEB0367 /* ZCEasingUtil.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6712100A2CCB9B987281A02F6778473C /* NSArray+Chameleon.m in Sources */ = {isa = PBXBuildFile; fileRef = 841CB32EB317DF862FADB4C24E3C165D /* NSArray+Chameleon.m */; };
-		6F18AC21D391B19865742F811EC20202 /* ZCTransparencyLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2912F6D7A7878B823E4E2C679EBED4BE /* ZCTransparencyLabel.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		704C71A8D826D94BE3F463A1E39DDE08 /* HeroTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90410D05047B40B99B553954960BF82B /* HeroTypes.swift */; };
-		75B4A80CFC3A9C0B7D74139C31F980F1 /* ZCFocusLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = AFA3B00CC9CD7B05A1FCFA3B76888F46 /* ZCFocusLabel.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		6AA9E69CCB146EC7728EAF46A3A713AC /* ZCSpinLabel.h in Headers */ = {isa = PBXBuildFile; fileRef = 7FE69F7F97686AC4F7635939FA46FD4E /* ZCSpinLabel.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6FE3836B8D9901EB160349215E388DA0 /* ZCFocusLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = AFA3B00CC9CD7B05A1FCFA3B76888F46 /* ZCFocusLabel.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		71F6B456484AFD3E66941D85EBC63AB4 /* ZCEasingUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 806DCB81FA89BA89C35578AC443BC5FC /* ZCEasingUtil.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		7339345D8DDEF37E9F9F3BE9BAD6307B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30A48DB1C8052F1B842C0010D6FE3264 /* Foundation.framework */; };
+		75B759DB544D317A6FC88F4FD62AB5E2 /* ZCFocusLabel.h in Headers */ = {isa = PBXBuildFile; fileRef = BD543212607D8A21C5EEB4811E15E12B /* ZCFocusLabel.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		78281D8673FC507089FCFDC439DEDC16 /* Chameleon_.h in Headers */ = {isa = PBXBuildFile; fileRef = DFB89971EBD65901AAF884B6966F55F4 /* Chameleon_.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		7AE94C0C7BFD8A9C9530AED794BD0D8E /* ZCDuangLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 09B6FDEB03B25BF401BC87859B831B3E /* ZCDuangLabel.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		7EC18B2353DEF54BB916A4DCCA03F524 /* ZCCoreTextLayout.h in Headers */ = {isa = PBXBuildFile; fileRef = 12E6564229CDFA3EDECF821FC24BC2FB /* ZCCoreTextLayout.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		7FBF3BEEC3253A81E1E145C76C89B83A /* ZCThrownLabel.h in Headers */ = {isa = PBXBuildFile; fileRef = DF7172E1472CD5DF0E3B9AA1D3A86108 /* ZCThrownLabel.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		784D05978A3F371754437833B6E3B223 /* ZCThrownLabel.h in Headers */ = {isa = PBXBuildFile; fileRef = DF7172E1472CD5DF0E3B9AA1D3A86108 /* ZCThrownLabel.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7CA7C05EB721D0F876A6DAE12821675C /* ZCCoreTextLayout.h in Headers */ = {isa = PBXBuildFile; fileRef = 12E6564229CDFA3EDECF821FC24BC2FB /* ZCCoreTextLayout.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		833F15A28A0D562548517BCA8EAF23B6 /* ChameleonShorthand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29ED22738A029D4CFD71910614E10500 /* ChameleonShorthand.swift */; };
 		83CFC8F573AD5B75191E162E64C7D039 /* UIButton+Chameleon.m in Sources */ = {isa = PBXBuildFile; fileRef = E730B04E8BAA5CA99E146F2D4FB86682 /* UIButton+Chameleon.m */; };
-		84C802C36B8B0B0B7914F21C63BFA45E /* ZCAnimatedLabel.h in Headers */ = {isa = PBXBuildFile; fileRef = 945885D650D2539467D95A8A5338C137 /* ZCAnimatedLabel.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		86F7D970F220974A0E26C3B632C5C74F /* UIImage+ChameleonPrivate.h in Headers */ = {isa = PBXBuildFile; fileRef = 98A7FA881BD2F0AAE87C7A1383923B1E /* UIImage+ChameleonPrivate.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		87180A87859AD4B9B5656F52A3E64013 /* HeroContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68F0DA52F9FD4863B90F36540967E1AC /* HeroContext.swift */; };
-		8888D8CD2B70C41CCD55AAEEA4FD25AC /* ZCEasingUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 806DCB81FA89BA89C35578AC443BC5FC /* ZCEasingUtil.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		8E0CEB2CEE49A5BEE264A8EE54714EA7 /* ZCAnimatedLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A315AB85F1FD18E70BB9A101498D6E9 /* ZCAnimatedLabel.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		8ECF929AC5E737EBEB542283886D5E07 /* UIView+ChameleonPrivate.h in Headers */ = {isa = PBXBuildFile; fileRef = E11899316E3471F26E15C340B386EE8D /* UIView+ChameleonPrivate.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		8FDC07FBCD8EF555111482A3698ED4F7 /* ZCDuangLabel.h in Headers */ = {isa = PBXBuildFile; fileRef = 149058506A3D7F88DBFFA52312D9CF87 /* ZCDuangLabel.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		923369708790774BB768672AA79DCAD4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30A48DB1C8052F1B842C0010D6FE3264 /* Foundation.framework */; };
-		94F7E046C2602C8C4D634FF684B227F8 /* ZCFallLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D2A3D8C3021B3B3CC33CC0E925CD1ED /* ZCFallLabel.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		9405A75288E8E96DACC18A6EEC420432 /* ZCTransparencyLabel.h in Headers */ = {isa = PBXBuildFile; fileRef = BACBC4D8BC433BCFBAE3E48B295C5936 /* ZCTransparencyLabel.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		95E542740750F827BE2EBE3DE6F62D0E /* ChameleonFramework-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D0FBC58AD637F7B0A7A1E4E5DF090DB /* ChameleonFramework-dummy.m */; };
-		96ADBD9B612F8A5B2A417A3BCED08B78 /* HeroDebugView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ABC44921DBAFE81EDBF72413F25CA66 /* HeroDebugView.swift */; };
-		96E2D91886535313CCBDF853FEB03868 /* ZCShapeshiftLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = A0B3C6ED9393F5E55D698B677D8CC5F4 /* ZCShapeshiftLabel.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		960CCAF77BEB2BADB3EDF2B1D4F163ED /* ZCDashLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = A32E96E330F1BE794E0ACA67C394BA33 /* ZCDashLabel.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		9624DC1CBD9DA4A784590FFC193673FA /* Pods-HeroExamples-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = D4AF34292621395D6290871F5FB22E18 /* Pods-HeroExamples-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9A3EAF15D3C58FD56A552FD703A9154C /* ChameleonConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = 6BA841517A854B30F7AC8B896BE29F62 /* ChameleonConstants.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		9ADBC3165E0411E5DFAAFE05C96EDC2D /* UIKit+HeroModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA962E8A0090A3F508472C2A41382DB4 /* UIKit+HeroModifier.swift */; };
 		9B6AD39C81FAF37861FC0FEC41022146 /* UIAppearance+Swift.h in Headers */ = {isa = PBXBuildFile; fileRef = 8912F16BF2FEA16A2CE0D547636D8650 /* UIAppearance+Swift.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		A37850B41E0B60FC002854A8 /* HeroDefaultAnimatorViewContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37850B31E0B60FC002854A8 /* HeroDefaultAnimatorViewContext.swift */; };
-		A37850B61E0B619F002854A8 /* HeroDefaultAnimatorViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37850B51E0B619F002854A8 /* HeroDefaultAnimatorViewState.swift */; };
-		A37850B91E0B6487002854A8 /* CALayer+Hero.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37850B81E0B6487002854A8 /* CALayer+Hero.swift */; };
+		A012023B35FBAC0F3BF4A79AB56F5BF8 /* ZCDuangLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 09B6FDEB03B25BF401BC87859B831B3E /* ZCDuangLabel.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		A664D0A12D5F3DBD08A7E8DFE3AE83E2 /* UIView+ChameleonPrivate.m in Sources */ = {isa = PBXBuildFile; fileRef = AC11BE14A0EC12C71F91EE5621D4D7FB /* UIView+ChameleonPrivate.m */; };
-		A6AC4C9DCE32429CE5D6CF2EAA3C52DE /* UIKit+Hero.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA92FDB8DCF56BE10918981146E71D9 /* UIKit+Hero.swift */; };
-		A6DA81627CEB670BBFBBAC365EEFBAF8 /* CascadePreprocessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A91722A49C98F39B7953A0624D18A0D /* CascadePreprocessor.swift */; };
-		A918B9CE3AFC7CFE22502D0EDF36E827 /* ZCFallLabel.h in Headers */ = {isa = PBXBuildFile; fileRef = 1B291C4D1C35D63E1383F43604CC8C2F /* ZCFallLabel.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		AB80F4B71FE40B7325FE19FE7920BE1A /* ZCFlyinLabel.h in Headers */ = {isa = PBXBuildFile; fileRef = B306F35D55098B8275E41406708680C3 /* ZCFlyinLabel.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		ACF084933B3CBF65307BBC8484191FA0 /* ZCDashLabel.h in Headers */ = {isa = PBXBuildFile; fileRef = E61802497B0C82082771903678DD88F1 /* ZCDashLabel.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B091706205DBEA2827284B7060E64096 /* ZCCoreTextLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 42395ED6C338D1F0111188ECCAC326C9 /* ZCCoreTextLayout.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		B124B4A71E088BA9000F1DF2 /* CAMediaTimingFunction+Hero.swift in Sources */ = {isa = PBXBuildFile; fileRef = B124B4A61E088BA9000F1DF2 /* CAMediaTimingFunction+Hero.swift */; };
+		AB38B3EC8E11AAC3E79CCA2055C602DA /* ZCAnimatedLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A315AB85F1FD18E70BB9A101498D6E9 /* ZCAnimatedLabel.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		B26038F91C7C4CC322D7F25C5D16FE9E /* ChameleonConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 0164C4141F6109C4519447CEFDCDA6FB /* ChameleonConstants.m */; };
 		B4EA53699AA19822E674188743266B2B /* ChameleonMacros.h in Headers */ = {isa = PBXBuildFile; fileRef = 25530C1B2B3BCE67679DE2C38D8C8C3F /* ChameleonMacros.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B9A618F6A32F37FCCB911669072ADAD1 /* HeroDefaultAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 009813FF767BFAE2357DA856652EEEE7 /* HeroDefaultAnimator.swift */; };
-		BAFF28FB3D799010C983A03EE434F262 /* HeroPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D2EF3BAF433FDE6F713EC6723EF776C /* HeroPlugin.swift */; };
-		BBACBB79A5CCE24F3BF31BEFDADD80DA /* ViewToViewPreprocessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF1CB44B1532BE35326641A01B38EA5 /* ViewToViewPreprocessor.swift */; };
+		B6634AF86577EB63DA3CBEFE68A13573 /* ZCCoreTextLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 42395ED6C338D1F0111188ECCAC326C9 /* ZCCoreTextLayout.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		BA46D138629B5BEEF5C8CA4F5DA78B6D /* ZCRevealLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C1E8493C19D7AB4A77A873BC29D979F /* ZCRevealLabel.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		BFA97401155C4E14893D9AA1E0D1EC80 /* UINavigationController+Chameleon.h in Headers */ = {isa = PBXBuildFile; fileRef = 853F453005035573EC726155007906F9 /* UINavigationController+Chameleon.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C3C8BB46937DD0BBC7FBE25E298052F8 /* UIAppearance+Swift.m in Sources */ = {isa = PBXBuildFile; fileRef = 309488F2CA6890AD49370D9E0EA62F8B /* UIAppearance+Swift.m */; };
 		C78AC9DF55C43B62D6851B2F30ADFE0F /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9584A1F2D6F127A85944AD33BEA278D /* QuartzCore.framework */; };
-		CA19F7D3C407140A4858D71B94EDC523 /* Hero.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ACA52D8C3BB32DE76F65BE7A770A52F /* Hero.swift */; };
-		D195064586817A705F5068D1D98BB120 /* ZCFlyinLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 10C119B874C2B68D6B332014EFA18131 /* ZCFlyinLabel.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		D5E5ADEB4403273789A474E1C63E3B40 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30A48DB1C8052F1B842C0010D6FE3264 /* Foundation.framework */; };
+		D108846C0C9F02A453FF05BFE72C4FB9 /* ZCEasingUtil.h in Headers */ = {isa = PBXBuildFile; fileRef = E4F249051A59B13F862BA33EFFEB0367 /* ZCEasingUtil.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D5FAFC3C89B922BB4FFB6C0516EAF3D2 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29AA6E4C10206C3EE9ADFA1D694F1143 /* CoreGraphics.framework */; };
+		D8FB33073243D5B9EABA87B6CAF63577 /* ZCDashLabel.h in Headers */ = {isa = PBXBuildFile; fileRef = E61802497B0C82082771903678DD88F1 /* ZCDashLabel.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DB5FB611FB6EBF2F2BA7B78FE0CED535 /* UIColor+Chameleon.h in Headers */ = {isa = PBXBuildFile; fileRef = 9CBEE5386B8B380653B94BEEC01149D8 /* UIColor+Chameleon.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		E1022C5C4A3C042F96C462A4B3E8EA21 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30A48DB1C8052F1B842C0010D6FE3264 /* Foundation.framework */; };
-		E20A79E671B33606667295F34A119208 /* ZCRevealLabel.h in Headers */ = {isa = PBXBuildFile; fileRef = A342FA1E8FD5F3163DC753B8A3400FAF /* ZCRevealLabel.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		DBACA9BDB5867F71DBA6D4B76672E14B /* ZCThrownLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B9D36B2F41D2F7FDA079D725D8A9EF5 /* ZCThrownLabel.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		E4CE7C740C5F7853AF4A1BD5A538809A /* ZCTransparencyLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2912F6D7A7878B823E4E2C679EBED4BE /* ZCTransparencyLabel.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		E7FA38FEAF957D69E92153FBAFB3DB40 /* Chameleon_.m in Sources */ = {isa = PBXBuildFile; fileRef = FEEBB0283FFCA5CD75F9CC2C7C125F5B /* Chameleon_.m */; };
-		E98CB055BAE498D0F4FF48EC17BD49BD /* ZCFocusLabel.h in Headers */ = {isa = PBXBuildFile; fileRef = BD543212607D8A21C5EEB4811E15E12B /* ZCFocusLabel.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		EB192542076198CC9C636DDFCCF28D64 /* Hero-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = AAB5D7770B86F43276F1BBFAE8E0B8E7 /* Hero-dummy.m */; };
+		EA8ED001B68683130409A4E5F037CB41 /* ZCRevealLabel.h in Headers */ = {isa = PBXBuildFile; fileRef = A342FA1E8FD5F3163DC753B8A3400FAF /* ZCRevealLabel.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EC786817C5CEBCD51A4C9EC9B883ED6F /* ChameleonEnums.h in Headers */ = {isa = PBXBuildFile; fileRef = F61DEE17DAC8E639AEAA3D2E97C85C8F /* ChameleonEnums.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		ED4DBD1E13182AA813DC1237FA6E3A42 /* Chameleon.h in Headers */ = {isa = PBXBuildFile; fileRef = ACC1D3350CBFB86A70E6108AA2C11DBD /* Chameleon.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		EE4A11526BB34938AF78ACAC8287EED6 /* ZCSpinLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C580D132560EC3A7BBD0CBD16755E73 /* ZCSpinLabel.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		F34ADE4638ABE9E687A005E1B4CCD2A0 /* HeroDebugPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7260E6E6BC54C60E14338D44CDBA0DD9 /* HeroDebugPlugin.swift */; };
-		F7F904D5F0888B42AC9D326693754CE0 /* Pods-HeroExamples-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = AC559FE89B18815721B5D20117D33F86 /* Pods-HeroExamples-dummy.m */; };
-		F8B85EC3663D1642EDB609E95E8D6581 /* ZCAnimatedLabel-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 4AE5CC8638DDC6FA930E5F3F2249945F /* ZCAnimatedLabel-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F19137375616A184266131B0D97BE794 /* ZCFallLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D2A3D8C3021B3B3CC33CC0E925CD1ED /* ZCFallLabel.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		F4E466CB3B33261D3255B35C06C8DC95 /* ZCShapeshiftLabel.h in Headers */ = {isa = PBXBuildFile; fileRef = 466CFD0F91016EAA8F1AC59F4CB3C975 /* ZCShapeshiftLabel.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F6D9178D7BBB6675E4DDDAE9DD87D325 /* ZCAnimatedLabel-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E36AE8CE3D808B3D2BBB747744D39E5 /* ZCAnimatedLabel-dummy.m */; };
 		FB82C1293D7DDE0D3E2E6D68CDD5852C /* UILabel+Chameleon.m in Sources */ = {isa = PBXBuildFile; fileRef = 502E8EB2D178C4E9DB21BDFAFADB9130 /* UILabel+Chameleon.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		245352CA6AFF23A62ECC1E35BB9694B8 /* PBXContainerItemProxy */ = {
+		09A396E97BB7A660275B043DDC407900 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 490E5E24AF399729C67683ABA7BCA188;
+			remoteInfo = ZCAnimatedLabel;
+		};
+		77ABD4CB4FB134B9A8C14A7B7F0C50CF /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 76BD4592010354D6C23D6ECCA20D83A8;
 			remoteInfo = ChameleonFramework;
 		};
-		7F4216B15DEB10177912225474EB288A /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = B436B44CA163743182E74F03DB0B4F59;
-			remoteInfo = ZCAnimatedLabel;
-		};
-		DE1EA60457BEF29998CDCB4A2EF25F52 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 34CAC580BFE6FB5B89353906FD6A8BDB;
-			remoteInfo = Hero;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		000FFED8AE29139132224FB47C7369A3 /* ChameleonFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ChameleonFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		009813FF767BFAE2357DA856652EEEE7 /* HeroDefaultAnimator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = HeroDefaultAnimator.swift; sourceTree = "<group>"; };
 		0164C4141F6109C4519447CEFDCDA6FB /* ChameleonConstants.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ChameleonConstants.m; path = "Pod/Classes/Objective-C/ChameleonConstants.m"; sourceTree = "<group>"; };
-		04B4B451E46FE346E8A820607BBA2324 /* Hero.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Hero.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		05D5FC5FA136B6E87C98475AFD6BA61F /* ZCAnimatedLabel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = ZCAnimatedLabel.framework; path = ZCAnimatedLabel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		09B6FDEB03B25BF401BC87859B831B3E /* ZCDuangLabel.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ZCDuangLabel.m; path = ZCAnimatedLabel/ZCAnimatedLabel/ZCDuangLabel.m; sourceTree = "<group>"; };
 		10C119B874C2B68D6B332014EFA18131 /* ZCFlyinLabel.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ZCFlyinLabel.m; path = ZCAnimatedLabel/ZCAnimatedLabel/ZCFlyinLabel.m; sourceTree = "<group>"; };
 		12E6564229CDFA3EDECF821FC24BC2FB /* ZCCoreTextLayout.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ZCCoreTextLayout.h; path = ZCAnimatedLabel/ZCAnimatedLabel/ZCCoreTextLayout.h; sourceTree = "<group>"; };
-		13B1997AE73788E0828CFE4A1981F4D2 /* ChameleonFramework.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = ChameleonFramework.modulemap; sourceTree = "<group>"; };
+		13B1997AE73788E0828CFE4A1981F4D2 /* ChameleonFramework.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = ChameleonFramework.modulemap; sourceTree = "<group>"; };
 		149058506A3D7F88DBFFA52312D9CF87 /* ZCDuangLabel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ZCDuangLabel.h; path = ZCAnimatedLabel/ZCAnimatedLabel/ZCDuangLabel.h; sourceTree = "<group>"; };
 		199950B620AFA6023EECBB662A39C21C /* UILabel+Chameleon.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UILabel+Chameleon.h"; path = "Pod/Classes/Objective-C/UILabel+Chameleon.h"; sourceTree = "<group>"; };
 		1B291C4D1C35D63E1383F43604CC8C2F /* ZCFallLabel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ZCFallLabel.h; path = ZCAnimatedLabel/ZCAnimatedLabel/ZCFallLabel.h; sourceTree = "<group>"; };
@@ -139,85 +107,63 @@
 		249396FDAC8EA68585107165DBA9CB04 /* Pods-HeroExamples-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-HeroExamples-resources.sh"; sourceTree = "<group>"; };
 		25530C1B2B3BCE67679DE2C38D8C8C3F /* ChameleonMacros.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ChameleonMacros.h; path = "Pod/Classes/Objective-C/ChameleonMacros.h"; sourceTree = "<group>"; };
 		25E1EDDCE040959CC53590068A28370F /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		25E81D1F1DA468EA8BCC84BFA1C7AFE8 /* Hero.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Hero.xcconfig; sourceTree = "<group>"; };
 		2912F6D7A7878B823E4E2C679EBED4BE /* ZCTransparencyLabel.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ZCTransparencyLabel.m; path = ZCAnimatedLabel/ZCAnimatedLabel/ZCTransparencyLabel.m; sourceTree = "<group>"; };
 		29AA6E4C10206C3EE9ADFA1D694F1143 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/CoreGraphics.framework; sourceTree = DEVELOPER_DIR; };
 		29ED22738A029D4CFD71910614E10500 /* ChameleonShorthand.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ChameleonShorthand.swift; path = Pod/Classes/Swift/ChameleonShorthand.swift; sourceTree = "<group>"; };
-		2AC1EA5EC1766240ED7A07183EE68CDC /* Hero-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Hero-prefix.pch"; sourceTree = "<group>"; };
 		2D08E6EF907DC1A59FDCEF6049D41EBB /* Pods-HeroExamples-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-HeroExamples-acknowledgements.plist"; sourceTree = "<group>"; };
 		2E05326F7CD25B55ABD6DD7695EB6391 /* NSArray+Chameleon.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSArray+Chameleon.h"; path = "Pod/Classes/Objective-C/NSArray+Chameleon.h"; sourceTree = "<group>"; };
 		303FC65376AD824AF269B17A715AB4D0 /* UIViewController+Chameleon.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIViewController+Chameleon.h"; path = "Pod/Classes/Objective-C/UIViewController+Chameleon.h"; sourceTree = "<group>"; };
 		309488F2CA6890AD49370D9E0EA62F8B /* UIAppearance+Swift.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIAppearance+Swift.m"; path = "Pod/Classes/Objective-C/UIAppearance+Swift.m"; sourceTree = "<group>"; };
 		30A48DB1C8052F1B842C0010D6FE3264 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		32920F1C14AABE3E6324EB718DB4F22A /* SourceIDPreprocessor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SourceIDPreprocessor.swift; sourceTree = "<group>"; };
 		3896DF0A366E247168F1BD9BF0FF7C43 /* ChameleonFramework-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ChameleonFramework-prefix.pch"; sourceTree = "<group>"; };
 		3A092FCC9003B561AE8D5B50EE5A0AFC /* UIButton+Chameleon.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIButton+Chameleon.h"; path = "Pod/Classes/Objective-C/UIButton+Chameleon.h"; sourceTree = "<group>"; };
 		3A315AB85F1FD18E70BB9A101498D6E9 /* ZCAnimatedLabel.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ZCAnimatedLabel.m; path = ZCAnimatedLabel/ZCAnimatedLabel/ZCAnimatedLabel.m; sourceTree = "<group>"; };
 		42395ED6C338D1F0111188ECCAC326C9 /* ZCCoreTextLayout.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ZCCoreTextLayout.m; path = ZCAnimatedLabel/ZCAnimatedLabel/ZCCoreTextLayout.m; sourceTree = "<group>"; };
-		42B1EBC88025BDEAEE57374191E3343F /* Pods_HeroExamples.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HeroExamples.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		466CFD0F91016EAA8F1AC59F4CB3C975 /* ZCShapeshiftLabel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ZCShapeshiftLabel.h; path = ZCAnimatedLabel/ZCAnimatedLabel/ZCShapeshiftLabel.h; sourceTree = "<group>"; };
 		4AE5CC8638DDC6FA930E5F3F2249945F /* ZCAnimatedLabel-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ZCAnimatedLabel-umbrella.h"; sourceTree = "<group>"; };
 		4AFCDC269C1B04B7950F108514B9A002 /* UIColor+ChameleonPrivate.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIColor+ChameleonPrivate.m"; path = "Pod/Classes/Objective-C/UIColor+ChameleonPrivate.m"; sourceTree = "<group>"; };
 		4E36AE8CE3D808B3D2BBB747744D39E5 /* ZCAnimatedLabel-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "ZCAnimatedLabel-dummy.m"; sourceTree = "<group>"; };
-		4EA92FDB8DCF56BE10918981146E71D9 /* UIKit+Hero.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "UIKit+Hero.swift"; sourceTree = "<group>"; };
 		502E8EB2D178C4E9DB21BDFAFADB9130 /* UILabel+Chameleon.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UILabel+Chameleon.m"; path = "Pod/Classes/Objective-C/UILabel+Chameleon.m"; sourceTree = "<group>"; };
 		517F35FE8BE6A3CBA4B88B1520C74C06 /* Pods-HeroExamples.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-HeroExamples.debug.xcconfig"; sourceTree = "<group>"; };
-		53F7BF54988B62579662B3EBF1570192 /* DispatchQueue+Hero.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "DispatchQueue+Hero.swift"; sourceTree = "<group>"; };
+		55CBDB5ADC53AD92DC1BD1FA43BDD7F1 /* ChameleonFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = ChameleonFramework.framework; path = ChameleonFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		56565CE08ADACD79CEA130925F0CDE8F /* UIColor+ChameleonPrivate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIColor+ChameleonPrivate.h"; path = "Pod/Classes/Objective-C/UIColor+ChameleonPrivate.h"; sourceTree = "<group>"; };
 		5B9D36B2F41D2F7FDA079D725D8A9EF5 /* ZCThrownLabel.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ZCThrownLabel.m; path = ZCAnimatedLabel/ZCAnimatedLabel/ZCThrownLabel.m; sourceTree = "<group>"; };
 		684B3BBEA8FE40B07E0734FFA0F1E808 /* UIColor+Chameleon.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIColor+Chameleon.m"; path = "Pod/Classes/Objective-C/UIColor+Chameleon.m"; sourceTree = "<group>"; };
-		68F0DA52F9FD4863B90F36540967E1AC /* HeroContext.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = HeroContext.swift; sourceTree = "<group>"; };
 		6BA841517A854B30F7AC8B896BE29F62 /* ChameleonConstants.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ChameleonConstants.h; path = "Pod/Classes/Objective-C/ChameleonConstants.h"; sourceTree = "<group>"; };
 		6D2A3D8C3021B3B3CC33CC0E925CD1ED /* ZCFallLabel.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ZCFallLabel.m; path = ZCAnimatedLabel/ZCAnimatedLabel/ZCFallLabel.m; sourceTree = "<group>"; };
 		6FB43588D8877F1F909F697476508F4F /* Pods-HeroExamples.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-HeroExamples.release.xcconfig"; sourceTree = "<group>"; };
-		7260E6E6BC54C60E14338D44CDBA0DD9 /* HeroDebugPlugin.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = HeroDebugPlugin.swift; sourceTree = "<group>"; };
 		755FAE73277FCB766461DDF0A4841EC5 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/CoreText.framework; sourceTree = DEVELOPER_DIR; };
 		7D0FBC58AD637F7B0A7A1E4E5DF090DB /* ChameleonFramework-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "ChameleonFramework-dummy.m"; sourceTree = "<group>"; };
-		7DDFB6D7D1D131792D16BCA568C70E07 /* ClearPreprocessor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ClearPreprocessor.swift; sourceTree = "<group>"; };
 		7FE69F7F97686AC4F7635939FA46FD4E /* ZCSpinLabel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ZCSpinLabel.h; path = ZCAnimatedLabel/ZCAnimatedLabel/ZCSpinLabel.h; sourceTree = "<group>"; };
 		806DCB81FA89BA89C35578AC443BC5FC /* ZCEasingUtil.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ZCEasingUtil.m; path = ZCAnimatedLabel/ZCAnimatedLabel/ZCEasingUtil.m; sourceTree = "<group>"; };
 		841CB32EB317DF862FADB4C24E3C165D /* NSArray+Chameleon.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSArray+Chameleon.m"; path = "Pod/Classes/Objective-C/NSArray+Chameleon.m"; sourceTree = "<group>"; };
 		853F453005035573EC726155007906F9 /* UINavigationController+Chameleon.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UINavigationController+Chameleon.h"; path = "Pod/Classes/Objective-C/UINavigationController+Chameleon.h"; sourceTree = "<group>"; };
 		85FDCAA1EADCFD367E1698CDE25DE0DF /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		8912F16BF2FEA16A2CE0D547636D8650 /* UIAppearance+Swift.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIAppearance+Swift.h"; path = "Pod/Classes/Objective-C/UIAppearance+Swift.h"; sourceTree = "<group>"; };
-		8A91722A49C98F39B7953A0624D18A0D /* CascadePreprocessor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CascadePreprocessor.swift; sourceTree = "<group>"; };
-		8ACA52D8C3BB32DE76F65BE7A770A52F /* Hero.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Hero.swift; sourceTree = "<group>"; };
 		8C1E8493C19D7AB4A77A873BC29D979F /* ZCRevealLabel.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ZCRevealLabel.m; path = ZCAnimatedLabel/ZCAnimatedLabel/ZCRevealLabel.m; sourceTree = "<group>"; };
-		90410D05047B40B99B553954960BF82B /* HeroTypes.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = HeroTypes.swift; sourceTree = "<group>"; };
-		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		945885D650D2539467D95A8A5338C137 /* ZCAnimatedLabel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ZCAnimatedLabel.h; path = ZCAnimatedLabel/ZCAnimatedLabel/ZCAnimatedLabel.h; sourceTree = "<group>"; };
-		96F2151CA6ADD851CD6FFD62A544FFBF /* ZCAnimatedLabel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ZCAnimatedLabel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		986CEB14912C0A5CC97835230B574521 /* Hero.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = Hero.modulemap; sourceTree = "<group>"; };
 		98A7FA881BD2F0AAE87C7A1383923B1E /* UIImage+ChameleonPrivate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIImage+ChameleonPrivate.h"; path = "Pod/Classes/Objective-C/UIImage+ChameleonPrivate.h"; sourceTree = "<group>"; };
-		9ABC44921DBAFE81EDBF72413F25CA66 /* HeroDebugView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = HeroDebugView.swift; sourceTree = "<group>"; };
 		9C580D132560EC3A7BBD0CBD16755E73 /* ZCSpinLabel.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ZCSpinLabel.m; path = ZCAnimatedLabel/ZCAnimatedLabel/ZCSpinLabel.m; sourceTree = "<group>"; };
 		9CBEE5386B8B380653B94BEEC01149D8 /* UIColor+Chameleon.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIColor+Chameleon.h"; path = "Pod/Classes/Objective-C/UIColor+Chameleon.h"; sourceTree = "<group>"; };
-		9D2EF3BAF433FDE6F713EC6723EF776C /* HeroPlugin.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = HeroPlugin.swift; sourceTree = "<group>"; };
 		A0B3C6ED9393F5E55D698B677D8CC5F4 /* ZCShapeshiftLabel.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ZCShapeshiftLabel.m; path = ZCAnimatedLabel/ZCAnimatedLabel/ZCShapeshiftLabel.m; sourceTree = "<group>"; };
 		A32E96E330F1BE794E0ACA67C394BA33 /* ZCDashLabel.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ZCDashLabel.m; path = ZCAnimatedLabel/ZCAnimatedLabel/ZCDashLabel.m; sourceTree = "<group>"; };
 		A342FA1E8FD5F3163DC753B8A3400FAF /* ZCRevealLabel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ZCRevealLabel.h; path = ZCAnimatedLabel/ZCAnimatedLabel/ZCRevealLabel.h; sourceTree = "<group>"; };
-		A37850B31E0B60FC002854A8 /* HeroDefaultAnimatorViewContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeroDefaultAnimatorViewContext.swift; sourceTree = "<group>"; };
-		A37850B51E0B619F002854A8 /* HeroDefaultAnimatorViewState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeroDefaultAnimatorViewState.swift; sourceTree = "<group>"; };
-		A37850B81E0B6487002854A8 /* CALayer+Hero.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CALayer+Hero.swift"; sourceTree = "<group>"; };
 		A5484756A421B1C208D66F6701E1925E /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A860B4A3090B5CB38F4D6EE2285600A1 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A9584A1F2D6F127A85944AD33BEA278D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/QuartzCore.framework; sourceTree = DEVELOPER_DIR; };
-		A95F120A3DF8F7A911658AE7298E614B /* Hero-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Hero-umbrella.h"; sourceTree = "<group>"; };
-		AAB5D7770B86F43276F1BBFAE8E0B8E7 /* Hero-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Hero-dummy.m"; sourceTree = "<group>"; };
 		AC11BE14A0EC12C71F91EE5621D4D7FB /* UIView+ChameleonPrivate.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIView+ChameleonPrivate.m"; path = "Pod/Classes/Objective-C/UIView+ChameleonPrivate.m"; sourceTree = "<group>"; };
 		AC559FE89B18815721B5D20117D33F86 /* Pods-HeroExamples-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-HeroExamples-dummy.m"; sourceTree = "<group>"; };
 		ACC1D3350CBFB86A70E6108AA2C11DBD /* Chameleon.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Chameleon.h; path = "Pod/Classes/Objective-C/Chameleon.h"; sourceTree = "<group>"; };
+		AF5C12431F9BD2452D57C998BC489B87 /* Pods_HeroExamples.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_HeroExamples.framework; path = "Pods-HeroExamples.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AFA3B00CC9CD7B05A1FCFA3B76888F46 /* ZCFocusLabel.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ZCFocusLabel.m; path = ZCAnimatedLabel/ZCAnimatedLabel/ZCFocusLabel.m; sourceTree = "<group>"; };
-		B124B4A61E088BA9000F1DF2 /* CAMediaTimingFunction+Hero.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CAMediaTimingFunction+Hero.swift"; sourceTree = "<group>"; };
 		B306F35D55098B8275E41406708680C3 /* ZCFlyinLabel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ZCFlyinLabel.h; path = ZCAnimatedLabel/ZCAnimatedLabel/ZCFlyinLabel.h; sourceTree = "<group>"; };
 		B3B9625BB8675FB84F57FAEC62E860DF /* UIViewController+Chameleon.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIViewController+Chameleon.m"; path = "Pod/Classes/Objective-C/UIViewController+Chameleon.m"; sourceTree = "<group>"; };
 		B7845278D818AA0933253B32BF79AB28 /* ZCAnimatedLabel.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = ZCAnimatedLabel.xcconfig; sourceTree = "<group>"; };
 		BA76828CEBD20FDAA51A6DEB482396DF /* ZCAnimatedLabel-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ZCAnimatedLabel-prefix.pch"; sourceTree = "<group>"; };
-		BA962E8A0090A3F508472C2A41382DB4 /* UIKit+HeroModifier.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "UIKit+HeroModifier.swift"; sourceTree = "<group>"; };
 		BACBC4D8BC433BCFBAE3E48B295C5936 /* ZCTransparencyLabel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ZCTransparencyLabel.h; path = ZCAnimatedLabel/ZCAnimatedLabel/ZCTransparencyLabel.h; sourceTree = "<group>"; };
 		BD543212607D8A21C5EEB4811E15E12B /* ZCFocusLabel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ZCFocusLabel.h; path = ZCAnimatedLabel/ZCAnimatedLabel/ZCFocusLabel.h; sourceTree = "<group>"; };
 		CC2CFD70B28BCDBE2960C9BB229C1063 /* Pods-HeroExamples-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-HeroExamples-frameworks.sh"; sourceTree = "<group>"; };
-		CE24B0464741DFDE4ADE1C4012D723D6 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D163A5D38971FE50288730B3F9E7853E /* Pods-HeroExamples-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-HeroExamples-acknowledgements.markdown"; sourceTree = "<group>"; };
 		D4AF34292621395D6290871F5FB22E18 /* Pods-HeroExamples-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-HeroExamples-umbrella.h"; sourceTree = "<group>"; };
 		DF7172E1472CD5DF0E3B9AA1D3A86108 /* ZCThrownLabel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ZCThrownLabel.h; path = ZCAnimatedLabel/ZCAnimatedLabel/ZCThrownLabel.h; sourceTree = "<group>"; };
@@ -227,40 +173,29 @@
 		E4F249051A59B13F862BA33EFFEB0367 /* ZCEasingUtil.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ZCEasingUtil.h; path = ZCAnimatedLabel/ZCAnimatedLabel/ZCEasingUtil.h; sourceTree = "<group>"; };
 		E61802497B0C82082771903678DD88F1 /* ZCDashLabel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ZCDashLabel.h; path = ZCAnimatedLabel/ZCAnimatedLabel/ZCDashLabel.h; sourceTree = "<group>"; };
 		E730B04E8BAA5CA99E146F2D4FB86682 /* UIButton+Chameleon.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIButton+Chameleon.m"; path = "Pod/Classes/Objective-C/UIButton+Chameleon.m"; sourceTree = "<group>"; };
-		EAF1CB44B1532BE35326641A01B38EA5 /* ViewToViewPreprocessor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ViewToViewPreprocessor.swift; sourceTree = "<group>"; };
-		EC8209DC44A71100F992B0E93FC1DCED /* Pods-HeroExamples.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-HeroExamples.modulemap"; sourceTree = "<group>"; };
-		EE32F908C4EAEBC2AC2FBE19CE93A06F /* ZCAnimatedLabel.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = ZCAnimatedLabel.modulemap; sourceTree = "<group>"; };
+		EC8209DC44A71100F992B0E93FC1DCED /* Pods-HeroExamples.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-HeroExamples.modulemap"; sourceTree = "<group>"; };
+		EE32F908C4EAEBC2AC2FBE19CE93A06F /* ZCAnimatedLabel.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = ZCAnimatedLabel.modulemap; sourceTree = "<group>"; };
 		F1C22F078BD061D6FC9619141BDA695E /* UINavigationController+Chameleon.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UINavigationController+Chameleon.m"; path = "Pod/Classes/Objective-C/UINavigationController+Chameleon.m"; sourceTree = "<group>"; };
 		F421C1312F9063105A65D64D8C5BE410 /* ChameleonFramework-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ChameleonFramework-umbrella.h"; sourceTree = "<group>"; };
 		F61DEE17DAC8E639AEAA3D2E97C85C8F /* ChameleonEnums.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ChameleonEnums.h; path = "Pod/Classes/Objective-C/ChameleonEnums.h"; sourceTree = "<group>"; };
-		F9DF90DEF699C530738BF36F7EC08F4A /* CG+Hero.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "CG+Hero.swift"; sourceTree = "<group>"; };
 		FEEBB0283FFCA5CD75F9CC2C7C125F5B /* Chameleon_.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = Chameleon_.m; path = "Pod/Classes/Objective-C/Chameleon_.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		6166ADA80389AD66671E542588B0200F /* Frameworks */ = {
+		56918A26D3EDEB26C2F9B122E03E4A9A /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				192A0E280366B70ECE34DF53AB848141 /* Foundation.framework in Frameworks */,
+				0FAA11918BC2377E39A877BC142D1EEF /* CoreText.framework in Frameworks */,
+				7339345D8DDEF37E9F9F3BE9BAD6307B /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		7D3CA10DC6DF3B63540C238462F12A0A /* Frameworks */ = {
+		6C53D9EC51356AF2D5EF37FD114A9C08 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3A2A6EF6E339DA1B12A50A2B0CC24B13 /* CoreText.framework in Frameworks */,
-				D5E5ADEB4403273789A474E1C63E3B40 /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		820E8595182530888B7482019009B2E3 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				E1022C5C4A3C042F96C462A4B3E8EA21 /* Foundation.framework in Frameworks */,
-				5FBDE142FFC1B2E3A8590427B8F1CBA9 /* UIKit.framework in Frameworks */,
+				0B60DAA4D34F3C74E1142883A12A8CC2 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -295,6 +230,16 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		23024C222F96A4C7A30040F108850DAB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				55CBDB5ADC53AD92DC1BD1FA43BDD7F1 /* ChameleonFramework.framework */,
+				AF5C12431F9BD2452D57C998BC489B87 /* Pods_HeroExamples.framework */,
+				05D5FC5FA136B6E87C98475AFD6BA61F /* ZCAnimatedLabel.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		26D4D8D146F8FF003C9F396BE371507C /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -307,16 +252,6 @@
 			);
 			name = "Support Files";
 			path = "../Target Support Files/ZCAnimatedLabel";
-			sourceTree = "<group>";
-		};
-		3148AE0190732B0ED0D4A96EC91E2B71 /* Hero */ = {
-			isa = PBXGroup;
-			children = (
-				B80688D35CCC8E586B9252714D22B0F5 /* Hero */,
-				A36711A225638A61BA6B6D13C26773F8 /* Support Files */,
-			);
-			name = Hero;
-			path = ../..;
 			sourceTree = "<group>";
 		};
 		5A368960F16AE172AEBEFA66355F1949 /* ZCAnimatedLabel */ = {
@@ -350,28 +285,17 @@
 				2912F6D7A7878B823E4E2C679EBED4BE /* ZCTransparencyLabel.m */,
 				26D4D8D146F8FF003C9F396BE371507C /* Support Files */,
 			);
+			name = ZCAnimatedLabel;
 			path = ZCAnimatedLabel;
-			sourceTree = "<group>";
-		};
-		7BADC0D894845F24A1D8CEB9B900AF72 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				000FFED8AE29139132224FB47C7369A3 /* ChameleonFramework.framework */,
-				04B4B451E46FE346E8A820607BBA2324 /* Hero.framework */,
-				42B1EBC88025BDEAEE57374191E3343F /* Pods_HeroExamples.framework */,
-				96F2151CA6ADD851CD6FFD62A544FFBF /* ZCAnimatedLabel.framework */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		7DB346D0F39D3F0E887471402A8071AB = {
 			isa = PBXGroup;
 			children = (
 				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
-				96986CABABC609D6641C2A096D230EBB /* Development Pods */,
 				20B56609144CE204DFA8221F742B2D76 /* Frameworks */,
 				015645E6E1E42B85671CCD2A977F63CA /* Pods */,
-				7BADC0D894845F24A1D8CEB9B900AF72 /* Products */,
+				23024C222F96A4C7A30040F108850DAB /* Products */,
 				FEEC84FF8B3525185BE4BC0AC296A884 /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
@@ -410,71 +334,6 @@
 			name = Default;
 			sourceTree = "<group>";
 		};
-		96986CABABC609D6641C2A096D230EBB /* Development Pods */ = {
-			isa = PBXGroup;
-			children = (
-				3148AE0190732B0ED0D4A96EC91E2B71 /* Hero */,
-			);
-			name = "Development Pods";
-			sourceTree = "<group>";
-		};
-		A36711A225638A61BA6B6D13C26773F8 /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				986CEB14912C0A5CC97835230B574521 /* Hero.modulemap */,
-				25E81D1F1DA468EA8BCC84BFA1C7AFE8 /* Hero.xcconfig */,
-				AAB5D7770B86F43276F1BBFAE8E0B8E7 /* Hero-dummy.m */,
-				2AC1EA5EC1766240ED7A07183EE68CDC /* Hero-prefix.pch */,
-				A95F120A3DF8F7A911658AE7298E614B /* Hero-umbrella.h */,
-				CE24B0464741DFDE4ADE1C4012D723D6 /* Info.plist */,
-			);
-			name = "Support Files";
-			path = "Examples/Pods/Target Support Files/Hero";
-			sourceTree = "<group>";
-		};
-		A378508E1E083BC6002854A8 /* Preprocessors */ = {
-			isa = PBXGroup;
-			children = (
-				8A91722A49C98F39B7953A0624D18A0D /* CascadePreprocessor.swift */,
-				7DDFB6D7D1D131792D16BCA568C70E07 /* ClearPreprocessor.swift */,
-				32920F1C14AABE3E6324EB718DB4F22A /* SourceIDPreprocessor.swift */,
-				EAF1CB44B1532BE35326641A01B38EA5 /* ViewToViewPreprocessor.swift */,
-			);
-			name = Preprocessors;
-			sourceTree = "<group>";
-		};
-		A378508F1E083BD3002854A8 /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				F9DF90DEF699C530738BF36F7EC08F4A /* CG+Hero.swift */,
-				A37850B81E0B6487002854A8 /* CALayer+Hero.swift */,
-				B124B4A61E088BA9000F1DF2 /* CAMediaTimingFunction+Hero.swift */,
-				53F7BF54988B62579662B3EBF1570192 /* DispatchQueue+Hero.swift */,
-				4EA92FDB8DCF56BE10918981146E71D9 /* UIKit+Hero.swift */,
-				BA962E8A0090A3F508472C2A41382DB4 /* UIKit+HeroModifier.swift */,
-			);
-			name = Extensions;
-			sourceTree = "<group>";
-		};
-		A37850901E083BDB002854A8 /* DebugPlugin */ = {
-			isa = PBXGroup;
-			children = (
-				7260E6E6BC54C60E14338D44CDBA0DD9 /* HeroDebugPlugin.swift */,
-				9ABC44921DBAFE81EDBF72413F25CA66 /* HeroDebugView.swift */,
-			);
-			name = DebugPlugin;
-			sourceTree = "<group>";
-		};
-		A37850B71E0B61BD002854A8 /* DefaultAnimator */ = {
-			isa = PBXGroup;
-			children = (
-				009813FF767BFAE2357DA856652EEEE7 /* HeroDefaultAnimator.swift */,
-				A37850B31E0B60FC002854A8 /* HeroDefaultAnimatorViewContext.swift */,
-				A37850B51E0B619F002854A8 /* HeroDefaultAnimatorViewState.swift */,
-			);
-			name = DefaultAnimator;
-			sourceTree = "<group>";
-		};
 		A59C55F6013CB7643F4B4030B09B2D1E /* Swift */ = {
 			isa = PBXGroup;
 			children = (
@@ -497,21 +356,6 @@
 			path = "../Target Support Files/ChameleonFramework";
 			sourceTree = "<group>";
 		};
-		B80688D35CCC8E586B9252714D22B0F5 /* Hero */ = {
-			isa = PBXGroup;
-			children = (
-				8ACA52D8C3BB32DE76F65BE7A770A52F /* Hero.swift */,
-				68F0DA52F9FD4863B90F36540967E1AC /* HeroContext.swift */,
-				90410D05047B40B99B553954960BF82B /* HeroTypes.swift */,
-				9D2EF3BAF433FDE6F713EC6723EF776C /* HeroPlugin.swift */,
-				A37850B71E0B61BD002854A8 /* DefaultAnimator */,
-				A378508E1E083BC6002854A8 /* Preprocessors */,
-				A37850901E083BDB002854A8 /* DebugPlugin */,
-				A378508F1E083BD3002854A8 /* Extensions */,
-			);
-			path = Hero;
-			sourceTree = "<group>";
-		};
 		CFBD93DDE9A559F9CCDAA6802C5A361F /* ChameleonFramework */ = {
 			isa = PBXGroup;
 			children = (
@@ -519,6 +363,7 @@
 				B1A39966BD25CFF84C973E5EFF673694 /* Support Files */,
 				A59C55F6013CB7643F4B4030B09B2D1E /* Swift */,
 			);
+			name = ChameleonFramework;
 			path = ChameleonFramework;
 			sourceTree = "<group>";
 		};
@@ -563,19 +408,11 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		442643DF5DCE8AD74B0A77071213873D /* Headers */ = {
+		2B7A31EF26BDDE58C8F275653AE7F5DE /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1BF55DFD1990F68F268B96985726FD34 /* Pods-HeroExamples-umbrella.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		70740454BE247787CF85332D5BB4EC09 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				5BCC9986918F1504E617CF4EB6650D46 /* Hero-umbrella.h in Headers */,
+				9624DC1CBD9DA4A784590FFC193673FA /* Pods-HeroExamples-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -602,65 +439,45 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		B69ECC60F9FDF01B3D03B7E968E029FE /* Headers */ = {
+		CEBB4DB1B1AAD575520A7EA37BA03085 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F8B85EC3663D1642EDB609E95E8D6581 /* ZCAnimatedLabel-umbrella.h in Headers */,
-				84C802C36B8B0B0B7914F21C63BFA45E /* ZCAnimatedLabel.h in Headers */,
-				7EC18B2353DEF54BB916A4DCCA03F524 /* ZCCoreTextLayout.h in Headers */,
-				ACF084933B3CBF65307BBC8484191FA0 /* ZCDashLabel.h in Headers */,
-				8FDC07FBCD8EF555111482A3698ED4F7 /* ZCDuangLabel.h in Headers */,
-				61288CA5CDDA4889540D904296FC9BF1 /* ZCEasingUtil.h in Headers */,
-				A918B9CE3AFC7CFE22502D0EDF36E827 /* ZCFallLabel.h in Headers */,
-				AB80F4B71FE40B7325FE19FE7920BE1A /* ZCFlyinLabel.h in Headers */,
-				E98CB055BAE498D0F4FF48EC17BD49BD /* ZCFocusLabel.h in Headers */,
-				E20A79E671B33606667295F34A119208 /* ZCRevealLabel.h in Headers */,
-				10786E27C0CE4E3885C4F18686CF6300 /* ZCShapeshiftLabel.h in Headers */,
-				31355E6EC81B820199C659E233B4E9E8 /* ZCSpinLabel.h in Headers */,
-				7FBF3BEEC3253A81E1E145C76C89B83A /* ZCThrownLabel.h in Headers */,
-				598E88F95330D05C0D644897CEF4B469 /* ZCTransparencyLabel.h in Headers */,
+				1E162B130F202BB758F70ABF7A79FA55 /* ZCAnimatedLabel-umbrella.h in Headers */,
+				40183767C9BA63FB5F28CFD448568CF7 /* ZCAnimatedLabel.h in Headers */,
+				7CA7C05EB721D0F876A6DAE12821675C /* ZCCoreTextLayout.h in Headers */,
+				D8FB33073243D5B9EABA87B6CAF63577 /* ZCDashLabel.h in Headers */,
+				2F7F43A4296932FB55CBA489E4D0508C /* ZCDuangLabel.h in Headers */,
+				D108846C0C9F02A453FF05BFE72C4FB9 /* ZCEasingUtil.h in Headers */,
+				4CC5AE1E0D4700767EC56DF7B8E2AE4D /* ZCFallLabel.h in Headers */,
+				3B373CC3F8D9135D5422F0E1092CC6C9 /* ZCFlyinLabel.h in Headers */,
+				75B759DB544D317A6FC88F4FD62AB5E2 /* ZCFocusLabel.h in Headers */,
+				EA8ED001B68683130409A4E5F037CB41 /* ZCRevealLabel.h in Headers */,
+				F4E466CB3B33261D3255B35C06C8DC95 /* ZCShapeshiftLabel.h in Headers */,
+				6AA9E69CCB146EC7728EAF46A3A713AC /* ZCSpinLabel.h in Headers */,
+				784D05978A3F371754437833B6E3B223 /* ZCThrownLabel.h in Headers */,
+				9405A75288E8E96DACC18A6EEC420432 /* ZCTransparencyLabel.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		34CAC580BFE6FB5B89353906FD6A8BDB /* Hero */ = {
+		490E5E24AF399729C67683ABA7BCA188 /* ZCAnimatedLabel */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 102BC29D729DCF1BBE09F7B77976A8DD /* Build configuration list for PBXNativeTarget "Hero" */;
+			buildConfigurationList = 8D934E445C26631D39ED954D1595D699 /* Build configuration list for PBXNativeTarget "ZCAnimatedLabel" */;
 			buildPhases = (
-				6271C35C5330F1342A0AAABCAEEDC003 /* Sources */,
-				820E8595182530888B7482019009B2E3 /* Frameworks */,
-				70740454BE247787CF85332D5BB4EC09 /* Headers */,
+				E01509A7080DEB56AB53EBE5D3C115B4 /* Sources */,
+				56918A26D3EDEB26C2F9B122E03E4A9A /* Frameworks */,
+				CEBB4DB1B1AAD575520A7EA37BA03085 /* Headers */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = Hero;
-			productName = Hero;
-			productReference = 04B4B451E46FE346E8A820607BBA2324 /* Hero.framework */;
-			productType = "com.apple.product-type.framework";
-		};
-		73DBEE8B40A64A4E3B091748C42DD4F7 /* Pods-HeroExamples */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 937EE204DDEDB24B8E417B1629347495 /* Build configuration list for PBXNativeTarget "Pods-HeroExamples" */;
-			buildPhases = (
-				548AB60370927E20C25102D9FD05845F /* Sources */,
-				6166ADA80389AD66671E542588B0200F /* Frameworks */,
-				442643DF5DCE8AD74B0A77071213873D /* Headers */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				DE3B1B4D9EF473934BBB19396693E09C /* PBXTargetDependency */,
-				2EABA1CF962E9506BCD6B12C4067C724 /* PBXTargetDependency */,
-				FBA54CBC45C0F0CD56172B44E55D7319 /* PBXTargetDependency */,
-			);
-			name = "Pods-HeroExamples";
-			productName = "Pods-HeroExamples";
-			productReference = 42B1EBC88025BDEAEE57374191E3343F /* Pods_HeroExamples.framework */;
+			name = ZCAnimatedLabel;
+			productName = ZCAnimatedLabel;
+			productReference = 05D5FC5FA136B6E87C98475AFD6BA61F /* ZCAnimatedLabel.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		76BD4592010354D6C23D6ECCA20D83A8 /* ChameleonFramework */ = {
@@ -677,24 +494,26 @@
 			);
 			name = ChameleonFramework;
 			productName = ChameleonFramework;
-			productReference = 000FFED8AE29139132224FB47C7369A3 /* ChameleonFramework.framework */;
+			productReference = 55CBDB5ADC53AD92DC1BD1FA43BDD7F1 /* ChameleonFramework.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		B436B44CA163743182E74F03DB0B4F59 /* ZCAnimatedLabel */ = {
+		7BE367E8CC6B63FE94C2292EBF18B4D9 /* Pods-HeroExamples */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = AC6491958430F1070A2A30EDFC33FEDD /* Build configuration list for PBXNativeTarget "ZCAnimatedLabel" */;
+			buildConfigurationList = 86E278FFB0C25A792DBD0B3BD9B1F7AB /* Build configuration list for PBXNativeTarget "Pods-HeroExamples" */;
 			buildPhases = (
-				5B618D295F2EF5EBCA49DB555E8C57B7 /* Sources */,
-				7D3CA10DC6DF3B63540C238462F12A0A /* Frameworks */,
-				B69ECC60F9FDF01B3D03B7E968E029FE /* Headers */,
+				2C8DA10629A6E8A5ACDB8F3FF6724704 /* Sources */,
+				6C53D9EC51356AF2D5EF37FD114A9C08 /* Frameworks */,
+				2B7A31EF26BDDE58C8F275653AE7F5DE /* Headers */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				F723CE06F852D2E359BB6B2964BA8679 /* PBXTargetDependency */,
+				5F11CE395EB251087A84A872542D41CB /* PBXTargetDependency */,
 			);
-			name = ZCAnimatedLabel;
-			productName = ZCAnimatedLabel;
-			productReference = 96F2151CA6ADD851CD6FFD62A544FFBF /* ZCAnimatedLabel.framework */;
+			name = "Pods-HeroExamples";
+			productName = "Pods-HeroExamples";
+			productReference = AF5C12431F9BD2452D57C998BC489B87 /* Pods_HeroExamples.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -714,72 +533,44 @@
 				en,
 			);
 			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
-			productRefGroup = 7BADC0D894845F24A1D8CEB9B900AF72 /* Products */;
+			productRefGroup = 23024C222F96A4C7A30040F108850DAB /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				76BD4592010354D6C23D6ECCA20D83A8 /* ChameleonFramework */,
-				34CAC580BFE6FB5B89353906FD6A8BDB /* Hero */,
-				73DBEE8B40A64A4E3B091748C42DD4F7 /* Pods-HeroExamples */,
-				B436B44CA163743182E74F03DB0B4F59 /* ZCAnimatedLabel */,
+				7BE367E8CC6B63FE94C2292EBF18B4D9 /* Pods-HeroExamples */,
+				490E5E24AF399729C67683ABA7BCA188 /* ZCAnimatedLabel */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		548AB60370927E20C25102D9FD05845F /* Sources */ = {
+		2C8DA10629A6E8A5ACDB8F3FF6724704 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F7F904D5F0888B42AC9D326693754CE0 /* Pods-HeroExamples-dummy.m in Sources */,
+				25CCFF1662CCA3724B76988DD5E6C7DA /* Pods-HeroExamples-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		5B618D295F2EF5EBCA49DB555E8C57B7 /* Sources */ = {
+		E01509A7080DEB56AB53EBE5D3C115B4 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				04118D1B8FDD7E7173670C8B07711589 /* ZCAnimatedLabel-dummy.m in Sources */,
-				8E0CEB2CEE49A5BEE264A8EE54714EA7 /* ZCAnimatedLabel.m in Sources */,
-				B091706205DBEA2827284B7060E64096 /* ZCCoreTextLayout.m in Sources */,
-				56989A7BF080012B0F0637436E6EABB0 /* ZCDashLabel.m in Sources */,
-				7AE94C0C7BFD8A9C9530AED794BD0D8E /* ZCDuangLabel.m in Sources */,
-				8888D8CD2B70C41CCD55AAEEA4FD25AC /* ZCEasingUtil.m in Sources */,
-				94F7E046C2602C8C4D634FF684B227F8 /* ZCFallLabel.m in Sources */,
-				D195064586817A705F5068D1D98BB120 /* ZCFlyinLabel.m in Sources */,
-				75B4A80CFC3A9C0B7D74139C31F980F1 /* ZCFocusLabel.m in Sources */,
-				40E1F04D4C2801329BB14841B24C005A /* ZCRevealLabel.m in Sources */,
-				96E2D91886535313CCBDF853FEB03868 /* ZCShapeshiftLabel.m in Sources */,
-				EE4A11526BB34938AF78ACAC8287EED6 /* ZCSpinLabel.m in Sources */,
-				07FBEEA9B5A846CA380A56E0C4871E70 /* ZCThrownLabel.m in Sources */,
-				6F18AC21D391B19865742F811EC20202 /* ZCTransparencyLabel.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		6271C35C5330F1342A0AAABCAEEDC003 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				A6DA81627CEB670BBFBBAC365EEFBAF8 /* CascadePreprocessor.swift in Sources */,
-				1EFA7FF8FA2BF549B4CA3B7056C8A31F /* CG+Hero.swift in Sources */,
-				3FF66D2B989569989DA1ECEF022D0911 /* ClearPreprocessor.swift in Sources */,
-				36F23BEB8D59F2D7E929B65837955928 /* DispatchQueue+Hero.swift in Sources */,
-				EB192542076198CC9C636DDFCCF28D64 /* Hero-dummy.m in Sources */,
-				CA19F7D3C407140A4858D71B94EDC523 /* Hero.swift in Sources */,
-				87180A87859AD4B9B5656F52A3E64013 /* HeroContext.swift in Sources */,
-				F34ADE4638ABE9E687A005E1B4CCD2A0 /* HeroDebugPlugin.swift in Sources */,
-				A37850B91E0B6487002854A8 /* CALayer+Hero.swift in Sources */,
-				96ADBD9B612F8A5B2A417A3BCED08B78 /* HeroDebugView.swift in Sources */,
-				B9A618F6A32F37FCCB911669072ADAD1 /* HeroDefaultAnimator.swift in Sources */,
-				A37850B61E0B619F002854A8 /* HeroDefaultAnimatorViewState.swift in Sources */,
-				BAFF28FB3D799010C983A03EE434F262 /* HeroPlugin.swift in Sources */,
-				704C71A8D826D94BE3F463A1E39DDE08 /* HeroTypes.swift in Sources */,
-				B124B4A71E088BA9000F1DF2 /* CAMediaTimingFunction+Hero.swift in Sources */,
-				3B7E296D2722377B0EB6FD076A716081 /* SourceIDPreprocessor.swift in Sources */,
-				A6AC4C9DCE32429CE5D6CF2EAA3C52DE /* UIKit+Hero.swift in Sources */,
-				A37850B41E0B60FC002854A8 /* HeroDefaultAnimatorViewContext.swift in Sources */,
-				9ADBC3165E0411E5DFAAFE05C96EDC2D /* UIKit+HeroModifier.swift in Sources */,
-				BBACBB79A5CCE24F3BF31BEFDADD80DA /* ViewToViewPreprocessor.swift in Sources */,
+				F6D9178D7BBB6675E4DDDAE9DD87D325 /* ZCAnimatedLabel-dummy.m in Sources */,
+				AB38B3EC8E11AAC3E79CCA2055C602DA /* ZCAnimatedLabel.m in Sources */,
+				B6634AF86577EB63DA3CBEFE68A13573 /* ZCCoreTextLayout.m in Sources */,
+				960CCAF77BEB2BADB3EDF2B1D4F163ED /* ZCDashLabel.m in Sources */,
+				A012023B35FBAC0F3BF4A79AB56F5BF8 /* ZCDuangLabel.m in Sources */,
+				71F6B456484AFD3E66941D85EBC63AB4 /* ZCEasingUtil.m in Sources */,
+				F19137375616A184266131B0D97BE794 /* ZCFallLabel.m in Sources */,
+				4F588C05B1BD6255AC3A7E1759D015B4 /* ZCFlyinLabel.m in Sources */,
+				6FE3836B8D9901EB160349215E388DA0 /* ZCFocusLabel.m in Sources */,
+				BA46D138629B5BEEF5C8CA4F5DA78B6D /* ZCRevealLabel.m in Sources */,
+				2D10805A1729B26DCB2CAD52F2049BAF /* ZCShapeshiftLabel.m in Sources */,
+				24BE4A3CB29223B7DCC5150F5C08A307 /* ZCSpinLabel.m in Sources */,
+				DBACA9BDB5867F71DBA6D4B76672E14B /* ZCThrownLabel.m in Sources */,
+				E4CE7C740C5F7853AF4A1BD5A538809A /* ZCTransparencyLabel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -807,91 +598,21 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		2EABA1CF962E9506BCD6B12C4067C724 /* PBXTargetDependency */ = {
+		5F11CE395EB251087A84A872542D41CB /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			name = Hero;
-			target = 34CAC580BFE6FB5B89353906FD6A8BDB /* Hero */;
-			targetProxy = DE1EA60457BEF29998CDCB4A2EF25F52 /* PBXContainerItemProxy */;
+			name = ZCAnimatedLabel;
+			target = 490E5E24AF399729C67683ABA7BCA188 /* ZCAnimatedLabel */;
+			targetProxy = 09A396E97BB7A660275B043DDC407900 /* PBXContainerItemProxy */;
 		};
-		DE3B1B4D9EF473934BBB19396693E09C /* PBXTargetDependency */ = {
+		F723CE06F852D2E359BB6B2964BA8679 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = ChameleonFramework;
 			target = 76BD4592010354D6C23D6ECCA20D83A8 /* ChameleonFramework */;
-			targetProxy = 245352CA6AFF23A62ECC1E35BB9694B8 /* PBXContainerItemProxy */;
-		};
-		FBA54CBC45C0F0CD56172B44E55D7319 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = ZCAnimatedLabel;
-			target = B436B44CA163743182E74F03DB0B4F59 /* ZCAnimatedLabel */;
-			targetProxy = 7F4216B15DEB10177912225474EB288A /* PBXContainerItemProxy */;
+			targetProxy = 77ABD4CB4FB134B9A8C14A7B7F0C50CF /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		1B87D5BDC7F40D6A656E70058A80457B /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 25E81D1F1DA468EA8BCC84BFA1C7AFE8 /* Hero.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/Hero/Hero-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/Hero/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/Hero/Hero.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_NAME = Hero;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		3B253C0A051B9727DBB1D1D947A215BE /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = B7845278D818AA0933253B32BF79AB28 /* ZCAnimatedLabel.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/ZCAnimatedLabel/ZCAnimatedLabel-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/ZCAnimatedLabel/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/ZCAnimatedLabel/ZCAnimatedLabel.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_NAME = ZCAnimatedLabel;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
 		3E09A745CF2882E71BFC1132C8D8AE7D /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 1F2E13984F6F5D4A7DD3E870630E454E /* ChameleonFramework.xcconfig */;
@@ -924,9 +645,9 @@
 			};
 			name = Release;
 		};
-		412DAB257A76F5E015BD6D241990C9D6 /* Debug */ = {
+		5307121EE04301CCF222308A830C6660 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 25E81D1F1DA468EA8BCC84BFA1C7AFE8 /* Hero.xcconfig */;
+			baseConfigurationReference = B7845278D818AA0933253B32BF79AB28 /* ZCAnimatedLabel.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -939,54 +660,17 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/Hero/Hero-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/Hero/Info.plist";
+				GCC_PREFIX_HEADER = "Target Support Files/ZCAnimatedLabel/ZCAnimatedLabel-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/ZCAnimatedLabel/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/Hero/Hero.modulemap";
+				MODULEMAP_FILE = "Target Support Files/ZCAnimatedLabel/ZCAnimatedLabel.modulemap";
 				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_NAME = Hero;
+				PRODUCT_NAME = ZCAnimatedLabel;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		55806264DAD3E2F9C583D0CA2F43E7C5 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 517F35FE8BE6A3CBA4B88B1520C74C06 /* Pods-HeroExamples.debug.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "Target Support Files/Pods-HeroExamples/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-HeroExamples/Pods-HeroExamples.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = Pods_HeroExamples;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -1037,7 +721,43 @@
 			};
 			name = Debug;
 		};
-		671E841DBAAA02983FB2540A85D2F11A /* Release */ = {
+		64628373662DD9ADDD0FBA68D2C83A5C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 517F35FE8BE6A3CBA4B88B1520C74C06 /* Pods-HeroExamples.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-HeroExamples/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-HeroExamples/Pods-HeroExamples.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_HeroExamples;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		9387CF5D0FE86B7A6026CFAFCDE9A50C /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = B7845278D818AA0933253B32BF79AB28 /* ZCAnimatedLabel.xcconfig */;
 			buildSettings = {
@@ -1063,41 +783,6 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		6CC8020A764FED9A0EF88A7088C3280A /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6FB43588D8877F1F909F697476508F4F /* Pods-HeroExamples.release.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "Target Support Files/Pods-HeroExamples/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-HeroExamples/Pods-HeroExamples.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = Pods_HeroExamples;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -1141,6 +826,41 @@
 				STRIP_INSTALLED_PRODUCT = NO;
 				SYMROOT = "${SRCROOT}/../build";
 				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		E19B98C170398FBF1DDCA5CDDB48B541 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6FB43588D8877F1F909F697476508F4F /* Pods-HeroExamples.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-HeroExamples/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-HeroExamples/Pods-HeroExamples.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_HeroExamples;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
 			};
 			name = Release;
 		};
@@ -1189,15 +909,6 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		102BC29D729DCF1BBE09F7B77976A8DD /* Build configuration list for PBXNativeTarget "Hero" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				412DAB257A76F5E015BD6D241990C9D6 /* Debug */,
-				1B87D5BDC7F40D6A656E70058A80457B /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -1207,20 +918,20 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		937EE204DDEDB24B8E417B1629347495 /* Build configuration list for PBXNativeTarget "Pods-HeroExamples" */ = {
+		86E278FFB0C25A792DBD0B3BD9B1F7AB /* Build configuration list for PBXNativeTarget "Pods-HeroExamples" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				55806264DAD3E2F9C583D0CA2F43E7C5 /* Debug */,
-				6CC8020A764FED9A0EF88A7088C3280A /* Release */,
+				64628373662DD9ADDD0FBA68D2C83A5C /* Debug */,
+				E19B98C170398FBF1DDCA5CDDB48B541 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		AC6491958430F1070A2A30EDFC33FEDD /* Build configuration list for PBXNativeTarget "ZCAnimatedLabel" */ = {
+		8D934E445C26631D39ED954D1595D699 /* Build configuration list for PBXNativeTarget "ZCAnimatedLabel" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				3B253C0A051B9727DBB1D1D947A215BE /* Debug */,
-				671E841DBAAA02983FB2540A85D2F11A /* Release */,
+				5307121EE04301CCF222308A830C6660 /* Debug */,
+				9387CF5D0FE86B7A6026CFAFCDE9A50C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

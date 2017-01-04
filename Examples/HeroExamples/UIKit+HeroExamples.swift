@@ -79,10 +79,6 @@ public extension UIView{
   }
 }
 
-func delay(_ time:Double, execute: @escaping ()->Void){
-  DispatchQueue.main.asyncAfter(deadline: .now() + time, execute: execute)
-}
-
 func viewController(forStoryboardName:String) -> UIViewController{
   return UIStoryboard(name: forStoryboardName, bundle: nil).instantiateInitialViewController()!
 }
