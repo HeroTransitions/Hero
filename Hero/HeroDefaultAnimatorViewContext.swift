@@ -91,7 +91,6 @@ internal class HeroDefaultAnimatorViewContext {
       let path = CGMutablePath()
       let maxControl = fromPos.y > toPos.y ? CGPoint(x: toPos.x, y: fromPos.y) : CGPoint(x: fromPos.x, y: toPos.y)
       let minControl = (toPos - fromPos) / 2 + fromPos
-      let diff = abs(toPos - fromPos)
       
       path.move(to: fromPos)
       path.addQuadCurve(to: toPos, control: minControl + (maxControl - minControl) * arcIntensity)
@@ -125,7 +124,7 @@ internal class HeroDefaultAnimatorViewContext {
   }
   
   // return the completion duration of the animation (duration + initial delay, not counting the beginTime)
-  func addAnimation(key:String, beginTime:TimeInterval, fromValue:Any?, toValue:Any?) -> TimeInterval{
+  @discardableResult func addAnimation(key:String, beginTime:TimeInterval, fromValue:Any?, toValue:Any?) -> TimeInterval{
     let anim = getAnimation(key: key, beginTime:beginTime, fromValue: fromValue, toValue: toValue)
     
     snapshot.layer.add(anim, forKey: key)
@@ -188,7 +187,7 @@ internal class HeroDefaultAnimatorViewContext {
       let realFromSize = fromSize.transform(fromTransform)
       let realToSize = toSize.transform(toTransform)
       
-      var movePoints = (realFromPos.distance(realToPos) + realFromSize.point.distance(realToSize.point))
+      let movePoints = (realFromPos.distance(realToPos) + realFromSize.point.distance(realToSize.point))
       
       // duration is 0.2 @ 0 to 0.375 @ 500
       defaultDuration = 0.208 + Double(movePoints.clamp(0, 500)) / 3000
@@ -208,7 +207,7 @@ internal class HeroDefaultAnimatorViewContext {
     let targetState = viewState(for: view, with: modifiers)
     for (key, targetValue) in targetState{
       if state[key] == nil{
-        let currentValue = snapshot.layer.value(forKeyPath: key)
+        let currentValue = snapshot.layer.value(forKeyPath: key)!
         state[key] = (currentValue, currentValue)
       }
       addAnimation(key: key, beginTime: 0, fromValue: targetValue, toValue: targetValue)
@@ -217,12 +216,12 @@ internal class HeroDefaultAnimatorViewContext {
   
   func resume(timePassed:TimeInterval, reverse:Bool){
     for (key, (fromValue, toValue)) in state{
-      var realToValue = !reverse ? toValue : fromValue
-      var realFromValue = (snapshot.layer.presentation() ?? snapshot.layer).value(forKeyPath: key)
+      let realToValue = !reverse ? toValue : fromValue
+      let realFromValue = (snapshot.layer.presentation() ?? snapshot.layer).value(forKeyPath: key)!
       state[key] = (realFromValue, realToValue)
     }
     
-    var realDelay = max(0, baseDelay - timePassed)
+    let realDelay = max(0, baseDelay - timePassed)
     animate(delay: realDelay)
   }
   
@@ -268,7 +267,7 @@ internal class HeroDefaultAnimatorViewContext {
     
     let disappeared = viewState(for: view, with: modifiers)
     for (key, disappearedState) in disappeared{
-      let appearingState = snapshot.layer.value(forKeyPath: key)
+      let appearingState = snapshot.layer.value(forKeyPath: key)!
       let toValue = appearing ? appearingState : disappearedState
       let fromValue = !appearing ? appearingState : disappearedState
       state[key] = (fromValue, toValue)
