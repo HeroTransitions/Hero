@@ -23,15 +23,21 @@ At its core, Hero is similar to Keynote's `Magic Move`. It checks the `heroID` p
 
 Hero can also construct animations for unmatched views. It is easy to define these animations via the `heroModifiers` property. Hero will run these animations alongside the `Magic Move` animations. All of these can be interactive, too.
 
-Hero does not make any assumption about how the view is built or structured. It will not modify any of your views' states other than hiding them during the animation. This means that it works with autolayout, programmatic layout, UICollectionView, UITableView, UINavigationController etc... 
+## Video Demos
+The following videos give you a general ideas of what you can do with **Hero**
 
-##### NOTE: Hero won't work on iPhone 7 Simulators due to a [bug](https://forums.developer.apple.com/thread/63438) by Apple. Try using other simulators or a real device when working with Hero.
+1. Video overview of the example project
+2. Video overview of the built-in Debugger that display timeline, arc curve, and 3d informations
+3. Video overview of the usage with [Injection App](http://johnholdsworth.com/injection.html) to provide dynamic modifications in realtime. Changing **HeroID** or **HeroModifiers** without recompiling!
 
-## Video Demo (Example Project)
-There are many examples shown in the **HeroExamples** project under the **Examples** folder. Clone or download the project to run it yourself. You can also view the **[video overview here](https://youtu.be/-6L79or6Iq8)**.
+<a href="https://youtu.be/-6L79or6Iq8"><img src="https://github.com/lkzhao/Hero/blob/master/Resources/overview.png?raw=true" height="300"/></a>
+<a href="https://youtu.be/NFhA6qZdunA"><img src="https://github.com/lkzhao/Hero/blob/master/Resources/debugger.png?raw=true" height="300"/>
+<a href="https://youtu.be/m8eeO_GETeA"><img src="https://github.com/lkzhao/Hero/blob/master/Resources/liveInjection.png?raw=true" height="300"/>
 
 ## Installation & Usage Guide
 Hero is available on Carthage & Cocoapods. See the **[usage guide](https://github.com/lkzhao/Hero/wiki/Usage-Guide)** for instructions.
+
+##### NOTE: Hero won't work on iPhone 7 Simulators due to a [bug](https://forums.developer.apple.com/thread/63438) by Apple. Try using other simulators or a real device when working with Hero.
 
 ## Simple Usage Examples
 
