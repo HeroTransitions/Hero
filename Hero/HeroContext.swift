@@ -30,6 +30,7 @@ public class HeroContext {
 
   fileprivate var heroIDToSourceView = [String:UIView]()
   fileprivate var heroIDToDestinationView = [String:UIView]()
+  fileprivate var snapshotViews = [UIView:UIView]()
   fileprivate var modifiers = [UIView:HeroModifiers]()
   
   internal init(container:UIView, fromView:UIView, toView:UIView){
@@ -83,6 +84,56 @@ extension HeroContext{
       }
     }
     return nil
+  }
+  
+  /**
+   - Returns: a snapshot view for animation
+   */
+  public func snapshotView(for view: UIView) -> UIView {
+    if let snapshot = snapshotViews[view] {
+      return snapshot
+    }
+
+    view.isHidden = false
+    
+    // capture a snapshot without cornerRadius
+    let oldCornerRadius = view.layer.cornerRadius
+    view.layer.cornerRadius = 0
+    let snapshot = view.snapshotView(afterScreenUpdates: true)!
+    view.layer.cornerRadius = oldCornerRadius
+    
+    // the Snapshot's contentView must have hold the cornerRadius value,
+    // since the snapshot might not have maskToBounds set
+    let contentView = snapshot.subviews[0]
+    contentView.layer.cornerRadius = view.layer.cornerRadius
+    contentView.layer.masksToBounds = true
+    
+    snapshot.layer.cornerRadius = view.layer.cornerRadius
+    if let zPos = self[view, "zPosition"]?.getCGFloat(0){
+      snapshot.layer.zPosition = zPos
+    } else {
+      snapshot.layer.zPosition = view.layer.zPosition
+    }
+    snapshot.layer.opacity = view.layer.opacity
+    snapshot.layer.isOpaque = view.layer.isOpaque
+    snapshot.layer.anchorPoint = view.layer.anchorPoint
+    snapshot.layer.masksToBounds = view.layer.masksToBounds
+    snapshot.layer.borderColor = view.layer.borderColor
+    snapshot.layer.borderWidth = view.layer.borderWidth
+    snapshot.layer.transform = view.layer.transform
+    snapshot.layer.shadowRadius = view.layer.shadowRadius
+    snapshot.layer.shadowOpacity = view.layer.shadowOpacity
+    snapshot.layer.shadowColor = view.layer.shadowColor
+    snapshot.layer.shadowOffset = view.layer.shadowOffset
+    
+    snapshot.frame = container.convert(view.bounds, from: view)
+    snapshot.heroID = view.heroID
+    
+    view.isHidden = true
+    
+    container.addSubview(snapshot)
+    snapshotViews[view] = snapshot
+    return snapshot
   }
   
   /**
