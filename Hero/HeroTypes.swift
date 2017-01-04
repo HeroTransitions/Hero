@@ -52,7 +52,10 @@ public protocol HeroAnimator {
 
   @objc optional func heroWillStartAnimatingFrom(viewController:UIViewController)
   @objc optional func heroDidEndAnimatingFrom(viewController:UIViewController)
-
+  
+  @objc optional func heroWillStartTransition()
+  @objc optional func heroDidEndTransition()
+  
   @objc optional func heroWillStartAnimatingTo(viewController:UIViewController)
   @objc optional func heroDidEndAnimatingTo(viewController:UIViewController)
 }
