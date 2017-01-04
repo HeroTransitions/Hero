@@ -24,10 +24,10 @@ At its core, Hero is similar to Keynote's `Magic Move`. It checks the `heroID` p
 Hero can also construct animations for unmatched views. It is easy to define these animations via the `heroModifiers` property. Hero will run these animations alongside the `Magic Move` animations. All of these can be interactive, too.
 
 ## Video Demos
-The following videos give you a general ideas of what you can do with **Hero**
+The following videos give you a general idea of what you can do with **Hero**
 
-1. Video overview of the example project
-2. Video overview of the built-in Debugger that display timeline, arc curve, and 3d informations
+1. Video overview of the example project.
+2. Video overview of the built-in Debugger that display timeline, arc curve, and 3d informations.
 3. Video overview of the usage with [Injection App](http://johnholdsworth.com/injection.html) to provide dynamic modifications in realtime. Changing **HeroID** or **HeroModifiers** without recompiling!
 
 <a href="https://youtu.be/-6L79or6Iq8"><img src="https://github.com/lkzhao/Hero/blob/master/Resources/overview.png?raw=true" height="300"/></a>
@@ -42,6 +42,7 @@ Hero is available on Carthage & Cocoapods. See the **[usage guide](https://githu
 ## Simple Usage Examples
 
 <img src="https://cdn.rawgit.com/lkzhao/Hero/e6c77629fcf2ea1c9b8526f74d250a2fea68ae5c/Resources/simple.svg"/>
+
 <img src="https://cdn.rawgit.com/lkzhao/Hero/e6c77629fcf2ea1c9b8526f74d250a2fea68ae5c/Resources/advance.svg"/>
 
 You can do these in the storyboard too!
@@ -49,12 +50,6 @@ You can do these in the storyboard too!
 <img src="https://cdn.rawgit.com/lkzhao/Hero/master/Resources/storyboardViewController.png" width="267px"/>
 
 <img src="https://cdn.rawgit.com/lkzhao/Hero/master/Resources/storyboardView.png" width="267px"/>
-
-For detailed explanation about **Hero ID**, **Hero Modifiers**, and supported animations:
-
-#### Read the **[usage guide](https://github.com/lkzhao/Hero/wiki/Usage-Guide)**
-
-This library is completely new and under heavy development. Might not be stable for production use, but there will be more things to come.
 
 ## Contribute
 
