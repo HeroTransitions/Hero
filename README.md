@@ -45,9 +45,7 @@ Hero is available on Carthage & Cocoapods. See the **[usage guide](https://githu
 
 You can do these in the storyboard too!
 
-<img src="https://cdn.rawgit.com/lkzhao/Hero/master/Resources/storyboardViewController.png" width="267px"/>
-
-<img src="https://cdn.rawgit.com/lkzhao/Hero/master/Resources/storyboardView.png" width="267px"/>
+<img src="https://cdn.rawgit.com/lkzhao/Hero/master/Resources/storyboardViewController.png" width="267px"/> <img src="https://cdn.rawgit.com/lkzhao/Hero/master/Resources/storyboardView.png" width="267px"/>
 
 ## Contribute
 
