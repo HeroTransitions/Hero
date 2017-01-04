@@ -23,36 +23,36 @@
 import UIKit
 
 @objc public protocol HeroInteractiveContext {
-  var container:UIView! { get }
-  var presenting:Bool { get }
-
-  func update(progress:Double)
-  func end()
-  func cancel()
-  func temporarilySet(view:UIView, with modifiers:String)
-  var toViewController:UIViewController? {get}
+    var container: UIView! { get }
+    var presenting: Bool { get }
+    
+    func update(progress: Double)
+    func end()
+    func cancel()
+    func temporarilySet(view: UIView, with modifiers: String)
+    var toViewController: UIViewController? {get}
 }
 
 public protocol HeroPreprocessor {
-  func process(context:HeroContext, fromViews:[UIView], toViews:[UIView])
+    func process(context: HeroContext, fromViews: [UIView], toViews: [UIView])
 }
 
 public protocol HeroAnimator {
-  func canAnimate(context:HeroContext, view:UIView, appearing:Bool) -> Bool
-  func animate(context:HeroContext, fromViews:[UIView], toViews:[UIView]) -> TimeInterval
-  func clean()
-  
-  func seekTo(timePassed:TimeInterval)
-  func resume(timePassed:TimeInterval, reverse:Bool) -> TimeInterval
-  func temporarilySet(view:UIView, to modifiers:HeroModifiers)
+    func canAnimate(context: HeroContext, view: UIView, appearing: Bool) -> Bool
+    func animate(context: HeroContext, fromViews: [UIView], toViews: [UIView]) -> TimeInterval
+    func clean()
+    
+    func seekTo(timePassed: TimeInterval)
+    func resume(timePassed: TimeInterval, reverse: Bool) -> TimeInterval
+    func temporarilySet(view: UIView, to modifiers: HeroModifiers)
 }
 
 @objc public protocol HeroViewControllerDelegate{
-  @objc optional func wantInteractiveHeroTransition(context:HeroInteractiveContext) -> Bool
-
-  @objc optional func heroWillStartAnimatingFrom(viewController:UIViewController)
-  @objc optional func heroDidEndAnimatingFrom(viewController:UIViewController)
-
-  @objc optional func heroWillStartAnimatingTo(viewController:UIViewController)
-  @objc optional func heroDidEndAnimatingTo(viewController:UIViewController)
+    @objc optional func wantInteractiveHeroTransition(context: HeroInteractiveContext) -> Bool
+    
+    @objc optional func heroWillStartAnimatingFrom(viewController: UIViewController)
+    @objc optional func heroDidEndAnimatingFrom(viewController: UIViewController)
+    
+    @objc optional func heroWillStartAnimatingTo(viewController: UIViewController)
+    @objc optional func heroDidEndAnimatingTo(viewController: UIViewController)
 }
