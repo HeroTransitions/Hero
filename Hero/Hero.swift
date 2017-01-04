@@ -98,17 +98,21 @@ internal extension Hero {
     }
     
     if let delegate = fromViewController as? HeroViewControllerDelegate{
+      delegate.heroWillStartTransition?()
       delegate.heroWillStartAnimatingTo?(viewController: toViewController!)
     }
     if let navigationController = fromViewController as? UINavigationController,
       let delegate = navigationController.topViewController as? HeroViewControllerDelegate{
+      delegate.heroWillStartTransition?()
       delegate.heroWillStartAnimatingTo?(viewController: toViewController!)
     }
     if let delegate = toViewController as? HeroViewControllerDelegate{
+      delegate.heroWillStartTransition?()
       delegate.heroWillStartAnimatingFrom?(viewController: fromViewController!)
     }
     if let navigationController = toViewController as? UINavigationController,
       let delegate = navigationController.topViewController as? HeroViewControllerDelegate{
+      delegate.heroWillStartTransition?()
       delegate.heroWillStartAnimatingFrom?(viewController: fromViewController!)
     }
 
@@ -250,17 +254,21 @@ internal extension Hero {
 
     if let delegate = fvc as? HeroViewControllerDelegate{
       delegate.heroDidEndAnimatingTo?(viewController: tvc)
+      delegate.heroDidEndTransition?()
     }
     if let nc = fvc as? UINavigationController,
        let delegate = nc.topViewController as? HeroViewControllerDelegate{
       delegate.heroDidEndAnimatingTo?(viewController: tvc)
+      delegate.heroDidEndTransition?()
     }
     if let delegate = tvc as? HeroViewControllerDelegate{
       delegate.heroDidEndAnimatingFrom?(viewController: fvc)
+      delegate.heroDidEndTransition?()
     }
     if let nc = tvc as? UINavigationController,
       let delegate = nc.topViewController as? HeroViewControllerDelegate{
       delegate.heroDidEndAnimatingFrom?(viewController: fvc)
+      delegate.heroDidEndTransition?()
     }
   }
 }

@@ -14,7 +14,7 @@ class InitialViewController: UITableViewController {
     [],
     ["Basic", "MusicPlayer", "Menu"],
     ["CityGuide", "ImageViewer", "ListToGrid", "ImageGallery"],
-    ["Debug", "LabelTransform"]
+    ["LiveInjection", "Debug", "LabelTransform"]
   ]
   
   override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
