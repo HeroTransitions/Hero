@@ -21,6 +21,7 @@
 // THE SOFTWARE.
 
 import UIKit
+import Hero
 
 class CityGuideViewController: UIViewController {
   @IBOutlet weak var collectionView: UICollectionView!
@@ -36,7 +37,7 @@ class CityGuideViewController: UIViewController {
           indexPath != currentCellIndex {
           let beforeCurrentCell = indexPath < currentCellIndex
           // want right side cells to slide right, and left side cells to slide left
-          cell.heroModifiers = "fade translate(\(beforeCurrentCell ? -100 : 100),0)"
+          cell.heroModifiers = HeroComposition().fade().translate(x: beforeCurrentCell ? -100 : 100, y: 0).modifier
         }
       }
     }
