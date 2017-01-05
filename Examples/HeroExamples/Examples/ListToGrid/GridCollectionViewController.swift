@@ -38,7 +38,7 @@ class GridCollectionViewController: UICollectionViewController, UICollectionView
   }
   
   override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-    return 50
+    return ImageLibrary.count
   }
   
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -48,7 +48,7 @@ class GridCollectionViewController: UICollectionViewController, UICollectionView
   override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
     let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "item", for: indexPath) as! GridImageCell
     
-    let image = UIImage(named: "Unsplash\(indexPath.item % 10)")!
+    let image = ImageLibrary.thumbnail(index:indexPath.item)
     cell.heroModifiers = "fade translate(0, 20)"
     cell.imageView?.image = image
     cell.imageView?.heroID = "image_\(indexPath.item)"
