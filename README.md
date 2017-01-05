@@ -17,9 +17,13 @@
 
 #### With Hero, you can easily mix & match these effects to build your own custom transition.
 
-At its core, Hero is similar to Keynote's `Magic Move`. It checks the `heroID` property on all source and destinations views. Every matched view pairs are then automatically transitioned from it's old state to it's new state.
+At its core, Hero is similar to Keynote's **Magic Move**. It checks the `heroID` property on all source and destinations views. Every matched view pairs are then automatically transitioned from it's old state to it's new state.
 
-Hero can also construct animations for unmatched views. It is easy to define these animations via the `heroModifiers` property. Hero will run these animations alongside the `Magic Move` animations. All of these can be interactive, too.
+Hero can also construct animations for unmatched views. It is easy to define these animations via the `heroModifiers` property. Hero will run these animations alongside the **Magic Move** animations. All of these can be interactive, too.
+
+By default, Hero provides **dynamic duration & easing** based on the [Material Design Motion Guide](https://material.io/guidelines/motion/duration-easing.html). The duration is determined by the distance and size change. The easing curve is selected base on whether or not the view is entering or exiting the screen. It save you the hassle while providing consistent and delightful animations.
+
+Hero does not make any assumption about how the view is built or structured. It will not modify any of your views' states other than hiding them during the animation. This means that it works with **autolayout**, **programmatic layout**, **UICollectionView**(without modifing its layout object), **UITableView**, **UINavigationController**, **UITabBarController**, etc... 
 
 ## Video Demos
 The following videos give you a general idea of what you can do with **Hero**
