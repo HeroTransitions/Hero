@@ -99,7 +99,12 @@ extension HeroContext{
     // capture a snapshot without cornerRadius
     let oldCornerRadius = view.layer.cornerRadius
     view.layer.cornerRadius = 0
-    let snapshot = view.snapshotView(afterScreenUpdates: true)!
+    let snapshot:UIView
+    if #available(iOS 9.0, *), let stackView = view as? UIStackView{
+      snapshot = stackView.slowSnapshotView()
+    } else {
+      snapshot = view.slowSnapshotView()
+    }
     view.layer.cornerRadius = oldCornerRadius
     
     // the Snapshot's contentView must have hold the cornerRadius value,
