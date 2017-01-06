@@ -22,10 +22,13 @@
 
 import UIKit
 
+fileprivate let parameterRegex = "(?:\\-?\\d+(\\.?\\d+)?)|\\w+"
+fileprivate let modifiersRegex = "(\\w+)(?:\\(([^\\)]*)\\))?"
+
 public extension UIView{
   private struct AssociatedKeys {
     static var HeroID    = "ht_heroID"
-    static var HeroModifiers = "ht_heroModifiers"
+    static var HeroModifiers = "ht_heroModifers"
   }
   
   @IBInspectable public var heroID: String? {
@@ -42,18 +45,54 @@ public extension UIView{
       )
     }
   }
-  @IBInspectable public var heroModifiers: String? {
+  public var heroModifiers: [HeroModifier]? {
     get {
-      return objc_getAssociatedObject(self, &AssociatedKeys.HeroModifiers) as? String
+      return objc_getAssociatedObject(self, &AssociatedKeys.HeroModifiers) as? [HeroModifier]
     }
     
     set {
       objc_setAssociatedObject(
         self,
         &AssociatedKeys.HeroModifiers,
-        newValue as NSString?,
+        newValue,
         .OBJC_ASSOCIATION_RETAIN_NONATOMIC
       )
+    }
+  }
+
+  @available(*, deprecated: 0, message: "please use heroModifiers instead")
+  @IBInspectable public var heroModifierString: String? {
+    get { return heroModifiers?.toModifierString() }
+    set {
+      guard let newValue = newValue else {
+        heroModifiers = nil
+        return
+      }
+      let modifierString = newValue as NSString
+      func matches(for regex: String, text:NSString) -> [NSTextCheckingResult] {
+        do {
+          let regex = try NSRegularExpression(pattern: regex)
+          return regex.matches(in: text as String, range: NSRange(location: 0, length: text.length))
+        } catch let error {
+          print("invalid regex: \(error.localizedDescription)")
+          return []
+        }
+      }
+      var modifiers = [HeroModifier]()
+      for r in matches(for: modifiersRegex, text:modifierString){
+        var parameters = [String]()
+        if r.numberOfRanges > 2, r.rangeAt(2).location < modifierString.length{
+          let parameterString = modifierString.substring(with: r.rangeAt(2)) as NSString
+          for r in matches(for: parameterRegex, text: parameterString){
+            parameters.append(parameterString.substring(with: r.range))
+          }
+        }
+        let name = modifierString.substring(with: r.rangeAt(1))
+        if let modifier = HeroModifier(name: name, parameters: parameters){
+          modifiers.append(modifier)
+        }
+      }
+      heroModifiers = modifiers
     }
   }
 
@@ -73,24 +112,6 @@ public extension UIView{
 }
 
 public extension UIViewController{
-  private struct AssociatedKeys {
-    static var HeroTransition    = "ht_heroTransition"
-  }
-  private var hero: Hero? {
-    get {
-      return objc_getAssociatedObject(self, &AssociatedKeys.HeroTransition) as? Hero
-    }
-    
-    set {
-      objc_setAssociatedObject(
-        self,
-        &AssociatedKeys.HeroTransition,
-        newValue as Hero?,
-        .OBJC_ASSOCIATION_RETAIN_NONATOMIC
-      )
-    }
-  }
-
   @IBInspectable public var isHeroEnabled: Bool {
     get {
       return ((transitioningDelegate as? Hero) != nil)
@@ -99,13 +120,12 @@ public extension UIViewController{
     set {
       guard newValue != isHeroEnabled else { return }
       if newValue{
-        hero = Hero()
-        transitioningDelegate = hero
+        transitioningDelegate = Hero.shared
         if let navi = self as? UINavigationController{
-          navi.delegate = hero
+          navi.delegate = Hero.shared
         }
         if let tab = self as? UITabBarController{
-          tab.delegate = hero
+          tab.delegate = Hero.shared
         }
       } else {
         if isHeroEnabled {
@@ -117,7 +137,6 @@ public extension UIViewController{
         if let tab = self as? UITabBarController, let _ = tab.delegate as? Hero{
           tab.delegate = nil
         }
-        hero = nil
       }
     }
   }
@@ -137,7 +156,7 @@ public extension UIViewController{
       let container = self.view.superview!
       let oldTransitionDelegate = next.transitioningDelegate
       next.isHeroEnabled = true
-      next.hero!.transition(from: self, to: next, in: container) {
+      Hero.shared.transition(from: self, to: next, in: container) {
         if (oldTransitionDelegate as? Hero) == nil{
           next.isHeroEnabled = false
           next.transitioningDelegate = oldTransitionDelegate
@@ -168,22 +187,9 @@ internal extension UIImage {
 }
 
 internal func ==(lhs:CATransform3D, rhs:CATransform3D) -> Bool{
-  return lhs.m11 == rhs.m11 &&
-         lhs.m12 == rhs.m12 &&
-         lhs.m13 == rhs.m13 &&
-         lhs.m14 == rhs.m14 &&
-         lhs.m21 == rhs.m21 &&
-         lhs.m22 == rhs.m22 &&
-         lhs.m23 == rhs.m23 &&
-         lhs.m24 == rhs.m24 &&
-         lhs.m31 == rhs.m31 &&
-         lhs.m32 == rhs.m32 &&
-         lhs.m33 == rhs.m33 &&
-         lhs.m34 == rhs.m34 &&
-         lhs.m41 == rhs.m41 &&
-         lhs.m42 == rhs.m42 &&
-         lhs.m43 == rhs.m43 &&
-         lhs.m44 == rhs.m44
+  var lhs = lhs
+  var rhs = rhs
+  return memcmp(&lhs, &rhs, MemoryLayout<CATransform3D>.size) == 0
 }
 
 internal func !=(lhs:CATransform3D, rhs:CATransform3D) -> Bool{

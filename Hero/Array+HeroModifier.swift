@@ -22,17 +22,48 @@
 
 import UIKit
 
-public class ClearModifierPreprocessor:HeroPreprocessor {
-  public func process(context:HeroContext, fromViews:[UIView], toViews:[UIView]) {
-    for view in fromViews + toViews{
-      guard context[view, "clearSubviewModifiers"] != nil else { continue }
-      var parentView = view
-      if let _  = view as? UITableView, let wrapperView = view.subviews.get(0) {
-        parentView = wrapperView
-      }
-      for subview in parentView.subviews{
-        context[subview] = nil
+internal extension Array{
+  func get(_ index:Int) -> Element?{
+    if index < count{
+      return self[index]
+    }
+    return nil
+  }
+  func getCGFloat(_ index:Int) -> CGFloat?{
+    if index < count, let s = self[index] as? String, let f = Float(s){
+      return CGFloat(f)
+    }
+    return nil
+  }
+  func getDouble(_ index:Int) -> Double?{
+    if index < count, let s = self[index] as? String, let f = Double(s){
+      return f
+    }
+    return nil
+  }
+  func getFloat(_ index:Int) -> Float?{
+    if index < count, let s = self[index] as? String, let f = Float(s){
+      return f
+    }
+    return nil
+  }
+  func getBool(_ index:Int) -> Bool?{
+    if index < count, let s = self[index] as? String, let f = Bool(s){
+      return f
+    }
+    return nil
+  }
+  
+  mutating func filterInPlace(_ comparator:(Element)->Bool) -> Array<Element>{
+    var array2:Array<Element> = []
+    self = self.filter { (element) -> Bool in
+      if comparator(element) {
+        return true
+      } else{
+        array2.append(element)
+        return false
       }
     }
+    return array2
   }
 }

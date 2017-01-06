@@ -26,7 +26,6 @@ import Hero
 class ImageViewController: UICollectionViewController {
   var selectedIndex:IndexPath?
   var panGR = UIPanGestureRecognizer()
-  weak var interactiveContext:HeroInteractiveContext?
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -62,18 +61,17 @@ class ImageViewController: UICollectionViewController {
         dismiss(animated: true, completion: nil)
       }
     case .changed:
-      interactiveContext?.update(progress: Double(progress))
+      Hero.shared.update(progress: Double(progress))
       if let cell = collectionView?.visibleCells[0]  as? ScrollingImageCell{
         let currentPos = translation + view.center
-        interactiveContext?.temporarilySet(view: cell.imageView, with: "position(\(currentPos.x), \(currentPos.y))")
+        Hero.shared.temporarilySet(view: cell.imageView, modifiers: [.position(currentPos)])
       }
     default:
       if progress + panGR.velocity(in: nil).y / collectionView!.bounds.height > 0.15{
-        interactiveContext?.end()
+        Hero.shared.end()
       } else {
-        interactiveContext?.cancel()
+        Hero.shared.cancel()
       }
-      interactiveContext = nil
     }
   }
 }
@@ -87,7 +85,7 @@ extension ImageViewController{
     let imageCell = collectionView.dequeueReusableCell(withReuseIdentifier: "item", for: indexPath) as! ScrollingImageCell
     imageCell.image = ImageLibrary.image(index:indexPath.item)
     imageCell.imageView.heroID = "image_\(indexPath.item)"
-    imageCell.imageView.heroModifiers = "position(\(view.bounds.width/2), \(view.bounds.height+view.bounds.width/2)) scale(0.6) fade zPositionIfMatched(100)"
+    imageCell.imageView.heroModifiers = [.position(CGPoint(x:view.bounds.width/2, y:view.bounds.height+view.bounds.width/2)), .scale(x:0.6, y:0.6), .fade, .zPositionIfMatched(100)]
     imageCell.topInset = topLayoutGuide.length
     return imageCell
   }
@@ -111,9 +109,8 @@ extension ImageViewController:UIGestureRecognizerDelegate{
 }
 
 extension ImageViewController:HeroViewControllerDelegate{
-  func wantInteractiveHeroTransition(context: HeroInteractiveContext) -> Bool {
-    if !context.presenting && panGR.state == .began{
-      interactiveContext = context
+  func wantInteractiveHeroTransition() -> Bool {
+    if !Hero.shared.presenting && panGR.state == .began{
       return true
     }
     return false
