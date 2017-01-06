@@ -24,7 +24,6 @@ import UIKit
 
 public class HeroDefaultAnimator:HeroAnimator{
   var context:HeroContext!
-  let animatableOptions:Set<String> = ["fade", "opacity", "position", "size", "cornerRadius", "transform", "scale", "translate", "rotate"]
   var viewContexts:[UIView: HeroDefaultAnimatorViewContext] = [:]
 
   public func seekTo(timePassed:TimeInterval) {
@@ -42,12 +41,12 @@ public class HeroDefaultAnimator:HeroAnimator{
     return duration
   }
   
-  public func temporarilySet(view:UIView, composition:HeroModifierComposition){
+  public func temporarilySet(view:UIView, targetState:HeroTargetState){
     guard viewContexts[view] != nil else {
       print("HERO: unable to temporarily set to \(view). The view must be running at least one animation before it can be interactively changed")
       return
     }
-    viewContexts[view]!.temporarilySet(composition:composition)
+    viewContexts[view]!.temporarilySet(targetState:targetState)
   }
 
   public func canAnimate(context:HeroContext, view:UIView, appearing:Bool) -> Bool{
@@ -81,7 +80,7 @@ public class HeroDefaultAnimator:HeroAnimator{
   
   func animate(view:UIView, appearing:Bool){
     let snapshot = context.snapshotView(for: view)
-    let viewContext = HeroDefaultAnimatorViewContext(animator:self, view: view, snapshot: snapshot, composition: context[view]!, appearing: appearing)
+    let viewContext = HeroDefaultAnimatorViewContext(animator:self, snapshot: snapshot, targetState: context[view]!, appearing: appearing)
     viewContexts[view] = viewContext
   }
   

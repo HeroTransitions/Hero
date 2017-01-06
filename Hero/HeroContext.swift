@@ -27,11 +27,11 @@ public class HeroContext {
   fileprivate var heroIDToDestinationView = [String:UIView]()
   fileprivate var snapshotViews = [UIView:UIView]()
   fileprivate var viewAlphas = [UIView:CGFloat]()
-  fileprivate var compositions = [UIView:HeroModifierComposition]()
+  fileprivate var targetStates = [UIView:HeroTargetState]()
   
   internal init(container:UIView, fromView:UIView, toView:UIView){
-    fromViews = HeroContext.processViewTree(view: fromView, container: container, idMap: &heroIDToSourceView, compositionMap: &compositions)
-    toViews = HeroContext.processViewTree(view: toView, container: container, idMap: &heroIDToDestinationView, compositionMap: &compositions)
+    fromViews = HeroContext.processViewTree(view: fromView, container: container, idMap: &heroIDToSourceView, stateMap: &targetStates)
+    toViews = HeroContext.processViewTree(view: toView, container: container, idMap: &heroIDToDestinationView, stateMap: &targetStates)
     self.container = container
   }
 
@@ -147,12 +147,12 @@ extension HeroContext{
     return snapshot
   }
 
-  public subscript(view: UIView) -> HeroModifierComposition? {
+  public subscript(view: UIView) -> HeroTargetState? {
     get {
-      return compositions[view]
+      return targetStates[view]
     }
     set(newValue) {
-      compositions[view] = newValue
+      targetStates[view] = newValue
     }
   }
 }
@@ -171,7 +171,7 @@ extension HeroContext{
       viewAlphas[view] = nil
     }
   }
-  internal static func processViewTree(view:UIView, container:UIView, idMap:inout [String:UIView], compositionMap:inout [UIView:HeroModifierComposition]) -> [UIView]{
+  internal static func processViewTree(view:UIView, container:UIView, idMap:inout [String:UIView], stateMap:inout [UIView:HeroTargetState]) -> [UIView]{
     var rtn:[UIView]
     if container.convert(view.bounds, from: view).intersects(container.bounds){
       rtn = [view]
@@ -179,13 +179,13 @@ extension HeroContext{
         idMap[heroID] = view
       }
       if let modifiers = view.heroModifiers {
-        compositionMap[view] = HeroModifierComposition(modifiers: modifiers)
+        stateMap[view] = HeroTargetState(modifiers: modifiers)
       }
     } else {
       rtn = []
     }
     for sv in view.subviews{
-      rtn.append(contentsOf: processViewTree(view: sv, container:container, idMap:&idMap, compositionMap:&compositionMap))
+      rtn.append(contentsOf: processViewTree(view: sv, container:container, idMap:&idMap, stateMap:&stateMap))
     }
     return rtn
   }
