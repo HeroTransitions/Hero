@@ -100,7 +100,9 @@ extension HeroContext{
     let oldCornerRadius = view.layer.cornerRadius
     view.layer.cornerRadius = 0
     let snapshot:UIView
-    if let imageView = view as? UIImageView{
+    if #available(iOS 9.0, *), let stackView = view as? UIStackView{
+      snapshot = stackView.slowSnapshotView()
+    } else if let imageView = view as? UIImageView{
       let contentView = UIImageView(image: imageView.image)
       contentView.frame = imageView.bounds
       contentView.contentMode = imageView.contentMode
