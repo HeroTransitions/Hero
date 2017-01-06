@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "Hero"
-  s.version          = "0.0.3"
+  s.version          = "0.0.5"
   s.summary          = "Supercharged transition engine for iOS."
 
   s.description      = <<-DESC
