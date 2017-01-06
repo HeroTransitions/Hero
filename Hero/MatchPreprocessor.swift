@@ -27,7 +27,7 @@ public class MatchPreprocessor:HeroPreprocessor {
     for tv in toViews{
       guard let id = tv.heroID, let fv = context.sourceView(for: id) else { continue }
       if context[tv] == nil {
-        context[tv] = HeroModifierComposition()
+        context[tv] = HeroTargetState()
       }
       
       if let zPosition = context[tv]!.zPositionIfMatched {

@@ -33,7 +33,7 @@ public protocol HeroAnimator {
   
   func seekTo(timePassed:TimeInterval)
   func resume(timePassed:TimeInterval, reverse:Bool) -> TimeInterval
-  func temporarilySet(view:UIView, composition:HeroModifierComposition)
+  func temporarilySet(view:UIView, targetState:HeroTargetState)
 }
 
 @objc public protocol HeroViewControllerDelegate{

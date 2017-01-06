@@ -307,14 +307,14 @@ extension Hero {
   }
 
   public func temporarilySet(view:UIView, modifiers:[HeroModifier]){
-    let composition = HeroModifierComposition(modifiers: modifiers)
+    let targetState = HeroTargetState(modifiers: modifiers)
     if let otherView = context.pairedView(for: view){
       for a in animators{
-        a.temporarilySet(view: otherView, composition: composition)
+        a.temporarilySet(view: otherView, targetState: targetState)
       }
     }
     for a in animators{
-      a.temporarilySet(view: view, composition: composition)
+      a.temporarilySet(view: view, targetState: targetState)
     }
   }
 }
