@@ -102,8 +102,15 @@ extension HeroContext{
     let snapshot:UIView
     if #available(iOS 9.0, *), let stackView = view as? UIStackView{
       snapshot = stackView.slowSnapshotView()
+    } else if let imageView = view as? UIImageView{
+      let contentView = UIImageView(image: imageView.image)
+      contentView.frame = imageView.bounds
+      contentView.contentMode = imageView.contentMode
+      let snapShotView = UIView()
+      snapShotView.addSubview(contentView)
+      snapshot = snapShotView
     } else {
-      snapshot = view.slowSnapshotView()
+      snapshot = view.snapshotView(afterScreenUpdates: true)!
     }
     view.layer.cornerRadius = oldCornerRadius
     
@@ -119,6 +126,7 @@ extension HeroContext{
     } else {
       snapshot.layer.zPosition = view.layer.zPosition
     }
+
     snapshot.layer.opacity = view.layer.opacity
     snapshot.layer.isOpaque = view.layer.isOpaque
     snapshot.layer.anchorPoint = view.layer.anchorPoint
