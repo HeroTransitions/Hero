@@ -108,7 +108,7 @@ open class HeroPlugin: HeroPreprocessor, HeroAnimator{
        - view: the view to override
        - modifiers: the modifiers user want to override to
    */
-  open func temporarilySet(view:UIView, to modifiers:HeroModifiers){}
+  open func temporarilySet(view:UIView, composition:HeroModifierComposition){}
 
   /**
    Plugin which wants to handle the transition interactively should return true.
@@ -117,7 +117,7 @@ open class HeroPlugin: HeroPreprocessor, HeroAnimator{
    - Parameters:
        - context: object which the plugin can use to control the interactive transition
    */
-  open func wantInteractiveHeroTransition(context:HeroInteractiveContext) -> Bool { return false }
+  open func wantInteractiveHeroTransition() -> Bool { return false }
 }
 
 // methods for enable/disable the current plugin

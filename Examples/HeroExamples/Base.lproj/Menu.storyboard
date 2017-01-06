@@ -36,7 +36,7 @@
                                         <real key="value" value="36"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="menu"/>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="heroModifiers" value="zPosition(10) arc"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="heroModifierString" value="zPosition(10) arc"/>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <segue destination="hDE-vd-kLY" kind="presentation" id="REW-4R-Q2f"/>
@@ -54,7 +54,7 @@
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                         <real key="value" value="24"/>
                                     </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="heroModifiers" value="fade translate(0, -150)"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="heroModifierString" value="fade translate(0, -150)"/>
                                     <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="back"/>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
@@ -103,7 +103,7 @@
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                         <real key="value" value="48"/>
                                     </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="heroModifiers" value="sourceID(menu)"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="heroModifierString" value="source(menu)"/>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="ht_dismiss:" destination="n6n-Yr-iiD" eventType="touchUpInside" id="CqK-7C-bu0"/>
@@ -122,7 +122,7 @@
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                         <real key="value" value="48"/>
                                     </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="heroModifiers" value="sourceID(menu)"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="heroModifierString" value="source(menu)"/>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="ht_dismiss:" destination="hDE-vd-kLY" eventType="touchUpInside" id="nhU-vM-gD4"/>
@@ -141,7 +141,7 @@
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                         <real key="value" value="48"/>
                                     </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="heroModifiers" value="sourceID(menu)"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="heroModifierString" value="source(menu)"/>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="ht_dismiss:" destination="hDE-vd-kLY" eventType="touchUpInside" id="hzw-Ib-HSk"/>
@@ -160,7 +160,7 @@
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                         <real key="value" value="48"/>
                                     </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="heroModifiers" value="sourceID(menu)"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="heroModifierString" value="source(menu)"/>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="ht_dismiss:" destination="hDE-vd-kLY" eventType="touchUpInside" id="UxU-sx-z5s"/>
@@ -179,7 +179,7 @@
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                         <real key="value" value="48"/>
                                     </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="heroModifiers" value="sourceID(menu)"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="heroModifierString" value="source(menu)"/>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="ht_dismiss:" destination="hDE-vd-kLY" eventType="touchUpInside" id="AjR-sf-LVr"/>
@@ -198,7 +198,7 @@
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                         <real key="value" value="48"/>
                                     </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="heroModifiers" value="sourceID(menu)"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="heroModifierString" value="source(menu)"/>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="ht_dismiss:" destination="hDE-vd-kLY" eventType="touchUpInside" id="Tfd-PU-wnG"/>
@@ -218,7 +218,7 @@
                                         <real key="value" value="48"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="menu"/>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="heroModifiers" value="zPosition(10)"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="heroModifierString" value="zPosition(10)"/>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="ht_dismiss:" destination="hDE-vd-kLY" eventType="touchUpInside" id="I5f-aH-3I8"/>
@@ -237,7 +237,7 @@
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                         <real key="value" value="48"/>
                                     </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="heroModifiers" value="sourceID(menu)"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="heroModifierString" value="source(menu)"/>
                                     <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="quote"/>
                                 </userDefinedRuntimeAttributes>
                                 <connections>

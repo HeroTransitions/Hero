@@ -22,24 +22,28 @@
 
 import UIKit
 
-public class ViewToViewPreprocessor:HeroPreprocessor {
+public class MatchPreprocessor:HeroPreprocessor {
   public func process(context:HeroContext, fromViews:[UIView], toViews:[UIView]) {
     for tv in toViews{
       guard let id = tv.heroID, let fv = context.sourceView(for: id) else { continue }
-      context[tv, "matchedHeroID"] = []
-      context[tv, "sourceID"] = [id]
-      if let zPos = context[tv, "zPositionIfMatched"]?.getCGFloat(0){
-        context[tv, "zPosition"] = ["\(zPos)"]
+      if context[tv] == nil {
+        context[tv] = HeroModifierComposition()
       }
       
-      context[fv] = context[tv] as HeroModifiers?
+      if let zPosition = context[tv]!.zPositionIfMatched {
+        context[tv]!.zPosition = zPosition
+      }
+
+      context[tv]!.source = id
       
-      context[tv, "fade"] = []
+      context[fv] = context[tv]
+      
+      context[tv]!.opacity = 0
       if let _ = fv as? UILabel, !fv.isOpaque{
         // cross fade if toView is a label
-        context[fv, "fade"] = []
+        context[fv]!.opacity = 0
       } else {
-        context[fv, "fade"] = nil
+        context[fv]!.opacity = nil
       }
     }
   }

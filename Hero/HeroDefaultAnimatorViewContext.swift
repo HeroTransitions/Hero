@@ -27,12 +27,9 @@ internal class HeroDefaultAnimatorViewContext {
   var view:UIView
   var snapshot:UIView
   var state = [String:(Any, Any)]()
-  var parameters = [String:[String]] ()
-  var baseDelay:TimeInterval = 0
   var duration:TimeInterval = 0
   
-  var parsedDuration:TimeInterval?
-  var parsedTimingFunction:CAMediaTimingFunction?
+  var composition:HeroModifierComposition
   var defaultTiming:(TimeInterval, CAMediaTimingFunction)!
   
   // computed
@@ -81,11 +78,10 @@ internal class HeroDefaultAnimatorViewContext {
     let (delay, duration, timingFunction) = (0.0, defaultTiming.0, defaultTiming.1)
     // getTiming(key: key, fromValue: fromValue, toValue: toValue)
     
-    if !ignoreArc, key == "position", let arcOptions = parameters["arc"],
+    if !ignoreArc, key == "position", let arcIntensity = composition.arc,
       let fromPos = (fromValue as? NSValue)?.cgPointValue,
       let toPos = (toValue as? NSValue)?.cgPointValue,
       abs(fromPos.x - toPos.x) >= 1, abs(fromPos.y - toPos.y) >= 1 {
-      let arcIntensity = arcOptions.getCGFloat(0) ?? 1
       let kanim = CAKeyframeAnimation(keyPath: key)
       
       let path = CGMutablePath()
@@ -100,10 +96,10 @@ internal class HeroDefaultAnimatorViewContext {
       kanim.duration = duration
       kanim.timingFunctions = [timingFunction]
       anim = kanim
-    } else if #available(iOS 9.0, *), key != "cornerRadius", let springOptions = parameters["spring"] {
+    } else if #available(iOS 9.0, *), key != "cornerRadius", let (stiffness, damping) = composition.spring {
       let sanim = CASpringAnimation(keyPath: key)
-      sanim.stiffness = (springOptions.getCGFloat(0) ?? 250)
-      sanim.damping = (springOptions.getCGFloat(1) ?? 30)
+      sanim.stiffness = stiffness
+      sanim.damping = damping
       sanim.duration = sanim.settlingDuration * 0.9
       sanim.fromValue = fromValue
       sanim.toValue = toValue
@@ -154,6 +150,30 @@ internal class HeroDefaultAnimatorViewContext {
     return anim.duration + anim.beginTime - beginTime
   }
   
+  /**
+   - Returns: a [CALayer keyPath:NSValue] map for animation
+   */
+  func viewState(for view:UIView, with composition:HeroModifierComposition) -> [String:Any]{
+    var rtn = [String:Any]()
+    
+    if let size = composition.size{
+      rtn["bounds.size"] = NSValue(cgSize:size)
+    }
+    if let position = composition.position{
+      rtn["position"] = NSValue(cgPoint:position)
+    }
+    if let opacity = composition.opacity{
+      rtn["opacity"] = NSNumber(value: opacity.native)
+    }
+    if let cornerRadius = composition.cornerRadius{
+      rtn["cornerRadius"] = NSNumber(value: cornerRadius.native)
+    }
+    if let transform = composition.transform{
+      rtn["transform"] = NSValue(caTransform3D:transform)
+    }
+    return rtn
+  }
+  
   func animate(delay:TimeInterval) {
     // calculate timing default
     let defaultDuration:TimeInterval
@@ -167,8 +187,8 @@ internal class HeroDefaultAnimatorViewContext {
     let realFromPos = CGPoint.zero.transform(fromTransform) + fromPos
     let realToPos = CGPoint.zero.transform(toTransform) + toPos
     
-    if let parsedTimingFunction = parsedTimingFunction{
-      defaultTimingFunction = parsedTimingFunction
+    if let timingFunction = composition.timingFunction{
+      defaultTimingFunction = timingFunction
     } else if !container.bounds.contains(realToPos){
       // acceleration if leaving screen
       defaultTimingFunction = .acceleration
@@ -179,8 +199,8 @@ internal class HeroDefaultAnimatorViewContext {
       defaultTimingFunction = .standard
     }
 
-    if let parsedDuration = parsedDuration {
-      defaultDuration = parsedDuration
+    if let duration = composition.duration {
+      defaultDuration = duration
     } else {
       let fromSize = (state["bounds.size"]?.0 as? NSValue)?.cgSizeValue ?? snapshot.layer.bounds.size
       let toSize = (state["bounds.size"]?.1 as? NSValue)?.cgSizeValue ?? fromSize
@@ -203,8 +223,8 @@ internal class HeroDefaultAnimatorViewContext {
     }
   }
   
-  func temporarilySet(modifiers:HeroModifiers){
-    let targetState = viewState(for: view, with: modifiers)
+  func temporarilySet(composition:HeroModifierComposition){
+    let targetState = viewState(for: view, with: composition)
     for (key, targetValue) in targetState{
       if state[key] == nil{
         let currentValue = snapshot.layer.value(forKeyPath: key)!
@@ -221,12 +241,12 @@ internal class HeroDefaultAnimatorViewContext {
       state[key] = (realFromValue, realToValue)
     }
     
-    let realDelay = max(0, baseDelay - timePassed)
+    let realDelay = max(0, composition.delay - timePassed)
     animate(delay: realDelay)
   }
   
   func seek(layer:CALayer, timePassed:TimeInterval){
-    let timeOffset = timePassed - baseDelay
+    let timeOffset = timePassed - composition.delay
     for (key, anim) in layer.animations {
       anim.speed = 0
       anim.timeOffset = max(0, min(anim.duration - 0.01, timeOffset))
@@ -240,32 +260,14 @@ internal class HeroDefaultAnimatorViewContext {
     seek(layer:contentLayer, timePassed:timePassed)
   }
   
-  init(animator:HeroDefaultAnimator, view:UIView, snapshot:UIView, modifiers:HeroModifiers, appearing:Bool){
+  init(animator:HeroDefaultAnimator, view:UIView, snapshot:UIView, composition:HeroModifierComposition, appearing:Bool){
     self.animator = animator
     self.view = view
     self.snapshot = snapshot
+    self.composition = composition
     
-    for (key, param) in modifiers {
-      parameters[key] = param
-    }
-    
-    parsedDuration = parameters["duration"]?.getDouble(0)
-    if let curveOptions = parameters["curve"]{
-      if let c1 = curveOptions.getFloat(0),
-        let c2 = curveOptions.getFloat(1),
-        let c3 = curveOptions.getFloat(2),
-        let c4 = curveOptions.getFloat(3){
-        parsedTimingFunction = CAMediaTimingFunction(controlPoints: c1, c2, c3, c4)
-      } else if let ease = curveOptions.get(0), let tf = CAMediaTimingFunction.from(name:ease){
-        parsedTimingFunction = tf
-      }
-    }
-    
-    if let value = parameters["delay"]?.getFloat(0){
-      baseDelay = TimeInterval(value)
-    }
-    
-    let disappeared = viewState(for: view, with: modifiers)
+    let disappeared = viewState(for: view, with: composition)
+
     for (key, disappearedState) in disappeared{
       let appearingState = snapshot.layer.value(forKeyPath: key)!
       let toValue = appearing ? appearingState : disappearedState
@@ -273,6 +275,6 @@ internal class HeroDefaultAnimatorViewContext {
       state[key] = (fromValue, toValue)
     }
     
-    animate(delay: baseDelay)
+    animate(delay: composition.delay)
   }
 }

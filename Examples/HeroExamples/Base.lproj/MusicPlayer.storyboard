@@ -36,7 +36,7 @@
                                                 <real key="value" value="3"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="albumArt"/>
-                                            <userDefinedRuntimeAttribute type="string" keyPath="heroModifiers" value="zPositionIfMatched(1)"/>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="heroModifierString" value="zPositionIfMatched(1)"/>
                                         </userDefinedRuntimeAttributes>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AWAKE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V7r-P5-cTh">
@@ -70,7 +70,7 @@
                                                 <real key="value" value="24"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="playButton"/>
-                                            <userDefinedRuntimeAttribute type="string" keyPath="heroModifiers" value="scale(0.5)  translate(100, 0) fade aboveID(albumArt) rotate(1.6) zPosition(2)"/>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="heroModifierString" value="scale(0.5)  translate(100, 0) fade aboveID(albumArt) rotate(1.6) zPosition(2)"/>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
                                             <segue destination="RAs-ae-vyu" kind="presentation" id="qGP-rX-0mI"/>
@@ -95,7 +95,7 @@
                                         <real key="value" value="15"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="albumBackground"/>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="heroModifiers" value="sourceID(albumArt) fade"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="heroModifierString" value="source(albumArt) fade"/>
                                     <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
                                         <color key="value" red="0.25490196079999999" green="0.28627450980000002" blue="0.30980392159999998" alpha="1" colorSpace="calibratedRGB"/>
                                     </userDefinedRuntimeAttribute>
@@ -122,7 +122,7 @@
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                         <real key="value" value="24"/>
                                     </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="heroModifiers" value="fade translate(0, -150)"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="heroModifierString" value="fade translate(0, -150)"/>
                                     <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="back"/>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
@@ -202,7 +202,7 @@
                                         <real key="value" value="24"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="playButton"/>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="heroModifiers" value="rotate(-1.6) zPosition(2)"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="heroModifierString" value="rotate(-1.6) zPosition(2)"/>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="ht_dismiss:" destination="cry-03-6sb" eventType="touchUpInside" id="Mki-5H-Ddq"/>
@@ -288,7 +288,7 @@
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                         <real key="value" value="24"/>
                                     </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="heroModifiers" value="fade translate(0, -150)"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="heroModifierString" value="fade translate(0, -150)"/>
                                     <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="back"/>
                                 </userDefinedRuntimeAttributes>
                                 <connections>

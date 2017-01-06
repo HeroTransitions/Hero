@@ -21,11 +21,11 @@ extension LiveInjection2ViewController:HeroViewControllerDelegate{
 
   func heroWillStartTransition() {
     orangeView.heroID = "orange"
-    orangeView.heroModifiers = "scale(0.5)"
+    orangeView.heroModifiers = [.scale(x:0.5, y:0.5)]
     greenView.heroID = "green"
-    greenView.heroModifiers = "scale(0.5)"
+    greenView.heroModifiers = [.scale(x:0.5, y:0.5)]
     blueView.heroID = "blue"
-    blueView.heroModifiers = "zPosition(5)"
+    blueView.heroModifiers = [.zPosition(5)]
   }
 
 }

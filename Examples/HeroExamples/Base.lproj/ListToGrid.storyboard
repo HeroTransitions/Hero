@@ -162,7 +162,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="string" keyPath="heroModifiers" value="translate(0, -44) fade zPosition(10)"/>
+                            <userDefinedRuntimeAttribute type="string" keyPath="heroModifierString" value="translate(0, -44) fade zPosition(10)"/>
                         </userDefinedRuntimeAttributes>
                     </navigationBar>
                     <userDefinedRuntimeAttributes>
