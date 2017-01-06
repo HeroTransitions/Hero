@@ -22,7 +22,7 @@
 
 import UIKit
 
-public struct HeroModifierComposition {
+public struct HeroTargetState {
   internal var opacity:CGFloat?
   internal var cornerRadius:CGFloat?
   internal var position:CGPoint?
@@ -115,7 +115,7 @@ public struct HeroModifierComposition {
   }
 }
 
-extension HeroModifierComposition: ExpressibleByArrayLiteral {
+extension HeroTargetState: ExpressibleByArrayLiteral {
   public init(arrayLiteral elements: HeroModifier...) {
     append(contentsOf: elements)
   }

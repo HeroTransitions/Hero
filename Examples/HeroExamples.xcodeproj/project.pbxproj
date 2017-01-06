@@ -58,7 +58,7 @@
 		A359492D1E1A39D00095F407 /* LabelTransform.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A359492B1E1A39D00095F407 /* LabelTransform.storyboard */; };
 		A39400B61E1D8749005E5454 /* LiveInjection1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39400B51E1D8749005E5454 /* LiveInjection1ViewController.swift */; };
 		A3FEFAAA1E1F1F1F00A9F150 /* HeroModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FEFAA91E1F1F1F00A9F150 /* HeroModifier.swift */; };
-		A3FEFAAC1E1F353E00A9F150 /* HeroModifierComposition.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FEFAAB1E1F353E00A9F150 /* HeroModifierComposition.swift */; };
+		A3FEFAAC1E1F353E00A9F150 /* HeroTargetState.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FEFAAB1E1F353E00A9F150 /* HeroTargetState.swift */; };
 		B10FDD451E00DD9800B7B66E /* DebugViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10FDD441E00DD9800B7B66E /* DebugViewController.swift */; };
 		B185A4E61DFA6E0C00C3B85D /* ListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B185A4E51DFA6E0C00C3B85D /* ListTableViewController.swift */; };
 		B185A4E81DFA6FE200C3B85D /* GridCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B185A4E71DFA6FE200C3B85D /* GridCollectionViewController.swift */; };
@@ -141,7 +141,7 @@
 		A359492C1E1A39D00095F407 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LabelTransform.storyboard; sourceTree = "<group>"; };
 		A39400B51E1D8749005E5454 /* LiveInjection1ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LiveInjection1ViewController.swift; path = LiveInjection/LiveInjection1ViewController.swift; sourceTree = "<group>"; };
 		A3FEFAA91E1F1F1F00A9F150 /* HeroModifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HeroModifier.swift; path = ../../Hero/HeroModifier.swift; sourceTree = "<group>"; };
-		A3FEFAAB1E1F353E00A9F150 /* HeroModifierComposition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HeroModifierComposition.swift; path = ../../Hero/HeroModifierComposition.swift; sourceTree = "<group>"; };
+		A3FEFAAB1E1F353E00A9F150 /* HeroTargetState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HeroTargetState.swift; path = ../../Hero/HeroTargetState.swift; sourceTree = "<group>"; };
 		B10FDD441E00DD9800B7B66E /* DebugViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DebugViewController.swift; path = Debug/DebugViewController.swift; sourceTree = "<group>"; };
 		B185A4E51DFA6E0C00C3B85D /* ListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ListTableViewController.swift; path = ListToGrid/ListTableViewController.swift; sourceTree = "<group>"; };
 		B185A4E71DFA6FE200C3B85D /* GridCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GridCollectionViewController.swift; path = ListToGrid/GridCollectionViewController.swift; sourceTree = "<group>"; };
@@ -195,7 +195,7 @@
 				A306D3CC1E1C7A3C00B6C23A /* HeroPlugin.swift */,
 				A306D3CD1E1C7A3C00B6C23A /* HeroTypes.swift */,
 				A3FEFAA91E1F1F1F00A9F150 /* HeroModifier.swift */,
-				A3FEFAAB1E1F353E00A9F150 /* HeroModifierComposition.swift */,
+				A3FEFAAB1E1F353E00A9F150 /* HeroTargetState.swift */,
 				A306D3EA1E1C7A9100B6C23A /* Animator */,
 				A306D3E91E1C7A8700B6C23A /* DebugPlugin */,
 				A306D3E81E1C7A7D00B6C23A /* Preprocessors */,
@@ -431,7 +431,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0800;
-				LastUpgradeCheck = 0810;
+				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = "Luke Zhao";
 				TargetAttributes = {
 					A306D3B11E1C7A2E00B6C23A = {
@@ -558,7 +558,7 @@
 				A306D3E21E1C7A3C00B6C23A /* UIKit+Hero.swift in Sources */,
 				A306D3D21E1C7A3C00B6C23A /* CALayer+Hero.swift in Sources */,
 				A306D3E01E1C7A3C00B6C23A /* HeroTypes.swift in Sources */,
-				A3FEFAAC1E1F353E00A9F150 /* HeroModifierComposition.swift in Sources */,
+				A3FEFAAC1E1F353E00A9F150 /* HeroTargetState.swift in Sources */,
 				A306D3DD1E1C7A3C00B6C23A /* HeroDefaultAnimatorViewContext.swift in Sources */,
 				A306D3D51E1C7A3C00B6C23A /* CG+Hero.swift in Sources */,
 				A306D3E11E1C7A3C00B6C23A /* SourcePreprocessor.swift in Sources */,
