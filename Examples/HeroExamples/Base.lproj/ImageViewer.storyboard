@@ -12,7 +12,6 @@
         <!--Image View Controller-->
         <scene sceneID="aEI-c7-RH3">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="MN5-mn-7Gd" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <collectionViewController id="hQd-RH-ApO" customClass="ImageViewController" customModule="HeroExamples" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" dataMode="prototypes" id="nps-X3-Zm9">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -25,7 +24,7 @@
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="item" id="wmK-cM-Vwb" customClass="ScrollingImageCell" customModule="HeroExamples" customModuleProvider="target">
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" reuseIdentifier="item" id="wmK-cM-Vwb" customClass="ScrollingImageCell" customModule="HeroExamples" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="217" height="196"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -43,6 +42,7 @@
                         <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabled" value="YES"/>
                     </userDefinedRuntimeAttributes>
                 </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MN5-mn-7Gd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-2262" y="3549"/>
         </scene>
