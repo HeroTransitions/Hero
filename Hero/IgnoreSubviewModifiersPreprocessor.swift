@@ -22,29 +22,17 @@
 
 import UIKit
 
-public protocol HeroPreprocessor {
-  func process(context:HeroContext, fromViews:[UIView], toViews:[UIView])
-}
-
-public protocol HeroAnimator {
-  func canAnimate(context:HeroContext, view:UIView, appearing:Bool) -> Bool
-  func animate(context:HeroContext, fromViews:[UIView], toViews:[UIView]) -> TimeInterval
-  func clean()
-  
-  func seekTo(timePassed:TimeInterval)
-  func resume(timePassed:TimeInterval, reverse:Bool) -> TimeInterval
-  func temporarilySet(view:UIView, composition:HeroModifierComposition)
-}
-
-@objc public protocol HeroViewControllerDelegate{
-  @objc optional func wantInteractiveHeroTransition() -> Bool
-
-  @objc optional func heroWillStartAnimatingFrom(viewController:UIViewController)
-  @objc optional func heroDidEndAnimatingFrom(viewController:UIViewController)
-  
-  @objc optional func heroWillStartTransition()
-  @objc optional func heroDidEndTransition()
-  
-  @objc optional func heroWillStartAnimatingTo(viewController:UIViewController)
-  @objc optional func heroDidEndAnimatingTo(viewController:UIViewController)
+public class IgnoreSubviewModifiersPreprocessor:HeroPreprocessor {
+  public func process(context:HeroContext, fromViews:[UIView], toViews:[UIView]) {
+    for view in fromViews + toViews{
+      guard context[view]?.ignoreSubviewModifiers == true else { continue }
+      var parentView = view
+      if let _  = view as? UITableView, let wrapperView = view.subviews.get(0) {
+        parentView = wrapperView
+      }
+      for subview in parentView.subviews{
+        context[subview] = nil
+      }
+    }
+  }
 }
