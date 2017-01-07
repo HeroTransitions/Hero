@@ -60,7 +60,6 @@ public extension UIView{
     }
   }
 
-  @available(*, deprecated: 0, message: "please use heroModifiers instead")
   @IBInspectable public var heroModifierString: String? {
     get { return heroModifiers?.toModifierString() }
     set {
