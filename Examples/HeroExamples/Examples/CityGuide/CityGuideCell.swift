@@ -35,12 +35,8 @@ class CityCell:UICollectionViewCell{
       guard let city = city else { return }
       let name = city.name
       
-      heroID = "\(name)_backgroundImage"
-      heroModifiers = [.zPosition(2), .zPositionIfMatched(3)]
-      nameLabel.heroID = "\(name)_cityName"
-      nameLabel.heroModifiers = [.zPosition(4)]
-      descriptionLabel.heroID = "\(name)_cityDescription"
-      descriptionLabel.heroModifiers = [.zPosition(4)]
+      heroID = "\(name)"
+      heroModifiers = [.zPositionIfMatched(3)]
       
       nameLabel.text = name
       imageView.image = city.image
