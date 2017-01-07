@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "Hero"
-  s.version          = "0.0.5"
+  s.version          = "0.0.6"
   s.summary          = "Supercharged transition engine for iOS."
 
   s.description      = <<-DESC
@@ -18,5 +18,5 @@ Pod::Spec.new do |s|
 
   s.requires_arc = true
 
-  s.source_files = 'Hero/*.swift'
+  s.source_files = 'Sources/*.swift'
 end
