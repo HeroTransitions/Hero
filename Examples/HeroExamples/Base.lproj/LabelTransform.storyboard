@@ -76,6 +76,8 @@
                         <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabled" value="YES"/>
                     </userDefinedRuntimeAttributes>
                     <connections>
+                        <outlet property="label1" destination="qqY-v9-0h5" id="Ibt-7y-MoP"/>
+                        <outlet property="label2" destination="qZ9-bg-jSy" id="fJs-lN-Ngs"/>
                         <outlet property="pluginSwitch" destination="zId-Ss-SLS" id="mVh-Cm-pgv"/>
                     </connections>
                 </viewController>
