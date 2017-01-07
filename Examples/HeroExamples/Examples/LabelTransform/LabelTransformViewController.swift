@@ -25,7 +25,10 @@ import Hero
 import ZCAnimatedLabel
 
 class LabelTransformViewController: UIViewController {
+  @IBOutlet weak var label1: UILabel!
+  @IBOutlet weak var label2: UILabel!
   @IBOutlet weak var pluginSwitch: UISwitch!
+
   @IBAction func togglePlugin(_ sender: UISwitch) {
     LabelMorphPlugin.isEnabled = sender.isOn
   }
@@ -33,23 +36,69 @@ class LabelTransformViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     pluginSwitch.isOn = LabelMorphPlugin.isEnabled
+    label1.heroModifiers = [.zcLabelMorph(type:.fall)]
+    label2.heroModifiers = [.zcLabelMorph(type:.flyin)]
   }
 }
 
-class LabelMorphPlugin:HeroPlugin{
-  var morphingLabels:[ZCAnimatedLabel]!
+extension HeroModifier{
+  public static func zcLabelMorph(type:LabelMorphPlugin.LabelMorphType) -> HeroModifier {
+    return HeroModifier { targetState in
+      targetState["zcLabelMorph"] = type
+    }
+  }
+}
 
-  override func canAnimate(context:HeroContext, view:UIView, appearing:Bool) -> Bool {
-    // Here we are animating all UILabels that are not paired.
-    // For a real plugin, it should check for whether or not a modifier exist
-    // for the view by:
-    //     return context[view, "labelMorph"] != nil
-    return (view as? UILabel != nil) && context.pairedView(for: view) == nil
+public class LabelMorphPlugin:HeroPlugin{
+  var morphingLabels:[ZCAnimatedLabel]!
+  public enum LabelMorphType{
+    case normal
+    case fall
+    case duang
+    case flyin
+    case focus
+    case shapeshift
+    case reveal
+    case thrown
+    case transparency
+    case spin
+    case dash
+  }
+
+  public override func canAnimate(context:HeroContext, view:UIView, appearing:Bool) -> Bool {
+    return (context[view]?["zcLabelMorph"] as? LabelMorphType) != nil
   }
 
   func createMorphingLabel(context:HeroContext, label:UILabel, appearing:Bool) {
     let frame = context.container.convert(label.bounds, from: label)
-    let morphingLabel = ZCShapeshiftLabel(frame: frame)
+    
+    let morphingLabel:ZCAnimatedLabel
+    switch (context[label]!["zcLabelMorph"] as! LabelMorphType){
+    case .normal:
+      morphingLabel = ZCAnimatedLabel()
+    case .fall:
+      morphingLabel = ZCFallLabel()
+    case .duang:
+      morphingLabel = ZCDuangLabel()
+    case .flyin:
+      morphingLabel = ZCFlyinLabel()
+    case .focus:
+      morphingLabel = ZCFocusLabel()
+    case .shapeshift:
+      morphingLabel = ZCShapeshiftLabel()
+    case .reveal:
+      morphingLabel = ZCRevealLabel()
+    case .thrown:
+      morphingLabel = ZCThrownLabel()
+    case .transparency:
+      morphingLabel = ZCTransparencyLabel()
+    case .spin:
+      morphingLabel = ZCSpinLabel()
+    case .dash:
+      morphingLabel = ZCDashLabel()
+    }
+    morphingLabel.frame = frame
+    
     
     morphingLabel.font = label.font
     morphingLabel.textColor = label.textColor
@@ -68,7 +117,7 @@ class LabelMorphPlugin:HeroPlugin{
     }
   }
 
-  override func animate(context:HeroContext, fromViews:[UIView], toViews:[UIView]) -> TimeInterval {
+  public override func animate(context:HeroContext, fromViews:[UIView], toViews:[UIView]) -> TimeInterval {
     morphingLabels = []
     var maxDuration:TimeInterval = 0
     
@@ -86,7 +135,7 @@ class LabelMorphPlugin:HeroPlugin{
     return maxDuration
   }
 
-  override func clean(){
+  public override func clean(){
     for label in morphingLabels{
       label.stopAnimation()
       label.removeFromSuperview()
