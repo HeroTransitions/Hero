@@ -40,7 +40,7 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="Unsplash1_thumb" id="MUO-qC-BHr">
+                                        <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" image="Unsplash1_thumb" id="MUO-qC-BHr">
                                             <rect key="frame" x="15" y="0.0" width="52" height="52"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </imageView>

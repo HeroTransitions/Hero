@@ -97,19 +97,22 @@ internal extension Hero {
       animators.append(plugin)
     }
     
-    (fromViewController as? HeroViewControllerDelegate)?.heroWillStartAnimatingTo?(viewController: toViewController!)
-    
-    if
-      let navigationController = fromViewController as? UINavigationController,
-      let delegate = navigationController.topViewController as? HeroViewControllerDelegate {
-        delegate.heroWillStartAnimatingTo?(viewController: toViewController!)
+    if let delegate = fromViewController as? HeroViewControllerDelegate {
+      delegate.heroWillStartTransition?()
+      delegate.heroWillStartAnimatingTo?(viewController: toViewController!)
     }
-    
-    (toViewController as? HeroViewControllerDelegate)?.heroWillStartAnimatingFrom?(viewController: fromViewController!)
-    
-    if
-      let navigationController = toViewController as? UINavigationController,
+    if let navigationController = fromViewController as? UINavigationController,
       let delegate = navigationController.topViewController as? HeroViewControllerDelegate {
+      delegate.heroWillStartTransition?()
+      delegate.heroWillStartAnimatingTo?(viewController: toViewController!)
+    }
+    if let delegate = toViewController as? HeroViewControllerDelegate {
+      delegate.heroWillStartTransition?()
+      delegate.heroWillStartAnimatingFrom?(viewController: fromViewController!)
+    }
+    if let navigationController = toViewController as? UINavigationController,
+      let delegate = navigationController.topViewController as? HeroViewControllerDelegate {
+      delegate.heroWillStartTransition?()
       delegate.heroWillStartAnimatingFrom?(viewController: fromViewController!)
     }
 
@@ -163,10 +166,10 @@ internal extension Hero {
       for (currentFromViews, currentToViews) in self.animatorViews {
         // auto hide all animated views
         for v in currentFromViews {
-          v.isHidden = true
+          self.context.hide(view: v)
         }
         for v in currentToViews {
-          v.isHidden = true
+          self.context.hide(view: v)
         }
       }
       
@@ -206,11 +209,11 @@ internal extension Hero {
     guard transitionContainer != nil else { return }
     for (i, animator) in animators.enumerated(){
       animator.clean()
-      for v in animatorViews[i].0{
-        v.isHidden = false
+      for v in animatorViews[i].0 {
+        context.unhide(view:v)
       }
-      for v in animatorViews[i].1{
-        v.isHidden = false
+      for v in animatorViews[i].1 {
+        context.unhide(view:v)
       }
     }
     
@@ -251,17 +254,21 @@ internal extension Hero {
 
     if let delegate = fvc as? HeroViewControllerDelegate {
       delegate.heroDidEndAnimatingTo?(viewController: tvc)
+      delegate.heroDidEndTransition?()
     }
     if let nc = fvc as? UINavigationController,
        let delegate = nc.topViewController as? HeroViewControllerDelegate {
       delegate.heroDidEndAnimatingTo?(viewController: tvc)
+      delegate.heroDidEndTransition?()
     }
     if let delegate = tvc as? HeroViewControllerDelegate {
       delegate.heroDidEndAnimatingFrom?(viewController: fvc)
+      delegate.heroDidEndTransition?()
     }
     if let nc = tvc as? UINavigationController,
       let delegate = nc.topViewController as? HeroViewControllerDelegate {
       delegate.heroDidEndAnimatingFrom?(viewController: fvc)
+      delegate.heroDidEndTransition?()
     }
   }
 }

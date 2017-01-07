@@ -2,19 +2,15 @@ PODS:
   - ChameleonFramework/Default (2.1.0)
   - ChameleonFramework/Swift (2.1.0):
     - ChameleonFramework/Default
-  - Hero (0.0.1)
   - ZCAnimatedLabel (0.0.4)
 
 DEPENDENCIES:
   - ChameleonFramework/Swift (from `https://github.com/ViccAlexander/Chameleon.git`)
-  - Hero (from `..`)
   - ZCAnimatedLabel
 
 EXTERNAL SOURCES:
   ChameleonFramework:
     :git: https://github.com/ViccAlexander/Chameleon.git
-  Hero:
-    :path: ".."
 
 CHECKOUT OPTIONS:
   ChameleonFramework:
@@ -23,9 +19,8 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   ChameleonFramework: d21a3cc247abfe5e37609a283a8238b03575cf64
-  Hero: c8f6ee8e43aa5dfdf4e0dab8c90c4820d032a665
   ZCAnimatedLabel: 519b688bef4403fd356bc785f9b61cdfd8e6472d
 
-PODFILE CHECKSUM: 19514ab9478505fb40da42d51cd280bd1c693fc3
+PODFILE CHECKSUM: 613342ef5c877a23fce065b29fa8f40bbc61c008
 
 COCOAPODS: 1.1.1

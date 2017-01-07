@@ -27,8 +27,9 @@ class ListTableViewCell:UITableViewCell{
   override func layoutSubviews() {
     super.layoutSubviews()
     imageView?.frame.origin.x = 0
-    textLabel?.frame.origin.x -= 15
-    detailTextLabel?.frame.origin.x -= 15
+    imageView?.frame.size = CGSize(width: bounds.height, height: bounds.height)
+    textLabel?.frame.origin.x = bounds.height + 10
+    detailTextLabel?.frame.origin.x = bounds.height + 10
   }
 }
 
@@ -39,7 +40,7 @@ class ListTableViewController: UITableViewController {
   }
   
   override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return 50
+    return ImageLibrary.count
   }
   
   override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -48,7 +49,7 @@ class ListTableViewController: UITableViewController {
     cell.heroModifiers = "fade translate(-100, 0)"
     cell.imageView?.heroID = "image_\(indexPath.item)"
     cell.imageView?.heroModifiers = "arc zPosition(10)"
-    cell.imageView?.image = UIImage(named: "Unsplash\(indexPath.item % 10)")
+    cell.imageView?.image = ImageLibrary.thumbnail(index:indexPath.item)
     cell.textLabel?.text = "Item \(indexPath.item)"
     cell.detailTextLabel?.text = "Description \(indexPath.item)"
     

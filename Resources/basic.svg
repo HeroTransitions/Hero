@@ -71,6 +71,8 @@
                             L10,25.0007413 Z;" 
                         dur="1s"
                         repeatCount="indefinite"
+                        calcMode="spline"
+                        keySplines="0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1"
                         fill="freeze" />
                     </path>
                     <path id="matchButton" fill="#C9C9C9">
@@ -127,6 +129,8 @@
                                 C23.581722,88 20,84.4092877 20,80 
                                 L20,80 Z;" 
                         dur="1s"
+                        calcMode="spline"
+                        keySplines="0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1"
                         repeatCount="indefinite"
                         fill="freeze" />
                     </path>
@@ -147,6 +151,8 @@
                                 attributeName="x" 
                                 values="19;10;10;19;19" 
                                 dur="1s"
+                                calcMode="spline"
+                                keySplines="0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1"
                                 begin="0.25s"
                                 repeatCount="indefinite"
                                 fill="freeze" />
@@ -154,13 +160,8 @@
                                 attributeName="y" 
                                 values="48;39;39;48;48" 
                                 dur="1s"
-                                begin="0.25s"
-                                repeatCount="indefinite"
-                                fill="freeze" />
-                            <animate 
-                                attributeName="height" 
-                                values="18; 36; 36; 18; 18" 
-                                dur="1s"
+                                calcMode="spline"
+                                keySplines="0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1"
                                 begin="0.25s"
                                 repeatCount="indefinite"
                                 fill="freeze" />
@@ -168,6 +169,8 @@
                                 attributeName="width" 
                                 values="18; 36; 36; 18; 18" 
                                 dur="1s"
+                                calcMode="spline"
+                                keySplines="0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1"
                                 begin="0.25s"
                                 repeatCount="indefinite"
                                 fill="freeze" />
@@ -175,6 +178,8 @@
                                 attributeName="height" 
                                 values="18; 36; 36; 18; 18" 
                                 dur="1s"
+                                calcMode="spline"
+                                keySplines="0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1"
                                 begin="0.25s"
                                 repeatCount="indefinite"
                                 fill="freeze" />
@@ -182,6 +187,8 @@
                                 attributeName="fill" 
                                 values="white; #3A97FC; #3A97FC; white; white" 
                                 dur="1s"
+                                calcMode="spline"
+                                keySplines="0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1"
                                 begin="0.25s"
                                 repeatCount="indefinite"
                                 fill="freeze" />
@@ -191,6 +198,8 @@
                                 attributeName="width" 
                                 values="18; 36; 36; 18; 18" 
                                 dur="1s"
+                                calcMode="spline"
+                                keySplines="0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1"
                                 begin="0.25s"
                                 repeatCount="indefinite"
                                 fill="freeze" />
@@ -198,6 +207,8 @@
                                 attributeName="x" 
                                 values="19;10;10;19;19" 
                                 dur="1s"
+                                calcMode="spline"
+                                keySplines="0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1"
                                 begin="0.25s"
                                 repeatCount="indefinite"
                                 fill="freeze" />
@@ -205,6 +216,8 @@
                                 attributeName="y" 
                                 values="38;21;21;38;38" 
                                 dur="1s"
+                                calcMode="spline"
+                                keySplines="0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1"
                                 begin="0.25s"
                                 repeatCount="indefinite"
                                 fill="freeze" />
@@ -226,6 +239,8 @@
                                 attributeName="x" 
                                 values="-50; 10; 10; -50; -50;" 
                                 dur="1s"
+                                calcMode="spline"
+                                keySplines="0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1"
                                 begin="0.5s"
                                 repeatCount="indefinite"
                                 fill="freeze" />
@@ -235,6 +250,8 @@
                                 attributeName="width" 
                                 values="18; 36; 36; 18; 18" 
                                 dur="1s"
+                                calcMode="spline"
+                                keySplines="0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1"
                                 begin="0.5s"
                                 repeatCount="indefinite"
                                 fill="freeze" />
@@ -242,6 +259,8 @@
                                 attributeName="x" 
                                 values="19;10;10;19;19" 
                                 dur="1s"
+                                calcMode="spline"
+                                keySplines="0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1"
                                 begin="0.5s"
                                 repeatCount="indefinite"
                                 fill="freeze" />
@@ -249,6 +268,8 @@
                                 attributeName="y" 
                                 values="38;21;21;38;38" 
                                 dur="1s"
+                                calcMode="spline"
+                                keySplines="0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1"
                                 begin="0.5s"
                                 repeatCount="indefinite"
                                 fill="freeze" />
@@ -270,17 +291,21 @@
                                 attributeName="x" 
                                 values="-50; 10; 10; -50; -50;" 
                                 dur="1s"
+                                calcMode="spline"
+                                keySplines="0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1"
                                 begin="0.75s"
                                 repeatCount="indefinite"
                                 fill="freeze" />
                             <animateTransform 
-                              attributeName="transform"
-                              type="rotate"
-                              values="0 28 57;-180 28 57;-180 28 57;0 28 57;0 28 57;"
-                              dur="1s"
+                                attributeName="transform"
+                                type="rotate"
+                                values="0 28 57;-180 28 57;-180 28 57;0 28 57;0 28 57;"
+                                dur="1s"
                                 begin="0.75s"
-                              repeatCount="indefinite"
-                              fill="freeze" 
+                                calcMode="spline"
+                                keySplines="0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1"
+                                repeatCount="indefinite"
+                                fill="freeze" 
                               />
                         </rect>
                         <rect id="Rectangle-4" fill="#C9C9C9" x="19" y="38" width="18" height="13" rx="6.5">
@@ -288,6 +313,8 @@
                                 attributeName="width" 
                                 values="18; 36; 36; 18; 18" 
                                 dur="1s"
+                                calcMode="spline"
+                                keySplines="0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1"
                                 begin="0.75s"
                                 repeatCount="indefinite"
                                 fill="freeze" />
@@ -295,6 +322,8 @@
                                 attributeName="x" 
                                 values="19;10;10;19;19" 
                                 dur="1s"
+                                calcMode="spline"
+                                keySplines="0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1"
                                 begin="0.75s"
                                 repeatCount="indefinite"
                                 fill="freeze" />
@@ -302,6 +331,8 @@
                                 attributeName="y" 
                                 values="38;21;21;38;38" 
                                 dur="1s"
+                                calcMode="spline"
+                                keySplines="0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1"
                                 begin="0.75s"
                                 repeatCount="indefinite"
                                 fill="freeze" />

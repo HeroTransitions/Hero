@@ -14,12 +14,8 @@ class InitialViewController: UITableViewController {
     [],
     ["Basic", "MusicPlayer", "Menu"],
     ["CityGuide", "ImageViewer", "ListToGrid", "ImageGallery"],
-    ["Debug", "LabelTransform"]
+    ["LiveInjection", "Debug", "LabelTransform"]
   ]
-  override func viewDidLoad() {
-    super.viewDidLoad()
-    
-  }
   
   override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     if indexPath.item < storyboards[indexPath.section].count{
