@@ -50,10 +50,10 @@ class GridCollectionViewController: UICollectionViewController, UICollectionView
     
     cell.imageView?.heroID = "image_\(indexPath.item)"
     let image = ImageLibrary.thumbnail(index:indexPath.item)
-    cell.heroModifiers = [.fade, .translate(x:0, y:20, z:0)]
+    cell.heroModifiers = [.fade, .translate(y:20)]
     cell.imageView?.image = image
     cell.imageView?.heroID = "image_\(indexPath.item)"
-    cell.imageView?.heroModifiers = [.arc(intensity:1), .zPosition(10)]
+    cell.imageView?.heroModifiers = [.arc, .zPosition(10)]
     cell.textLabel?.text = "Item \(indexPath.item)"
     cell.detailTextLabel?.text = "Description \(indexPath.item)"
     cell.backgroundColor = UIColor(averageColorFrom: image)
@@ -76,9 +76,9 @@ extension GridCollectionViewController:HeroViewControllerDelegate{
        let index = collectionView!.indexPathsForSelectedItems?[0],
        let cell = collectionView!.cellForItem(at: index) as? GridImageCell{
       let cellPos = view.convert(cell.imageView.center, from: cell)
-      collectionView!.heroModifiers = [.scale(x:3, y:3), .translate(x:view.center.x - cellPos.x, y:view.center.y + collectionView!.contentInset.top/2/3 - cellPos.y, z:0), .ignoreSubviewModifiers, .fade]
+      collectionView!.heroModifiers = [.scale(3), .translate(x:view.center.x - cellPos.x, y:view.center.y + collectionView!.contentInset.top/2/3 - cellPos.y), .ignoreSubviewModifiers, .fade]
     } else {
-      collectionView!.heroModifiers = [.cascade(delta:0.02, direction:.topToBottom, delayMatchedViews:false)]
+      collectionView!.heroModifiers = [.cascade]
     }
   }
   
@@ -86,7 +86,7 @@ extension GridCollectionViewController:HeroViewControllerDelegate{
     if let vc = viewController as? ImageViewController,
       let originalCellIndex = vc.selectedIndex,
       let currentCellIndex = vc.collectionView?.indexPathsForVisibleItems[0] {
-      collectionView!.heroModifiers = [.cascade(delta:0.02, direction:.topToBottom, delayMatchedViews:false)]
+      collectionView!.heroModifiers = [.cascade]
       if !collectionView!.indexPathsForVisibleItems.contains(currentCellIndex){
         // make the cell visible
         collectionView!.scrollToItem(at: currentCellIndex,
@@ -94,7 +94,7 @@ extension GridCollectionViewController:HeroViewControllerDelegate{
                                     animated: false)
       }
     } else {
-      collectionView!.heroModifiers = [.cascade(delta:0.02, direction:.topToBottom, delayMatchedViews:false), .delay(0.2)]
+      collectionView!.heroModifiers = [.cascade, .delay(0.2)]
     }
   }
 }

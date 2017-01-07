@@ -32,14 +32,19 @@ class CityCell:UICollectionViewCell{
   
   var city:City?{
     didSet{
-      imageView.image = city?.image
-      nameLabel.text = city?.name
-      descriptionLabel.text = useShortDescription ? city?.shortDescription : city?.description
-      if let name = city?.name{
-        heroID = "\(name)_backgroundImage"
-        nameLabel.heroID = "\(name)_cityName"
-        descriptionLabel.heroID = "\(name)_cityDescription"
-      }
+      guard let city = city else { return }
+      let name = city.name
+      
+      heroID = "\(name)_backgroundImage"
+      heroModifiers = [.zPosition(2), .zPositionIfMatched(3)]
+      nameLabel.heroID = "\(name)_cityName"
+      nameLabel.heroModifiers = [.zPosition(4)]
+      descriptionLabel.heroID = "\(name)_cityDescription"
+      descriptionLabel.heroModifiers = [.zPosition(4)]
+      
+      nameLabel.text = name
+      imageView.image = city.image
+      descriptionLabel.text = useShortDescription ? city.shortDescription : city.description
     }
   }
 }

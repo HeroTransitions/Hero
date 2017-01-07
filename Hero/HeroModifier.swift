@@ -22,29 +22,13 @@
 
 import UIKit
 
-public enum HeroModifier: EnumString {
-  case fade
-  case position(CGPoint)
-  case size(CGSize)
-  case perspective(CGFloat)
-  case scale(x:CGFloat, y:CGFloat)
-  case rotate(x:CGFloat, y:CGFloat, z:CGFloat)
-  case translate(x:CGFloat, y:CGFloat, z:CGFloat)
-  case transform(CATransform3D)
-  case spring(stiffness:CGFloat, damping:CGFloat)
-  case zPosition(CGFloat)
-  case zPositionIfMatched(CGFloat)
-  case duration(TimeInterval)
-  case delay(TimeInterval)
-  case timingFunction(CAMediaTimingFunction)
-  case cascade(delta:TimeInterval, direction:CascadePreprocessor.CascadeDirection, delayMatchedViews:Bool)
-  case arc(intensity:CGFloat)
-  case source(heroID:String)
-  case ignoreSubviewModifiers
+public class HeroModifier {
+  internal let apply:(inout HeroTargetState) -> Void
+  public init(applyFunction:@escaping (inout HeroTargetState) -> Void){
+    apply = applyFunction
+  }
   
-  case custom(name:String, userInfo:Any?)
-  
-  init?(name:String, parameters:[String]){
+  public static func from(name:String, parameters:[String]) -> HeroModifier? {
     var modifier:HeroModifier?
     switch name {
     case "fade":
@@ -55,14 +39,15 @@ public enum HeroModifier: EnumString {
       modifier = .size(CGSize(width: parameters.getCGFloat(0) ?? 0, height: parameters.getCGFloat(1) ?? 0))
     case "scale":
       if parameters.count == 1 {
-        modifier = .scale(x: parameters.getCGFloat(0) ?? 1, y: parameters.getCGFloat(0) ?? 1)
+        modifier = .scale(parameters.getCGFloat(0) ?? 1)
       } else {
         modifier = .scale(x: parameters.getCGFloat(0) ?? 1,
-                          y: parameters.getCGFloat(1) ?? 1)
+                          y: parameters.getCGFloat(1) ?? 1,
+                          z: parameters.getCGFloat(2) ?? 1)
       }
     case "rotate":
       if parameters.count == 1 {
-        modifier = .rotate(x: 0, y: 0, z: parameters.getCGFloat(0) ?? 0)
+        modifier = .rotate(parameters.getCGFloat(0) ?? 0)
       } else {
         modifier = .rotate(x: parameters.getCGFloat(0) ?? 0,
                            y: parameters.getCGFloat(1) ?? 0,
@@ -118,36 +103,151 @@ public enum HeroModifier: EnumString {
       if let zPosition = parameters.getCGFloat(0){
         modifier = .zPositionIfMatched(zPosition)
       }
-    default:
-      modifier = .custom(name:name, userInfo:parameters)
+    default: break
     }
-    if let modifier = modifier{
-      self = modifier
-    } else {
-      return nil
+    return modifier
+  }
+}
+
+
+// basic modifiers
+extension HeroModifier {
+  public static var fade = HeroModifier { targetState in
+    targetState.opacity = 0
+  }
+  
+  public static func position(_ position:CGPoint) -> HeroModifier {
+    return HeroModifier { targetState in
+      targetState.position = position
+    }
+  }
+  
+  public static func size(_ size:CGSize) -> HeroModifier {
+    return HeroModifier { targetState in
+      targetState.size = size
     }
   }
 }
 
-protocol EnumString { }
-
-extension EnumString {
-  func toString() -> String {
-    let mirror = Mirror(reflecting: self)
-    if let associated = mirror.children.first {
-      let valuesMirror = Mirror(reflecting: associated.value)
-      if valuesMirror.children.count > 0 {
-        let parameters = valuesMirror.children.map { "\($0.value)" }.joined(separator: ",")
-        return "\(associated.label ?? "")(\(parameters))"
-      }
-      return "\(associated.label ?? "")(\(associated.value))"
+// transform modifiers
+extension HeroModifier {
+  public static func transform(_ t:CATransform3D) -> HeroModifier {
+    return HeroModifier { targetState in
+      targetState.transform = t
     }
-    return "\(self)"
+  }
+
+  public static func perspective(_ perspective:CGFloat) -> HeroModifier {
+    return HeroModifier { targetState in
+      var transform = targetState.transform ?? CATransform3DIdentity
+      transform.m34 = 1.0 / -perspective
+      targetState.transform = transform
+    }
+  }
+  
+  public static func scale(x:CGFloat = 1, y:CGFloat = 1, z:CGFloat = 1) -> HeroModifier {
+    return HeroModifier { targetState in
+      targetState.transform = CATransform3DScale(targetState.transform ?? CATransform3DIdentity, x, y, z)
+    }
+  }
+  
+  public static func scale(_ xy:CGFloat) -> HeroModifier {
+    return .scale(x: xy, y: xy)
+  }
+
+  public static func translate(x:CGFloat = 0, y:CGFloat = 0, z:CGFloat = 0) -> HeroModifier {
+    return HeroModifier { targetState in
+      targetState.transform = CATransform3DTranslate(targetState.transform ?? CATransform3DIdentity, x, y, z)
+    }
+  }
+  
+  public static func rotate(x:CGFloat = 0, y:CGFloat = 0, z:CGFloat = 0) -> HeroModifier {
+    return HeroModifier { targetState in
+      targetState.transform = CATransform3DRotate(targetState.transform ?? CATransform3DIdentity, x, 1, 0, 0)
+      targetState.transform = CATransform3DRotate(targetState.transform!, y, 0, 1, 0)
+      targetState.transform = CATransform3DRotate(targetState.transform!, z, 0, 0, 1)
+    }
+  }
+  
+  public static func rotate(_ z:CGFloat) -> HeroModifier {
+    return .rotate(z: z)
   }
 }
 
-extension Array where Element: EnumString {
-  func toModifierString() -> String {
-    return self.map { $0.toString() }.joined(separator: ", ")
+// timing modifiers
+extension HeroModifier {
+  public static func duration(_ duration:TimeInterval) -> HeroModifier {
+    return HeroModifier { targetState in
+      targetState.duration = duration
+    }
+  }
+  
+  public static func delay(_ delay:TimeInterval) -> HeroModifier {
+    return HeroModifier { targetState in
+      targetState.delay = delay
+    }
+  }
+  
+  public static func timingFunction(_ timingFunction:CAMediaTimingFunction) -> HeroModifier {
+    return HeroModifier { targetState in
+      targetState.timingFunction = timingFunction
+    }
+  }
+  
+  public static func spring(stiffness:CGFloat, damping:CGFloat) -> HeroModifier {
+    return HeroModifier { targetState in
+      targetState.spring = (stiffness, damping)
+    }
+  }
+}
+
+// other modifiers
+extension HeroModifier {
+  public static func zPosition(_ zPosition:CGFloat) -> HeroModifier {
+    return HeroModifier { targetState in
+      targetState.zPosition = zPosition
+    }
+  }
+  
+  public static func zPositionIfMatched(_ zPositionIfMatched:CGFloat) -> HeroModifier {
+    return HeroModifier { targetState in
+      targetState.zPositionIfMatched = zPositionIfMatched
+    }
+  }
+  
+  public static var ignoreSubviewModifiers = HeroModifier { targetState in
+    targetState.ignoreSubviewModifiers = true
+  }
+  
+  public static func source(heroID:String) -> HeroModifier {
+    return HeroModifier { targetState in
+      targetState.source = heroID
+    }
+  }
+  
+  public static var arc:HeroModifier = .arc()
+  public static func arc(intensity:CGFloat = 1) -> HeroModifier {
+    return HeroModifier { targetState in
+      targetState.arc = intensity
+    }
+  }
+
+  
+  // Cascade applys increasing delay modifiers to subviews
+  // the first parameter is the delay in between each animation
+  // the second parameter is the direction
+  // the third is whether or not to delay matched subviews
+  //
+  // NOTE: matched views(views with the same `heroID`) won't have
+  // the cascading effect. however, you can use the 3rd parameter to delay
+  // the start time until the last cascading animation have started
+  // by default: the matched views will animate simutanously with the cascading views
+  public static var cascade:HeroModifier = .cascade()
+  public static func cascade(delta:TimeInterval = 0.02,
+                      direction:CascadePreprocessor.CascadeDirection = .topToBottom,
+                      delayMatchedViews:Bool = false) -> HeroModifier {
+    return HeroModifier { targetState in
+      targetState.cascade = (delta, direction, delayMatchedViews)
+    }
   }
 }
