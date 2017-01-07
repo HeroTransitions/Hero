@@ -36,7 +36,7 @@ class CityGuideViewController: UIViewController {
           indexPath != currentCellIndex {
           let beforeCurrentCell = indexPath < currentCellIndex
           // want right side cells to slide right, and left side cells to slide left
-          cell.heroModifiers = [.fade, .translate(x:beforeCurrentCell ? -100 : 100, y:0, z:0)]
+          cell.heroModifiers = [.fade, .translate(x:beforeCurrentCell ? -100 : 100)]
         }
       }
     }

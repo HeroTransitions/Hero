@@ -60,7 +60,7 @@ extension ImageGalleryViewController:UICollectionViewDataSource{
     imageCell.imageView.image = ImageLibrary.thumbnail(index:indexPath.item)
     imageCell.imageView.heroID = "image_\(indexPath.item)"
     imageCell.imageView.heroModifiers = [.zPosition(100)]
-    imageCell.heroModifiers = [.fade, .translate(x:0, y:150, z:0), .rotate(x:-1, y:0, z:0), .scale(x:0.8, y:0.8), .zPosition(50)]
+    imageCell.heroModifiers = [.fade, .translate(y:150), .rotate(x:-1), .scale(0.8), .zPosition(50)]
     return imageCell
   }
 }
@@ -73,27 +73,17 @@ extension ImageGalleryViewController:UICollectionViewDelegate, UICollectionViewD
 
 extension ImageGalleryViewController:HeroViewControllerDelegate{
   func heroWillStartAnimatingTo(viewController: UIViewController) {
-    // Cascade effect when transition to another view controller
-    // This adds increasing delays for collectionView's subviews
-    // the first parameter is the delay in between each animation
-    // the second parameter is the cascade direction
-    // the third is whether or not to delay matched views
-    //
-    // NOTE: matched views(views with the same `heroID`) won't have
-    // the cascading effect. however, you can use the 4th parameter to delay
-    // the start time until the last cascading animation have started
-    // by default: the matched views will animate simutanously with the cascading views
     if (viewController as? ImageGalleryViewController) != nil || (viewController as? ImageViewController) != nil{
       collectionView.heroModifiers = [.cascade(delta:0.015, direction:.bottomToTop, delayMatchedViews:true)]
     } else {
-      collectionView.heroModifiers = [.cascade(delta:0.015, direction:.topToBottom, delayMatchedViews:false)]
+      collectionView.heroModifiers = [.cascade(delta:0.015)]
     }
   }
   func heroWillStartAnimatingFrom(viewController: UIViewController) {
     if (viewController as? ImageGalleryViewController) != nil{
-      collectionView.heroModifiers = [.cascade(delta:0.015, direction:.topToBottom, delayMatchedViews:false), .delay(0.25)]
+      collectionView.heroModifiers = [.cascade(delta:0.015), .delay(0.25)]
     } else {
-      collectionView.heroModifiers = [.cascade(delta:0.015, direction:.topToBottom, delayMatchedViews:false)]
+      collectionView.heroModifiers = [.cascade(delta:0.015)]
     }
     if let vc = viewController as? ImageViewController,
       let originalCellIndex = vc.selectedIndex,

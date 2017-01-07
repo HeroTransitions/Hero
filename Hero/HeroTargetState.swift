@@ -46,56 +46,8 @@ public struct HeroTargetState {
   }
   
   mutating func append(contentsOf modifiers:[HeroModifier]){
-    var transform = self.transform ?? CATransform3DIdentity
     for modifier in modifiers {
-      switch modifier{
-      case .fade:
-        self.opacity = 0
-      case .position(let position):
-        self.position = position
-      case .size(let size):
-        self.size = size
-      case .perspective(let perspective):
-        transform.m34 = 1.0 / -perspective
-      case .transform(let t):
-        transform = t
-      case .scale(let x, let y):
-        transform = CATransform3DScale(transform, x, y, 1)
-      case .rotate(let x, let y, let z):
-        transform = CATransform3DRotate(transform, x, 1, 0, 0)
-        transform = CATransform3DRotate(transform, y, 0, 1, 0)
-        transform = CATransform3DRotate(transform, z, 0, 0, 1)
-      case .translate(let x, let y, let z):
-        transform = CATransform3DTranslate(transform, x, y, z)
-      case .spring(let stiffness, let damping):
-        self.spring = (stiffness, damping)
-      case .zPosition(let zPosition):
-        self.zPosition = zPosition
-      case .zPositionIfMatched(let zPositionIfMatched):
-        self.zPositionIfMatched = zPositionIfMatched
-      case .duration(let duration):
-        self.duration = duration
-      case .timingFunction(let timingFunction):
-        self.timingFunction = timingFunction
-      case .delay(let delay):
-        self.delay = delay
-      case .arc(let intensity):
-        self.arc = intensity
-      case .source(let heroID):
-        self.source = heroID
-      case .cascade(let delta, let direction, let delayMatchedViews):
-        self.cascade = (delta, direction, delayMatchedViews)
-      case .ignoreSubviewModifiers:
-        self.ignoreSubviewModifiers = true
-      case .custom(let name, let userInfo):
-        if custom == nil {
-          custom = [:]
-        }
-        self.custom![name] = userInfo
-      }
-    }
-    if transform != CATransform3DIdentity{
-      self.transform = transform
+      modifier.apply(&self)
     }
   }
   
