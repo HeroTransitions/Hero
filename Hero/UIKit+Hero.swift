@@ -56,6 +56,20 @@ public extension UIView{
       )
     }
   }
+
+  func slowSnapshotView() -> UIView{
+    UIGraphicsBeginImageContextWithOptions(bounds.size, isOpaque, 0)
+    layer.render(in: UIGraphicsGetCurrentContext()!)
+//    drawHierarchy(in: bounds, afterScreenUpdates: true)
+    let image = UIGraphicsGetImageFromCurrentImageContext()
+    UIGraphicsEndImageContext()
+    
+    let imageView = UIImageView(image: image)
+    imageView.frame = bounds
+    let snapshotView = UIView(frame:bounds)
+    snapshotView.addSubview(imageView)
+    return snapshotView
+  }
 }
 
 public extension UIViewController{

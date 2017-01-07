@@ -52,14 +52,15 @@ extension ImageGalleryViewController:UICollectionViewDataSource{
   }
   
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-    return 50
+    return ImageLibrary.count
   }
   
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
     let imageCell = collectionView.dequeueReusableCell(withReuseIdentifier: "item", for: indexPath) as! ImageCell
-    imageCell.imageView.image = UIImage(named: "Unsplash\(indexPath.item % 10)_thumb")
-    imageCell.heroID = "image_\(indexPath.item)"
-    imageCell.heroModifiers = "fade translate(0, 150) rotate(-1,0,0) scale(0.8) zPosition(50) zPositionIfMatched(100)"
+    imageCell.imageView.image = ImageLibrary.thumbnail(index:indexPath.item)
+    imageCell.imageView.heroID = "image_\(indexPath.item)"
+    imageCell.imageView.heroModifiers = "zPosition(100)"
+    imageCell.heroModifiers = "fade translate(0, 150) rotate(-1,0,0) scale(0.8) zPosition(50)"
     return imageCell
   }
 }

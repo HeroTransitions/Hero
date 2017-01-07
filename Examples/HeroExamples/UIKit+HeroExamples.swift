@@ -77,50 +77,8 @@ public extension UIView{
       layer.zPosition = newValue
     }
   }
-  @IBInspectable public var anchorPoint: CGPoint {
-    get {
-      return layer.anchorPoint
-    }
-    
-    set {
-      var newPoint = CGPoint(x:bounds.size.width * anchorPoint.x, y:bounds.size.height * anchorPoint.y)
-      var oldPoint = CGPoint(x:bounds.size.width * layer.anchorPoint.x, y:bounds.size.height * layer.anchorPoint.y)
-      
-      newPoint = newValue.applying(transform)
-      oldPoint = anchorPoint.applying(transform)
-      
-      var position = layer.position
-      position.x -= oldPoint.x
-      position.x += newPoint.x
-      
-      position.y -= oldPoint.y
-      position.y += newPoint.y
-      
-      layer.position = position
-      layer.anchorPoint = anchorPoint
-    }
-  }
 }
 
-
-func delay(_ time:Double, execute: @escaping ()->Void){
-  DispatchQueue.main.asyncAfter(deadline: .now() + time, execute: execute)
-}
-
-extension UIViewController{
-  @IBInspectable public var timeStay:TimeInterval  {
-    get {
-      return 0
-    }
-    
-    set {
-      delay(newValue) { 
-        self.performSegue(withIdentifier: "next", sender: nil)
-      }
-    }
-  }
-  
-  func viewController(forStoryboardName:String) -> UIViewController{
-    return UIStoryboard(name: forStoryboardName, bundle: nil).instantiateInitialViewController()!
-  }
+func viewController(forStoryboardName:String) -> UIViewController{
+  return UIStoryboard(name: forStoryboardName, bundle: nil).instantiateInitialViewController()!
 }

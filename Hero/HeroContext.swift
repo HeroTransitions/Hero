@@ -30,7 +30,9 @@ public class HeroContext {
 
   fileprivate var heroIDToSourceView = [String:UIView]()
   fileprivate var heroIDToDestinationView = [String:UIView]()
+  fileprivate var snapshotViews = [UIView:UIView]()
   fileprivate var modifiers = [UIView:HeroModifiers]()
+  fileprivate var viewAlphas = [UIView:CGFloat]()
   
   internal init(container:UIView, fromView:UIView, toView:UIView){
     fromViews = HeroContext.processViewTree(view: fromView, container: container, idMap: &heroIDToSourceView, modifierMap: &modifiers)
@@ -83,6 +85,69 @@ extension HeroContext{
       }
     }
     return nil
+  }
+  
+  /**
+   - Returns: a snapshot view for animation
+   */
+  public func snapshotView(for view: UIView) -> UIView {
+    if let snapshot = snapshotViews[view] {
+      return snapshot
+    }
+
+    unhide(view: view)
+    
+    // capture a snapshot without cornerRadius
+    let oldCornerRadius = view.layer.cornerRadius
+    view.layer.cornerRadius = 0
+    let snapshot:UIView
+    if #available(iOS 9.0, *), let stackView = view as? UIStackView{
+      snapshot = stackView.slowSnapshotView()
+    } else if let imageView = view as? UIImageView{
+      let contentView = UIImageView(image: imageView.image)
+      contentView.frame = imageView.bounds
+      contentView.contentMode = imageView.contentMode
+      let snapShotView = UIView()
+      snapShotView.addSubview(contentView)
+      snapshot = snapShotView
+    } else {
+      snapshot = view.snapshotView(afterScreenUpdates: true)!
+    }
+    view.layer.cornerRadius = oldCornerRadius
+    
+    // the Snapshot's contentView must have hold the cornerRadius value,
+    // since the snapshot might not have maskToBounds set
+    let contentView = snapshot.subviews[0]
+    contentView.layer.cornerRadius = view.layer.cornerRadius
+    contentView.layer.masksToBounds = true
+    
+    snapshot.layer.cornerRadius = view.layer.cornerRadius
+    if let zPos = self[view, "zPosition"]?.getCGFloat(0){
+      snapshot.layer.zPosition = zPos
+    } else {
+      snapshot.layer.zPosition = view.layer.zPosition
+    }
+
+    snapshot.layer.opacity = view.layer.opacity
+    snapshot.layer.isOpaque = view.layer.isOpaque
+    snapshot.layer.anchorPoint = view.layer.anchorPoint
+    snapshot.layer.masksToBounds = view.layer.masksToBounds
+    snapshot.layer.borderColor = view.layer.borderColor
+    snapshot.layer.borderWidth = view.layer.borderWidth
+    snapshot.layer.transform = view.layer.transform
+    snapshot.layer.shadowRadius = view.layer.shadowRadius
+    snapshot.layer.shadowOpacity = view.layer.shadowOpacity
+    snapshot.layer.shadowColor = view.layer.shadowColor
+    snapshot.layer.shadowOffset = view.layer.shadowOffset
+    
+    snapshot.frame = container.convert(view.bounds, from: view)
+    snapshot.heroID = view.heroID
+    
+    hide(view: view)
+    
+    container.addSubview(snapshot)
+    snapshotViews[view] = snapshot
+    return snapshot
   }
   
   /**
@@ -162,6 +227,19 @@ extension HeroContext{
 
 // internal
 extension HeroContext{
+  internal func hide(view:UIView) {
+    if viewAlphas[view] == nil{
+      viewAlphas[view] = view.alpha
+      view.alpha = 0
+    }
+  }
+  internal func unhide(view:UIView){
+    if let oldAlpha = viewAlphas[view]{
+      view.alpha = oldAlpha
+      viewAlphas[view] = nil
+    }
+  }
+  
   internal static func extractModifiers(modifierString:String) -> HeroModifiers {
     func matches(for regex: String, text:NSString) -> [NSTextCheckingResult] {
       do {

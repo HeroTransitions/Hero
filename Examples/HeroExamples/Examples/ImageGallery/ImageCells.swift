@@ -30,6 +30,13 @@ class ScrollingImageCell:UICollectionViewCell{
   var imageView:UIImageView!
   var scrollView:UIScrollView!
   var dTapGR:UITapGestureRecognizer!
+  var image:UIImage?{
+    get{ return imageView.image }
+    set{
+      imageView.image = newValue
+      setNeedsLayout()
+    }
+  }
   var topInset:CGFloat = 0{
     didSet{
       centerIfNeeded()
@@ -75,7 +82,12 @@ class ScrollingImageCell:UICollectionViewCell{
   override func layoutSubviews() {
     super.layoutSubviews()
     scrollView.frame = bounds
-    let size = CGSize(width: bounds.width, height: bounds.width)
+    let size:CGSize
+    if let image = imageView.image{
+      size = CGSize(width: bounds.width, height: bounds.width * image.size.height / image.size.width )
+    } else {
+      size = CGSize(width: bounds.width, height: bounds.width)
+    }
     imageView.frame = CGRect(origin: .zero, size: size)
     scrollView.contentSize = size
     centerIfNeeded()
