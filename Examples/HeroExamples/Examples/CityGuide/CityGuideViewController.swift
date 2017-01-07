@@ -30,15 +30,6 @@ class CityGuideViewController: UIViewController {
        let vc = segue.destination as? CityViewController,
        let currentCellIndex = collectionView.indexPath(for: currentCell){
       vc.selectedIndex = currentCellIndex
-      
-      for indexPath in collectionView.indexPathsForVisibleItems{
-        if let cell = collectionView.cellForItem(at: indexPath) as? CityCell,
-          indexPath != currentCellIndex {
-          let beforeCurrentCell = indexPath < currentCellIndex
-          // want right side cells to slide right, and left side cells to slide left
-          cell.heroModifiers = [.fade, .translate(x:beforeCurrentCell ? -100 : 100)]
-        }
-      }
     }
   }
 }
