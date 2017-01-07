@@ -166,10 +166,10 @@ internal extension Hero {
       for (currentFromViews, currentToViews) in self.animatorViews {
         // auto hide all animated views
         for v in currentFromViews{
-          v.isHidden = true
+          self.context.hide(view: v)
         }
         for v in currentToViews{
-          v.isHidden = true
+          self.context.hide(view: v)
         }
       }
       
@@ -210,10 +210,10 @@ internal extension Hero {
     for (i, animator) in self.animators.enumerated(){
       animator.clean()
       for v in self.animatorViews[i].0{
-        v.isHidden = false
+        context.unhide(view:v)
       }
       for v in self.animatorViews[i].1{
-        v.isHidden = false
+        context.unhide(view:v)
       }
     }
     
