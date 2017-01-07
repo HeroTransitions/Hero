@@ -70,7 +70,7 @@
                                                 <real key="value" value="24"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="playButton"/>
-                                            <userDefinedRuntimeAttribute type="string" keyPath="heroModifierString" value="scale(0.5)  translate(100, 0) fade aboveID(albumArt) rotate(1.6) zPosition(2)"/>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="heroModifierString" value="scale(0.5)  translate(100, 0) fade zPosition(2)"/>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
                                             <segue destination="RAs-ae-vyu" kind="presentation" id="qGP-rX-0mI"/>
@@ -202,7 +202,7 @@
                                         <real key="value" value="24"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="playButton"/>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="heroModifierString" value="rotate(-1.6) zPosition(2)"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="heroModifierString" value="zPosition(2)"/>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="ht_dismiss:" destination="cry-03-6sb" eventType="touchUpInside" id="Mki-5H-Ddq"/>

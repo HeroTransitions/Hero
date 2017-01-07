@@ -61,7 +61,7 @@ public extension UIView{
   }
 
   @IBInspectable public var heroModifierString: String? {
-    get { return heroModifiers?.toModifierString() }
+    get { fatalError("Reverse lookup is not supported") }
     set {
       guard let newValue = newValue else {
         heroModifiers = nil
@@ -87,7 +87,7 @@ public extension UIView{
           }
         }
         let name = modifierString.substring(with: r.rangeAt(1))
-        if let modifier = HeroModifier(name: name, parameters: parameters){
+        if let modifier = HeroModifier.from(name: name, parameters: parameters){
           modifiers.append(modifier)
         }
       }

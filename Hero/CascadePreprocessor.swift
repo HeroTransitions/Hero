@@ -60,7 +60,12 @@ public class CascadePreprocessor:HeroPreprocessor {
   }
 
   public func process(context:HeroContext, fromViews:[UIView], toViews:[UIView]) {
-    for fv in fromViews + toViews{
+    process(context:context, views:fromViews)
+    process(context:context, views:toViews)
+  }
+  
+  private func process(context:HeroContext, views:[UIView]){
+    for (viewIndex, fv) in views.enumerated() {
       guard let (deltaTime, direction, delayMatchedViews) = context[fv]?.cascade else { continue }
       
       var parentView = fv
@@ -70,7 +75,7 @@ public class CascadePreprocessor:HeroPreprocessor {
       
       let sortedSubviews = parentView.subviews.filter{
         return context.pairedView(for: $0) == nil
-      }.sorted(by: direction.comparator)
+        }.sorted(by: direction.comparator)
       
       let initialDelay = context[fv]!.delay
       for (i, v) in sortedSubviews.enumerated(){
@@ -79,10 +84,14 @@ public class CascadePreprocessor:HeroPreprocessor {
       }
       
       if delayMatchedViews {
-        for v in parentView.subviews{
-          if let pairedView = context.pairedView(for: v){
+        for i in (viewIndex+1)..<views.count{
+          let otherView = views[i]
+          if otherView.superview == fv.superview {
+            break
+          }
+          if let pairedView = context.pairedView(for: otherView){
             let delay = TimeInterval(sortedSubviews.count) * deltaTime + initialDelay
-            context[v]!.delay = delay
+            context[otherView]!.delay = delay
             context[pairedView]!.delay = delay
           }
         }
