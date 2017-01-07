@@ -32,6 +32,7 @@ public class HeroContext {
   fileprivate var heroIDToDestinationView = [String:UIView]()
   fileprivate var snapshotViews = [UIView:UIView]()
   fileprivate var modifiers = [UIView:HeroModifiers]()
+  fileprivate var viewAlphas = [UIView:CGFloat]()
   
   internal init(container:UIView, fromView:UIView, toView:UIView){
     fromViews = HeroContext.processViewTree(view: fromView, container: container, idMap: &heroIDToSourceView, modifierMap: &modifiers)
@@ -94,7 +95,7 @@ extension HeroContext{
       return snapshot
     }
 
-    view.isHidden = false
+    unhide(view: view)
     
     // capture a snapshot without cornerRadius
     let oldCornerRadius = view.layer.cornerRadius
@@ -142,7 +143,7 @@ extension HeroContext{
     snapshot.frame = container.convert(view.bounds, from: view)
     snapshot.heroID = view.heroID
     
-    view.isHidden = true
+    hide(view: view)
     
     container.addSubview(snapshot)
     snapshotViews[view] = snapshot
@@ -220,6 +221,19 @@ extension HeroContext{
 
 // internal
 extension HeroContext{
+  internal func hide(view:UIView) {
+    if viewAlphas[view] == nil{
+      viewAlphas[view] = view.alpha
+      view.alpha = 0
+    }
+  }
+  internal func unhide(view:UIView){
+    if let oldAlpha = viewAlphas[view]{
+      view.alpha = oldAlpha
+      viewAlphas[view] = nil
+    }
+  }
+  
   internal static func extractModifiers(modifierString:String) -> HeroModifiers {
     func matches(for regex: String, text:NSString) -> [NSTextCheckingResult] {
       do {
