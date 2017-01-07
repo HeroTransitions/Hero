@@ -153,7 +153,7 @@ extension HeroContext{
   /**
    - Returns: a list of all the modifier names for a given view
    */
-  public func modifierNames(for view:UIView) -> [String]?{
+  public func modifierNames(for view:UIView) -> [String]? {
     return modifiers[view]?.map{ return $0.0 }
   }
 
@@ -186,30 +186,36 @@ extension HeroContext{
    */
   public subscript(view: UIView, modifierName:String) -> [String]? {
     get {
-      guard modifiers[view] != nil else { return nil }
-      for o in modifiers[view]!.reversed(){
-        if o.0 == modifierName{
-          return o.1
+      guard let reversedModifiers = modifiers[view]?.reversed() else {
+        return nil
+      }
+        
+      for modifier in reversedModifiers {
+        if modifier.0 == modifierName {
+            return modifier.1
         }
       }
+        
       return nil
     }
     set(newValue) {
       if let newValue = newValue{
-        if self.modifiers[view] == nil{
-          self.modifiers[view] = HeroModifiers()
+        
+        if modifiers[view] == nil {
+          modifiers[view] = HeroModifiers()
         }
-        for (i, o) in modifiers[view]!.enumerated(){
-          if o.0 == modifierName{
-            self.modifiers[view]![i] = (modifierName, newValue)
+        
+        for (i, modifier) in modifiers[view]!.enumerated(){
+          if modifier.0 == modifierName {
+            modifiers[view]![i] = (modifierName, newValue)
             return
           }
         }
         modifiers[view]!.append((modifierName, newValue))
       } else {
         guard modifiers[view] != nil else { return }
-        for (i, o) in modifiers[view]!.enumerated(){
-          if o.0 == modifierName{
+        for (i, modifier) in modifiers[view]!.enumerated(){
+          if modifier.0 == modifierName {
             modifiers[view]!.remove(at: i)
             return
           }
@@ -246,15 +252,15 @@ extension HeroContext{
     }
     var rtn = HeroModifiers()
     let nsString = modifierString as NSString
-    for r in matches(for: HeroContext.modifiersRegex, text:nsString){
+    for result in matches(for: HeroContext.modifiersRegex, text:nsString){
       var rangeStr = [String]()
-      if r.numberOfRanges > 2, r.rangeAt(2).location < nsString.length{
-        let parameterString = nsString.substring(with: r.rangeAt(2)) as NSString
-        for r in matches(for: HeroContext.parameterRegex, text: parameterString){
-          rangeStr.append(parameterString.substring(with: r.range))
+      if result.numberOfRanges > 2, result.rangeAt(2).location < nsString.length{
+        let parameterString = nsString.substring(with: result.rangeAt(2)) as NSString
+        for result in matches(for: HeroContext.parameterRegex, text: parameterString){
+          rangeStr.append(parameterString.substring(with: result.range))
         }
       }
-      rtn.append((nsString.substring(with: r.rangeAt(1)), rangeStr))
+      rtn.append((nsString.substring(with: result.rangeAt(1)), rangeStr))
     }
     return rtn
   }
