@@ -57,10 +57,6 @@ public class HeroModifier {
       modifier = .translate(x: parameters.getCGFloat(0) ?? 0,
                             y: parameters.getCGFloat(1) ?? 0,
                             z: parameters.getCGFloat(2) ?? 0)
-    case "zPosition":
-      if let zPosition = parameters.getCGFloat(0){
-        modifier = .zPosition(zPosition)
-      }
     case "duration":
       if let duration = parameters.getDouble(0){
         modifier = .duration(duration)
