@@ -43,9 +43,9 @@ Hero is available on Carthage & Cocoapods. See the **[usage guide](https://githu
 
 ## Usage Example 1
 
-<img src="https://cdn.rawgit.com/lkzhao/Hero/master/Resources/simple-v1.svg"  align="left"/>
-<img src="https://cdn.rawgit.com/lkzhao/Hero/master/Resources/simple-v2.svg" align="left"/>
-<img src="https://cdn.rawgit.com/lkzhao/Hero/master/Resources/simple-animation.svg"  align="left"/>
+<img src="https://cdn.rawgit.com/lkzhao/Hero/e4b0d15a15d738ac4b163797816059c199100e22/Resources/simple-v1.svg"  align="left"/>
+<img src="https://cdn.rawgit.com/lkzhao/Hero/e4b0d15a15d738ac4b163797816059c199100e22/Resources/simple-v2.svg" align="left"/>
+<img src="https://cdn.rawgit.com/lkzhao/Hero/e4b0d15a15d738ac4b163797816059c199100e22/Resources/simple-animation.svg"  align="left"/>
 
 ##### View Controller 1
 ```swift
@@ -63,9 +63,9 @@ greenView.heroModifiers = [.translate(x:0, y:100), .scale(0.5)]
 
 
 ## Usage Example 2
-<img src="https://cdn.rawgit.com/lkzhao/Hero/master/Resources/advance-v1.svg"  align="left"/>
-<img src="https://cdn.rawgit.com/lkzhao/Hero/master/Resources/advance-v2.svg" align="left"/>
-<img src="https://cdn.rawgit.com/lkzhao/Hero/master/Resources/advance-animation.svg"  align="left"/>
+<img src="https://cdn.rawgit.com/lkzhao/Hero/e4b0d15a15d738ac4b163797816059c199100e22/Resources/advance-v1.svg"  align="left"/>
+<img src="https://cdn.rawgit.com/lkzhao/Hero/e4b0d15a15d738ac4b163797816059c199100e22/Resources/advance-v2.svg" align="left"/>
+<img src="https://cdn.rawgit.com/lkzhao/Hero/e4b0d15a15d738ac4b163797816059c199100e22/Resources/advance-animation.svg"  align="left"/>
 
 ##### View Controller 1
 ```swift
