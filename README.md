@@ -84,9 +84,8 @@ for cell in redCells {
 }
 ```
 
+You can do these in the **storyboard** too!
 
-
-You can do these in the storyboard too!
 <img src="https://cdn.rawgit.com/lkzhao/Hero/master/Resources/storyboardView.png" width="267px"/> 
 <img src="https://cdn.rawgit.com/lkzhao/Hero/master/Resources/storyboardViewController.png" width="267px"/>
 
