@@ -41,11 +41,50 @@ Hero is available on Carthage & Cocoapods. See the **[usage guide](https://githu
 
 ##### NOTE: Hero won't work on iPhone 7 Simulators due to a [bug](https://forums.developer.apple.com/thread/63438) by Apple. Try using other simulators or a real device when working with Hero.
 
-## Simple Usage Examples
+## Usage Example 1
 
-<img src="https://cdn.rawgit.com/lkzhao/Hero/e6c77629fcf2ea1c9b8526f74d250a2fea68ae5c/Resources/simple.svg"/>
+<img src="https://cdn.rawgit.com/lkzhao/Hero/master/Resources/simple-v1.svg"  align="left"/>
+<img src="https://cdn.rawgit.com/lkzhao/Hero/master/Resources/simple-v2.svg" align="left"/>
+<img src="https://cdn.rawgit.com/lkzhao/Hero/master/Resources/simple-animation.svg"  align="left"/>
 
-<img src="https://cdn.rawgit.com/lkzhao/Hero/e6c77629fcf2ea1c9b8526f74d250a2fea68ae5c/Resources/advance.svg"/>
+##### View Controller 1
+```swift
+redView.heroID = "foo"
+greyView.heroID = "bar"
+```
+
+##### View Controller 2
+```swift
+isHeroEnabled = true
+redView.heroID = "foo"
+greyView.heroID = "bar"
+greenView.heroModifiers = [.translate(x:0, y:100), .scale(0.5)]
+```
+
+
+## Usage Example 2
+<img src="https://cdn.rawgit.com/lkzhao/Hero/master/Resources/advance-v1.svg"  align="left"/>
+<img src="https://cdn.rawgit.com/lkzhao/Hero/master/Resources/advance-v2.svg" align="left"/>
+<img src="https://cdn.rawgit.com/lkzhao/Hero/master/Resources/advance-animation.svg"  align="left"/>
+
+##### View Controller 1
+```swift
+greyView.heroID = "foo"
+```
+
+##### View Controller 2
+```swift
+isHeroEnabled = true
+greyView.heroID = "foo"
+
+// collectionView is the parent view of all red cells
+collectionView.heroModifiers = [.cascade]
+for cell in redCells {
+	cell.heroModifiers = [.fade, .scale(0.5)]
+}
+```
+
+
 
 You can do these in the storyboard too!
 

@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="136px" height="270px" viewBox="0 0 136 270" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 41.2 (35397) - http://www.bohemiancoding.com/sketch -->
+    <title>simple</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <clipPath id="screen">
+            <rect id="whiteScreen" x="0" y="0" width="120" height="208" rx="10"></rect>
+        </clipPath>
+    </defs>
+    <g id="Group">
+        <rect id="Rectangle" fill="#0C1E31" x="0" y="0" width="136" height="270" rx="18"></rect>
+        <circle id="Oval" fill="#FC3A5E" cx="68" cy="253" r="9"></circle>
+        <g id="screen1s1" transform="translate(8.000000, 31.000000)" clip-path="url(#screen)">
+            <use id="Rectangle-3" fill="#FFFFFF" xlink:href="#whiteScreen"></use>
+            <rect id="Rectangle-2" fill="#FC3A5E" x="0" y="49" width="78" height="78">
+                <animate 
+                    attributeName="rx" 
+                    values="8;0;0;8;8" 
+                    dur="1s"
+                    calcMode="spline"
+                    keySplines="0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1"
+                    repeatCount="indefinite"
+                    fill="freeze" />
+                <animate 
+                    attributeName="x" 
+                    values="22;0;0;22;22" 
+                    calcMode="spline"
+                    keySplines="0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1"
+                    dur="1s"
+                    repeatCount="indefinite"
+                    fill="freeze" />
+                <animate 
+                    attributeName="y" 
+                    values="49;0;0;49;49" 
+                    calcMode="spline"
+                    keySplines="0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1"
+                    dur="1s"
+                    repeatCount="indefinite"
+                    fill="freeze" />
+                <animate 
+                    attributeName="width" 
+                    values="78;120;120;78;78" 
+                    calcMode="spline"
+                    keySplines="0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1"
+                    dur="1s"
+                    repeatCount="indefinite"
+                    fill="freeze" />
+                <animate 
+                    attributeName="height" 
+                    values="78;120;120;78;78" 
+                    calcMode="spline"
+                    keySplines="0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1"
+                    dur="1s"
+                    repeatCount="indefinite"
+                    fill="freeze" />
+            </rect>
+            <rect id="Rectangle-6" fill="#D8D8D8" x="21" y="142" width="78" height="18" rx="9">
+                <animate 
+                    attributeName="rx" 
+                    values="9;0;0;9;9" 
+                    dur="1s"
+                    calcMode="spline"
+                    keySplines="0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1"
+                    repeatCount="indefinite"
+                    fill="freeze" />
+                <animate 
+                    attributeName="x" 
+                    values="21;0;0;21;21" 
+                    dur="1s"
+                    calcMode="spline"
+                    keySplines="0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1"
+                    repeatCount="indefinite"
+                    fill="freeze" />
+                <animate 
+                    attributeName="y" 
+                    values="142;120;120;142;142" 
+                    dur="1s"
+                    calcMode="spline"
+                    keySplines="0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1"
+                    repeatCount="indefinite"
+                    fill="freeze" />
+                <animate 
+                    attributeName="width" 
+                    values="78;120;120;78;78" 
+                    dur="1s"
+                    calcMode="spline"
+                    keySplines="0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1"
+                    repeatCount="indefinite"
+                    fill="freeze" />
+                <animate 
+                    attributeName="height" 
+                    values="18;32;32;18;18" 
+                    dur="1s"
+                    calcMode="spline"
+                    keySplines="0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1"
+                    repeatCount="indefinite"
+                    fill="freeze" />
+            </rect>
+            <circle id="Oval-2" fill="#37D0AB" cx="60" cy="186" r="16">
+                <animate 
+                    attributeName="r" 
+                    values="8;16;16;8;8" 
+                    dur="1s"
+                    calcMode="spline"
+                    keySplines="0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1"
+                    repeatCount="indefinite"
+                    fill="freeze" />
+                <animate 
+                    attributeName="cy" 
+                    values="250;186;186;250;250" 
+                    dur="1s"
+                    calcMode="spline"
+                    keySplines="0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1"
+                    repeatCount="indefinite"
+                    fill="freeze" />
+            </circle>
+        </g>
+    </g>
+</svg>
