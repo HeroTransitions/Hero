@@ -31,6 +31,8 @@ public class CascadePreprocessor:HeroPreprocessor {
     case bottomToTop;
     case leftToRight;
     case rightToLeft;
+    case radial(center:CGPoint);
+    case inverseRadial(center:CGPoint);
     var comparator:(UIView, UIView) -> Bool{
       switch self {
       case .topToBottom:
@@ -41,8 +43,13 @@ public class CascadePreprocessor:HeroPreprocessor {
         return { return $0.frame.minX < $1.frame.minX }
       case .rightToLeft:
         return { return $0.frame.maxX > $1.frame.maxX }
+      case .radial(let center):
+        return { return $0.center.distance(center) < $1.center.distance(center) }
+      case .inverseRadial(let center):
+        return { return $0.center.distance(center) > $1.center.distance(center) }
       }
     }
+
     init?(_ string:String) {
       switch string {
       case "bottomToTop":
