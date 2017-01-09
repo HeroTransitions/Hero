@@ -24,14 +24,30 @@ import UIKit
 
 public class IgnoreSubviewModifiersPreprocessor:HeroPreprocessor {
   public func process(context:HeroContext, fromViews:[UIView], toViews:[UIView]) {
-    for view in fromViews + toViews{
-      guard context[view]?.ignoreSubviewModifiers == true else { continue }
+    process(context:context, views:fromViews)
+    process(context:context, views:toViews)
+  }
+  
+  private func process(context:HeroContext, views:[UIView]){
+    for (viewIndex, view) in views.enumerated(){
+      guard let recursive = context[view]?.ignoreSubviewModifiers else { continue }
       var parentView = view
       if let _  = view as? UITableView, let wrapperView = view.subviews.get(0) {
         parentView = wrapperView
       }
-      for subview in parentView.subviews{
-        context[subview] = nil
+      
+      if recursive {
+        for i in (viewIndex+1)..<views.count{
+          let childView = views[i]
+          if childView.superview == view.superview {
+            break
+          }
+          context[childView] = nil
+        }
+      } else {
+        for subview in parentView.subviews{
+          context[subview] = nil
+        }
       }
     }
   }
