@@ -162,13 +162,13 @@ public extension UIViewController{
         }
         
         UIApplication.shared.keyWindow?.addSubview(next.view)
-
-        self.dismiss(animated: false) {
-          if let parentVC = parentVC {
+        
+        if let parentVC = parentVC {
+          self.dismiss(animated: false) {
             parentVC.present(next, animated: false, completion:nil)
-          } else {
-            UIApplication.shared.keyWindow?.rootViewController = next
           }
+        } else {
+          UIApplication.shared.keyWindow?.rootViewController = next
         }
       }
     }
