@@ -23,7 +23,7 @@ Hero can also construct animations for unmatched views. It is easy to define the
 
 By default, Hero provides **dynamic duration & easing** based on the [Material Design Motion Guide](https://material.io/guidelines/motion/duration-easing.html). The duration is determined by the distance and size change. The easing curve is selected base on whether or not the view is entering or exiting the screen. It save you the hassle while providing consistent and delightful animations.
 
-Hero does not make any assumption about how the view is built or structured. It will not modify any of your views' states other than hiding them during the animation. This means that it works with **autolayout**, **programmatic layout**, **UICollectionView**(without modifing its layout object), **UITableView**, **UINavigationController**, **UITabBarController**, etc... 
+Hero does not make any assumption about how the view is built or structured. It will not modify any of your views' states other than hiding them during the animation. This means that it works with **autolayout**, **programmatic layout**, **UICollectionView**(without modifying its layout object), **UITableView**, **UINavigationController**, **UITabBarController**, etc... 
 
 ## Video Demos
 The following videos give you a general idea of what you can do with **Hero**
