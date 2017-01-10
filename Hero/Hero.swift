@@ -109,21 +109,21 @@ internal extension Hero {
     animators = Hero.builtInAnimator
     
     // swift 3 bug. no idea why it wont let me to use append(contentsOf:) or + operator
-    plugins.forEach {
-        processors.append($0)
-        animators.append($0)
+    for plugin in plugins {
+      processors.append(plugin)
+      animators.append(plugin)
     }
     
     if let fvc = fromViewController, let tvc = toViewController {
-        closureProcessForHeroDelegate(vc: fvc) {
-            $0.heroWillStartTransition?()
-            $0.heroWillStartAnimatingTo?(viewController: tvc)
-        }
+      closureProcessForHeroDelegate(vc: fvc) {
+          $0.heroWillStartTransition?()
+          $0.heroWillStartAnimatingTo?(viewController: tvc)
+      }
         
-        closureProcessForHeroDelegate(vc: tvc) {
-            $0.heroWillStartTransition?()
-            $0.heroWillStartAnimatingFrom?(viewController: fvc)
-        }
+      closureProcessForHeroDelegate(vc: tvc) {
+        $0.heroWillStartTransition?()
+        $0.heroWillStartAnimatingFrom?(viewController: fvc)
+      }
     }
 
     transitionContainer.isUserInteractionEnabled = false
@@ -149,8 +149,8 @@ internal extension Hero {
     
     // ask each preprocessor to process
 
-    processors.forEach {
-      $0.process(context:context, fromViews: context.fromViews, toViews: context.toViews)
+    for processor in processors {
+      processor.process(context:context, fromViews: context.fromViews, toViews: context.toViews)
     }
     
     animatorViews = []
@@ -175,14 +175,14 @@ internal extension Hero {
     // wait for a frame if using navigation controller.
     // a bug with navigation controller. the snapshot is not captured if animating immediately
     delay(inContainerController && presenting ? 0.02 : 0) {
-      self.animatorViews.forEach {
+      for (currentFromViews, currentToViews) in self.animatorViews {
         // auto hide all animated views
-        $0.0.forEach {
-          self.context.hide(view: $0)
+        for fromView in currentFromViews {
+          self.context.hide(view: fromView)
         }
         
-        $0.1.forEach {
-          self.context.hide(view: $0)
+        for toView in currentToViews {
+          self.context.hide(view: toView)
         }
       }
       
@@ -222,11 +222,11 @@ internal extension Hero {
     guard transitionContainer != nil else { return }
     for (i, animator) in animators.enumerated(){
       animator.clean()
-      self.animatorViews[i].0.forEach {
-        self.context.unhide(view: $0)
+      for fromView in animatorViews[i].0 {
+        self.context.unhide(view: fromView)
       }
-      self.animatorViews[i].1.forEach {
-        self.context.unhide(view: $0)
+      for toView in animatorViews[i].1 {
+        self.context.unhide(view: toView)
       }
     }
     
@@ -263,7 +263,7 @@ internal extension Hero {
     transitionContext?.completeTransition(finished)
     completion?()
 
-    if let fvc = fromViewController, let tvc = toViewController  {
+    if let fvc = fromViewController, let tvc = toViewController {
       closureProcessForHeroDelegate(vc: fvc) {
         $0.heroDidEndAnimatingTo?(viewController: tvc)
         $0.heroDidEndTransition?()
@@ -281,15 +281,15 @@ extension Hero {
   public func update(progress: Double) {
     let p = max(0, min(1, progress))
     lastProgress = p
-    animators.forEach {
-      $0.seekTo(timePassed: p * maxDurationNeeded)
+    for animator in animators {
+      animator.seekTo(timePassed: p * maxDurationNeeded)
     }
     transitionContext?.updateInteractiveTransition(CGFloat(p))
   }
   public func end() {
     var maxTime:TimeInterval = 0
-    animators.forEach {
-      maxTime = max(maxTime, $0.resume(timePassed:lastProgress*maxDurationNeeded, reverse: false))
+    for animator in animators {
+      maxTime = max(maxTime, animator.resume(timePassed:lastProgress*maxDurationNeeded, reverse: false))
     }
     transitionContext?.finishInteractiveTransition()
     delay(maxTime) {
@@ -298,8 +298,8 @@ extension Hero {
   }
   public func cancel() {
     var maxTime:TimeInterval = 0
-    animators.forEach {
-      maxTime = max(maxTime, $0.resume(timePassed:lastProgress*maxDurationNeeded, reverse: true))
+    for animator in animators {
+      maxTime = max(maxTime, animator.resume(timePassed:lastProgress*maxDurationNeeded, reverse: true))
     }
     transitionContext?.cancelInteractiveTransition()
     delay(maxTime){
@@ -310,12 +310,12 @@ extension Hero {
   public func temporarilySet(view:UIView, modifiers:[HeroModifier]){
     let targetState = HeroTargetState(modifiers: modifiers)
     if let otherView = context.pairedView(for: view){
-      animators.forEach {
-        $0.temporarilySet(view: otherView, targetState: targetState)
+      for animator in animators {
+        animator.temporarilySet(view: otherView, targetState: targetState)
       }
     }
-    animators.forEach {
-        $0.temporarilySet(view: view, targetState: targetState)
+    for animator in animators {
+        animator.temporarilySet(view: view, targetState: targetState)
     }
   }
 }
@@ -347,7 +347,7 @@ extension Hero:UIViewControllerTransitioningDelegate {
       Hero.enabledPlugins.map { $0.init() }.forEach {
         if $0.wantInteractiveHeroTransition() {
           interactive = true
-            return
+          return
         }
       }
     }
