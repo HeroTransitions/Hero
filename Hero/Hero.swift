@@ -175,10 +175,11 @@ internal extension Hero {
     delay(inContainerController && presenting ? 0.02 : 0) {
       self.animatorViews.forEach {
         // auto hide all animated views
-        $0.forEach {
+        $0.0.forEach {
           self.context.hide(view: $0)
         }
-        $1.forEach {
+        
+        $0.1.forEach {
           self.context.hide(view: $0)
         }
       }
