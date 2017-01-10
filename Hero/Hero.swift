@@ -148,9 +148,11 @@ internal extension Hero {
     context = HeroContext(container:animatingViewContainer, fromView: fromView, toView:toView)
     
     // ask each preprocessor to process
-    for processor in processors {
-      processor.process(context:context, fromViews: context.fromViews, toViews: context.toViews)
+
+    processors.forEach {
+      $0.process(context:context, fromViews: context.fromViews, toViews: context.toViews)
     }
+    
     animatorViews = []
     var fromViews = context.fromViews
     var toViews = context.toViews
@@ -184,8 +186,8 @@ internal extension Hero {
         }
       }
       
-      for (i, a) in self.animators.enumerated() {
-        let duration = a.animate(context: self.context,
+      for (i, animator) in self.animators.enumerated() {
+        let duration = animator.animate(context: self.context,
                                  fromViews: self.animatorViews[i].0,
                                  toViews: self.animatorViews[i].1)
         self.maxDurationNeeded = max(self.maxDurationNeeded, duration)
@@ -220,11 +222,11 @@ internal extension Hero {
     guard transitionContainer != nil else { return }
     for (i, animator) in animators.enumerated(){
       animator.clean()
-      for v in animatorViews[i].0 {
-        context.unhide(view:v)
+      self.animatorViews[i].0.forEach {
+        self.context.unhide(view: $0)
       }
-      for v in animatorViews[i].1 {
-        context.unhide(view:v)
+      self.animatorViews[i].1.forEach {
+        self.context.unhide(view: $0)
       }
     }
     
@@ -279,15 +281,15 @@ extension Hero {
   public func update(progress: Double) {
     let p = max(0, min(1, progress))
     lastProgress = p
-    for a in animators{
-      a.seekTo(timePassed: p * maxDurationNeeded)
+    animators.forEach {
+      $0.seekTo(timePassed: p * maxDurationNeeded)
     }
     transitionContext?.updateInteractiveTransition(CGFloat(p))
   }
   public func end() {
     var maxTime:TimeInterval = 0
-    for animator in animators {
-      maxTime = max(maxTime, animator.resume(timePassed:lastProgress*maxDurationNeeded, reverse: false))
+    animators.forEach {
+      maxTime = max(maxTime, $0.resume(timePassed:lastProgress*maxDurationNeeded, reverse: false))
     }
     transitionContext?.finishInteractiveTransition()
     delay(maxTime) {
@@ -296,8 +298,8 @@ extension Hero {
   }
   public func cancel() {
     var maxTime:TimeInterval = 0
-    for animator in animators {
-      maxTime = max(maxTime, animator.resume(timePassed:lastProgress*maxDurationNeeded, reverse: true))
+    animators.forEach {
+      maxTime = max(maxTime, $0.resume(timePassed:lastProgress*maxDurationNeeded, reverse: true))
     }
     transitionContext?.cancelInteractiveTransition()
     delay(maxTime){
@@ -338,7 +340,7 @@ extension Hero: UIViewControllerAnimatedTransitioning {
 extension Hero:UIViewControllerTransitioningDelegate {
   fileprivate var interactiveTransitioning: UIViewControllerInteractiveTransitioning? {
     closureProcessForHeroDelegate(vc: fromViewController!) {
-        interactive = $0.wantInteractiveHeroTransition?() ?? false
+      interactive = $0.wantInteractiveHeroTransition?() ?? false
     }
     
     if !interactive {
