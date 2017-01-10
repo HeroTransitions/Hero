@@ -64,7 +64,6 @@ public class Hero:NSObject {
   
   fileprivate static var enabledPlugins: [HeroPlugin.Type] = []
   var lastProgress:Double = 0
-  fileprivate var animatorViews: [([UIView],[UIView])]!
   
   fileprivate override init(){}
 }
@@ -152,43 +151,39 @@ internal extension Hero {
       processor.process(context:context, fromViews: context.fromViews, toViews: context.toViews)
     }
     
-    animatorViews = []
-    var fromViews = context.fromViews
-    var toViews = context.toViews
-    for animator in animators.reversed() {
-      let currentFromViews = fromViews.filterInPlace{ [context] (view:UIView) -> Bool in
-        return !animator.canAnimate(context: context!, view: view, appearing: false)
-      }
-      let currentToViews = toViews.filterInPlace{ [context] (view:UIView) -> Bool in
-        return !animator.canAnimate(context: context!, view: view, appearing: true)
-      }
-      animatorViews.insert((currentFromViews, currentToViews), at: 0)
-    }
-
-    if fromViews.first == fromView && toViews.first == toView {
+    if context[fromView] == nil && context[toView] == nil {
       // if no animator can animate toView & fromView, set the effect to fade // i.e. default effect
       context[toView] = [.fade]
-      animatorViews[0].1.insert(toView, at: 0)
+    }
+
+    var animatingViews = [([UIView],[UIView])]()
+    for animator in animators {
+      let currentFromViews = context.fromViews.filter{ [context] (view:UIView) -> Bool in
+        return animator.canAnimate(context: context!, view: view, appearing: false)
+      }
+      let currentToViews = context.toViews.filter{ [context] (view:UIView) -> Bool in
+        return animator.canAnimate(context: context!, view: view, appearing: true)
+      }
+      animatingViews.append((currentFromViews, currentToViews))
     }
 
     // wait for a frame if using navigation controller.
     // a bug with navigation controller. the snapshot is not captured if animating immediately
     delay(inContainerController && presenting ? 0.02 : 0) {
-      for (currentFromViews, currentToViews) in self.animatorViews {
+      for (currentFromViews, currentToViews) in animatingViews {
         // auto hide all animated views
-        for fromView in currentFromViews {
-          self.context.hide(view: fromView)
+        for view in currentFromViews {
+          self.context.hide(view: view)
         }
-        
-        for toView in currentToViews {
-          self.context.hide(view: toView)
+        for view in currentToViews {
+          self.context.hide(view: view)
         }
       }
       
       for (i, animator) in self.animators.enumerated() {
         let duration = animator.animate(context: self.context,
-                                 fromViews: self.animatorViews[i].0,
-                                 toViews: self.animatorViews[i].1)
+                                 fromViews: animatingViews[i].0,
+                                 toViews: animatingViews[i].1)
         self.maxDurationNeeded = max(self.maxDurationNeeded, duration)
       }
       
@@ -219,15 +214,10 @@ internal extension Hero {
   
   internal func end(finished: Bool) {
     guard transitionContainer != nil else { return }
-    for (i, animator) in animators.enumerated(){
+    for animator in animators{
       animator.clean()
-      for fromView in animatorViews[i].0 {
-        self.context.unhide(view: fromView)
-      }
-      for toView in animatorViews[i].1 {
-        self.context.unhide(view: toView)
-      }
     }
+    context.unhideAll()
     
     // move fromView & toView back from animatingViewContainer
     transitionContainer.addSubview(finished ? toView : fromView)
@@ -239,7 +229,6 @@ internal extension Hero {
 
     animatingViewContainer.removeFromSuperview()
     animatingViewContainer = nil
-    animatorViews = nil
     processors = nil
     animators = nil
     plugins = nil

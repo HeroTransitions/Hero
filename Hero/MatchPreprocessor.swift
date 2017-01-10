@@ -39,8 +39,8 @@ public class MatchPreprocessor:HeroPreprocessor {
       context[fv] = context[tv]
       
       context[tv]!.opacity = 0
-      if let _ = fv as? UILabel, !fv.isOpaque{
-        // cross fade if toView is a label
+      if ((fv as? UILabel) != nil && !fv.isOpaque) || tv.alpha < 1 {
+        // cross fade if fromView is a label or if toView is transparent
         context[fv]!.opacity = 0
       } else {
         context[fv]!.opacity = nil
