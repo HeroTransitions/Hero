@@ -88,14 +88,13 @@ internal extension Hero {
 
 fileprivate extension Hero {
   func closureProcessForHeroDelegate<T: UIViewController>(vc: T, closure: (HeroViewControllerDelegate)->()) {
-    switch vc {
-      case let fvc as HeroViewControllerDelegate:
-        closure(fvc)
-      case let fvc as UINavigationController:
-        if let topVc = fvc.topViewController as? HeroViewControllerDelegate {
-          closure(topVc)
-        }
-      default: break
+    if let delegate = vc as? HeroViewControllerDelegate {
+      closure(delegate)
+    }
+    
+    if let navigationController = vc as? UINavigationController,
+      let delegate = navigationController.topViewController as? HeroViewControllerDelegate {
+      closure(delegate)
     }
   }
 }
