@@ -92,9 +92,11 @@ extension HeroContext{
 
     unhide(view: view)
     
-    // capture a snapshot without cornerRadius
+    // capture a snapshot without alpha & cornerRadius
     let oldCornerRadius = view.layer.cornerRadius
+    let oldAlpha = view.alpha
     view.layer.cornerRadius = 0
+    view.alpha = 1
     let snapshot:UIView
     if #available(iOS 9.0, *), let stackView = view as? UIStackView{
       snapshot = stackView.slowSnapshotView()
@@ -111,6 +113,7 @@ extension HeroContext{
       snapshot = view.snapshotView(afterScreenUpdates: true)!
     }
     view.layer.cornerRadius = oldCornerRadius
+    view.alpha = oldAlpha
     
     // the Snapshot's contentView must have hold the cornerRadius value,
     // since the snapshot might not have maskToBounds set
@@ -170,6 +173,12 @@ extension HeroContext{
       view.alpha = oldAlpha
       viewAlphas[view] = nil
     }
+  }
+  internal func unhideAll(){
+    for (view, oldAlpha) in viewAlphas{
+      view.alpha = oldAlpha
+    }
+    viewAlphas.removeAll()
   }
   internal static func processViewTree(view:UIView, container:UIView, idMap:inout [String:UIView], stateMap:inout [UIView:HeroTargetState]) -> [UIView]{
     var rtn:[UIView]
