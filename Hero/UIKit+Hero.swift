@@ -110,6 +110,12 @@ public extension UIView{
   }
 }
 
+internal extension NSObject{
+  func copyWithArchiver() -> Any? {
+    return NSKeyedUnarchiver.unarchiveObject(with: NSKeyedArchiver.archivedData(withRootObject: self))!
+  }
+}
+
 public extension UIViewController{
   @IBInspectable public var isHeroEnabled: Bool {
     get {
