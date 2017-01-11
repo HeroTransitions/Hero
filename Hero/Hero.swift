@@ -33,8 +33,11 @@ public class Hero:NSObject {
   public var container: UIView! {
     return animatingViewContainer
   }
+  public var transitioning:Bool{
+    return transitionContainer != nil
+  }
   var transitionContainer:UIView!
-  public var presenting = true
+  public fileprivate(set) var presenting = true
   fileprivate var completionCallback: (() -> Void)?
   
   fileprivate var maxDurationNeeded: TimeInterval = 0.0
@@ -207,6 +210,7 @@ internal extension Hero {
   }
 
   internal func transition(from: UIViewController, to: UIViewController, in view: UIView, completion: (() -> Void)? = nil) {
+    guard !transitioning else { return }
     inContainerController = false
     presenting = true
     transitionContainer = view
@@ -217,7 +221,7 @@ internal extension Hero {
   }
   
   internal func end(finished: Bool) {
-    guard transitionContainer != nil else { return }
+    guard transitioning else { return }
     for animator in animators{
       animator.clean()
     }
@@ -269,16 +273,19 @@ internal extension Hero {
   }
 }
 
-extension Hero {
+public extension Hero {
   public func update(progress: Double) {
     let p = max(0, min(1, progress))
     lastProgress = p
+    guard transitioning else { return }
     for animator in animators {
       animator.seekTo(timePassed: p * maxDurationNeeded)
     }
     transitionContext?.updateInteractiveTransition(CGFloat(p))
   }
+
   public func end() {
+    guard transitioning else { return }
     var maxTime:TimeInterval = 0
     for animator in animators {
       maxTime = max(maxTime, animator.resume(timePassed:lastProgress*maxDurationNeeded, reverse: false))
@@ -288,7 +295,9 @@ extension Hero {
       self.end(finished: true)
     }
   }
+
   public func cancel() {
+    guard transitioning else { return }
     var maxTime:TimeInterval = 0
     for animator in animators {
       maxTime = max(maxTime, animator.resume(timePassed:lastProgress*maxDurationNeeded, reverse: true))
@@ -300,6 +309,7 @@ extension Hero {
   }
 
   public func temporarilySet(view:UIView, modifiers:[HeroModifier]){
+    guard transitioning else { return }
     let targetState = HeroTargetState(modifiers: modifiers)
     if let otherView = context.pairedView(for: view){
       for animator in animators {
@@ -314,9 +324,7 @@ extension Hero {
 
 extension Hero: UIViewControllerAnimatedTransitioning {
   public func animateTransition(using context: UIViewControllerContextTransitioning) {
-    if transitionContext != nil {
-      return
-    }
+    guard !transitioning else { return }
     transitionContext = context
     fromViewController = fromViewController ?? context.viewController(forKey: .from)
     toViewController = toViewController ?? context.viewController(forKey: .to)
