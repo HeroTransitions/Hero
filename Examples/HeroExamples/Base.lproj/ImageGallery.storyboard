@@ -98,7 +98,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="string" keyPath="heroModifierString" value="translate(0, -44) fade zPosition(10)"/>
+                            <userDefinedRuntimeAttribute type="string" keyPath="heroModifierString" value="translate(0, -44) fade zPosition(60)"/>
                         </userDefinedRuntimeAttributes>
                     </navigationBar>
                     <userDefinedRuntimeAttributes>
