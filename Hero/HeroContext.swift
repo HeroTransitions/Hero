@@ -109,7 +109,7 @@ extension HeroContext{
       let snapShotView = UIView()
       snapShotView.addSubview(contentView)
       snapshot = snapShotView
-    } else if let barView = view as? UINavigationBar {
+    } else if let barView = view as? UINavigationBar, barView.isTranslucent {
       let newBarView = UINavigationBar(frame: barView.frame)
       
       newBarView.barStyle = barView.barStyle
