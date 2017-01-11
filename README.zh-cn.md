@@ -15,24 +15,24 @@
 
 #### 你可以使用这些效果来拼凑出你想要的转场动画。
 
-Hero很像Keynote的Magic Move。在界面切换时，Hero会把开始界面的视图与结束界面的视图配对，假如他能找到一对儿有着一样的`heroID`的视图的话， Hero便会自动为此视图创建动画，使从它一开始的状态移动到结束时的状态。
+Hero很像Keynote的Magic Move。在界面切换时，Hero会把开始界面的视图与结束界面的视图配对，假如他能找到一对儿有着一样的`heroID`的视图的话，Hero便会自动为此视图创建动画，从它一开始的状态移动到结束时的状态。
 
 不仅如此，Hero还可以为没有配对的视图制作动画。每一个视图都可以轻易的用`heroModifiers`来告诉Hero你想为这个视图所创造的动画。交互式动画(interactive transition)也是支持的哟。
 
 Hero还参照Google的[Material Design Motion Guide](https://material.io/guidelines/motion/duration-easing.html)来提供动态的动画长度与时间曲线。你不需要告诉Hero动画的长度与时间曲线，Hero会参照视图的移动长度和大小来自动选择最适合的参数。
 
-无论你使用怎样的方法制作和布局你的视图，Hero可以同时与各种布局引擎工作并且帮你省去很多时间制作动画。Hero支持 **autolayout**, **programmatic layout**, **UICollectionView**, **UITableView**, **UINavigationController**, **UITabBarController**, 等等。。
+无论你使用怎样的方法制作和布局你的视图，Hero可以同时与各种布局引擎工作并且帮你省去很多时间制作动画。Hero支持 **auto layout**, **programmatic layout**, **UICollectionView**, **UITableView**, **UINavigationController**, **UITabBarController**, 等等。。
 
 ## 视频
 
-1. 实例介绍 **Example Project**.
-2. 自带的校错程序介绍 **built-in debugger** 可以显示时间轴，曲线路线，和3D视图。
+1. 实例介绍。**Example Project**.
+2. 自带的校错程序介绍, 可以显示时间轴，曲线路线，和3D视图。**built-in debugger** 
 
 <a href="https://youtu.be/-6L79or6Iq8"><img src="https://github.com/lkzhao/Hero/blob/master/Resources/overview.png?raw=true" height="300"/></a>
 <a href="https://youtu.be/NFhA6qZdunA"><img src="https://github.com/lkzhao/Hero/blob/master/Resources/debugger.png?raw=true" height="300"/></a>
 
 ## 安装方法与用法
-Hero 可以用 Carthage 或者 Cocoapods 安装，具体用法请见 **[usage guide](https://github.com/lkzhao/Hero/wiki/Usage-Guide)**。
+Hero可以用Carthage或者Cocoapods安装，具体用法请见**[Usage Guide](https://github.com/lkzhao/Hero/wiki/Usage-Guide)**。
 
 ##### 注: 因为一个苹果的[bug](https://forums.developer.apple.com/thread/63438)，Hero 不能在iPhone 7 Simulators上使用。 请使用其他版本的Simulator或者使用真机。
 
