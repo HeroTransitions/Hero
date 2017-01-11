@@ -15,7 +15,7 @@
 
 #### 你可以使用这些效果来拼凑出你想要的转场动画。
 
-Hero很像Keynote的Magic Move。在界面切换时，Hero会把开始界面的视图与结束界面的视图配对，假如他能找到一对儿有着一样的`heroID`的视图的话，Hero便会自动为此视图创建动画，从它一开始的状态移动到结束时的状态。
+Hero很像Keynote的[“神奇移动”过渡(Magic Move)](https://support.apple.com/kb/PH16959?locale=zh_CN)。在界面切换时，Hero会把开始界面的视图与结束界面的视图配对，假如他能找到一对儿有着一样的`heroID`的视图的话，Hero便会自动为此视图创建动画，从它一开始的状态移动到结束时的状态。
 
 不仅如此，Hero还可以为没有配对的视图制作动画。每一个视图都可以轻易的用`heroModifiers`来告诉Hero你想为这个视图所创造的动画。交互式动画(interactive transition)也是支持的哟。
 
