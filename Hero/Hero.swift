@@ -138,7 +138,6 @@ internal extension Hero {
     animatingViewContainer.insertSubview(toView, belowSubview: fromView)
     animatingViewContainer.backgroundColor = toView.backgroundColor
 
-    toView.frame = transitionContainer.bounds
     toView.updateConstraints()
     toView.setNeedsLayout()
     toView.layoutIfNeeded()
