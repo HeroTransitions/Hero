@@ -130,7 +130,7 @@ extension HeroContext{
     view.layer.cornerRadius = oldCornerRadius
     view.alpha = oldAlpha
     
-    if view.layer.cornerRadius != 0 {
+    if (view as? UINavigationBar) == nil {
       // the Snapshot's contentView must have hold the cornerRadius value,
       // since the snapshot might not have maskToBounds set
       let contentView = snapshot.subviews[0]
