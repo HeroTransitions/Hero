@@ -21,7 +21,7 @@ Hero很像Keynote的[“神奇移动”过渡(Magic Move)](https://support.apple
 
 Hero还参照Google的[Material Design Motion Guide](https://material.io/guidelines/motion/duration-easing.html)来提供动态的动画长度与时间曲线。你不需要告诉Hero动画的长度与时间曲线，Hero会参照视图的移动长度和大小来自动选择最适合的参数。
 
-无论你使用怎样的方法制作和布局你的视图，Hero可以同时与各种布局引擎工作并且帮你省去很多时间制作动画。Hero支持 **auto layout**, **programmatic layout**, **UICollectionView**, **UITableView**, **UINavigationController**, **UITabBarController**, 等等。。
+无论你使用怎样的方法制作和布局你的视图，Hero都能帮你省去很多时间制作动画。Hero支持 **auto layout**, **programmatic layout**, **UICollectionView**, **UITableView**, **UINavigationController**, **UITabBarController**, 等等。。
 
 ## 视频
 
