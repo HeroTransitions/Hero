@@ -7,7 +7,7 @@
 ![iOS 8.0+](https://img.shields.io/badge/iOS-8.0%2B-blue.svg)
 ![Swift 3.0+](https://img.shields.io/badge/Swift-3.0%2B-orange.svg)
 
-**Hero**是一个iOS界面切换库。它代替了UIKit本身的转场动画API，使制作自定义的转场动画(View Controller Transition)非常简单！
+**Hero**是一个iOS界面切换库。它代替了UIKit本身的转场动画接口，使制作自定义的转场动画(View Controller Transition)非常简单！
 
 ### 特点
 <img src="https://cdn.rawgit.com/lkzhao/Hero/e6c77629fcf2ea1c9b8526f74d250a2fea68ae5c/Resources/basic.svg"/>
