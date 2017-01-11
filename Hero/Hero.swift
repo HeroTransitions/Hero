@@ -150,11 +150,7 @@ internal extension Hero {
       processor.process(context:context, fromViews: context.fromViews, toViews: context.toViews)
     }
     
-    if context[fromView] == nil && context[toView] == nil {
-      // if no animator can animate toView & fromView, set the effect to fade // i.e. default effect
-      context[toView] = [.fade]
-    }
-
+    var skipDefaultAnimation = false
     var animatingViews = [([UIView],[UIView])]()
     for animator in animators {
       let currentFromViews = context.fromViews.filter{ [context] (view:UIView) -> Bool in
@@ -163,7 +159,16 @@ internal extension Hero {
       let currentToViews = context.toViews.filter{ [context] (view:UIView) -> Bool in
         return animator.canAnimate(context: context!, view: view, appearing: true)
       }
+      if currentFromViews.first == fromView || currentToViews.first == toView{
+        skipDefaultAnimation = true
+      }
       animatingViews.append((currentFromViews, currentToViews))
+    }
+
+    if !skipDefaultAnimation {
+      // if no animator can animate toView & fromView, set the effect to fade // i.e. default effect
+      context[toView] = [.fade]
+      animatingViews[0].1.insert(toView, at: 0)
     }
 
     // wait for a frame if using navigation controller.
