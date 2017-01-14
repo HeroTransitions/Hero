@@ -249,27 +249,27 @@ internal extension Hero {
     transitionContainer!.isUserInteractionEnabled = true
     let transitionContext = self.transitionContext
     let completion = completionCallback
+    
+    transitionContext?.completeTransition(finished)
+    completion?()
+    
+    if let fvc = fromViewController, let tvc = toViewController {
+        closureProcessForHeroDelegate(vc: fvc) {
+            $0.heroDidEndAnimatingTo?(viewController: tvc)
+            $0.heroDidEndTransition?()
+        }
+        
+        closureProcessForHeroDelegate(vc: tvc) {
+            $0.heroDidEndAnimatingFrom?(viewController: fvc)
+            $0.heroDidEndTransition?()
+        }
+    }
 
     transitionContainer = nil
     self.transitionContext = nil
     fromViewController = nil
     toViewController = nil
     completionCallback = nil
-    
-    transitionContext?.completeTransition(finished)
-    completion?()
-
-    if let fvc = fromViewController, let tvc = toViewController {
-      closureProcessForHeroDelegate(vc: fvc) {
-        $0.heroDidEndAnimatingTo?(viewController: tvc)
-        $0.heroDidEndTransition?()
-      }
-    
-      closureProcessForHeroDelegate(vc: tvc) {
-        $0.heroDidEndAnimatingFrom?(viewController: fvc)
-        $0.heroDidEndTransition?()
-      }
-    }
   }
 }
 
