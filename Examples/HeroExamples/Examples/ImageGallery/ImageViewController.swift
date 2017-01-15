@@ -63,7 +63,7 @@ class ImageViewController: UICollectionViewController {
     case .changed:
       Hero.shared.update(progress: Double(progress))
       if let cell = collectionView?.visibleCells[0]  as? ScrollingImageCell{
-        let currentPos = translation + view.center
+        let currentPos = CGPoint(x: translation.x + view.center.x, y: translation.y + view.center.y)
         Hero.shared.temporarilySet(view: cell.imageView, modifiers: [.position(currentPos)])
       }
     default:

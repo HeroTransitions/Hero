@@ -92,7 +92,7 @@ extension ImageGalleryViewController:HeroViewControllerDelegate{
       let originalCellIndex = vc.selectedIndex,
       let currentCellIndex = vc.collectionView?.indexPathsForVisibleItems[0],
       let targetAttribute = collectionView.layoutAttributesForItem(at: currentCellIndex) {
-      collectionView.heroModifiers = [.cascade(delta:0.015, direction:.inverseRadial(center:targetAttribute.frame.center))]
+      collectionView.heroModifiers = [.cascade(delta:0.015, direction:.inverseRadial(center:targetAttribute.center))]
       if !collectionView.indexPathsForVisibleItems.contains(currentCellIndex){
         // make the cell visible
         collectionView.scrollToItem(at: currentCellIndex,
