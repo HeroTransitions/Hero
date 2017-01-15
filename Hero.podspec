@@ -1,10 +1,10 @@
 Pod::Spec.new do |s|
   s.name             = "Hero"
-  s.version          = "0.1.0"
-  s.summary          = "Supercharged transition engine for iOS."
+  s.version          = "0.1.1"
+  s.summary          = "Elegant transition library for iOS"
 
   s.description      = <<-DESC
-                        Supercharged transition engine for iOS. Build your custom view transitions with few lines of code or even no code at all. Inspired by Polymer's neon-animated-pages and Keynote's Magic Move.
+                        Elegant transition library for iOS. Build your custom view transitions with few lines of code or even no code at all. Inspired by Polymer's neon-animated-pages and Keynote's Magic Move.
                        DESC
 
   s.homepage         = "https://github.com/lkzhao/Hero"
