@@ -92,13 +92,15 @@ extension HeroContext{
 
     unhide(view: view)
     
-    // capture a snapshot without cornerRadius
+    // capture a snapshot without alpha & cornerRadius
     let oldCornerRadius = view.layer.cornerRadius
+    let oldAlpha = view.alpha
     view.layer.cornerRadius = 0
+    view.alpha = 1
     let snapshot:UIView
     if #available(iOS 9.0, *), let stackView = view as? UIStackView{
       snapshot = stackView.slowSnapshotView()
-    } else if let imageView = view as? UIImageView{
+    } else if let imageView = view as? UIImageView, view.subviews.count == 0 {
       let contentView = UIImageView(image: imageView.image)
       contentView.frame = imageView.bounds
       contentView.contentMode = imageView.contentMode
@@ -107,16 +109,34 @@ extension HeroContext{
       let snapShotView = UIView()
       snapShotView.addSubview(contentView)
       snapshot = snapShotView
+    } else if let barView = view as? UINavigationBar, barView.isTranslucent {
+      let newBarView = UINavigationBar(frame: barView.frame)
+      
+      newBarView.barStyle = barView.barStyle
+      newBarView.tintColor = barView.tintColor
+      newBarView.barTintColor = barView.barTintColor
+      newBarView.clipsToBounds = false
+      
+      // take a snapshot without the background
+      barView.layer.sublayers![0].opacity = 0
+      let realSnapshot = barView.snapshotView(afterScreenUpdates: true)!
+      barView.layer.sublayers![0].opacity = 1
+      
+      newBarView.addSubview(realSnapshot)
+      snapshot = newBarView
     } else {
       snapshot = view.snapshotView(afterScreenUpdates: true)!
     }
     view.layer.cornerRadius = oldCornerRadius
+    view.alpha = oldAlpha
     
-    // the Snapshot's contentView must have hold the cornerRadius value,
-    // since the snapshot might not have maskToBounds set
-    let contentView = snapshot.subviews[0]
-    contentView.layer.cornerRadius = view.layer.cornerRadius
-    contentView.layer.masksToBounds = true
+    if (view as? UINavigationBar) == nil {
+      // the Snapshot's contentView must have hold the cornerRadius value,
+      // since the snapshot might not have maskToBounds set
+      let contentView = snapshot.subviews[0]
+      contentView.layer.cornerRadius = view.layer.cornerRadius
+      contentView.layer.masksToBounds = true
+    }
     
     snapshot.layer.cornerRadius = view.layer.cornerRadius
     if let zPosition = self[view]?.zPosition {
@@ -170,6 +190,12 @@ extension HeroContext{
       view.alpha = oldAlpha
       viewAlphas[view] = nil
     }
+  }
+  internal func unhideAll(){
+    for (view, oldAlpha) in viewAlphas{
+      view.alpha = oldAlpha
+    }
+    viewAlphas.removeAll()
   }
   internal static func processViewTree(view:UIView, container:UIView, idMap:inout [String:UIView], stateMap:inout [UIView:HeroTargetState]) -> [UIView]{
     var rtn:[UIView]

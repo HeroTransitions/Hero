@@ -60,7 +60,7 @@ extension ImageGalleryViewController:UICollectionViewDataSource{
     imageCell.imageView.image = ImageLibrary.thumbnail(index:indexPath.item)
     imageCell.imageView.heroID = "image_\(indexPath.item)"
     imageCell.imageView.heroModifiers = [.zPosition(100)]
-    imageCell.heroModifiers = [.fade, .translate(y:150), .rotate(x:-1), .scale(0.8), .zPosition(50)]
+    imageCell.heroModifiers = [.fade, .scale(0.8), .zPosition(50)]
     return imageCell
   }
 }
@@ -73,8 +73,11 @@ extension ImageGalleryViewController:UICollectionViewDelegate, UICollectionViewD
 
 extension ImageGalleryViewController:HeroViewControllerDelegate{
   func heroWillStartAnimatingTo(viewController: UIViewController) {
-    if (viewController as? ImageGalleryViewController) != nil || (viewController as? ImageViewController) != nil{
+    if (viewController as? ImageGalleryViewController) != nil{
       collectionView.heroModifiers = [.cascade(delta:0.015, direction:.bottomToTop, delayMatchedViews:true)]
+    } else if (viewController as? ImageViewController) != nil{
+      let cell = collectionView.cellForItem(at: collectionView.indexPathsForSelectedItems!.first!)!
+      collectionView.heroModifiers = [.cascade(delta:0.015, direction:.radial(center:cell.center), delayMatchedViews:true)]
     } else {
       collectionView.heroModifiers = [.cascade(delta:0.015)]
     }
@@ -87,7 +90,9 @@ extension ImageGalleryViewController:HeroViewControllerDelegate{
     }
     if let vc = viewController as? ImageViewController,
       let originalCellIndex = vc.selectedIndex,
-      let currentCellIndex = vc.collectionView?.indexPathsForVisibleItems[0] {
+      let currentCellIndex = vc.collectionView?.indexPathsForVisibleItems[0],
+      let targetAttribute = collectionView.layoutAttributesForItem(at: currentCellIndex) {
+      collectionView.heroModifiers = [.cascade(delta:0.015, direction:.inverseRadial(center:targetAttribute.frame.center))]
       if !collectionView.indexPathsForVisibleItems.contains(currentCellIndex){
         // make the cell visible
         collectionView.scrollToItem(at: currentCellIndex,

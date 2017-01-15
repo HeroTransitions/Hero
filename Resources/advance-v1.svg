@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="136px" height="270px" viewBox="0 0 136 270" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 41.2 (35397) - http://www.bohemiancoding.com/sketch -->
+    <title>simple</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <clipPath id="screen">
+            <rect id="whiteScreen" x="0" y="0" width="120" height="208" rx="10"></rect>
+        </clipPath>
+    </defs>
+    <g id="Storyboard">
+        <rect id="Rectangle-5" fill="#99A9BA" x="0" y="0" width="136" height="270" rx="9"></rect>
+        <text id="View-Controller-2" font-family="HelveticaNeue-Bold, Helvetica Neue" font-size="12" font-weight="bold" fill="#FFFFFF">
+            <tspan x="20" y="27">View Controller 2</tspan>
+        </text>
+        <g id="screen2" transform="translate(8.000000, 45.000000)">
+            <rect id="Rectangle-3" fill="#FFFFFF" x="0" y="0" width="120" height="208" rx="10"></rect>
+            <rect id="Rectangle-6" fill="#D8D8D8" x="42" y="86" width="36" height="36" rx="18"></rect>
+        </g>
+    </g>
+</svg>

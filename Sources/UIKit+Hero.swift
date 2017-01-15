@@ -110,6 +110,12 @@ public extension UIView{
   }
 }
 
+internal extension NSObject{
+  func copyWithArchiver() -> Any? {
+    return NSKeyedUnarchiver.unarchiveObject(with: NSKeyedArchiver.archivedData(withRootObject: self))!
+  }
+}
+
 public extension UIViewController{
   @IBInspectable public var isHeroEnabled: Bool {
     get {
@@ -162,13 +168,13 @@ public extension UIViewController{
         }
         
         UIApplication.shared.keyWindow?.addSubview(next.view)
-
-        self.dismiss(animated: false) {
-          if let parentVC = parentVC {
+        
+        if let parentVC = parentVC {
+          self.dismiss(animated: false) {
             parentVC.present(next, animated: false, completion:nil)
-          } else {
-            UIApplication.shared.keyWindow?.rootViewController = next
           }
+        } else {
+          UIApplication.shared.keyWindow?.rootViewController = next
         }
       }
     }
