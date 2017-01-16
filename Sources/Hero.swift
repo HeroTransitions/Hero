@@ -23,7 +23,7 @@
 import UIKit
 
 public class Hero:NSObject {
-  public static var shared = Hero()
+  public static let shared = Hero()
   
   public weak var toViewController:UIViewController?
   public weak var fromViewController:UIViewController?
@@ -109,7 +109,7 @@ internal extension Hero {
     processors = Hero.builtInProcessors
     animators = Hero.builtInAnimator
     
-    // swift 3 bug. no idea why it wont let me to use append(contentsOf:) or + operator
+    // There is no covariant in Swift, so we need to add plugins one by one.
     for plugin in plugins {
       processors.append(plugin)
       animators.append(plugin)

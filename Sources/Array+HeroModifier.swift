@@ -30,25 +30,25 @@ internal extension Array{
     return nil
   }
   func getCGFloat(_ index:Int) -> CGFloat?{
-    if index < count, let s = self[index] as? String, let f = Float(s){
+    if let s = get(index) as? String, let f = Float(s){
       return CGFloat(f)
     }
     return nil
   }
   func getDouble(_ index:Int) -> Double?{
-    if index < count, let s = self[index] as? String, let f = Double(s){
+    if let s = get(index) as? String, let f = Double(s){
       return f
     }
     return nil
   }
   func getFloat(_ index:Int) -> Float?{
-    if index < count, let s = self[index] as? String, let f = Float(s){
+    if let s = get(index) as? String, let f = Float(s){
       return f
     }
     return nil
   }
   func getBool(_ index:Int) -> Bool?{
-    if index < count, let s = self[index] as? String, let f = Bool(s){
+    if let s = get(index) as? String, let f = Bool(s){
       return f
     }
     return nil

@@ -34,19 +34,19 @@ public class HeroDefaultAnimator:HeroAnimator{
   
   public func resume(timePassed:TimeInterval, reverse:Bool) -> TimeInterval{
     var duration:TimeInterval = 0
-    for view in viewContexts.keys{
-      viewContexts[view]!.resume(timePassed: timePassed, reverse: reverse)
-      duration = max(duration, viewContexts[view]!.duration)
+    for (_, context) in viewContexts{
+      context.resume(timePassed: timePassed, reverse: reverse)
+      duration = max(duration, context.duration)
     }
     return duration
   }
   
   public func temporarilySet(view:UIView, targetState:HeroTargetState){
-    guard viewContexts[view] != nil else {
+    guard let context = viewContexts[view] else {
       print("HERO: unable to temporarily set to \(view). The view must be running at least one animation before it can be interactively changed")
       return
     }
-    viewContexts[view]!.temporarilySet(targetState:targetState)
+    context.temporarilySet(targetState:targetState)
   }
 
   public func canAnimate(context:HeroContext, view:UIView, appearing:Bool) -> Bool{

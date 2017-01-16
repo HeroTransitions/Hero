@@ -27,12 +27,12 @@ import UIKit
 
 public class CascadePreprocessor:HeroPreprocessor {
   public enum CascadeDirection{
-    case topToBottom;
-    case bottomToTop;
-    case leftToRight;
-    case rightToLeft;
-    case radial(center:CGPoint);
-    case inverseRadial(center:CGPoint);
+    case topToBottom
+    case bottomToTop
+    case leftToRight
+    case rightToLeft
+    case radial(center:CGPoint)
+    case inverseRadial(center:CGPoint)
     var comparator:(UIView, UIView) -> Bool{
       switch self {
       case .topToBottom:
@@ -76,7 +76,7 @@ public class CascadePreprocessor:HeroPreprocessor {
       guard let (deltaTime, direction, delayMatchedViews) = context[fv]?.cascade else { continue }
       
       var parentView = fv
-      if let _  = fv as? UITableView, let wrapperView = fv.subviews.get(0) {
+      if fv is UITableView, let wrapperView = fv.subviews.get(0) {
         parentView = wrapperView
       }
       

@@ -58,7 +58,7 @@ public struct HeroTargetState {
     get {
       return custom?[key]
     }
-    set(newValue) {
+    set {
       if custom == nil {
         custom = [:]
       }

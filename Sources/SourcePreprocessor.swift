@@ -38,22 +38,26 @@ class SourcePreprocessor:HeroPreprocessor {
 }
 
 extension SourcePreprocessor {
+  
   fileprivate func prepareFor(view:UIView, targetView:UIView, context:HeroContext){
     let targetPos = context.container.convert(targetView.layer.position, from: targetView.superview!)
     
-    // remove incompatible options
-    context[view]!.transform = nil
-    context[view]!.size = nil
+    var state = context[view]!
     
-    context[view]!.position = targetPos
+    // remove incompatible options
+    state.transform = nil
+    state.size = nil
+    
+    state.position = targetPos
     if view.bounds.size != targetView.bounds.size {
-      context[view]!.size = targetView.bounds.size
+      state.size = targetView.bounds.size
     }
     if view.layer.cornerRadius != targetView.layer.cornerRadius {
-      context[view]!.cornerRadius = targetView.layer.cornerRadius
+      state.cornerRadius = targetView.layer.cornerRadius
     }
     if view.layer.transform != targetView.layer.transform {
-      context[view]!.transform = targetView.layer.transform
+      state.transform = targetView.layer.transform
     }
+    context[view] = state
   }
 }
