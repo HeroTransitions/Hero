@@ -130,7 +130,7 @@ extension HeroContext{
     view.layer.cornerRadius = oldCornerRadius
     view.alpha = oldAlpha
     
-    if (view as? UINavigationBar) == nil {
+    if !(view is UINavigationBar) {
       // the Snapshot's contentView must have hold the cornerRadius value,
       // since the snapshot might not have maskToBounds set
       let contentView = snapshot.subviews[0]
@@ -171,7 +171,7 @@ extension HeroContext{
     get {
       return targetStates[view]
     }
-    set(newValue) {
+    set {
       targetStates[view] = newValue
     }
   }
@@ -197,6 +197,7 @@ extension HeroContext{
     }
     viewAlphas.removeAll()
   }
+  
   internal static func processViewTree(view:UIView, container:UIView, idMap:inout [String:UIView], stateMap:inout [UIView:HeroTargetState]) -> [UIView]{
     var rtn:[UIView]
     if container.convert(view.bounds, from: view).intersects(container.bounds){

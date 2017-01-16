@@ -39,16 +39,18 @@ public class HeroDebugPlugin: HeroPlugin {
         break
       }
     }
-    debugView = HeroDebugView(initialProcess: Hero.shared.presenting ? 0.0 : 1.0, showCurveButton:hasArc)
-    debugView!.frame = Hero.shared.container.bounds
-    debugView!.delegate = self
-    UIApplication.shared.keyWindow!.addSubview(debugView!)
+    let debugView = HeroDebugView(initialProcess: Hero.shared.presenting ? 0.0 : 1.0, showCurveButton:hasArc)
+    debugView.frame = Hero.shared.container.bounds
+    debugView.delegate = self
+    UIApplication.shared.keyWindow!.addSubview(debugView)
 
     context.container.backgroundColor = UIColor(white: 0.85, alpha: 1.0)
     
-    debugView!.layoutSubviews()
+    debugView.layoutSubviews()
+    self.debugView = debugView
+    
     UIView.animate(withDuration: 0.4){
-      self.debugView!.showControls = true
+      debugView.showControls = true
     }
     return 0
   }
