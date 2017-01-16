@@ -98,7 +98,7 @@ public extension UIView{
   func slowSnapshotView() -> UIView{
     UIGraphicsBeginImageContextWithOptions(bounds.size, isOpaque, 0)
     layer.render(in: UIGraphicsGetCurrentContext()!)
-//    drawHierarchy(in: bounds, afterScreenUpdates: true)
+
     let image = UIGraphicsGetImageFromCurrentImageContext()
     UIGraphicsEndImageContext()
     
@@ -119,7 +119,7 @@ internal extension NSObject{
 public extension UIViewController{
   @IBInspectable public var isHeroEnabled: Bool {
     get {
-      return ((transitioningDelegate as? Hero) != nil)
+      return transitioningDelegate is Hero
     }
     
     set {
@@ -133,13 +133,11 @@ public extension UIViewController{
           tab.delegate = Hero.shared
         }
       } else {
-        if isHeroEnabled {
-          transitioningDelegate = nil
-        }
-        if let navi = self as? UINavigationController, let _ = navi.delegate as? Hero{
+        transitioningDelegate = nil
+        if let navi = self as? UINavigationController, navi.delegate is Hero{
           navi.delegate = nil
         }
-        if let tab = self as? UITabBarController, let _ = tab.delegate as? Hero{
+        if let tab = self as? UITabBarController, tab.delegate is Hero{
           tab.delegate = nil
         }
       }
@@ -153,16 +151,18 @@ public extension UIViewController{
   public func heroReplaceViewController(with next:UIViewController){
     if let navigationController = navigationController {
       var vcs = navigationController.childViewControllers
-      vcs.removeLast()
-      vcs.append(next)
+      if !vcs.isEmpty {
+        vcs.removeLast()
+        vcs.append(next)
+      }
       navigationController.setViewControllers(vcs, animated: true)
     } else {
       let parentVC = presentingViewController
-      let container = self.view.superview!
+      let container = view.superview!
       let oldTransitionDelegate = next.transitioningDelegate
       next.isHeroEnabled = true
       Hero.shared.transition(from: self, to: next, in: container) {
-        if (oldTransitionDelegate as? Hero) == nil{
+        if !(oldTransitionDelegate is Hero){
           next.isHeroEnabled = false
           next.transitioningDelegate = oldTransitionDelegate
         }

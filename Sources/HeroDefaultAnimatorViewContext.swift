@@ -38,8 +38,8 @@ internal class HeroDefaultAnimatorViewContext {
   var currentTime:TimeInterval{
     return snapshot.layer.convertTime(CACurrentMediaTime(), from: nil)
   }
-  var container:UIView{
-    return animator!.context.container
+  var container:UIView?{
+    return animator?.context.container
   }
   
   /*
@@ -75,7 +75,6 @@ internal class HeroDefaultAnimatorViewContext {
     let anim:CAPropertyAnimation
     
     let (delay, duration, timingFunction) = (0.0, defaultTiming.0, defaultTiming.1)
-    // getTiming(key: key, fromValue: fromValue, toValue: toValue)
     
     if !ignoreArc, key == "position", let arcIntensity = targetState.arc,
       let fromPos = (fromValue as? NSValue)?.cgPointValue,
@@ -188,10 +187,10 @@ internal class HeroDefaultAnimatorViewContext {
     
     if let timingFunction = targetState.timingFunction{
       defaultTimingFunction = timingFunction
-    } else if !container.bounds.contains(realToPos){
+    } else if let container = container, !container.bounds.contains(realToPos){
       // acceleration if leaving screen
       defaultTimingFunction = .acceleration
-    } else if !container.bounds.contains(realFromPos){
+    } else if let container = container, !container.bounds.contains(realFromPos){
       // deceleration if entering screen
       defaultTimingFunction = .deceleration
     } else {
