@@ -221,12 +221,12 @@ internal class HeroDefaultAnimatorViewContext {
     }
   }
   
-  func temporarilySet(targetState:HeroTargetState){
-    let targetState = viewState(targetState: targetState)
+  func apply(state:HeroTargetState){
+    let targetState = viewState(targetState: state)
     for (key, targetValue) in targetState{
-      if state[key] == nil{
+      if self.state[key] == nil{
         let currentValue = snapshot.layer.value(forKeyPath: key)!
-        state[key] = (currentValue, currentValue)
+        self.state[key] = (currentValue, currentValue)
       }
       addAnimation(key: key, beginTime: 0, fromValue: targetValue, toValue: targetValue)
     }

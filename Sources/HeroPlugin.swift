@@ -105,10 +105,10 @@ open class HeroPlugin: HeroPreprocessor, HeroAnimator{
    This method is called when user wants to override animation modifiers during an interactive animation
    
    - Parameters:
+       - state: the target state to override
        - view: the view to override
-       - targetState: the target state to override
    */
-  open func temporarilySet(view:UIView, targetState:HeroTargetState){}
+  open func apply(state:HeroTargetState, to view:UIView){}
 
   /**
    Plugin which wants to handle the transition interactively should return true.
