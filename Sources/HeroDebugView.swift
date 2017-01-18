@@ -46,7 +46,8 @@ public class HeroDebugView: UIView{
       layoutSubviews()
     }
   }
-
+  
+  var showOnTop:Bool = false
   var rotation:CGFloat = CGFloat(M_PI / 6)
   var scale:CGFloat = 0.6
   var translation:CGPoint = .zero
@@ -54,14 +55,15 @@ public class HeroDebugView: UIView{
     return debugSlider.value
   }
   
-  init(initialProcess:Float, showCurveButton:Bool) {
+  init(initialProcess:Float, showCurveButton:Bool, showOnTop:Bool) {
     super.init(frame:.zero)
-    
+    self.showOnTop = showOnTop
     backgroundView = UIView(frame:.zero)
     backgroundView.backgroundColor = UIColor(white: 1.0, alpha: 0.95)
     backgroundView.layer.shadowColor = UIColor.darkGray.cgColor
-    backgroundView.layer.shadowOpacity = 0.5
+    backgroundView.layer.shadowOpacity = 0.3
     backgroundView.layer.shadowRadius = 5
+    backgroundView.layer.shadowOffset = CGSize.zero
     addSubview(backgroundView)
     
     doneButton = UIButton(type: .system)
@@ -108,7 +110,11 @@ public class HeroDebugView: UIView{
     super.layoutSubviews()
     var backgroundFrame = bounds
     backgroundFrame.size.height = 72
-    backgroundFrame.origin.y = showControls ? 0 : -80
+    if showOnTop {
+      backgroundFrame.origin.y = showControls ? 0 : -80
+    } else {
+      backgroundFrame.origin.y = bounds.maxY - CGFloat(showControls ? 72.0 : -8.0)
+    }
     backgroundView.frame = backgroundFrame
 
     var sliderFrame = bounds.insetBy(dx: 10, dy: 0)

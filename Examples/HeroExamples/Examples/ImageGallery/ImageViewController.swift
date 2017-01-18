@@ -107,12 +107,3 @@ extension ImageViewController:UIGestureRecognizerDelegate{
     return false
   }
 }
-
-extension ImageViewController:HeroViewControllerDelegate{
-  func wantInteractiveHeroTransition() -> Bool {
-    if !Hero.shared.presenting && panGR.state == .began{
-      return true
-    }
-    return false
-  }
-}
