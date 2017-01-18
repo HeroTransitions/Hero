@@ -23,7 +23,7 @@
 import UIKit
 
 public class HeroDefaultAnimator:HeroAnimator{
-  var context:HeroContext!
+  var context:HeroContext { return Hero.shared.context }
   var viewContexts:[UIView: HeroDefaultAnimatorViewContext] = [:]
 
   public func seekTo(timePassed:TimeInterval) {
@@ -49,7 +49,7 @@ public class HeroDefaultAnimator:HeroAnimator{
     context.apply(state:state)
   }
 
-  public func canAnimate(context:HeroContext, view:UIView, appearing:Bool) -> Bool{
+  public func canAnimate(view:UIView, appearing:Bool) -> Bool{
     guard let state = context[view] else { return false }
     return state.position != nil ||
            state.size != nil ||
@@ -58,9 +58,7 @@ public class HeroDefaultAnimator:HeroAnimator{
            state.opacity != nil
   }
 
-  public func animate(context:HeroContext, fromViews:[UIView], toViews:[UIView]) -> TimeInterval{
-    self.context = context
-    
+  public func animate(fromViews:[UIView], toViews:[UIView]) -> TimeInterval{
     var duration:TimeInterval = 0
 
     // animate
@@ -85,7 +83,6 @@ public class HeroDefaultAnimator:HeroAnimator{
   }
   
   public func clean(){
-    context = nil
     viewContexts.removeAll()
   }
 }

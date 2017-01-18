@@ -65,11 +65,11 @@ public class LabelMorphPlugin:HeroPlugin{
     case dash
   }
 
-  public override func canAnimate(context:HeroContext, view:UIView, appearing:Bool) -> Bool {
+  public override func canAnimate(view:UIView, appearing:Bool) -> Bool {
     return (context[view]?["zcLabelMorph"] as? LabelMorphType) != nil
   }
 
-  func createMorphingLabel(context:HeroContext, label:UILabel, appearing:Bool) {
+  func createMorphingLabel(label:UILabel, appearing:Bool) {
     let frame = context.container.convert(label.bounds, from: label)
     
     let morphingLabel:ZCAnimatedLabel
@@ -117,15 +117,15 @@ public class LabelMorphPlugin:HeroPlugin{
     }
   }
 
-  public override func animate(context:HeroContext, fromViews:[UIView], toViews:[UIView]) -> TimeInterval {
+  public override func animate(fromViews:[UIView], toViews:[UIView]) -> TimeInterval {
     morphingLabels = []
     var maxDuration:TimeInterval = 0
     
     for view in toViews{
-      createMorphingLabel(context: context, label: view as! UILabel, appearing: true)
+      createMorphingLabel(label: view as! UILabel, appearing: true)
     }
     for view in fromViews{
-      createMorphingLabel(context: context, label: view as! UILabel, appearing: false)
+      createMorphingLabel(label: view as! UILabel, appearing: false)
     }
     
     for label in morphingLabels{
