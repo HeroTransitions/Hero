@@ -23,13 +23,12 @@
 import UIKit
 
 public class HeroDebugPlugin: HeroPlugin {
+  static var showOnTop:Bool = false
+
   var debugView:HeroDebugView?
   var zPositionMap = [UIView:CGFloat]()
   var addedLayers:[CALayer] = []
-
-  override public func wantInteractiveHeroTransition() -> Bool {
-    return true
-  }
+  var updating = false
 
   override public func animate(context: HeroContext, fromViews: [UIView], toViews: [UIView]) -> TimeInterval {
     var hasArc = false
@@ -39,7 +38,7 @@ public class HeroDebugPlugin: HeroPlugin {
         break
       }
     }
-    let debugView = HeroDebugView(initialProcess: Hero.shared.presenting ? 0.0 : 1.0, showCurveButton:hasArc)
+    let debugView = HeroDebugView(initialProcess: Hero.shared.presenting ? 0.0 : 1.0, showCurveButton:hasArc, showOnTop:HeroDebugPlugin.showOnTop)
     debugView.frame = Hero.shared.container.bounds
     debugView.delegate = self
     UIApplication.shared.keyWindow!.addSubview(debugView)
@@ -52,6 +51,7 @@ public class HeroDebugPlugin: HeroPlugin {
     UIView.animate(withDuration: 0.4){
       debugView.showControls = true
     }
+    Hero.shared.update(progress: 0)
     return 0
   }
 

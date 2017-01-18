@@ -36,9 +36,11 @@ public protocol HeroAnimator {
   func apply(state:HeroTargetState, to view:UIView)
 }
 
-@objc public protocol HeroViewControllerDelegate{
-  @objc optional func wantInteractiveHeroTransition() -> Bool
+public protocol HeroProgressUpdateObserver {
+  func heroDidUpdateProgress(progress:Double)
+}
 
+@objc public protocol HeroViewControllerDelegate{
   @objc optional func heroWillStartAnimatingFrom(viewController:UIViewController)
   @objc optional func heroDidEndAnimatingFrom(viewController:UIViewController)
   
