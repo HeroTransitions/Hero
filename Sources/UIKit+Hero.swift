@@ -117,6 +117,46 @@ internal extension NSObject{
 }
 
 public extension UIViewController{
+  private struct PreviousDelegates {
+    static var navigationDelegate: UINavigationControllerDelegate? = nil
+    static var tabBarDelegate: UITabBarControllerDelegate? = nil
+  }
+
+  var previousNavigationDelegate: UINavigationControllerDelegate? {
+    get {
+      return objc_getAssociatedObject(self, &PreviousDelegates.navigationDelegate) as? UINavigationControllerDelegate
+    }
+
+    set {
+      if let newValue = newValue {
+                objc_setAssociatedObject(
+                    self,
+                    &PreviousDelegates.navigationDelegate,
+                    newValue as UINavigationControllerDelegate?,
+                    .OBJC_ASSOCIATION_RETAIN_NONATOMIC
+                )
+            }
+        }
+    }
+
+    var previousTabBarDelegate: UITabBarControllerDelegate? {
+      get {
+        return objc_getAssociatedObject(self, &PreviousDelegates.tabBarDelegate) as? UITabBarControllerDelegate
+      }
+
+      set {
+        if let newValue = newValue {
+          objc_setAssociatedObject(
+            self,
+            &PreviousDelegates.tabBarDelegate,
+            newValue as UITabBarControllerDelegate?,
+            .OBJC_ASSOCIATION_RETAIN_NONATOMIC
+          )
+        }
+      }
+    }
+
+
   @IBInspectable public var isHeroEnabled: Bool {
     get {
       return transitioningDelegate is Hero
@@ -127,18 +167,20 @@ public extension UIViewController{
       if newValue{
         transitioningDelegate = Hero.shared
         if let navi = self as? UINavigationController{
+          previousNavigationDelegate = navi.delegate
           navi.delegate = Hero.shared
         }
         if let tab = self as? UITabBarController{
+          previousTabBarDelegate = tab.delegate
           tab.delegate = Hero.shared
         }
       } else {
         transitioningDelegate = nil
         if let navi = self as? UINavigationController, navi.delegate is Hero{
-          navi.delegate = nil
+          navi.delegate = previousNavigationDelegate
         }
         if let tab = self as? UITabBarController, tab.delegate is Hero{
-          tab.delegate = nil
+          tab.delegate = previousTabBarDelegate
         }
       }
     }
