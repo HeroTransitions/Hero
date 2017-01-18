@@ -22,13 +22,13 @@
 
 import UIKit
 
-public class IgnoreSubviewModifiersPreprocessor:HeroPreprocessor {
-  public func process(context:HeroContext, fromViews:[UIView], toViews:[UIView]) {
-    process(context:context, views:fromViews)
-    process(context:context, views:toViews)
+public class IgnoreSubviewModifiersPreprocessor:BasePreprocessor {
+  override public func process(fromViews:[UIView], toViews:[UIView]) {
+    process(views:fromViews)
+    process(views:toViews)
   }
   
-  private func process(context:HeroContext, views:[UIView]){
+  private func process(views:[UIView]){
     for (viewIndex, view) in views.enumerated(){
       guard let recursive = context[view]?.ignoreSubviewModifiers else { continue }
       var parentView = view

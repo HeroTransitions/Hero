@@ -1,3 +1,5 @@
+//
+//  CascadeEffect.swift
 // The MIT License (MIT)
 //
 // Copyright (c) 2016 Luke Zhao <me@lkzhao.com>
@@ -20,30 +22,7 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-import UIKit
-
-public class MatchPreprocessor:BasePreprocessor {
-  override public func process(fromViews:[UIView], toViews:[UIView]) {
-    for tv in toViews{
-      guard let id = tv.heroID, let fv = context.sourceView(for: id) else { continue }
-      
-      var tvState = context[tv] ?? HeroTargetState()
-      if let zPosition = tvState.zPositionIfMatched {
-        tvState.zPosition = zPosition
-      }
-      tvState.source = id
-      
-      var fvState = tvState
-      
-      tvState.opacity = 0
-      if (fv is UILabel && !fv.isOpaque) || tv.alpha < 1 {
-        // cross fade if fromView is a label or if toView is transparent
-        fvState.opacity = 0
-      } else {
-        fvState.opacity = nil
-      }
-      context[tv] = tvState
-      context[fv] = fvState
-    }
-  }
+public class BasePreprocessor:HeroPreprocessor {
+  var context:HeroContext { return Hero.shared.context }
+  public func process(fromViews:[UIView], toViews:[UIView]) {}
 }

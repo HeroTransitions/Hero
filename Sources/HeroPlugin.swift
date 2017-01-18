@@ -23,6 +23,18 @@
 import UIKit
 
 open class HeroPlugin: HeroPreprocessor, HeroAnimator{
+  /**
+    Determines whether or not to receive `seekTo` callback on every frame.
+   
+    Default is false.
+   
+    When **requirePerFrameCallback** is **false**, the plugin needs to start its own animations inside `animate` & `resume`
+    The `seekTo` method is only being called during an interactive transition.
+   
+    When **requirePerFrameCallback** is **true**, the plugin will receive `seekTo` callback on every animation frame. Hence it is possible for the plugin to do per-frame animations without implementing `animate` & `resume`
+   */
+  open var requirePerFrameCallback = false
+  
   public required init(){}
   
   /**
@@ -44,7 +56,7 @@ open class HeroPlugin: HeroPreprocessor, HeroAnimator{
        context[view, "modifier1"] = ["parameter1", "parameter2"]
    
   */
-  open func process(context:HeroContext, fromViews:[UIView], toViews:[UIView]){}
+  open func process(fromViews:[UIView], toViews:[UIView]){}
   
   /**
    - Returns: return true if the plugin can handle animating the view.
@@ -55,7 +67,7 @@ open class HeroPlugin: HeroPreprocessor, HeroAnimator{
    If return true, Hero won't animate and won't let any other plugins animate this view.
    The view will also be hidden automatically during the animation.
    */
-  open func canAnimate(context:HeroContext, view:UIView, appearing:Bool) -> Bool { return false }
+  open func canAnimate(view:UIView, appearing:Bool) -> Bool { return false }
   
   /**
    Perform the animation.
@@ -67,7 +79,7 @@ open class HeroPlugin: HeroPreprocessor, HeroAnimator{
        - toViews: A flattened list of all views from destination ViewController (filtered by `canAnimate`)
    - Returns: The duration needed to complete the animation
    */
-  open func animate(context:HeroContext, fromViews:[UIView], toViews:[UIView]) -> TimeInterval { return 0 }
+  open func animate(fromViews:[UIView], toViews:[UIView]) -> TimeInterval { return 0 }
   
   
   /**
@@ -113,6 +125,9 @@ open class HeroPlugin: HeroPreprocessor, HeroAnimator{
 
 // methods for enable/disable the current plugin
 extension HeroPlugin{
+  public var context:HeroContext{
+    return Hero.shared.context
+  }
   public static var isEnabled:Bool{
     get{
       return Hero.isEnabled(plugin: self)

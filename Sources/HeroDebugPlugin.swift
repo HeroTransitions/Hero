@@ -30,7 +30,7 @@ public class HeroDebugPlugin: HeroPlugin {
   var addedLayers:[CALayer] = []
   var updating = false
 
-  override public func animate(context: HeroContext, fromViews: [UIView], toViews: [UIView]) -> TimeInterval {
+  override public func animate(fromViews: [UIView], toViews: [UIView]) -> TimeInterval {
     var hasArc = false
     for v in context.fromViews + context.toViews{
       if context[v]?.arc != nil && context[v]?.position != nil{

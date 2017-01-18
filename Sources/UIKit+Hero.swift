@@ -155,6 +155,9 @@ public extension UIViewController{
         vcs.removeLast()
         vcs.append(next)
       }
+      if navigationController.isHeroEnabled {
+        Hero.shared.forceNotInteractive = true
+      }
       navigationController.setViewControllers(vcs, animated: true)
     } else {
       let parentVC = presentingViewController

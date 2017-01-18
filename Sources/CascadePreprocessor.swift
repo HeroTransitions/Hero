@@ -25,7 +25,7 @@
 import UIKit
 
 
-public class CascadePreprocessor:HeroPreprocessor {
+public class CascadePreprocessor:BasePreprocessor {
   public enum CascadeDirection{
     case topToBottom
     case bottomToTop
@@ -66,12 +66,12 @@ public class CascadePreprocessor:HeroPreprocessor {
     }
   }
 
-  public func process(context:HeroContext, fromViews:[UIView], toViews:[UIView]) {
-    process(context:context, views:fromViews)
-    process(context:context, views:toViews)
+  override public func process(fromViews:[UIView], toViews:[UIView]) {
+    process(views:fromViews)
+    process(views:toViews)
   }
   
-  private func process(context:HeroContext, views:[UIView]){
+  private func process(views:[UIView]){
     for (viewIndex, fv) in views.enumerated() {
       guard let (deltaTime, direction, delayMatchedViews) = context[fv]?.cascade else { continue }
       
