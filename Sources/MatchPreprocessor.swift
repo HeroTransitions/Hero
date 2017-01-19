@@ -22,19 +22,19 @@
 
 import UIKit
 
-public class MatchPreprocessor:HeroPreprocessor {
-  public func process(context:HeroContext, fromViews:[UIView], toViews:[UIView]) {
-    for tv in toViews{
+public class MatchPreprocessor: HeroPreprocessor {
+  public func process(context: HeroContext, fromViews: [UIView], toViews: [UIView]) {
+    for tv in toViews {
       guard let id = tv.heroID, let fv = context.sourceView(for: id) else { continue }
-      
+
       var tvState = context[tv] ?? HeroTargetState()
       if let zPosition = tvState.zPositionIfMatched {
         tvState.zPosition = zPosition
       }
       tvState.source = id
-      
+
       var fvState = tvState
-      
+
       tvState.opacity = 0
       if (fv is UILabel && !fv.isOpaque) || tv.alpha < 1 {
         // cross fade if fromView is a label or if toView is transparent

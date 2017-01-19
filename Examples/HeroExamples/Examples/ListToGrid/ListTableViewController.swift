@@ -23,7 +23,7 @@
 import UIKit
 import Hero
 
-class ListTableViewCell:UITableViewCell{
+class ListTableViewCell: UITableViewCell {
   override func layoutSubviews() {
     super.layoutSubviews()
     imageView?.frame.origin.x = 0
@@ -33,16 +33,15 @@ class ListTableViewCell:UITableViewCell{
   }
 }
 
-
 class ListTableViewController: UITableViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
   }
-  
+
   override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return ImageLibrary.count
   }
-  
+
   override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: "item", for: indexPath)
 
@@ -52,22 +51,22 @@ class ListTableViewController: UITableViewController {
     cell.imageView?.image = ImageLibrary.thumbnail(index:indexPath.item)
     cell.textLabel?.text = "Item \(indexPath.item)"
     cell.detailTextLabel?.text = "Description \(indexPath.item)"
-    
+
     return cell
   }
-  
+
   override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
     return 52
   }
-  
+
   @IBAction func toGrid(_ sender: Any) {
-    let next = UIStoryboard(name: "ListToGrid", bundle: nil).instantiateViewController(withIdentifier: "grid") as! GridCollectionViewController
+    let next = (UIStoryboard(name: "ListToGrid", bundle: nil).instantiateViewController(withIdentifier: "grid") as? GridCollectionViewController)!
     next.collectionView?.contentOffset.y = tableView.contentOffset.y + tableView.contentInset.top
     heroReplaceViewController(with: next)
   }
-  
+
   override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    let vc = viewController(forStoryboardName: "ImageViewer") as! ImageViewController
+    let vc = (viewController(forStoryboardName: "ImageViewer") as? ImageViewController)!
     vc.selectedIndex = indexPath
     vc.view.backgroundColor = UIColor.white
     vc.collectionView!.backgroundColor = UIColor.white
@@ -75,16 +74,16 @@ class ListTableViewController: UITableViewController {
   }
 }
 
-extension ListTableViewController:HeroViewControllerDelegate{
+extension ListTableViewController: HeroViewControllerDelegate {
   func heroWillStartAnimatingTo(viewController: UIViewController) {
-    if let _ = viewController as? GridCollectionViewController{
+    if let _ = viewController as? GridCollectionViewController {
       tableView.heroModifiers = [.ignoreSubviewModifiers]
     } else {
       tableView.heroModifiers = [.cascade]
     }
   }
   func heroWillStartAnimatingFrom(viewController: UIViewController) {
-    if let _ = viewController as? GridCollectionViewController{
+    if let _ = viewController as? GridCollectionViewController {
       tableView.heroModifiers = [.ignoreSubviewModifiers]
     } else {
       tableView.heroModifiers = [.cascade]
@@ -92,7 +91,7 @@ extension ListTableViewController:HeroViewControllerDelegate{
     if let vc = viewController as? ImageViewController,
       let originalCellIndex = vc.selectedIndex,
       let currentCellIndex = vc.collectionView?.indexPathsForVisibleItems[0] {
-      if tableView.indexPathsForVisibleRows?.contains(currentCellIndex) != true{
+      if tableView.indexPathsForVisibleRows?.contains(currentCellIndex) != true {
         // make the cell visible
         tableView.scrollToRow(at: currentCellIndex,
                               at: originalCellIndex < currentCellIndex ? .bottom : .top,

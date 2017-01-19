@@ -22,12 +22,12 @@
 
 import UIKit
 
-struct City{
-  var name:String
-  var image:UIImage
-  var shortDescription:String
-  var description:String
-  
+struct City {
+  var name: String
+  var image: UIImage
+  var shortDescription: String
+  var description: String
+
   static var cities = [
     City(name: "Vancouver",
          image: #imageLiteral(resourceName: "vancouver"),
@@ -40,6 +40,6 @@ struct City{
     City(name: "Montreal",
          image: #imageLiteral(resourceName: "montreal"),
          shortDescription: "City in Québec",
-         description: "Montréal is the largest city in Canada's Québec province. It’s set on an island in the Saint Lawrence River and named after Mt. Royal, the triple-peaked hill at its heart. Its boroughs, many of which were once independent cities, include neighbourhoods ranging from cobblestoned, French colonial Vieux-Montréal – with the Gothic Revival Notre-Dame Basilica at its centre – to bohemian Plateau."),
+         description: "Montréal is the largest city in Canada's Québec province. It’s set on an island in the Saint Lawrence River and named after Mt. Royal, the triple-peaked hill at its heart. Its boroughs, many of which were once independent cities, include neighbourhoods ranging from cobblestoned, French colonial Vieux-Montréal – with the Gothic Revival Notre-Dame Basilica at its centre – to bohemian Plateau.")
   ]
 }

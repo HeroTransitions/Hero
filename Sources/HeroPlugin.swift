@@ -22,9 +22,9 @@
 
 import UIKit
 
-open class HeroPlugin: HeroPreprocessor, HeroAnimator{
-  public required init(){}
-  
+open class HeroPlugin: HeroPreprocessor, HeroAnimator {
+  public required init() {}
+
   /**
    Called before any animation.
    Override this method when you want to preprocess modifiers for views
@@ -32,20 +32,20 @@ open class HeroPlugin: HeroPreprocessor, HeroAnimator{
        - context: object holding all parsed and changed modifiers,
        - fromViews: A flattened list of all views from source ViewController
        - toViews: A flattened list of all views from destination ViewController
-    
+
    To check a view's modifiers:
 
        context[view]
        context[view, "modifierName"]
-   
+
    To set a view's modifiers:
-   
+
        context[view] = [("modifier1", ["parameter1"]), ("modifier2", [])]
        context[view, "modifier1"] = ["parameter1", "parameter2"]
-   
+
   */
-  open func process(context:HeroContext, fromViews:[UIView], toViews:[UIView]){}
-  
+  open func process(context: HeroContext, fromViews: [UIView], toViews: [UIView]) {}
+
   /**
    - Returns: return true if the plugin can handle animating the view.
    - Parameters:
@@ -55,11 +55,11 @@ open class HeroPlugin: HeroPreprocessor, HeroAnimator{
    If return true, Hero won't animate and won't let any other plugins animate this view.
    The view will also be hidden automatically during the animation.
    */
-  open func canAnimate(context:HeroContext, view:UIView, appearing:Bool) -> Bool { return false }
-  
+  open func canAnimate(context: HeroContext, view: UIView, appearing: Bool) -> Bool { return false }
+
   /**
    Perform the animation.
-   
+
    Note: views in `fromViews` & `toViews` are hidden already. Unhide then if you need to take snapshots.
    - Parameters:
        - context: object holding all parsed and changed modifiers,
@@ -67,48 +67,46 @@ open class HeroPlugin: HeroPreprocessor, HeroAnimator{
        - toViews: A flattened list of all views from destination ViewController (filtered by `canAnimate`)
    - Returns: The duration needed to complete the animation
    */
-  open func animate(context:HeroContext, fromViews:[UIView], toViews:[UIView]) -> TimeInterval { return 0 }
-  
-  
+  open func animate(context: HeroContext, fromViews: [UIView], toViews: [UIView]) -> TimeInterval { return 0 }
+
   /**
    Called when all animations are completed.
-   
+
    Should perform cleanup and release any reference
    */
-  open func clean(){}
-  
-  
+  open func clean() {}
+
   /**
    For supporting interactive animation only.
-   
+
    This method is called when an interactive animation is in place
    The plugin should pause the animation, and seek to the given progress
    - Parameters:
      - timePassed: time of the animation to seek to.
    */
-  open func seekTo(timePassed:TimeInterval){}
-  
+  open func seekTo(timePassed: TimeInterval) {}
+
   /**
    For supporting interactive animation only.
-   
+
    This method is called when an interactive animation is ended
    The plugin should resume the animation.
    - Parameters:
    - timePassed: will be the same value since last `seekTo`
    - reverse: a boolean value indicating whether or not the animation should reverse
    */
-  open func resume(timePassed:TimeInterval, reverse:Bool) -> TimeInterval { return 0 }
-  
+  open func resume(timePassed: TimeInterval, reverse: Bool) -> TimeInterval { return 0 }
+
   /**
    For supporting interactive animation only.
-   
+
    This method is called when user wants to override animation modifiers during an interactive animation
-   
+
    - Parameters:
        - view: the view to override
        - targetState: the target state to override
    */
-  open func temporarilySet(view:UIView, targetState:HeroTargetState){}
+  open func temporarilySet(view: UIView, targetState: HeroTargetState) {}
 
   /**
    Plugin which wants to handle the transition interactively should return true.
@@ -121,12 +119,12 @@ open class HeroPlugin: HeroPreprocessor, HeroAnimator{
 }
 
 // methods for enable/disable the current plugin
-extension HeroPlugin{
-  public static var isEnabled:Bool{
-    get{
+extension HeroPlugin {
+  public static var isEnabled: Bool {
+    get {
       return Hero.isEnabled(plugin: self)
     }
-    set{
+    set {
       if newValue {
         enable()
       } else {
@@ -134,10 +132,10 @@ extension HeroPlugin{
       }
     }
   }
-  public static func enable(){
+  public static func enable() {
     Hero.enable(plugin: self)
   }
-  public static func disable(){
+  public static func disable() {
     Hero.disable(plugin: self)
   }
 }
