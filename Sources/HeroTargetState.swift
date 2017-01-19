@@ -23,34 +23,34 @@
 import UIKit
 
 public struct HeroTargetState {
-  internal var opacity:CGFloat?
-  internal var cornerRadius:CGFloat?
-  internal var position:CGPoint?
-  internal var size:CGSize?
-  internal var transform:CATransform3D?
-  internal var spring:(CGFloat, CGFloat)?
-  internal var delay:TimeInterval = 0
-  internal var duration:TimeInterval?
-  internal var timingFunction:CAMediaTimingFunction?
-  internal var arc:CGFloat?
-  internal var zPosition:CGFloat?
-  internal var zPositionIfMatched:CGFloat?
-  internal var source:String?
-  internal var cascade:(TimeInterval, CascadePreprocessor.CascadeDirection, Bool)?
-  internal var ignoreSubviewModifiers:Bool?
+  internal var opacity: CGFloat?
+  internal var cornerRadius: CGFloat?
+  internal var position: CGPoint?
+  internal var size: CGSize?
+  internal var transform: CATransform3D?
+  internal var spring: (CGFloat, CGFloat)?
+  internal var delay: TimeInterval = 0
+  internal var duration: TimeInterval?
+  internal var timingFunction: CAMediaTimingFunction?
+  internal var arc: CGFloat?
+  internal var zPosition: CGFloat?
+  internal var zPositionIfMatched: CGFloat?
+  internal var source: String?
+  internal var cascade: (TimeInterval, CascadePreprocessor.CascadeDirection, Bool)?
+  internal var ignoreSubviewModifiers: Bool?
 
-  internal var custom:[String:Any]?
-  
-  init(modifiers:[HeroModifier]) {
+  internal var custom: [String:Any]?
+
+  init(modifiers: [HeroModifier]) {
     append(contentsOf: modifiers)
   }
-  
-  mutating func append(contentsOf modifiers:[HeroModifier]){
+
+  mutating func append(contentsOf modifiers: [HeroModifier]) {
     for modifier in modifiers {
       modifier.apply(&self)
     }
   }
-  
+
   /**
    - Returns: custom item for a specific key
    */

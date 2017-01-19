@@ -17,7 +17,7 @@ class LiveInjection2ViewController: UIViewController {
 
 }
 
-extension LiveInjection2ViewController:HeroViewControllerDelegate{
+extension LiveInjection2ViewController:HeroViewControllerDelegate {
 
   func heroWillStartTransition() {
     orangeView.heroID = "orange"

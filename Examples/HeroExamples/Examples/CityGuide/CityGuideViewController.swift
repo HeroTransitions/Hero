@@ -28,19 +28,19 @@ class CityGuideViewController: UIViewController {
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     if let currentCell = sender as? CityCell,
        let vc = segue.destination as? CityViewController,
-       let currentCellIndex = collectionView.indexPath(for: currentCell){
+       let currentCellIndex = collectionView.indexPath(for: currentCell) {
       vc.selectedIndex = currentCellIndex
     }
   }
 }
 
-extension CityGuideViewController:UICollectionViewDataSource, UICollectionViewDelegate{
-  func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int{
+extension CityGuideViewController:UICollectionViewDataSource, UICollectionViewDelegate {
+  func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
     return cities.count
   }
 
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-    let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "item", for: indexPath) as! CityCell
+    let cell = (collectionView.dequeueReusableCell(withReuseIdentifier: "item", for: indexPath) as? CityCell)!
     cell.city = cities[indexPath.item]
     return cell
   }

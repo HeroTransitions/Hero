@@ -22,22 +22,22 @@
 
 import UIKit
 
-class CityCell:UICollectionViewCell{
+class CityCell: UICollectionViewCell {
   @IBOutlet weak var imageView: UIImageView!
-  
+
   @IBOutlet weak var nameLabel: UILabel!
   @IBOutlet weak var descriptionLabel: UILabel!
-  
-  var useShortDescription:Bool = true
-  
-  var city:City?{
-    didSet{
+
+  var useShortDescription: Bool = true
+
+  var city: City? {
+    didSet {
       guard let city = city else { return }
       let name = city.name
-      
+
       heroID = "\(name)"
       heroModifiers = [.zPositionIfMatched(3)]
-      
+
       nameLabel.text = name
       imageView.image = city.image
       descriptionLabel.text = useShortDescription ? city.shortDescription : city.description

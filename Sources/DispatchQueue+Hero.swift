@@ -22,6 +22,6 @@
 
 import Foundation
 
-func delay(_ time:Double, execute: @escaping ()->Void){
+func delay(_ time: Double, execute: @escaping () -> Void) {
   DispatchQueue.main.asyncAfter(deadline: .now() + time, execute: execute)
 }

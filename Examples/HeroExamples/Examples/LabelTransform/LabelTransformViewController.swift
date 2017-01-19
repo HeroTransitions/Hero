@@ -32,7 +32,7 @@ class LabelTransformViewController: UIViewController {
   @IBAction func togglePlugin(_ sender: UISwitch) {
     LabelMorphPlugin.isEnabled = sender.isOn
   }
-  
+
   override func viewDidLoad() {
     super.viewDidLoad()
     pluginSwitch.isOn = LabelMorphPlugin.isEnabled
@@ -41,17 +41,17 @@ class LabelTransformViewController: UIViewController {
   }
 }
 
-extension HeroModifier{
-  public static func zcLabelMorph(type:LabelMorphPlugin.LabelMorphType) -> HeroModifier {
+extension HeroModifier {
+  public static func zcLabelMorph(type: LabelMorphPlugin.LabelMorphType) -> HeroModifier {
     return HeroModifier { targetState in
       targetState["zcLabelMorph"] = type
     }
   }
 }
 
-public class LabelMorphPlugin:HeroPlugin{
-  var morphingLabels:[ZCAnimatedLabel]!
-  public enum LabelMorphType{
+public class LabelMorphPlugin: HeroPlugin {
+  var morphingLabels: [ZCAnimatedLabel]!
+  public enum LabelMorphType {
     case normal
     case fall
     case duang
@@ -65,15 +65,15 @@ public class LabelMorphPlugin:HeroPlugin{
     case dash
   }
 
-  public override func canAnimate(context:HeroContext, view:UIView, appearing:Bool) -> Bool {
+  public override func canAnimate(context: HeroContext, view: UIView, appearing: Bool) -> Bool {
     return (context[view]?["zcLabelMorph"] as? LabelMorphType) != nil
   }
 
-  func createMorphingLabel(context:HeroContext, label:UILabel, appearing:Bool) {
+  func createMorphingLabel(context: HeroContext, label: UILabel, appearing: Bool) {
     let frame = context.container.convert(label.bounds, from: label)
-    
-    let morphingLabel:ZCAnimatedLabel
-    switch (context[label]!["zcLabelMorph"] as! LabelMorphType){
+
+    let morphingLabel: ZCAnimatedLabel
+    switch (context[label]!["zcLabelMorph"] as? LabelMorphType)! {
     case .normal:
       morphingLabel = ZCAnimatedLabel()
     case .fall:
@@ -98,8 +98,7 @@ public class LabelMorphPlugin:HeroPlugin{
       morphingLabel = ZCDashLabel()
     }
     morphingLabel.frame = frame
-    
-    
+
     morphingLabel.font = label.font
     morphingLabel.textColor = label.textColor
     morphingLabel.animationDuration = 0.4
@@ -109,34 +108,34 @@ public class LabelMorphPlugin:HeroPlugin{
 
     morphingLabels.append(morphingLabel)
     context.container.addSubview(morphingLabel)
-    
-    if appearing{
+
+    if appearing {
       morphingLabel.startAppearAnimation()
     } else {
       morphingLabel.startDisappearAnimation()
     }
   }
 
-  public override func animate(context:HeroContext, fromViews:[UIView], toViews:[UIView]) -> TimeInterval {
+  public override func animate(context: HeroContext, fromViews: [UIView], toViews: [UIView]) -> TimeInterval {
     morphingLabels = []
-    var maxDuration:TimeInterval = 0
-    
-    for view in toViews{
-      createMorphingLabel(context: context, label: view as! UILabel, appearing: true)
+    var maxDuration: TimeInterval = 0
+
+    for view in toViews {
+      createMorphingLabel(context: context, label: (view as? UILabel)!, appearing: true)
     }
-    for view in fromViews{
-      createMorphingLabel(context: context, label: view as! UILabel, appearing: false)
+    for view in fromViews {
+      createMorphingLabel(context: context, label: (view as? UILabel)!, appearing: false)
     }
-    
-    for label in morphingLabels{
+
+    for label in morphingLabels {
       maxDuration = max(maxDuration, TimeInterval(label.totoalAnimationDuration))
     }
-    
+
     return maxDuration
   }
 
-  public override func clean(){
-    for label in morphingLabels{
+  public override func clean() {
+    for label in morphingLabels {
       label.stopAnimation()
       label.removeFromSuperview()
     }

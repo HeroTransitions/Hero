@@ -22,44 +22,44 @@
 
 import UIKit
 
-internal extension Array{
-  func get(_ index:Int) -> Element?{
-    if index < count{
+internal extension Array {
+  func get(_ index: Int) -> Element? {
+    if index < count {
       return self[index]
     }
     return nil
   }
-  func getCGFloat(_ index:Int) -> CGFloat?{
-    if let s = get(index) as? String, let f = Float(s){
+  func getCGFloat(_ index: Int) -> CGFloat? {
+    if let s = get(index) as? String, let f = Float(s) {
       return CGFloat(f)
     }
     return nil
   }
-  func getDouble(_ index:Int) -> Double?{
-    if let s = get(index) as? String, let f = Double(s){
+  func getDouble(_ index: Int) -> Double? {
+    if let s = get(index) as? String, let f = Double(s) {
       return f
     }
     return nil
   }
-  func getFloat(_ index:Int) -> Float?{
-    if let s = get(index) as? String, let f = Float(s){
+  func getFloat(_ index: Int) -> Float? {
+    if let s = get(index) as? String, let f = Float(s) {
       return f
     }
     return nil
   }
-  func getBool(_ index:Int) -> Bool?{
-    if let s = get(index) as? String, let f = Bool(s){
+  func getBool(_ index: Int) -> Bool? {
+    if let s = get(index) as? String, let f = Bool(s) {
       return f
     }
     return nil
   }
-  
-  mutating func filterInPlace(_ comparator:(Element)->Bool) -> Array<Element>{
-    var array2:Array<Element> = []
+
+  mutating func filterInPlace(_ comparator: (Element) -> Bool) -> [Element] {
+    var array2: [Element] = []
     self = self.filter { (element) -> Bool in
       if comparator(element) {
         return true
-      } else{
+      } else {
         array2.append(element)
         return false
       }
