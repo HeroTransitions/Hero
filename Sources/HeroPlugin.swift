@@ -44,17 +44,17 @@ open class HeroPlugin: HeroPreprocessor, HeroAnimator{
        - context: object holding all parsed and changed modifiers,
        - fromViews: A flattened list of all views from source ViewController
        - toViews: A flattened list of all views from destination ViewController
-    
+
    To check a view's modifiers:
 
        context[view]
        context[view, "modifierName"]
-   
+
    To set a view's modifiers:
-   
+
        context[view] = [("modifier1", ["parameter1"]), ("modifier2", [])]
        context[view, "modifier1"] = ["parameter1", "parameter2"]
-   
+
   */
   open func process(fromViews:[UIView], toViews:[UIView]){}
   
@@ -71,7 +71,7 @@ open class HeroPlugin: HeroPreprocessor, HeroAnimator{
   
   /**
    Perform the animation.
-   
+
    Note: views in `fromViews` & `toViews` are hidden already. Unhide then if you need to take snapshots.
    - Parameters:
        - context: object holding all parsed and changed modifiers,
@@ -84,38 +84,37 @@ open class HeroPlugin: HeroPreprocessor, HeroAnimator{
   
   /**
    Called when all animations are completed.
-   
+
    Should perform cleanup and release any reference
    */
-  open func clean(){}
-  
-  
+  open func clean() {}
+
   /**
    For supporting interactive animation only.
-   
+
    This method is called when an interactive animation is in place
    The plugin should pause the animation, and seek to the given progress
    - Parameters:
      - timePassed: time of the animation to seek to.
    */
-  open func seekTo(timePassed:TimeInterval){}
-  
+  open func seekTo(timePassed: TimeInterval) {}
+
   /**
    For supporting interactive animation only.
-   
+
    This method is called when an interactive animation is ended
    The plugin should resume the animation.
    - Parameters:
    - timePassed: will be the same value since last `seekTo`
    - reverse: a boolean value indicating whether or not the animation should reverse
    */
-  open func resume(timePassed:TimeInterval, reverse:Bool) -> TimeInterval { return 0 }
-  
+  open func resume(timePassed: TimeInterval, reverse: Bool) -> TimeInterval { return 0 }
+
   /**
    For supporting interactive animation only.
-   
+
    This method is called when user wants to override animation modifiers during an interactive animation
-   
+
    - Parameters:
        - state: the target state to override
        - view: the view to override
@@ -132,7 +131,7 @@ extension HeroPlugin{
     get{
       return Hero.isEnabled(plugin: self)
     }
-    set{
+    set {
       if newValue {
         enable()
       } else {
@@ -140,10 +139,10 @@ extension HeroPlugin{
       }
     }
   }
-  public static func enable(){
+  public static func enable() {
     Hero.enable(plugin: self)
   }
-  public static func disable(){
+  public static func disable() {
     Hero.disable(plugin: self)
   }
 }

@@ -22,31 +22,19 @@
 
 import UIKit
 
-public protocol HeroPreprocessor {
-  func process(fromViews:[UIView], toViews:[UIView])
-}
+class LabelMorphViewController: UIViewController {
+  @IBOutlet weak var label1: UILabel!
+  @IBOutlet weak var label2: UILabel!
+  @IBOutlet weak var pluginSwitch: UISwitch!
 
-public protocol HeroAnimator {
-  func canAnimate(view:UIView, appearing:Bool) -> Bool
-  func animate(fromViews:[UIView], toViews:[UIView]) -> TimeInterval
-  func clean()
-  
-  func seekTo(timePassed:TimeInterval)
-  func resume(timePassed:TimeInterval, reverse:Bool) -> TimeInterval
-  func apply(state:HeroTargetState, to view:UIView)
-}
+  @IBAction func togglePlugin(_ sender: UISwitch) {
+    LabelMorphPlugin.isEnabled = sender.isOn
+  }
 
-public protocol HeroProgressUpdateObserver {
-  func heroDidUpdateProgress(progress:Double)
-}
-
-@objc public protocol HeroViewControllerDelegate{
-  @objc optional func heroWillStartAnimatingFrom(viewController:UIViewController)
-  @objc optional func heroDidEndAnimatingFrom(viewController:UIViewController)
-  
-  @objc optional func heroWillStartTransition()
-  @objc optional func heroDidEndTransition()
-
-  @objc optional func heroWillStartAnimatingTo(viewController: UIViewController)
-  @objc optional func heroDidEndAnimatingTo(viewController: UIViewController)
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    pluginSwitch.isOn = LabelMorphPlugin.isEnabled
+    label1.heroModifiers = [.labelMorph(type:.fall)]
+    label2.heroModifiers = [.labelMorph(type:.flyin)]
+  }
 }

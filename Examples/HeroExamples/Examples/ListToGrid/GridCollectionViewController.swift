@@ -24,7 +24,7 @@ import UIKit
 import Hero
 import ChameleonFramework
 
-class GridImageCell:UICollectionViewCell{
+class GridImageCell: UICollectionViewCell {
   @IBOutlet weak var imageView: UIImageView!
   @IBOutlet weak var textLabel: UILabel!
   @IBOutlet weak var detailTextLabel: UILabel!
@@ -32,22 +32,22 @@ class GridImageCell:UICollectionViewCell{
 
 class GridCollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
   @IBAction func toList(_ sender: Any) {
-    let next = UIStoryboard(name: "ListToGrid", bundle: nil).instantiateViewController(withIdentifier: "list") as! ListTableViewController
+    let next = (UIStoryboard(name: "ListToGrid", bundle: nil).instantiateViewController(withIdentifier: "list") as? ListTableViewController)!
     next.tableView.contentOffset.y = collectionView!.contentOffset.y + collectionView!.contentInset.top
     heroReplaceViewController(with: next)
   }
-  
+
   override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
     return ImageLibrary.count
   }
-  
+
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
     return CGSize(width: view.frame.width / 3, height: 52*3)
   }
-  
+
   override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-    let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "item", for: indexPath) as! GridImageCell
-    
+    let cell = (collectionView.dequeueReusableCell(withReuseIdentifier: "item", for: indexPath) as? GridImageCell)!
+
     cell.imageView?.heroID = "image_\(indexPath.item)"
     let image = ImageLibrary.thumbnail(index:indexPath.item)
     cell.heroModifiers = [.fade, .translate(y:20)]
@@ -57,12 +57,12 @@ class GridCollectionViewController: UICollectionViewController, UICollectionView
     cell.textLabel?.text = "Item \(indexPath.item)"
     cell.detailTextLabel?.text = "Description \(indexPath.item)"
     cell.backgroundColor = UIColor(averageColorFrom: image)
-    
+
     return cell
   }
-  
+
   override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-    let vc = viewController(forStoryboardName: "ImageViewer") as! ImageViewController
+    let vc = (viewController(forStoryboardName: "ImageViewer") as? ImageViewController)!
     vc.selectedIndex = indexPath
     vc.view.backgroundColor = UIColor.white
     vc.collectionView!.backgroundColor = UIColor.white
@@ -70,24 +70,24 @@ class GridCollectionViewController: UICollectionViewController, UICollectionView
   }
 }
 
-extension GridCollectionViewController:HeroViewControllerDelegate{
+extension GridCollectionViewController: HeroViewControllerDelegate {
   func heroWillStartAnimatingTo(viewController: UIViewController) {
     if let _ = viewController as? ImageViewController,
        let index = collectionView!.indexPathsForSelectedItems?[0],
-       let cell = collectionView!.cellForItem(at: index) as? GridImageCell{
+       let cell = collectionView!.cellForItem(at: index) as? GridImageCell {
       let cellPos = view.convert(cell.imageView.center, from: cell)
       collectionView!.heroModifiers = [.scale(3), .translate(x:view.center.x - cellPos.x, y:view.center.y + collectionView!.contentInset.top/2/3 - cellPos.y), .ignoreSubviewModifiers, .fade]
     } else {
       collectionView!.heroModifiers = [.cascade]
     }
   }
-  
+
   func heroWillStartAnimatingFrom(viewController: UIViewController) {
     if let vc = viewController as? ImageViewController,
       let originalCellIndex = vc.selectedIndex,
       let currentCellIndex = vc.collectionView?.indexPathsForVisibleItems[0] {
       collectionView!.heroModifiers = [.cascade]
-      if !collectionView!.indexPathsForVisibleItems.contains(currentCellIndex){
+      if !collectionView!.indexPathsForVisibleItems.contains(currentCellIndex) {
         // make the cell visible
         collectionView!.scrollToItem(at: currentCellIndex,
                                     at: originalCellIndex < currentCellIndex ? .bottom : .top,

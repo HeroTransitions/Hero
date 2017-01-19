@@ -26,15 +26,15 @@ public class HeroDefaultAnimator:HeroAnimator{
   var context:HeroContext { return Hero.shared.context }
   var viewContexts:[UIView: HeroDefaultAnimatorViewContext] = [:]
 
-  public func seekTo(timePassed:TimeInterval) {
-    for viewContext in viewContexts.values{
+  public func seekTo(timePassed: TimeInterval) {
+    for viewContext in viewContexts.values {
       viewContext.seek(timePassed: timePassed)
     }
   }
-  
-  public func resume(timePassed:TimeInterval, reverse:Bool) -> TimeInterval{
-    var duration:TimeInterval = 0
-    for (_, context) in viewContexts{
+
+  public func resume(timePassed: TimeInterval, reverse: Bool) -> TimeInterval {
+    var duration: TimeInterval = 0
+    for (_, context) in viewContexts {
       context.resume(timePassed: timePassed, reverse: reverse)
       duration = max(duration, context.duration)
     }
@@ -62,21 +62,21 @@ public class HeroDefaultAnimator:HeroAnimator{
     var duration:TimeInterval = 0
 
     // animate
-    for v in fromViews{
+    for v in fromViews {
       animate(view: v, appearing: false)
     }
-    for v in toViews{
+    for v in toViews {
       animate(view: v, appearing: true)
     }
-    
-    for viewContext in viewContexts.values{
+
+    for viewContext in viewContexts.values {
       duration = max(duration, viewContext.duration)
     }
 
     return duration
   }
-  
-  func animate(view:UIView, appearing:Bool){
+
+  func animate(view: UIView, appearing: Bool) {
     let snapshot = context.snapshotView(for: view)
     let viewContext = HeroDefaultAnimatorViewContext(animator:self, snapshot: snapshot, targetState: context[view]!, appearing: appearing)
     viewContexts[view] = viewContext
