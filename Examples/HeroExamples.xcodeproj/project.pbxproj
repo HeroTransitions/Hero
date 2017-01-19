@@ -406,6 +406,7 @@
 			buildConfigurationList = A33E60B31DE761C90065CBD8 /* Build configuration list for PBXNativeTarget "HeroExamples" */;
 			buildPhases = (
 				AB630E15554685FDB346A796 /* [CP] Check Pods Manifest.lock */,
+				A0BDF7221E2FCC5A0028778F /* Swiftlint */,
 				A33E609D1DE761C90065CBD8 /* Sources */,
 				A33E609E1DE761C90065CBD8 /* Frameworks */,
 				A33E609F1DE761C90065CBD8 /* Resources */,
@@ -508,6 +509,20 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HeroExamples/Pods-HeroExamples-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		A0BDF7221E2FCC5A0028778F /* Swiftlint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = Swiftlint;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
 		};
 		AB630E15554685FDB346A796 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
