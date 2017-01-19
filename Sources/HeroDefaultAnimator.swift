@@ -22,26 +22,26 @@
 
 import UIKit
 
-public class HeroDefaultAnimator:HeroAnimator{
-  var context:HeroContext!
-  var viewContexts:[UIView: HeroDefaultAnimatorViewContext] = [:]
+public class HeroDefaultAnimator: HeroAnimator {
+  var context: HeroContext!
+  var viewContexts: [UIView: HeroDefaultAnimatorViewContext] = [:]
 
-  public func seekTo(timePassed:TimeInterval) {
-    for viewContext in viewContexts.values{
+  public func seekTo(timePassed: TimeInterval) {
+    for viewContext in viewContexts.values {
       viewContext.seek(timePassed: timePassed)
     }
   }
-  
-  public func resume(timePassed:TimeInterval, reverse:Bool) -> TimeInterval{
-    var duration:TimeInterval = 0
-    for (_, context) in viewContexts{
+
+  public func resume(timePassed: TimeInterval, reverse: Bool) -> TimeInterval {
+    var duration: TimeInterval = 0
+    for (_, context) in viewContexts {
       context.resume(timePassed: timePassed, reverse: reverse)
       duration = max(duration, context.duration)
     }
     return duration
   }
-  
-  public func temporarilySet(view:UIView, targetState:HeroTargetState){
+
+  public func temporarilySet(view: UIView, targetState: HeroTargetState) {
     guard let context = viewContexts[view] else {
       print("HERO: unable to temporarily set to \(view). The view must be running at least one animation before it can be interactively changed")
       return
@@ -49,7 +49,7 @@ public class HeroDefaultAnimator:HeroAnimator{
     context.temporarilySet(targetState:targetState)
   }
 
-  public func canAnimate(context:HeroContext, view:UIView, appearing:Bool) -> Bool{
+  public func canAnimate(context: HeroContext, view: UIView, appearing: Bool) -> Bool {
     guard let state = context[view] else { return false }
     return state.position != nil ||
            state.size != nil ||
@@ -58,33 +58,33 @@ public class HeroDefaultAnimator:HeroAnimator{
            state.opacity != nil
   }
 
-  public func animate(context:HeroContext, fromViews:[UIView], toViews:[UIView]) -> TimeInterval{
+  public func animate(context: HeroContext, fromViews: [UIView], toViews: [UIView]) -> TimeInterval {
     self.context = context
-    
-    var duration:TimeInterval = 0
+
+    var duration: TimeInterval = 0
 
     // animate
-    for v in fromViews{
+    for v in fromViews {
       animate(view: v, appearing: false)
     }
-    for v in toViews{
+    for v in toViews {
       animate(view: v, appearing: true)
     }
-    
-    for viewContext in viewContexts.values{
+
+    for viewContext in viewContexts.values {
       duration = max(duration, viewContext.duration)
     }
 
     return duration
   }
-  
-  func animate(view:UIView, appearing:Bool){
+
+  func animate(view: UIView, appearing: Bool) {
     let snapshot = context.snapshotView(for: view)
     let viewContext = HeroDefaultAnimatorViewContext(animator:self, snapshot: snapshot, targetState: context[view]!, appearing: appearing)
     viewContexts[view] = viewContext
   }
-  
-  public func clean(){
+
+  public func clean() {
     context = nil
     viewContexts.removeAll()
   }

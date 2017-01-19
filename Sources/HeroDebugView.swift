@@ -23,64 +23,64 @@
 import UIKit
 
 protocol HeroDebugViewDelegate {
-  func onProcessSliderChanged(progress:Float)
-  func onPerspectiveChanged(translation:CGPoint, rotation:CGFloat, scale:CGFloat)
-  func on3D(wants3D:Bool)
-  func onDisplayArcCurve(wantsCurve:Bool)
+  func onProcessSliderChanged(progress: Float)
+  func onPerspectiveChanged(translation: CGPoint, rotation: CGFloat, scale: CGFloat)
+  func on3D(wants3D: Bool)
+  func onDisplayArcCurve(wantsCurve: Bool)
   func onDone()
 }
 
-public class HeroDebugView: UIView{
-  var backgroundView:UIView!
-  var debugSlider:UISlider!
-  var perspectiveButton:UIButton!
-  var doneButton:UIButton!
-  var arcCurveButton:UIButton?
-  
-  var delegate:HeroDebugViewDelegate?
-  var panGR:UIPanGestureRecognizer!
-  var pinchGR:UIPinchGestureRecognizer!
-  
-  var showControls:Bool = false{
-    didSet{
+public class HeroDebugView: UIView {
+  var backgroundView: UIView!
+  var debugSlider: UISlider!
+  var perspectiveButton: UIButton!
+  var doneButton: UIButton!
+  var arcCurveButton: UIButton?
+
+  var delegate: HeroDebugViewDelegate?
+  var panGR: UIPanGestureRecognizer!
+  var pinchGR: UIPinchGestureRecognizer!
+
+  var showControls: Bool = false {
+    didSet {
       layoutSubviews()
     }
   }
 
-  var rotation:CGFloat = CGFloat(M_PI / 6)
-  var scale:CGFloat = 0.6
-  var translation:CGPoint = .zero
-  var progress:Float{
+  var rotation: CGFloat = CGFloat(M_PI / 6)
+  var scale: CGFloat = 0.6
+  var translation: CGPoint = .zero
+  var progress: Float {
     return debugSlider.value
   }
-  
-  init(initialProcess:Float, showCurveButton:Bool) {
+
+  init(initialProcess: Float, showCurveButton: Bool) {
     super.init(frame:.zero)
-    
+
     backgroundView = UIView(frame:.zero)
     backgroundView.backgroundColor = UIColor(white: 1.0, alpha: 0.95)
     backgroundView.layer.shadowColor = UIColor.darkGray.cgColor
     backgroundView.layer.shadowOpacity = 0.5
     backgroundView.layer.shadowRadius = 5
     addSubview(backgroundView)
-    
+
     doneButton = UIButton(type: .system)
     doneButton.setTitle("Done", for: .normal)
     doneButton.addTarget(self, action: #selector(onDone), for: .touchUpInside)
     backgroundView.addSubview(doneButton)
-    
+
     perspectiveButton = UIButton(type: .system)
     perspectiveButton.setTitle("3D View", for: .normal)
     perspectiveButton.addTarget(self, action: #selector(onPerspective), for: .touchUpInside)
     backgroundView.addSubview(perspectiveButton)
-    
-    if showCurveButton{
+
+    if showCurveButton {
       arcCurveButton = UIButton(type: .system)
       arcCurveButton!.setTitle("Show Arcs", for: .normal)
       arcCurveButton!.addTarget(self, action: #selector(onDisplayArcCurve), for: .touchUpInside)
       backgroundView.addSubview(arcCurveButton!)
     }
-    
+
     debugSlider = UISlider(frame: .zero)
     debugSlider.layer.zPosition = 1000
     debugSlider.minimumValue = 0
@@ -89,21 +89,21 @@ public class HeroDebugView: UIView{
     debugSlider.isUserInteractionEnabled = true
     debugSlider.value = initialProcess
     backgroundView.addSubview(debugSlider)
-    
+
     panGR = UIPanGestureRecognizer(target: self, action: #selector(pan))
     panGR.delegate = self
     panGR.maximumNumberOfTouches = 1
     addGestureRecognizer(panGR)
-    
+
     pinchGR = UIPinchGestureRecognizer(target: self, action: #selector(pinch))
     pinchGR.delegate = self
     addGestureRecognizer(pinchGR)
   }
-  
+
   required public init?(coder aDecoder: NSCoder) {
     fatalError("init(coder:) has not been implemented")
   }
-  
+
   public override func layoutSubviews() {
     super.layoutSubviews()
     var backgroundFrame = bounds
@@ -115,7 +115,7 @@ public class HeroDebugView: UIView{
     sliderFrame.size.height = 44
     sliderFrame.origin.y = 28
     debugSlider.frame = sliderFrame
-    
+
     perspectiveButton.sizeToFit()
     perspectiveButton.frame.origin = CGPoint(x:bounds.maxX - perspectiveButton.bounds.width - 10, y: 4)
     doneButton.sizeToFit()
@@ -123,10 +123,10 @@ public class HeroDebugView: UIView{
     arcCurveButton?.sizeToFit()
     arcCurveButton?.center = CGPoint(x: center.x, y: doneButton.center.y)
   }
-  
-  var startRotation:CGFloat = 0
-  @objc public func pan(){
-    if panGR.state == .began{
+
+  var startRotation: CGFloat = 0
+  @objc public func pan() {
+    if panGR.state == .began {
       startRotation = rotation
     }
     rotation = startRotation + panGR.translation(in: nil).x / 150
@@ -137,11 +137,11 @@ public class HeroDebugView: UIView{
     }
     delegate?.onPerspectiveChanged(translation:translation, rotation: rotation, scale:scale)
   }
-  
-  var startLocation:CGPoint = .zero
-  var startTranslation:CGPoint = .zero
-  var startScale:CGFloat = 1
-  @objc public func pinch(){
+
+  var startLocation: CGPoint = .zero
+  var startTranslation: CGPoint = .zero
+  var startScale: CGFloat = 1
+  @objc public func pinch() {
     switch pinchGR.state {
     case .began:
       startLocation = pinchGR.location(in: nil)
@@ -149,7 +149,7 @@ public class HeroDebugView: UIView{
       startScale = scale
       fallthrough
     case .changed:
-      if pinchGR.numberOfTouches >= 2{
+      if pinchGR.numberOfTouches >= 2 {
         scale = min(1, max(0.2, startScale * pinchGR.scale))
         translation = startTranslation + pinchGR.location(in: nil) - startLocation
         delegate?.onPerspectiveChanged(translation:translation, rotation: rotation, scale:scale)
@@ -158,24 +158,24 @@ public class HeroDebugView: UIView{
       break
     }
   }
-  
-  @objc public func onDone(){
+
+  @objc public func onDone() {
     delegate?.onDone()
   }
-  @objc public func onPerspective(){
+  @objc public func onPerspective() {
     perspectiveButton.isSelected = !perspectiveButton.isSelected
     delegate?.on3D(wants3D: perspectiveButton.isSelected)
   }
-  @objc public func onDisplayArcCurve(){
+  @objc public func onDisplayArcCurve() {
     arcCurveButton!.isSelected = !arcCurveButton!.isSelected
     delegate?.onDisplayArcCurve(wantsCurve: arcCurveButton!.isSelected)
   }
-  @objc public func onSlide(){
+  @objc public func onSlide() {
     delegate?.onProcessSliderChanged(progress: debugSlider.value)
   }
 }
 
-extension HeroDebugView:UIGestureRecognizerDelegate{
+extension HeroDebugView:UIGestureRecognizerDelegate {
   public override func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
     return perspectiveButton.isSelected
   }

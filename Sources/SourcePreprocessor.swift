@@ -22,14 +22,14 @@
 
 import UIKit
 
-class SourcePreprocessor:HeroPreprocessor {
-  public func process(context:HeroContext, fromViews:[UIView], toViews:[UIView]) {
-    for fv in fromViews{
+class SourcePreprocessor: HeroPreprocessor {
+  public func process(context: HeroContext, fromViews: [UIView], toViews: [UIView]) {
+    for fv in fromViews {
       guard let id = context[fv]?.source,
             let tv = context.destinationView(for: id) else { continue }
       prepareFor(view: fv, targetView: tv, context: context)
     }
-    for tv in toViews{
+    for tv in toViews {
       guard let id = context[tv]?.source,
             let fv = context.sourceView(for: id) else { continue }
       prepareFor(view: tv, targetView: fv, context: context)
@@ -38,16 +38,16 @@ class SourcePreprocessor:HeroPreprocessor {
 }
 
 extension SourcePreprocessor {
-  
-  fileprivate func prepareFor(view:UIView, targetView:UIView, context:HeroContext){
+
+  fileprivate func prepareFor(view: UIView, targetView: UIView, context: HeroContext) {
     let targetPos = context.container.convert(targetView.layer.position, from: targetView.superview!)
-    
+
     var state = context[view]!
-    
+
     // remove incompatible options
     state.transform = nil
     state.size = nil
-    
+
     state.position = targetPos
     if view.bounds.size != targetView.bounds.size {
       state.size = targetView.bounds.size
