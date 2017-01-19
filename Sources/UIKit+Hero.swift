@@ -119,7 +119,7 @@ internal extension NSObject{
 public extension UIViewController{
   private struct PreviousDelegates {
     static var navigationDelegate = "heroPreviousNavigationDelegate"
-    static var tabBarDelegate = "heroPreviousTabBarDelegate"
+    static var tabBarDelegate = "heroPreviousTabBarDelegate
   }
 
   var previousNavigationDelegate: UINavigationControllerDelegate? {
