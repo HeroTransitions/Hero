@@ -24,20 +24,20 @@ import UIKit
 import Hero
 
 class ImageViewController: UICollectionViewController {
-  var selectedIndex:IndexPath?
+  var selectedIndex: IndexPath?
   var panGR = UIPanGestureRecognizer()
-  
+
   override func viewDidLoad() {
     super.viewDidLoad()
     automaticallyAdjustsScrollViewInsets = false
     preferredContentSize = CGSize(width: view.bounds.width, height: view.bounds.width)
-    
+
     view.layoutIfNeeded()
     collectionView!.reloadData()
-    if let selectedIndex = selectedIndex{
+    if let selectedIndex = selectedIndex {
       collectionView!.scrollToItem(at: selectedIndex, at: .centeredHorizontally, animated: false)
     }
-    
+
     panGR.addTarget(self, action: #selector(pan))
     panGR.delegate = self
     collectionView?.addGestureRecognizer(panGR)
@@ -45,29 +45,29 @@ class ImageViewController: UICollectionViewController {
 
   override func viewWillLayoutSubviews() {
     super.viewWillLayoutSubviews()
-    for v in collectionView!.visibleCells as! [ScrollingImageCell]{
+    for v in (collectionView!.visibleCells as? [ScrollingImageCell])! {
       v.topInset = topLayoutGuide.length
     }
   }
-  
-  func pan(){
+
+  func pan() {
     let translation = panGR.translation(in: nil)
     let progress = translation.y / 2 / collectionView!.bounds.height
     switch panGR.state {
     case .began:
-      if let nav = navigationController, nav.viewControllers.first != self{
+      if let nav = navigationController, nav.viewControllers.first != self {
         let _ = nav.popViewController(animated: true)
       } else {
         dismiss(animated: true, completion: nil)
       }
     case .changed:
       Hero.shared.update(progress: Double(progress))
-      if let cell = collectionView?.visibleCells[0]  as? ScrollingImageCell{
+      if let cell = collectionView?.visibleCells[0]  as? ScrollingImageCell {
         let currentPos = CGPoint(x: translation.x + view.center.x, y: translation.y + view.center.y)
         Hero.shared.temporarilySet(view: cell.imageView, modifiers: [.position(currentPos)])
       }
     default:
-      if progress + panGR.velocity(in: nil).y / collectionView!.bounds.height > 0.15{
+      if progress + panGR.velocity(in: nil).y / collectionView!.bounds.height > 0.15 {
         Hero.shared.end()
       } else {
         Hero.shared.cancel()
@@ -76,13 +76,13 @@ class ImageViewController: UICollectionViewController {
   }
 }
 
-extension ImageViewController{
+extension ImageViewController {
   override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
     return ImageLibrary.count
   }
-  
+
   override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-    let imageCell = collectionView.dequeueReusableCell(withReuseIdentifier: "item", for: indexPath) as! ScrollingImageCell
+    let imageCell = (collectionView.dequeueReusableCell(withReuseIdentifier: "item", for: indexPath) as? ScrollingImageCell)!
     imageCell.image = ImageLibrary.image(index:indexPath.item)
     imageCell.imageView.heroID = "image_\(indexPath.item)"
     imageCell.imageView.heroModifiers = [.position(CGPoint(x:view.bounds.width/2, y:view.bounds.height+view.bounds.width/2)), .scale(x:0.6, y:0.6), .fade, .zPositionIfMatched(100)]
@@ -97,7 +97,7 @@ extension ImageViewController: UICollectionViewDelegateFlowLayout {
   }
 }
 
-extension ImageViewController:UIGestureRecognizerDelegate{
+extension ImageViewController:UIGestureRecognizerDelegate {
   func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
     if let cell = collectionView?.visibleCells[0] as? ScrollingImageCell,
        cell.scrollView.zoomScale == 1 {
@@ -108,9 +108,9 @@ extension ImageViewController:UIGestureRecognizerDelegate{
   }
 }
 
-extension ImageViewController:HeroViewControllerDelegate{
+extension ImageViewController:HeroViewControllerDelegate {
   func wantInteractiveHeroTransition() -> Bool {
-    if !Hero.shared.presenting && panGR.state == .began{
+    if !Hero.shared.presenting && panGR.state == .began {
       return true
     }
     return false

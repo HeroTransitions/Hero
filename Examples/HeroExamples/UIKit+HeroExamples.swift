@@ -22,12 +22,12 @@
 
 import UIKit
 
-public extension UIView{
+public extension UIView {
   @IBInspectable public var cornerRadius: CGFloat {
     get {
       return layer.cornerRadius
     }
-    
+
     set {
       layer.cornerRadius = newValue
     }
@@ -36,7 +36,7 @@ public extension UIView{
     get {
       return layer.shadowRadius
     }
-    
+
     set {
       layer.shadowRadius = newValue
     }
@@ -45,7 +45,7 @@ public extension UIView{
     get {
       return layer.shadowOpacity
     }
-    
+
     set {
       layer.shadowOpacity = newValue
     }
@@ -54,7 +54,7 @@ public extension UIView{
     get {
       return layer.shadowColor != nil ? UIColor(cgColor: layer.shadowColor!) : nil
     }
-    
+
     set {
       layer.shadowColor = newValue?.cgColor
     }
@@ -63,7 +63,7 @@ public extension UIView{
     get {
       return layer.shadowOffset
     }
-    
+
     set {
       layer.shadowOffset = newValue
     }
@@ -72,13 +72,13 @@ public extension UIView{
     get {
       return layer.zPosition
     }
-    
+
     set {
       layer.zPosition = newValue
     }
   }
 }
 
-func viewController(forStoryboardName:String) -> UIViewController{
+func viewController(forStoryboardName: String) -> UIViewController {
   return UIStoryboard(name: forStoryboardName, bundle: nil).instantiateInitialViewController()!
 }

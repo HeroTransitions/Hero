@@ -9,16 +9,16 @@
 import UIKit
 
 class InitialViewController: UITableViewController {
-  
-  var storyboards:[[String]] = [
+
+  var storyboards: [[String]] = [
     [],
     ["Basic", "MusicPlayer", "Menu"],
     ["CityGuide", "ImageViewer", "ListToGrid", "ImageGallery"],
     ["LiveInjection", "Debug", "LabelTransform"]
   ]
-  
+
   override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    if indexPath.item < storyboards[indexPath.section].count{
+    if indexPath.item < storyboards[indexPath.section].count {
       let storyboardName = storyboards[indexPath.section][indexPath.item]
       let vc = viewController(forStoryboardName: storyboardName)
       present(vc, animated: true, completion: nil)
