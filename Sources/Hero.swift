@@ -69,7 +69,8 @@ public class Hero:NSObject {
       }
     }
   }
-  public var transitioning:Bool{
+
+  public var transitioning: Bool {
     return transitionContainer != nil
   }
   
@@ -294,9 +295,9 @@ internal extension Hero {
     for processor in processors {
       processor.process(fromViews: context.fromViews, toViews: context.toViews)
     }
-    
+
     var skipDefaultAnimation = false
-    var animatingViews = [([UIView],[UIView])]()
+    var animatingViews = [([UIView], [UIView])]()
     for animator in animators {
       let currentFromViews = context.fromViews.filter{ (view:UIView) -> Bool in
         return animator.canAnimate(view: view, appearing: false)
@@ -304,7 +305,7 @@ internal extension Hero {
       let currentToViews = context.toViews.filter{ (view:UIView) -> Bool in
         return animator.canAnimate(view: view, appearing: true)
       }
-      if currentFromViews.first == fromView || currentToViews.first == toView{
+      if currentFromViews.first == fromView || currentToViews.first == toView {
         skipDefaultAnimation = true
       }
       animatingViews.append((currentFromViews, currentToViews))
@@ -335,7 +336,7 @@ internal extension Hero {
                                         toViews: animatingViews[i].1)
         totalDuration = max(totalDuration, duration)
       }
-      
+
       // we are done with setting up, so remove the covering snapshot
       completeSnapshot.removeFromSuperview()
       self.totalDuration = totalDuration
@@ -364,11 +365,11 @@ internal extension Hero {
 
   func complete(finished: Bool) {
     guard transitioning else { return }
-    for animator in animators{
+    for animator in animators {
       animator.clean()
     }
     context.unhideAll()
-    
+
     // move fromView & toView back from animatingViewContainer
     transitionContainer.addSubview(finished ? toView : fromView)
     
@@ -509,7 +510,7 @@ extension Hero:UIViewControllerTransitioningDelegate {
     self.toViewController = toViewController ?? presented
     return self
   }
-  
+
   public func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
     self.presenting = false
     self.fromViewController = fromViewController ?? dismissed
@@ -519,7 +520,7 @@ extension Hero:UIViewControllerTransitioningDelegate {
   public func interactionControllerForDismissal(using animator: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
     return interactiveTransitioning
   }
-  
+
   public func interactionControllerForPresentation(using animator: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
     return interactiveTransitioning
   }
@@ -542,7 +543,7 @@ extension Hero: UINavigationControllerDelegate {
     self.inContainerController = true
     return self
   }
-  
+
   public func navigationController(_ navigationController: UINavigationController, interactionControllerFor animationController: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
     return interactiveTransitioning
   }
@@ -552,7 +553,7 @@ extension Hero: UITabBarControllerDelegate {
   public func tabBarController(_ tabBarController: UITabBarController, interactionControllerFor animationController: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
     return interactiveTransitioning
   }
-  
+
   public func tabBarController(_ tabBarController: UITabBarController, animationControllerForTransitionFrom fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
     self.presenting = true
     self.fromViewController = fromViewController ?? fromVC

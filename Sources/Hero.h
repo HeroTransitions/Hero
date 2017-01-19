@@ -15,5 +15,3 @@ FOUNDATION_EXPORT double HeroVersionNumber;
 FOUNDATION_EXPORT const unsigned char HeroVersionString[];
 
 // In this header, you should import all the public headers of your framework using statements like #import <Hero/PublicHeader.h>
-
-

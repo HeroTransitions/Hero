@@ -28,7 +28,7 @@ class DebugViewController: UIViewController {
   @IBAction func togglePlugin(_ sender: UISwitch) {
     HeroDebugPlugin.isEnabled = sender.isOn
   }
-  
+
   override func viewDidLoad() {
     super.viewDidLoad()
     pluginSwitch.isOn = HeroDebugPlugin.isEnabled

@@ -22,27 +22,27 @@
 
 import UIKit
 
-class ImageCell:UICollectionViewCell{
+class ImageCell: UICollectionViewCell {
   @IBOutlet weak var imageView: UIImageView!
 }
 
-class ScrollingImageCell:UICollectionViewCell{
-  var imageView:UIImageView!
-  var scrollView:UIScrollView!
-  var dTapGR:UITapGestureRecognizer!
-  var image:UIImage?{
-    get{ return imageView.image }
-    set{
+class ScrollingImageCell: UICollectionViewCell {
+  var imageView: UIImageView!
+  var scrollView: UIScrollView!
+  var dTapGR: UITapGestureRecognizer!
+  var image: UIImage? {
+    get { return imageView.image }
+    set {
       imageView.image = newValue
       setNeedsLayout()
     }
   }
-  var topInset:CGFloat = 0{
-    didSet{
+  var topInset: CGFloat = 0 {
+    didSet {
       centerIfNeeded()
     }
   }
-  
+
   required init?(coder aDecoder: NSCoder) {
     super.init(coder: aDecoder)
     scrollView = UIScrollView(frame: bounds)
@@ -55,12 +55,12 @@ class ScrollingImageCell:UICollectionViewCell{
     scrollView.showsHorizontalScrollIndicator = false
     scrollView.showsVerticalScrollIndicator = false
     addSubview(scrollView)
-    
+
     dTapGR = UITapGestureRecognizer(target: self, action: #selector(doubleTap(gr:)))
     dTapGR.numberOfTapsRequired = 2
     addGestureRecognizer(dTapGR)
   }
-  
+
   func zoomRectForScale(scale: CGFloat, center: CGPoint) -> CGRect {
     var zoomRect = CGRect.zero
     zoomRect.size.height = imageView.frame.size.height / scale
@@ -70,20 +70,20 @@ class ScrollingImageCell:UICollectionViewCell{
     zoomRect.origin.y = newCenter.y - (zoomRect.size.height / 2.0)
     return zoomRect
   }
-  
-  func doubleTap(gr:UITapGestureRecognizer){
+
+  func doubleTap(gr: UITapGestureRecognizer) {
     if scrollView.zoomScale == 1 {
       scrollView.zoom(to: zoomRectForScale(scale: scrollView.maximumZoomScale, center: gr.location(in: gr.view)), animated: true)
     } else {
       scrollView.setZoomScale(1, animated: true)
     }
   }
-  
+
   override func layoutSubviews() {
     super.layoutSubviews()
     scrollView.frame = bounds
-    let size:CGSize
-    if let image = imageView.image{
+    let size: CGSize
+    if let image = imageView.image {
       size = CGSize(width: bounds.width, height: bounds.width * image.size.height / image.size.width )
     } else {
       size = CGSize(width: bounds.width, height: bounds.width)
@@ -92,13 +92,13 @@ class ScrollingImageCell:UICollectionViewCell{
     scrollView.contentSize = size
     centerIfNeeded()
   }
-  
+
   override func prepareForReuse() {
     super.prepareForReuse()
     scrollView.setZoomScale(1, animated: false)
   }
-  
-  func centerIfNeeded(){
+
+  func centerIfNeeded() {
     var inset = UIEdgeInsets(top: topInset, left: 0, bottom: 0, right: 0)
     if scrollView.contentSize.height < scrollView.bounds.height - topInset {
       let insetV = (scrollView.bounds.height - topInset - scrollView.contentSize.height)/2
@@ -114,11 +114,11 @@ class ScrollingImageCell:UICollectionViewCell{
   }
 }
 
-extension ScrollingImageCell:UIScrollViewDelegate{
+extension ScrollingImageCell: UIScrollViewDelegate {
   func viewForZooming(in scrollView: UIScrollView) -> UIView? {
     return imageView
   }
-  
+
   func scrollViewDidZoom(_ scrollView: UIScrollView) {
     centerIfNeeded()
   }

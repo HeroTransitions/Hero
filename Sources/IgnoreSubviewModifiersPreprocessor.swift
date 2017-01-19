@@ -35,9 +35,9 @@ public class IgnoreSubviewModifiersPreprocessor:BasePreprocessor {
       if let _  = view as? UITableView, let wrapperView = view.subviews.get(0) {
         parentView = wrapperView
       }
-      
+
       if recursive {
-        for i in (viewIndex+1)..<views.count{
+        for i in (viewIndex+1)..<views.count {
           let childView = views[i]
           if childView.superview == view.superview {
             break
@@ -45,7 +45,7 @@ public class IgnoreSubviewModifiersPreprocessor:BasePreprocessor {
           context[childView] = nil
         }
       } else {
-        for subview in parentView.subviews{
+        for subview in parentView.subviews {
           context[subview] = nil
         }
       }

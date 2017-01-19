@@ -8,13 +8,12 @@
 
 import UIKit
 
-
-class ImageLibrary{
+class ImageLibrary {
   static var count = 100
-  static func thumbnail(index:Int) -> UIImage{
+  static func thumbnail(index: Int) -> UIImage {
     return UIImage(named: "Unsplash\(index % 11)_thumb")!
   }
-  static func image(index:Int) -> UIImage{
+  static func image(index: Int) -> UIImage {
     return UIImage(named: "Unsplash\(index % 11)")!
   }
 }

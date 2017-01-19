@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Label Transform View Controller-->
+        <!--Label Morph View Controller-->
         <scene sceneID="bi3-hK-SAH">
             <objects>
-                <viewController id="iN8-OP-4Ho" customClass="LabelTransformViewController" customModule="HeroExamples" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="iN8-OP-4Ho" customClass="LabelMorphViewController" customModule="HeroExamples" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="JNQ-FJ-lQ1"/>
                         <viewControllerLayoutGuide type="bottom" id="j3F-TW-c8n"/>
@@ -22,8 +22,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label Transform Plugin" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qqY-v9-0h5">
-                                <rect key="frame" x="70" y="170" width="236" height="27"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label Morph Plugin" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qqY-v9-0h5">
+                                <rect key="frame" x="88.5" y="170" width="198" height="27"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>

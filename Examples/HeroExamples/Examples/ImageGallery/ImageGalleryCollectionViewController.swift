@@ -26,7 +26,7 @@ import Hero
 class ImageGalleryViewController: UIViewController {
   @IBOutlet weak var collectionView: UICollectionView!
   var columns = 3
-  lazy var cellSize:CGSize = CGSize(width: self.view.bounds.width/CGFloat(self.columns),
+  lazy var cellSize: CGSize = CGSize(width: self.view.bounds.width/CGFloat(self.columns),
                                     height: self.view.bounds.width/CGFloat(self.columns))
 
   override func viewDidLoad() {
@@ -38,25 +38,25 @@ class ImageGalleryViewController: UIViewController {
   @IBAction func switchLayout(_ sender: Any) {
     // just replace the root view controller with the same view controller
     // animation is automatic! Holy
-    let next = UIStoryboard(name: "ImageGallery", bundle: nil).instantiateViewController(withIdentifier: "imageGallery") as! ImageGalleryViewController
+    let next = (UIStoryboard(name: "ImageGallery", bundle: nil).instantiateViewController(withIdentifier: "imageGallery") as? ImageGalleryViewController)!
     next.columns = columns == 3 ? 5 : 3
     heroReplaceViewController(with: next)
   }
 }
 
-extension ImageGalleryViewController:UICollectionViewDataSource{
+extension ImageGalleryViewController: UICollectionViewDataSource {
   func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-    let vc = viewController(forStoryboardName: "ImageViewer") as! ImageViewController
+    let vc = (viewController(forStoryboardName: "ImageViewer") as? ImageViewController)!
     vc.selectedIndex = indexPath
     navigationController!.pushViewController(vc, animated: true)
   }
-  
+
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
     return ImageLibrary.count
   }
-  
+
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-    let imageCell = collectionView.dequeueReusableCell(withReuseIdentifier: "item", for: indexPath) as! ImageCell
+    let imageCell = (collectionView.dequeueReusableCell(withReuseIdentifier: "item", for: indexPath) as? ImageCell)!
     imageCell.imageView.image = ImageLibrary.thumbnail(index:indexPath.item)
     imageCell.imageView.heroID = "image_\(indexPath.item)"
     imageCell.imageView.heroModifiers = [.zPosition(100)]
@@ -65,25 +65,25 @@ extension ImageGalleryViewController:UICollectionViewDataSource{
   }
 }
 
-extension ImageGalleryViewController:UICollectionViewDelegate, UICollectionViewDelegateFlowLayout{
+extension ImageGalleryViewController: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
     return cellSize
   }
 }
 
-extension ImageGalleryViewController:HeroViewControllerDelegate{
+extension ImageGalleryViewController: HeroViewControllerDelegate {
   func heroWillStartAnimatingTo(viewController: UIViewController) {
-    if (viewController as? ImageGalleryViewController) != nil{
+    if (viewController as? ImageGalleryViewController) != nil {
       collectionView.heroModifiers = [.cascade(delta:0.015, direction:.bottomToTop, delayMatchedViews:true)]
-    } else if (viewController as? ImageViewController) != nil{
+    } else if (viewController as? ImageViewController) != nil {
       let cell = collectionView.cellForItem(at: collectionView.indexPathsForSelectedItems!.first!)!
-      collectionView.heroModifiers = [.cascade(delta:0.015, direction:.radial(center:cell.center), delayMatchedViews:true)]
+      collectionView.heroModifiers = [.cascade(delta: 0.015, direction: .radial(center: cell.center), delayMatchedViews: true)]
     } else {
       collectionView.heroModifiers = [.cascade(delta:0.015)]
     }
   }
   func heroWillStartAnimatingFrom(viewController: UIViewController) {
-    if (viewController as? ImageGalleryViewController) != nil{
+    if (viewController as? ImageGalleryViewController) != nil {
       collectionView.heroModifiers = [.cascade(delta:0.015), .delay(0.25)]
     } else {
       collectionView.heroModifiers = [.cascade(delta:0.015)]
@@ -93,7 +93,7 @@ extension ImageGalleryViewController:HeroViewControllerDelegate{
       let currentCellIndex = vc.collectionView?.indexPathsForVisibleItems[0],
       let targetAttribute = collectionView.layoutAttributesForItem(at: currentCellIndex) {
       collectionView.heroModifiers = [.cascade(delta:0.015, direction:.inverseRadial(center:targetAttribute.center))]
-      if !collectionView.indexPathsForVisibleItems.contains(currentCellIndex){
+      if !collectionView.indexPathsForVisibleItems.contains(currentCellIndex) {
         // make the cell visible
         collectionView.scrollToItem(at: currentCellIndex,
                                     at: originalCellIndex < currentCellIndex ? .bottom : .top,

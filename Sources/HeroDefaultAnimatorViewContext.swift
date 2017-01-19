@@ -23,33 +23,33 @@
 import UIKit
 
 internal class HeroDefaultAnimatorViewContext {
-  weak var animator:HeroDefaultAnimator?
-  var snapshot:UIView
-  var state = [String:(Any, Any)]()
-  var duration:TimeInterval = 0
-  
-  var targetState:HeroTargetState
-  var defaultTiming:(TimeInterval, CAMediaTimingFunction)!
-  
+  weak var animator: HeroDefaultAnimator?
+  var snapshot: UIView
+  var state = [String: (Any, Any)]()
+  var duration: TimeInterval = 0
+
+  var targetState: HeroTargetState
+  var defaultTiming: (TimeInterval, CAMediaTimingFunction)!
+
   // computed
-  var contentLayer:CALayer?{
+  var contentLayer: CALayer? {
     return snapshot.layer.sublayers?.get(0)
   }
-  var currentTime:TimeInterval{
+  var currentTime: TimeInterval {
     return snapshot.layer.convertTime(CACurrentMediaTime(), from: nil)
   }
-  var container:UIView?{
+  var container: UIView? {
     return animator?.context.container
   }
-  
+
   /*
   // return (delay, duration, easing)
   func getTiming(key:String, fromValue:Any?, toValue:Any?) -> (TimeInterval, TimeInterval, CAMediaTimingFunction){
     // delay should be for a specific animation. this shouldn't include the baseDelay
-    
+
     // TODO: dynamic delay and duration for different key
     // https://material.io/guidelines/motion/choreography.html#choreography-continuity
-    
+
     switch key {
     case "opacity":
       if let value = (toValue as? NSNumber)?.floatValue{
@@ -70,25 +70,25 @@ internal class HeroDefaultAnimatorViewContext {
     return (0.0, defaultTiming.0, defaultTiming.1)
   }
   */
-  
-  func getAnimation(key:String, beginTime:TimeInterval, fromValue:Any?, toValue:Any?, ignoreArc:Bool = false) -> CAPropertyAnimation {
-    let anim:CAPropertyAnimation
-    
+
+  func getAnimation(key: String, beginTime: TimeInterval, fromValue: Any?, toValue: Any?, ignoreArc: Bool = false) -> CAPropertyAnimation {
+    let anim: CAPropertyAnimation
+
     let (delay, duration, timingFunction) = (0.0, defaultTiming.0, defaultTiming.1)
-    
+
     if !ignoreArc, key == "position", let arcIntensity = targetState.arc,
       let fromPos = (fromValue as? NSValue)?.cgPointValue,
       let toPos = (toValue as? NSValue)?.cgPointValue,
       abs(fromPos.x - toPos.x) >= 1, abs(fromPos.y - toPos.y) >= 1 {
       let kanim = CAKeyframeAnimation(keyPath: key)
-      
+
       let path = CGMutablePath()
       let maxControl = fromPos.y > toPos.y ? CGPoint(x: toPos.x, y: fromPos.y) : CGPoint(x: fromPos.x, y: toPos.y)
       let minControl = (toPos - fromPos) / 2 + fromPos
-      
+
       path.move(to: fromPos)
       path.addQuadCurve(to: toPos, control: minControl + (maxControl - minControl) * arcIntensity)
-      
+
       kanim.values = [fromValue!, toValue!]
       kanim.path = path
       kanim.duration = duration
@@ -110,24 +110,24 @@ internal class HeroDefaultAnimatorViewContext {
       banim.timingFunction = timingFunction
       anim = banim
     }
-    
+
     anim.fillMode = kCAFillModeBoth
     anim.isRemovedOnCompletion = false
     anim.beginTime = beginTime + delay
     return anim
   }
-  
+
   // return the completion duration of the animation (duration + initial delay, not counting the beginTime)
-  @discardableResult func addAnimation(key:String, beginTime:TimeInterval, fromValue:Any?, toValue:Any?) -> TimeInterval{
+  @discardableResult func addAnimation(key: String, beginTime: TimeInterval, fromValue: Any?, toValue: Any?) -> TimeInterval {
     let anim = getAnimation(key: key, beginTime:beginTime, fromValue: fromValue, toValue: toValue)
-    
+
     snapshot.layer.add(anim, forKey: key)
     if key == "cornerRadius"{
       contentLayer?.add(anim, forKey: key)
     } else if key == "bounds.size"{
-      let fromSize = (fromValue as! NSValue).cgSizeValue
-      let toSize = (toValue as! NSValue).cgSizeValue
-      
+      let fromSize = (fromValue as? NSValue)!.cgSizeValue
+      let toSize = (toValue as? NSValue)!.cgSizeValue
+
       // for the snapshotView(UIReplicantView): there is a
       // subview(UIReplicantContentView) that is hosting the real snapshot image.
       // because we are using CAAnimations and not UIView animations,
@@ -135,48 +135,48 @@ internal class HeroDefaultAnimatorViewContext {
       // we have to add two more animations to manually layout the content view.
       let fromPosn = NSValue(cgPoint:fromSize.center)
       let toPosn = NSValue(cgPoint:toSize.center)
-      
+
       let positionAnim = getAnimation(key: "position", beginTime:0, fromValue: fromPosn, toValue: toPosn, ignoreArc: true)
       positionAnim.beginTime = anim.beginTime
       positionAnim.timingFunction = anim.timingFunction
       positionAnim.duration = anim.duration
-      
+
       contentLayer?.add(positionAnim, forKey: "position")
       contentLayer?.add(anim, forKey: key)
     }
-    
+
     return anim.duration + anim.beginTime - beginTime
   }
-  
+
   /**
    - Returns: a CALayer [keyPath:value] map for animation
    */
-  func viewState(targetState:HeroTargetState) -> [String:Any]{
-    var rtn = [String:Any]()
-    
-    if let size = targetState.size{
+  func viewState(targetState: HeroTargetState) -> [String: Any] {
+    var rtn = [String: Any]()
+
+    if let size = targetState.size {
       rtn["bounds.size"] = NSValue(cgSize:size)
     }
-    if let position = targetState.position{
+    if let position = targetState.position {
       rtn["position"] = NSValue(cgPoint:position)
     }
-    if let opacity = targetState.opacity{
+    if let opacity = targetState.opacity {
       rtn["opacity"] = NSNumber(value: opacity.native)
     }
-    if let cornerRadius = targetState.cornerRadius{
+    if let cornerRadius = targetState.cornerRadius {
       rtn["cornerRadius"] = NSNumber(value: cornerRadius.native)
     }
-    if let transform = targetState.transform{
+    if let transform = targetState.transform {
       rtn["transform"] = NSValue(caTransform3D:transform)
     }
     return rtn
   }
-  
-  func animate(delay:TimeInterval) {
+
+  func animate(delay: TimeInterval) {
     // calculate timing default
-    let defaultDuration:TimeInterval
-    let defaultTimingFunction:CAMediaTimingFunction
-    
+    let defaultDuration: TimeInterval
+    let defaultTimingFunction: CAMediaTimingFunction
+
     // timing function
     let fromPos = (state["position"]?.0 as? NSValue)?.cgPointValue ?? snapshot.layer.position
     let toPos = (state["position"]?.1 as? NSValue)?.cgPointValue ?? fromPos
@@ -184,13 +184,13 @@ internal class HeroDefaultAnimatorViewContext {
     let toTransform = (state["transform"]?.1 as? NSValue)?.caTransform3DValue ?? CATransform3DIdentity
     let realFromPos = CGPoint.zero.transform(fromTransform) + fromPos
     let realToPos = CGPoint.zero.transform(toTransform) + toPos
-    
-    if let timingFunction = targetState.timingFunction{
+
+    if let timingFunction = targetState.timingFunction {
       defaultTimingFunction = timingFunction
-    } else if let container = container, !container.bounds.contains(realToPos){
+    } else if let container = container, !container.bounds.contains(realToPos) {
       // acceleration if leaving screen
       defaultTimingFunction = .acceleration
-    } else if let container = container, !container.bounds.contains(realFromPos){
+    } else if let container = container, !container.bounds.contains(realFromPos) {
       // deceleration if entering screen
       defaultTimingFunction = .deceleration
     } else {
@@ -204,18 +204,18 @@ internal class HeroDefaultAnimatorViewContext {
       let toSize = (state["bounds.size"]?.1 as? NSValue)?.cgSizeValue ?? fromSize
       let realFromSize = fromSize.transform(fromTransform)
       let realToSize = toSize.transform(toTransform)
-      
+
       let movePoints = (realFromPos.distance(realToPos) + realFromSize.point.distance(realToSize.point))
-      
+
       // duration is 0.2 @ 0 to 0.375 @ 500
       defaultDuration = 0.208 + Double(movePoints.clamp(0, 500)) / 3000
     }
-    
+
     defaultTiming = (defaultDuration, defaultTimingFunction)
 
     duration = 0
     let beginTime = currentTime + delay
-    for (key, (fromValue, toValue)) in state{
+    for (key, (fromValue, toValue)) in state {
       let neededTime = addAnimation(key: key, beginTime:beginTime, fromValue: fromValue, toValue: toValue)
       duration = max(duration, neededTime + delay)
     }
@@ -231,19 +231,19 @@ internal class HeroDefaultAnimatorViewContext {
       addAnimation(key: key, beginTime: 0, fromValue: targetValue, toValue: targetValue)
     }
   }
-  
-  func resume(timePassed:TimeInterval, reverse:Bool){
-    for (key, (fromValue, toValue)) in state{
+
+  func resume(timePassed: TimeInterval, reverse: Bool) {
+    for (key, (fromValue, toValue)) in state {
       let realToValue = !reverse ? toValue : fromValue
       let realFromValue = (snapshot.layer.presentation() ?? snapshot.layer).value(forKeyPath: key)!
       state[key] = (realFromValue, realToValue)
     }
-    
+
     let realDelay = max(0, targetState.delay - timePassed)
     animate(delay: realDelay)
   }
-  
-  func seek(layer:CALayer, timePassed:TimeInterval){
+
+  func seek(layer: CALayer, timePassed: TimeInterval) {
     let timeOffset = timePassed - targetState.delay
     for (key, anim) in layer.animations {
       anim.speed = 0
@@ -252,19 +252,19 @@ internal class HeroDefaultAnimatorViewContext {
       layer.add(anim, forKey: key)
     }
   }
-  
-  func seek(timePassed:TimeInterval){
+
+  func seek(timePassed: TimeInterval) {
     seek(layer:snapshot.layer, timePassed:timePassed)
     if let contentLayer = contentLayer {
       seek(layer:contentLayer, timePassed:timePassed)
     }
   }
-  
-  init(animator:HeroDefaultAnimator, snapshot:UIView, targetState:HeroTargetState, appearing:Bool){
+
+  init(animator: HeroDefaultAnimator, snapshot: UIView, targetState: HeroTargetState, appearing: Bool) {
     self.animator = animator
     self.snapshot = snapshot
     self.targetState = targetState
-    
+
     let disappeared = viewState(targetState: targetState)
 
     for (key, disappearedState) in disappeared {
@@ -273,7 +273,7 @@ internal class HeroDefaultAnimatorViewContext {
       let fromValue = !appearing ? appearingState : disappearedState
       state[key] = (fromValue, toValue)
     }
-    
+
     animate(delay: targetState.delay)
   }
 }

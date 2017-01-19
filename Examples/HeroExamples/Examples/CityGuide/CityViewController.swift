@@ -23,9 +23,9 @@
 import UIKit
 
 class CityViewController: UIViewController {
-  var selectedIndex:IndexPath!
-  var cities:[City] = City.cities
-  
+  var selectedIndex: IndexPath!
+  var cities: [City] = City.cities
+
   @IBOutlet weak var collectionView: UICollectionView!
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -35,17 +35,17 @@ class CityViewController: UIViewController {
   }
 }
 
-extension CityViewController:UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
+extension CityViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
     return cities.count
   }
-  
+
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
     return view.frame.size
   }
-  
+
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-    let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "item", for: indexPath) as! CityCell
+    let cell = (collectionView.dequeueReusableCell(withReuseIdentifier: "item", for: indexPath) as? CityCell)!
     cell.useShortDescription = false
     cell.city = cities[indexPath.item]
     return cell

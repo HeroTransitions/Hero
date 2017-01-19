@@ -17,6 +17,8 @@
 		A306D3FB1E1D7A7200B6C23A /* LiveInjection.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A306D3F91E1D7A7200B6C23A /* LiveInjection.storyboard */; };
 		A313499B1E1E2AED00EB5139 /* ImageLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = A313499A1E1E2AED00EB5139 /* ImageLibrary.swift */; };
 		A3298CDA1E304851005B06BB /* BasePreprocessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3298CD91E304851005B06BB /* BasePreprocessor.swift */; };
+		A3298CDF1E315B96005B06BB /* LabelMorphPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3298CDD1E315B96005B06BB /* LabelMorphPlugin.swift */; };
+		A3298CE01E315B96005B06BB /* LabelMorphViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3298CDE1E315B96005B06BB /* LabelMorphViewController.swift */; };
 		A33E60A51DE761C90065CBD8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A33E60A41DE761C90065CBD8 /* AppDelegate.swift */; };
 		A33E60AA1DE761C90065CBD8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A33E60A81DE761C90065CBD8 /* Main.storyboard */; };
 		A33E60AC1DE761C90065CBD8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A33E60AB1DE761C90065CBD8 /* Assets.xcassets */; };
@@ -36,7 +38,7 @@
 		A35949241E1A36D00095F407 /* ImageViewer.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A35949221E1A36D00095F407 /* ImageViewer.storyboard */; };
 		A35949271E1A384E0095F407 /* ListToGrid.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A35949251E1A384E0095F407 /* ListToGrid.storyboard */; };
 		A359492A1E1A39B30095F407 /* Debug.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A35949281E1A39B30095F407 /* Debug.storyboard */; };
-		A359492D1E1A39D00095F407 /* LabelTransform.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A359492B1E1A39D00095F407 /* LabelTransform.storyboard */; };
+		A359492D1E1A39D00095F407 /* LabelMorph.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A359492B1E1A39D00095F407 /* LabelMorph.storyboard */; };
 		A37D7B411E2C0C7E00AC1959 /* CascadePreprocessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37D7B3D1E2C0C7E00AC1959 /* CascadePreprocessor.swift */; };
 		A37D7B421E2C0C7E00AC1959 /* IgnoreSubviewModifiersPreprocessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37D7B3E1E2C0C7E00AC1959 /* IgnoreSubviewModifiersPreprocessor.swift */; };
 		A37D7B431E2C0C7E00AC1959 /* MatchPreprocessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37D7B3F1E2C0C7E00AC1959 /* MatchPreprocessor.swift */; };
@@ -61,7 +63,6 @@
 		B10FDD451E00DD9800B7B66E /* DebugViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10FDD441E00DD9800B7B66E /* DebugViewController.swift */; };
 		B185A4E61DFA6E0C00C3B85D /* ListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B185A4E51DFA6E0C00C3B85D /* ListTableViewController.swift */; };
 		B185A4E81DFA6FE200C3B85D /* GridCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B185A4E71DFA6FE200C3B85D /* GridCollectionViewController.swift */; };
-		B195F5771DFE516F00B1343C /* LabelTransformViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B195F5761DFE516F00B1343C /* LabelTransformViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -99,6 +100,8 @@
 		A306D3FA1E1D7A7200B6C23A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = HeroExamples/Base.lproj/LiveInjection.storyboard; sourceTree = SOURCE_ROOT; };
 		A313499A1E1E2AED00EB5139 /* ImageLibrary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageLibrary.swift; path = ImageGallery/ImageLibrary.swift; sourceTree = "<group>"; };
 		A3298CD91E304851005B06BB /* BasePreprocessor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasePreprocessor.swift; sourceTree = "<group>"; };
+		A3298CDD1E315B96005B06BB /* LabelMorphPlugin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LabelMorphPlugin.swift; path = LabelMorph/LabelMorphPlugin.swift; sourceTree = "<group>"; };
+		A3298CDE1E315B96005B06BB /* LabelMorphViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LabelMorphViewController.swift; path = LabelMorph/LabelMorphViewController.swift; sourceTree = "<group>"; };
 		A33E60A11DE761C90065CBD8 /* HeroExamples.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HeroExamples.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A33E60A41DE761C90065CBD8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A33E60A91DE761C90065CBD8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -120,7 +123,7 @@
 		A35949231E1A36D00095F407 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/ImageViewer.storyboard; sourceTree = "<group>"; };
 		A35949261E1A384E0095F407 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = HeroExamples/Base.lproj/ListToGrid.storyboard; sourceTree = SOURCE_ROOT; };
 		A35949291E1A39B30095F407 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Debug.storyboard; sourceTree = "<group>"; };
-		A359492C1E1A39D00095F407 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LabelTransform.storyboard; sourceTree = "<group>"; };
+		A359492C1E1A39D00095F407 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LabelMorph.storyboard; sourceTree = "<group>"; };
 		A37D7B3D1E2C0C7E00AC1959 /* CascadePreprocessor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CascadePreprocessor.swift; sourceTree = "<group>"; };
 		A37D7B3E1E2C0C7E00AC1959 /* IgnoreSubviewModifiersPreprocessor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IgnoreSubviewModifiersPreprocessor.swift; sourceTree = "<group>"; };
 		A37D7B3F1E2C0C7E00AC1959 /* MatchPreprocessor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatchPreprocessor.swift; sourceTree = "<group>"; };
@@ -145,7 +148,6 @@
 		B10FDD441E00DD9800B7B66E /* DebugViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DebugViewController.swift; path = Debug/DebugViewController.swift; sourceTree = "<group>"; };
 		B185A4E51DFA6E0C00C3B85D /* ListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ListTableViewController.swift; path = ListToGrid/ListTableViewController.swift; sourceTree = "<group>"; };
 		B185A4E71DFA6FE200C3B85D /* GridCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GridCollectionViewController.swift; path = ListToGrid/GridCollectionViewController.swift; sourceTree = "<group>"; };
-		B195F5761DFE516F00B1343C /* LabelTransformViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LabelTransformViewController.swift; path = LabelTransform/LabelTransformViewController.swift; sourceTree = "<group>"; };
 		C377744CBFF1E24426E80F55 /* Pods-HeroExamples.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HeroExamples.release.xcconfig"; path = "Pods/Target Support Files/Pods-HeroExamples/Pods-HeroExamples.release.xcconfig"; sourceTree = "<group>"; };
 		EEE340F89FF0A49DD23A5A6E /* Pods_HeroExamples.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HeroExamples.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -302,7 +304,7 @@
 				A3499D9D1DF202350049B541 /* ImageGallery */,
 				A306D3FC1E1D82AB00B6C23A /* LiveInjection */,
 				B10FDD461E00DD9D00B7B66E /* Debug */,
-				B195F5781DFE517500B1343C /* LabelTransform */,
+				B195F5781DFE517500B1343C /* LabelMorph */,
 			);
 			path = Examples;
 			sourceTree = "<group>";
@@ -363,13 +365,14 @@
 			name = ListToGrid;
 			sourceTree = "<group>";
 		};
-		B195F5781DFE517500B1343C /* LabelTransform */ = {
+		B195F5781DFE517500B1343C /* LabelMorph */ = {
 			isa = PBXGroup;
 			children = (
-				A359492B1E1A39D00095F407 /* LabelTransform.storyboard */,
-				B195F5761DFE516F00B1343C /* LabelTransformViewController.swift */,
+				A359492B1E1A39D00095F407 /* LabelMorph.storyboard */,
+				A3298CDD1E315B96005B06BB /* LabelMorphPlugin.swift */,
+				A3298CDE1E315B96005B06BB /* LabelMorphViewController.swift */,
 			);
-			name = LabelTransform;
+			name = LabelMorph;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -409,6 +412,7 @@
 			buildConfigurationList = A33E60B31DE761C90065CBD8 /* Build configuration list for PBXNativeTarget "HeroExamples" */;
 			buildPhases = (
 				AB630E15554685FDB346A796 /* [CP] Check Pods Manifest.lock */,
+				A0BDF7221E2FCC5A0028778F /* Swiftlint */,
 				A33E609D1DE761C90065CBD8 /* Sources */,
 				A33E609E1DE761C90065CBD8 /* Frameworks */,
 				A33E609F1DE761C90065CBD8 /* Resources */,
@@ -490,7 +494,7 @@
 				A306D3FB1E1D7A7200B6C23A /* LiveInjection.storyboard in Resources */,
 				A35949131E1A29800095F407 /* Basic.storyboard in Resources */,
 				A35949161E1A2A6A0095F407 /* MusicPlayer.storyboard in Resources */,
-				A359492D1E1A39D00095F407 /* LabelTransform.storyboard in Resources */,
+				A359492D1E1A39D00095F407 /* LabelMorph.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -511,6 +515,20 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HeroExamples/Pods-HeroExamples-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		A0BDF7221E2FCC5A0028778F /* Swiftlint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = Swiftlint;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
 		};
 		AB630E15554685FDB346A796 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -584,15 +602,16 @@
 				A33E60BF1DE7621C0065CBD8 /* CityGuideCell.swift in Sources */,
 				A33E60A51DE761C90065CBD8 /* AppDelegate.swift in Sources */,
 				A33E60BE1DE7621C0065CBD8 /* City.swift in Sources */,
+				A3298CDF1E315B96005B06BB /* LabelMorphPlugin.swift in Sources */,
 				A304BF841DF2717900A03345 /* ImageViewController.swift in Sources */,
 				A306D3F61E1D7A1A00B6C23A /* LiveInjection2ViewControllers.swift in Sources */,
 				B10FDD451E00DD9800B7B66E /* DebugViewController.swift in Sources */,
-				B195F5771DFE516F00B1343C /* LabelTransformViewController.swift in Sources */,
 				B185A4E61DFA6E0C00C3B85D /* ListTableViewController.swift in Sources */,
 				A39400B61E1D8749005E5454 /* LiveInjection1ViewController.swift in Sources */,
 				A33E60C11DE7621C0065CBD8 /* CityViewController.swift in Sources */,
 				B185A4E81DFA6FE200C3B85D /* GridCollectionViewController.swift in Sources */,
 				A304BF8A1DF647FC00A03345 /* ImageCells.swift in Sources */,
+				A3298CE01E315B96005B06BB /* LabelMorphViewController.swift in Sources */,
 				A313499B1E1E2AED00EB5139 /* ImageLibrary.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -700,12 +719,12 @@
 			path = ..;
 			sourceTree = "<group>";
 		};
-		A359492B1E1A39D00095F407 /* LabelTransform.storyboard */ = {
+		A359492B1E1A39D00095F407 /* LabelMorph.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				A359492C1E1A39D00095F407 /* Base */,
 			);
-			name = LabelTransform.storyboard;
+			name = LabelMorph.storyboard;
 			path = ..;
 			sourceTree = "<group>";
 		};
