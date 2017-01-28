@@ -22,7 +22,7 @@
 
 import UIKit
 
-open class HeroPlugin: HeroPreprocessor, HeroAnimator{
+open class HeroPlugin: NSObject, HeroPreprocessor, HeroAnimator{
   /**
     Determines whether or not to receive `seekTo` callback on every frame.
    
@@ -35,7 +35,7 @@ open class HeroPlugin: HeroPreprocessor, HeroAnimator{
    */
   open var requirePerFrameCallback = false
   
-  public required init(){}
+  public override required init(){}
   
   /**
    Called before any animation.

@@ -179,13 +179,13 @@ extension HeroContext {
 
 // internal
 extension HeroContext {
-  internal func hide(view: UIView) {
+  public func hide(view: UIView) {
     if viewAlphas[view] == nil {
       viewAlphas[view] = view.alpha
       view.alpha = 0
     }
   }
-  internal func unhide(view: UIView) {
+  public func unhide(view: UIView) {
     if let oldAlpha = viewAlphas[view] {
       view.alpha = oldAlpha
       viewAlphas[view] = nil
