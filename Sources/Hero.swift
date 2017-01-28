@@ -155,15 +155,8 @@ public extension Hero {
   public func update(progress: Double) {
     guard transitioning else { return }
     let progress = max(0, min(1, progress))
-    func update(){
-      beginTime = nil
-      self.progress = progress
-    }
-    if totalDuration == 0 {
-      DispatchQueue.main.async(execute: update)
-    } else {
-      update()
-    }
+    beginTime = nil
+    self.progress = progress
   }
   
   /**
@@ -331,16 +324,25 @@ internal extension Hero {
       }
       
       var totalDuration:TimeInterval = 0
+      var animatorWantsInteractive = false
       for (i, animator) in self.animators.enumerated() {
         let duration = animator.animate(fromViews: animatingViews[i].0,
                                         toViews: animatingViews[i].1)
-        totalDuration = max(totalDuration, duration)
+        if duration == .infinity {
+          animatorWantsInteractive = true
+        } else {
+          totalDuration = max(totalDuration, duration)
+        }
       }
 
       // we are done with setting up, so remove the covering snapshot
       completeSnapshot.removeFromSuperview()
       self.totalDuration = totalDuration
-      self.complete(after: totalDuration, finishing: true)
+      if animatorWantsInteractive {
+        self.update(progress: 0.001)
+      } else {
+        self.complete(after: totalDuration, finishing: true)
+      }
     }
   }
   
@@ -357,6 +359,10 @@ internal extension Hero {
   }
   
   func complete(after:TimeInterval, finishing:Bool) {
+    if after <= 0.001 {
+      complete(finished: finishing)
+      return
+    }
     let timePassed = (finishing ? progress : 1 - progress) * totalDuration
     self.finishing = finishing
     self.duration = after + timePassed

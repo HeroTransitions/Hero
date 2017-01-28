@@ -51,8 +51,8 @@ public class HeroDebugPlugin: HeroPlugin {
     UIView.animate(withDuration: 0.4) {
       debugView.showControls = true
     }
-    Hero.shared.update(progress: 0)
-    return 0
+
+    return .infinity
   }
 
   public override func resume(timePassed: TimeInterval, reverse: Bool) -> TimeInterval {
