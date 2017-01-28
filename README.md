@@ -38,11 +38,6 @@ The following videos give you a general idea of what you can do with **Hero**
 <a href="https://youtu.be/NFhA6qZdunA"><img src="https://github.com/lkzhao/Hero/blob/master/Resources/debugger.png?raw=true" height="300"/></a>
 <a href="https://youtu.be/m8eeO_GETeA"><img src="https://github.com/lkzhao/Hero/blob/master/Resources/liveInjection.png?raw=true" height="300"/></a>
 
-## Installation & Usage Guide
-Hero is available on Carthage & Cocoapods. See the **[usage guide](https://github.com/lkzhao/Hero/wiki/Usage-Guide)** for instructions.
-
-##### NOTE: Hero won't work on iPhone 7 Simulators due to a [bug](https://forums.developer.apple.com/thread/63438) by Apple. Try using other simulators or a real device when working with Hero.
-
 ## Usage Example 1
 
 <img src="https://cdn.rawgit.com/lkzhao/Hero/e4b0d15a15d738ac4b163797816059c199100e22/Resources/simple-v1.svg" />
@@ -90,6 +85,28 @@ You can do these in the **storyboard** too!
 
 <img src="https://cdn.rawgit.com/lkzhao/Hero/master/Resources/storyboardView.png" width="267px"/> 
 <img src="https://cdn.rawgit.com/lkzhao/Hero/master/Resources/storyboardViewController.png" width="267px"/>
+
+## Usage Guide
+
+* [Installation](https://github.com/lkzhao/Hero/wiki/Usage-Guide#installation)
+* [Usage](https://github.com/lkzhao/Hero/wiki/Usage-Guide#usage)
+	* [Storyboard](https://github.com/lkzhao/Hero/wiki/Usage-Guide#storyboard)
+	* [In Code](https://github.com/lkzhao/Hero/wiki/Usage-Guide#in-code)
+* [Attributes](https://github.com/lkzhao/Hero/wiki/Usage-Guide#attributes)
+	* [HeroID](https://github.com/lkzhao/Hero/wiki/Usage-Guide#heroid)
+	* [HeroModifiers](https://github.com/lkzhao/Hero/wiki/Usage-Guide#heromodifiers)
+	* [HeroModifierString](https://github.com/lkzhao/Hero/wiki/Usage-Guide#heromodifierstring)
+* [Modifiers](https://github.com/lkzhao/Hero/wiki/Usage-Guide#modifiers)
+	* [Basic Modifiers](https://github.com/lkzhao/Hero/wiki/Usage-Guide#basic-modifiers)
+	* [Advance Modifiers](https://github.com/lkzhao/Hero/wiki/Usage-Guide#advance-modifiers)
+	* [zPosition](https://github.com/lkzhao/Hero/wiki/Usage-Guide#zposition-modifier)
+	* [Arc](https://github.com/lkzhao/Hero/wiki/Usage-Guide#arc-modifier)
+	* [Source](https://github.com/lkzhao/Hero/wiki/Usage-Guide#source-modifier)
+	* [Cascade](https://github.com/lkzhao/Hero/wiki/Usage-Guide#cascade-modifier)
+	* [IgnoreSubviewModifiers](https://github.com/lkzhao/Hero/wiki/Usage-Guide#ignoresubviewmodifiers-modifier)
+* [UINavigationController & UITabBarController](https://github.com/lkzhao/Hero/wiki/Usage-Guide#uinavigationcontroller--uitabbarcontroller)
+
+##### NOTE: Hero won't work on iPhone 7 Simulators due to a [bug](https://forums.developer.apple.com/thread/63438) by Apple. Try using other simulators or a real device when working with Hero.
 
 ## Contribute
 
