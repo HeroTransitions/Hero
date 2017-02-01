@@ -13,7 +13,7 @@ class InitialViewController: UITableViewController {
   var storyboards: [[String]] = [
     [],
     ["Basic", "MusicPlayer", "Menu"],
-    ["CityGuide", "ImageViewer", "ListToGrid", "ImageGallery"],
+    ["CityGuide", "ImageViewer", "AppleHomePage", "ListToGrid", "ImageGallery"],
     ["LiveInjection", "Debug", "LabelMorph"]
   ]
 

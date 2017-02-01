@@ -43,6 +43,9 @@ extension SourcePreprocessor {
     let targetPos = context.container.convert(targetView.layer.position, from: targetView.superview!)
 
     var state = context[view]!
+    
+    // use global coordinate space since over target position is converted from the global container
+    state.useGlobalCoordinateSpace = true
 
     // remove incompatible options
     state.transform = nil

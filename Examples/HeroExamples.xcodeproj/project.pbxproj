@@ -61,6 +61,8 @@
 		A37D7B641E2C0CD100AC1959 /* HeroDebugView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37D7B621E2C0CD100AC1959 /* HeroDebugView.swift */; };
 		A39400B61E1D8749005E5454 /* LiveInjection1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39400B51E1D8749005E5454 /* LiveInjection1ViewController.swift */; };
 		B10FDD451E00DD9800B7B66E /* DebugViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10FDD441E00DD9800B7B66E /* DebugViewController.swift */; };
+		B114B6901E412A0B0009CEDE /* AppleProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B114B68F1E412A0B0009CEDE /* AppleProductViewController.swift */; };
+		B114B6921E412A140009CEDE /* AppleHomePage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B114B6911E412A140009CEDE /* AppleHomePage.storyboard */; };
 		B185A4E61DFA6E0C00C3B85D /* ListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B185A4E51DFA6E0C00C3B85D /* ListTableViewController.swift */; };
 		B185A4E81DFA6FE200C3B85D /* GridCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B185A4E71DFA6FE200C3B85D /* GridCollectionViewController.swift */; };
 /* End PBXBuildFile section */
@@ -146,6 +148,8 @@
 		A37D7B621E2C0CD100AC1959 /* HeroDebugView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeroDebugView.swift; sourceTree = "<group>"; };
 		A39400B51E1D8749005E5454 /* LiveInjection1ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LiveInjection1ViewController.swift; path = LiveInjection/LiveInjection1ViewController.swift; sourceTree = "<group>"; };
 		B10FDD441E00DD9800B7B66E /* DebugViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DebugViewController.swift; path = Debug/DebugViewController.swift; sourceTree = "<group>"; };
+		B114B68F1E412A0B0009CEDE /* AppleProductViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppleProductViewController.swift; path = AppleHomepage/AppleProductViewController.swift; sourceTree = "<group>"; };
+		B114B6911E412A140009CEDE /* AppleHomePage.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AppleHomePage.storyboard; sourceTree = "<group>"; };
 		B185A4E51DFA6E0C00C3B85D /* ListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ListTableViewController.swift; path = ListToGrid/ListTableViewController.swift; sourceTree = "<group>"; };
 		B185A4E71DFA6FE200C3B85D /* GridCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GridCollectionViewController.swift; path = ListToGrid/GridCollectionViewController.swift; sourceTree = "<group>"; };
 		C377744CBFF1E24426E80F55 /* Pods-HeroExamples.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HeroExamples.release.xcconfig"; path = "Pods/Target Support Files/Pods-HeroExamples/Pods-HeroExamples.release.xcconfig"; sourceTree = "<group>"; };
@@ -299,6 +303,7 @@
 				A35949111E1A29800095F407 /* Basic.storyboard */,
 				A35949141E1A2A6A0095F407 /* MusicPlayer.storyboard */,
 				A35949191E1A31E20095F407 /* Menu.storyboard */,
+				B114B6931E412A1B0009CEDE /* AppleHomePage */,
 				A33E60B81DE7621C0065CBD8 /* CityGuide */,
 				B185A4E91DFA6FE700C3B85D /* ListToGrid */,
 				A3499D9D1DF202350049B541 /* ImageGallery */,
@@ -353,6 +358,15 @@
 				B10FDD441E00DD9800B7B66E /* DebugViewController.swift */,
 			);
 			name = Debug;
+			sourceTree = "<group>";
+		};
+		B114B6931E412A1B0009CEDE /* AppleHomePage */ = {
+			isa = PBXGroup;
+			children = (
+				B114B6911E412A140009CEDE /* AppleHomePage.storyboard */,
+				B114B68F1E412A0B0009CEDE /* AppleProductViewController.swift */,
+			);
+			name = AppleHomePage;
 			sourceTree = "<group>";
 		};
 		B185A4E91DFA6FE700C3B85D /* ListToGrid */ = {
@@ -442,11 +456,13 @@
 				TargetAttributes = {
 					A306D3B11E1C7A2E00B6C23A = {
 						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = 4VSEW78TKT;
 						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
 					};
 					A33E60A01DE761C90065CBD8 = {
 						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = 4VSEW78TKT;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -485,6 +501,7 @@
 				A359491B1E1A31E20095F407 /* Menu.storyboard in Resources */,
 				A35949271E1A384E0095F407 /* ListToGrid.storyboard in Resources */,
 				A35949211E1A32C50095F407 /* ImageGallery.storyboard in Resources */,
+				B114B6921E412A140009CEDE /* AppleHomePage.storyboard in Resources */,
 				A359491E1E1A325A0095F407 /* CityGuide.storyboard in Resources */,
 				A33E60AF1DE761C90065CBD8 /* LaunchScreen.storyboard in Resources */,
 				A359492A1E1A39B30095F407 /* Debug.storyboard in Resources */,
@@ -597,6 +614,7 @@
 			files = (
 				A35949181E1A2BE60095F407 /* InitialViewController.swift in Sources */,
 				A33E60C01DE7621C0065CBD8 /* CityGuideViewController.swift in Sources */,
+				B114B6901E412A0B0009CEDE /* AppleProductViewController.swift in Sources */,
 				A33E60BD1DE7621C0065CBD8 /* UIKit+HeroExamples.swift in Sources */,
 				A3499D9F1DF2024E0049B541 /* ImageGalleryCollectionViewController.swift in Sources */,
 				A33E60BF1DE7621C0065CBD8 /* CityGuideCell.swift in Sources */,
@@ -736,9 +754,10 @@
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 4VSEW78TKT;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -764,7 +783,7 @@
 				CODE_SIGN_IDENTITY = "";
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 4VSEW78TKT;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -881,7 +900,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 4VSEW78TKT;
 				INFOPLIST_FILE = HeroExamples/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -898,7 +917,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 4VSEW78TKT;
 				INFOPLIST_FILE = HeroExamples/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

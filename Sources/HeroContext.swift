@@ -89,7 +89,18 @@ extension HeroContext {
     if let snapshot = snapshotViews[view] {
       return snapshot
     }
-
+    
+    var containerView = container
+    if targetStates[view]?.useGlobalCoordinateSpace != true {
+      containerView = view
+      while containerView != container, snapshotViews[containerView] == nil, let superview = containerView.superview {
+        containerView = superview
+      }
+      if let snapshot = snapshotViews[containerView] {
+        containerView = snapshot
+      }
+    }
+ 
     unhide(view: view)
 
     // capture a snapshot without alpha & cornerRadius
@@ -157,12 +168,12 @@ extension HeroContext {
     snapshot.layer.shadowColor = view.layer.shadowColor
     snapshot.layer.shadowOffset = view.layer.shadowOffset
 
-    snapshot.frame = container.convert(view.bounds, from: view)
+    snapshot.frame = containerView.convert(view.bounds, from: view)
     snapshot.heroID = view.heroID
 
     hide(view: view)
 
-    container.addSubview(snapshot)
+    containerView.addSubview(snapshot)
     snapshotViews[view] = snapshot
     return snapshot
   }

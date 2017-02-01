@@ -200,25 +200,26 @@ public extension UIViewController {
         Hero.shared.forceNotInteractive = true
       }
       navigationController.setViewControllers(vcs, animated: true)
-    } else {
+    } else if let container = view.superview {
       let parentVC = presentingViewController
-      let container = view.superview!
       let oldTransitionDelegate = next.transitioningDelegate
       next.isHeroEnabled = true
-      Hero.shared.transition(from: self, to: next, in: container) {
+      Hero.shared.transition(from: self, to: next, in: container) { finished in
         if !(oldTransitionDelegate is Hero) {
           next.isHeroEnabled = false
           next.transitioningDelegate = oldTransitionDelegate
         }
-
-        UIApplication.shared.keyWindow?.addSubview(next.view)
-
-        if let parentVC = parentVC {
-          self.dismiss(animated: false) {
-            parentVC.present(next, animated: false, completion:nil)
+        
+        if finished {
+          UIApplication.shared.keyWindow?.addSubview(next.view)
+          
+          if let parentVC = parentVC {
+            self.dismiss(animated: false) {
+              parentVC.present(next, animated: false, completion:nil)
+            }
+          } else {
+            UIApplication.shared.keyWindow?.rootViewController = next
           }
-        } else {
-          UIApplication.shared.keyWindow?.rootViewController = next
         }
       }
     }
