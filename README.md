@@ -60,7 +60,7 @@ greenView.heroModifiers = [.translate(x:0, y:100), .scale(0.5)]
 
 
 ## Usage Example 2
-<img src="https://cdn.rawgit.com/lkzhao/Hero/e4b0d15a15d738ac4b163797816059c199100e22/Resources/advance-v1.svg" />
+<img src="https://cdn.rawgit.com/lkzhao/Hero/ecec15de7747d9541db9af62e4001da6bf0b3896/Resources/advance-v1.svg" />
 <img src="https://cdn.rawgit.com/lkzhao/Hero/e4b0d15a15d738ac4b163797816059c199100e22/Resources/advance-v2.svg" />
 <img src="https://cdn.rawgit.com/lkzhao/Hero/e4b0d15a15d738ac4b163797816059c199100e22/Resources/advance-animation.svg" />
 
