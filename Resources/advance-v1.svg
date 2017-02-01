@@ -11,7 +11,7 @@
     <g id="Storyboard">
         <rect id="Rectangle-5" fill="#99A9BA" x="0" y="0" width="136" height="270" rx="9"></rect>
         <text id="View-Controller-2" font-family="HelveticaNeue-Bold, Helvetica Neue" font-size="12" font-weight="bold" fill="#FFFFFF">
-            <tspan x="20" y="27">View Controller 2</tspan>
+            <tspan x="20" y="27">View Controller 1</tspan>
         </text>
         <g id="screen2" transform="translate(8.000000, 45.000000)">
             <rect id="Rectangle-3" fill="#FFFFFF" x="0" y="0" width="120" height="208" rx="10"></rect>

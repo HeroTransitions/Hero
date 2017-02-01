@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="136px" height="270px" viewBox="0 0 136 270" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Local Coordinate Space</title>
+    <defs>
+        <clipPath id="screen">
+            <rect id="whiteScreen" x="0" y="0" width="120" height="208" rx="10"></rect>
+        </clipPath>
+    </defs>
+    <g id="Group" transform="translate(0.000000, 0.000000)">
+        <rect id="Rectangle" fill="#0C1E31" x="0" y="0" width="136" height="270" rx="18"></rect>
+        <circle id="Oval" fill="#FC3A5E" cx="68" cy="253" r="9"></circle>
+        <g id="screen2" transform="translate(8.000000, 31.000000)">
+            <rect id="Rectangle-3" fill="#FFFFFF" x="0" y="0" width="119.325312" height="208.819297" rx="10"></rect>
+
+            <rect fill="#D8D8D8" x="21" y="30" width="78" height="78" rx="9">
+                <animate 
+                    attributeName="y" 
+                    values="30;100;100;30;30" 
+                    dur="1s"
+                    calcMode="spline"
+                    keySplines="0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1"
+                    repeatCount="indefinite"
+                    fill="freeze" />
+            </rect>
+            <rect fill="#555555" x="29" y="42" width="24" height="24" rx="9">
+                <animate 
+                    attributeName="y" 
+                    values="42;112;112;42;42" 
+                    dur="1s"
+                    calcMode="spline"
+                    keySplines="0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1"
+                    repeatCount="indefinite"
+                    fill="freeze" />
+            </rect>
+            <rect fill="#FC3A5E" x="29" y="72" width="24" height="24" rx="9">
+                <animate 
+                    attributeName="y" 
+                    values="72;142;142;72;72" 
+                    dur="1s"
+                    calcMode="spline"
+                    keySplines="0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1"
+                    repeatCount="indefinite"
+                    fill="freeze" />
+                <animate 
+                    attributeName="x" 
+                    values="29;66;66;29;29" 
+                    dur="1s"
+                    calcMode="spline"
+                    keySplines="0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1"
+                    repeatCount="indefinite"
+                    fill="freeze" />
+            </rect>
+        </g>
+    </g>
+</svg>
