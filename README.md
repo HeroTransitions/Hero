@@ -104,6 +104,9 @@ You can do these in the **storyboard** too!
 	* [Source](https://github.com/lkzhao/Hero/wiki/Usage-Guide#source-modifier)
 	* [Cascade](https://github.com/lkzhao/Hero/wiki/Usage-Guide#cascade-modifier)
 	* [IgnoreSubviewModifiers](https://github.com/lkzhao/Hero/wiki/Usage-Guide#ignoresubviewmodifiers-modifier)
+* [Coordinate Space](https://github.com/lkzhao/Hero/wiki/Usage-Guide#coordinate-space)
+	* [Global](https://github.com/lkzhao/Hero/wiki/Usage-Guide#global-coordinate-space-default-before-013)
+	* [Local](https://github.com/lkzhao/Hero/wiki/Usage-Guide#local-coordinate-space-default-after-013)
 * [UINavigationController & UITabBarController](https://github.com/lkzhao/Hero/wiki/Usage-Guide#uinavigationcontroller--uitabbarcontroller)
 
 ##### NOTE: Hero won't work on iPhone 7 Simulators due to a [bug](https://forums.developer.apple.com/thread/63438) by Apple. Try using other simulators or a real device when working with Hero.
