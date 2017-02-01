@@ -1,6 +1,7 @@
 disabled_rules: # rule identifiers to exclude from running
   - missing_docs
   - unused_closure_parameter
+  - force_cast
 
 opt_in_rules: # some rules are only opt-in
   - empty_count

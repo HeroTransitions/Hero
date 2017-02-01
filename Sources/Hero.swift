@@ -85,7 +85,7 @@ public class Hero:NSObject {
   // might be nil when transitioning. This happens when calling heroReplaceViewController
   fileprivate weak var transitionContext: UIViewControllerContextTransitioning?
   
-  fileprivate var completionCallback: (() -> Void)?
+  fileprivate var completionCallback: ((Bool) -> Void)?
   internal var forceNotInteractive = false
   
   fileprivate var displayLink:CADisplayLink?
@@ -164,8 +164,12 @@ public extension Hero {
    Will stop the interactive transition and animate from the
    current state to the **end** state
    */
-  public func end() {
+  public func end(animate:Bool = true) {
     guard transitioning && interactive else { return }
+    if !animate {
+      complete(finished:true)
+      return
+    }
     var maxTime:TimeInterval = 0
     for animator in animators {
       maxTime = max(maxTime, animator.resume(timePassed:progress * totalDuration, reverse: false))
@@ -178,8 +182,12 @@ public extension Hero {
    Will stop the interactive transition and animate from the 
    current state to the **begining** state
    */
-  public func cancel() {
+  public func cancel(animate:Bool = true) {
     guard transitioning && interactive else { return }
+    if !animate {
+      complete(finished:false)
+      return
+    }
     var maxTime:TimeInterval = 0
     for animator in animators {
       maxTime = max(maxTime, animator.resume(timePassed:progress * totalDuration, reverse: true))
@@ -346,7 +354,7 @@ internal extension Hero {
     }
   }
   
-  func transition(from: UIViewController, to: UIViewController, in view: UIView, completion: (() -> Void)? = nil) {
+  func transition(from: UIViewController, to: UIViewController, in view: UIView, completion: ((Bool) -> Void)? = nil) {
     guard !transitioning else { return }
     forceNotInteractive = true
     inContainerController = false
@@ -378,11 +386,6 @@ internal extension Hero {
 
     // move fromView & toView back from animatingViewContainer
     transitionContainer.addSubview(finished ? toView : fromView)
-    
-    if presenting != finished, !inContainerController {
-      // bug: http://openradar.appspot.com/radar?id=5320103646199808
-      UIApplication.shared.keyWindow!.addSubview(toView)
-    }
     
     container.removeFromSuperview()
     transitionContainer!.isUserInteractionEnabled = true
@@ -430,7 +433,7 @@ internal extension Hero {
       tContext?.cancelInteractiveTransition()
     }
     tContext?.completeTransition(finished)
-    completion?()
+    completion?(finished)
   }
 }
 

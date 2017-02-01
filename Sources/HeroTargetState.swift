@@ -38,6 +38,7 @@ public struct HeroTargetState {
   internal var source: String?
   internal var cascade: (TimeInterval, CascadePreprocessor.CascadeDirection, Bool)?
   internal var ignoreSubviewModifiers: Bool?
+  internal var useGlobalCoordinateSpace: Bool?
 
   internal var custom: [String:Any]?
 

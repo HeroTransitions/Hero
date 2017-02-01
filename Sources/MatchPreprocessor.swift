@@ -29,7 +29,7 @@ public class MatchPreprocessor:BasePreprocessor {
 
       var tvState = context[tv] ?? HeroTargetState()
       if let zPosition = tvState.zPositionIfMatched {
-        tvState.zPosition = zPosition
+        tvState.append(contentsOf: [.zPosition(zPosition)])
       }
       tvState.source = id
 
