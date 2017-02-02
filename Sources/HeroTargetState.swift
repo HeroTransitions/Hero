@@ -36,7 +36,7 @@ public struct HeroTargetState {
   internal var zPosition: CGFloat?
   internal var zPositionIfMatched: CGFloat?
   internal var source: String?
-  internal var cascade: (TimeInterval, CascadePreprocessor.CascadeDirection, Bool)?
+  internal var cascade: (TimeInterval, CascadeDirection, Bool)?
   internal var ignoreSubviewModifiers: Bool?
   internal var useGlobalCoordinateSpace: Bool?
 

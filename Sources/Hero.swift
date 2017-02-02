@@ -22,28 +22,43 @@
 
 import UIKit
 
+/**
+ ### The singleton class/object for controlling interactive transitions.
+ 
+ ```swift
+   Hero.shared
+ ```
+ 
+ #### Use the following methods for controlling the interactive transition:
+
+ ```swift
+   func update(progress:Double)
+   func end()
+   func cancel()
+   func apply(modifiers:[HeroModifier], to view:UIView)
+ ```
+ */
 public class Hero:NSObject {
-  /**
-   ## The Singleton object for controlling interactive transitions.
-   
-       var presenting:Bool
-       var interactive:Bool
-   
-   ### Use the following methods for controlling the interactive transition:
-       func update(progress:Double)
-       func end()
-       func cancel()
-       func apply(modifiers:[HeroModifier], to view:UIView)
-   */
+  // MARK: Shared Access
+
+  /// Shared singleton object for controlling the transition
   public static let shared = Hero()
   
+  // MARK: Properties
+
+  /// destination view controller
   public fileprivate(set) weak var toViewController:UIViewController?
+  /// source view controller
   public fileprivate(set) weak var fromViewController:UIViewController?
+  /// context object holding transition informations
   public fileprivate(set) var context: HeroContext!
+  /// whether or not we are presenting the destination view controller
   public fileprivate(set) var presenting = true
+  /// whether or not we are handling transition interactively
   public var interactive:Bool {
     return displayLink == nil
   }
+  /// progress of the current transition. 0 if no transition is happening
   public fileprivate(set) var progress:Double = 0 {
     didSet{
       if transitioning, progress != oldValue {
@@ -69,20 +84,20 @@ public class Hero:NSObject {
       }
     }
   }
-
+  /// whether or not we are doing a transition
   public var transitioning: Bool {
     return transitionContainer != nil
   }
   
-  // container we created to hold all animating views, will be a subview of the 
-  // transitionContainer when transitioning
+  /// container we created to hold all animating views, will be a subview of the
+  /// transitionContainer when transitioning
   public fileprivate(set) var container: UIView!
   
-  // this is the container supplied by UIKit
+  /// this is the container supplied by UIKit
   fileprivate var transitionContainer:UIView!
   
-  // a UIViewControllerContextTransitioning object provided by UIKit,
-  // might be nil when transitioning. This happens when calling heroReplaceViewController
+  /// a UIViewControllerContextTransitioning object provided by UIKit,
+  /// might be nil when transitioning. This happens when calling heroReplaceViewController
   fileprivate weak var transitionContext: UIViewControllerContextTransitioning?
   
   fileprivate var completionCallback: ((Bool) -> Void)?
@@ -92,7 +107,7 @@ public class Hero:NSObject {
   fileprivate var progressUpdateObservers:[HeroProgressUpdateObserver]?
   
   
-  // max duration needed by the default animator and plugins
+  /// max duration needed by the default animator and plugins
   fileprivate var totalDuration: TimeInterval = 0.0
   fileprivate var duration: TimeInterval = 0.0
   fileprivate var beginTime:TimeInterval?{
@@ -130,7 +145,7 @@ public class Hero:NSObject {
   
   
   fileprivate var finishing:Bool = true
-  // true if transitioning inside a UINavigationController or UITabBarController
+  /// true if transitioning inside a UINavigationController or UITabBarController
   fileprivate var inContainerController = false
   
   fileprivate var toView: UIView { return toViewController!.view }
@@ -145,8 +160,9 @@ public class Hero:NSObject {
   fileprivate override init(){}
 }
 
-// control interactive transition
 public extension Hero {
+  // MARK: Interactive Transition
+  
   /**
    Update the progress for the interactive transition.
    - Parameters:
@@ -221,8 +237,9 @@ public extension Hero {
   }
 }
 
-// observe progress
 public extension Hero{
+  // MARK: Observe Progress
+
   /**
    Receive callbacks on each animation frame.
    Observers will be cleaned when transition completes
@@ -238,7 +255,7 @@ public extension Hero{
   }
 }
 
-// methods for transition
+// internal methods for transition
 internal extension Hero {
   func start() {
     if let fvc = fromViewController, let tvc = toViewController {
@@ -284,14 +301,12 @@ internal extension Hero {
     container.addSubview(fromView)
     container.insertSubview(toView, belowSubview: fromView)
     container.backgroundColor = toView.backgroundColor
-    
+
     toView.updateConstraints()
     toView.setNeedsLayout()
     toView.layoutIfNeeded()
     
     context = HeroContext(container:container, fromView: fromView, toView:toView)
-    
-    // ask each preprocessor to process
     
     for processor in processors {
       processor.process(fromViews: context.fromViews, toViews: context.toViews)
@@ -437,7 +452,7 @@ internal extension Hero {
   }
 }
 
-// plugin support
+// MARK: Plugin Support
 internal extension Hero {
   static func isEnabled(plugin: HeroPlugin.Type) -> Bool {
     return enabledPlugins.index(where: { return $0 == plugin}) != nil
@@ -489,6 +504,8 @@ fileprivate extension Hero {
 
 
 
+
+// MARK: UIKit Protocol Conformance
 
 /*****************************
  * UIKit protocol extensions *

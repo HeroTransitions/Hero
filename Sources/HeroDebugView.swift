@@ -30,7 +30,7 @@ protocol HeroDebugViewDelegate {
   func onDone()
 }
 
-public class HeroDebugView: UIView {
+class HeroDebugView: UIView {
   var backgroundView: UIView!
   var debugSlider: UISlider!
   var perspectiveButton: UIButton!

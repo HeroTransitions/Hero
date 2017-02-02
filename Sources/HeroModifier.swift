@@ -296,7 +296,7 @@ extension HeroModifier {
      - delayMatchedViews: whether or not to delay matched subviews until all cascading animation have started
    */
   public static func cascade(delta: TimeInterval = 0.02,
-                      direction: CascadePreprocessor.CascadeDirection = .topToBottom,
+                      direction: CascadeDirection = .topToBottom,
                       delayMatchedViews: Bool = false) -> HeroModifier {
     return HeroModifier { targetState in
       targetState.cascade = (delta, direction, delayMatchedViews)
@@ -359,9 +359,9 @@ extension HeroModifier {
     case "arc":
       modifier = .arc(intensity: parameters.getCGFloat(0) ?? 1)
     case "cascade":
-      var cascadeDirection = CascadePreprocessor.CascadeDirection.topToBottom
+      var cascadeDirection = CascadeDirection.topToBottom
       if let directionString = parameters.get(1),
-        let direction = CascadePreprocessor.CascadeDirection(directionString) {
+        let direction = CascadeDirection(directionString) {
         cascadeDirection = direction
       }
       modifier = .cascade(delta: parameters.getDouble(0) ?? 0.02, direction: cascadeDirection, delayMatchedViews:parameters.getBool(2) ?? false)
