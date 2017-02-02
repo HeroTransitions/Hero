@@ -24,54 +24,53 @@
 
 import UIKit
 
-
-public class CascadePreprocessor:BasePreprocessor {
-  public enum CascadeDirection{
-    case topToBottom
-    case bottomToTop
-    case leftToRight
-    case rightToLeft
-    case radial(center:CGPoint)
-    case inverseRadial(center:CGPoint)
-    var comparator: (UIView, UIView) -> Bool {
-      switch self {
-      case .topToBottom:
-        return { return $0.frame.minY < $1.frame.minY }
-      case .bottomToTop:
-        return { return $0.frame.maxY == $1.frame.maxY ? $0.frame.maxX > $1.frame.maxX : $0.frame.maxY > $1.frame.maxY }
-      case .leftToRight:
-        return { return $0.frame.minX < $1.frame.minX }
-      case .rightToLeft:
-        return { return $0.frame.maxX > $1.frame.maxX }
-      case .radial(let center):
-        return { return $0.center.distance(center) < $1.center.distance(center) }
-      case .inverseRadial(let center):
-        return { return $0.center.distance(center) > $1.center.distance(center) }
-      }
-    }
-
-    init?(_ string: String) {
-      switch string {
-      case "bottomToTop":
-        self = .bottomToTop
-      case "leftToRight":
-        self = .leftToRight
-      case "rightToLeft":
-        self = .rightToLeft
-      case "topToBottom":
-        self = .topToBottom
-      default:
-        return nil
-      }
+public enum CascadeDirection {
+  case topToBottom
+  case bottomToTop
+  case leftToRight
+  case rightToLeft
+  case radial(center:CGPoint)
+  case inverseRadial(center:CGPoint)
+  var comparator: (UIView, UIView) -> Bool {
+    switch self {
+    case .topToBottom:
+      return { return $0.frame.minY < $1.frame.minY }
+    case .bottomToTop:
+      return { return $0.frame.maxY == $1.frame.maxY ? $0.frame.maxX > $1.frame.maxX : $0.frame.maxY > $1.frame.maxY }
+    case .leftToRight:
+      return { return $0.frame.minX < $1.frame.minX }
+    case .rightToLeft:
+      return { return $0.frame.maxX > $1.frame.maxX }
+    case .radial(let center):
+      return { return $0.center.distance(center) < $1.center.distance(center) }
+    case .inverseRadial(let center):
+      return { return $0.center.distance(center) > $1.center.distance(center) }
     }
   }
+  
+  init?(_ string: String) {
+    switch string {
+    case "bottomToTop":
+      self = .bottomToTop
+    case "leftToRight":
+      self = .leftToRight
+    case "rightToLeft":
+      self = .rightToLeft
+    case "topToBottom":
+      self = .topToBottom
+    default:
+      return nil
+    }
+  }
+}
 
-  override public func process(fromViews:[UIView], toViews:[UIView]) {
+class CascadePreprocessor:BasePreprocessor {
+  override func process(fromViews:[UIView], toViews:[UIView]) {
     process(views:fromViews)
     process(views:toViews)
   }
   
-  private func process(views:[UIView]){
+  func process(views:[UIView]){
     for (viewIndex, fv) in views.enumerated() {
       guard let (deltaTime, direction, delayMatchedViews) = context[fv]?.cascade else { continue }
 

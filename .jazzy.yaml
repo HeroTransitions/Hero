@@ -1,0 +1,8 @@
+module: Hero
+author: Luke Zhao
+author_url: http://lkzhao.com
+github_url: https://github.com/lkzhao/Hero
+swift_version: 3.0.2
+source_directory: Examples
+readme: README.md
+theme: fullwidth

@@ -22,8 +22,8 @@
 
 import UIKit
 
-public class MatchPreprocessor:BasePreprocessor {
-  override public func process(fromViews:[UIView], toViews:[UIView]) {
+class MatchPreprocessor: BasePreprocessor {
+  override func process(fromViews:[UIView], toViews:[UIView]) {
     for tv in toViews{
       guard let id = tv.heroID, let fv = context.sourceView(for: id) else { continue }
 
