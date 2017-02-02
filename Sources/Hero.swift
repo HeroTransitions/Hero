@@ -301,7 +301,8 @@ internal extension Hero {
     container.addSubview(fromView)
     container.insertSubview(toView, belowSubview: fromView)
     container.backgroundColor = toView.backgroundColor
-
+    
+    toView.frame = fromView.frame
     toView.updateConstraints()
     toView.setNeedsLayout()
     toView.layoutIfNeeded()
