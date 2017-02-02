@@ -27,8 +27,8 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="475.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="HeroLogo" translatesAutoresizingMaskIntoConstraints="NO" id="dy3-SR-wdB">
-                                                    <rect key="frame" x="90.5" y="182.5" width="194" height="111"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="HeroLogo" translatesAutoresizingMaskIntoConstraints="NO" id="dy3-SR-wdB">
+                                                    <rect key="frame" x="40" y="113" width="295" height="250"/>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="string" keyPath="heroModifierString" value="fade translate(0, -250) rotate(-1.6,0,0) scale(1.5) zPosition(100)"/>
                                                         <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="heroTransition"/>
@@ -36,7 +36,8 @@
                                                 </imageView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="dy3-SR-wdB" firstAttribute="centerX" secondItem="Nkg-85-ubg" secondAttribute="centerX" id="iqR-p4-n0P"/>
+                                                <constraint firstAttribute="trailing" secondItem="dy3-SR-wdB" secondAttribute="trailing" constant="40" id="Gpe-FK-pTG"/>
+                                                <constraint firstItem="dy3-SR-wdB" firstAttribute="leading" secondItem="Nkg-85-ubg" secondAttribute="leading" constant="40" id="I4D-JD-cl6"/>
                                                 <constraint firstItem="dy3-SR-wdB" firstAttribute="centerY" secondItem="Nkg-85-ubg" secondAttribute="centerY" id="pcs-PN-6kr"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -708,7 +709,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="HeroLogo" width="194" height="111"/>
+        <image name="HeroLogo" width="724" height="250"/>
         <image name="Unsplash0_thumb" width="512" height="512"/>
         <image name="Unsplash2_thumb" width="512" height="512"/>
         <image name="Unsplash4_thumb" width="512" height="512"/>
