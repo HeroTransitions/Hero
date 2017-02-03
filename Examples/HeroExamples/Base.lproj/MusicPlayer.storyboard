@@ -36,7 +36,7 @@
                                                 <real key="value" value="3"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="albumArt"/>
-                                            <userDefinedRuntimeAttribute type="string" keyPath="heroModifierString" value="zPositionIfMatched(1)"/>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="heroModifierString" value="zPositionIfMatched(2)"/>
                                         </userDefinedRuntimeAttributes>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AWAKE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V7r-P5-cTh">
@@ -46,6 +46,7 @@
                                         <nil key="highlightedColor"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="albumTitle"/>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="heroModifierString" value="zPosition(2)"/>
                                         </userDefinedRuntimeAttributes>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TYCHO MUSIC" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g89-Qa-9j7">
@@ -55,6 +56,7 @@
                                         <nil key="highlightedColor"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="artist"/>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="heroModifierString" value="zPosition(2)"/>
                                         </userDefinedRuntimeAttributes>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KLn-be-KBO">
@@ -70,7 +72,7 @@
                                                 <real key="value" value="24"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="playButton"/>
-                                            <userDefinedRuntimeAttribute type="string" keyPath="heroModifierString" value="scale(0.5) translate(200, 0) fade zPosition(2) useGlobalCoordinateSpace"/>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="heroModifierString" value="scale(0.5) translate(200, 0) fade zPosition(3) useGlobalCoordinateSpace"/>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
                                             <segue destination="RAs-ae-vyu" kind="presentation" id="qGP-rX-0mI"/>
@@ -95,7 +97,7 @@
                                         <real key="value" value="15"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="albumBackground"/>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="heroModifierString" value="source(albumArt) fade"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="heroModifierString" value="source(albumArt) fade zPosition(1)"/>
                                     <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
                                         <color key="value" red="0.25490196079999999" green="0.28627450980000002" blue="0.30980392159999998" alpha="1" colorSpace="calibratedRGB"/>
                                     </userDefinedRuntimeAttribute>
