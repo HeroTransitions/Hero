@@ -22,7 +22,7 @@
 
 import UIKit
 
-open class HeroPlugin: NSObject, HeroPreprocessor, HeroAnimator{
+open class HeroPlugin: NSObject, HeroPreprocessor, HeroAnimator {
   /**
     Determines whether or not to receive `seekTo` callback on every frame.
    
@@ -35,7 +35,7 @@ open class HeroPlugin: NSObject, HeroPreprocessor, HeroAnimator{
    */
   open var requirePerFrameCallback = false
   
-  public override required init(){}
+  public override required init() {}
   
   /**
    Called before any animation.
@@ -56,7 +56,7 @@ open class HeroPlugin: NSObject, HeroPreprocessor, HeroAnimator{
        context[view, "modifier1"] = ["parameter1", "parameter2"]
 
   */
-  open func process(fromViews:[UIView], toViews:[UIView]){}
+  open func process(fromViews: [UIView], toViews: [UIView]) {}
   
   /**
    - Returns: return true if the plugin can handle animating the view.
@@ -67,7 +67,7 @@ open class HeroPlugin: NSObject, HeroPreprocessor, HeroAnimator{
    If return true, Hero won't animate and won't let any other plugins animate this view.
    The view will also be hidden automatically during the animation.
    */
-  open func canAnimate(view:UIView, appearing:Bool) -> Bool { return false }
+  open func canAnimate(view: UIView, appearing: Bool) -> Bool { return false }
   
   /**
    Perform the animation.
@@ -79,8 +79,8 @@ open class HeroPlugin: NSObject, HeroPreprocessor, HeroAnimator{
        - toViews: A flattened list of all views from destination ViewController (filtered by `canAnimate`)
    - Returns: The duration needed to complete the animation
    */
-  open func animate(fromViews:[UIView], toViews:[UIView]) -> TimeInterval { return 0 }
   
+  open func animate(fromViews: [UIView], toViews: [UIView]) -> TimeInterval { return 0 }
   
   /**
    Called when all animations are completed.
@@ -119,16 +119,16 @@ open class HeroPlugin: NSObject, HeroPreprocessor, HeroAnimator{
        - state: the target state to override
        - view: the view to override
    */
-  open func apply(state:HeroTargetState, to view:UIView){}
+  open func apply(state: HeroTargetState, to view: UIView) {}
 }
 
 // methods for enable/disable the current plugin
-extension HeroPlugin{
-  public var context:HeroContext{
+extension HeroPlugin {
+  public var context: HeroContext {
     return Hero.shared.context
   }
-  public static var isEnabled:Bool{
-    get{
+  public static var isEnabled: Bool {
+    get {
       return Hero.isEnabled(plugin: self)
     }
     set {

@@ -22,9 +22,9 @@
 
 import UIKit
 
-class SourcePreprocessor:BasePreprocessor {
-  override func process(fromViews:[UIView], toViews:[UIView]) {
-    for fv in fromViews{
+class SourcePreprocessor: BasePreprocessor {
+  override func process(fromViews: [UIView], toViews: [UIView]) {
+    for fv in fromViews {
       guard let id = context[fv]?.source,
             let tv = context.destinationView(for: id) else { continue }
       prepareFor(view: fv, targetView: tv)
@@ -36,7 +36,7 @@ class SourcePreprocessor:BasePreprocessor {
     }
   }
   
-  func prepareFor(view:UIView, targetView:UIView){
+  func prepareFor(view: UIView, targetView: UIView) {
     let targetPos = context.container.convert(targetView.layer.position, from: targetView.superview!)
 
     var state = context[view]!
