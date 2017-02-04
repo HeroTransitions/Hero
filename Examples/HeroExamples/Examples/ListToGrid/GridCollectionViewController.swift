@@ -34,7 +34,7 @@ class GridCollectionViewController: UICollectionViewController, UICollectionView
   @IBAction func toList(_ sender: Any) {
     let next = (UIStoryboard(name: "ListToGrid", bundle: nil).instantiateViewController(withIdentifier: "list") as? ListTableViewController)!
     next.tableView.contentOffset.y = collectionView!.contentOffset.y + collectionView!.contentInset.top
-    heroReplaceViewController(with: next)
+    hero_replaceViewController(with: next)
   }
 
   override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

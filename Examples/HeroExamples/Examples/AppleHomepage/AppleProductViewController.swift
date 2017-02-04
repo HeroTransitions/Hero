@@ -84,7 +84,7 @@ class AppleProductViewController: UIViewController, HeroViewControllerDelegate {
           nextVC.applyShrinkModifiers()
         }
         state = nextState
-        heroReplaceViewController(with: nextVC)
+        hero_replaceViewController(with: nextVC)
       } else {
         let progress = abs(Double(translateX / view.bounds.width))
         Hero.shared.update(progress: progress)

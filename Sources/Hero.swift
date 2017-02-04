@@ -47,9 +47,9 @@ public class Hero: NSObject {
   // MARK: Properties
 
   /// destination view controller
-  public fileprivate(set) weak var toViewController: UIViewController?
+  public internal(set) var toViewController: UIViewController?
   /// source view controller
-  public fileprivate(set) weak var fromViewController: UIViewController?
+  public internal(set) var fromViewController: UIViewController?
   /// context object holding transition informations
   public fileprivate(set) var context: HeroContext!
   /// whether or not we are presenting the destination view controller
@@ -99,8 +99,12 @@ public class Hero: NSObject {
   /// a UIViewControllerContextTransitioning object provided by UIKit,
   /// might be nil when transitioning. This happens when calling heroReplaceViewController
   fileprivate weak var transitionContext: UIViewControllerContextTransitioning?
+
+  internal var completionCallback: ((Bool) -> Void)?
   
-  fileprivate var completionCallback: ((Bool) -> Void)?
+  // By default, Hero will always appear to be interactive to UIKit. This forces it to appear non-interactive.
+  // Used when doing a hero_replaceViewController within a UINavigationController, to fix a bug with 
+  // UINavigationController.setViewControllers not able to handle interactive transition
   internal var forceNotInteractive = false
   
   
@@ -372,7 +376,6 @@ internal extension Hero {
   
   func transition(from: UIViewController, to: UIViewController, in view: UIView, completion: ((Bool) -> Void)? = nil) {
     guard !transitioning else { return }
-    forceNotInteractive = true
     inContainerController = false
     presenting = true
     transitionContainer = view

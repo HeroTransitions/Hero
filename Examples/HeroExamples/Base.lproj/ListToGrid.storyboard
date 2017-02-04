@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16A313a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="GbK-uB-s7f">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C68" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="GbK-uB-s7f">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -58,7 +58,7 @@
                     <navigationItem key="navigationItem" title="List View" id="8Hc-SE-ki0" userLabel="List View">
                         <barButtonItem key="leftBarButtonItem" image="ic_close" id="bAI-Hz-i3a">
                             <connections>
-                                <action selector="ht_dismiss:" destination="Qzg-Cs-TLb" id="UKq-05-yap"/>
+                                <action selector="hero_dismissViewController" destination="Qzg-Cs-TLb" id="5tK-D2-671"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" image="ic_view_module" id="LTb-sw-hCS">
@@ -138,7 +138,7 @@
                     <navigationItem key="navigationItem" title="Grid View" id="nkt-s5-nHh" userLabel="Grid View">
                         <barButtonItem key="leftBarButtonItem" image="ic_close" id="Ncj-r8-Iur">
                             <connections>
-                                <action selector="ht_dismiss:" destination="8pm-CM-OjS" id="TVW-Z2-L1a"/>
+                                <action selector="hero_dismissViewController" destination="8pm-CM-OjS" id="HKO-ut-Od1"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" image="ic_view_list" id="Q6R-E4-pqG">

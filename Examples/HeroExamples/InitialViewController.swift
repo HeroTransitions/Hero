@@ -24,4 +24,24 @@ class InitialViewController: UITableViewController {
       present(vc, animated: true, completion: nil)
     }
   }
+  
+  override func viewWillAppear(_ animated: Bool) {
+    print("viewWillAppear")
+    super.viewWillAppear(animated)
+  }
+  
+  override func viewDidAppear(_ animated: Bool) {
+    print("viewDidAppear")
+    super.viewDidAppear(animated)
+  }
+  
+  override func viewWillDisappear(_ animated: Bool) {
+    print("viewWillDisappear")
+    super.viewWillDisappear(animated)
+  }
+  
+  override func viewDidDisappear(_ animated: Bool) {
+    print("viewDidDisappear")
+    super.viewDidDisappear(animated)
+  }
 }

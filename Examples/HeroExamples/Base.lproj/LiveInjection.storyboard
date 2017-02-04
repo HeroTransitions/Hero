@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16A313a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BCL-bF-WYc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C68" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BCL-bF-WYc">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -205,7 +205,7 @@ Check out the </string>
                     <navigationItem key="navigationItem" id="g4b-gz-piz">
                         <barButtonItem key="leftBarButtonItem" systemItem="stop" id="qXF-G8-6YS">
                             <connections>
-                                <action selector="ht_dismiss:" destination="Hrk-qg-blu" id="BPd-8b-Rc3"/>
+                                <action selector="hero_dismissViewController" destination="Hrk-qg-blu" id="VRL-F6-Ub3"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Next" id="krp-II-VoJ">

@@ -62,7 +62,7 @@ class ListTableViewController: UITableViewController {
   @IBAction func toGrid(_ sender: Any) {
     let next = (UIStoryboard(name: "ListToGrid", bundle: nil).instantiateViewController(withIdentifier: "grid") as? GridCollectionViewController)!
     next.collectionView?.contentOffset.y = tableView.contentOffset.y + tableView.contentInset.top
-    heroReplaceViewController(with: next)
+    hero_replaceViewController(with: next)
   }
 
   override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

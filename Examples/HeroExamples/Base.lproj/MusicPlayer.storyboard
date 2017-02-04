@@ -128,7 +128,7 @@
                                     <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="back"/>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="ht_dismiss:" destination="Mgk-EP-GQc" eventType="touchUpInside" id="Xom-gT-UbI"/>
+                                    <action selector="hero_unwindToRootViewController:" destination="Mgk-EP-GQc" eventType="touchUpInside" id="fHe-iQ-NX2"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -207,7 +207,7 @@
                                     <userDefinedRuntimeAttribute type="string" keyPath="heroModifierString" value="zPosition(2)"/>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="ht_dismiss:" destination="cry-03-6sb" eventType="touchUpInside" id="Mki-5H-Ddq"/>
+                                    <action selector="hero_dismissViewController" destination="cry-03-6sb" eventType="touchUpInside" id="Mki-5H-Ddq"/>
                                 </connections>
                             </button>
                             <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Sn-m8-Zjc">
@@ -224,7 +224,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="ht_dismiss:" destination="cry-03-6sb" eventType="touchUpInside" id="MEF-md-XgL"/>
+                                    <action selector="hero_dismissViewController" destination="cry-03-6sb" eventType="touchUpInside" id="MEF-md-XgL"/>
                                 </connections>
                             </button>
                             <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gsb-38-8al">
@@ -241,7 +241,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="ht_dismiss:" destination="cry-03-6sb" eventType="touchUpInside" id="YNG-4a-DCP"/>
+                                    <action selector="hero_dismissViewController" destination="cry-03-6sb" eventType="touchUpInside" id="YNG-4a-DCP"/>
                                 </connections>
                             </button>
                             <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uyn-WN-lFF">
@@ -258,7 +258,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="ht_dismiss:" destination="cry-03-6sb" eventType="touchUpInside" id="2lu-nj-fnc"/>
+                                    <action selector="hero_dismissViewController" destination="cry-03-6sb" eventType="touchUpInside" id="2lu-nj-fnc"/>
                                 </connections>
                             </button>
                             <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cKz-G8-TKv">
@@ -275,7 +275,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="ht_dismiss:" destination="cry-03-6sb" eventType="touchUpInside" id="h9u-x6-73l"/>
+                                    <action selector="hero_dismissViewController" destination="cry-03-6sb" eventType="touchUpInside" id="h9u-x6-73l"/>
                                 </connections>
                             </button>
                             <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="36N-5Y-9BR">
@@ -294,7 +294,7 @@
                                     <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="back"/>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="ht_dismiss:" destination="cry-03-6sb" eventType="touchUpInside" id="knW-Wl-Yz0"/>
+                                    <action selector="hero_unwindToRootViewController:" destination="cry-03-6sb" eventType="touchUpInside" id="mOk-Io-4SU"/>
                                 </connections>
                             </button>
                         </subviews>

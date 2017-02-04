@@ -55,11 +55,7 @@ class ImageViewController: UICollectionViewController {
     let progress = translation.y / 2 / collectionView!.bounds.height
     switch panGR.state {
     case .began:
-      if let nav = navigationController, nav.viewControllers.first != self {
-        let _ = nav.popViewController(animated: true)
-      } else {
-        dismiss(animated: true, completion: nil)
-      }
+      hero_dismissViewController()
     case .changed:
       Hero.shared.update(progress: Double(progress))
       if let cell = collectionView?.visibleCells[0]  as? ScrollingImageCell {

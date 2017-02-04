@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16A313a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="XkC-20-WHm">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C68" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="XkC-20-WHm">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -58,7 +58,7 @@
                                     <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="back"/>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="ht_dismiss:" destination="a39-7c-afk" eventType="touchUpInside" id="IoM-vu-VmN"/>
+                                    <action selector="hero_dismissViewController" destination="a39-7c-afk" eventType="touchUpInside" id="IoM-vu-VmN"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -106,7 +106,7 @@
                                     <userDefinedRuntimeAttribute type="string" keyPath="heroModifierString" value="source(menu)"/>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="ht_dismiss:" destination="n6n-Yr-iiD" eventType="touchUpInside" id="CqK-7C-bu0"/>
+                                    <action selector="hero_dismissViewController" destination="n6n-Yr-iiD" eventType="touchUpInside" id="CqK-7C-bu0"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dC5-La-4Q6">
@@ -125,7 +125,7 @@
                                     <userDefinedRuntimeAttribute type="string" keyPath="heroModifierString" value="source(menu)"/>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="ht_dismiss:" destination="hDE-vd-kLY" eventType="touchUpInside" id="nhU-vM-gD4"/>
+                                    <action selector="hero_dismissViewController" destination="hDE-vd-kLY" eventType="touchUpInside" id="nhU-vM-gD4"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2mS-M0-ozC">
@@ -144,7 +144,7 @@
                                     <userDefinedRuntimeAttribute type="string" keyPath="heroModifierString" value="source(menu)"/>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="ht_dismiss:" destination="hDE-vd-kLY" eventType="touchUpInside" id="hzw-Ib-HSk"/>
+                                    <action selector="hero_dismissViewController" destination="hDE-vd-kLY" eventType="touchUpInside" id="hzw-Ib-HSk"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SLa-DC-TkS">
@@ -163,7 +163,7 @@
                                     <userDefinedRuntimeAttribute type="string" keyPath="heroModifierString" value="source(menu)"/>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="ht_dismiss:" destination="hDE-vd-kLY" eventType="touchUpInside" id="UxU-sx-z5s"/>
+                                    <action selector="hero_dismissViewController" destination="hDE-vd-kLY" eventType="touchUpInside" id="UxU-sx-z5s"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GXz-0P-hCB">
@@ -182,7 +182,7 @@
                                     <userDefinedRuntimeAttribute type="string" keyPath="heroModifierString" value="source(menu)"/>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="ht_dismiss:" destination="hDE-vd-kLY" eventType="touchUpInside" id="AjR-sf-LVr"/>
+                                    <action selector="hero_dismissViewController" destination="hDE-vd-kLY" eventType="touchUpInside" id="AjR-sf-LVr"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0eU-DD-3fj">
@@ -201,7 +201,7 @@
                                     <userDefinedRuntimeAttribute type="string" keyPath="heroModifierString" value="source(menu)"/>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="ht_dismiss:" destination="hDE-vd-kLY" eventType="touchUpInside" id="Tfd-PU-wnG"/>
+                                    <action selector="hero_dismissViewController" destination="hDE-vd-kLY" eventType="touchUpInside" id="Tfd-PU-wnG"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BB9-pA-7KT">
@@ -221,7 +221,7 @@
                                     <userDefinedRuntimeAttribute type="string" keyPath="heroModifierString" value="zPosition(10)"/>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="ht_dismiss:" destination="hDE-vd-kLY" eventType="touchUpInside" id="I5f-aH-3I8"/>
+                                    <action selector="hero_dismissViewController" destination="hDE-vd-kLY" eventType="touchUpInside" id="I5f-aH-3I8"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zna-x2-9LS">
@@ -241,7 +241,7 @@
                                     <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="quote"/>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="ht_dismiss:" destination="hDE-vd-kLY" eventType="touchUpInside" id="oAg-lf-v0I"/>
+                                    <action selector="hero_dismissViewController" destination="hDE-vd-kLY" eventType="touchUpInside" id="oAg-lf-v0I"/>
                                 </connections>
                             </button>
                         </subviews>
