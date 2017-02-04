@@ -64,13 +64,13 @@ public enum CascadeDirection {
   }
 }
 
-class CascadePreprocessor:BasePreprocessor {
-  override func process(fromViews:[UIView], toViews:[UIView]) {
+class CascadePreprocessor: BasePreprocessor {
+  override func process(fromViews: [UIView], toViews: [UIView]) {
     process(views:fromViews)
     process(views:toViews)
   }
   
-  func process(views:[UIView]){
+  func process(views: [UIView]) {
     for (viewIndex, fv) in views.enumerated() {
       guard let (deltaTime, direction, delayMatchedViews) = context[fv]?.cascade else { continue }
 

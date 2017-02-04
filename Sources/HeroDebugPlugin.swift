@@ -23,11 +23,11 @@
 import UIKit
 
 public class HeroDebugPlugin: HeroPlugin {
-  static var showOnTop:Bool = false
+  static var showOnTop: Bool = false
 
-  var debugView:HeroDebugView?
-  var zPositionMap = [UIView:CGFloat]()
-  var addedLayers:[CALayer] = []
+  var debugView: HeroDebugView?
+  var zPositionMap = [UIView: CGFloat]()
+  var addedLayers: [CALayer] = []
   var updating = false
 
   override public func animate(fromViews: [UIView], toViews: [UIView]) -> TimeInterval {
