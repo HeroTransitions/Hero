@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16A313a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="fQX-WD-0mm">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C68" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="fQX-WD-0mm">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -72,7 +72,7 @@
                         <barButtonItem key="leftBarButtonItem" image="ic_close" id="bLK-Xm-Dhk">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
-                                <action selector="ht_dismiss:" destination="gwT-IN-6j3" id="kXV-Xu-N2n"/>
+                                <action selector="hero_dismissViewController" destination="gwT-IN-6j3" id="T6C-bR-Gw5"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" image="ic_view_module" id="4os-mA-6ZH">
@@ -93,7 +93,7 @@
         <scene sceneID="SGA-cG-MQO">
             <objects>
                 <navigationController id="fQX-WD-0mm" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" barStyle="black" id="VaI-Vz-win">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="VaI-Vz-win">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

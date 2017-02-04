@@ -40,7 +40,7 @@ class ImageGalleryViewController: UIViewController {
     // animation is automatic! Holy
     let next = (UIStoryboard(name: "ImageGallery", bundle: nil).instantiateViewController(withIdentifier: "imageGallery") as? ImageGalleryViewController)!
     next.columns = columns == 3 ? 5 : 3
-    heroReplaceViewController(with: next)
+    hero_replaceViewController(with: next)
   }
 }
 

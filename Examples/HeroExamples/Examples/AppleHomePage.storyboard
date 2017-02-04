@@ -97,7 +97,7 @@ SERIES 2</string>
                                     <userDefinedRuntimeAttribute type="string" keyPath="heroModifierString" value="zPosition(3)"/>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="ht_dismiss:" destination="RcI-CE-08V" eventType="touchUpInside" id="hxe-76-B49"/>
+                                    <action selector="hero_dismissViewController" destination="RcI-CE-08V" eventType="touchUpInside" id="KTp-Gj-3H1"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -163,7 +163,7 @@ SERIES 2</string>
                                     <userDefinedRuntimeAttribute type="string" keyPath="heroModifierString" value="zPosition(3)"/>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="ht_dismiss:" destination="DOw-gI-E85" eventType="touchUpInside" id="z7o-ZV-MbF"/>
+                                    <action selector="hero_dismissViewController" destination="DOw-gI-E85" eventType="touchUpInside" id="boI-dE-7jw"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -233,7 +233,7 @@ SERIES 2</string>
                                     <userDefinedRuntimeAttribute type="string" keyPath="heroModifierString" value="zPosition(3)"/>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="ht_dismiss:" destination="jVP-SB-1G7" eventType="touchUpInside" id="pLH-pQ-YT5"/>
+                                    <action selector="hero_dismissViewController" destination="jVP-SB-1G7" eventType="touchUpInside" id="nEc-ur-ojD"/>
                                 </connections>
                             </button>
                         </subviews>

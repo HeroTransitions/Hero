@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16A313a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Tnf-dk-9EF">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C68" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Tnf-dk-9EF">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -149,7 +149,7 @@
                                     <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="back"/>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="ht_dismiss:" destination="RHl-8a-4vU" eventType="touchUpInside" id="iKc-0T-aNH"/>
+                                    <action selector="hero_dismissViewController" destination="RHl-8a-4vU" eventType="touchUpInside" id="JpC-2M-tbD"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="POPULAR DESTINATIONS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3OK-2F-Vl7">
@@ -290,7 +290,7 @@
                                     <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="back"/>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="ht_dismiss:" destination="Q5l-99-eDb" eventType="touchUpInside" id="3HE-YB-ysN"/>
+                                    <action selector="hero_dismissViewController" destination="Q5l-99-eDb" eventType="touchUpInside" id="GXK-ZH-2kP"/>
                                 </connections>
                             </button>
                         </subviews>

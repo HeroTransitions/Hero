@@ -132,3 +132,14 @@ internal func *(left: CGSize, right: CGSize) -> CGSize {
 internal func /(left: CGSize, right: CGSize) -> CGSize {
   return CGSize(width: left.width/right.width, height: left.height/right.height)
 }
+
+
+internal func == (lhs: CATransform3D, rhs: CATransform3D) -> Bool {
+  var lhs = lhs
+  var rhs = rhs
+  return memcmp(&lhs, &rhs, MemoryLayout<CATransform3D>.size) == 0
+}
+
+internal func != (lhs: CATransform3D, rhs: CATransform3D) -> Bool {
+  return !(lhs == rhs)
+}
