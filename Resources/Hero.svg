@@ -25,7 +25,7 @@
                     calcMode="spline"
                     keySplines="0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1"
                     keyTimes="0;0.05;0.23;0.28;1"
-                    begin=".6s"
+                    begin="5.6s"
                     repeatCount="indefinite"
                     fill="freeze" />
                 <animate 
@@ -35,7 +35,7 @@
                     calcMode="spline"
                     keySplines="0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1"
                     keyTimes="0;0.05;0.23;0.28;1"
-                    begin=".6s"
+                    begin="5.6s"
                     repeatCount="indefinite"
                     fill="freeze" />
             </tspan>
@@ -47,7 +47,7 @@
                     calcMode="spline"
                     keySplines="0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1"
                     keyTimes="0;0.05;0.27;0.32;1"
-                    begin=".4s"
+                    begin="5.4s"
                     repeatCount="indefinite"
                     fill="freeze" />
                 <animate 
@@ -57,7 +57,7 @@
                     calcMode="spline"
                     keySplines="0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1"
                     keyTimes="0;0.05;0.27;0.32;1"
-                    begin=".4s"
+                    begin="5.4s"
                     repeatCount="indefinite"
                     fill="freeze" />
             </tspan>
@@ -69,7 +69,7 @@
                     calcMode="spline"
                     keySplines="0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1"
                     keyTimes="0;0.05;0.31;0.36;1"
-                    begin=".2s"
+                    begin="5.2s"
                     repeatCount="indefinite"
                     fill="freeze" />
                 <animate 
@@ -79,7 +79,7 @@
                     calcMode="spline"
                     keySplines="0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1"
                     keyTimes="0;0.05;0.31;0.36;1"
-                    begin=".2s"
+                    begin="5.2s"
                     repeatCount="indefinite"
                     fill="freeze" />
             </tspan>
@@ -91,6 +91,7 @@
                     calcMode="spline"
                     keySplines="0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1"
                     keyTimes="0;0.05;0.35;0.4;1"
+                    begin="5s"
                     repeatCount="indefinite"
                     fill="freeze" />
                 <animate 
@@ -101,6 +102,7 @@
                     keySplines="0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1"
                     keyTimes="0;0.05;0.35;0.4;1"
                     repeatCount="indefinite"
+                    begin="5s"
                     fill="freeze" />
             </tspan>
         </text>
@@ -114,7 +116,7 @@
                 calcMode="spline"
                 keySplines="0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1"
                 keyTimes="0;0.05;0.19;0.24;1"
-                begin=".8s"
+                begin="5.8s"
                 repeatCount="indefinite"
                 fill="freeze" />
             <animate 
@@ -123,7 +125,7 @@
                 dur="10s"
                 calcMode="discrete"
                 keyTimes="0;0.05;0.19;1"
-                begin=".8s"
+                begin="5.8s"
                 repeatCount="indefinite"
                 fill="freeze" />
         </svg>
@@ -136,7 +138,7 @@
                         M0,100 L100,100 L170,130 L100.003297,130 C83.4329338,130 70,143.431508 70,159.994535 L70,160 L0,100 Z;
                         M0,100 L100,100 L170,130 L100.003297,130 C83.4329338,130 70,143.431508 70,159.994535 L70,160 L0,100 Z;"
                 dur="10s"
-                begin=".8s"
+                begin="5.8s"
                 calcMode="spline"
                 keySplines="0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1"
                 keyTimes="0;0.05;0.19;0.24;1"
@@ -146,7 +148,7 @@
                 attributeName="opacity"
                 values="1;0;1;1"
                 dur="10s"
-                begin=".8s"
+                begin="5.8s"
                 calcMode="discrete"
                 keyTimes="0;0.05;0.19;1"
                 repeatCount="indefinite"
@@ -217,7 +219,7 @@
                 dur="10s"
                 calcMode="spline"
                 keySplines="0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1"
-                begin="1.3s"
+                begin="6.3s"
                 keyTimes="0;0.05;0.10;0.15;1"
                 repeatCount="indefinite"
                 fill="freeze"
