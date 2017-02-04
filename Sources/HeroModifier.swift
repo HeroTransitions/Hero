@@ -199,63 +199,6 @@ extension HeroModifier {
 // other modifiers
 extension HeroModifier {
   /**
-   Use global coordinate space.
-   
-   When using global coordinate space. The view become a independent view that is not a subview of any view.
-   It won't move when its parent view moves, and won't be affected by parent view's attributes.
-   
-   When a view is matched, this is automatically enabled.
-   The `source` modifier will also enable this.
-   
-   Global coordinate space is default for all views prior to version 0.1.3
-   */
-  public static var useGlobalCoordinateSpace: HeroModifier = HeroModifier { targetState in
-    targetState.useGlobalCoordinateSpace = true
-  }
-  
-  /**
-   Sets the zPosition during the animation, not animatable.
-
-   During animation, Hero might incorrectly infer the order to draw your views. Use this modifier to adjust
-   the view draw order.
-   - Parameters:
-     - zPosition: zPosition during the animation
-   */
-  public static func zPosition(_ zPosition: CGFloat) -> HeroModifier {
-    return HeroModifier { targetState in
-      targetState.zPosition = zPosition
-    }
-  }
-
-  /**
-   Same as zPosition modifier but only effective only when the view is matched. Will override zPosition modifier.
-   Will also force the view to use global coordinate space when the view is matched.
-   - Parameters:
-     - zPosition: zPosition during the animation
-   */
-  public static func zPositionIfMatched(_ zPositionIfMatched: CGFloat) -> HeroModifier {
-    return HeroModifier { targetState in
-      targetState.zPositionIfMatched = zPositionIfMatched
-    }
-  }
-
-  /**
-   ignore all heroModifiers attributes for a view's direct subviews.
-   */
-  public static var ignoreSubviewModifiers: HeroModifier = .ignoreSubviewModifiers()
-
-  /**
-   ignore all heroModifiers attributes for a view's subviews.
-   - Parameters:
-    - recursive: if false, will only ignore direct subviews' modifiers. default false.
-   */
-  public static func ignoreSubviewModifiers(recursive: Bool = false) -> HeroModifier {
-    return HeroModifier { targetState in
-      targetState.ignoreSubviewModifiers = recursive
-    }
-  }
-
-  /**
    transition from/to the state of the view with matching heroID
    Will also force the view to use global coordinate space.
    - Parameters:
@@ -301,6 +244,102 @@ extension HeroModifier {
     return HeroModifier { targetState in
       targetState.cascade = (delta, direction, delayMatchedViews)
     }
+  }
+}
+
+// advance modifiers
+extension HeroModifier {
+  /**
+   Use global coordinate space.
+   
+   When using global coordinate space. The view become a independent view that is not a subview of any view.
+   It won't move when its parent view moves, and won't be affected by parent view's attributes.
+   
+   When a view is matched, this is automatically enabled.
+   The `source` modifier will also enable this.
+   
+   Global coordinate space is default for all views prior to version 0.1.3
+   */
+  public static var useGlobalCoordinateSpace: HeroModifier = HeroModifier { targetState in
+    targetState.useGlobalCoordinateSpace = true
+  }
+  
+  /**
+   Sets the zPosition during the animation, not animatable.
+   
+   During animation, Hero might incorrectly infer the order to draw your views. Use this modifier to adjust
+   the view draw order.
+   - Parameters:
+   - zPosition: zPosition during the animation
+   */
+  public static func zPosition(_ zPosition: CGFloat) -> HeroModifier {
+    return HeroModifier { targetState in
+      targetState.zPosition = zPosition
+    }
+  }
+  
+  /**
+   Same as zPosition modifier but only effective only when the view is matched. Will override zPosition modifier.
+   Will also force the view to use global coordinate space when the view is matched.
+   - Parameters:
+   - zPosition: zPosition during the animation
+   */
+  public static func zPositionIfMatched(_ zPositionIfMatched: CGFloat) -> HeroModifier {
+    return HeroModifier { targetState in
+      targetState.zPositionIfMatched = zPositionIfMatched
+    }
+  }
+  
+  /**
+   ignore all heroModifiers attributes for a view's direct subviews.
+   */
+  public static var ignoreSubviewModifiers: HeroModifier = .ignoreSubviewModifiers()
+  
+  /**
+   ignore all heroModifiers attributes for a view's subviews.
+   - Parameters:
+   - recursive: if false, will only ignore direct subviews' modifiers. default false.
+   */
+  public static func ignoreSubviewModifiers(recursive: Bool = false) -> HeroModifier {
+    return HeroModifier { targetState in
+      targetState.ignoreSubviewModifiers = recursive
+    }
+  }
+  
+  /**
+   Will create snapshot optimized for different view type.
+   For custom views or views with masking, useOptimizedSnapshot might create snapshots
+   that appear differently than the actual view.
+   In that case, use .useNormalSnapshot or .useSlowRenderSnapshot to disable the optimization.
+   
+   This modifier actually does nothing by itself since .useOptimizedSnapshot is the default.
+   */
+  public static var useOptimizedSnapshot: HeroModifier = HeroModifier { targetState in
+    targetState.snapshotType = .optimized
+  }
+
+  /**
+   Create snapshot using snapshotView(afterScreenUpdates:).
+   */
+  public static var useNormalSnapshot: HeroModifier = HeroModifier { targetState in
+    targetState.snapshotType = .normal
+  }
+
+  /**
+   Create snapshot using layer.render(in: currentContext).
+   This is slower than .useNormalSnapshot but gives more accurate snapshot for some views (eg. UIStackView).
+   */
+  public static var useLayerRenderSnapshot: HeroModifier = HeroModifier { targetState in
+    targetState.snapshotType = .layerRender
+  }
+  
+  /**
+   Force Hero to not create any snapshot when animating this view.
+   This will mess up the view hierarchy, therefore, view controllers have to rebuild
+   its view structure after the transition finishes.
+   */
+  public static var useNoSnapshot: HeroModifier = HeroModifier { targetState in
+    targetState.snapshotType = .noSnapshot
   }
 }
 
@@ -381,6 +420,14 @@ extension HeroModifier {
       if let zPosition = parameters.getCGFloat(0) {
         modifier = .zPositionIfMatched(zPosition)
       }
+    case "useOptimizedSnapshot":
+      modifier = .useOptimizedSnapshot
+    case "useNormalSnapshot":
+      modifier = .useNormalSnapshot
+    case "useLayerRenderSnapshot":
+      modifier = .useLayerRenderSnapshot
+    case "useNoSnapshot":
+      modifier = .useNoSnapshot
     default: break
     }
     return modifier

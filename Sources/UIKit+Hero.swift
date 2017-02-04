@@ -185,11 +185,21 @@ public extension UIViewController {
     }
   }
 
+  @available(*, deprecated: 0.1.4, message: "use hero_dismissViewController instead")
   @IBAction public func ht_dismiss(_ sender: UIView) {
+    hero_dismissViewController(sender)
+  }
+  
+  @available(*, deprecated: 0.1.4, message: "use hero_replaceViewController(with:) instead")
+  public func heroReplaceViewController(with next: UIViewController) {
+    hero_replaceViewController(with: next)
+  }
+  
+  @IBAction public func hero_dismissViewController(_ sender: UIView) {
     dismiss(animated: true, completion: nil)
   }
 
-  public func heroReplaceViewController(with next: UIViewController) {
+  public func hero_replaceViewController(with next: UIViewController) {
     if let navigationController = navigationController {
       var vcs = navigationController.childViewControllers
       if !vcs.isEmpty {

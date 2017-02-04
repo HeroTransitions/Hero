@@ -108,36 +108,49 @@ extension HeroContext {
     let oldAlpha = view.alpha
     view.layer.cornerRadius = 0
     view.alpha = 1
+
     let snapshot: UIView
-    if #available(iOS 9.0, *), let stackView = view as? UIStackView {
-      snapshot = stackView.slowSnapshotView()
-    } else if let imageView = view as? UIImageView, view.subviews.isEmpty {
-      let contentView = UIImageView(image: imageView.image)
-      contentView.frame = imageView.bounds
-      contentView.contentMode = imageView.contentMode
-      contentView.tintColor = imageView.tintColor
-      contentView.backgroundColor = imageView.backgroundColor
-      let snapShotView = UIView()
-      snapShotView.addSubview(contentView)
-      snapshot = snapShotView
-    } else if let barView = view as? UINavigationBar, barView.isTranslucent {
-      let newBarView = UINavigationBar(frame: barView.frame)
-
-      newBarView.barStyle = barView.barStyle
-      newBarView.tintColor = barView.tintColor
-      newBarView.barTintColor = barView.barTintColor
-      newBarView.clipsToBounds = false
-
-      // take a snapshot without the background
-      barView.layer.sublayers![0].opacity = 0
-      let realSnapshot = barView.snapshotView(afterScreenUpdates: true)!
-      barView.layer.sublayers![0].opacity = 1
-
-      newBarView.addSubview(realSnapshot)
-      snapshot = newBarView
-    } else {
+    let snapshotType:HeroSnapshotType = self[view]?.snapshotType ?? .optimized
+    
+    switch snapshotType {
+    case .normal:
       snapshot = view.snapshotView(afterScreenUpdates: true)!
+    case .layerRender:
+      snapshot = view.slowSnapshotView()
+    case .noSnapshot:
+      snapshot = view
+    case .optimized:
+      if #available(iOS 9.0, *), let stackView = view as? UIStackView {
+        snapshot = stackView.slowSnapshotView()
+      } else if let imageView = view as? UIImageView, view.subviews.isEmpty {
+        let contentView = UIImageView(image: imageView.image)
+        contentView.frame = imageView.bounds
+        contentView.contentMode = imageView.contentMode
+        contentView.tintColor = imageView.tintColor
+        contentView.backgroundColor = imageView.backgroundColor
+        let snapShotView = UIView()
+        snapShotView.addSubview(contentView)
+        snapshot = snapShotView
+      } else if let barView = view as? UINavigationBar, barView.isTranslucent {
+        let newBarView = UINavigationBar(frame: barView.frame)
+        
+        newBarView.barStyle = barView.barStyle
+        newBarView.tintColor = barView.tintColor
+        newBarView.barTintColor = barView.barTintColor
+        newBarView.clipsToBounds = false
+        
+        // take a snapshot without the background
+        barView.layer.sublayers![0].opacity = 0
+        let realSnapshot = barView.snapshotView(afterScreenUpdates: true)!
+        barView.layer.sublayers![0].opacity = 1
+        
+        newBarView.addSubview(realSnapshot)
+        snapshot = newBarView
+      } else {
+        snapshot = view.snapshotView(afterScreenUpdates: true)!
+      }
     }
+    
     view.layer.cornerRadius = oldCornerRadius
     view.alpha = oldAlpha
 
@@ -171,7 +184,9 @@ extension HeroContext {
     snapshot.frame = containerView.convert(view.bounds, from: view)
     snapshot.heroID = view.heroID
 
-    hide(view: view)
+    if snapshotType != .noSnapshot {
+      hide(view: view)
+    }
 
     containerView.addSubview(snapshot)
     snapshotViews[view] = snapshot
