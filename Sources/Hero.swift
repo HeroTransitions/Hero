@@ -38,7 +38,7 @@ import UIKit
    func apply(modifiers:[HeroModifier], to view:UIView)
  ```
  */
-public class Hero:NSObject {
+public class Hero: NSObject {
   // MARK: Shared Access
 
   /// Shared singleton object for controlling the transition
@@ -47,24 +47,24 @@ public class Hero:NSObject {
   // MARK: Properties
 
   /// destination view controller
-  public fileprivate(set) weak var toViewController:UIViewController?
+  public fileprivate(set) weak var toViewController: UIViewController?
   /// source view controller
-  public fileprivate(set) weak var fromViewController:UIViewController?
+  public fileprivate(set) weak var fromViewController: UIViewController?
   /// context object holding transition informations
   public fileprivate(set) var context: HeroContext!
   /// whether or not we are presenting the destination view controller
   public fileprivate(set) var presenting = true
   /// whether or not we are handling transition interactively
-  public var interactive:Bool {
+  public var interactive: Bool {
     return displayLink == nil
   }
   /// progress of the current transition. 0 if no transition is happening
-  public fileprivate(set) var progress:Double = 0 {
-    didSet{
+  public fileprivate(set) var progress: Double = 0 {
+    didSet {
       if transitioning, progress != oldValue {
         transitionContext?.updateInteractiveTransition(CGFloat(progress))
-        if let progressUpdateObservers = progressUpdateObservers{
-          for observer in progressUpdateObservers{
+        if let progressUpdateObservers = progressUpdateObservers {
+          for observer in progressUpdateObservers {
             observer.heroDidUpdateProgress(progress: progress)
           }
         }
@@ -94,7 +94,7 @@ public class Hero:NSObject {
   public fileprivate(set) var container: UIView!
   
   /// this is the container supplied by UIKit
-  fileprivate var transitionContainer:UIView!
+  fileprivate var transitionContainer: UIView!
   
   /// a UIViewControllerContextTransitioning object provided by UIKit,
   /// might be nil when transitioning. This happens when calling heroReplaceViewController
@@ -103,17 +103,17 @@ public class Hero:NSObject {
   fileprivate var completionCallback: ((Bool) -> Void)?
   internal var forceNotInteractive = false
   
-  fileprivate var displayLink:CADisplayLink?
-  fileprivate var progressUpdateObservers:[HeroProgressUpdateObserver]?
   
+  fileprivate var displayLink: CADisplayLink?
+  fileprivate var progressUpdateObservers: [HeroProgressUpdateObserver]?
   
   /// max duration needed by the default animator and plugins
   fileprivate var totalDuration: TimeInterval = 0.0
   fileprivate var duration: TimeInterval = 0.0
-  fileprivate var beginTime:TimeInterval?{
-    didSet{
+  fileprivate var beginTime: TimeInterval? {
+    didSet {
       if beginTime != nil {
-        if displayLink == nil{
+        if displayLink == nil {
           displayLink = CADisplayLink(target: self, selector: #selector(displayUpdate(_:)))
           displayLink!.add(to: RunLoop.main, forMode: RunLoopMode(rawValue: RunLoopMode.commonModes.rawValue))
         }
@@ -124,7 +124,7 @@ public class Hero:NSObject {
       }
     }
   }
-  func displayUpdate(_ link:CADisplayLink){
+  func displayUpdate(_ link: CADisplayLink) {
     if transitioning, duration > 0, let beginTime = beginTime {
       let timePassed = CACurrentMediaTime() - beginTime
       
@@ -134,7 +134,7 @@ public class Hero:NSObject {
         complete(finished: finishing)
       } else {
         var completed = timePassed / totalDuration
-        if !finishing{
+        if !finishing {
           completed = 1 - completed
         }
         completed = max(0, min(1, completed))
@@ -144,7 +144,7 @@ public class Hero:NSObject {
   }
   
   
-  fileprivate var finishing:Bool = true
+  fileprivate var finishing: Bool = true
   /// true if transitioning inside a UINavigationController or UITabBarController
   fileprivate var inContainerController = false
   
@@ -157,7 +157,7 @@ public class Hero:NSObject {
   
   fileprivate static var enabledPlugins: [HeroPlugin.Type] = []
   
-  fileprivate override init(){}
+  fileprivate override init() {}
 }
 
 public extension Hero {
@@ -180,13 +180,13 @@ public extension Hero {
    Will stop the interactive transition and animate from the
    current state to the **end** state
    */
-  public func end(animate:Bool = true) {
+  public func end(animate: Bool = true) {
     guard transitioning && interactive else { return }
     if !animate {
       complete(finished:true)
       return
     }
-    var maxTime:TimeInterval = 0
+    var maxTime: TimeInterval = 0
     for animator in animators {
       maxTime = max(maxTime, animator.resume(timePassed:progress * totalDuration, reverse: false))
     }
@@ -198,13 +198,13 @@ public extension Hero {
    Will stop the interactive transition and animate from the 
    current state to the **begining** state
    */
-  public func cancel(animate:Bool = true) {
+  public func cancel(animate: Bool = true) {
     guard transitioning && interactive else { return }
     if !animate {
       complete(finished:false)
       return
     }
-    var maxTime:TimeInterval = 0
+    var maxTime: TimeInterval = 0
     for animator in animators {
       maxTime = max(maxTime, animator.resume(timePassed:progress * totalDuration, reverse: true))
     }
@@ -223,10 +223,10 @@ public extension Hero {
        - modifiers: the modifiers to override
        - view: the view to override to
    */
-  public func apply(modifiers:[HeroModifier], to view:UIView) {
+  public func apply(modifiers: [HeroModifier], to view: UIView) {
     guard transitioning && interactive else { return }
     let targetState = HeroTargetState(modifiers: modifiers)
-    if let otherView = context.pairedView(for: view){
+    if let otherView = context.pairedView(for: view) {
       for animator in animators {
         animator.apply(state: targetState, to: otherView)
       }
@@ -237,7 +237,7 @@ public extension Hero {
   }
 }
 
-public extension Hero{
+public extension Hero {
   // MARK: Observe Progress
 
   /**
@@ -247,8 +247,8 @@ public extension Hero{
    - Parameters:
      - observer: the observer
    */
-  func observeForProgressUpdate(observer:HeroProgressUpdateObserver){
-    if progressUpdateObservers == nil{
+  func observeForProgressUpdate(observer: HeroProgressUpdateObserver) {
+    if progressUpdateObservers == nil {
       progressUpdateObservers = []
     }
     progressUpdateObservers!.append(observer)
@@ -316,10 +316,10 @@ internal extension Hero {
     var skipDefaultAnimation = false
     var animatingViews = [([UIView], [UIView])]()
     for animator in animators {
-      let currentFromViews = context.fromViews.filter{ (view:UIView) -> Bool in
+      let currentFromViews = context.fromViews.filter { (view: UIView) -> Bool in
         return animator.canAnimate(view: view, appearing: false)
       }
-      let currentToViews = context.toViews.filter{ (view:UIView) -> Bool in
+      let currentToViews = context.toViews.filter { (view: UIView) -> Bool in
         return animator.canAnimate(view: view, appearing: true)
       }
       if currentFromViews.first == fromView || currentToViews.first == toView {
@@ -347,7 +347,7 @@ internal extension Hero {
         }
       }
       
-      var totalDuration:TimeInterval = 0
+      var totalDuration: TimeInterval = 0
       var animatorWantsInteractive = false
       for (i, animator) in self.animators.enumerated() {
         let duration = animator.animate(fromViews: animatingViews[i].0,
@@ -382,7 +382,7 @@ internal extension Hero {
     start()
   }
   
-  func complete(after:TimeInterval, finishing:Bool) {
+  func complete(after: TimeInterval, finishing: Bool) {
     if after <= 0.001 {
       complete(finished: finishing)
       return
@@ -443,7 +443,7 @@ internal extension Hero {
       }
     }
     
-    if finished{
+    if finished {
       tContext?.finishInteractiveTransition()
     } else {
       tContext?.cancelInteractiveTransition()
@@ -527,7 +527,7 @@ extension Hero: UIViewControllerAnimatedTransitioning {
 }
 
 extension Hero:UIViewControllerTransitioningDelegate {
-  var interactiveTransitioning:UIViewControllerInteractiveTransitioning?{
+  var interactiveTransitioning: UIViewControllerInteractiveTransitioning? {
     return forceNotInteractive ? nil : self
   }
 
@@ -554,7 +554,7 @@ extension Hero:UIViewControllerTransitioningDelegate {
 }
 
 extension Hero: UIViewControllerInteractiveTransitioning {
-  public var wantsInteractiveStart: Bool{
+  public var wantsInteractiveStart: Bool {
     return true
   }
   public func startInteractiveTransition(_ transitionContext: UIViewControllerContextTransitioning) {

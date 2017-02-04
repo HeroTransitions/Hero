@@ -221,10 +221,10 @@ internal class HeroDefaultAnimatorViewContext {
     }
   }
   
-  func apply(state:HeroTargetState){
+  func apply(state: HeroTargetState) {
     let targetState = viewState(targetState: state)
-    for (key, targetValue) in targetState{
-      if self.state[key] == nil{
+    for (key, targetValue) in targetState {
+      if self.state[key] == nil {
         let currentValue = snapshot.layer.value(forKeyPath: key)!
         self.state[key] = (currentValue, currentValue)
       }

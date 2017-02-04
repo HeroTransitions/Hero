@@ -22,9 +22,9 @@
 
 import UIKit
 
-public class HeroDefaultAnimator:HeroAnimator{
-  var context:HeroContext { return Hero.shared.context }
-  var viewContexts:[UIView: HeroDefaultAnimatorViewContext] = [:]
+public class HeroDefaultAnimator: HeroAnimator {
+  var context: HeroContext { return Hero.shared.context }
+  var viewContexts: [UIView: HeroDefaultAnimatorViewContext] = [:]
 
   public func seekTo(timePassed: TimeInterval) {
     for viewContext in viewContexts.values {
@@ -41,7 +41,7 @@ public class HeroDefaultAnimator:HeroAnimator{
     return duration
   }
   
-  public func apply(state:HeroTargetState, to view:UIView){
+  public func apply(state: HeroTargetState, to view: UIView) {
     guard let context = viewContexts[view] else {
       print("HERO: unable to temporarily set to \(view). The view must be running at least one animation before it can be interactively changed")
       return
@@ -49,7 +49,7 @@ public class HeroDefaultAnimator:HeroAnimator{
     context.apply(state:state)
   }
 
-  public func canAnimate(view:UIView, appearing:Bool) -> Bool{
+  public func canAnimate(view: UIView, appearing: Bool) -> Bool {
     guard let state = context[view] else { return false }
     return state.position != nil ||
            state.size != nil ||
@@ -58,8 +58,8 @@ public class HeroDefaultAnimator:HeroAnimator{
            state.opacity != nil
   }
 
-  public func animate(fromViews:[UIView], toViews:[UIView]) -> TimeInterval{
-    var duration:TimeInterval = 0
+  public func animate(fromViews: [UIView], toViews: [UIView]) -> TimeInterval {
+    var duration: TimeInterval = 0
 
     // animate
     for v in fromViews {
@@ -82,7 +82,7 @@ public class HeroDefaultAnimator:HeroAnimator{
     viewContexts[view] = viewContext
   }
   
-  public func clean(){
+  public func clean() {
     viewContexts.removeAll()
   }
 }
