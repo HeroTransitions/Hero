@@ -154,10 +154,9 @@ extension HeroContext {
     view.layer.cornerRadius = oldCornerRadius
     view.alpha = oldAlpha
 
-    if !(view is UINavigationBar) {
+    if !(view is UINavigationBar), let contentView = snapshot.subviews.get(0) {
       // the Snapshot's contentView must have hold the cornerRadius value,
       // since the snapshot might not have maskToBounds set
-      let contentView = snapshot.subviews[0]
       contentView.layer.cornerRadius = view.layer.cornerRadius
       contentView.layer.masksToBounds = true
     }
@@ -184,9 +183,7 @@ extension HeroContext {
     snapshot.frame = containerView.convert(view.bounds, from: view)
     snapshot.heroID = view.heroID
 
-    if snapshotType != .noSnapshot {
-      hide(view: view)
-    }
+    hide(view: view)
 
     containerView.addSubview(snapshot)
     snapshotViews[view] = snapshot
@@ -206,7 +203,7 @@ extension HeroContext {
 // internal
 extension HeroContext {
   public func hide(view: UIView) {
-    if viewAlphas[view] == nil {
+    if viewAlphas[view] == nil, self[view]?.snapshotType != .noSnapshot {
       viewAlphas[view] = view.alpha
       view.alpha = 0
     }

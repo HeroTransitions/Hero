@@ -12,8 +12,8 @@ class InitialViewController: UITableViewController {
 
   var storyboards: [[String]] = [
     [],
-    ["Basic", "MusicPlayer", "Menu"],
-    ["CityGuide", "ImageViewer", "AppleHomePage", "ListToGrid", "ImageGallery"],
+    ["Basic", "MusicPlayer", "Menu", "VideoPlayer"],
+    ["CityGuide", "ImageViewer", "VideoPlayer", "AppleHomePage", "ListToGrid", "ImageGallery"],
     ["LiveInjection", "Debug", "LabelMorph"]
   ]
 
@@ -23,25 +23,5 @@ class InitialViewController: UITableViewController {
       let vc = viewController(forStoryboardName: storyboardName)
       present(vc, animated: true, completion: nil)
     }
-  }
-  
-  override func viewWillAppear(_ animated: Bool) {
-    print("viewWillAppear")
-    super.viewWillAppear(animated)
-  }
-  
-  override func viewDidAppear(_ animated: Bool) {
-    print("viewDidAppear")
-    super.viewDidAppear(animated)
-  }
-  
-  override func viewWillDisappear(_ animated: Bool) {
-    print("viewWillDisappear")
-    super.viewWillDisappear(animated)
-  }
-  
-  override func viewDidDisappear(_ animated: Bool) {
-    print("viewDidDisappear")
-    super.viewDidDisappear(animated)
   }
 }

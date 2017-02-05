@@ -63,7 +63,7 @@ class ImageViewController: UICollectionViewController {
         Hero.shared.apply(modifiers: [.position(currentPos)], to: cell.imageView)
       }
     default:
-      if progress + panGR.velocity(in: nil).y / collectionView!.bounds.height > 0.15 {
+      if progress + panGR.velocity(in: nil).y / collectionView!.bounds.height > 0.3 {
         Hero.shared.end()
       } else {
         Hero.shared.cancel()
@@ -81,7 +81,7 @@ extension ImageViewController {
     let imageCell = (collectionView.dequeueReusableCell(withReuseIdentifier: "item", for: indexPath) as? ScrollingImageCell)!
     imageCell.image = ImageLibrary.image(index:indexPath.item)
     imageCell.imageView.heroID = "image_\(indexPath.item)"
-    imageCell.imageView.heroModifiers = [.position(CGPoint(x:view.bounds.width/2, y:view.bounds.height+view.bounds.width/2)), .scale(x:0.6, y:0.6), .fade, .zPositionIfMatched(100)]
+    imageCell.imageView.heroModifiers = [.position(CGPoint(x:view.bounds.width/2, y:view.bounds.height+view.bounds.width/2)), .scale(0.6), .fade, .zPositionIfMatched(100)]
     imageCell.topInset = topLayoutGuide.length
     return imageCell
   }

@@ -83,6 +83,9 @@ public class HeroDefaultAnimator: HeroAnimator {
   }
   
   public func clean() {
+    for vc in viewContexts.values {
+      vc.clean()
+    }
     viewContexts.removeAll()
   }
 }

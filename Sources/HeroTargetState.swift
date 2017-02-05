@@ -59,12 +59,17 @@ public struct HeroTargetState {
   internal var cascade: (TimeInterval, CascadeDirection, Bool)?
   internal var ignoreSubviewModifiers: Bool?
   internal var useGlobalCoordinateSpace: Bool?
+  internal var useScaleBasedSizeChange: Bool?
   internal var snapshotType: HeroSnapshotType?
 
   internal var custom: [String:Any]?
 
   init(modifiers: [HeroModifier]) {
     append(contentsOf: modifiers)
+  }
+
+  mutating func append(_ modifier: HeroModifier) {
+    modifier.apply(&self)
   }
 
   mutating func append(contentsOf modifiers: [HeroModifier]) {

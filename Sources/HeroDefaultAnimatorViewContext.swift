@@ -124,6 +124,7 @@ internal class HeroDefaultAnimatorViewContext {
     snapshot.layer.add(anim, forKey: key)
     if key == "cornerRadius"{
       contentLayer?.add(anim, forKey: key)
+      snapshot.layer.add(anim, forKey: key)
     } else if key == "bounds.size"{
       let fromSize = (fromValue as? NSValue)!.cgSizeValue
       let toSize = (toValue as? NSValue)!.cgSizeValue
@@ -152,10 +153,17 @@ internal class HeroDefaultAnimatorViewContext {
    - Returns: a CALayer [keyPath:value] map for animation
    */
   func viewState(targetState: HeroTargetState) -> [String: Any] {
+    var targetState = targetState
     var rtn = [String: Any]()
 
     if let size = targetState.size {
-      rtn["bounds.size"] = NSValue(cgSize:size)
+      if targetState.useScaleBasedSizeChange ?? self.targetState.useScaleBasedSizeChange ?? false {
+        let currentSize = snapshot.bounds.size
+        targetState.append(.scale(x:size.width / currentSize.width,
+                                  y:size.height / currentSize.height))
+      } else {
+        rtn["bounds.size"] = NSValue(cgSize:size)
+      }
     }
     if let position = targetState.position {
       rtn["position"] = NSValue(cgPoint:position)
@@ -258,6 +266,11 @@ internal class HeroDefaultAnimatorViewContext {
     if let contentLayer = contentLayer {
       seek(layer:contentLayer, timePassed:timePassed)
     }
+  }
+
+  func clean() {
+    snapshot.layer.removeAllAnimations()
+    contentLayer?.removeAllAnimations()
   }
 
   init(animator: HeroDefaultAnimator, snapshot: UIView, targetState: HeroTargetState, appearing: Bool) {
