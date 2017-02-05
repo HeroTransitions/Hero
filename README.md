@@ -104,6 +104,7 @@ You can do these in the **storyboard** too!
 	* [Source](https://github.com/lkzhao/Hero/wiki/Usage-Guide#source-modifier)
 	* [Cascade](https://github.com/lkzhao/Hero/wiki/Usage-Guide#cascade-modifier)
 	* [IgnoreSubviewModifiers](https://github.com/lkzhao/Hero/wiki/Usage-Guide#ignoresubviewmodifiers-modifier)
+	* [UseScaleBasedSizeChange](https://github.com/lkzhao/Hero/wiki/Usage-Guide#usescalebasedsizechange-modifier)
 * [Coordinate Space](https://github.com/lkzhao/Hero/wiki/Usage-Guide#coordinate-space)
 	* [Global](https://github.com/lkzhao/Hero/wiki/Usage-Guide#global-coordinate-space-default-before-013)
 	* [Local](https://github.com/lkzhao/Hero/wiki/Usage-Guide#local-coordinate-space-default-after-013)
