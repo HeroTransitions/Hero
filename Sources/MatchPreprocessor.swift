@@ -41,6 +41,12 @@ class MatchPreprocessor: BasePreprocessor {
       tvState.source = id
       fvState.source = id
 
+      fvState.arc = tvState.arc
+      fvState.duration = tvState.duration
+      fvState.timingFunction = tvState.timingFunction
+      fvState.delay = tvState.delay
+      fvState.spring = tvState.spring
+
       tvState.opacity = 0
       if (fv is UILabel && !fv.isOpaque) || tv.alpha < 1 {
         // cross fade if fromView is a label or if toView is transparent
