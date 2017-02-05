@@ -341,6 +341,14 @@ extension HeroModifier {
   public static var useNoSnapshot: HeroModifier = HeroModifier { targetState in
     targetState.snapshotType = .noSnapshot
   }
+
+  /**
+   Force Hero use scale based size animation. This will convert all .size modifier into .scale modifier.
+   This is to help Hero animate layers that doesn't support bounds animation. Also gives better performance.
+   */
+  public static var useScaleBasedSizeChange: HeroModifier = HeroModifier { targetState in
+    targetState.useScaleBasedSizeChange = true
+  }
 }
 
 // construct HeroModifier from heroModifierString

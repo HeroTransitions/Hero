@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C68" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Jlr-UW-RBl">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Video Player View Controller-->
+        <scene sceneID="1nH-rV-HNC">
+            <objects>
+                <viewController id="Jlr-UW-RBl" customClass="VideoPlayerViewController" customModule="HeroExamples" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="hf8-Fp-Md5"/>
+                        <viewControllerLayoutGuide type="bottom" id="GrU-da-mkb"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="sJC-Pq-CA9">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z6Y-4L-zqp">
+                                <rect key="frame" x="8" y="28" width="48" height="48"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="48" id="9CC-aa-S8X"/>
+                                    <constraint firstAttribute="width" constant="48" id="Ny5-Ce-hwc"/>
+                                </constraints>
+                                <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" image="ic_keyboard_arrow_down"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="24"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="heroModifierString" value="fade translate(0, -150)"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="back"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="hero_dismissViewController" destination="wAT-Zx-dlV" eventType="touchUpInside" id="eY3-Hc-QXA"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="z6Y-4L-zqp" firstAttribute="top" secondItem="hf8-Fp-Md5" secondAttribute="bottom" constant="8" id="3iS-CQ-7V0"/>
+                            <constraint firstItem="z6Y-4L-zqp" firstAttribute="leading" secondItem="sJC-Pq-CA9" secondAttribute="leading" constant="8" id="x8a-3B-voa"/>
+                        </constraints>
+                    </view>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabled" value="YES"/>
+                    </userDefinedRuntimeAttributes>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wAT-Zx-dlV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="20" y="-145.27736131934034"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="ic_keyboard_arrow_down" width="24" height="24"/>
+    </resources>
+</document>

@@ -28,12 +28,18 @@ class MatchPreprocessor: BasePreprocessor {
       guard let id = tv.heroID, let fv = context.sourceView(for: id) else { continue }
 
       var tvState = context[tv] ?? HeroTargetState()
-      if let zPosition = tvState.zPositionIfMatched {
-        tvState.append(contentsOf: [.zPosition(zPosition)])
-      }
-      tvState.source = id
+      var fvState = context[fv] ?? HeroTargetState()
 
-      var fvState = tvState
+      if let zPosition = tvState.zPositionIfMatched {
+        fvState.append(.zPosition(zPosition))
+      }
+
+      if let zPosition = tvState.zPosition, fvState.zPosition != zPosition {
+        fvState.append(.zPosition(zPosition))
+      }
+
+      tvState.source = id
+      fvState.source = id
 
       tvState.opacity = 0
       if (fv is UILabel && !fv.isOpaque) || tv.alpha < 1 {
@@ -42,6 +48,7 @@ class MatchPreprocessor: BasePreprocessor {
       } else {
         fvState.opacity = nil
       }
+
       context[tv] = tvState
       context[fv] = fvState
     }

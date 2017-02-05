@@ -128,7 +128,7 @@
                                     <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="back"/>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="hero_unwindToRootViewController:" destination="Mgk-EP-GQc" eventType="touchUpInside" id="fHe-iQ-NX2"/>
+                                    <action selector="hero_unwindToRootViewController" destination="Mgk-EP-GQc" eventType="touchUpInside" id="5VM-Fk-Xjc"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -294,7 +294,7 @@
                                     <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="back"/>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="hero_unwindToRootViewController:" destination="cry-03-6sb" eventType="touchUpInside" id="mOk-Io-4SU"/>
+                                    <action selector="hero_unwindToRootViewController" destination="cry-03-6sb" eventType="touchUpInside" id="k7w-R6-k4b"/>
                                 </connections>
                             </button>
                         </subviews>

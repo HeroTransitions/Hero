@@ -415,7 +415,7 @@ internal extension Hero {
     let tContext = transitionContext
     let completion = completionCallback
     let fvc = fromViewController
-    let tvc = fromViewController
+    let tvc = toViewController
     
     progressUpdateObservers = nil
     transitionContainer = nil
@@ -433,22 +433,33 @@ internal extension Hero {
     forceNotInteractive = false
     progress = 0
     totalDuration = 0
-    
-    if let fvc = fvc, let tvc = tvc {
-      closureProcessForHeroDelegate(vc: fvc) {
-        $0.heroDidEndAnimatingTo?(viewController: tvc)
-        $0.heroDidEndTransition?()
-      }
-      
-      closureProcessForHeroDelegate(vc: tvc) {
-        $0.heroDidEndAnimatingFrom?(viewController: fvc)
-        $0.heroDidEndTransition?()
-      }
-    }
+
     
     if finished {
+      if let fvc = fvc, let tvc = tvc {
+        closureProcessForHeroDelegate(vc: fvc) {
+          $0.heroDidEndAnimatingTo?(viewController: tvc)
+          $0.heroDidEndTransition?()
+        }
+
+        closureProcessForHeroDelegate(vc: tvc) {
+          $0.heroDidEndAnimatingFrom?(viewController: fvc)
+          $0.heroDidEndTransition?()
+        }
+      }
       tContext?.finishInteractiveTransition()
     } else {
+      if let fvc = fvc, let tvc = tvc {
+        closureProcessForHeroDelegate(vc: fvc) {
+          $0.heroDidCancelAnimatingTo?(viewController: tvc)
+          $0.heroDidCancelTransition?()
+        }
+
+        closureProcessForHeroDelegate(vc: tvc) {
+          $0.heroDidCancelAnimatingFrom?(viewController: fvc)
+          $0.heroDidCancelTransition?()
+        }
+      }
       tContext?.cancelInteractiveTransition()
     }
     tContext?.completeTransition(finished)
