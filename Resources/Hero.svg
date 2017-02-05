@@ -106,12 +106,12 @@
                     fill="freeze" />
             </tspan>
         </text>
-        <svg id="right" x="100">
+        <g id="right" transform="translate(100,0)">
             <path d="M0,-1.42108547e-14 L52.6291862,30.0738207 C62.2228218,35.5558982 70,48.9562589 70,59.9930619 L70,250 L1.42108547e-14,210 L0,-1.42108547e-14 Z" id="top" fill="url(#defaultOrangeGradient)"></path>
             <polygon id="bottom" fill="url(#darkOrangeGradient)" points="0 100 70 130 70 250 0 210"></polygon>
-            <animate 
-                attributeName="x"
-                values="100;0;0;100;100"
+            <animateTransform attributeName="transform" 
+                type="translate"
+                values="100 0;0 0;0 0;100 0;100 0"
                 dur="10s"
                 calcMode="spline"
                 keySplines="0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1"
@@ -128,7 +128,7 @@
                 begin="5.8s"
                 repeatCount="indefinite"
                 fill="freeze" />
-        </svg>
+        </g>
         <path d="M0,100 L100,100 L170,130 L100.003297,130 C83.4329338,130 70,143.431508 70,159.994535 L70,160 L0,100 Z" id="center" fill="url(#centerOrangeGradient)">
             <animate 
                 attributeName="d" 
