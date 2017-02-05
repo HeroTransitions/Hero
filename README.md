@@ -1,4 +1,4 @@
-<img src="https://cdn.rawgit.com/lkzhao/Hero/3718f87dc22eb0ef0953c80646671f3c97a1f7b3/Resources/Hero.svg" width="388"/>
+<img src="https://cdn.rawgit.com/lkzhao/Hero/78f658b5a0946956a3036fa726338b74f8ea0512/Resources/Hero.svg" width="388"/>
 
 [![Carthage compatible](https://img.shields.io/badge/Carthage-Compatible-brightgreen.svg?style=flat)](https://github.com/Carthage/Carthage)
 [![Version](https://img.shields.io/cocoapods/v/Hero.svg?style=flat)](http://cocoapods.org/pods/Hero)
