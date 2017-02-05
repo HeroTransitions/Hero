@@ -31,12 +31,10 @@ class MatchPreprocessor: BasePreprocessor {
       var fvState = context[fv] ?? HeroTargetState()
 
       if let zPosition = tvState.zPositionIfMatched {
-        fvState.append(.zPosition(zPosition))
+        tvState.zPosition = zPosition
       }
 
-      if let zPosition = tvState.zPosition, fvState.zPosition != zPosition {
-        fvState.append(.zPosition(zPosition))
-      }
+      fvState.zPosition = tvState.zPosition
 
       tvState.source = id
       fvState.source = id

@@ -150,6 +150,10 @@ extension HeroContext {
         snapshot = view.snapshotView(afterScreenUpdates: true)!
       }
     }
+
+    if snapshotType != .noSnapshot {
+      snapshot.layer.allowsGroupOpacity = false
+    }
     
     view.layer.cornerRadius = oldCornerRadius
     view.alpha = oldAlpha
