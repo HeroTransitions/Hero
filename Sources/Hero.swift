@@ -61,7 +61,7 @@ public class Hero: NSObject {
   /// progress of the current transition. 0 if no transition is happening
   public fileprivate(set) var progress: Double = 0 {
     didSet {
-      if transitioning, progress != oldValue {
+      if transitioning {
         transitionContext?.updateInteractiveTransition(CGFloat(progress))
         if let progressUpdateObservers = progressUpdateObservers {
           for observer in progressUpdateObservers {
