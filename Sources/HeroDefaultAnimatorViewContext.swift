@@ -25,7 +25,7 @@ import UIKit
 internal class HeroDefaultAnimatorViewContext {
   weak var animator: HeroDefaultAnimator?
   var snapshot: UIView
-  var state = [String: (Any, Any)]()
+  var state = [String: (Any?, Any?)]()
   var duration: TimeInterval = 0
 
   var targetState: HeroTargetState
@@ -169,7 +169,7 @@ internal class HeroDefaultAnimatorViewContext {
       rtn["position"] = NSValue(cgPoint:position)
     }
     if let opacity = targetState.opacity {
-      rtn["opacity"] = NSNumber(value: opacity.native)
+      rtn["opacity"] = NSNumber(value: opacity)
     }
     if let cornerRadius = targetState.cornerRadius {
       rtn["cornerRadius"] = NSNumber(value: cornerRadius.native)
@@ -177,8 +177,34 @@ internal class HeroDefaultAnimatorViewContext {
     if let zPosition = targetState.zPosition {
       rtn["zPosition"] = NSNumber(value: zPosition.native)
     }
+
+    if let borderWidth = targetState.borderWidth {
+      rtn["borderWidth"] = NSNumber(value: borderWidth.native)
+    }
+    if let borderColor = targetState.borderColor {
+      rtn["borderColor"] = borderColor
+    }
+
+    if targetState.displayShadow {
+      if let shadowColor = targetState.shadowColor {
+        rtn["shadowColor"] = shadowColor
+      }
+      if let shadowRadius = targetState.shadowRadius {
+        rtn["shadowRadius"] = NSNumber(value: shadowRadius.native)
+      }
+      if let shadowOpacity = targetState.shadowOpacity {
+        rtn["shadowOpacity"] = NSNumber(value: shadowOpacity)
+      }
+      if let shadowPath = targetState.shadowPath {
+        rtn["shadowPath"] = shadowPath
+      }
+      if let shadowOffset = targetState.shadowOffset {
+        rtn["shadowOffset"] = NSValue(cgSize: shadowOffset)
+      }
+    }
+
     if let transform = targetState.transform {
-      rtn["transform"] = NSValue(caTransform3D:transform)
+      rtn["transform"] = NSValue(caTransform3D: transform)
     }
     return rtn
   }
@@ -291,7 +317,7 @@ internal class HeroDefaultAnimatorViewContext {
     let disappeared = viewState(targetState: targetState)
 
     for (key, disappearedState) in disappeared {
-      let appearingState = snapshot.layer.value(forKeyPath: key)!
+      let appearingState = snapshot.layer.value(forKeyPath: key)
       let toValue = appearing ? appearingState : disappearedState
       let fromValue = !appearing ? appearingState : disappearedState
       state[key] = (fromValue, toValue)
