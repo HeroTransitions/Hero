@@ -30,15 +30,10 @@ class MatchPreprocessor: BasePreprocessor {
       var tvState = context[tv] ?? HeroTargetState()
       var fvState = context[fv] ?? HeroTargetState()
 
-      if let zPosition = tvState.zPositionIfMatched {
-        tvState.zPosition = zPosition
-      }
-
-      fvState.zPosition = tvState.zPosition
-
       tvState.source = id
       fvState.source = id
 
+      fvState.zPosition = tvState.zPosition
       fvState.arc = tvState.arc
       fvState.duration = tvState.duration
       fvState.timingFunction = tvState.timingFunction
