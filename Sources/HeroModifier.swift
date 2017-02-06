@@ -277,19 +277,7 @@ extension HeroModifier {
       targetState.zPosition = zPosition
     }
   }
-  
-  /**
-   Same as zPosition modifier but only effective only when the view is matched. Will override zPosition modifier.
-   Will also force the view to use global coordinate space when the view is matched.
-   - Parameters:
-   - zPosition: zPosition during the animation
-   */
-  public static func zPositionIfMatched(_ zPositionIfMatched: CGFloat) -> HeroModifier {
-    return HeroModifier { targetState in
-      targetState.zPositionIfMatched = zPositionIfMatched
-    }
-  }
-  
+
   /**
    ignore all heroModifiers attributes for a view's direct subviews.
    */
@@ -423,10 +411,6 @@ extension HeroModifier {
     case "zPosition":
       if let zPosition = parameters.getCGFloat(0) {
         modifier = .zPosition(zPosition)
-      }
-    case "zPositionIfMatched":
-      if let zPosition = parameters.getCGFloat(0) {
-        modifier = .zPositionIfMatched(zPosition)
       }
     case "useOptimizedSnapshot":
       modifier = .useOptimizedSnapshot

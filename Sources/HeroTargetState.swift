@@ -54,7 +54,6 @@ public struct HeroTargetState {
   internal var timingFunction: CAMediaTimingFunction?
   internal var arc: CGFloat?
   internal var zPosition: CGFloat?
-  internal var zPositionIfMatched: CGFloat?
   internal var source: String?
   internal var cascade: (TimeInterval, CascadeDirection, Bool)?
   internal var ignoreSubviewModifiers: Bool?
