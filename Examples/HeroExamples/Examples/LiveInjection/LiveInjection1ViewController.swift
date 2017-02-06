@@ -20,6 +20,5 @@ extension LiveInjection1ViewController:HeroViewControllerDelegate {
   func heroWillStartTransition() {
     textLabel.heroModifiers = [.translate(x:500)]
     blueView.heroID = "blue"
-    blueView.heroModifiers = [.zPosition(5)]
   }
 }

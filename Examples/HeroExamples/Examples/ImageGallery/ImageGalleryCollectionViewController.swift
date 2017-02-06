@@ -59,8 +59,7 @@ extension ImageGalleryViewController: UICollectionViewDataSource {
     let imageCell = (collectionView.dequeueReusableCell(withReuseIdentifier: "item", for: indexPath) as? ImageCell)!
     imageCell.imageView.image = ImageLibrary.thumbnail(index:indexPath.item)
     imageCell.imageView.heroID = "image_\(indexPath.item)"
-    imageCell.imageView.heroModifiers = [.zPosition(100)]
-    imageCell.heroModifiers = [.fade, .scale(0.8), .zPosition(50)]
+    imageCell.imageView.heroModifiers = [.fade, .scale(0.8)]
     return imageCell
   }
 }

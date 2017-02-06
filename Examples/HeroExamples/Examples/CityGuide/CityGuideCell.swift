@@ -36,7 +36,6 @@ class CityCell: UICollectionViewCell {
       let name = city.name
 
       heroID = "\(name)"
-      heroModifiers = [.zPositionIfMatched(3)]
 
       nameLabel.text = name
       imageView.image = city.image

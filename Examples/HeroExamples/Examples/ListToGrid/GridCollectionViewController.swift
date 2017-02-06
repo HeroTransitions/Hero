@@ -53,7 +53,7 @@ class GridCollectionViewController: UICollectionViewController, UICollectionView
     cell.heroModifiers = [.fade, .translate(y:20)]
     cell.imageView?.image = image
     cell.imageView?.heroID = "image_\(indexPath.item)"
-    cell.imageView?.heroModifiers = [.arc, .zPosition(10)]
+    cell.imageView?.heroModifiers = [.arc]
     cell.textLabel?.text = "Item \(indexPath.item)"
     cell.detailTextLabel?.text = "Description \(indexPath.item)"
     cell.backgroundColor = UIColor(averageColorFrom: image)

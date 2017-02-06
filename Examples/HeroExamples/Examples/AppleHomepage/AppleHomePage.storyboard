@@ -94,7 +94,7 @@ SERIES 2</string>
                                 <state key="normal" title="Back"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="back"/>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="heroModifierString" value="zPosition(3)"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="heroModifierString" value="zPosition(2)"/>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="hero_dismissViewController" destination="RcI-CE-08V" eventType="touchUpInside" id="KTp-Gj-3H1"/>
@@ -160,7 +160,7 @@ SERIES 2</string>
                                 <state key="normal" title="Back"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="back"/>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="heroModifierString" value="zPosition(3)"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="heroModifierString" value="zPosition(2)"/>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="hero_dismissViewController" destination="DOw-gI-E85" eventType="touchUpInside" id="boI-dE-7jw"/>
@@ -230,7 +230,7 @@ SERIES 2</string>
                                 <state key="normal" title="Back"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="back"/>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="heroModifierString" value="zPosition(3)"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="heroModifierString" value="zPosition(2)"/>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="hero_dismissViewController" destination="jVP-SB-1G7" eventType="touchUpInside" id="nEc-ur-ojD"/>

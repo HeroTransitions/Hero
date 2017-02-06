@@ -189,6 +189,9 @@ extension HeroContext {
 
     hide(view: view)
 
+    if let pairedView = pairedView(for: view), let pairdSnapshot = snapshotViews[pairedView] {
+      containerView.addSubview(pairdSnapshot)
+    }
     containerView.addSubview(snapshot)
     snapshotViews[view] = snapshot
     return snapshot

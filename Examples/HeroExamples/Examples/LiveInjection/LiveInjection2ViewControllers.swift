@@ -25,7 +25,6 @@ extension LiveInjection2ViewController:HeroViewControllerDelegate {
     greenView.heroID = "green"
     greenView.heroModifiers = [.scale(x:0.5, y:0.5)]
     blueView.heroID = "blue"
-    blueView.heroModifiers = [.zPosition(5)]
   }
 
 }
