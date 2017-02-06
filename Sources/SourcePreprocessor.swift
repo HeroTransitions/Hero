@@ -58,6 +58,29 @@ class SourcePreprocessor: BasePreprocessor {
     if view.layer.zPosition != targetView.layer.zPosition {
       state.zPosition = targetView.layer.zPosition
     }
+
+    if view.layer.borderWidth != targetView.layer.borderWidth {
+      state.borderWidth = targetView.layer.borderWidth
+    }
+    if view.layer.borderColor != targetView.layer.borderColor {
+      state.borderColor = targetView.layer.borderColor
+    }
+    if view.layer.shadowColor != targetView.layer.shadowColor {
+      state.shadowColor = targetView.layer.shadowColor
+    }
+    if view.layer.shadowOpacity != targetView.layer.shadowOpacity {
+      state.shadowOpacity = targetView.layer.shadowOpacity
+    }
+    if view.layer.shadowOffset != targetView.layer.shadowOffset {
+      state.shadowOffset = targetView.layer.shadowOffset
+    }
+    if view.layer.shadowRadius != targetView.layer.shadowRadius {
+      state.shadowRadius = targetView.layer.shadowRadius
+    }
+    if view.layer.shadowPath != targetView.layer.shadowPath {
+      state.shadowPath = targetView.layer.shadowPath
+    }
+
     if view.layer.transform != targetView.layer.transform {
       state.transform = targetView.layer.transform
     }

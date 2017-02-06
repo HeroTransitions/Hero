@@ -174,10 +174,14 @@ extension HeroContext {
     snapshot.layer.borderColor = view.layer.borderColor
     snapshot.layer.borderWidth = view.layer.borderWidth
     snapshot.layer.transform = view.layer.transform
-    snapshot.layer.shadowRadius = view.layer.shadowRadius
-    snapshot.layer.shadowOpacity = view.layer.shadowOpacity
-    snapshot.layer.shadowColor = view.layer.shadowColor
-    snapshot.layer.shadowOffset = view.layer.shadowOffset
+
+    if self[view]?.displayShadow ?? true {
+      snapshot.layer.shadowRadius = view.layer.shadowRadius
+      snapshot.layer.shadowOpacity = view.layer.shadowOpacity
+      snapshot.layer.shadowColor = view.layer.shadowColor
+      snapshot.layer.shadowOffset = view.layer.shadowOffset
+      snapshot.layer.shadowPath = view.layer.shadowPath
+    }
 
     snapshot.frame = containerView.convert(view.bounds, from: view)
     snapshot.heroID = view.heroID

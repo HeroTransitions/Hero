@@ -22,7 +22,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="440"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LMd-Z8-K6J">
+                            <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LMd-Z8-K6J">
                                 <rect key="frame" x="35" y="88" width="150" height="75"/>
                                 <color key="backgroundColor" red="0.3231979311" green="0.62352418899999995" blue="0.80385208129999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -41,7 +41,7 @@
                                     <action selector="hero_dismissViewController" destination="zcb-C5-i3s" eventType="touchUpInside" id="zpH-Mr-xxe"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VVf-pI-B2r">
+                            <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VVf-pI-B2r">
                                 <rect key="frame" x="35" y="183" width="150" height="75"/>
                                 <color key="backgroundColor" red="0.65110915899999999" green="0.49157077069999999" blue="0.75600677729999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -60,7 +60,7 @@
                                     <action selector="hero_dismissViewController" destination="zcb-C5-i3s" eventType="touchUpInside" id="k0R-sp-unM"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EKn-E4-SDc">
+                            <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EKn-E4-SDc">
                                 <rect key="frame" x="35" y="278" width="150" height="75"/>
                                 <color key="backgroundColor" red="0.33910316229999998" green="0.73554944990000004" blue="0.53971123700000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -191,7 +191,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="440"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NHA-Qe-xmT">
+                            <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NHA-Qe-xmT">
                                 <rect key="frame" x="22" y="183" width="75" height="75"/>
                                 <color key="backgroundColor" red="0.3231979311" green="0.62352418899999995" blue="0.80385208129999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -207,7 +207,7 @@
                                     <userDefinedRuntimeAttribute type="string" keyPath="heroModifierString" value="arc"/>
                                 </userDefinedRuntimeAttributes>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fvx-tV-Ykd">
+                            <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fvx-tV-Ykd">
                                 <rect key="frame" x="105" y="183" width="110" height="75"/>
                                 <color key="backgroundColor" red="0.65110915899999999" green="0.49157077069999999" blue="0.75600677729999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -223,7 +223,7 @@
                                     <userDefinedRuntimeAttribute type="string" keyPath="heroModifierString" value="arc"/>
                                 </userDefinedRuntimeAttributes>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F5R-GZ-H9s">
+                            <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F5R-GZ-H9s">
                                 <rect key="frame" x="223" y="183" width="75" height="75"/>
                                 <color key="backgroundColor" red="0.33910316229999998" green="0.73554944990000004" blue="0.53971123700000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>

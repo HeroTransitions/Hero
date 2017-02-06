@@ -40,11 +40,16 @@ class MatchPreprocessor: BasePreprocessor {
       fvState.spring = tvState.spring
 
       tvState.opacity = 0
-      if (fv is UILabel && !fv.isOpaque) || tv.alpha < 1 {
-        // cross fade if fromView is a label or if toView is transparent
+      if !fv.isOpaque || tv.alpha < 1 {
+        // cross fade if fromView is not opaque or if toView is transparent
         fvState.opacity = 0
       } else {
         fvState.opacity = nil
+
+        // we dont want two shadows showing up. Therefore we disable toView's shadow when fromView is able to display its shadow
+        if !fv.layer.masksToBounds && fvState.displayShadow {
+          tvState.displayShadow = false
+        }
       }
 
       context[tv] = tvState

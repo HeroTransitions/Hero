@@ -156,7 +156,7 @@ extension HeroModifier {
    */
   public static func opacity(_ opacity: CGFloat) -> HeroModifier {
     return HeroModifier { targetState in
-      targetState.opacity = opacity
+      targetState.opacity = Float(opacity)
     }
   }
 

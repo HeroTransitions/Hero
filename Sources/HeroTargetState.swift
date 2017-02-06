@@ -46,9 +46,19 @@ public struct HeroTargetState {
   internal var position: CGPoint?
   internal var size: CGSize?
   internal var transform: CATransform3D?
-  internal var opacity: CGFloat?
+  internal var opacity: Float?
   internal var cornerRadius: CGFloat?
   internal var zPosition: CGFloat?
+
+  internal var borderWidth: CGFloat?
+  internal var borderColor: CGColor?
+
+  internal var shadowColor: CGColor?
+  internal var shadowOpacity: Float?
+  internal var shadowOffset: CGSize?
+  internal var shadowRadius: CGFloat?
+  internal var shadowPath: CGPath?
+  internal var displayShadow: Bool = true
 
   internal var spring: (CGFloat, CGFloat)?
   internal var delay: TimeInterval = 0
