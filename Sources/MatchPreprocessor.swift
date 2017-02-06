@@ -33,7 +33,6 @@ class MatchPreprocessor: BasePreprocessor {
       tvState.source = id
       fvState.source = id
 
-      fvState.zPosition = tvState.zPosition
       fvState.arc = tvState.arc
       fvState.duration = tvState.duration
       fvState.timingFunction = tvState.timingFunction

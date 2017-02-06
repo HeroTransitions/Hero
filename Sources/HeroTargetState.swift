@@ -43,19 +43,22 @@ public enum HeroSnapshotType {
 }
 
 public struct HeroTargetState {
-  internal var opacity: CGFloat?
-  internal var cornerRadius: CGFloat?
   internal var position: CGPoint?
   internal var size: CGSize?
   internal var transform: CATransform3D?
+  internal var opacity: CGFloat?
+  internal var cornerRadius: CGFloat?
+  internal var zPosition: CGFloat?
+
   internal var spring: (CGFloat, CGFloat)?
   internal var delay: TimeInterval = 0
   internal var duration: TimeInterval?
   internal var timingFunction: CAMediaTimingFunction?
+
   internal var arc: CGFloat?
-  internal var zPosition: CGFloat?
   internal var source: String?
   internal var cascade: (TimeInterval, CascadeDirection, Bool)?
+  
   internal var ignoreSubviewModifiers: Bool?
   internal var useGlobalCoordinateSpace: Bool?
   internal var useScaleBasedSizeChange: Bool?

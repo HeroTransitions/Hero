@@ -40,6 +40,7 @@ class AppleProductViewController: UIViewController, HeroViewControllerDelegate {
   }
 
   func applyShrinkModifiers() {
+    view.zPosition = 0
     view.heroModifiers = nil
     primaryLabel.heroModifiers = [.translate(x:-50, y:(view.center.y - primaryLabel.center.y)/10), .scale(0.9), HeroModifier.duration(0.3)]
     secondaryLabel.heroModifiers = [.translate(x:-50, y:(view.center.y - secondaryLabel.center.y)/10), .scale(0.9), HeroModifier.duration(0.3)]
@@ -47,7 +48,8 @@ class AppleProductViewController: UIViewController, HeroViewControllerDelegate {
   }
 
   func applySlideModifiers() {
-    view.heroModifiers = [.translate(x: view.bounds.width), .zPosition(2), .duration(0.3)]
+    view.zPosition = 2
+    view.heroModifiers = [.translate(x: view.bounds.width), .duration(0.3)]
     primaryLabel.heroModifiers = [.translate(x:100), .duration(0.3)]
     secondaryLabel.heroModifiers = [.translate(x:100), .duration(0.3)]
     imageView.heroModifiers = nil

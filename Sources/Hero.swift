@@ -112,7 +112,7 @@ public class Hero: NSObject {
   fileprivate var progressUpdateObservers: [HeroProgressUpdateObserver]?
   
   /// max duration needed by the default animator and plugins
-  fileprivate var totalDuration: TimeInterval = 0.0
+  public fileprivate(set) var totalDuration: TimeInterval = 0.0
   fileprivate var duration: TimeInterval = 0.0
   fileprivate var beginTime: TimeInterval? {
     didSet {
@@ -336,6 +336,13 @@ internal extension Hero {
       // if no animator can animate toView & fromView, set the effect to fade // i.e. default effect
       context[toView] = [.fade]
       animatingViews[0].1.insert(toView, at: 0)
+
+      if toView.layer.zPosition < fromView.layer.zPosition {
+        // in this case, we have to animate the zPosition as well. otherwise the fade animation will be hidden.
+        context[toView]!.append(.zPosition(fromView.layer.zPosition))
+        context[fromView] = [.zPosition(toView.layer.zPosition)]
+        animatingViews[0].0.insert(fromView, at: 0)
+      }
     }
     
     // wait for a frame if using navigation controller.
@@ -361,6 +368,11 @@ internal extension Hero {
         } else {
           totalDuration = max(totalDuration, duration)
         }
+      }
+
+      if !skipDefaultAnimation {
+        // change the duration of the default fade animation to be the total duration of the animation
+        self.animators.first?.apply(state: [.duration(totalDuration)], to: self.toView)
       }
 
       // we are done with setting up, so remove the covering snapshot
