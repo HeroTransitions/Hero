@@ -174,6 +174,9 @@ internal class HeroDefaultAnimatorViewContext {
     if let cornerRadius = targetState.cornerRadius {
       rtn["cornerRadius"] = NSNumber(value: cornerRadius.native)
     }
+    if let zPosition = targetState.zPosition {
+      rtn["zPosition"] = NSNumber(value: zPosition.native)
+    }
     if let transform = targetState.transform {
       rtn["transform"] = NSValue(caTransform3D:transform)
     }
@@ -237,6 +240,13 @@ internal class HeroDefaultAnimatorViewContext {
         self.state[key] = (currentValue, currentValue)
       }
       addAnimation(key: key, beginTime: 0, fromValue: targetValue, toValue: targetValue)
+    }
+
+    // support changing duration
+    if let duration = state.duration {
+      self.targetState.duration = duration
+      self.duration = duration
+      animate(delay: self.targetState.delay - Hero.shared.progress * Hero.shared.totalDuration)
     }
   }
 

@@ -147,6 +147,42 @@ extension HeroModifier {
   }
 }
 
+
+extension HeroModifier {
+  /**
+   Set the opacity for the view to animate from/to.
+   - Parameters:
+     - opacity: opacity for the view to animate from/to
+   */
+  public static func opacity(_ opacity: CGFloat) -> HeroModifier {
+    return HeroModifier { targetState in
+      targetState.opacity = opacity
+    }
+  }
+
+  /**
+   Set the cornerRadius for the view to animate from/to.
+   - Parameters:
+     - cornerRadius: cornerRadius for the view to animate from/to
+   */
+  public static func cornerRadius(_ cornerRadius: CGFloat) -> HeroModifier {
+    return HeroModifier { targetState in
+      targetState.cornerRadius = cornerRadius
+    }
+  }
+
+  /**
+   Set the zPosition for the view to animate from/to.
+   - Parameters:
+   - zPosition: zPosition for the view to animate from/to
+   */
+  public static func zPosition(_ zPosition: CGFloat) -> HeroModifier {
+    return HeroModifier { targetState in
+      targetState.zPosition = zPosition
+    }
+  }
+}
+
 // timing modifiers
 extension HeroModifier {
   /**
@@ -262,20 +298,6 @@ extension HeroModifier {
    */
   public static var useGlobalCoordinateSpace: HeroModifier = HeroModifier { targetState in
     targetState.useGlobalCoordinateSpace = true
-  }
-  
-  /**
-   Sets the zPosition during the animation, not animatable.
-   
-   During animation, Hero might incorrectly infer the order to draw your views. Use this modifier to adjust
-   the view draw order.
-   - Parameters:
-   - zPosition: zPosition during the animation
-   */
-  public static func zPosition(_ zPosition: CGFloat) -> HeroModifier {
-    return HeroModifier { targetState in
-      targetState.zPosition = zPosition
-    }
   }
 
   /**

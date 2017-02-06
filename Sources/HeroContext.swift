@@ -23,11 +23,11 @@
 import UIKit
 
 public class HeroContext {
-  fileprivate var heroIDToSourceView = [String: UIView]()
-  fileprivate var heroIDToDestinationView = [String: UIView]()
-  fileprivate var snapshotViews = [UIView: UIView]()
-  fileprivate var viewAlphas = [UIView: CGFloat]()
-  fileprivate var targetStates = [UIView: HeroTargetState]()
+  internal var heroIDToSourceView = [String: UIView]()
+  internal var heroIDToDestinationView = [String: UIView]()
+  internal var snapshotViews = [UIView: UIView]()
+  internal var viewAlphas = [UIView: CGFloat]()
+  internal var targetStates = [UIView: HeroTargetState]()
 
   internal init(container: UIView, fromView: UIView, toView: UIView) {
     fromViews = HeroContext.processViewTree(view: fromView, container: container, idMap: &heroIDToSourceView, stateMap: &targetStates)
@@ -166,12 +166,7 @@ extension HeroContext {
     }
 
     snapshot.layer.cornerRadius = view.layer.cornerRadius
-    if let zPosition = self[view]?.zPosition {
-      snapshot.layer.zPosition = zPosition
-    } else {
-      snapshot.layer.zPosition = view.layer.zPosition
-    }
-
+    snapshot.layer.zPosition = view.layer.zPosition
     snapshot.layer.opacity = view.layer.opacity
     snapshot.layer.isOpaque = view.layer.isOpaque
     snapshot.layer.anchorPoint = view.layer.anchorPoint

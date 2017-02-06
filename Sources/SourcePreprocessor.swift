@@ -55,6 +55,9 @@ class SourcePreprocessor: BasePreprocessor {
     if view.layer.cornerRadius != targetView.layer.cornerRadius {
       state.cornerRadius = targetView.layer.cornerRadius
     }
+    if view.layer.zPosition != targetView.layer.zPosition {
+      state.zPosition = targetView.layer.zPosition
+    }
     if view.layer.transform != targetView.layer.transform {
       state.transform = targetView.layer.transform
     }
