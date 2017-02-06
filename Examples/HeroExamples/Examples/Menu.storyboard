@@ -36,7 +36,7 @@
                                         <real key="value" value="36"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="menu"/>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="heroModifierString" value="zPosition(10) arc"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="heroModifierString" value="arc"/>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <segue destination="hDE-vd-kLY" kind="presentation" id="REW-4R-Q2f"/>
@@ -204,26 +204,6 @@
                                     <action selector="hero_dismissViewController" destination="hDE-vd-kLY" eventType="touchUpInside" id="Tfd-PU-wnG"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BB9-pA-7KT">
-                                <rect key="frame" x="200" y="466" width="96" height="96"/>
-                                <color key="backgroundColor" red="0.96854275469999995" green="0.96868163350000003" blue="0.96851247549999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="96" id="I3r-Zq-Baz"/>
-                                    <constraint firstAttribute="width" constant="96" id="ZKk-nU-nbX"/>
-                                </constraints>
-                                <color key="tintColor" red="0.25490196079999999" green="0.28627450980000002" blue="0.30980392159999998" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" image="ic_text_fields_48pt"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="48"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="menu"/>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="heroModifierString" value="zPosition(10)"/>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="hero_dismissViewController" destination="hDE-vd-kLY" eventType="touchUpInside" id="I5f-aH-3I8"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zna-x2-9LS">
                                 <rect key="frame" x="80" y="466" width="96" height="96"/>
                                 <color key="backgroundColor" red="0.92462307210000005" green="0.58727717400000001" blue="0.17350399490000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -242,6 +222,25 @@
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="hero_dismissViewController" destination="hDE-vd-kLY" eventType="touchUpInside" id="oAg-lf-v0I"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BB9-pA-7KT">
+                                <rect key="frame" x="200" y="466" width="96" height="96"/>
+                                <color key="backgroundColor" red="0.96854275469999995" green="0.96868163350000003" blue="0.96851247549999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="96" id="I3r-Zq-Baz"/>
+                                    <constraint firstAttribute="width" constant="96" id="ZKk-nU-nbX"/>
+                                </constraints>
+                                <color key="tintColor" red="0.25490196079999999" green="0.28627450980000002" blue="0.30980392159999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" image="ic_text_fields_48pt"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="48"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="menu"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="hero_dismissViewController" destination="hDE-vd-kLY" eventType="touchUpInside" id="I5f-aH-3I8"/>
                                 </connections>
                             </button>
                         </subviews>

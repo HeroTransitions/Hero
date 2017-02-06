@@ -47,7 +47,7 @@ class ListTableViewController: UITableViewController {
 
     cell.heroModifiers = [.fade, .translate(x:-100)]
     cell.imageView?.heroID = "image_\(indexPath.item)"
-    cell.imageView?.heroModifiers = [.arc, .zPosition(10)]
+    cell.imageView?.heroModifiers = [.arc]
     cell.imageView?.image = ImageLibrary.thumbnail(index:indexPath.item)
     cell.textLabel?.text = "Item \(indexPath.item)"
     cell.detailTextLabel?.text = "Description \(indexPath.item)"

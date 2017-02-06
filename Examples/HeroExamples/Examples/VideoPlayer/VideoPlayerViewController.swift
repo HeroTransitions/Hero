@@ -40,6 +40,7 @@ class VideoPlayerViewController: UIViewController {
     let player = AVPlayer(url: URL(string: "https://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4")!)
 
     playerView = AVPlayerView(frame: view.bounds)
+    playerView.backgroundColor = .black
     (playerView.layer as! AVPlayerLayer).player = player
     playerView.heroID = "videoPlayer"
     playerView.heroModifiers = [.useNoSnapshot, .useScaleBasedSizeChange]

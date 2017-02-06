@@ -68,15 +68,6 @@ public extension UIView {
       layer.shadowOffset = newValue
     }
   }
-  @IBInspectable public var zPosition: CGFloat {
-    get {
-      return layer.zPosition
-    }
-
-    set {
-      layer.zPosition = newValue
-    }
-  }
 }
 
 func viewController(forStoryboardName: String) -> UIViewController {

@@ -85,7 +85,6 @@ public class LabelMorphPlugin: HeroPlugin {
     morphingLabel.textColor = label.textColor
     morphingLabel.animationDuration = 0.4
     morphingLabel.animationDelay = 0.02
-    morphingLabel.zPosition = label.zPosition
     morphingLabel.attributedString = label.attributedText
 
     morphingLabels.append(morphingLabel)

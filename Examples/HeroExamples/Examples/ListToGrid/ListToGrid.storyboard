@@ -158,11 +158,11 @@
         <scene sceneID="vPE-4j-gAJ">
             <objects>
                 <navigationController id="GbK-uB-s7f" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="mBD-b8-heE">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="mBD-b8-heE">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="string" keyPath="heroModifierString" value="translate(0, -44) fade zPosition(10)"/>
+                            <userDefinedRuntimeAttribute type="string" keyPath="heroModifierString" value="translate(0, -44) fade"/>
                         </userDefinedRuntimeAttributes>
                     </navigationBar>
                     <userDefinedRuntimeAttributes>

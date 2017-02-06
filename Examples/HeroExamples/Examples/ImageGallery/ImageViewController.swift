@@ -81,7 +81,7 @@ extension ImageViewController {
     let imageCell = (collectionView.dequeueReusableCell(withReuseIdentifier: "item", for: indexPath) as? ScrollingImageCell)!
     imageCell.image = ImageLibrary.image(index:indexPath.item)
     imageCell.imageView.heroID = "image_\(indexPath.item)"
-    imageCell.imageView.heroModifiers = [.position(CGPoint(x:view.bounds.width/2, y:view.bounds.height+view.bounds.width/2)), .scale(0.6), .fade, .zPositionIfMatched(100)]
+    imageCell.imageView.heroModifiers = [.position(CGPoint(x:view.bounds.width/2, y:view.bounds.height+view.bounds.width/2)), .scale(0.6), .fade]
     imageCell.topInset = topLayoutGuide.length
     return imageCell
   }
