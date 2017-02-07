@@ -46,11 +46,12 @@ class ListTableViewController: UITableViewController {
     let cell = tableView.dequeueReusableCell(withIdentifier: "item", for: indexPath)
 
     cell.heroModifiers = [.fade, .translate(x:-100)]
-    cell.imageView?.heroID = "image_\(indexPath.item)"
-    cell.imageView?.heroModifiers = [.arc]
-    cell.imageView?.image = ImageLibrary.thumbnail(index:indexPath.item)
-    cell.textLabel?.text = "Item \(indexPath.item)"
-    cell.detailTextLabel?.text = "Description \(indexPath.item)"
+    cell.imageView!.heroID = "image_\(indexPath.item)"
+    cell.imageView!.heroModifiers = [.arc]
+    cell.imageView!.image = ImageLibrary.thumbnail(index:indexPath.item)
+    cell.imageView!.isOpaque = true
+    cell.textLabel!.text = "Item \(indexPath.item)"
+    cell.detailTextLabel!.text = "Description \(indexPath.item)"
 
     return cell
   }
