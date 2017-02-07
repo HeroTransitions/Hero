@@ -30,6 +30,7 @@ protocol HeroDebugViewDelegate {
   func onDone()
 }
 
+#if os(iOS)
 class HeroDebugView: UIView {
   var backgroundView: UIView!
   var debugSlider: UISlider!
@@ -39,6 +40,7 @@ class HeroDebugView: UIView {
 
   var delegate: HeroDebugViewDelegate?
   var panGR: UIPanGestureRecognizer!
+  
   var pinchGR: UIPinchGestureRecognizer!
 
   var showControls: Bool = false {
@@ -95,6 +97,7 @@ class HeroDebugView: UIView {
     panGR = UIPanGestureRecognizer(target: self, action: #selector(pan))
     panGR.delegate = self
     panGR.maximumNumberOfTouches = 1
+    
     addGestureRecognizer(panGR)
 
     pinchGR = UIPinchGestureRecognizer(target: self, action: #selector(pinch))
@@ -186,3 +189,4 @@ extension HeroDebugView:UIGestureRecognizerDelegate {
     return perspectiveButton.isSelected
   }
 }
+#endif

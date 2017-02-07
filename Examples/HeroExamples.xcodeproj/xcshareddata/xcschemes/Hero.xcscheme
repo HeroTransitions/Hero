@@ -16,7 +16,7 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "A306D3B11E1C7A2E00B6C23A"
                BuildableName = "Hero.framework"
-               BlueprintName = "Hero"
+               BlueprintName = "Hero (iOS)"
                ReferencedContainer = "container:HeroExamples.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -47,7 +47,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "A306D3B11E1C7A2E00B6C23A"
             BuildableName = "Hero.framework"
-            BlueprintName = "Hero"
+            BlueprintName = "Hero (iOS)"
             ReferencedContainer = "container:HeroExamples.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -65,7 +65,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "A306D3B11E1C7A2E00B6C23A"
             BuildableName = "Hero.framework"
-            BlueprintName = "Hero"
+            BlueprintName = "Hero (iOS)"
             ReferencedContainer = "container:HeroExamples.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
