@@ -181,6 +181,83 @@ extension HeroModifier {
       targetState.zPosition = zPosition
     }
   }
+
+  /**
+   Set the borderWidth for the view to animate from/to.
+   - Parameters:
+   - borderWidth: borderWidth for the view to animate from/to
+   */
+  public static func borderWidth(_ borderWidth: CGFloat) -> HeroModifier {
+    return HeroModifier { targetState in
+      targetState.borderWidth = borderWidth
+    }
+  }
+
+  /**
+   Set the borderColor for the view to animate from/to.
+   - Parameters:
+   - borderColor: borderColor for the view to animate from/to
+   */
+  public static func borderColor(_ borderColor: UIColor) -> HeroModifier {
+    return HeroModifier { targetState in
+      targetState.borderColor = borderColor.cgColor
+    }
+  }
+
+  /**
+   Set the shadowColor for the view to animate from/to.
+   - Parameters:
+   - shadowColor: shadowColor for the view to animate from/to
+   */
+  public static func shadowColor(_ shadowColor: UIColor) -> HeroModifier {
+    return HeroModifier { targetState in
+      targetState.shadowColor = shadowColor.cgColor
+    }
+  }
+
+  /**
+   Set the shadowOpacity for the view to animate from/to.
+   - Parameters:
+   - shadowOpacity: shadowOpacity for the view to animate from/to
+   */
+  public static func shadowOpacity(_ shadowOpacity: CGFloat) -> HeroModifier {
+    return HeroModifier { targetState in
+      targetState.shadowOpacity = Float(shadowOpacity)
+    }
+  }
+
+  /**
+   Set the shadowOffset for the view to animate from/to.
+   - Parameters:
+   - shadowOffset: shadowOffset for the view to animate from/to
+   */
+  public static func shadowOffset(_ shadowOffset: CGSize) -> HeroModifier {
+    return HeroModifier { targetState in
+      targetState.shadowOffset = shadowOffset
+    }
+  }
+
+  /**
+   Set the shadowRadius for the view to animate from/to.
+   - Parameters:
+   - shadowRadius: shadowRadius for the view to animate from/to
+   */
+  public static func shadowRadius(_ shadowRadius: CGFloat) -> HeroModifier {
+    return HeroModifier { targetState in
+      targetState.shadowRadius = shadowRadius
+    }
+  }
+
+  /**
+   Set the shadowPath for the view to animate from/to.
+   - Parameters:
+   - shadowPath: shadowPath for the view to animate from/to
+   */
+  public static func shadowPath(_ shadowPath: CGPath) -> HeroModifier {
+    return HeroModifier { targetState in
+      targetState.shadowPath = shadowPath
+    }
+  }
 }
 
 // timing modifiers
