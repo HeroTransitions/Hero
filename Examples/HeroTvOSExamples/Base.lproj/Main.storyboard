@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder.AppleTV.Storyboard" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="appleTV" orientation="landscape">
+        <adaptation id="light"/>
+    </device>
+    <dependencies>
+        <deployment identifier="tvOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="HeroTvOSExamples" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LzK-do-i3P">
+                                <rect key="frame" x="840" y="476" width="240" height="128"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="G5p-t9-neP"/>
+                                    <constraint firstAttribute="width" secondItem="LzK-do-i3P" secondAttribute="height" multiplier="15:8" id="gpY-cK-ayF"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="ExampleView"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mlh-5l-Rjc">
+                                <rect key="frame" x="878" y="823" width="164" height="86"/>
+                                <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
+                                <state key="normal" title="Hero"/>
+                                <connections>
+                                    <segue destination="s7V-DH-JMg" kind="presentation" id="wgW-Ie-qXg"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="LzK-do-i3P" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Ekc-O7-41e"/>
+                            <constraint firstItem="Mlh-5l-Rjc" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="K9y-nJ-9cE"/>
+                            <constraint firstItem="LzK-do-i3P" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Rk9-2w-w8B"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Mlh-5l-Rjc" secondAttribute="bottom" constant="171" id="fbh-qf-EJ7"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="806" y="287"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="7s9-na-Dmz">
+            <objects>
+                <viewController id="s7V-DH-JMg" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="kaE-1y-ATY"/>
+                        <viewControllerLayoutGuide type="bottom" id="7TO-Bf-Rza"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="lg0-xG-H19">
+                        <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xfq-bd-Paw">
+                                <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="ExampleView"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="7TO-Bf-Rza" firstAttribute="top" secondItem="xfq-bd-Paw" secondAttribute="bottom" id="0Kg-pT-Oyj"/>
+                            <constraint firstItem="xfq-bd-Paw" firstAttribute="top" secondItem="kaE-1y-ATY" secondAttribute="bottom" id="Enk-in-9sY"/>
+                            <constraint firstItem="xfq-bd-Paw" firstAttribute="leading" secondItem="lg0-xG-H19" secondAttribute="leading" id="XWr-XG-zqX"/>
+                            <constraint firstAttribute="trailing" secondItem="xfq-bd-Paw" secondAttribute="trailing" id="mrd-YX-4dJ"/>
+                        </constraints>
+                    </view>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabled" value="YES"/>
+                    </userDefinedRuntimeAttributes>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BwG-pE-w6N" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2940" y="285"/>
+        </scene>
+    </scenes>
+</document>

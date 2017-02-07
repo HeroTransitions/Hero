@@ -7,6 +7,33 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2D1F7FC71E49DD02004D944B /* Hero.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37D7B511E2C0CBD00AC1959 /* Hero.swift */; };
+		2D1F7FC81E49DD04004D944B /* HeroContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37D7B521E2C0CBD00AC1959 /* HeroContext.swift */; };
+		2D1F7FC91E49DD08004D944B /* HeroModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37D7B551E2C0CBD00AC1959 /* HeroModifier.swift */; };
+		2D1F7FCA1E49DD08004D944B /* HeroPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37D7B561E2C0CBD00AC1959 /* HeroPlugin.swift */; };
+		2D1F7FCB1E49DD08004D944B /* HeroTargetState.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37D7B571E2C0CBD00AC1959 /* HeroTargetState.swift */; };
+		2D1F7FCC1E49DD08004D944B /* HeroTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37D7B581E2C0CBD00AC1959 /* HeroTypes.swift */; };
+		2D1F7FCD1E49DD13004D944B /* BasePreprocessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3298CD91E304851005B06BB /* BasePreprocessor.swift */; };
+		2D1F7FCE1E49DD13004D944B /* CascadePreprocessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37D7B3D1E2C0C7E00AC1959 /* CascadePreprocessor.swift */; };
+		2D1F7FCF1E49DD13004D944B /* IgnoreSubviewModifiersPreprocessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37D7B3E1E2C0C7E00AC1959 /* IgnoreSubviewModifiersPreprocessor.swift */; };
+		2D1F7FD01E49DD13004D944B /* MatchPreprocessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37D7B3F1E2C0C7E00AC1959 /* MatchPreprocessor.swift */; };
+		2D1F7FD11E49DD13004D944B /* SourcePreprocessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37D7B401E2C0C7E00AC1959 /* SourcePreprocessor.swift */; };
+		2D1F7FD21E49DD18004D944B /* Array+HeroModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37D7B451E2C0C9300AC1959 /* Array+HeroModifier.swift */; };
+		2D1F7FD31E49DD18004D944B /* CALayer+Hero.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37D7B461E2C0C9300AC1959 /* CALayer+Hero.swift */; };
+		2D1F7FD41E49DD18004D944B /* CAMediaTimingFunction+Hero.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37D7B471E2C0C9300AC1959 /* CAMediaTimingFunction+Hero.swift */; };
+		2D1F7FD51E49DD18004D944B /* CG+Hero.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37D7B481E2C0C9300AC1959 /* CG+Hero.swift */; };
+		2D1F7FD61E49DD18004D944B /* DispatchQueue+Hero.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37D7B491E2C0C9300AC1959 /* DispatchQueue+Hero.swift */; };
+		2D1F7FD71E49DD18004D944B /* UIKit+Hero.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37D7B4A1E2C0C9300AC1959 /* UIKit+Hero.swift */; };
+		2D1F7FD81E49DD1D004D944B /* HeroDefaultAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37D7B531E2C0CBD00AC1959 /* HeroDefaultAnimator.swift */; };
+		2D1F7FD91E49DD1D004D944B /* HeroDefaultAnimatorViewContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37D7B541E2C0CBD00AC1959 /* HeroDefaultAnimatorViewContext.swift */; };
+		2D1F7FDA1E49DD21004D944B /* HeroDebugPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37D7B611E2C0CD000AC1959 /* HeroDebugPlugin.swift */; };
+		2D1F7FDB1E49DD21004D944B /* HeroDebugView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37D7B621E2C0CD100AC1959 /* HeroDebugView.swift */; };
+		2D1F7FDC1E49DD3C004D944B /* Hero.h in Headers */ = {isa = PBXBuildFile; fileRef = A306D3B41E1C7A2E00B6C23A /* Hero.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2D1F7FE51E49DD90004D944B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D1F7FE41E49DD90004D944B /* AppDelegate.swift */; };
+		2D1F7FE71E49DD90004D944B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D1F7FE61E49DD90004D944B /* ViewController.swift */; };
+		2D1F7FEA1E49DD90004D944B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2D1F7FE81E49DD90004D944B /* Main.storyboard */; };
+		2D1F7FEC1E49DD90004D944B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2D1F7FEB1E49DD90004D944B /* Assets.xcassets */; };
+		2D1F7FF21E49E043004D944B /* Hero.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D1F7FBF1E49DCB5004D944B /* Hero.framework */; };
 		83043017B73BC66DBB920D5C /* Pods_HeroExamples.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EEE340F89FF0A49DD23A5A6E /* Pods_HeroExamples.framework */; };
 		A304BF841DF2717900A03345 /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A304BF831DF2717900A03345 /* ImageViewController.swift */; };
 		A304BF8A1DF647FC00A03345 /* ImageCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = A304BF891DF647FC00A03345 /* ImageCells.swift */; };
@@ -70,6 +97,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		2D1F7FF31E49E05A004D944B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A33E60991DE761C90065CBD8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2D1F7FBE1E49DCB5004D944B;
+			remoteInfo = "Hero (tvOS)";
+		};
 		A306D3B71E1C7A2E00B6C23A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = A33E60991DE761C90065CBD8 /* Project object */;
@@ -94,6 +128,13 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		2D1F7FBF1E49DCB5004D944B /* Hero.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Hero.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2D1F7FE21E49DD90004D944B /* HeroTvOSExamples.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HeroTvOSExamples.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2D1F7FE41E49DD90004D944B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		2D1F7FE61E49DD90004D944B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		2D1F7FE91E49DD90004D944B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		2D1F7FEB1E49DD90004D944B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		2D1F7FED1E49DD90004D944B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5CD4F09A588E81DA75C2BE38 /* Pods-HeroExamples.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HeroExamples.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HeroExamples/Pods-HeroExamples.debug.xcconfig"; sourceTree = "<group>"; };
 		A304BF831DF2717900A03345 /* ImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageViewController.swift; path = ImageGallery/ImageViewController.swift; sourceTree = "<group>"; };
 		A304BF891DF647FC00A03345 /* ImageCells.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageCells.swift; path = ImageGallery/ImageCells.swift; sourceTree = "<group>"; };
@@ -161,6 +202,21 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		2D1F7FBB1E49DCB5004D944B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2D1F7FDF1E49DD90004D944B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2D1F7FF21E49E043004D944B /* Hero.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A306D3AE1E1C7A2E00B6C23A /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -231,6 +287,18 @@
 			name = Animator;
 			sourceTree = "<group>";
 		};
+		2D1F7FE31E49DD90004D944B /* HeroTvOSExamples */ = {
+			isa = PBXGroup;
+			children = (
+				2D1F7FE41E49DD90004D944B /* AppDelegate.swift */,
+				2D1F7FE61E49DD90004D944B /* ViewController.swift */,
+				2D1F7FE81E49DD90004D944B /* Main.storyboard */,
+				2D1F7FEB1E49DD90004D944B /* Assets.xcassets */,
+				2D1F7FED1E49DD90004D944B /* Info.plist */,
+			);
+			path = HeroTvOSExamples;
+			sourceTree = "<group>";
+		};
 		46383DC6A22A87056E5B40EC /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -274,6 +342,7 @@
 			isa = PBXGroup;
 			children = (
 				A33E60A31DE761C90065CBD8 /* HeroExamples */,
+				2D1F7FE31E49DD90004D944B /* HeroTvOSExamples */,
 				A306D3B31E1C7A2E00B6C23A /* Hero */,
 				A33E60A21DE761C90065CBD8 /* Products */,
 				46383DC6A22A87056E5B40EC /* Pods */,
@@ -286,6 +355,8 @@
 			children = (
 				A33E60A11DE761C90065CBD8 /* HeroExamples.app */,
 				A306D3B21E1C7A2E00B6C23A /* Hero.framework */,
+				2D1F7FBF1E49DCB5004D944B /* Hero.framework */,
+				2D1F7FE21E49DD90004D944B /* HeroTvOSExamples.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -406,6 +477,14 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
+		2D1F7FBC1E49DCB5004D944B /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2D1F7FDC1E49DD3C004D944B /* Hero.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A306D3AF1E1C7A2E00B6C23A /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -417,9 +496,45 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		A306D3B11E1C7A2E00B6C23A /* Hero */ = {
+		2D1F7FBE1E49DCB5004D944B /* Hero (tvOS) */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A306D3BE1E1C7A2E00B6C23A /* Build configuration list for PBXNativeTarget "Hero" */;
+			buildConfigurationList = 2D1F7FC61E49DCB5004D944B /* Build configuration list for PBXNativeTarget "Hero (tvOS)" */;
+			buildPhases = (
+				2D1F7FBA1E49DCB5004D944B /* Sources */,
+				2D1F7FBB1E49DCB5004D944B /* Frameworks */,
+				2D1F7FBC1E49DCB5004D944B /* Headers */,
+				2D1F7FBD1E49DCB5004D944B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Hero (tvOS)";
+			productName = "Hero (tvOS)";
+			productReference = 2D1F7FBF1E49DCB5004D944B /* Hero.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		2D1F7FE11E49DD90004D944B /* HeroTvOSExamples */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2D1F7FEE1E49DD90004D944B /* Build configuration list for PBXNativeTarget "HeroTvOSExamples" */;
+			buildPhases = (
+				2D1F7FDE1E49DD90004D944B /* Sources */,
+				2D1F7FDF1E49DD90004D944B /* Frameworks */,
+				2D1F7FE01E49DD90004D944B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2D1F7FF41E49E05A004D944B /* PBXTargetDependency */,
+			);
+			name = HeroTvOSExamples;
+			productName = HeroTvOSExamples;
+			productReference = 2D1F7FE21E49DD90004D944B /* HeroTvOSExamples.app */;
+			productType = "com.apple.product-type.application";
+		};
+		A306D3B11E1C7A2E00B6C23A /* Hero (iOS) */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A306D3BE1E1C7A2E00B6C23A /* Build configuration list for PBXNativeTarget "Hero (iOS)" */;
 			buildPhases = (
 				A306D3AD1E1C7A2E00B6C23A /* Sources */,
 				A306D3AE1E1C7A2E00B6C23A /* Frameworks */,
@@ -430,7 +545,7 @@
 			);
 			dependencies = (
 			);
-			name = Hero;
+			name = "Hero (iOS)";
 			productName = Hero;
 			productReference = A306D3B21E1C7A2E00B6C23A /* Hero.framework */;
 			productType = "com.apple.product-type.framework";
@@ -464,10 +579,18 @@
 		A33E60991DE761C90065CBD8 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0800;
+				LastSwiftUpdateCheck = 0820;
 				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = "Luke Zhao";
 				TargetAttributes = {
+					2D1F7FBE1E49DCB5004D944B = {
+						CreatedOnToolsVersion = 8.2;
+						ProvisioningStyle = Automatic;
+					};
+					2D1F7FE11E49DD90004D944B = {
+						CreatedOnToolsVersion = 8.2;
+						ProvisioningStyle = Automatic;
+					};
 					A306D3B11E1C7A2E00B6C23A = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = 4VSEW78TKT;
@@ -495,12 +618,30 @@
 			projectRoot = "";
 			targets = (
 				A33E60A01DE761C90065CBD8 /* HeroExamples */,
-				A306D3B11E1C7A2E00B6C23A /* Hero */,
+				A306D3B11E1C7A2E00B6C23A /* Hero (iOS) */,
+				2D1F7FBE1E49DCB5004D944B /* Hero (tvOS) */,
+				2D1F7FE11E49DD90004D944B /* HeroTvOSExamples */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		2D1F7FBD1E49DCB5004D944B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2D1F7FE01E49DD90004D944B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2D1F7FEC1E49DD90004D944B /* Assets.xcassets in Resources */,
+				2D1F7FEA1E49DD90004D944B /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A306D3B01E1C7A2E00B6C23A /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -595,6 +736,43 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		2D1F7FBA1E49DCB5004D944B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2D1F7FD01E49DD13004D944B /* MatchPreprocessor.swift in Sources */,
+				2D1F7FD61E49DD18004D944B /* DispatchQueue+Hero.swift in Sources */,
+				2D1F7FCB1E49DD08004D944B /* HeroTargetState.swift in Sources */,
+				2D1F7FCA1E49DD08004D944B /* HeroPlugin.swift in Sources */,
+				2D1F7FDA1E49DD21004D944B /* HeroDebugPlugin.swift in Sources */,
+				2D1F7FDB1E49DD21004D944B /* HeroDebugView.swift in Sources */,
+				2D1F7FC91E49DD08004D944B /* HeroModifier.swift in Sources */,
+				2D1F7FD71E49DD18004D944B /* UIKit+Hero.swift in Sources */,
+				2D1F7FD81E49DD1D004D944B /* HeroDefaultAnimator.swift in Sources */,
+				2D1F7FCC1E49DD08004D944B /* HeroTypes.swift in Sources */,
+				2D1F7FCD1E49DD13004D944B /* BasePreprocessor.swift in Sources */,
+				2D1F7FD41E49DD18004D944B /* CAMediaTimingFunction+Hero.swift in Sources */,
+				2D1F7FD21E49DD18004D944B /* Array+HeroModifier.swift in Sources */,
+				2D1F7FD51E49DD18004D944B /* CG+Hero.swift in Sources */,
+				2D1F7FD91E49DD1D004D944B /* HeroDefaultAnimatorViewContext.swift in Sources */,
+				2D1F7FD31E49DD18004D944B /* CALayer+Hero.swift in Sources */,
+				2D1F7FC71E49DD02004D944B /* Hero.swift in Sources */,
+				2D1F7FC81E49DD04004D944B /* HeroContext.swift in Sources */,
+				2D1F7FD11E49DD13004D944B /* SourcePreprocessor.swift in Sources */,
+				2D1F7FCF1E49DD13004D944B /* IgnoreSubviewModifiersPreprocessor.swift in Sources */,
+				2D1F7FCE1E49DD13004D944B /* CascadePreprocessor.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2D1F7FDE1E49DD90004D944B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2D1F7FE71E49DD90004D944B /* ViewController.swift in Sources */,
+				2D1F7FE51E49DD90004D944B /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A306D3AD1E1C7A2E00B6C23A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -653,14 +831,27 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		2D1F7FF41E49E05A004D944B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2D1F7FBE1E49DCB5004D944B /* Hero (tvOS) */;
+			targetProxy = 2D1F7FF31E49E05A004D944B /* PBXContainerItemProxy */;
+		};
 		A306D3B81E1C7A2E00B6C23A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = A306D3B11E1C7A2E00B6C23A /* Hero */;
+			target = A306D3B11E1C7A2E00B6C23A /* Hero (iOS) */;
 			targetProxy = A306D3B71E1C7A2E00B6C23A /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		2D1F7FE81E49DD90004D944B /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2D1F7FE91E49DD90004D944B /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
 		A33E60A81DE761C90065CBD8 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -680,6 +871,86 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		2D1F7FC41E49DCB5004D944B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "$(SRCROOT)/../Sources/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.lkzhao.Hero;
+				PRODUCT_NAME = Hero;
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 10.1;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		2D1F7FC51E49DCB5004D944B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "$(SRCROOT)/../Sources/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.lkzhao.Hero;
+				PRODUCT_NAME = Hero;
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 10.1;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		2D1F7FEF1E49DD90004D944B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				INFOPLIST_FILE = HeroTvOSExamples/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.lkzhao.HeroTvOSExamples;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = appletvos;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 10.1;
+			};
+			name = Debug;
+		};
+		2D1F7FF01E49DD90004D944B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				INFOPLIST_FILE = HeroTvOSExamples/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.lkzhao.HeroTvOSExamples;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = appletvos;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 10.1;
+			};
+			name = Release;
+		};
 		A306D3BC1E1C7A2E00B6C23A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -697,7 +968,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.lkzhao.Hero;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Hero;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
@@ -723,7 +994,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.lkzhao.Hero;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Hero;
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -862,7 +1133,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		A306D3BE1E1C7A2E00B6C23A /* Build configuration list for PBXNativeTarget "Hero" */ = {
+		2D1F7FC61E49DCB5004D944B /* Build configuration list for PBXNativeTarget "Hero (tvOS)" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2D1F7FC41E49DCB5004D944B /* Debug */,
+				2D1F7FC51E49DCB5004D944B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2D1F7FEE1E49DD90004D944B /* Build configuration list for PBXNativeTarget "HeroTvOSExamples" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2D1F7FEF1E49DD90004D944B /* Debug */,
+				2D1F7FF01E49DD90004D944B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A306D3BE1E1C7A2E00B6C23A /* Build configuration list for PBXNativeTarget "Hero (iOS)" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A306D3BC1E1C7A2E00B6C23A /* Debug */,

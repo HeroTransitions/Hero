@@ -4,4 +4,6 @@ target 'HeroExamples' do
   use_frameworks!
   pod "ZCAnimatedLabel"
   pod 'ChameleonFramework/Swift', :git => 'https://github.com/ViccAlexander/Chameleon.git'
+target 'HeroTvOSExamples' do
+  use_frameworks!
 end

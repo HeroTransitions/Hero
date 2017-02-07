@@ -137,7 +137,9 @@ extension HeroContext {
       } else if let barView = view as? UINavigationBar, barView.isTranslucent {
         let newBarView = UINavigationBar(frame: barView.frame)
         
-        newBarView.barStyle = barView.barStyle
+        #if os(iOS)
+          newBarView.barStyle = barView.barStyle
+        #endif
         newBarView.tintColor = barView.tintColor
         newBarView.barTintColor = barView.barTintColor
         newBarView.clipsToBounds = false
