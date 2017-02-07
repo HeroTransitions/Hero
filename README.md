@@ -27,16 +27,9 @@ By default, Hero provides **dynamic duration & easing** based on the [Material D
 
 Hero does not make any assumption about how the view is built or structured. It will not modify any of your views' states other than hiding them during the animation. This means that it works with **Auto Layout**, **programmatic layout**, **UICollectionView** (without modifying its layout object), **UITableView**, **UINavigationController**, **UITabBarController**, etc... 
 
-## Video Demos
-The following videos give you a general idea of what you can do with **Hero**
+## Example Gallery
 
-1. Video overview of the **example project**.
-2. Video overview of the **built-in debugger** that display timeline, arc curve, and 3d informations.
-3. Video overview of the usage with [Injection App](http://johnholdsworth.com/injection.html) to provide **dynamic modifications** in realtime. Changing `HeroID` or `HeroModifiers` **without** recompiling!
-
-<a href="https://youtu.be/-6L79or6Iq8"><img src="https://github.com/lkzhao/Hero/blob/master/Resources/overview.png?raw=true" height="300"/></a>
-<a href="https://youtu.be/NFhA6qZdunA"><img src="https://github.com/lkzhao/Hero/blob/master/Resources/debugger.png?raw=true" height="300"/></a>
-<a href="https://youtu.be/m8eeO_GETeA"><img src="https://github.com/lkzhao/Hero/blob/master/Resources/liveInjection.png?raw=true" height="300"/></a>
+Checkout the [example gallery blog post](http://lkzhao.com/2016/12/28/hero.html) for a general idea of what you can achieve with **Hero**
 
 ## Usage Example 1
 
@@ -86,10 +79,6 @@ You can do these in the **storyboard** too!
 <img src="https://cdn.rawgit.com/lkzhao/Hero/master/Resources/storyboardView.png" width="267px"/> 
 <img src="https://cdn.rawgit.com/lkzhao/Hero/master/Resources/storyboardViewController.png" width="267px"/>
 
-## Interactive Transition Tutorials
-
-[Interactive transitions with Hero (Part 1)](http://lkzhao.com/2017/02/05/hero-interactive-transition.html)
-
 ## Usage Guide
 
 * [Installation](https://github.com/lkzhao/Hero/wiki/Usage-Guide#installation)
@@ -116,6 +105,10 @@ You can do these in the **storyboard** too!
 * [UINavigationController & UITabBarController](https://github.com/lkzhao/Hero/wiki/Usage-Guide#uinavigationcontroller--uitabbarcontroller)
 
 ##### NOTE: Hero won't work on iPhone 7 Simulators due to a [bug](https://forums.developer.apple.com/thread/63438) by Apple. Try using other simulators or a real device when working with Hero.
+
+## Interactive Transition Tutorials
+
+[Interactive transitions with Hero (Part 1)](http://lkzhao.com/2017/02/05/hero-interactive-transition.html)
 
 ## Contribute
 
