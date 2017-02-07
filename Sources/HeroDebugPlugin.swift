@@ -22,6 +22,7 @@
 
 import UIKit
 
+#if os(iOS)
 public class HeroDebugPlugin: HeroPlugin {
   static var showOnTop: Bool = false
 
@@ -61,9 +62,7 @@ public class HeroDebugPlugin: HeroPlugin {
 
     UIView.animate(withDuration: 0.4) {
       debugView.showControls = false
-      #if os(iOS)
-        debugView.debugSlider.setValue(roundf(debugView.progress), animated: true)
-      #endif
+      debugView.debugSlider.setValue(roundf(debugView.progress), animated: true)
     }
 
     on3D(wants3D: false)
@@ -178,3 +177,4 @@ extension HeroDebugPlugin:HeroDebugViewDelegate {
     Hero.shared.container.layer.sublayerTransform = t
   }
 }
+#endif

@@ -342,8 +342,8 @@
 			isa = PBXGroup;
 			children = (
 				A33E60A31DE761C90065CBD8 /* HeroExamples */,
-				A306D3B31E1C7A2E00B6C23A /* Hero */,
 				2D1F7FE31E49DD90004D944B /* HeroTvOSExamples */,
+				A306D3B31E1C7A2E00B6C23A /* Hero */,
 				A33E60A21DE761C90065CBD8 /* Products */,
 				46383DC6A22A87056E5B40EC /* Pods */,
 				0ED3C727BC790F37EE7BD698 /* Frameworks */,
@@ -1140,6 +1140,7 @@
 				2D1F7FC51E49DCB5004D944B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2D1F7FEE1E49DD90004D944B /* Build configuration list for PBXNativeTarget "HeroTvOSExamples" */ = {
 			isa = XCConfigurationList;
@@ -1148,6 +1149,7 @@
 				2D1F7FF01E49DD90004D944B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A306D3BE1E1C7A2E00B6C23A /* Build configuration list for PBXNativeTarget "Hero (iOS)" */ = {
 			isa = XCConfigurationList;
