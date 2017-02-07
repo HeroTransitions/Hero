@@ -10,8 +10,8 @@
 **Hero**是一个iOS界面切换库。它代替了UIKit本身的转场动画接口，使制作自定义的转场动画(View Controller Transition)非常简单！
 
 ### 特点
-<img src="https://cdn.rawgit.com/lkzhao/Hero/e6c77629fcf2ea1c9b8526f74d250a2fea68ae5c/Resources/basic.svg"/>
-<img src="https://cdn.rawgit.com/lkzhao/Hero/b8f01051e9e8ce0cdc8eb7888c6d7ffa2344d96a/Resources/effects.svg"/>
+<img src="https://cdn.rawgit.com/lkzhao/Hero/f6e87630249bf398cbc138c16eb9e4e3a301cace/Resources/basic.svg"/>
+<img src="https://cdn.rawgit.com/lkzhao/Hero/f6e87630249bf398cbc138c16eb9e4e3a301cace/Resources/effects.svg"/>
 
 #### 你可以使用这些效果来拼凑出你想要的转场动画。
 
