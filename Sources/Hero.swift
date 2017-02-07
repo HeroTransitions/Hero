@@ -300,18 +300,20 @@ internal extension Hero {
     // take a snapshot to hide all the flashing that might happen
     let completeSnapshot = fromView.snapshotView(afterScreenUpdates: true)!
     transitionContainer.addSubview(completeSnapshot)
-    
-    context = HeroContext(container:container, fromView: fromView, toView:toView)
+
+    context = HeroContext(container:container)
 
     context.hide(view: toView)
     container.addSubview(toView)
     container.addSubview(fromView)
-    
+
     toView.frame = fromView.frame
     toView.updateConstraints()
     toView.setNeedsLayout()
     toView.layoutIfNeeded()
-    
+
+    context.set(fromView: fromView, toView: toView)
+
     for processor in processors {
       processor.process(fromViews: context.fromViews, toViews: context.toViews)
     }
@@ -338,8 +340,8 @@ internal extension Hero {
 
       if toView.layer.zPosition < fromView.layer.zPosition {
         // in this case, we have to animate the zPosition as well. otherwise the fade animation will be hidden.
-        context[toView]!.append(.zPosition(fromView.layer.zPosition))
-        context[fromView] = [.zPosition(toView.layer.zPosition)]
+        context[toView]!.append(.zPosition(fromView.layer.zPosition + 1))
+        context[fromView] = [.zPosition(toView.layer.zPosition - 1)]
         animatingViews[0].0.insert(fromView, at: 0)
       }
     }
