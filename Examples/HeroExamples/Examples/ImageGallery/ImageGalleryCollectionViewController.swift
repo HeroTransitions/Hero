@@ -60,6 +60,7 @@ extension ImageGalleryViewController: UICollectionViewDataSource {
     imageCell.imageView.image = ImageLibrary.thumbnail(index:indexPath.item)
     imageCell.imageView.heroID = "image_\(indexPath.item)"
     imageCell.imageView.heroModifiers = [.fade, .scale(0.8)]
+    imageCell.imageView.isOpaque = true
     return imageCell
   }
 }

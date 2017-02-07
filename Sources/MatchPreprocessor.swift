@@ -44,6 +44,7 @@ class MatchPreprocessor: BasePreprocessor {
         // cross fade if fromView is not opaque or if toView is transparent
         fvState.opacity = 0
       } else {
+        // no cross fade in this case, fromView is always displayed during the transition.
         fvState.opacity = nil
 
         // we dont want two shadows showing up. Therefore we disable toView's shadow when fromView is able to display its shadow

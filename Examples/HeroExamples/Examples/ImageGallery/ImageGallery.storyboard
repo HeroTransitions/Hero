@@ -31,7 +31,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" reuseIdentifier="item" id="pip-Sv-CcB" customClass="ImageCell" customModule="HeroExamples" customModuleProvider="target">
+                                    <collectionViewCell clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" reuseIdentifier="item" id="pip-Sv-CcB" customClass="ImageCell" customModule="HeroExamples" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="183" height="166"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -93,7 +93,7 @@
         <scene sceneID="SGA-cG-MQO">
             <objects>
                 <navigationController id="fQX-WD-0mm" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" barStyle="black" id="VaI-Vz-win">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="VaI-Vz-win">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
