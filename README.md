@@ -103,7 +103,6 @@ You can do these in the **storyboard** too!
 * [Modifiers](https://github.com/lkzhao/Hero/wiki/Usage-Guide#modifiers)
 	* [Basic Modifiers](https://github.com/lkzhao/Hero/wiki/Usage-Guide#basic-modifiers)
 	* [Advance Modifiers](https://github.com/lkzhao/Hero/wiki/Usage-Guide#advance-modifiers)
-	* [zPosition](https://github.com/lkzhao/Hero/wiki/Usage-Guide#zposition-modifier)
 	* [Arc](https://github.com/lkzhao/Hero/wiki/Usage-Guide#arc-modifier)
 	* [Source](https://github.com/lkzhao/Hero/wiki/Usage-Guide#source-modifier)
 	* [Cascade](https://github.com/lkzhao/Hero/wiki/Usage-Guide#cascade-modifier)
