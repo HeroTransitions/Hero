@@ -301,17 +301,16 @@ internal extension Hero {
     let completeSnapshot = fromView.snapshotView(afterScreenUpdates: true)!
     transitionContainer.addSubview(completeSnapshot)
     
-    // need to add fromView first, then insert toView under it. This eliminates the flash
+    context = HeroContext(container:container, fromView: fromView, toView:toView)
+
+    context.hide(view: toView)
+    container.addSubview(toView)
     container.addSubview(fromView)
-    container.insertSubview(toView, belowSubview: fromView)
-    container.backgroundColor = toView.backgroundColor
     
     toView.frame = fromView.frame
     toView.updateConstraints()
     toView.setNeedsLayout()
     toView.layoutIfNeeded()
-    
-    context = HeroContext(container:container, fromView: fromView, toView:toView)
     
     for processor in processors {
       processor.process(fromViews: context.fromViews, toViews: context.toViews)
@@ -348,6 +347,8 @@ internal extension Hero {
     // wait for a frame if using navigation controller.
     // a bug with navigation controller. the snapshot is not captured if animating immediately
     delay(inContainerController && presenting ? 0.02 : 0) {
+      self.context.unhide(view: self.toView)
+      self.container.backgroundColor = self.toView.backgroundColor
       for (currentFromViews, currentToViews) in animatingViews {
         // auto hide all animated views
         for view in currentFromViews {
