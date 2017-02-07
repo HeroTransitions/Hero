@@ -29,10 +29,13 @@ public class HeroContext {
   internal var viewAlphas = [UIView: CGFloat]()
   internal var targetStates = [UIView: HeroTargetState]()
 
-  internal init(container: UIView, fromView: UIView, toView: UIView) {
+  internal init(container: UIView) {
+    self.container = container
+  }
+
+  internal func set(fromView:UIView, toView:UIView) {
     fromViews = HeroContext.processViewTree(view: fromView, container: container, idMap: &heroIDToSourceView, stateMap: &targetStates)
     toViews = HeroContext.processViewTree(view: toView, container: container, idMap: &heroIDToDestinationView, stateMap: &targetStates)
-    self.container = container
   }
 
   /**
@@ -43,12 +46,12 @@ public class HeroContext {
   /**
    A flattened list of all views from source ViewController
    */
-  public let fromViews: [UIView]
+  public var fromViews: [UIView]!
 
   /**
    A flattened list of all views from destination ViewController
    */
-  public let toViews: [UIView]
+  public var toViews: [UIView]!
 }
 
 // public
