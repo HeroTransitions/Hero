@@ -61,7 +61,9 @@ public class HeroDebugPlugin: HeroPlugin {
 
     UIView.animate(withDuration: 0.4) {
       debugView.showControls = false
-      debugView.debugSlider.setValue(roundf(debugView.progress), animated: true)
+      #if os(iOS)
+        debugView.debugSlider.setValue(roundf(debugView.progress), animated: true)
+      #endif
     }
 
     on3D(wants3D: false)

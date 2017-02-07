@@ -32,14 +32,19 @@ protocol HeroDebugViewDelegate {
 
 class HeroDebugView: UIView {
   var backgroundView: UIView!
+  #if os(iOS)
   var debugSlider: UISlider!
+  #endif
   var perspectiveButton: UIButton!
   var doneButton: UIButton!
   var arcCurveButton: UIButton?
 
   var delegate: HeroDebugViewDelegate?
   var panGR: UIPanGestureRecognizer!
+  
+  #if os(iOS)
   var pinchGR: UIPinchGestureRecognizer!
+  #endif
 
   var showControls: Bool = false {
     didSet {
@@ -52,7 +57,11 @@ class HeroDebugView: UIView {
   var scale: CGFloat = 0.6
   var translation: CGPoint = .zero
   var progress: Float {
-    return debugSlider.value
+    #if os(iOS)
+      return debugSlider.value
+    #else
+      return 0.0
+    #endif
   }
   
   init(initialProcess: Float, showCurveButton: Bool, showOnTop: Bool) {
@@ -83,23 +92,31 @@ class HeroDebugView: UIView {
       backgroundView.addSubview(arcCurveButton!)
     }
 
-    debugSlider = UISlider(frame: .zero)
-    debugSlider.layer.zPosition = 1000
-    debugSlider.minimumValue = 0
-    debugSlider.maximumValue = 1
-    debugSlider.addTarget(self, action: #selector(onSlide), for: .valueChanged)
-    debugSlider.isUserInteractionEnabled = true
-    debugSlider.value = initialProcess
-    backgroundView.addSubview(debugSlider)
+    #if os(iOS)
+      debugSlider = UISlider(frame: .zero)
+      debugSlider.layer.zPosition = 1000
+      debugSlider.minimumValue = 0
+      debugSlider.maximumValue = 1
+      debugSlider.addTarget(self, action: #selector(onSlide), for: .valueChanged)
+      debugSlider.isUserInteractionEnabled = true
+      debugSlider.value = initialProcess
+      backgroundView.addSubview(debugSlider)
+    #endif
+    
 
     panGR = UIPanGestureRecognizer(target: self, action: #selector(pan))
     panGR.delegate = self
-    panGR.maximumNumberOfTouches = 1
+    #if os(iOS)
+      panGR.maximumNumberOfTouches = 1
+    #endif
+    
     addGestureRecognizer(panGR)
 
-    pinchGR = UIPinchGestureRecognizer(target: self, action: #selector(pinch))
-    pinchGR.delegate = self
-    addGestureRecognizer(pinchGR)
+    #if os(iOS)
+      pinchGR = UIPinchGestureRecognizer(target: self, action: #selector(pinch))
+      pinchGR.delegate = self
+      addGestureRecognizer(pinchGR)
+    #endif
   }
 
   required public init?(coder aDecoder: NSCoder) {
@@ -120,7 +137,9 @@ class HeroDebugView: UIView {
     var sliderFrame = bounds.insetBy(dx: 10, dy: 0)
     sliderFrame.size.height = 44
     sliderFrame.origin.y = 28
-    debugSlider.frame = sliderFrame
+    #if os(iOS)
+      debugSlider.frame = sliderFrame
+    #endif
 
     perspectiveButton.sizeToFit()
     perspectiveButton.frame.origin = CGPoint(x:bounds.maxX - perspectiveButton.bounds.width - 10, y: 4)
@@ -148,21 +167,23 @@ class HeroDebugView: UIView {
   var startTranslation: CGPoint = .zero
   var startScale: CGFloat = 1
   @objc public func pinch() {
-    switch pinchGR.state {
-    case .began:
-      startLocation = pinchGR.location(in: nil)
-      startTranslation = translation
-      startScale = scale
-      fallthrough
-    case .changed:
-      if pinchGR.numberOfTouches >= 2 {
-        scale = min(1, max(0.2, startScale * pinchGR.scale))
-        translation = startTranslation + pinchGR.location(in: nil) - startLocation
-        delegate?.onPerspectiveChanged(translation:translation, rotation: rotation, scale:scale)
+    #if os(iOS)
+      switch pinchGR.state {
+      case .began:
+        startLocation = pinchGR.location(in: nil)
+        startTranslation = translation
+        startScale = scale
+        fallthrough
+      case .changed:
+        if pinchGR.numberOfTouches >= 2 {
+          scale = min(1, max(0.2, startScale * pinchGR.scale))
+          translation = startTranslation + pinchGR.location(in: nil) - startLocation
+          delegate?.onPerspectiveChanged(translation:translation, rotation: rotation, scale:scale)
+        }
+      default:
+        break
       }
-    default:
-      break
-    }
+    #endif
   }
 
   @objc public func onDone() {
@@ -177,7 +198,9 @@ class HeroDebugView: UIView {
     delegate?.onDisplayArcCurve(wantsCurve: arcCurveButton!.isSelected)
   }
   @objc public func onSlide() {
-    delegate?.onProcessSliderChanged(progress: debugSlider.value)
+    #if os(iOS)
+      delegate?.onProcessSliderChanged(progress: debugSlider.value)
+    #endif
   }
 }
 
