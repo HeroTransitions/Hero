@@ -393,7 +393,7 @@
                                                     <color key="tintColor" red="0.25490196079999999" green="0.28627450980000002" blue="0.30980392159999998" alpha="1" colorSpace="calibratedRGB"/>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="videoPlayer"/>
-                                                        <userDefinedRuntimeAttribute type="string" keyPath="heroModifierString" value="arc useScaleBasedSizeChange"/>
+                                                        <userDefinedRuntimeAttribute type="string" keyPath="heroModifierString" value="arc"/>
                                                     </userDefinedRuntimeAttributes>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Video Player" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jix-sm-0xu">

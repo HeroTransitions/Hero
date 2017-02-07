@@ -48,14 +48,14 @@ class GridCollectionViewController: UICollectionViewController, UICollectionView
   override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
     let cell = (collectionView.dequeueReusableCell(withReuseIdentifier: "item", for: indexPath) as? GridImageCell)!
 
-    cell.imageView?.heroID = "image_\(indexPath.item)"
     let image = ImageLibrary.thumbnail(index:indexPath.item)
     cell.heroModifiers = [.fade, .translate(y:20)]
-    cell.imageView?.image = image
-    cell.imageView?.heroID = "image_\(indexPath.item)"
-    cell.imageView?.heroModifiers = [.arc]
-    cell.textLabel?.text = "Item \(indexPath.item)"
-    cell.detailTextLabel?.text = "Description \(indexPath.item)"
+    cell.imageView!.image = image
+    cell.imageView!.heroID = "image_\(indexPath.item)"
+    cell.imageView!.heroModifiers = [.arc]
+    cell.imageView!.isOpaque = true
+    cell.textLabel!.text = "Item \(indexPath.item)"
+    cell.detailTextLabel!.text = "Description \(indexPath.item)"
     cell.backgroundColor = UIColor(averageColorFrom: image)
 
     return cell

@@ -87,7 +87,7 @@
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="item" id="Y5Y-Dk-OjM" customClass="GridImageCell" customModule="HeroExamples" customModuleProvider="target">
+                            <collectionViewCell clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="item" id="Y5Y-Dk-OjM" customClass="GridImageCell" customModule="HeroExamples" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="115" height="168"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -158,7 +158,7 @@
         <scene sceneID="vPE-4j-gAJ">
             <objects>
                 <navigationController id="GbK-uB-s7f" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="mBD-b8-heE">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="mBD-b8-heE">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <userDefinedRuntimeAttributes>
