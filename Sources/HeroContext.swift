@@ -210,19 +210,24 @@ extension HeroContext {
 extension HeroContext {
   public func hide(view: UIView) {
     if viewAlphas[view] == nil, self[view]?.snapshotType != .noSnapshot {
-      viewAlphas[view] = view.alpha
+      viewAlphas[view] = view.isOpaque ? .infinity : view.alpha
       view.alpha = 0
     }
   }
   public func unhide(view: UIView) {
     if let oldAlpha = viewAlphas[view] {
-      view.alpha = oldAlpha
+      if oldAlpha == .infinity {
+        view.alpha = 1
+        view.isOpaque = true
+      } else {
+        view.alpha = oldAlpha
+      }
       viewAlphas[view] = nil
     }
   }
   internal func unhideAll() {
-    for (view, oldAlpha) in viewAlphas {
-      view.alpha = oldAlpha
+    for view in viewAlphas.keys {
+      unhide(view: view)
     }
     viewAlphas.removeAll()
   }
