@@ -9,7 +9,7 @@
         <g id="Effects">
             <rect id="background2" fill="#37D0AB" x="0" y="0" width="372" height="180" rx="26"></rect>
             <g id="Arc" transform="translate(28.000000, 16.000000)">
-                <text font-family="NanumGothic, Nanum Gothic" font-size="12" font-weight="normal" letter-spacing="-0.399999976" fill="#FFFFFF">
+                <text font-family="HelveticaNeue-Light, Helvetica Neue" font-size="14" fill="#FFFFFF">
                     <tspan x="23.156" y="11">Arc</tspan>
                 </text>
                 <g id="Group" transform="translate(0.000000, 21.000000)">
@@ -17,23 +17,29 @@
                     <circle id="Oval" fill="#37D0AB" cx="32" cy="118" r="4"></circle>
                     <g id="Group-2" transform="translate(4.000000, 14.000000)">
                         <rect id="Rectangle-3" fill="#FFFFFF" x="0" y="0" width="56" height="98" rx="6"></rect>
-                        <path d="M22.3624221,61.191233 
-                                C15.8624221,52.191233 15,36 15,36 
-                                C15,36 15.7248442,52.382466 22.3624221,61.191233 
-                                C29,70 41,72 41,72 
-                                C41,72 28.8624221,70.191233 22.3624221,61.191233 Z" 
+                        <path d="M16.5,25.5 C16.5,25.5 16,52 22.5,63 C31,74 41.5,72.5 41.5,72.5" 
                               id="arcPath" stroke="#17a08B" stroke-linecap="round"></path>
                         <rect id="Rectangle-2" fill="#37D0AB" x="-8.5" y="-8.5" width="17" height="17" rx="8.5">
-                            <animateMotion dur="1s" fill="freeze" repeatCount="indefinite">
+                            <animateMotion id="arcDown" dur=".4s" fill="freeze" begin="0s;arcUp.end + 0.5s" 
+                                calcMode="spline"
+                                keySplines="0.4,0,0.2,1"
+                                keyTimes="0;1">
                               <mpath xlink:href="#arcPath" />
                             </animateMotion>
+                            <animateMotion id="arcUp" dur=".4s" fill="freeze" begin="arcDown.end + 0.5s" keyPoints="1;0"
+                                calcMode="spline"
+                                keySplines="0.4,0,0.2,1"
+                                keyTimes="0;1">
+                              <mpath xlink:href="#arcPath" />
+                            </animateMotion>
+
                         </rect>
                     </g>
                 </g>
             </g>
             <g id="Cascade" transform="translate(112.000000, 16.000000)">
-                <text font-family="NanumGothic, Nanum Gothic" font-size="12" font-weight="normal" letter-spacing="-0.399999976" fill="#FFFFFF">
-                    <tspan x="10.4739999" y="11">Cascade</tspan>
+                <text font-family="HelveticaNeue-Light, Helvetica Neue" font-size="14" fill="#FFFFFF">
+                    <tspan x="5" y="11">Cascade</tspan>
                 </text>
                 <g id="Group" transform="translate(0.000000, 21.000000)">
                     <rect id="Rectangle" fill="#0C1E31" x="0" y="0" width="64" height="126" rx="11"></rect>
@@ -97,8 +103,8 @@
                 </g>
             </g>
             <g id="Interactive" transform="translate(196.000000, 16.000000)">
-                <text font-family="NanumGothic, Nanum Gothic" font-size="12" font-weight="normal" letter-spacing="-0.399999976" fill="#FFFFFF">
-                    <tspan x="5.50799987" y="11">Interactive</tspan>
+                <text font-family="HelveticaNeue-Light, Helvetica Neue" font-size="14" fill="#FFFFFF">
+                    <tspan x="2" y="11">Interactive</tspan>
                 </text>
                 <g id="Group" transform="translate(0.000000, 21.000000)">
                     <rect id="Rectangle" fill="#0C1E31" x="0" y="0" width="64" height="126" rx="11"></rect>
@@ -125,8 +131,8 @@
                 </g>
             </g>
             <g id="Dynamic" transform="translate(280.000000, 16.000000)">
-                <text font-family="NanumGothic, Nanum Gothic" font-size="12" font-weight="normal" letter-spacing="-0.399999976" fill="#FFFFFF">
-                    <tspan x="9.54399992" y="11">Dynamic</tspan>
+                <text font-family="HelveticaNeue-Light, Helvetica Neue" font-size="14" fill="#FFFFFF">
+                    <tspan x="6" y="11">Dynamic</tspan>
                 </text>
                 <g id="Group" transform="translate(0.000000, 21.000000)">
                     <rect id="Rectangle" fill="#0C1E31" x="0" y="0" width="64" height="126" rx="11"></rect>

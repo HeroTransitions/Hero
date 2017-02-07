@@ -9,8 +9,8 @@
         <g id="Basic">
             <rect id="background1" fill="#3A97FC" x="0" y="0" width="372" height="180" rx="26"></rect>
             <g id="Match" transform="translate(28.000000, 16.000000)">
-                <text font-family="NanumGothic, Nanum Gothic" font-size="12" font-weight="normal" letter-spacing="-0.399999976" fill="#FFFFFF">
-                    <tspan x="15.1979999" y="11">Match</tspan>
+                <text font-family="HelveticaNeue-Light, Helvetica Neue" font-size="14" fill="#FFFFFF">
+                    <tspan x="14.1979999" y="11">Match</tspan>
                 </text>
                 <g id="Group" transform="translate(0.000000, 21.000000)">
                     <rect id="Rectangle" fill="#0C1E31" x="0" y="0" width="64" height="126" rx="11"></rect>
@@ -138,8 +138,8 @@
                 </g>
             </g>
             <g id="Scale" transform="translate(112.000000, 16.000000)">
-                <text font-family="NanumGothic, Nanum Gothic" font-size="12" font-weight="normal" letter-spacing="-0.399999976" fill="#FFFFFF">
-                    <tspan x="18.8339999" y="11">Scale</tspan>
+                <text font-family="HelveticaNeue-Light, Helvetica Neue" font-size="14" fill="#FFFFFF">
+                    <tspan x="15.8339999" y="11">Scale</tspan>
                 </text>
                 <g id="Group" transform="translate(0.000000, 21.000000)">
                     <rect id="Rectangle" fill="#0C1E31" x="0" y="0" width="64" height="126" rx="11"></rect>
@@ -226,8 +226,8 @@
                 </g>
             </g>
             <g id="Translate" transform="translate(196.000000, 16.000000)">
-                <text font-family="NanumGothic, Nanum Gothic" font-size="12" font-weight="normal" letter-spacing="-0.399999976" fill="#FFFFFF">
-                    <tspan x="9.30799989" y="11">Translate</tspan>
+                <text font-family="HelveticaNeue-Light, Helvetica Neue" font-size="14" fill="#FFFFFF">
+                    <tspan x="5.30799989" y="11">Translate</tspan>
                 </text>
                 <g id="Group" transform="translate(0.000000, 21.000000)">
                     <rect id="Rectangle" fill="#0C1E31" x="0" y="0" width="64" height="126" rx="11"></rect>
@@ -278,8 +278,8 @@
                 </g>
             </g>
             <g id="Rotate" transform="translate(280.000000, 16.000000)">
-                <text font-family="NanumGothic, Nanum Gothic" font-size="12" font-weight="normal" letter-spacing="-0.399999976" fill="#FFFFFF">
-                    <tspan x="14.9359999" y="11">Rotate</tspan>
+                <text font-family="HelveticaNeue-Light, Helvetica Neue" font-size="14" fill="#FFFFFF">
+                    <tspan x="11.9359999" y="11">Rotate</tspan>
                 </text>
                 <g id="Phone" transform="translate(0.000000, 21.000000)">
                     <rect id="Rectangle" fill="#0C1E31" x="0" y="0" width="64" height="126" rx="11"></rect>
