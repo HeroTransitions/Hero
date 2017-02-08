@@ -403,6 +403,8 @@ internal extension Hero {
       animate()
     #else
       if inContainerController && presenting {
+        // When animating within navigationController, we have to dispatch later in the runloop. 
+        // otherwise snapshots will not be taken. Possibly a bug with UIKit
         DispatchQueue.main.async {
           animate()
         }
@@ -440,7 +442,7 @@ internal extension Hero {
     }
     context.unhideAll()
 
-    // move fromView & toView back from animatingViewContainer
+    // move fromView & toView back from our container back to the one supplied by UIKit
     transitionContainer.addSubview(finished ? toView : fromView)
     
     container.removeFromSuperview()
@@ -471,7 +473,6 @@ internal extension Hero {
     forceNotInteractive = false
     progress = 0
     totalDuration = 0
-
     
     if finished {
       if let fvc = fvc, let tvc = tvc {
