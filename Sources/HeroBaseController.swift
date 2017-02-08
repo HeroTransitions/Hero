@@ -68,11 +68,6 @@ public class HeroBaseController: NSObject {
   /// this is the container supplied by UIKit
   internal var transitionContainer: UIView!
 
-  // By default, Hero will always appear to be interactive to UIKit. This forces it to appear non-interactive.
-  // Used when doing a hero_replaceViewController within a UINavigationController, to fix a bug with
-  // UINavigationController.setViewControllers not able to handle interactive transition
-  internal var forceNotInteractive = false
-
   internal var displayLink: CADisplayLink?
   internal var progressUpdateObservers: [HeroProgressUpdateObserver]?
 
@@ -121,6 +116,8 @@ public class HeroBaseController: NSObject {
   internal var processors: [HeroPreprocessor]!
   internal var animators: [HeroAnimator]!
   internal var plugins: [HeroPlugin]!
+
+  internal var animatingViews: [(fromViews:[UIView], toViews:[UIView])]!
 
   internal static var enabledPlugins: [HeroPlugin.Type] = []
 
@@ -224,7 +221,8 @@ public extension HeroBaseController {
 
 // internal methods for transition
 internal extension HeroBaseController {
-  /// Load plugins, processors, animators, & container
+  /// Load plugins, processors, animators, container, & context
+  /// subclass should call context.set(fromViews:toViews) after inserting fromViews & toViews into the container
   func prepareForTransition() {
     plugins = Hero.enabledPlugins.map({ return $0.init() })
     processors = [
@@ -248,6 +246,59 @@ internal extension HeroBaseController {
     // a view to hold all the animating views
     container = UIView(frame: transitionContainer.bounds)
     transitionContainer.addSubview(container)
+
+    context = HeroContext(container:container)
+  }
+
+  func prepareForAnimation() {
+    for processor in processors {
+      processor.process(fromViews: context.fromViews, toViews: context.toViews)
+    }
+
+    animatingViews = [([UIView], [UIView])]()
+    for animator in animators {
+      let currentFromViews = context.fromViews.filter { (view: UIView) -> Bool in
+        return animator.canAnimate(view: view, appearing: false)
+      }
+      let currentToViews = context.toViews.filter { (view: UIView) -> Bool in
+        return animator.canAnimate(view: view, appearing: true)
+      }
+      animatingViews.append((currentFromViews, currentToViews))
+    }
+  }
+
+
+  /// Actually animate the views
+  /// subclass should call `prepareForTransition` & `prepareForAnimation` before calling `animate`
+  func animate() {
+    for (currentFromViews, currentToViews) in animatingViews {
+      // auto hide all animated views
+      for view in currentFromViews {
+        context.hide(view: view)
+      }
+      for view in currentToViews {
+        context.hide(view: view)
+      }
+    }
+
+    var totalDuration: TimeInterval = 0
+    var animatorWantsInteractive = false
+    for (i, animator) in animators.enumerated() {
+      let duration = animator.animate(fromViews: animatingViews[i].0,
+                                      toViews: animatingViews[i].1)
+      if duration == .infinity {
+        animatorWantsInteractive = true
+      } else {
+        totalDuration = max(totalDuration, duration)
+      }
+    }
+
+    self.totalDuration = totalDuration
+    if animatorWantsInteractive {
+      update(progress: 0)
+    } else {
+      complete(after: totalDuration, finishing: true)
+    }
   }
 
   func complete(after: TimeInterval, finishing: Bool) {
