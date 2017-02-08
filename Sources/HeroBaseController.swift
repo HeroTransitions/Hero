@@ -224,6 +224,32 @@ public extension HeroBaseController {
 
 // internal methods for transition
 internal extension HeroBaseController {
+  /// Load plugins, processors, animators, & container
+  func prepareForTransition() {
+    plugins = Hero.enabledPlugins.map({ return $0.init() })
+    processors = [
+      IgnoreSubviewModifiersPreprocessor(),
+      MatchPreprocessor(),
+      SourcePreprocessor(),
+      CascadePreprocessor()
+    ]
+    animators = [
+      HeroDefaultAnimator()
+    ]
+
+    // There is no covariant in Swift, so we need to add plugins one by one.
+    for plugin in plugins {
+      processors.append(plugin)
+      animators.append(plugin)
+    }
+
+    transitionContainer.isUserInteractionEnabled = false
+
+    // a view to hold all the animating views
+    container = UIView(frame: transitionContainer.bounds)
+    transitionContainer.addSubview(container)
+  }
+
   func complete(after: TimeInterval, finishing: Bool) {
     if after <= 0.001 {
       complete(finished: finishing)

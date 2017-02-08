@@ -89,7 +89,7 @@ public extension UIView {
     }
   }
 
-  func slowSnapshotView() -> UIView {
+  internal func slowSnapshotView() -> UIView {
     UIGraphicsBeginImageContextWithOptions(bounds.size, isOpaque, 0)
     layer.render(in: UIGraphicsGetCurrentContext()!)
 
@@ -101,6 +101,16 @@ public extension UIView {
     let snapshotView = UIView(frame:bounds)
     snapshotView.addSubview(imageView)
     return snapshotView
+  }
+
+  internal var flattenedViewHierarchy: [UIView] {
+    var flattened: [UIView] = [self]
+    var index = 0
+    while index < flattened.count {
+      flattened.append(contentsOf: flattened[index].subviews)
+      index += 1
+    }
+    return flattened
   }
 }
 

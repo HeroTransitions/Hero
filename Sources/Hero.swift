@@ -83,7 +83,7 @@ public class Hero: HeroBaseController {
 // internal methods for transition
 internal extension Hero {
   func start() {
-    guard transitionContainer != nil else { return }
+    guard transitioning else { return }
     if let fvc = fromViewController, let tvc = toViewController {
       closureProcessForHeroDelegate(vc: fvc) {
         $0.heroWillStartTransition?()
@@ -96,28 +96,7 @@ internal extension Hero {
       }
     }
 
-    plugins = Hero.enabledPlugins.map({ return $0.init() })
-    processors = [
-      IgnoreSubviewModifiersPreprocessor(),
-      MatchPreprocessor(),
-      SourcePreprocessor(),
-      CascadePreprocessor()
-    ]
-    animators = [
-      HeroDefaultAnimator()
-    ]
-    
-    // There is no covariant in Swift, so we need to add plugins one by one.
-    for plugin in plugins {
-      processors.append(plugin)
-      animators.append(plugin)
-    }
-    
-    transitionContainer.isUserInteractionEnabled = false
-    
-    // a view to hold all the animating views
-    container = UIView(frame: transitionContainer.bounds)
-    transitionContainer.addSubview(container)
+    prepareForTransition()
     
     // take a snapshot to hide all the flashing that might happen
     let completeSnapshot = fromView.snapshotView(afterScreenUpdates: true)!
@@ -134,7 +113,7 @@ internal extension Hero {
     toView.setNeedsLayout()
     toView.layoutIfNeeded()
 
-    context.set(fromView: fromView, toView: toView)
+    context.set(fromViews: fromView.flattenedViewHierarchy, toViews: toView.flattenedViewHierarchy)
 
     for processor in processors {
       processor.process(fromViews: context.fromViews, toViews: context.toViews)
@@ -317,13 +296,6 @@ fileprivate extension Hero {
     }
   }
 }
-
-
-
-
-
-
-
 
 
 

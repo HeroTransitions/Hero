@@ -33,9 +33,24 @@ public class HeroContext {
     self.container = container
   }
 
-  internal func set(fromView:UIView, toView:UIView) {
-    fromViews = HeroContext.processViewTree(view: fromView, container: container, idMap: &heroIDToSourceView, stateMap: &targetStates)
-    toViews = HeroContext.processViewTree(view: toView, container: container, idMap: &heroIDToDestinationView, stateMap: &targetStates)
+  internal func set(fromViews:[UIView], toViews:[UIView]) {
+    self.fromViews = fromViews
+    self.toViews = toViews
+    process(views: fromViews, idMap: &heroIDToSourceView)
+    process(views: toViews, idMap: &heroIDToDestinationView)
+  }
+
+  internal func process(views:[UIView], idMap: inout [String: UIView]) {
+    for view in views {
+      if container.convert(view.bounds, from: view).intersects(container.bounds) {
+        if let heroID = view.heroID {
+          idMap[heroID] = view
+        }
+        if let modifiers = view.heroModifiers {
+          targetStates[view] = HeroTargetState(modifiers: modifiers)
+        }
+      }
+    }
   }
 
   /**
@@ -243,24 +258,5 @@ extension HeroContext {
       unhide(view: view)
     }
     viewAlphas.removeAll()
-  }
-
-  internal static func processViewTree(view: UIView, container: UIView, idMap: inout [String: UIView], stateMap: inout [UIView: HeroTargetState]) -> [UIView] {
-    var rtn: [UIView]
-    if container.convert(view.bounds, from: view).intersects(container.bounds) {
-      rtn = [view]
-      if let heroID = view.heroID {
-        idMap[heroID] = view
-      }
-      if let modifiers = view.heroModifiers {
-        stateMap[view] = HeroTargetState(modifiers: modifiers)
-      }
-    } else {
-      rtn = []
-    }
-    for sv in view.subviews {
-      rtn.append(contentsOf: processViewTree(view: sv, container:container, idMap:&idMap, stateMap:&stateMap))
-    }
-    return rtn
   }
 }
