@@ -66,6 +66,14 @@ public class Hero: HeroBaseController {
   /// might be nil when transitioning. This happens when calling heroReplaceViewController
   fileprivate weak var transitionContext: UIViewControllerContextTransitioning?
 
+  fileprivate var fullScreenSnapshot: UIView!
+  fileprivate var skipDefaultAnimation = false
+
+  // By default, Hero will always appear to be interactive to UIKit. This forces it to appear non-interactive.
+  // Used when doing a hero_replaceViewController within a UINavigationController, to fix a bug with
+  // UINavigationController.setViewControllers not able to handle interactive transition
+  internal var forceNotInteractive = false
+
   internal var completionCallback: ((Bool) -> Void)?
 
   fileprivate var inNavigationController = false
@@ -99,10 +107,8 @@ internal extension Hero {
     prepareForTransition()
     
     // take a snapshot to hide all the flashing that might happen
-    let completeSnapshot = fromView.snapshotView(afterScreenUpdates: true)!
-    transitionContainer.addSubview(completeSnapshot)
-
-    context = HeroContext(container:container)
+    fullScreenSnapshot = fromView.snapshotView(afterScreenUpdates: true)!
+    transitionContainer.addSubview(fullScreenSnapshot)
 
     context.hide(view: toView)
     container.addSubview(toView)
@@ -115,23 +121,13 @@ internal extension Hero {
 
     context.set(fromViews: fromView.flattenedViewHierarchy, toViews: toView.flattenedViewHierarchy)
 
-    for processor in processors {
-      processor.process(fromViews: context.fromViews, toViews: context.toViews)
-    }
+    prepareForAnimation()
 
-    var skipDefaultAnimation = false
-    var animatingViews = [([UIView], [UIView])]()
-    for animator in animators {
-      let currentFromViews = context.fromViews.filter { (view: UIView) -> Bool in
-        return animator.canAnimate(view: view, appearing: false)
-      }
-      let currentToViews = context.toViews.filter { (view: UIView) -> Bool in
-        return animator.canAnimate(view: view, appearing: true)
-      }
-      if currentFromViews.first == fromView || currentToViews.first == toView {
+    for (fromViews, toViews) in animatingViews {
+      if fromViews.first == fromView || toViews.first == toView {
         skipDefaultAnimation = true
+        break
       }
-      animatingViews.append((currentFromViews, currentToViews))
     }
     
     if !skipDefaultAnimation {
@@ -157,59 +153,33 @@ internal extension Hero {
       }
     }
 
-    func animate() {
-      context.unhide(view: toView)
-      container.backgroundColor = toView.backgroundColor
-      for (currentFromViews, currentToViews) in animatingViews {
-        // auto hide all animated views
-        for view in currentFromViews {
-          context.hide(view: view)
-        }
-        for view in currentToViews {
-          context.hide(view: view)
-        }
-      }
-
-      var totalDuration: TimeInterval = 0
-      var animatorWantsInteractive = false
-      for (i, animator) in animators.enumerated() {
-        let duration = animator.animate(fromViews: animatingViews[i].0,
-                                        toViews: animatingViews[i].1)
-        if duration == .infinity {
-          animatorWantsInteractive = true
-        } else {
-          totalDuration = max(totalDuration, duration)
-        }
-      }
-
-      if !skipDefaultAnimation {
-        // change the duration of the default fade animation to be the total duration of the animation
-        animators.first?.apply(state: [.duration(totalDuration)], to: toView)
-      }
-
-      // we are done with setting up, so remove the covering snapshot
-      completeSnapshot.removeFromSuperview()
-      self.totalDuration = totalDuration
-      if animatorWantsInteractive {
-        update(progress: 0.001)
-      } else {
-        complete(after: totalDuration, finishing: true)
-      }
-    }
-
     #if os(tvOS)
       animate()
     #else
-      if inContainerController && presenting {
+      if inContainerController {
         // When animating within navigationController, we have to dispatch later in the runloop. 
         // otherwise snapshots will not be taken. Possibly a bug with UIKit
         DispatchQueue.main.async {
-          animate()
+          self.animate()
         }
       } else {
         animate()
       }
     #endif
+  }
+
+  override func animate() {
+    context.unhide(view: toView)
+    container.backgroundColor = toView.backgroundColor
+
+    super.animate()
+
+    if !skipDefaultAnimation {
+      // change the duration of the default fade animation to be the total duration of the animation
+      animators.first?.apply(state: [.duration(totalDuration)], to: toView)
+    }
+
+    fullScreenSnapshot!.removeFromSuperview()
   }
 
   func transition(from: UIViewController, to: UIViewController, in view: UIView, completion: ((Bool) -> Void)? = nil) {
@@ -243,6 +213,7 @@ internal extension Hero {
     inNavigationController = false
     inTabBarController = false
     forceNotInteractive = false
+    skipDefaultAnimation = false
 
     super.complete(finished: finished)
 
