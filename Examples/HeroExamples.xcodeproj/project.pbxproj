@@ -30,9 +30,8 @@
 		2D1F7FDB1E49DD21004D944B /* HeroDebugView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37D7B621E2C0CD100AC1959 /* HeroDebugView.swift */; };
 		2D1F7FDC1E49DD3C004D944B /* Hero.h in Headers */ = {isa = PBXBuildFile; fileRef = A306D3B41E1C7A2E00B6C23A /* Hero.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2D1F7FE51E49DD90004D944B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D1F7FE41E49DD90004D944B /* AppDelegate.swift */; };
-		2D1F7FE71E49DD90004D944B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D1F7FE61E49DD90004D944B /* ViewController.swift */; };
+		2D1F7FE71E49DD90004D944B /* TVImageGalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D1F7FE61E49DD90004D944B /* TVImageGalleryViewController.swift */; };
 		2D1F7FEA1E49DD90004D944B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2D1F7FE81E49DD90004D944B /* Main.storyboard */; };
-		2D1F7FEC1E49DD90004D944B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2D1F7FEB1E49DD90004D944B /* Assets.xcassets */; };
 		2D1F7FF21E49E043004D944B /* Hero.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D1F7FBF1E49DCB5004D944B /* Hero.framework */; };
 		83043017B73BC66DBB920D5C /* Pods_HeroExamples.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EEE340F89FF0A49DD23A5A6E /* Pods_HeroExamples.framework */; };
 		A304BF841DF2717900A03345 /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A304BF831DF2717900A03345 /* ImageViewController.swift */; };
@@ -45,6 +44,15 @@
 		A3298CDA1E304851005B06BB /* BasePreprocessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3298CD91E304851005B06BB /* BasePreprocessor.swift */; };
 		A3298CDF1E315B96005B06BB /* LabelMorphPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3298CDD1E315B96005B06BB /* LabelMorphPlugin.swift */; };
 		A3298CE01E315B96005B06BB /* LabelMorphViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3298CDE1E315B96005B06BB /* LabelMorphViewController.swift */; };
+		A32D2CF21E4A7DC3008D35FF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A33E60AB1DE761C90065CBD8 /* Assets.xcassets */; };
+		A32D2CF81E4A80C3008D35FF /* ImageGalleryCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3499D9E1DF2024E0049B541 /* ImageGalleryCollectionViewController.swift */; };
+		A32D2CF91E4A80C5008D35FF /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A304BF831DF2717900A03345 /* ImageViewController.swift */; };
+		A32D2CFA1E4A80C7008D35FF /* ImageLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = A313499A1E1E2AED00EB5139 /* ImageLibrary.swift */; };
+		A32D2CFB1E4A80C9008D35FF /* ImageCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = A304BF891DF647FC00A03345 /* ImageCells.swift */; };
+		A32D2CFC1E4A80DC008D35FF /* UIKit+HeroExamples.swift in Sources */ = {isa = PBXBuildFile; fileRef = A33E60B61DE7621C0065CBD8 /* UIKit+HeroExamples.swift */; };
+		A32D2D021E4A8153008D35FF /* Basic.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A32D2D001E4A8153008D35FF /* Basic.storyboard */; };
+		A32D2D031E4A8153008D35FF /* ImageGallery.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A32D2D011E4A8153008D35FF /* ImageGallery.storyboard */; };
+		A32D2D051E4A81D5008D35FF /* ImageViewer.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A32D2D041E4A81D5008D35FF /* ImageViewer.storyboard */; };
 		A33E60A51DE761C90065CBD8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A33E60A41DE761C90065CBD8 /* AppDelegate.swift */; };
 		A33E60AA1DE761C90065CBD8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A33E60A81DE761C90065CBD8 /* Main.storyboard */; };
 		A33E60AC1DE761C90065CBD8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A33E60AB1DE761C90065CBD8 /* Assets.xcassets */; };
@@ -55,6 +63,7 @@
 		A33E60C01DE7621C0065CBD8 /* CityGuideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A33E60BB1DE7621C0065CBD8 /* CityGuideViewController.swift */; };
 		A33E60C11DE7621C0065CBD8 /* CityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A33E60BC1DE7621C0065CBD8 /* CityViewController.swift */; };
 		A3499D9F1DF2024E0049B541 /* ImageGalleryCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3499D9E1DF2024E0049B541 /* ImageGalleryCollectionViewController.swift */; };
+		A355CEC8D787CF71B0D7CBDA /* Pods_HeroTvOSExamples.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD2306FDA4E15ADA91EFED44 /* Pods_HeroTvOSExamples.framework */; };
 		A35949181E1A2BE60095F407 /* InitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A35949171E1A2BE60095F407 /* InitialViewController.swift */; };
 		A37D7B411E2C0C7E00AC1959 /* CascadePreprocessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37D7B3D1E2C0C7E00AC1959 /* CascadePreprocessor.swift */; };
 		A37D7B421E2C0C7E00AC1959 /* IgnoreSubviewModifiersPreprocessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37D7B3E1E2C0C7E00AC1959 /* IgnoreSubviewModifiersPreprocessor.swift */; };
@@ -131,11 +140,11 @@
 		2D1F7FBF1E49DCB5004D944B /* Hero.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Hero.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D1F7FE21E49DD90004D944B /* HeroTvOSExamples.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HeroTvOSExamples.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D1F7FE41E49DD90004D944B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		2D1F7FE61E49DD90004D944B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		2D1F7FE61E49DD90004D944B /* TVImageGalleryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVImageGalleryViewController.swift; sourceTree = "<group>"; };
 		2D1F7FE91E49DD90004D944B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		2D1F7FEB1E49DD90004D944B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2D1F7FED1E49DD90004D944B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5CD4F09A588E81DA75C2BE38 /* Pods-HeroExamples.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HeroExamples.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HeroExamples/Pods-HeroExamples.debug.xcconfig"; sourceTree = "<group>"; };
+		86C87C73D89E75C8443B5071 /* Pods-HeroTvOSExamples.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HeroTvOSExamples.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HeroTvOSExamples/Pods-HeroTvOSExamples.debug.xcconfig"; sourceTree = "<group>"; };
 		A304BF831DF2717900A03345 /* ImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageViewController.swift; path = ImageGallery/ImageViewController.swift; sourceTree = "<group>"; };
 		A304BF891DF647FC00A03345 /* ImageCells.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageCells.swift; path = ImageGallery/ImageCells.swift; sourceTree = "<group>"; };
 		A306D3B21E1C7A2E00B6C23A /* Hero.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Hero.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -146,6 +155,9 @@
 		A3298CD91E304851005B06BB /* BasePreprocessor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasePreprocessor.swift; sourceTree = "<group>"; };
 		A3298CDD1E315B96005B06BB /* LabelMorphPlugin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LabelMorphPlugin.swift; path = LabelMorph/LabelMorphPlugin.swift; sourceTree = "<group>"; };
 		A3298CDE1E315B96005B06BB /* LabelMorphViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LabelMorphViewController.swift; path = LabelMorph/LabelMorphViewController.swift; sourceTree = "<group>"; };
+		A32D2D001E4A8153008D35FF /* Basic.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Basic.storyboard; sourceTree = "<group>"; };
+		A32D2D011E4A8153008D35FF /* ImageGallery.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ImageGallery.storyboard; sourceTree = "<group>"; };
+		A32D2D041E4A81D5008D35FF /* ImageViewer.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ImageViewer.storyboard; sourceTree = "<group>"; };
 		A33E60A11DE761C90065CBD8 /* HeroExamples.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HeroExamples.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A33E60A41DE761C90065CBD8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A33E60A91DE761C90065CBD8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -180,6 +192,7 @@
 		A37D7B611E2C0CD000AC1959 /* HeroDebugPlugin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeroDebugPlugin.swift; sourceTree = "<group>"; };
 		A37D7B621E2C0CD100AC1959 /* HeroDebugView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeroDebugView.swift; sourceTree = "<group>"; };
 		A39400B51E1D8749005E5454 /* LiveInjection1ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LiveInjection1ViewController.swift; path = LiveInjection/LiveInjection1ViewController.swift; sourceTree = "<group>"; };
+		A41D45F75C2C4244CC105281 /* Pods-HeroTvOSExamples.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HeroTvOSExamples.release.xcconfig"; path = "Pods/Target Support Files/Pods-HeroTvOSExamples/Pods-HeroTvOSExamples.release.xcconfig"; sourceTree = "<group>"; };
 		B10FDD441E00DD9800B7B66E /* DebugViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DebugViewController.swift; path = Debug/DebugViewController.swift; sourceTree = "<group>"; };
 		B114B68F1E412A0B0009CEDE /* AppleProductViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppleProductViewController.swift; path = AppleHomepage/AppleProductViewController.swift; sourceTree = "<group>"; };
 		B185A4E51DFA6E0C00C3B85D /* ListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ListTableViewController.swift; path = ListToGrid/ListTableViewController.swift; sourceTree = "<group>"; };
@@ -199,6 +212,7 @@
 		B19F76B01E46C449002DBC58 /* VideoPlayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoPlayerViewController.swift; sourceTree = "<group>"; };
 		C377744CBFF1E24426E80F55 /* Pods-HeroExamples.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HeroExamples.release.xcconfig"; path = "Pods/Target Support Files/Pods-HeroExamples/Pods-HeroExamples.release.xcconfig"; sourceTree = "<group>"; };
 		EEE340F89FF0A49DD23A5A6E /* Pods_HeroExamples.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HeroExamples.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FD2306FDA4E15ADA91EFED44 /* Pods_HeroTvOSExamples.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HeroTvOSExamples.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -214,6 +228,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2D1F7FF21E49E043004D944B /* Hero.framework in Frameworks */,
+				A355CEC8D787CF71B0D7CBDA /* Pods_HeroTvOSExamples.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -240,6 +255,7 @@
 			isa = PBXGroup;
 			children = (
 				EEE340F89FF0A49DD23A5A6E /* Pods_HeroExamples.framework */,
+				FD2306FDA4E15ADA91EFED44 /* Pods_HeroTvOSExamples.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -291,9 +307,11 @@
 			isa = PBXGroup;
 			children = (
 				2D1F7FE41E49DD90004D944B /* AppDelegate.swift */,
-				2D1F7FE61E49DD90004D944B /* ViewController.swift */,
+				2D1F7FE61E49DD90004D944B /* TVImageGalleryViewController.swift */,
 				2D1F7FE81E49DD90004D944B /* Main.storyboard */,
-				2D1F7FEB1E49DD90004D944B /* Assets.xcassets */,
+				A32D2D001E4A8153008D35FF /* Basic.storyboard */,
+				A32D2D011E4A8153008D35FF /* ImageGallery.storyboard */,
+				A32D2D041E4A81D5008D35FF /* ImageViewer.storyboard */,
 				2D1F7FED1E49DD90004D944B /* Info.plist */,
 			);
 			path = HeroTvOSExamples;
@@ -304,6 +322,8 @@
 			children = (
 				5CD4F09A588E81DA75C2BE38 /* Pods-HeroExamples.debug.xcconfig */,
 				C377744CBFF1E24426E80F55 /* Pods-HeroExamples.release.xcconfig */,
+				86C87C73D89E75C8443B5071 /* Pods-HeroTvOSExamples.debug.xcconfig */,
+				A41D45F75C2C4244CC105281 /* Pods-HeroTvOSExamples.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -518,9 +538,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2D1F7FEE1E49DD90004D944B /* Build configuration list for PBXNativeTarget "HeroTvOSExamples" */;
 			buildPhases = (
+				89DC76B30A0BF7FD724C24D3 /* [CP] Check Pods Manifest.lock */,
 				2D1F7FDE1E49DD90004D944B /* Sources */,
 				2D1F7FDF1E49DD90004D944B /* Frameworks */,
 				2D1F7FE01E49DD90004D944B /* Resources */,
+				D0B5FB75F35A002ECA1876F6 /* [CP] Embed Pods Frameworks */,
+				C7CE3FE7AA49802896904963 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -589,6 +612,7 @@
 					};
 					2D1F7FE11E49DD90004D944B = {
 						CreatedOnToolsVersion = 8.2;
+						DevelopmentTeam = 4VSEW78TKT;
 						ProvisioningStyle = Automatic;
 					};
 					A306D3B11E1C7A2E00B6C23A = {
@@ -637,7 +661,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2D1F7FEC1E49DD90004D944B /* Assets.xcassets in Resources */,
+				A32D2CF21E4A7DC3008D35FF /* Assets.xcassets in Resources */,
+				A32D2D051E4A81D5008D35FF /* ImageViewer.storyboard in Resources */,
+				A32D2D031E4A8153008D35FF /* ImageGallery.storyboard in Resources */,
+				A32D2D021E4A8153008D35FF /* Basic.storyboard in Resources */,
 				2D1F7FEA1E49DD90004D944B /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -689,6 +716,21 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HeroExamples/Pods-HeroExamples-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		89DC76B30A0BF7FD724C24D3 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
 		A0BDF7221E2FCC5A0028778F /* Swiftlint */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -733,6 +775,36 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HeroExamples/Pods-HeroExamples-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		C7CE3FE7AA49802896904963 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HeroTvOSExamples/Pods-HeroTvOSExamples-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D0B5FB75F35A002ECA1876F6 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HeroTvOSExamples/Pods-HeroTvOSExamples-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -768,8 +840,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2D1F7FE71E49DD90004D944B /* ViewController.swift in Sources */,
+				A32D2CFA1E4A80C7008D35FF /* ImageLibrary.swift in Sources */,
+				A32D2CF81E4A80C3008D35FF /* ImageGalleryCollectionViewController.swift in Sources */,
+				A32D2CFC1E4A80DC008D35FF /* UIKit+HeroExamples.swift in Sources */,
+				2D1F7FE71E49DD90004D944B /* TVImageGalleryViewController.swift in Sources */,
+				A32D2CF91E4A80C5008D35FF /* ImageViewController.swift in Sources */,
 				2D1F7FE51E49DD90004D944B /* AppDelegate.swift in Sources */,
+				A32D2CFB1E4A80C9008D35FF /* ImageCells.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -889,7 +966,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 3;
-				TVOS_DEPLOYMENT_TARGET = 10.1;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
@@ -913,7 +990,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 3;
-				TVOS_DEPLOYMENT_TARGET = 10.1;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
@@ -921,9 +998,11 @@
 		};
 		2D1F7FEF1E49DD90004D944B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 86C87C73D89E75C8443B5071 /* Pods-HeroTvOSExamples.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				DEVELOPMENT_TEAM = 4VSEW78TKT;
 				INFOPLIST_FILE = HeroTvOSExamples/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.lkzhao.HeroTvOSExamples;
@@ -931,15 +1010,17 @@
 				SDKROOT = appletvos;
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 3;
-				TVOS_DEPLOYMENT_TARGET = 10.1;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
 			};
 			name = Debug;
 		};
 		2D1F7FF01E49DD90004D944B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A41D45F75C2C4244CC105281 /* Pods-HeroTvOSExamples.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				DEVELOPMENT_TEAM = 4VSEW78TKT;
 				INFOPLIST_FILE = HeroTvOSExamples/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.lkzhao.HeroTvOSExamples;
@@ -947,7 +1028,7 @@
 				SDKROOT = appletvos;
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 3;
-				TVOS_DEPLOYMENT_TARGET = 10.1;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
 			};
 			name = Release;
 		};

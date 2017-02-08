@@ -149,8 +149,12 @@ public class Hero: NSObject {
   
   
   fileprivate var finishing: Bool = true
-  /// true if transitioning inside a UINavigationController or UITabBarController
-  fileprivate var inContainerController = false
+
+  fileprivate var inNavigationController = false
+  fileprivate var inTabBarController = false
+  fileprivate var inContainerController:Bool {
+    return inNavigationController || inTabBarController
+  }
   
   fileprivate var toView: UIView { return toViewController!.view }
   fileprivate var fromView: UIView { return fromViewController!.view }
@@ -262,6 +266,7 @@ public extension Hero {
 // internal methods for transition
 internal extension Hero {
   func start() {
+    guard transitionContainer != nil else { return }
     if let fvc = fromViewController, let tvc = toViewController {
       closureProcessForHeroDelegate(vc: fvc) {
         $0.heroWillStartTransition?()
@@ -338,32 +343,38 @@ internal extension Hero {
       context[toView] = [.fade]
       animatingViews[0].1.insert(toView, at: 0)
 
+      #if os(tvOS)
+        context[fromView] = [.fade]
+        animatingViews[0].0.insert(fromView, at: 0)
+      #endif
+
       if toView.layer.zPosition < fromView.layer.zPosition {
         // in this case, we have to animate the zPosition as well. otherwise the fade animation will be hidden.
         context[toView]!.append(.zPosition(fromView.layer.zPosition + 1))
-        context[fromView] = [.zPosition(toView.layer.zPosition - 1)]
-        animatingViews[0].0.insert(fromView, at: 0)
+        if context[fromView] == nil {
+          context[fromView] = []
+          animatingViews[0].0.insert(fromView, at: 0)
+        }
+        context[fromView]!.append(.zPosition(toView.layer.zPosition - 1))
       }
     }
-    
-    // wait for a frame if using navigation controller.
-    // a bug with navigation controller. the snapshot is not captured if animating immediately
-    delay(inContainerController && presenting ? 0.02 : 0) {
-      self.context.unhide(view: self.toView)
-      self.container.backgroundColor = self.toView.backgroundColor
+
+    func animate() {
+      context.unhide(view: toView)
+      container.backgroundColor = toView.backgroundColor
       for (currentFromViews, currentToViews) in animatingViews {
         // auto hide all animated views
         for view in currentFromViews {
-          self.context.hide(view: view)
+          context.hide(view: view)
         }
         for view in currentToViews {
-          self.context.hide(view: view)
+          context.hide(view: view)
         }
       }
-      
+
       var totalDuration: TimeInterval = 0
       var animatorWantsInteractive = false
-      for (i, animator) in self.animators.enumerated() {
+      for (i, animator) in animators.enumerated() {
         let duration = animator.animate(fromViews: animatingViews[i].0,
                                         toViews: animatingViews[i].1)
         if duration == .infinity {
@@ -375,23 +386,34 @@ internal extension Hero {
 
       if !skipDefaultAnimation {
         // change the duration of the default fade animation to be the total duration of the animation
-        self.animators.first?.apply(state: [.duration(totalDuration)], to: self.toView)
+        animators.first?.apply(state: [.duration(totalDuration)], to: toView)
       }
 
       // we are done with setting up, so remove the covering snapshot
       completeSnapshot.removeFromSuperview()
       self.totalDuration = totalDuration
       if animatorWantsInteractive {
-        self.update(progress: 0.001)
+        update(progress: 0.001)
       } else {
-        self.complete(after: totalDuration, finishing: true)
+        complete(after: totalDuration, finishing: true)
       }
     }
+
+    #if os(tvOS)
+      animate()
+    #else
+      if inContainerController && presenting {
+        DispatchQueue.main.async {
+          animate()
+        }
+      } else {
+        animate()
+      }
+    #endif
   }
-  
+
   func transition(from: UIViewController, to: UIViewController, in view: UIView, completion: ((Bool) -> Void)? = nil) {
     guard !transitioning else { return }
-    inContainerController = false
     presenting = true
     transitionContainer = view
     fromViewController = from
@@ -444,7 +466,8 @@ internal extension Hero {
     plugins = nil
     context = nil
     beginTime = nil
-    inContainerController = false
+    inNavigationController = false
+    inTabBarController = false
     forceNotInteractive = false
     progress = 0
     totalDuration = 0
@@ -596,7 +619,7 @@ extension Hero: UINavigationControllerDelegate {
     self.presenting = operation == .push
     self.fromViewController = fromViewController ?? fromVC
     self.toViewController = toViewController ?? toVC
-    self.inContainerController = true
+    self.inNavigationController = true
     return self
   }
 
@@ -614,7 +637,7 @@ extension Hero: UITabBarControllerDelegate {
     self.presenting = true
     self.fromViewController = fromViewController ?? fromVC
     self.toViewController = toViewController ?? toVC
-    self.inContainerController = true
+    self.inTabBarController = true
     return self
   }
 }

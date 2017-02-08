@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder.AppleTV.Storyboard" version="3.0" toolsVersion="11762" systemVersion="16A313a" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Gb6-IX-EYS">
+    <device id="appleTV" orientation="landscape">
+        <adaptation id="dark"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Image Gallery-->
+        <scene sceneID="Z7F-i8-cOk">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nNF-ba-ht4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController title="Image Gallery" id="Gb6-IX-EYS" customClass="TVImageGalleryViewController" customModule="HeroTvOSExamples" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="pWh-xX-BLW"/>
+                        <viewControllerLayoutGuide type="bottom" id="b78-ri-6qj"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="g8v-tg-0AR">
+                        <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="esp-90-GFG">
+                                <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="64" minimumInteritemSpacing="64" id="zAq-9f-uKl">
+                                    <size key="itemSize" width="640" height="640"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="64" minY="64" maxX="64" maxY="64"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="item" id="WUP-mt-a4N" customClass="ImageCell" customModule="HeroTvOSExamples" customModuleProvider="target">
+                                        <rect key="frame" x="64" y="64" width="640" height="640"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="640" height="640"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" adjustsImageWhenAncestorFocused="YES" translatesAutoresizingMaskIntoConstraints="NO" id="c2t-rC-p4w">
+                                                    <rect key="frame" x="0.0" y="0.0" width="640" height="640"/>
+                                                </imageView>
+                                            </subviews>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="c2t-rC-p4w" secondAttribute="bottom" id="LUZ-6d-Xll"/>
+                                            <constraint firstItem="c2t-rC-p4w" firstAttribute="top" secondItem="WUP-mt-a4N" secondAttribute="top" id="e9W-su-r3c"/>
+                                            <constraint firstItem="c2t-rC-p4w" firstAttribute="leading" secondItem="WUP-mt-a4N" secondAttribute="leading" id="kSf-1Z-FVn"/>
+                                            <constraint firstAttribute="trailing" secondItem="c2t-rC-p4w" secondAttribute="trailing" id="wGf-LP-5s0"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="imageView" destination="c2t-rC-p4w" id="Hcg-A6-z46"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="Gb6-IX-EYS" id="cHr-RE-arm"/>
+                                    <outlet property="delegate" destination="Gb6-IX-EYS" id="CKe-wi-HOW"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="esp-90-GFG" secondAttribute="trailing" id="eZc-D8-MWb"/>
+                            <constraint firstItem="esp-90-GFG" firstAttribute="leading" secondItem="g8v-tg-0AR" secondAttribute="leading" id="ftN-qE-GEs"/>
+                            <constraint firstItem="b78-ri-6qj" firstAttribute="top" secondItem="esp-90-GFG" secondAttribute="bottom" id="rl5-9j-dAc"/>
+                            <constraint firstItem="esp-90-GFG" firstAttribute="top" secondItem="pWh-xX-BLW" secondAttribute="bottom" id="tYl-28-dFo"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="dd4-fw-RTp"/>
+                    <connections>
+                        <outlet property="collectionView" destination="esp-90-GFG" id="obW-m4-Qp3"/>
+                    </connections>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="-1263" y="136"/>
+        </scene>
+    </scenes>
+</document>

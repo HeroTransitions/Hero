@@ -48,7 +48,11 @@ extension ImageGalleryViewController: UICollectionViewDataSource {
   func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
     let vc = (viewController(forStoryboardName: "ImageViewer") as? ImageViewController)!
     vc.selectedIndex = indexPath
-    navigationController!.pushViewController(vc, animated: true)
+    if let navigationController = navigationController {
+      navigationController.pushViewController(vc, animated: true)
+    } else {
+      present(vc, animated: true, completion: nil)
+    }
   }
 
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -83,6 +87,7 @@ extension ImageGalleryViewController: HeroViewControllerDelegate {
     }
   }
   func heroWillStartAnimatingFrom(viewController: UIViewController) {
+    view.heroModifiers = nil
     if (viewController as? ImageGalleryViewController) != nil {
       collectionView.heroModifiers = [.cascade(delta:0.015), .delay(0.25)]
     } else {
