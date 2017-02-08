@@ -54,6 +54,9 @@ class ScrollingImageCell: UICollectionViewCell {
     scrollView.contentMode = .center
     scrollView.showsHorizontalScrollIndicator = false
     scrollView.showsVerticalScrollIndicator = false
+    if #available(iOS 9.0, *) {
+      scrollView.panGestureRecognizer.allowedTouchTypes = [ NSNumber(value:UITouchType.indirect.rawValue) ]
+    }
     addSubview(scrollView)
 
     dTapGR = UITapGestureRecognizer(target: self, action: #selector(doubleTap(gr:)))
@@ -84,7 +87,12 @@ class ScrollingImageCell: UICollectionViewCell {
     scrollView.frame = bounds
     let size: CGSize
     if let image = imageView.image {
-      size = CGSize(width: bounds.width, height: bounds.width * image.size.height / image.size.width )
+      let containerSize = CGSize(width: bounds.width, height: bounds.height - topInset)
+      if containerSize.width / containerSize.height < image.size.width / image.size.height {
+        size = CGSize(width: containerSize.width, height: containerSize.width * image.size.height / image.size.width )
+      } else {
+        size = CGSize(width: containerSize.height * image.size.width / image.size.height, height: containerSize.height )
+      }
     } else {
       size = CGSize(width: bounds.width, height: bounds.width)
     }
