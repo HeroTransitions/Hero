@@ -55,6 +55,8 @@
 		A32D2D051E4A81D5008D35FF /* ImageViewer.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A32D2D041E4A81D5008D35FF /* ImageViewer.storyboard */; };
 		A32D2D071E4B84A1008D35FF /* HeroBaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32D2D061E4B84A1008D35FF /* HeroBaseController.swift */; };
 		A32D2D081E4B84A1008D35FF /* HeroBaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32D2D061E4B84A1008D35FF /* HeroBaseController.swift */; };
+		A32D2D0A1E4BD20B008D35FF /* HeroIndependentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32D2D091E4BD20B008D35FF /* HeroIndependentController.swift */; };
+		A32D2D0B1E4BD20B008D35FF /* HeroIndependentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32D2D091E4BD20B008D35FF /* HeroIndependentController.swift */; };
 		A33E60A51DE761C90065CBD8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A33E60A41DE761C90065CBD8 /* AppDelegate.swift */; };
 		A33E60AA1DE761C90065CBD8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A33E60A81DE761C90065CBD8 /* Main.storyboard */; };
 		A33E60AC1DE761C90065CBD8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A33E60AB1DE761C90065CBD8 /* Assets.xcassets */; };
@@ -161,6 +163,7 @@
 		A32D2D011E4A8153008D35FF /* ImageGallery.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ImageGallery.storyboard; sourceTree = "<group>"; };
 		A32D2D041E4A81D5008D35FF /* ImageViewer.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ImageViewer.storyboard; sourceTree = "<group>"; };
 		A32D2D061E4B84A1008D35FF /* HeroBaseController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeroBaseController.swift; sourceTree = "<group>"; };
+		A32D2D091E4BD20B008D35FF /* HeroIndependentController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeroIndependentController.swift; sourceTree = "<group>"; };
 		A33E60A11DE761C90065CBD8 /* HeroExamples.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HeroExamples.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A33E60A41DE761C90065CBD8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A33E60A91DE761C90065CBD8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -335,6 +338,7 @@
 			isa = PBXGroup;
 			children = (
 				A37D7B511E2C0CBD00AC1959 /* Hero.swift */,
+				A32D2D091E4BD20B008D35FF /* HeroIndependentController.swift */,
 				A32D2D061E4B84A1008D35FF /* HeroBaseController.swift */,
 				A37D7B521E2C0CBD00AC1959 /* HeroContext.swift */,
 				A37D7B551E2C0CBD00AC1959 /* HeroModifier.swift */,
@@ -820,6 +824,7 @@
 				2D1F7FD61E49DD18004D944B /* DispatchQueue+Hero.swift in Sources */,
 				2D1F7FCB1E49DD08004D944B /* HeroTargetState.swift in Sources */,
 				A32D2D081E4B84A1008D35FF /* HeroBaseController.swift in Sources */,
+				A32D2D0B1E4BD20B008D35FF /* HeroIndependentController.swift in Sources */,
 				2D1F7FCA1E49DD08004D944B /* HeroPlugin.swift in Sources */,
 				2D1F7FDA1E49DD21004D944B /* HeroDebugPlugin.swift in Sources */,
 				2D1F7FDB1E49DD21004D944B /* HeroDebugView.swift in Sources */,
@@ -863,6 +868,7 @@
 				A37D7B4D1E2C0C9300AC1959 /* CAMediaTimingFunction+Hero.swift in Sources */,
 				A37D7B5D1E2C0CBD00AC1959 /* HeroModifier.swift in Sources */,
 				A32D2D071E4B84A1008D35FF /* HeroBaseController.swift in Sources */,
+				A32D2D0A1E4BD20B008D35FF /* HeroIndependentController.swift in Sources */,
 				A37D7B5B1E2C0CBD00AC1959 /* HeroDefaultAnimator.swift in Sources */,
 				A37D7B5A1E2C0CBD00AC1959 /* HeroContext.swift in Sources */,
 				A37D7B5C1E2C0CBD00AC1959 /* HeroDefaultAnimatorViewContext.swift in Sources */,

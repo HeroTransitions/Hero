@@ -74,8 +74,6 @@ public class Hero: HeroBaseController {
   // UINavigationController.setViewControllers not able to handle interactive transition
   internal var forceNotInteractive = false
 
-  internal var completionCallback: ((Bool) -> Void)?
-
   fileprivate var inNavigationController = false
   fileprivate var inTabBarController = false
   fileprivate var inContainerController:Bool {
@@ -85,7 +83,7 @@ public class Hero: HeroBaseController {
   fileprivate var toView: UIView { return toViewController!.view }
   fileprivate var fromView: UIView { return fromViewController!.view }
   
-  fileprivate override init() {}
+  fileprivate override init() { super.init() }
 }
 
 // internal methods for transition
@@ -182,16 +180,6 @@ internal extension Hero {
     fullScreenSnapshot!.removeFromSuperview()
   }
 
-  func transition(from: UIViewController, to: UIViewController, in view: UIView, completion: ((Bool) -> Void)? = nil) {
-    guard !transitioning else { return }
-    presenting = true
-    transitionContainer = view
-    fromViewController = from
-    toViewController = to
-    completionCallback = completion
-    start()
-  }
-
   override func complete(finished: Bool) {
     guard transitioning else { return }
 
@@ -202,12 +190,10 @@ internal extension Hero {
     // because we have to reset everything before calling
     // any delegate or completion block
     let tContext = transitionContext
-    let completion = completionCallback
     let fvc = fromViewController
     let tvc = toViewController
 
     transitionContext = nil
-    completionCallback = nil
     fromViewController = nil
     toViewController = nil
     inNavigationController = false
@@ -245,7 +231,19 @@ internal extension Hero {
       tContext?.cancelInteractiveTransition()
     }
     tContext?.completeTransition(finished)
-    completion?(finished)
+  }
+}
+
+// custom transition helper, used in hero_replaceViewController
+internal extension Hero {
+  func transition(from: UIViewController, to: UIViewController, in view: UIView, completion: ((Bool) -> Void)? = nil) {
+    guard !transitioning else { return }
+    presenting = true
+    transitionContainer = view
+    fromViewController = from
+    toViewController = to
+    completionCallback = completion
+    start()
   }
 }
 
