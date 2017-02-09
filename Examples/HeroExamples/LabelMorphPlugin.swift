@@ -90,6 +90,7 @@ public class LabelMorphPlugin: HeroPlugin {
     morphingLabel.animationDuration = 0.4
     morphingLabel.animationDelay = 0.02
     morphingLabel.attributedString = label.attributedText
+    morphingLabel.clipsToBounds = false
 
     morphingLabels.append(morphingLabel)
     context.container.addSubview(morphingLabel)
