@@ -23,7 +23,7 @@
 import UIKit
 
 public class HeroDefaultAnimator: HeroAnimator {
-  var context: HeroContext { return Hero.shared.context }
+  weak public var context: HeroContext!
   var viewContexts: [UIView: HeroDefaultAnimatorViewContext] = [:]
 
   public func seekTo(timePassed: TimeInterval) {

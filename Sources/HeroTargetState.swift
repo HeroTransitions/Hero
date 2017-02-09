@@ -42,6 +42,13 @@ public enum HeroSnapshotType {
   case noSnapshot
 }
 
+
+public enum HeroCoordinateSpace {
+  case global
+  case local
+  case sameParent
+}
+
 public struct HeroTargetState {
   internal var position: CGPoint?
   internal var size: CGSize?
@@ -70,7 +77,7 @@ public struct HeroTargetState {
   internal var cascade: (TimeInterval, CascadeDirection, Bool)?
   
   internal var ignoreSubviewModifiers: Bool?
-  internal var useGlobalCoordinateSpace: Bool?
+  internal var coordinateSpace: HeroCoordinateSpace?
   internal var useScaleBasedSizeChange: Bool?
   internal var snapshotType: HeroSnapshotType?
 

@@ -1,87 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C68" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="XkC-20-WHm">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16A313a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="hDE-vd-kLY">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
-        <scene sceneID="VeJ-js-8F3">
-            <objects>
-                <viewController id="XkC-20-WHm" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="u84-va-ysw"/>
-                        <viewControllerLayoutGuide type="bottom" id="7Yb-th-bB8"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="xoC-lR-COt">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Snd-sQ-1vx">
-                                <rect key="frame" x="263" y="547" width="72" height="72"/>
-                                <color key="backgroundColor" red="0.92933028939999995" green="0.92946392300000003" blue="0.92930108310000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="72" id="DKy-pZ-yLr"/>
-                                    <constraint firstAttribute="width" constant="72" id="sSg-WQ-V2b"/>
-                                </constraints>
-                                <color key="tintColor" red="0.25490196079999999" green="0.28627450980000002" blue="0.30980392159999998" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" image="ic_menu_36pt"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="36"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="menu"/>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="heroModifierString" value="arc"/>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <segue destination="hDE-vd-kLY" kind="presentation" id="REW-4R-Q2f"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i8D-uT-ivk">
-                                <rect key="frame" x="4" y="28" width="48" height="48"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="48" id="O59-EE-RPX"/>
-                                    <constraint firstAttribute="width" constant="48" id="sZm-fI-jyX"/>
-                                </constraints>
-                                <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                <state key="normal" image="ic_keyboard_arrow_down"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="24"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="heroModifierString" value="fade translate(0, -150)"/>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="back"/>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="hero_dismissViewController" destination="a39-7c-afk" eventType="touchUpInside" id="IoM-vu-VmN"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="i8D-uT-ivk" firstAttribute="leading" secondItem="xoC-lR-COt" secondAttribute="leadingMargin" constant="-12" id="6An-OS-T6s"/>
-                            <constraint firstItem="i8D-uT-ivk" firstAttribute="top" secondItem="u84-va-ysw" secondAttribute="bottom" constant="8" id="Lji-UG-FJU"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="Snd-sQ-1vx" secondAttribute="trailing" constant="24" id="gcf-15-boF"/>
-                            <constraint firstItem="7Yb-th-bB8" firstAttribute="top" secondItem="Snd-sQ-1vx" secondAttribute="bottom" constant="48" id="p81-At-FYy"/>
-                        </constraints>
-                    </view>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabled" value="YES"/>
-                    </userDefinedRuntimeAttributes>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="a39-7c-afk" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="0.0" y="0.0"/>
-        </scene>
-        <!--View Controller-->
         <scene sceneID="FLe-99-9Fd">
             <objects>
-                <viewController id="hDE-vd-kLY" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="overFullScreen" id="hDE-vd-kLY" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Dh5-EJ-KLE"/>
                         <viewControllerLayoutGuide type="bottom" id="7yD-25-9Jm"/>
@@ -244,7 +175,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.75035761443661975" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="0eU-DD-3fj" firstAttribute="centerY" secondItem="pwy-p7-BFt" secondAttribute="centerY" constant="60" id="4QG-2X-gyK"/>
                             <constraint firstItem="4Tw-b7-MDk" firstAttribute="centerY" secondItem="pwy-p7-BFt" secondAttribute="centerY" constant="-180" id="6P2-Ic-ToX"/>
@@ -282,9 +213,7 @@
         <image name="ic_format_quote_48pt" width="48" height="48"/>
         <image name="ic_gif_48pt" width="48" height="48"/>
         <image name="ic_insert_photo_48pt" width="48" height="48"/>
-        <image name="ic_keyboard_arrow_down" width="24" height="24"/>
         <image name="ic_link_48pt" width="48" height="48"/>
-        <image name="ic_menu_36pt" width="36" height="36"/>
         <image name="ic_text_fields_48pt" width="48" height="48"/>
         <image name="ic_videocam_48pt" width="48" height="48"/>
     </resources>

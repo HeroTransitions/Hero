@@ -23,6 +23,8 @@
 import UIKit
 
 open class HeroPlugin: NSObject, HeroPreprocessor, HeroAnimator {
+  weak public var context: HeroContext!
+
   /**
     Determines whether or not to receive `seekTo` callback on every frame.
    
@@ -124,9 +126,6 @@ open class HeroPlugin: NSObject, HeroPreprocessor, HeroAnimator {
 
 // methods for enable/disable the current plugin
 extension HeroPlugin {
-  public var context: HeroContext {
-    return Hero.shared.context
-  }
   public static var isEnabled: Bool {
     get {
       return Hero.isEnabled(plugin: self)

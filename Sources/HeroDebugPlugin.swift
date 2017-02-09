@@ -46,7 +46,7 @@ public class HeroDebugPlugin: HeroPlugin {
     debugView.delegate = self
     UIApplication.shared.keyWindow!.addSubview(debugView)
 
-    context.container.backgroundColor = UIColor(white: 0.85, alpha: 1.0)
+//    context.container.backgroundColor = UIColor(white: 0.85, alpha: 1.0)
 
     debugView.layoutSubviews()
     self.debugView = debugView

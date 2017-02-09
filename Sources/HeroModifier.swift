@@ -376,7 +376,7 @@ extension HeroModifier {
    Global coordinate space is default for all views prior to version 0.1.3
    */
   public static var useGlobalCoordinateSpace: HeroModifier = HeroModifier { targetState in
-    targetState.useGlobalCoordinateSpace = true
+    targetState.coordinateSpace = .global
   }
 
   /**
