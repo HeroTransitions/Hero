@@ -39,11 +39,8 @@
 		A306D3B61E1C7A2E00B6C23A /* Hero.h in Headers */ = {isa = PBXBuildFile; fileRef = A306D3B41E1C7A2E00B6C23A /* Hero.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A306D3B91E1C7A2E00B6C23A /* Hero.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A306D3B21E1C7A2E00B6C23A /* Hero.framework */; };
 		A306D3BB1E1C7A2E00B6C23A /* Hero.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A306D3B21E1C7A2E00B6C23A /* Hero.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		A306D3F61E1D7A1A00B6C23A /* LiveInjection2ViewControllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = A306D3F51E1D7A1A00B6C23A /* LiveInjection2ViewControllers.swift */; };
 		A313499B1E1E2AED00EB5139 /* ImageLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = A313499A1E1E2AED00EB5139 /* ImageLibrary.swift */; };
 		A3298CDA1E304851005B06BB /* BasePreprocessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3298CD91E304851005B06BB /* BasePreprocessor.swift */; };
-		A3298CDF1E315B96005B06BB /* LabelMorphPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3298CDD1E315B96005B06BB /* LabelMorphPlugin.swift */; };
-		A3298CE01E315B96005B06BB /* LabelMorphViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3298CDE1E315B96005B06BB /* LabelMorphViewController.swift */; };
 		A32D2CF21E4A7DC3008D35FF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A33E60AB1DE761C90065CBD8 /* Assets.xcassets */; };
 		A32D2CF81E4A80C3008D35FF /* ImageGalleryCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3499D9E1DF2024E0049B541 /* ImageGalleryCollectionViewController.swift */; };
 		A32D2CF91E4A80C5008D35FF /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A304BF831DF2717900A03345 /* ImageViewController.swift */; };
@@ -89,9 +86,9 @@
 		A37D7B601E2C0CBD00AC1959 /* HeroTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37D7B581E2C0CBD00AC1959 /* HeroTypes.swift */; };
 		A37D7B631E2C0CD100AC1959 /* HeroDebugPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37D7B611E2C0CD000AC1959 /* HeroDebugPlugin.swift */; };
 		A37D7B641E2C0CD100AC1959 /* HeroDebugView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37D7B621E2C0CD100AC1959 /* HeroDebugView.swift */; };
-		A39400B61E1D8749005E5454 /* LiveInjection1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39400B51E1D8749005E5454 /* LiveInjection1ViewController.swift */; };
-		B10FDD451E00DD9800B7B66E /* DebugViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10FDD441E00DD9800B7B66E /* DebugViewController.swift */; };
 		B114B6901E412A0B0009CEDE /* AppleProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B114B68F1E412A0B0009CEDE /* AppleProductViewController.swift */; };
+		B1275D941E4C0CFD0099A0E9 /* LabelMorphPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1275D921E4C0CFD0099A0E9 /* LabelMorphPlugin.swift */; };
+		B1275D971E4C0D850099A0E9 /* PluginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1275D961E4C0D850099A0E9 /* PluginViewController.swift */; };
 		B185A4E61DFA6E0C00C3B85D /* ListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B185A4E51DFA6E0C00C3B85D /* ListTableViewController.swift */; };
 		B185A4E81DFA6FE200C3B85D /* GridCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B185A4E71DFA6FE200C3B85D /* GridCollectionViewController.swift */; };
 		B19F76991E46C38E002DBC58 /* AppleHomePage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B19F76981E46C38E002DBC58 /* AppleHomePage.storyboard */; };
@@ -102,9 +99,6 @@
 		B19F76A31E46C3CB002DBC58 /* ListToGrid.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B19F76A21E46C3CB002DBC58 /* ListToGrid.storyboard */; };
 		B19F76A61E46C3D7002DBC58 /* ImageGallery.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B19F76A41E46C3D7002DBC58 /* ImageGallery.storyboard */; };
 		B19F76A71E46C3D7002DBC58 /* ImageViewer.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B19F76A51E46C3D7002DBC58 /* ImageViewer.storyboard */; };
-		B19F76A91E46C3F2002DBC58 /* LiveInjection.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B19F76A81E46C3F2002DBC58 /* LiveInjection.storyboard */; };
-		B19F76AB1E46C3FB002DBC58 /* Debug.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B19F76AA1E46C3FB002DBC58 /* Debug.storyboard */; };
-		B19F76AD1E46C406002DBC58 /* LabelMorph.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B19F76AC1E46C406002DBC58 /* LabelMorph.storyboard */; };
 		B19F76B11E46C449002DBC58 /* VideoPlayer.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B19F76AF1E46C449002DBC58 /* VideoPlayer.storyboard */; };
 		B19F76B21E46C449002DBC58 /* VideoPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19F76B01E46C449002DBC58 /* VideoPlayerViewController.swift */; };
 /* End PBXBuildFile section */
@@ -154,11 +148,8 @@
 		A306D3B21E1C7A2E00B6C23A /* Hero.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Hero.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A306D3B41E1C7A2E00B6C23A /* Hero.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Hero.h; sourceTree = "<group>"; };
 		A306D3B51E1C7A2E00B6C23A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A306D3F51E1D7A1A00B6C23A /* LiveInjection2ViewControllers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LiveInjection2ViewControllers.swift; path = LiveInjection/LiveInjection2ViewControllers.swift; sourceTree = "<group>"; };
 		A313499A1E1E2AED00EB5139 /* ImageLibrary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageLibrary.swift; path = ImageGallery/ImageLibrary.swift; sourceTree = "<group>"; };
 		A3298CD91E304851005B06BB /* BasePreprocessor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasePreprocessor.swift; sourceTree = "<group>"; };
-		A3298CDD1E315B96005B06BB /* LabelMorphPlugin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LabelMorphPlugin.swift; path = LabelMorph/LabelMorphPlugin.swift; sourceTree = "<group>"; };
-		A3298CDE1E315B96005B06BB /* LabelMorphViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LabelMorphViewController.swift; path = LabelMorph/LabelMorphViewController.swift; sourceTree = "<group>"; };
 		A32D2D001E4A8153008D35FF /* Basic.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Basic.storyboard; sourceTree = "<group>"; };
 		A32D2D011E4A8153008D35FF /* ImageGallery.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ImageGallery.storyboard; sourceTree = "<group>"; };
 		A32D2D041E4A81D5008D35FF /* ImageViewer.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ImageViewer.storyboard; sourceTree = "<group>"; };
@@ -197,10 +188,10 @@
 		A37D7B581E2C0CBD00AC1959 /* HeroTypes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeroTypes.swift; sourceTree = "<group>"; };
 		A37D7B611E2C0CD000AC1959 /* HeroDebugPlugin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeroDebugPlugin.swift; sourceTree = "<group>"; };
 		A37D7B621E2C0CD100AC1959 /* HeroDebugView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeroDebugView.swift; sourceTree = "<group>"; };
-		A39400B51E1D8749005E5454 /* LiveInjection1ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LiveInjection1ViewController.swift; path = LiveInjection/LiveInjection1ViewController.swift; sourceTree = "<group>"; };
 		A41D45F75C2C4244CC105281 /* Pods-HeroTvOSExamples.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HeroTvOSExamples.release.xcconfig"; path = "Pods/Target Support Files/Pods-HeroTvOSExamples/Pods-HeroTvOSExamples.release.xcconfig"; sourceTree = "<group>"; };
-		B10FDD441E00DD9800B7B66E /* DebugViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DebugViewController.swift; path = Debug/DebugViewController.swift; sourceTree = "<group>"; };
 		B114B68F1E412A0B0009CEDE /* AppleProductViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppleProductViewController.swift; path = AppleHomepage/AppleProductViewController.swift; sourceTree = "<group>"; };
+		B1275D921E4C0CFD0099A0E9 /* LabelMorphPlugin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelMorphPlugin.swift; sourceTree = "<group>"; };
+		B1275D961E4C0D850099A0E9 /* PluginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PluginViewController.swift; sourceTree = "<group>"; };
 		B185A4E51DFA6E0C00C3B85D /* ListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ListTableViewController.swift; path = ListToGrid/ListTableViewController.swift; sourceTree = "<group>"; };
 		B185A4E71DFA6FE200C3B85D /* GridCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GridCollectionViewController.swift; path = ListToGrid/GridCollectionViewController.swift; sourceTree = "<group>"; };
 		B19F76981E46C38E002DBC58 /* AppleHomePage.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = AppleHomePage.storyboard; path = AppleHomepage/AppleHomePage.storyboard; sourceTree = "<group>"; };
@@ -211,9 +202,6 @@
 		B19F76A21E46C3CB002DBC58 /* ListToGrid.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = ListToGrid.storyboard; path = ListToGrid/ListToGrid.storyboard; sourceTree = "<group>"; };
 		B19F76A41E46C3D7002DBC58 /* ImageGallery.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = ImageGallery.storyboard; path = ImageGallery/ImageGallery.storyboard; sourceTree = "<group>"; };
 		B19F76A51E46C3D7002DBC58 /* ImageViewer.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = ImageViewer.storyboard; path = ImageGallery/ImageViewer.storyboard; sourceTree = "<group>"; };
-		B19F76A81E46C3F2002DBC58 /* LiveInjection.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LiveInjection.storyboard; path = LiveInjection/LiveInjection.storyboard; sourceTree = "<group>"; };
-		B19F76AA1E46C3FB002DBC58 /* Debug.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Debug.storyboard; path = Debug/Debug.storyboard; sourceTree = "<group>"; };
-		B19F76AC1E46C406002DBC58 /* LabelMorph.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LabelMorph.storyboard; path = LabelMorph/LabelMorph.storyboard; sourceTree = "<group>"; };
 		B19F76AF1E46C449002DBC58 /* VideoPlayer.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = VideoPlayer.storyboard; sourceTree = "<group>"; };
 		B19F76B01E46C449002DBC58 /* VideoPlayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoPlayerViewController.swift; sourceTree = "<group>"; };
 		C377744CBFF1E24426E80F55 /* Pods-HeroExamples.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HeroExamples.release.xcconfig"; path = "Pods/Target Support Files/Pods-HeroExamples/Pods-HeroExamples.release.xcconfig"; sourceTree = "<group>"; };
@@ -356,16 +344,6 @@
 			path = ../Sources;
 			sourceTree = "<group>";
 		};
-		A306D3FC1E1D82AB00B6C23A /* LiveInjection */ = {
-			isa = PBXGroup;
-			children = (
-				B19F76A81E46C3F2002DBC58 /* LiveInjection.storyboard */,
-				A39400B51E1D8749005E5454 /* LiveInjection1ViewController.swift */,
-				A306D3F51E1D7A1A00B6C23A /* LiveInjection2ViewControllers.swift */,
-			);
-			name = LiveInjection;
-			sourceTree = "<group>";
-		};
 		A33E60981DE761C90065CBD8 = {
 			isa = PBXGroup;
 			children = (
@@ -394,6 +372,8 @@
 			children = (
 				A33E60A81DE761C90065CBD8 /* Main.storyboard */,
 				A35949171E1A2BE60095F407 /* InitialViewController.swift */,
+				B1275D961E4C0D850099A0E9 /* PluginViewController.swift */,
+				B1275D921E4C0CFD0099A0E9 /* LabelMorphPlugin.swift */,
 				A33E60B71DE7621C0065CBD8 /* Examples */,
 				A33E60C21DE76CEF0065CBD8 /* Resources */,
 			);
@@ -411,9 +391,6 @@
 				A33E60B81DE7621C0065CBD8 /* CityGuide */,
 				B185A4E91DFA6FE700C3B85D /* ListToGrid */,
 				A3499D9D1DF202350049B541 /* ImageGallery */,
-				A306D3FC1E1D82AB00B6C23A /* LiveInjection */,
-				B10FDD461E00DD9D00B7B66E /* Debug */,
-				B195F5781DFE517500B1343C /* LabelMorph */,
 			);
 			path = Examples;
 			sourceTree = "<group>";
@@ -455,15 +432,6 @@
 			name = ImageGallery;
 			sourceTree = "<group>";
 		};
-		B10FDD461E00DD9D00B7B66E /* Debug */ = {
-			isa = PBXGroup;
-			children = (
-				B19F76AA1E46C3FB002DBC58 /* Debug.storyboard */,
-				B10FDD441E00DD9800B7B66E /* DebugViewController.swift */,
-			);
-			name = Debug;
-			sourceTree = "<group>";
-		};
 		B114B6931E412A1B0009CEDE /* AppleHomePage */ = {
 			isa = PBXGroup;
 			children = (
@@ -481,16 +449,6 @@
 				B185A4E71DFA6FE200C3B85D /* GridCollectionViewController.swift */,
 			);
 			name = ListToGrid;
-			sourceTree = "<group>";
-		};
-		B195F5781DFE517500B1343C /* LabelMorph */ = {
-			isa = PBXGroup;
-			children = (
-				B19F76AC1E46C406002DBC58 /* LabelMorph.storyboard */,
-				A3298CDD1E315B96005B06BB /* LabelMorphPlugin.swift */,
-				A3298CDE1E315B96005B06BB /* LabelMorphViewController.swift */,
-			);
-			name = LabelMorph;
 			sourceTree = "<group>";
 		};
 		B19F76AE1E46C449002DBC58 /* VideoPlayer */ = {
@@ -688,12 +646,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B19F76A91E46C3F2002DBC58 /* LiveInjection.storyboard in Resources */,
 				B19F76A11E46C3C2002DBC58 /* CityGuide.storyboard in Resources */,
 				B19F769D1E46C3A2002DBC58 /* Basic.storyboard in Resources */,
 				B19F769E1E46C3A2002DBC58 /* Menu.storyboard in Resources */,
 				B19F76B11E46C449002DBC58 /* VideoPlayer.storyboard in Resources */,
-				B19F76AD1E46C406002DBC58 /* LabelMorph.storyboard in Resources */,
 				B19F76A61E46C3D7002DBC58 /* ImageGallery.storyboard in Resources */,
 				B19F76A31E46C3CB002DBC58 /* ListToGrid.storyboard in Resources */,
 				B19F76991E46C38E002DBC58 /* AppleHomePage.storyboard in Resources */,
@@ -702,7 +658,6 @@
 				B19F76A71E46C3D7002DBC58 /* ImageViewer.storyboard in Resources */,
 				A33E60AC1DE761C90065CBD8 /* Assets.xcassets in Resources */,
 				A33E60AA1DE761C90065CBD8 /* Main.storyboard in Resources */,
-				B19F76AB1E46C3FB002DBC58 /* Debug.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -901,18 +856,15 @@
 				A3499D9F1DF2024E0049B541 /* ImageGalleryCollectionViewController.swift in Sources */,
 				A33E60BF1DE7621C0065CBD8 /* CityGuideCell.swift in Sources */,
 				A33E60A51DE761C90065CBD8 /* AppDelegate.swift in Sources */,
+				B1275D941E4C0CFD0099A0E9 /* LabelMorphPlugin.swift in Sources */,
 				A33E60BE1DE7621C0065CBD8 /* City.swift in Sources */,
-				A3298CDF1E315B96005B06BB /* LabelMorphPlugin.swift in Sources */,
 				A304BF841DF2717900A03345 /* ImageViewController.swift in Sources */,
-				A306D3F61E1D7A1A00B6C23A /* LiveInjection2ViewControllers.swift in Sources */,
-				B10FDD451E00DD9800B7B66E /* DebugViewController.swift in Sources */,
 				B185A4E61DFA6E0C00C3B85D /* ListTableViewController.swift in Sources */,
-				A39400B61E1D8749005E5454 /* LiveInjection1ViewController.swift in Sources */,
 				A33E60C11DE7621C0065CBD8 /* CityViewController.swift in Sources */,
 				B185A4E81DFA6FE200C3B85D /* GridCollectionViewController.swift in Sources */,
 				A304BF8A1DF647FC00A03345 /* ImageCells.swift in Sources */,
+				B1275D971E4C0D850099A0E9 /* PluginViewController.swift in Sources */,
 				B19F76B21E46C449002DBC58 /* VideoPlayerViewController.swift in Sources */,
-				A3298CE01E315B96005B06BB /* LabelMorphViewController.swift in Sources */,
 				A313499B1E1E2AED00EB5139 /* ImageLibrary.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
