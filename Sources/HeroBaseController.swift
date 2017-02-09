@@ -68,6 +68,8 @@ public class HeroBaseController: NSObject {
   /// this is the container supplied by UIKit
   internal var transitionContainer: UIView!
 
+  internal var completionCallback: ((Bool) -> Void)?
+
   internal var displayLink: CADisplayLink?
   internal var progressUpdateObservers: [HeroProgressUpdateObserver]?
 
@@ -222,8 +224,10 @@ public extension HeroBaseController {
 // internal methods for transition
 internal extension HeroBaseController {
   /// Load plugins, processors, animators, container, & context
+  /// must have transitionContainer set already
   /// subclass should call context.set(fromViews:toViews) after inserting fromViews & toViews into the container
   func prepareForTransition() {
+    guard transitioning else { fatalError() }
     plugins = Hero.enabledPlugins.map({ return $0.init() })
     processors = [
       IgnoreSubviewModifiersPreprocessor(),
@@ -251,6 +255,7 @@ internal extension HeroBaseController {
   }
 
   func prepareForAnimation() {
+    guard transitioning else { fatalError() }
     for processor in processors {
       processor.process(fromViews: context.fromViews, toViews: context.toViews)
     }
@@ -271,6 +276,7 @@ internal extension HeroBaseController {
   /// Actually animate the views
   /// subclass should call `prepareForTransition` & `prepareForAnimation` before calling `animate`
   func animate() {
+    guard transitioning else { fatalError() }
     for (currentFromViews, currentToViews) in animatingViews {
       // auto hide all animated views
       for view in currentFromViews {
@@ -302,6 +308,7 @@ internal extension HeroBaseController {
   }
 
   func complete(after: TimeInterval, finishing: Bool) {
+    guard transitioning else { fatalError() }
     if after <= 0.001 {
       complete(finished: finishing)
       return
@@ -313,7 +320,7 @@ internal extension HeroBaseController {
   }
 
   func complete(finished: Bool) {
-    guard transitioning else { return }
+    guard transitioning else { fatalError() }
     for animator in animators {
       animator.clean()
     }
@@ -322,8 +329,11 @@ internal extension HeroBaseController {
     container.removeFromSuperview()
     transitionContainer!.isUserInteractionEnabled = true
 
+    let completion = completionCallback
+
     progressUpdateObservers = nil
     transitionContainer = nil
+    completionCallback = nil
     container = nil
     processors = nil
     animators = nil
@@ -332,6 +342,8 @@ internal extension HeroBaseController {
     beginTime = nil
     progress = 0
     totalDuration = 0
+
+    completion?(finished)
   }
 }
 
