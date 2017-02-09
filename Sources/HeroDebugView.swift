@@ -30,7 +30,8 @@ protocol HeroDebugViewDelegate {
   func onDone()
 }
 
-#if os(iOS)
+@available(tvOS, unavailable)
+@available(iOS 8.0, *)
 class HeroDebugView: UIView {
   var backgroundView: UIView!
   var debugSlider: UISlider!
@@ -189,4 +190,3 @@ extension HeroDebugView:UIGestureRecognizerDelegate {
     return perspectiveButton.isSelected
   }
 }
-#endif

@@ -130,11 +130,11 @@ internal extension Hero {
     
     if !skipDefaultAnimation {
       // if no animator can animate toView & fromView, set the effect to fade // i.e. default effect
-      context[toView] = [.fade]
+      context[toView] = [.fade, .duration(.infinity)]
       animatingViews[0].1.insert(toView, at: 0)
 
       #if os(tvOS)
-        context[fromView] = [.fade]
+        context[fromView] = [.fade, .duration(.infinity)]
         animatingViews[0].0.insert(fromView, at: 0)
       #endif
 
@@ -146,6 +146,7 @@ internal extension Hero {
         }
         context[fromView]!.append(.zPosition(toView.layer.zPosition - 1))
         if animatingViews[0].0.first != fromView {
+          context[fromView]!.append(.duration(.infinity))
           animatingViews[0].0.insert(fromView, at: 0)
         }
       }
@@ -171,11 +172,6 @@ internal extension Hero {
     container.backgroundColor = toView.backgroundColor
 
     super.animate()
-
-    if !skipDefaultAnimation {
-      // change the duration of the default fade animation to be the total duration of the animation
-      animators.first?.apply(state: [.duration(totalDuration)], to: toView)
-    }
 
     fullScreenSnapshot!.removeFromSuperview()
   }
@@ -351,7 +347,9 @@ extension Hero: UITabBarControllerDelegate {
   }
 
   public func tabBarController(_ tabBarController: UITabBarController, animationControllerForTransitionFrom fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-    self.presenting = true
+    let fromVCIndex = tabBarController.childViewControllers.index(of: fromVC)!
+    let toVCIndex = tabBarController.childViewControllers.index(of: toVC)!
+    self.presenting = toVCIndex > fromVCIndex
     self.fromViewController = fromViewController ?? fromVC
     self.toViewController = toViewController ?? toVC
     self.inTabBarController = true

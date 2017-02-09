@@ -72,14 +72,18 @@ public class LabelMorphPlugin: HeroPlugin {
   }
 
   public override func canAnimate(view: UIView, appearing: Bool) -> Bool {
-    return (context[view]?["labelMorph"] as? LabelMorphType) != nil
+    return view is UILabel
+
+    // Normally, a plugin should check for a specific modifier is used by checking the HeroTargetState.
+    // But here we just force every UILabel to be morphed
+    // return (context[view]?["labelMorph"] as? LabelMorphType) != nil
   }
 
   func createMorphingLabel(label: UIView, appearing: Bool) {
     guard let label = label as? UILabel else { return }
     let frame = context.container.convert(label.bounds, from: label)
 
-    let morphingLabel = (context[label]!["labelMorph"] as? LabelMorphType)!.createLabel()
+    let morphingLabel = (context[label]?["labelMorph"] as? LabelMorphType ?? .duang).createLabel()
     morphingLabel.frame = frame
     morphingLabel.font = label.font
     morphingLabel.textColor = label.textColor

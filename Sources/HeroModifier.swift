@@ -266,6 +266,8 @@ extension HeroModifier {
    Sets the duration of the animation for a given view. If not used, Hero will use determine the duration based on the distance and size changes.
    - Parameters:
      - duration: duration of the animation
+   
+   Note: a duration of .infinity means matching the duration of the longest animation.
    */
   public static func duration(_ duration: TimeInterval) -> HeroModifier {
     return HeroModifier { targetState in

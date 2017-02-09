@@ -22,7 +22,8 @@
 
 import UIKit
 
-#if os(iOS)
+@available(tvOS, unavailable)
+@available(iOS 8.0, *)
 public class HeroDebugPlugin: HeroPlugin {
   static var showOnTop: Bool = false
 
@@ -32,6 +33,7 @@ public class HeroDebugPlugin: HeroPlugin {
   var updating = false
 
   override public func animate(fromViews: [UIView], toViews: [UIView]) -> TimeInterval {
+    if Hero.shared.forceNotInteractive { return 0 }
     var hasArc = false
     for v in context.fromViews + context.toViews {
       if context[v]?.arc != nil && context[v]?.position != nil {
@@ -177,4 +179,3 @@ extension HeroDebugPlugin:HeroDebugViewDelegate {
     Hero.shared.container.layer.sublayerTransform = t
   }
 }
-#endif

@@ -69,8 +69,22 @@ public class HeroDefaultAnimator: HeroAnimator {
       animate(view: v, appearing: true)
     }
 
+    // infinite duration means matching the duration of the longest animation
+    var infiniteDurationViewContexts = [HeroDefaultAnimatorViewContext]()
     for viewContext in viewContexts.values {
-      duration = max(duration, viewContext.duration)
+      if viewContext.duration == .infinity {
+        infiniteDurationViewContexts.append(viewContext)
+      } else {
+        duration = max(duration, viewContext.duration)
+      }
+    }
+
+    if duration == 0 && infiniteDurationViewContexts.count > 0 {
+      duration = 0.2
+    }
+
+    for viewContexts in infiniteDurationViewContexts {
+      viewContexts.apply(state: [.duration(duration)])
     }
 
     return duration
