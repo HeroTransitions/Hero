@@ -298,10 +298,17 @@ internal extension Hero {
     case .pullLeft:
       context[toView]!.append(.translate(x: container.bounds.width))
       context[fromView]!.append(.translate(x: -container.bounds.width / 3))
+    case .pullRight:
+      context[toView]!.append(.translate(x: -container.bounds.width))
+      context[fromView]!.append(.translate(x: container.bounds.width / 3))
     case .pushRight:
       backAndTopView = (toView, fromView)
       context[fromView]!.append(.translate(x: container.bounds.width))
       context[toView]!.append(.translate(x: -container.bounds.width / 3))
+    case .pushLeft:
+      backAndTopView = (toView, fromView)
+      context[fromView]!.append(.translate(x: -container.bounds.width))
+      context[toView]!.append(.translate(x: container.bounds.width / 3))
     case .slideRight:
       context[fromView]!.append(.translate(x: container.bounds.width))
       context[toView]!.append(.translate(x: -container.bounds.width))
@@ -322,8 +329,9 @@ internal extension Hero {
     }
 
     let (backView, topView) = backAndTopView
-    container.addSubview(backView)
-    container.addSubview(topView)
+    if backView == toView {
+      defaultAnimator.insertToViewFirst = true
+    }
     if topView.layer.zPosition < backView.layer.zPosition {
       // in this case, we have to animate the zPosition as well. otherwise the fade animation will be hidden.
       context[topView]!.append(contentsOf: [.zPosition(backView.layer.zPosition + 1)])

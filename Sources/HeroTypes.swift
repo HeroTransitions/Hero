@@ -37,6 +37,10 @@ public enum HeroDefaultAnimationType {
   case fade
   indirect case selectBy(presenting:HeroDefaultAnimationType, dismissing:HeroDefaultAnimationType)
   case none
+
+  public var label:String? {
+    return "\(self)"
+  }
 }
 
 public protocol HeroPreprocessor {

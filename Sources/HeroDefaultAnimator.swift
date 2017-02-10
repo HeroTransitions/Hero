@@ -25,6 +25,7 @@ import UIKit
 public class HeroDefaultAnimator: HeroAnimator {
   weak public var context: HeroContext!
   var viewContexts: [UIView: HeroDefaultAnimatorViewContext] = [:]
+  var insertToViewFirst = false
 
   public func seekTo(timePassed: TimeInterval) {
     for viewContext in viewContexts.values {
@@ -62,11 +63,12 @@ public class HeroDefaultAnimator: HeroAnimator {
     var duration: TimeInterval = 0
 
     // animate
-    for v in fromViews {
-      animate(view: v, appearing: false)
-    }
-    for v in toViews {
-      animate(view: v, appearing: true)
+    if insertToViewFirst {
+      for v in toViews { animate(view: v, appearing: true) }
+      for v in fromViews { animate(view: v, appearing: false) }
+    } else {
+      for v in fromViews { animate(view: v, appearing: false) }
+      for v in toViews { animate(view: v, appearing: true) }
     }
 
     // infinite duration means matching the duration of the longest animation
