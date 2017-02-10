@@ -25,7 +25,6 @@ import UIKit
 public class HeroDefaultAnimator: HeroAnimator {
   weak public var context: HeroContext!
   var viewContexts: [UIView: HeroDefaultAnimatorViewContext] = [:]
-  var insertToViewFirst = false
 
   public func seekTo(timePassed: TimeInterval) {
     for viewContext in viewContexts.values {
@@ -52,24 +51,27 @@ public class HeroDefaultAnimator: HeroAnimator {
 
   public func canAnimate(view: UIView, appearing: Bool) -> Bool {
     guard let state = context[view] else { return false }
-    return state.position != nil ||
-           state.size != nil ||
-           state.transform != nil ||
-           state.cornerRadius != nil ||
-           state.opacity != nil
+    return  state.position != nil ||
+            state.size != nil ||
+            state.transform != nil ||
+            state.cornerRadius != nil ||
+            state.opacity != nil ||
+            state.overlay != nil ||
+            state.borderColor != nil ||
+            state.borderWidth != nil ||
+            state.shadowOpacity != nil ||
+            state.shadowRadius != nil ||
+            state.shadowOffset != nil ||
+            state.shadowColor != nil ||
+            state.shadowPath != nil
   }
 
   public func animate(fromViews: [UIView], toViews: [UIView]) -> TimeInterval {
     var duration: TimeInterval = 0
 
     // animate
-    if insertToViewFirst {
-      for v in toViews { animate(view: v, appearing: true) }
-      for v in fromViews { animate(view: v, appearing: false) }
-    } else {
-      for v in fromViews { animate(view: v, appearing: false) }
-      for v in toViews { animate(view: v, appearing: true) }
-    }
+    for v in fromViews { animate(view: v, appearing: false) }
+    for v in toViews { animate(view: v, appearing: true) }
 
     // infinite duration means matching the duration of the longest animation
     var infiniteDurationViewContexts = [HeroDefaultAnimatorViewContext]()
@@ -81,16 +83,13 @@ public class HeroDefaultAnimator: HeroAnimator {
       }
     }
 
-    if duration == 0 {
-      for viewContexts in infiniteDurationViewContexts {
-        duration = max(duration, viewContexts.optimizedDurationAndTimingFunction().duration)
-      }
+    for viewContexts in infiniteDurationViewContexts {
+      duration = max(duration, viewContexts.optimizedDurationAndTimingFunction().duration)
     }
 
     for viewContexts in infiniteDurationViewContexts {
       viewContexts.apply(state: [.duration(duration)])
     }
-
 
     return duration
   }

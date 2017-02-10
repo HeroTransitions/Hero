@@ -11,24 +11,18 @@ import Hero
 
 class AnimationSelectTableViewController: UITableViewController {
 
-  var animations: [HeroDefaultAnimationType] = [
-    .auto,
-    .pushLeft,
-    .pushRight,
-    .pullLeft,
-    .pullRight,
-    .slideLeft,
-    .slideRight,
-    .coverLeft,
-    .coverRight,
-    .coverUp,
-    .coverDown,
+  var animations: [HeroAnimationType] = [
+    .push(direction: .left),
+    .pull(direction: .left),
+    .slide(direction: .left),
+    .zoomSlide(direction: .left),
+    .cubeSlide(direction: .left),
+    .cover(direction: .up),
+    .uncover(direction: .up),
+    .pageIn(direction: .left),
+    .pageOut(direction: .left),
     .fade
   ]
-
-  override func viewDidLoad() {
-    super.viewDidLoad()
-  }
 
   override func numberOfSections(in tableView: UITableView) -> Int {
     return 2
@@ -55,7 +49,8 @@ class AnimationSelectTableViewController: UITableViewController {
   override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     let vc = self.storyboard!.instantiateViewController(withIdentifier: "animationSelect")
     Hero.shared.setDefaultAnimationForNextTransition(animations[indexPath.item])
-    show(vc, sender: nil)
+    Hero.shared.setContainerColorForNextTransition(.lightGray)
+    hero_replaceViewController(with: vc)
   }
 
   override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

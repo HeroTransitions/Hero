@@ -27,7 +27,7 @@ class ExampleViewController: UITableViewController {
 
   var storyboards: [[String]] = [
     [],
-    ["Basic", "MusicPlayer", "Menu", "DefaultAnimations"],
+    ["Basic", "MusicPlayer", "Menu", "BuiltInTransitions"],
     ["CityGuide", "ImageViewer", "VideoPlayer"],
     ["AppleHomePage", "ListToGrid", "ImageGallery"]
   ]
@@ -43,7 +43,6 @@ class ExampleViewController: UITableViewController {
       let storyboardName = storyboards[indexPath.section][indexPath.item]
       let vc = viewController(forStoryboardName: storyboardName)
       present(vc, animated: true, completion: nil)
-
     }
   }
 }

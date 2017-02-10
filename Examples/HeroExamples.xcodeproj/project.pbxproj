@@ -55,7 +55,7 @@
 		A32D2D0A1E4BD20B008D35FF /* HeroIndependentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32D2D091E4BD20B008D35FF /* HeroIndependentController.swift */; };
 		A32D2D0B1E4BD20B008D35FF /* HeroIndependentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32D2D091E4BD20B008D35FF /* HeroIndependentController.swift */; };
 		A32D2D0D1E4D545B008D35FF /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32D2D0C1E4D545B008D35FF /* MenuViewController.swift */; };
-		A32D2D101E4E14DD008D35FF /* DefaultAnimations.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A32D2D0F1E4E14DD008D35FF /* DefaultAnimations.storyboard */; };
+		A32D2D101E4E14DD008D35FF /* BuiltInTransitions.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A32D2D0F1E4E14DD008D35FF /* BuiltInTransitions.storyboard */; };
 		A33E60A51DE761C90065CBD8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A33E60A41DE761C90065CBD8 /* AppDelegate.swift */; };
 		A33E60AA1DE761C90065CBD8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A33E60A81DE761C90065CBD8 /* Main.storyboard */; };
 		A33E60AC1DE761C90065CBD8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A33E60AB1DE761C90065CBD8 /* Assets.xcassets */; };
@@ -159,7 +159,7 @@
 		A32D2D061E4B84A1008D35FF /* HeroBaseController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeroBaseController.swift; sourceTree = "<group>"; };
 		A32D2D091E4BD20B008D35FF /* HeroIndependentController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeroIndependentController.swift; sourceTree = "<group>"; };
 		A32D2D0C1E4D545B008D35FF /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MenuViewController.swift; path = Menu/MenuViewController.swift; sourceTree = "<group>"; };
-		A32D2D0F1E4E14DD008D35FF /* DefaultAnimations.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = DefaultAnimations.storyboard; sourceTree = "<group>"; };
+		A32D2D0F1E4E14DD008D35FF /* BuiltInTransitions.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = BuiltInTransitions.storyboard; sourceTree = "<group>"; };
 		A33E60A11DE761C90065CBD8 /* HeroExamples.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HeroExamples.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A33E60A41DE761C90065CBD8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A33E60A91DE761C90065CBD8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -400,7 +400,7 @@
 			children = (
 				B19F769A1E46C3A2002DBC58 /* Basic.storyboard */,
 				B19F769C1E46C3A2002DBC58 /* MusicPlayer.storyboard */,
-				A32D2D0F1E4E14DD008D35FF /* DefaultAnimations.storyboard */,
+				A32D2D0F1E4E14DD008D35FF /* BuiltInTransitions.storyboard */,
 				B16A219F1E4E3907007B8B4C /* AnimationSelectTableViewController.swift */,
 				A32D2D0E1E4D5463008D35FF /* Menu */,
 				B19F76AE1E46C449002DBC58 /* VideoPlayer */,
@@ -667,7 +667,7 @@
 				B19F769D1E46C3A2002DBC58 /* Basic.storyboard in Resources */,
 				B19F769E1E46C3A2002DBC58 /* Menu.storyboard in Resources */,
 				B19F76B11E46C449002DBC58 /* VideoPlayer.storyboard in Resources */,
-				A32D2D101E4E14DD008D35FF /* DefaultAnimations.storyboard in Resources */,
+				A32D2D101E4E14DD008D35FF /* BuiltInTransitions.storyboard in Resources */,
 				B19F76A61E46C3D7002DBC58 /* ImageGallery.storyboard in Resources */,
 				B19F76A31E46C3CB002DBC58 /* ListToGrid.storyboard in Resources */,
 				B19F76991E46C38E002DBC58 /* AppleHomePage.storyboard in Resources */,

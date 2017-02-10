@@ -68,13 +68,15 @@ public class Hero: HeroBaseController {
 
   fileprivate var fullScreenSnapshot: UIView!
 
-  internal var defaultAnimation: HeroDefaultAnimationType = .auto
+  internal var defaultAnimation: HeroAnimationType = .auto
   internal var containerColor: UIColor?
 
   // By default, Hero will always appear to be interactive to UIKit. This forces it to appear non-interactive.
   // Used when doing a hero_replaceViewController within a UINavigationController, to fix a bug with
   // UINavigationController.setViewControllers not able to handle interactive transition
   internal var forceNotInteractive = false
+
+  fileprivate var insertToViewFirst = false
 
   fileprivate var inNavigationController = false
   fileprivate var inTabBarController = false
@@ -98,7 +100,7 @@ public extension Hero {
   func disableDefaultAnimationForNextTransition() {
     defaultAnimation = .none
   }
-  func setDefaultAnimationForNextTransition(_ animation: HeroDefaultAnimationType) {
+  func setDefaultAnimationForNextTransition(_ animation: HeroAnimationType) {
     defaultAnimation = animation
   }
   func setContainerColorForNextTransition(_ color: UIColor?) {
@@ -177,6 +179,7 @@ internal extension Hero {
 
   override func animate() {
     context.unhide(view: toView)
+
     if let containerColor = containerColor {
       container.backgroundColor = containerColor
     } else if !toOverFullScreen && !fromOverFullScreen {
@@ -184,6 +187,13 @@ internal extension Hero {
     }
 
     super.animate()
+
+    if case .none = defaultAnimation {
+    } else if insertToViewFirst {
+      let toViewSnapshot = context.snapshotView(for: toView)
+      let fromViewSnapshot = context.snapshotView(for: fromView)
+      container.insertSubview(toViewSnapshot, belowSubview: fromViewSnapshot)
+    }
 
     fullScreenSnapshot!.removeFromSuperview()
   }
@@ -232,6 +242,7 @@ internal extension Hero {
     inNavigationController = false
     inTabBarController = false
     forceNotInteractive = false
+    insertToViewFirst = false
     defaultAnimation = .auto
 
     super.complete(finished: finished)
@@ -268,6 +279,17 @@ internal extension Hero {
 }
 
 internal extension Hero {
+
+  func shift(direction: HeroAnimationType.Direction, appearing:Bool) -> CGPoint {
+    let size = container.bounds.size
+    switch direction {
+    case .left, .right:
+      return CGPoint(x: (direction == .right) == appearing ? -size.width : size.width, y: 0)
+    case .up, .down:
+      return CGPoint(x: 0, y: (direction == .down) == appearing ? -size.height : size.height)
+    }
+  }
+
   func prepareDefaultAnimation() {
     if case .selectBy(let presentAnim, let dismissAnim) = defaultAnimation {
       defaultAnimation = presenting ? presentAnim : dismissAnim
@@ -275,9 +297,9 @@ internal extension Hero {
 
     if case .auto = defaultAnimation {
       if inNavigationController {
-        defaultAnimation = presenting ? .pullLeft : .pushRight
+        defaultAnimation = presenting ? .pull(direction:.left) : .push(direction:.right)
       } else if inTabBarController {
-        defaultAnimation = presenting ? .slideLeft : .slideRight
+        defaultAnimation = presenting ? .slide(direction:.left) : .slide(direction:.right)
       } else if animators.contains(where: { $0.canAnimate(view: toView, appearing: true) || $0.canAnimate(view: fromView, appearing: false) }) {
         defaultAnimation = .none
       } else {
@@ -291,30 +313,59 @@ internal extension Hero {
 
     var backAndTopView = (fromView, toView)
 
-    context[fromView] = [.timingFunction(.standard), .durationMatchLongest]
-    context[toView] = [.timingFunction(.standard), .durationMatchLongest]
+    context[fromView] = [.timingFunction(.standard), .duration(0.375)]
+    context[toView] = [.timingFunction(.standard), .duration(0.375)]
 
+    let shadowState: [HeroModifier] = [.shadowOpacity(0.5),
+                                      .shadowColor(.black),
+                                      .shadowRadius(5),
+                                      .shadowOffset(.zero),
+                                      .masksToBounds(false)]
     switch defaultAnimation {
-    case .pullLeft:
-      context[toView]!.append(.translate(x: container.bounds.width))
-      context[fromView]!.append(.translate(x: -container.bounds.width / 3))
-    case .pullRight:
-      context[toView]!.append(.translate(x: -container.bounds.width))
-      context[fromView]!.append(.translate(x: container.bounds.width / 3))
-    case .pushRight:
+    case .pull(let direction):
+      context[toView]!.append(contentsOf: [.translate(shift(direction: direction, appearing: true)),
+                                           .shadowOpacity(0),
+                                           .beginWith(modifiers: shadowState)])
+      context[fromView]!.append(contentsOf: [.translate(shift(direction: direction, appearing: false) / 3),
+                                             .overlay(color: .black, opacity: 0.3)])
+    case .push(let direction):
       backAndTopView = (toView, fromView)
-      context[fromView]!.append(.translate(x: container.bounds.width))
-      context[toView]!.append(.translate(x: -container.bounds.width / 3))
-    case .pushLeft:
+      context[fromView]!.append(contentsOf: [.translate(shift(direction: direction, appearing: false)),
+                                             .shadowOpacity(0),
+                                             .beginWith(modifiers: shadowState)])
+      context[toView]!.append(contentsOf: [.translate(shift(direction: direction, appearing: true) / 3),
+                                           .overlay(color: .black, opacity: 0.3)])
+    case .slide(let direction):
+      context[fromView]!.append(contentsOf: [.translate(shift(direction: direction, appearing: false))])
+      context[toView]!.append(contentsOf: [.translate(shift(direction: direction, appearing: true))])
+    case .zoomSlide(let direction):
+      context[fromView]!.append(contentsOf: [.translate(shift(direction: direction, appearing: false)), .scale(0.8)])
+      context[toView]!.append(contentsOf: [.translate(shift(direction: direction, appearing: true)), .scale(0.8)])
+    case .cubeSlide(let direction):
+      context[fromView]!.append(contentsOf: [.translate(shift(direction: direction, appearing: false)), .rotate(y:-π/2)])
+      context[toView]!.append(contentsOf: [.translate(shift(direction: direction, appearing: true)), .rotate(y:π/2)])
+    case .cover(let direction):
+      context[toView]!.append(contentsOf: [.translate(shift(direction: direction, appearing: true)),
+                                           .shadowOpacity(0),
+                                           .beginWith(modifiers: shadowState)])
+      context[fromView]!.append(contentsOf: [.overlay(color: .black, opacity: 0.3)])
+    case .uncover(let direction):
       backAndTopView = (toView, fromView)
-      context[fromView]!.append(.translate(x: -container.bounds.width))
-      context[toView]!.append(.translate(x: container.bounds.width / 3))
-    case .slideRight:
-      context[fromView]!.append(.translate(x: container.bounds.width))
-      context[toView]!.append(.translate(x: -container.bounds.width))
-    case .slideLeft:
-      context[toView]!.append(.translate(x: container.bounds.width))
-      context[fromView]!.append(.translate(x: -container.bounds.width))
+      context[fromView]!.append(contentsOf: [.translate(shift(direction: direction, appearing: false)),
+                                             .shadowOpacity(0),
+                                             .beginWith(modifiers: shadowState)])
+      context[toView]!.append(contentsOf: [.overlay(color: .black, opacity: 0.3)])
+    case .pageIn(let direction):
+      context[toView]!.append(contentsOf: [.translate(shift(direction: direction, appearing: true)),
+                                           .shadowOpacity(0),
+                                           .beginWith(modifiers: shadowState)])
+      context[fromView]!.append(contentsOf: [.scale(0.7), .overlay(color: .black, opacity: 0.3)])
+    case .pageOut(let direction):
+      backAndTopView = (toView, fromView)
+      context[fromView]!.append(contentsOf: [.translate(shift(direction: direction, appearing: false)),
+                                             .shadowOpacity(0),
+                                             .beginWith(modifiers: shadowState)])
+      context[toView]!.append(contentsOf: [.scale(0.7), .overlay(color: .black, opacity: 0.3)])
     case .fade:
       // TODO: clean up this. overFullScreen logic shouldn't be here
       if !(fromOverFullScreen && !presenting) {
@@ -324,13 +375,16 @@ internal extension Hero {
       if (!presenting && toOverFullScreen) || !fromView.isOpaque || (fromView.backgroundColor?.alphaComponent ?? 1) < 1 {
         context[fromView] = [.fade]
       }
+
+      context[toView]!.append(.durationMatchLongest)
+      context[fromView]!.append(.durationMatchLongest)
     default:
-      fatalError("Unsupported animation")
+      fatalError("Not implemented")
     }
 
     let (backView, topView) = backAndTopView
     if backView == toView {
-      defaultAnimator.insertToViewFirst = true
+      insertToViewFirst = true
     }
     if topView.layer.zPosition < backView.layer.zPosition {
       // in this case, we have to animate the zPosition as well. otherwise the fade animation will be hidden.
