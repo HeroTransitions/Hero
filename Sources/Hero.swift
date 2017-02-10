@@ -163,10 +163,10 @@ internal extension Hero {
     #if os(tvOS)
       animate()
     #else
-      if inContainerController {
-        // When animating within navigationController, we have to dispatch later in the runloop. 
+      if inNavigationController {
+        // When animating within navigationController, we have to delay a frame.
         // otherwise snapshots will not be taken. Possibly a bug with UIKit
-        DispatchQueue.main.async {
+        delay(0.01666666667) {
           self.animate()
         }
       } else {
