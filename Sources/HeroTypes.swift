@@ -22,6 +22,22 @@
 
 import UIKit
 
+public enum HeroDefaultAnimationType {
+  case auto
+  case pushLeft
+  case pushRight
+  case pullLeft
+  case pullRight
+  case slideLeft
+  case slideRight
+  case coverLeft
+  case coverRight
+  case coverUp
+  case coverDown
+  case fade
+  case none
+}
+
 public protocol HeroPreprocessor {
   weak var context: HeroContext! { get set }
   func process(fromViews: [UIView], toViews: [UIView])

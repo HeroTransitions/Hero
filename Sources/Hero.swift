@@ -67,8 +67,9 @@ public class Hero: HeroBaseController {
   fileprivate weak var transitionContext: UIViewControllerContextTransitioning?
 
   fileprivate var fullScreenSnapshot: UIView!
-  public var skipDefaultAnimation = false
-  public var containerColor: UIColor?
+
+  internal var defaultAnimation: HeroDefaultAnimationType = .auto
+  internal var containerColor: UIColor?
 
   // By default, Hero will always appear to be interactive to UIKit. This forces it to appear non-interactive.
   // Used when doing a hero_replaceViewController within a UINavigationController, to fix a bug with
@@ -91,6 +92,18 @@ public class Hero: HeroBaseController {
   fileprivate var fromView: UIView { return fromViewController!.view }
   
   fileprivate override init() { super.init() }
+}
+
+public extension Hero {
+  func disableDefaultAnimationForNextTransition() {
+    defaultAnimation = .none
+  }
+  func setDefaultAnimationForNextTransition(_ animation: HeroDefaultAnimationType) {
+    defaultAnimation = animation
+  }
+  func setContainerColorForNextTransition(_ color: UIColor?) {
+    containerColor = color
+  }
 }
 
 // internal methods for transition
@@ -141,29 +154,9 @@ internal extension Hero {
 
     context.set(fromViews: fromView.flattenedViewHierarchy, toViews: toView.flattenedViewHierarchy)
 
-    if !skipDefaultAnimation {
-      if !(fromOverFullScreen && !presenting) {
-        context[toView] = [.fade, .durationMatchLongest]
-      }
+    processContext()
 
-      if (!presenting && toOverFullScreen) || !fromView.isOpaque || (fromView.backgroundColor?.alphaComponent ?? 1) < 1 {
-        context[fromView] = [.fade, .durationMatchLongest]
-      }
-
-      if toView.layer.zPosition < fromView.layer.zPosition {
-        // in this case, we have to animate the zPosition as well. otherwise the fade animation will be hidden.
-
-        if context[toView] == nil {
-          context[toView] = []
-        }
-        context[toView]!.append(contentsOf: [.zPosition(toView.layer.zPosition - 1), .durationMatchLongest])
-
-        if context[fromView] == nil {
-          context[fromView] = []
-        }
-        context[fromView]!.append(contentsOf: [.zPosition(toView.layer.zPosition - 1), .durationMatchLongest])
-      }
-    }
+    prepareDefaultAnimation()
 
     prepareForAnimation()
 
@@ -239,7 +232,7 @@ internal extension Hero {
     inNavigationController = false
     inTabBarController = false
     forceNotInteractive = false
-    skipDefaultAnimation = false
+    defaultAnimation = .auto
 
     super.complete(finished: finished)
 
@@ -271,6 +264,66 @@ internal extension Hero {
       tContext?.cancelInteractiveTransition()
     }
     tContext?.completeTransition(finished)
+  }
+}
+
+internal extension Hero {
+  func prepareDefaultAnimation() {
+    if defaultAnimation == .auto {
+      if inNavigationController {
+        defaultAnimation = presenting ? .pullLeft : .pushRight
+      } else if inTabBarController {
+        defaultAnimation = presenting ? .slideLeft : .slideRight
+      } else if animators.contains(where: { $0.canAnimate(view: toView, appearing: true) || $0.canAnimate(view: fromView, appearing: false) }) {
+        defaultAnimation = .none
+      } else {
+        defaultAnimation = .fade
+      }
+    }
+
+    if defaultAnimation == .none {
+      return
+    }
+
+    var backAndTopView = (fromView, toView)
+
+    context[fromView] = [.timingFunction(.standard), .durationMatchLongest]
+    context[toView] = [.timingFunction(.standard), .durationMatchLongest]
+
+    switch defaultAnimation {
+    case .pullLeft:
+      context[toView]!.append(.translate(x: container.bounds.width))
+      context[fromView]!.append(.translate(x: -container.bounds.width / 3))
+    case .pushRight:
+      // todo: not correct
+      backAndTopView = (toView, fromView)
+      context[toView]!.append(.translate(x: container.bounds.width))
+      context[fromView]!.append(.translate(x: -container.bounds.width / 3))
+    case .slideRight:
+      context[fromView]!.append(.translate(x: container.bounds.width))
+      context[toView]!.append(.translate(x: -container.bounds.width))
+    case .slideLeft:
+      context[toView]!.append(.translate(x: container.bounds.width))
+      context[fromView]!.append(.translate(x: -container.bounds.width))
+    case .fade:
+      // TODO: clean up this. overFullScreen logic shouldn't be here
+      if !(fromOverFullScreen && !presenting) {
+        context[toView] = [.fade]
+      }
+
+      if (!presenting && toOverFullScreen) || !fromView.isOpaque || (fromView.backgroundColor?.alphaComponent ?? 1) < 1 {
+        context[fromView] = [.fade]
+      }
+    default:
+      break
+    }
+
+    let (backView, topView) = backAndTopView
+    if topView.layer.zPosition < backView.layer.zPosition {
+      // in this case, we have to animate the zPosition as well. otherwise the fade animation will be hidden.
+      context[topView]!.append(contentsOf: [.zPosition(backView.layer.zPosition + 1)])
+      context[backView]!.append(contentsOf: [.zPosition(backView.layer.zPosition - 1)])
+    }
   }
 }
 
