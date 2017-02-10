@@ -119,9 +119,17 @@ internal extension Hero {
       }
       fromViewController?.hero_storedSnapshots = nil
     }
+    if let oldSnapshots = toViewController?.hero_storedSnapshots {
+      for snapshot in oldSnapshots {
+        snapshot.removeFromSuperview()
+      }
+      toViewController?.hero_storedSnapshots = nil
+    }
 
     prepareForTransition()
 
+    context.loadViewAlpha(rootView: toView)
+    context.loadViewAlpha(rootView: fromView)
     context.hide(view: toView)
     container.addSubview(toView)
     container.addSubview(fromView)
@@ -135,11 +143,11 @@ internal extension Hero {
 
     if !skipDefaultAnimation {
       if !(fromOverFullScreen && !presenting) {
-        context[toView] = [.fade, .duration(.infinity)]
+        context[toView] = [.fade, .durationMatchLongest]
       }
 
       if (!presenting && toOverFullScreen) || !fromView.isOpaque || (fromView.backgroundColor?.alphaComponent ?? 1) < 1 {
-        context[fromView] = [.fade, .duration(.infinity)]
+        context[fromView] = [.fade, .durationMatchLongest]
       }
 
       if toView.layer.zPosition < fromView.layer.zPosition {
@@ -148,12 +156,12 @@ internal extension Hero {
         if context[toView] == nil {
           context[toView] = []
         }
-        context[toView]!.append(contentsOf: [.zPosition(toView.layer.zPosition - 1), .duration(.infinity)])
+        context[toView]!.append(contentsOf: [.zPosition(toView.layer.zPosition - 1), .durationMatchLongest])
 
         if context[fromView] == nil {
           context[fromView] = []
         }
-        context[fromView]!.append(contentsOf: [.zPosition(toView.layer.zPosition - 1), .duration(.infinity)])
+        context[fromView]!.append(contentsOf: [.zPosition(toView.layer.zPosition - 1), .durationMatchLongest])
       }
     }
 
@@ -194,13 +202,13 @@ internal extension Hero {
       // finished presenting a overFullScreen VC
       context.unhide(rootView: toView)
       context.removeSnapshots(rootView: toView)
-      context.storeViewAlphaFor(rootView: fromView)
+      context.storeViewAlpha(rootView: fromView)
       fromViewController!.hero_storedSnapshots = context.snapshots(rootView: fromView)
     } else if !finished && !presenting && fromOverFullScreen {
       // cancelled dismissing a overFullScreen VC
       context.unhide(rootView: fromView)
       context.removeSnapshots(rootView: fromView)
-      context.storeViewAlphaFor(rootView: toView)
+      context.storeViewAlpha(rootView: toView)
       toViewController!.hero_storedSnapshots = context.snapshots(rootView: toView)
     } else {
       context.unhideAll()

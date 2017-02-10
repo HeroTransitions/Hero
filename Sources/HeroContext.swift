@@ -44,10 +44,6 @@ public class HeroContext {
 
   internal func process(views:[UIView], idMap: inout [String: UIView]) {
     for view in views {
-      if let stored = view.hero_storedAlpha {
-        view.hero_storedAlpha = nil
-        viewAlphas[view] = stored
-      }
       if container.convert(view.bounds, from: view).intersects(container.bounds) {
         if let heroID = view.heroID {
           idMap[heroID] = view
@@ -298,10 +294,19 @@ extension HeroContext {
     }
     return snapshots
   }
-  internal func storeViewAlphaFor(rootView: UIView) {
+  internal func loadViewAlpha(rootView: UIView) {
+    if let storedAlpha = rootView.hero_storedAlpha {
+      rootView.alpha = storedAlpha
+      rootView.hero_storedAlpha = nil
+    }
+    for subview in rootView.subviews {
+      loadViewAlpha(rootView: subview)
+    }
+  }
+  internal func storeViewAlpha(rootView: UIView) {
     rootView.hero_storedAlpha = viewAlphas[rootView]
     for subview in rootView.subviews {
-      storeViewAlphaFor(rootView: subview)
+      storeViewAlpha(rootView: subview)
     }
   }
 }

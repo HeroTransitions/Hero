@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Menu View Controller-->
         <scene sceneID="FLe-99-9Fd">
             <objects>
-                <viewController modalPresentationStyle="overFullScreen" id="hDE-vd-kLY" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="overFullScreen" id="hDE-vd-kLY" customClass="MenuViewController" customModule="HeroExamples" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Dh5-EJ-KLE"/>
                         <viewControllerLayoutGuide type="bottom" id="7yD-25-9Jm"/>
@@ -21,7 +21,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Tw-b7-MDk">
+                            <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Tw-b7-MDk">
                                 <rect key="frame" x="200" y="106" width="96" height="96"/>
                                 <color key="backgroundColor" red="0.8536429405" green="0.3644335568" blue="0.24528044460000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -37,10 +37,10 @@
                                     <userDefinedRuntimeAttribute type="string" keyPath="heroModifierString" value="source(menu)"/>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="hero_dismissViewController" destination="n6n-Yr-iiD" eventType="touchUpInside" id="CqK-7C-bu0"/>
+                                    <segue destination="1JW-M4-2PL" kind="show" id="i17-Fc-O3R"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dC5-La-4Q6">
+                            <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dC5-La-4Q6">
                                 <rect key="frame" x="80" y="106" width="96" height="96"/>
                                 <color key="backgroundColor" red="0.65110915899999999" green="0.49157077069999999" blue="0.75600677729999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -56,10 +56,10 @@
                                     <userDefinedRuntimeAttribute type="string" keyPath="heroModifierString" value="source(menu)"/>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="hero_dismissViewController" destination="hDE-vd-kLY" eventType="touchUpInside" id="nhU-vM-gD4"/>
+                                    <segue destination="1JW-M4-2PL" kind="show" id="Rsn-IC-JQr"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2mS-M0-ozC">
+                            <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2mS-M0-ozC">
                                 <rect key="frame" x="200" y="226" width="96" height="96"/>
                                 <color key="backgroundColor" red="0.96249228720000002" green="0.86748665570000005" blue="0.2182745636" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -75,10 +75,10 @@
                                     <userDefinedRuntimeAttribute type="string" keyPath="heroModifierString" value="source(menu)"/>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="hero_dismissViewController" destination="hDE-vd-kLY" eventType="touchUpInside" id="hzw-Ib-HSk"/>
+                                    <segue destination="1JW-M4-2PL" kind="show" id="E78-QT-i86"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SLa-DC-TkS">
+                            <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SLa-DC-TkS">
                                 <rect key="frame" x="80" y="226" width="96" height="96"/>
                                 <color key="backgroundColor" red="0.60663342480000004" green="0.63835191729999996" blue="0.68026506900000006" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -94,10 +94,10 @@
                                     <userDefinedRuntimeAttribute type="string" keyPath="heroModifierString" value="source(menu)"/>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="hero_dismissViewController" destination="hDE-vd-kLY" eventType="touchUpInside" id="UxU-sx-z5s"/>
+                                    <segue destination="1JW-M4-2PL" kind="show" id="toM-0A-mTp"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GXz-0P-hCB">
+                            <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GXz-0P-hCB">
                                 <rect key="frame" x="200" y="346" width="96" height="96"/>
                                 <color key="backgroundColor" red="0.3231979311" green="0.62352418899999995" blue="0.80385208129999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -113,10 +113,10 @@
                                     <userDefinedRuntimeAttribute type="string" keyPath="heroModifierString" value="source(menu)"/>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="hero_dismissViewController" destination="hDE-vd-kLY" eventType="touchUpInside" id="AjR-sf-LVr"/>
+                                    <segue destination="1JW-M4-2PL" kind="show" id="qwa-EV-Iet"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0eU-DD-3fj">
+                            <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0eU-DD-3fj">
                                 <rect key="frame" x="80" y="346" width="96" height="96"/>
                                 <color key="backgroundColor" red="0.33910316229999998" green="0.73554944990000004" blue="0.53971123700000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -132,10 +132,10 @@
                                     <userDefinedRuntimeAttribute type="string" keyPath="heroModifierString" value="source(menu)"/>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="hero_dismissViewController" destination="hDE-vd-kLY" eventType="touchUpInside" id="Tfd-PU-wnG"/>
+                                    <segue destination="1JW-M4-2PL" kind="show" id="1J9-Kb-eMi"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zna-x2-9LS">
+                            <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zna-x2-9LS">
                                 <rect key="frame" x="80" y="466" width="96" height="96"/>
                                 <color key="backgroundColor" red="0.92462307210000005" green="0.58727717400000001" blue="0.17350399490000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -152,10 +152,10 @@
                                     <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="quote"/>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="hero_dismissViewController" destination="hDE-vd-kLY" eventType="touchUpInside" id="oAg-lf-v0I"/>
+                                    <segue destination="1JW-M4-2PL" kind="show" id="Ba0-y2-7SG"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BB9-pA-7KT">
+                            <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BB9-pA-7KT">
                                 <rect key="frame" x="200" y="466" width="96" height="96"/>
                                 <color key="backgroundColor" red="0.96854275469999995" green="0.96868163350000003" blue="0.96851247549999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -171,12 +171,32 @@
                                     <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="menu"/>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="hero_dismissViewController" destination="hDE-vd-kLY" eventType="touchUpInside" id="I5f-aH-3I8"/>
+                                    <segue destination="1JW-M4-2PL" kind="show" id="Yu8-hp-x7M"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hws-Nu-17n">
+                                <rect key="frame" x="8" y="28" width="48" height="48"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="48" id="2RT-gr-XeT"/>
+                                    <constraint firstAttribute="width" constant="48" id="yyj-0W-K3k"/>
+                                </constraints>
+                                <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" image="ic_keyboard_arrow_down"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="24"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="heroModifierString" value="fade translate(0, -150)"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="back"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="hero_unwindToRootViewController" destination="n6n-Yr-iiD" eventType="touchUpInside" id="r0s-95-mIt"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.75035761443661975" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="hws-Nu-17n" firstAttribute="leading" secondItem="pwy-p7-BFt" secondAttribute="leading" constant="8" id="3S8-v5-YYE"/>
                             <constraint firstItem="0eU-DD-3fj" firstAttribute="centerY" secondItem="pwy-p7-BFt" secondAttribute="centerY" constant="60" id="4QG-2X-gyK"/>
                             <constraint firstItem="4Tw-b7-MDk" firstAttribute="centerY" secondItem="pwy-p7-BFt" secondAttribute="centerY" constant="-180" id="6P2-Ic-ToX"/>
                             <constraint firstItem="zna-x2-9LS" firstAttribute="centerY" secondItem="pwy-p7-BFt" secondAttribute="centerY" constant="180" id="7Qe-sN-lrk"/>
@@ -185,6 +205,7 @@
                             <constraint firstItem="2mS-M0-ozC" firstAttribute="centerX" secondItem="pwy-p7-BFt" secondAttribute="centerX" constant="60" id="Ahd-br-luF"/>
                             <constraint firstItem="dC5-La-4Q6" firstAttribute="centerX" secondItem="pwy-p7-BFt" secondAttribute="centerX" constant="-60" id="D0h-0l-LiF"/>
                             <constraint firstItem="GXz-0P-hCB" firstAttribute="centerY" secondItem="pwy-p7-BFt" secondAttribute="centerY" constant="60" id="H1D-fx-7zK"/>
+                            <constraint firstItem="hws-Nu-17n" firstAttribute="top" secondItem="Dh5-EJ-KLE" secondAttribute="bottom" constant="8" id="Hkd-1R-gg4"/>
                             <constraint firstItem="SLa-DC-TkS" firstAttribute="centerX" secondItem="pwy-p7-BFt" secondAttribute="centerX" constant="-60" id="MpM-YC-35S"/>
                             <constraint firstItem="GXz-0P-hCB" firstAttribute="centerX" secondItem="pwy-p7-BFt" secondAttribute="centerX" constant="60" id="P79-wN-jmc"/>
                             <constraint firstItem="zna-x2-9LS" firstAttribute="centerX" secondItem="pwy-p7-BFt" secondAttribute="centerX" constant="-60" id="RNn-ei-S13"/>
@@ -206,6 +227,74 @@
             </objects>
             <point key="canvasLocation" x="800" y="0.0"/>
         </scene>
+        <!--Menu Page View Controller-->
+        <scene sceneID="7u7-EV-Uun">
+            <objects>
+                <viewController id="1JW-M4-2PL" customClass="MenuPageViewController" customModule="HeroExamples" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="aZj-SX-gLY"/>
+                        <viewControllerLayoutGuide type="bottom" id="IBJ-NT-I3k"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="TbJ-uX-vWU">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GEd-UG-rwi">
+                                <rect key="frame" x="139" y="285" width="96" height="96"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="96" id="ZQQ-DI-x6h"/>
+                                    <constraint firstAttribute="height" constant="96" id="yWn-bX-Fxr"/>
+                                </constraints>
+                                <color key="tintColor" red="0.25490196079999999" green="0.28627450980000002" blue="0.30980392159999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" image="ic_audiotrack_48pt"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="48"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="hero_dismissViewController" destination="hDE-vd-kLY" eventType="touchUpInside" id="Y59-ks-hd3"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C7p-nX-6Yc">
+                                <rect key="frame" x="8" y="28" width="48" height="48"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="48" id="KeK-M4-afq"/>
+                                    <constraint firstAttribute="height" constant="48" id="sVI-3e-Wdh"/>
+                                </constraints>
+                                <color key="tintColor" red="0.25490196079999999" green="0.28627450980000002" blue="0.30980392159999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" image="ic_keyboard_arrow_down"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="24"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="heroModifierString" value="fade translate(0, -150)"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="back"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="hero_unwindToRootViewController" destination="cb0-DR-amI" eventType="touchUpInside" id="Wdk-iN-bhk"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.65110915899999999" green="0.49157077069999999" blue="0.75600677729999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="GEd-UG-rwi" firstAttribute="centerX" secondItem="TbJ-uX-vWU" secondAttribute="centerX" id="6WB-Jd-g2z"/>
+                            <constraint firstItem="C7p-nX-6Yc" firstAttribute="leading" secondItem="TbJ-uX-vWU" secondAttribute="leading" constant="8" id="DB7-dn-ArA"/>
+                            <constraint firstItem="C7p-nX-6Yc" firstAttribute="top" secondItem="aZj-SX-gLY" secondAttribute="bottom" constant="8" id="eWm-ao-8e0"/>
+                            <constraint firstItem="GEd-UG-rwi" firstAttribute="centerY" secondItem="TbJ-uX-vWU" secondAttribute="centerY" id="xOm-PD-PsU"/>
+                        </constraints>
+                    </view>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabled" value="YES"/>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <outlet property="centerButton" destination="GEd-UG-rwi" id="hlc-Lh-8zT"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cb0-DR-amI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1671" y="0.0"/>
+        </scene>
     </scenes>
     <resources>
         <image name="ic_audiotrack_48pt" width="48" height="48"/>
@@ -213,8 +302,12 @@
         <image name="ic_format_quote_48pt" width="48" height="48"/>
         <image name="ic_gif_48pt" width="48" height="48"/>
         <image name="ic_insert_photo_48pt" width="48" height="48"/>
+        <image name="ic_keyboard_arrow_down" width="24" height="24"/>
         <image name="ic_link_48pt" width="48" height="48"/>
         <image name="ic_text_fields_48pt" width="48" height="48"/>
         <image name="ic_videocam_48pt" width="48" height="48"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="toM-0A-mTp"/>
+    </inferredMetricsTieBreakers>
 </document>
