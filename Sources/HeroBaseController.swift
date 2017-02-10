@@ -261,12 +261,15 @@ internal extension HeroBaseController {
     }
   }
 
-  func prepareForAnimation() {
+  func processContext() {
     guard transitioning else { fatalError() }
     for processor in processors {
       processor.process(fromViews: context.fromViews, toViews: context.toViews)
     }
+  }
 
+  func prepareForAnimation() {
+    guard transitioning else { fatalError() }
     animatingViews = [([UIView], [UIView])]()
     for animator in animators {
       let currentFromViews = context.fromViews.filter { (view: UIView) -> Bool in

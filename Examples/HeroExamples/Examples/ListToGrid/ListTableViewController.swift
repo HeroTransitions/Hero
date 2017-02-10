@@ -79,6 +79,7 @@ extension ListTableViewController: HeroViewControllerDelegate {
   func heroWillStartAnimatingTo(viewController: UIViewController) {
     if let _ = viewController as? GridCollectionViewController {
       tableView.heroModifiers = [.ignoreSubviewModifiers]
+    } else if viewController is ImageViewController {
     } else {
       tableView.heroModifiers = [.cascade]
     }

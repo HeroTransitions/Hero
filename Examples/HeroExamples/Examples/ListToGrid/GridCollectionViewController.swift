@@ -84,8 +84,8 @@ extension GridCollectionViewController: HeroViewControllerDelegate {
 
   func heroWillStartAnimatingFrom(viewController: UIViewController) {
     if let vc = viewController as? ImageViewController,
-      let originalCellIndex = vc.selectedIndex,
-      let currentCellIndex = vc.collectionView?.indexPathsForVisibleItems[0] {
+       let originalCellIndex = vc.selectedIndex,
+       let currentCellIndex = vc.collectionView?.indexPathsForVisibleItems[0] {
       collectionView!.heroModifiers = [.cascade]
       if !collectionView!.indexPathsForVisibleItems.contains(currentCellIndex) {
         // make the cell visible

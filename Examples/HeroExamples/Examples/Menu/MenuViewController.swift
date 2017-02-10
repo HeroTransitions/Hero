@@ -12,7 +12,6 @@ import Hero
 class MenuViewController: UIViewController {
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     if let vc = segue.destination as? MenuPageViewController, let sender = sender as? UIButton {
-      Hero.shared.skipDefaultAnimation = true
       sender.heroID = "selected"
       vc.view.heroModifiers = [.source(heroID: "selected")]
       vc.centerButton.heroID = "selected"

@@ -34,6 +34,7 @@ public class HeroIndependentController: HeroBaseController {
     prepareForTransition()
     context.defaultCoordinateSpace = .sameParent
     context.set(fromViews: fromViews, toViews: toViews)
+    processContext()
     prepareForAnimation()
     animate()
   }
