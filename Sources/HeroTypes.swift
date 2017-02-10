@@ -35,6 +35,7 @@ public enum HeroDefaultAnimationType {
   case coverUp
   case coverDown
   case fade
+  indirect case selectBy(presenting:HeroDefaultAnimationType, dismissing:HeroDefaultAnimationType)
   case none
 }
 

@@ -269,7 +269,11 @@ internal extension Hero {
 
 internal extension Hero {
   func prepareDefaultAnimation() {
-    if defaultAnimation == .auto {
+    if case .selectBy(let presentAnim, let dismissAnim) = defaultAnimation {
+      defaultAnimation = presenting ? presentAnim : dismissAnim
+    }
+
+    if case .auto = defaultAnimation {
       if inNavigationController {
         defaultAnimation = presenting ? .pullLeft : .pushRight
       } else if inTabBarController {
@@ -281,7 +285,7 @@ internal extension Hero {
       }
     }
 
-    if defaultAnimation == .none {
+    if case .none = defaultAnimation {
       return
     }
 
@@ -295,10 +299,9 @@ internal extension Hero {
       context[toView]!.append(.translate(x: container.bounds.width))
       context[fromView]!.append(.translate(x: -container.bounds.width / 3))
     case .pushRight:
-      // todo: not correct
       backAndTopView = (toView, fromView)
-      context[toView]!.append(.translate(x: container.bounds.width))
-      context[fromView]!.append(.translate(x: -container.bounds.width / 3))
+      context[fromView]!.append(.translate(x: container.bounds.width))
+      context[toView]!.append(.translate(x: -container.bounds.width / 3))
     case .slideRight:
       context[fromView]!.append(.translate(x: container.bounds.width))
       context[toView]!.append(.translate(x: -container.bounds.width))
@@ -315,10 +318,12 @@ internal extension Hero {
         context[fromView] = [.fade]
       }
     default:
-      break
+      fatalError("Unsupported animation")
     }
 
     let (backView, topView) = backAndTopView
+    container.addSubview(backView)
+    container.addSubview(topView)
     if topView.layer.zPosition < backView.layer.zPosition {
       // in this case, we have to animate the zPosition as well. otherwise the fade animation will be hidden.
       context[topView]!.append(contentsOf: [.zPosition(backView.layer.zPosition + 1)])

@@ -27,7 +27,7 @@ class ExampleViewController: UITableViewController {
 
   var storyboards: [[String]] = [
     [],
-    ["Basic", "MusicPlayer", "Menu", "VideoPlayer"],
+    ["Basic", "MusicPlayer", "Menu", "DefaultAnimations"],
     ["CityGuide", "ImageViewer", "VideoPlayer"],
     ["AppleHomePage", "ListToGrid", "ImageGallery"]
   ]

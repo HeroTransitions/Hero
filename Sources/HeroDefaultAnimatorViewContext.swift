@@ -29,7 +29,7 @@ internal class HeroDefaultAnimatorViewContext {
   var duration: TimeInterval = 0
 
   var targetState: HeroTargetState
-  var defaultTiming: (TimeInterval, CAMediaTimingFunction)!
+  var defaultTiming: (duration:TimeInterval, timingFunction:CAMediaTimingFunction)!
 
   // computed
   var contentLayer: CALayer? {
@@ -209,11 +209,7 @@ internal class HeroDefaultAnimatorViewContext {
     return rtn
   }
 
-  func animate(delay: TimeInterval) {
-    // calculate timing default
-    let defaultDuration: TimeInterval
-    let defaultTimingFunction: CAMediaTimingFunction
-
+  func optimizedDurationAndTimingFunction() -> (duration:TimeInterval, timingFunction:CAMediaTimingFunction) {
     // timing function
     let fromPos = (state["position"]?.0 as? NSValue)?.cgPointValue ?? snapshot.layer.position
     let toPos = (state["position"]?.1 as? NSValue)?.cgPointValue ?? fromPos
@@ -222,33 +218,37 @@ internal class HeroDefaultAnimatorViewContext {
     let realFromPos = CGPoint.zero.transform(fromTransform) + fromPos
     let realToPos = CGPoint.zero.transform(toTransform) + toPos
 
-    if let timingFunction = targetState.timingFunction {
-      defaultTimingFunction = timingFunction
-    } else if let container = container, !container.bounds.contains(realToPos) {
+    var timingFunction:CAMediaTimingFunction = .standard
+    if let container = container, !container.bounds.contains(realToPos) {
       // acceleration if leaving screen
-      defaultTimingFunction = .acceleration
+      timingFunction = .acceleration
     } else if let container = container, !container.bounds.contains(realFromPos) {
       // deceleration if entering screen
-      defaultTimingFunction = .deceleration
-    } else {
-      defaultTimingFunction = .standard
+      timingFunction = .deceleration
     }
 
+    let fromSize = (state["bounds.size"]?.0 as? NSValue)?.cgSizeValue ?? snapshot.layer.bounds.size
+    let toSize = (state["bounds.size"]?.1 as? NSValue)?.cgSizeValue ?? fromSize
+    let realFromSize = fromSize.transform(fromTransform)
+    let realToSize = toSize.transform(toTransform)
+
+    let movePoints = (realFromPos.distance(realToPos) + realFromSize.point.distance(realToSize.point))
+
+    // duration is 0.2 @ 0 to 0.375 @ 500
+    let duration = 0.208 + Double(movePoints.clamp(0, 500)) / 3000
+    return (duration, timingFunction)
+  }
+
+  func animate(delay: TimeInterval) {
+    // calculate timing default
+    defaultTiming = optimizedDurationAndTimingFunction()
+
+    if let timingFunction = targetState.timingFunction {
+      defaultTiming.timingFunction = timingFunction
+    }
     if let duration = targetState.duration {
-      defaultDuration = duration
-    } else {
-      let fromSize = (state["bounds.size"]?.0 as? NSValue)?.cgSizeValue ?? snapshot.layer.bounds.size
-      let toSize = (state["bounds.size"]?.1 as? NSValue)?.cgSizeValue ?? fromSize
-      let realFromSize = fromSize.transform(fromTransform)
-      let realToSize = toSize.transform(toTransform)
-
-      let movePoints = (realFromPos.distance(realToPos) + realFromSize.point.distance(realToSize.point))
-
-      // duration is 0.2 @ 0 to 0.375 @ 500
-      defaultDuration = 0.208 + Double(movePoints.clamp(0, 500)) / 3000
+      defaultTiming.duration = duration
     }
-
-    defaultTiming = (defaultDuration, defaultTimingFunction)
 
     duration = 0
     let beginTime = currentTime + delay

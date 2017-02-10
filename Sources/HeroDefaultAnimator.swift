@@ -79,13 +79,16 @@ public class HeroDefaultAnimator: HeroAnimator {
       }
     }
 
-    if duration == 0 && infiniteDurationViewContexts.count > 0 {
-      duration = 0.2
+    if duration == 0 {
+      for viewContexts in infiniteDurationViewContexts {
+        duration = max(duration, viewContexts.optimizedDurationAndTimingFunction().duration)
+      }
     }
 
     for viewContexts in infiniteDurationViewContexts {
       viewContexts.apply(state: [.duration(duration)])
     }
+
 
     return duration
   }
