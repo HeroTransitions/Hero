@@ -23,10 +23,12 @@
 import UIKit
 
 public protocol HeroPreprocessor {
+  weak var context: HeroContext! { get set }
   func process(fromViews: [UIView], toViews: [UIView])
 }
 
 public protocol HeroAnimator {
+  weak var context: HeroContext! { get set }
   func canAnimate(view: UIView, appearing: Bool) -> Bool
   func animate(fromViews: [UIView], toViews: [UIView]) -> TimeInterval
   func clean()

@@ -42,7 +42,7 @@ class SourcePreprocessor: BasePreprocessor {
     var state = context[view]!
     
     // use global coordinate space since over target position is converted from the global container
-    state.useGlobalCoordinateSpace = true
+    state.coordinateSpace = .global
 
     // remove incompatible options
     state.transform = nil

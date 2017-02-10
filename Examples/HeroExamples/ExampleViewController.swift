@@ -21,6 +21,7 @@
 // THE SOFTWARE.
 
 import UIKit
+import Hero
 
 class ExampleViewController: UITableViewController {
 
@@ -42,6 +43,7 @@ class ExampleViewController: UITableViewController {
       let storyboardName = storyboards[indexPath.section][indexPath.item]
       let vc = viewController(forStoryboardName: storyboardName)
       present(vc, animated: true, completion: nil)
+
     }
   }
 }

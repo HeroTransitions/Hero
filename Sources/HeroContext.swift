@@ -29,6 +29,8 @@ public class HeroContext {
   internal var viewAlphas = [UIView: CGFloat]()
   internal var targetStates = [UIView: HeroTargetState]()
 
+  internal var defaultCoordinateSpace:HeroCoordinateSpace = .local
+
   internal init(container: UIView) {
     self.container = container
   }
@@ -109,7 +111,9 @@ extension HeroContext {
     }
     
     var containerView = container
-    if targetStates[view]?.useGlobalCoordinateSpace != true {
+    let coordinateSpace = targetStates[view]?.coordinateSpace ?? defaultCoordinateSpace
+    switch coordinateSpace {
+    case .local:
       containerView = view
       while containerView != container, snapshotViews[containerView] == nil, let superview = containerView.superview {
         containerView = superview
@@ -117,6 +121,10 @@ extension HeroContext {
       if let snapshot = snapshotViews[containerView] {
         containerView = snapshot
       }
+    case .sameParent:
+      containerView = view.superview!
+    case .global:
+      break
     }
  
     unhide(view: view)
@@ -258,5 +266,47 @@ extension HeroContext {
       unhide(view: view)
     }
     viewAlphas.removeAll()
+  }
+  internal func unhide(rootView: UIView) {
+    unhide(view: rootView)
+    for subview in rootView.subviews {
+      unhide(rootView: subview)
+    }
+  }
+
+  internal func removeAllSnapshots() {
+    for snapshot in snapshotViews.values {
+      snapshot.removeFromSuperview()
+    }
+  }
+  internal func removeSnapshots(rootView:UIView) {
+    snapshotViews[rootView]?.removeFromSuperview()
+    for subview in rootView.subviews {
+      removeSnapshots(rootView: subview)
+    }
+  }
+  internal func snapshots(rootView: UIView) -> [UIView] {
+    var snapshots = [UIView]()
+    for v in rootView.flattenedViewHierarchy {
+      if let snapshot = snapshotViews[v] {
+        snapshots.append(snapshot)
+      }
+    }
+    return snapshots
+  }
+  internal func loadViewAlpha(rootView: UIView) {
+    if let storedAlpha = rootView.hero_storedAlpha {
+      rootView.alpha = storedAlpha
+      rootView.hero_storedAlpha = nil
+    }
+    for subview in rootView.subviews {
+      loadViewAlpha(rootView: subview)
+    }
+  }
+  internal func storeViewAlpha(rootView: UIView) {
+    rootView.hero_storedAlpha = viewAlphas[rootView]
+    for subview in rootView.subviews {
+      storeViewAlpha(rootView: subview)
+    }
   }
 }
