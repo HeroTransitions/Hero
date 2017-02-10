@@ -110,6 +110,8 @@ class AppleProductViewController: UIViewController, HeroViewControllerDelegate {
   func heroWillStartAnimatingTo(viewController: UIViewController) {
     if !(viewController is AppleProductViewController) {
       view.heroModifiers = [.ignoreSubviewModifiers(recursive: true)]
+    } else {
+      Hero.shared.skipDefaultAnimation = true
     }
   }
 }

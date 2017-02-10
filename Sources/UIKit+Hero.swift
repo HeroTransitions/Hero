@@ -27,8 +27,9 @@ fileprivate let modifiersRegex = "(\\w+)(?:\\(([^\\)]*)\\))?"
 
 public extension UIView {
   private struct AssociatedKeys {
-    static var HeroID    = "ht_heroID"
-    static var HeroModifiers = "ht_heroModifers"
+    static var heroID    = "heroID"
+    static var heroModifiers = "heroModifers"
+    static var heroStoredAlpha = "heroStoredAlpha"
   }
 
   /**
@@ -39,16 +40,16 @@ public extension UIView {
    Hero will automatically transit the views from source state to the destination state.
    */
   @IBInspectable public var heroID: String? {
-    get { return objc_getAssociatedObject(self, &AssociatedKeys.HeroID) as? String }
-    set { objc_setAssociatedObject(self, &AssociatedKeys.HeroID, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC) }
+    get { return objc_getAssociatedObject(self, &AssociatedKeys.heroID) as? String }
+    set { objc_setAssociatedObject(self, &AssociatedKeys.heroID, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC) }
   }
   
   /**
    Use **heroModifiers** to specify animations alongside the main transition. Checkout `HeroModifier.swift` for available modifiers.
    */
   public var heroModifiers: [HeroModifier]? {
-    get { return objc_getAssociatedObject(self, &AssociatedKeys.HeroModifiers) as? [HeroModifier] }
-    set { objc_setAssociatedObject(self, &AssociatedKeys.HeroModifiers, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC) }
+    get { return objc_getAssociatedObject(self, &AssociatedKeys.heroModifiers) as? [HeroModifier] }
+    set { objc_setAssociatedObject(self, &AssociatedKeys.heroModifiers, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC) }
   }
 
   /**
@@ -112,6 +113,23 @@ public extension UIView {
     }
     return flattened
   }
+
+  /// Used for .overFullScreen presentation
+  internal var hero_storedAlpha: CGFloat? {
+    get {
+      if let doubleValue = (objc_getAssociatedObject(self, &AssociatedKeys.heroStoredAlpha) as? NSNumber)?.doubleValue {
+        return CGFloat(doubleValue)
+      }
+      return nil
+    }
+    set {
+      if let newValue = newValue {
+        objc_setAssociatedObject(self, &AssociatedKeys.heroStoredAlpha, NSNumber(value:newValue.native), .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+      } else {
+        objc_setAssociatedObject(self, &AssociatedKeys.heroStoredAlpha, nil, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+      }
+    }
+  }
 }
 
 internal extension NSObject {
@@ -121,19 +139,20 @@ internal extension NSObject {
 }
 
 public extension UIViewController {
-  private struct PreviousDelegates {
-    static var navigationDelegate = "heroPreviousNavigationDelegate"
-    static var tabBarDelegate = "heroPreviousTabBarDelegate"
+  private struct AssociatedKeys {
+    static var previousNavigationDelegate = "previousNavigationDelegate"
+    static var previousTabBarDelegate = "previousTabBarDelegate"
+    static var heroStoredSnapshots = "heroStoredSnapshots"
   }
 
   var previousNavigationDelegate: UINavigationControllerDelegate? {
-    get { return objc_getAssociatedObject(self, &PreviousDelegates.navigationDelegate) as? UINavigationControllerDelegate }
-    set { objc_setAssociatedObject(self, &PreviousDelegates.navigationDelegate, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC) }
+    get { return objc_getAssociatedObject(self, &AssociatedKeys.previousNavigationDelegate) as? UINavigationControllerDelegate }
+    set { objc_setAssociatedObject(self, &AssociatedKeys.previousNavigationDelegate, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC) }
   }
 
   var previousTabBarDelegate: UITabBarControllerDelegate? {
-    get { return objc_getAssociatedObject(self, &PreviousDelegates.tabBarDelegate) as? UITabBarControllerDelegate }
-    set { objc_setAssociatedObject(self, &PreviousDelegates.tabBarDelegate, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC) }
+    get { return objc_getAssociatedObject(self, &AssociatedKeys.previousTabBarDelegate) as? UITabBarControllerDelegate }
+    set { objc_setAssociatedObject(self, &AssociatedKeys.previousTabBarDelegate, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC) }
   }
 
   @IBInspectable public var isHeroEnabled: Bool {
@@ -162,6 +181,16 @@ public extension UIViewController {
           tab.delegate = previousTabBarDelegate
         }
       }
+    }
+  }
+
+  /// used for .overFullScreen presentation
+  internal var hero_storedSnapshots: [UIView]? {
+    get {
+      return objc_getAssociatedObject(self, &AssociatedKeys.heroStoredSnapshots) as? [UIView]
+    }
+    set {
+      objc_setAssociatedObject(self, &AssociatedKeys.heroStoredSnapshots, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
     }
   }
 
@@ -296,6 +325,18 @@ public extension UIViewController {
       }
     }
   }
+
+  public func hero_presentOnTop(viewController:UIViewController, frame:CGRect) {
+    var oldViews = view.flattenedViewHierarchy
+    oldViews.removeFirst()
+    let hero = HeroIndependentController()
+    addChildViewController(viewController)
+    viewController.view.frame = frame
+    view.addSubview(viewController.view)
+    viewController.didMove(toParentViewController: self)
+    viewController.view.heroModifiers = [.scale(0.5), .fade]
+    hero.transition(rootView: view, fromViews: oldViews, toViews: viewController.view.flattenedViewHierarchy)
+  }
 }
 
 internal extension UIImage {
@@ -305,5 +346,19 @@ internal extension UIImage {
     let img = UIGraphicsGetImageFromCurrentImageContext()
     UIGraphicsEndImageContext()
     return img!
+  }
+}
+
+internal extension UIColor {
+  var components:(r:CGFloat, g:CGFloat, b:CGFloat, a:CGFloat) {
+    var r:CGFloat = 0
+    var g:CGFloat = 0
+    var b:CGFloat = 0
+    var a:CGFloat = 0
+    getRed(&r, green: &g, blue: &b, alpha: &a)
+    return (r, g, b, a)
+  }
+  var alphaComponent:CGFloat {
+    return components.a
   }
 }

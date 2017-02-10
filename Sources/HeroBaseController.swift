@@ -252,6 +252,13 @@ internal extension HeroBaseController {
     transitionContainer.addSubview(container)
 
     context = HeroContext(container:container)
+
+    for i in 0..<processors.count {
+      processors[i].context = context
+    }
+    for i in 0..<animators.count {
+      animators[i].context = context
+    }
   }
 
   func prepareForAnimation() {
@@ -324,9 +331,9 @@ internal extension HeroBaseController {
     for animator in animators {
       animator.clean()
     }
-    context.unhideAll()
 
     container.removeFromSuperview()
+
     transitionContainer!.isUserInteractionEnabled = true
 
     let completion = completionCallback

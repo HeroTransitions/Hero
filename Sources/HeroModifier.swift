@@ -267,12 +267,20 @@ extension HeroModifier {
    - Parameters:
      - duration: duration of the animation
    
-   Note: a duration of .infinity means matching the duration of the longest animation.
+   Note: a duration of .infinity means matching the duration of the longest animation. same as .durationMatchLongest
    */
   public static func duration(_ duration: TimeInterval) -> HeroModifier {
     return HeroModifier { targetState in
       targetState.duration = duration
     }
+  }
+
+
+  /**
+   Sets the duration of the animation for a given view to match the longest animation of the transition.
+   */
+  public static var durationMatchLongest: HeroModifier = HeroModifier { targetState in
+    targetState.duration = .infinity
   }
 
   /**
@@ -376,7 +384,7 @@ extension HeroModifier {
    Global coordinate space is default for all views prior to version 0.1.3
    */
   public static var useGlobalCoordinateSpace: HeroModifier = HeroModifier { targetState in
-    targetState.useGlobalCoordinateSpace = true
+    targetState.coordinateSpace = .global
   }
 
   /**
