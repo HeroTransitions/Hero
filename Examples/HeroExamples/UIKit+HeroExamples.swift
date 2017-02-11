@@ -82,3 +82,11 @@ public extension UIView {
 func viewController(forStoryboardName: String) -> UIViewController {
   return UIStoryboard(name: forStoryboardName, bundle: nil).instantiateInitialViewController()!
 }
+
+class TemplateImageView: UIImageView {
+  @IBInspectable var templateImage: UIImage? {
+    didSet {
+      image = templateImage?.withRenderingMode(.alwaysTemplate)
+    }
+  }
+}

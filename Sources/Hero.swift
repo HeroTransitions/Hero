@@ -51,7 +51,7 @@ public class Hero: HeroBaseController {
   /// source view controller
   public internal(set) var fromViewController: UIViewController?
   /// whether or not we are presenting the destination view controller
-  public fileprivate(set) var presenting = true
+  public internal(set) var presenting = true
 
   /// progress of the current transition. 0 if no transition is happening
   public override var progress: Double {
@@ -64,11 +64,11 @@ public class Hero: HeroBaseController {
 
   /// a UIViewControllerContextTransitioning object provided by UIKit,
   /// might be nil when transitioning. This happens when calling heroReplaceViewController
-  fileprivate weak var transitionContext: UIViewControllerContextTransitioning?
+  internal weak var transitionContext: UIViewControllerContextTransitioning?
 
-  fileprivate var fullScreenSnapshot: UIView!
+  internal var fullScreenSnapshot: UIView!
 
-  internal var defaultAnimation: HeroAnimationType = .auto
+  internal var defaultAnimation: HeroDefaultAnimationType = .auto
   internal var containerColor: UIColor?
 
   // By default, Hero will always appear to be interactive to UIKit. This forces it to appear non-interactive.
@@ -76,24 +76,24 @@ public class Hero: HeroBaseController {
   // UINavigationController.setViewControllers not able to handle interactive transition
   internal var forceNotInteractive = false
 
-  fileprivate var insertToViewFirst = false
+  internal var insertToViewFirst = false
 
-  fileprivate var inNavigationController = false
-  fileprivate var inTabBarController = false
-  fileprivate var inContainerController: Bool {
+  internal var inNavigationController = false
+  internal var inTabBarController = false
+  internal var inContainerController: Bool {
     return inNavigationController || inTabBarController
   }
-  fileprivate var toOverFullScreen: Bool {
+  internal var toOverFullScreen: Bool {
     return !inContainerController && toViewController!.modalPresentationStyle == .overFullScreen
   }
-  fileprivate var fromOverFullScreen: Bool {
+  internal var fromOverFullScreen: Bool {
     return !inContainerController && fromViewController!.modalPresentationStyle == .overFullScreen
   }
 
-  fileprivate var toView: UIView { return toViewController!.view }
-  fileprivate var fromView: UIView { return fromViewController!.view }
+  internal var toView: UIView { return toViewController!.view }
+  internal var fromView: UIView { return fromViewController!.view }
 
-  fileprivate override init() { super.init() }
+  internal override init() { super.init() }
 }
 
 public extension Hero {
@@ -107,7 +107,7 @@ public extension Hero {
   /// This usually overrides rootView's heroModifiers during the transition
   ///
   /// - Parameter animation: animation type
-  func setDefaultAnimationForNextTransition(_ animation: HeroAnimationType) {
+  func setDefaultAnimationForNextTransition(_ animation: HeroDefaultAnimationType) {
     defaultAnimation = animation
   }
 
@@ -289,124 +289,6 @@ internal extension Hero {
   }
 }
 
-internal extension Hero {
-
-  func shift(direction: HeroAnimationType.Direction, appearing: Bool, size: CGSize? = nil, transpose: Bool = false) -> CGPoint {
-    let size = size ?? container.bounds.size
-    let rtn: CGPoint
-    switch direction {
-    case .left, .right:
-      rtn = CGPoint(x: (direction == .right) == appearing ? -size.width : size.width, y: 0)
-    case .up, .down:
-      rtn = CGPoint(x: 0, y: (direction == .down) == appearing ? -size.height : size.height)
-    }
-    if transpose {
-      return CGPoint(x: rtn.y, y: rtn.x)
-    }
-    return rtn
-  }
-
-  func prepareDefaultAnimation() {
-    if case .selectBy(let presentAnim, let dismissAnim) = defaultAnimation {
-      defaultAnimation = presenting ? presentAnim : dismissAnim
-    }
-
-    if case .auto = defaultAnimation {
-      if inNavigationController {
-        defaultAnimation = presenting ? .pull(direction:.left) : .push(direction:.right)
-      } else if inTabBarController {
-        defaultAnimation = presenting ? .slide(direction:.left) : .slide(direction:.right)
-      } else if animators.contains(where: { $0.canAnimate(view: toView, appearing: true) || $0.canAnimate(view: fromView, appearing: false) }) {
-        defaultAnimation = .none
-      } else {
-        defaultAnimation = .fade
-      }
-    }
-
-    if case .none = defaultAnimation {
-      return
-    }
-
-    var backAndTopView = (fromView, toView)
-
-    context[fromView] = [.timingFunction(.standard), .duration(0.375)]
-    context[toView] = [.timingFunction(.standard), .duration(0.375)]
-
-    let shadowState: [HeroModifier] = [.shadowOpacity(0.5),
-                                      .shadowColor(.black),
-                                      .shadowRadius(5),
-                                      .shadowOffset(.zero),
-                                      .masksToBounds(false)]
-    switch defaultAnimation {
-    case .pull(let direction):
-      context[toView]!.append(contentsOf: [.translate(shift(direction: direction, appearing: true)),
-                                           .shadowOpacity(0),
-                                           .beginWith(modifiers: shadowState)])
-      context[fromView]!.append(contentsOf: [.translate(shift(direction: direction, appearing: false) / 3),
-                                             .overlay(color: .black, opacity: 0.3)])
-    case .push(let direction):
-      backAndTopView = (toView, fromView)
-      context[fromView]!.append(contentsOf: [.translate(shift(direction: direction, appearing: false)),
-                                             .shadowOpacity(0),
-                                             .beginWith(modifiers: shadowState)])
-      context[toView]!.append(contentsOf: [.translate(shift(direction: direction, appearing: true) / 3),
-                                           .overlay(color: .black, opacity: 0.3)])
-    case .slide(let direction):
-      context[fromView]!.append(contentsOf: [.translate(shift(direction: direction, appearing: false))])
-      context[toView]!.append(contentsOf: [.translate(shift(direction: direction, appearing: true))])
-    case .zoomSlide(let direction):
-      context[fromView]!.append(contentsOf: [.translate(shift(direction: direction, appearing: false)), .scale(0.8)])
-      context[toView]!.append(contentsOf: [.translate(shift(direction: direction, appearing: true)), .scale(0.8)])
-    case .cover(let direction):
-      context[toView]!.append(contentsOf: [.translate(shift(direction: direction, appearing: true)),
-                                           .shadowOpacity(0),
-                                           .beginWith(modifiers: shadowState)])
-      context[fromView]!.append(contentsOf: [.overlay(color: .black, opacity: 0.3)])
-    case .uncover(let direction):
-      backAndTopView = (toView, fromView)
-      context[fromView]!.append(contentsOf: [.translate(shift(direction: direction, appearing: false)),
-                                             .shadowOpacity(0),
-                                             .beginWith(modifiers: shadowState)])
-      context[toView]!.append(contentsOf: [.overlay(color: .black, opacity: 0.3)])
-    case .pageIn(let direction):
-      context[toView]!.append(contentsOf: [.translate(shift(direction: direction, appearing: true)),
-                                           .shadowOpacity(0),
-                                           .beginWith(modifiers: shadowState)])
-      context[fromView]!.append(contentsOf: [.scale(0.7), .overlay(color: .black, opacity: 0.3)])
-    case .pageOut(let direction):
-      backAndTopView = (toView, fromView)
-      context[fromView]!.append(contentsOf: [.translate(shift(direction: direction, appearing: false)),
-                                             .shadowOpacity(0),
-                                             .beginWith(modifiers: shadowState)])
-      context[toView]!.append(contentsOf: [.scale(0.7), .overlay(color: .black, opacity: 0.3)])
-    case .fade:
-      // TODO: clean up this. overFullScreen logic shouldn't be here
-      if !(fromOverFullScreen && !presenting) {
-        context[toView] = [.fade]
-      }
-
-      if (!presenting && toOverFullScreen) || !fromView.isOpaque || (fromView.backgroundColor?.alphaComponent ?? 1) < 1 {
-        context[fromView] = [.fade]
-      }
-
-      context[toView]!.append(.durationMatchLongest)
-      context[fromView]!.append(.durationMatchLongest)
-    default:
-      fatalError("Not implemented")
-    }
-
-    let (backView, topView) = backAndTopView
-    if backView == toView {
-      insertToViewFirst = true
-    }
-    if topView.layer.zPosition < backView.layer.zPosition {
-      // in this case, we have to animate the zPosition as well. otherwise the fade animation will be hidden.
-      context[topView]!.append(contentsOf: [.zPosition(backView.layer.zPosition + 1)])
-      context[backView]!.append(contentsOf: [.zPosition(backView.layer.zPosition - 1)])
-    }
-  }
-}
-
 // custom transition helper, used in hero_replaceViewController
 internal extension Hero {
   func transition(from: UIViewController, to: UIViewController, in view: UIView, completion: ((Bool) -> Void)? = nil) {
@@ -421,7 +303,7 @@ internal extension Hero {
 }
 
 // delegate helper
-fileprivate extension Hero {
+internal extension Hero {
   func closureProcessForHeroDelegate<T: UIViewController>(vc: T, closure: (HeroViewControllerDelegate) -> Void) {
     if let delegate = vc as? HeroViewControllerDelegate {
       closure(delegate)

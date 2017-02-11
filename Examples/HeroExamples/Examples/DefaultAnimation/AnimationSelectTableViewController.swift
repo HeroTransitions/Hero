@@ -1,17 +1,38 @@
+// The MIT License (MIT)
 //
-//  AnimationSelectTableViewController.swift
-//  HeroExamples
+// Copyright (c) 2016 Luke Zhao <me@lkzhao.com>
 //
-//  Created by Luke Zhao on 2017-02-10.
-//  Copyright © 2017 Luke Zhao. All rights reserved.
+// Permission is hereby granted, free of charge, to any person obtaining a copy
+// of this software and associated documentation files (the "Software"), to deal
+// in the Software without restriction, including without limitation the rights
+// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+// copies of the Software, and to permit persons to whom the Software is
+// furnished to do so, subject to the following conditions:
 //
+// The above copyright notice and this permission notice shall be included in
+// all copies or substantial portions of the Software.
+//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+// THE SOFTWARE.
 
 import UIKit
 import Hero
+import ChameleonFramework
+
+class AnimationSelectHeaderCell: UITableViewCell {
+  @IBOutlet weak var backButton: UIButton!
+  @IBOutlet weak var heroLogo: TemplateImageView!
+  @IBOutlet weak var promptLabel: UILabel!
+}
 
 class AnimationSelectTableViewController: UITableViewController {
 
-  var animations: [HeroAnimationType] = [
+  var animations: [HeroDefaultAnimationType] = [
     .push(direction: .left),
     .pull(direction: .left),
     .slide(direction: .left),
@@ -21,8 +42,18 @@ class AnimationSelectTableViewController: UITableViewController {
     .pageIn(direction: .left),
     .pageOut(direction: .left),
     .fade,
+    .zoom,
+    .zoomOut,
     .none
   ]
+
+  var labelColor: UIColor!
+
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    tableView.backgroundColor = UIColor.randomFlat
+    labelColor = UIColor(contrastingBlackOrWhiteColorOn: tableView.backgroundColor!, isFlat: true)
+  }
 
   override func numberOfSections(in tableView: UITableView) -> Int {
     return 2
@@ -34,11 +65,16 @@ class AnimationSelectTableViewController: UITableViewController {
 
   override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     if indexPath.section == 0 {
-      return tableView.dequeueReusableCell(withIdentifier: "header", for: indexPath)
+      let header = tableView.dequeueReusableCell(withIdentifier: "header", for: indexPath) as! AnimationSelectHeaderCell
+      header.heroLogo.tintColor = labelColor
+      header.promptLabel.textColor = labelColor
+      header.backButton.tintColor = labelColor
+      return header
     }
 
     let cell = tableView.dequeueReusableCell(withIdentifier: "item", for: indexPath)
-    cell.textLabel?.text = animations[indexPath.item].label
+    cell.textLabel!.text = animations[indexPath.item].label
+    cell.textLabel!.textColor = labelColor
     return cell
   }
 
