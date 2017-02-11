@@ -22,6 +22,7 @@
 
 import UIKit
 
+#if os(iOS)
 protocol HeroDebugViewDelegate {
   func onProcessSliderChanged(progress: Float)
   func onPerspectiveChanged(translation: CGPoint, rotation: CGFloat, scale: CGFloat)
@@ -30,8 +31,6 @@ protocol HeroDebugViewDelegate {
   func onDone()
 }
 
-@available(tvOS, unavailable)
-@available(iOS 8.0, *)
 class HeroDebugView: UIView {
   var backgroundView: UIView!
   var debugSlider: UISlider!
@@ -190,3 +189,4 @@ extension HeroDebugView:UIGestureRecognizerDelegate {
     return perspectiveButton.isSelected
   }
 }
+#endif
