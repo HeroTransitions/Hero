@@ -122,10 +122,8 @@ extension HeroModifier {
     }
   }
 
-  public static func translate(_ point:CGPoint) -> HeroModifier {
-    return HeroModifier { targetState in
-      targetState.transform = CATransform3DTranslate(targetState.transform ?? CATransform3DIdentity, point.x, point.y, 0)
-    }
+  public static func translate(_ point:CGPoint, z: CGFloat = 0) -> HeroModifier {
+    return translate(x: point.x, y: point.y, z: z)
   }
 
   /**
@@ -141,6 +139,10 @@ extension HeroModifier {
       targetState.transform = CATransform3DRotate(targetState.transform!, y, 0, 1, 0)
       targetState.transform = CATransform3DRotate(targetState.transform!, z, 0, 0, 1)
     }
+  }
+
+  public static func rotate(_ point: CGPoint, z: CGFloat = 0) -> HeroModifier {
+    return rotate(x: point.x, y: point.y, z: z)
   }
 
   /**

@@ -16,12 +16,12 @@ class AnimationSelectTableViewController: UITableViewController {
     .pull(direction: .left),
     .slide(direction: .left),
     .zoomSlide(direction: .left),
-    .cubeSlide(direction: .left),
     .cover(direction: .up),
     .uncover(direction: .up),
     .pageIn(direction: .left),
     .pageOut(direction: .left),
-    .fade
+    .fade,
+    .none
   ]
 
   override func numberOfSections(in tableView: UITableView) -> Int {
@@ -48,8 +48,12 @@ class AnimationSelectTableViewController: UITableViewController {
 
   override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     let vc = self.storyboard!.instantiateViewController(withIdentifier: "animationSelect")
+
+    // the following two lines configures the animation. default is .auto
     Hero.shared.setDefaultAnimationForNextTransition(animations[indexPath.item])
     Hero.shared.setContainerColorForNextTransition(.lightGray)
+
+
     hero_replaceViewController(with: vc)
   }
 

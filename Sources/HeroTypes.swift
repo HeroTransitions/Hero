@@ -33,7 +33,6 @@ public enum HeroAnimationType {
   case uncover(direction: Direction)
   case slide(direction: Direction)
   case zoomSlide(direction: Direction)
-  case cubeSlide(direction: Direction)
   case pageIn(direction: Direction)
   case pageOut(direction: Direction)
   case fade

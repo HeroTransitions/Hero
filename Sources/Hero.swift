@@ -97,12 +97,25 @@ public class Hero: HeroBaseController {
 }
 
 public extension Hero {
+
+  /// Turn off built-in animation for next transition
   func disableDefaultAnimationForNextTransition() {
     defaultAnimation = .none
   }
+
+
+  /// Set the default animation for next transition
+  /// This usually overrides rootView's heroModifiers during the transition
+  ///
+  /// - Parameter animation: animation type
   func setDefaultAnimationForNextTransition(_ animation: HeroAnimationType) {
     defaultAnimation = animation
   }
+
+
+  /// Set the container color for next transition
+  ///
+  /// - Parameter color: container color
   func setContainerColorForNextTransition(_ color: UIColor?) {
     containerColor = color
   }
@@ -280,14 +293,19 @@ internal extension Hero {
 
 internal extension Hero {
 
-  func shift(direction: HeroAnimationType.Direction, appearing:Bool) -> CGPoint {
-    let size = container.bounds.size
+  func shift(direction: HeroAnimationType.Direction, appearing:Bool, size: CGSize? = nil, transpose: Bool = false) -> CGPoint {
+    let size = size ?? container.bounds.size
+    let rtn: CGPoint
     switch direction {
     case .left, .right:
-      return CGPoint(x: (direction == .right) == appearing ? -size.width : size.width, y: 0)
+      rtn = CGPoint(x: (direction == .right) == appearing ? -size.width : size.width, y: 0)
     case .up, .down:
-      return CGPoint(x: 0, y: (direction == .down) == appearing ? -size.height : size.height)
+      rtn = CGPoint(x: 0, y: (direction == .down) == appearing ? -size.height : size.height)
     }
+    if transpose {
+      return CGPoint(x: rtn.y, y: rtn.x)
+    }
+    return rtn
   }
 
   func prepareDefaultAnimation() {
@@ -341,9 +359,6 @@ internal extension Hero {
     case .zoomSlide(let direction):
       context[fromView]!.append(contentsOf: [.translate(shift(direction: direction, appearing: false)), .scale(0.8)])
       context[toView]!.append(contentsOf: [.translate(shift(direction: direction, appearing: true)), .scale(0.8)])
-    case .cubeSlide(let direction):
-      context[fromView]!.append(contentsOf: [.translate(shift(direction: direction, appearing: false)), .rotate(y:-π/2)])
-      context[toView]!.append(contentsOf: [.translate(shift(direction: direction, appearing: true)), .rotate(y:π/2)])
     case .cover(let direction):
       context[toView]!.append(contentsOf: [.translate(shift(direction: direction, appearing: true)),
                                            .shadowOpacity(0),

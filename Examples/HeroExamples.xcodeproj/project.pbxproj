@@ -359,6 +359,15 @@
 			name = Menu;
 			sourceTree = "<group>";
 		};
+		A32D2D111E4E9899008D35FF /* BuiltInTransition */ = {
+			isa = PBXGroup;
+			children = (
+				A32D2D0F1E4E14DD008D35FF /* BuiltInTransitions.storyboard */,
+				B16A219F1E4E3907007B8B4C /* AnimationSelectTableViewController.swift */,
+			);
+			name = BuiltInTransition;
+			sourceTree = "<group>";
+		};
 		A33E60981DE761C90065CBD8 = {
 			isa = PBXGroup;
 			children = (
@@ -400,8 +409,7 @@
 			children = (
 				B19F769A1E46C3A2002DBC58 /* Basic.storyboard */,
 				B19F769C1E46C3A2002DBC58 /* MusicPlayer.storyboard */,
-				A32D2D0F1E4E14DD008D35FF /* BuiltInTransitions.storyboard */,
-				B16A219F1E4E3907007B8B4C /* AnimationSelectTableViewController.swift */,
+				A32D2D111E4E9899008D35FF /* BuiltInTransition */,
 				A32D2D0E1E4D5463008D35FF /* Menu */,
 				B19F76AE1E46C449002DBC58 /* VideoPlayer */,
 				B114B6931E412A1B0009CEDE /* AppleHomePage */,
