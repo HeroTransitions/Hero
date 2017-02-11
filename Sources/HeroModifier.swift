@@ -122,6 +122,10 @@ extension HeroModifier {
     }
   }
 
+  public static func translate(_ point:CGPoint, z: CGFloat = 0) -> HeroModifier {
+    return translate(x: point.x, y: point.y, z: z)
+  }
+
   /**
    Rotate 3d
    - Parameters:
@@ -135,6 +139,10 @@ extension HeroModifier {
       targetState.transform = CATransform3DRotate(targetState.transform!, y, 0, 1, 0)
       targetState.transform = CATransform3DRotate(targetState.transform!, z, 0, 0, 1)
     }
+  }
+
+  public static func rotate(_ point: CGPoint, z: CGFloat = 0) -> HeroModifier {
+    return rotate(x: point.x, y: point.y, z: z)
   }
 
   /**
@@ -258,6 +266,29 @@ extension HeroModifier {
       targetState.shadowPath = shadowPath
     }
   }
+
+  /**
+   Set the masksToBounds for the view to animate from/to.
+   - Parameters:
+   - masksToBounds: masksToBounds for the view to animate from/to
+   */
+  public static func masksToBounds(_ masksToBounds: Bool) -> HeroModifier {
+    return HeroModifier { targetState in
+      targetState.masksToBounds = masksToBounds
+    }
+  }
+
+  /**
+   Create an overlay on the animating view.
+   - Parameters:
+     - color: color of the overlay
+     - opacity: opacity of the overlay
+   */
+  public static func overlay(color: UIColor, opacity: CGFloat) -> HeroModifier {
+    return HeroModifier { targetState in
+      targetState.overlay = (color.cgColor, opacity)
+    }
+  }
 }
 
 // timing modifiers
@@ -372,6 +403,20 @@ extension HeroModifier {
 
 // advance modifiers
 extension HeroModifier {
+  /**
+   Apply modifiers directly to the view when transitioning. The modifiers supplied here won't be animated.
+   They are set directly at the begining of the animation for source views.
+   They replace the target state (final appearance) for destination views.
+   */
+  public static func beginWith(modifiers: [HeroModifier]) -> HeroModifier {
+    return HeroModifier { targetState in
+      if targetState.beginState == nil {
+        targetState.beginState = HeroTargetState.HeroTargetStateWrapper(state: [])
+      }
+      targetState.beginState!.state.append(contentsOf: modifiers)
+    }
+  }
+
   /**
    Use global coordinate space.
    

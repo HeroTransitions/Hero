@@ -51,23 +51,27 @@ public class HeroDefaultAnimator: HeroAnimator {
 
   public func canAnimate(view: UIView, appearing: Bool) -> Bool {
     guard let state = context[view] else { return false }
-    return state.position != nil ||
-           state.size != nil ||
-           state.transform != nil ||
-           state.cornerRadius != nil ||
-           state.opacity != nil
+    return  state.position != nil ||
+            state.size != nil ||
+            state.transform != nil ||
+            state.cornerRadius != nil ||
+            state.opacity != nil ||
+            state.overlay != nil ||
+            state.borderColor != nil ||
+            state.borderWidth != nil ||
+            state.shadowOpacity != nil ||
+            state.shadowRadius != nil ||
+            state.shadowOffset != nil ||
+            state.shadowColor != nil ||
+            state.shadowPath != nil
   }
 
   public func animate(fromViews: [UIView], toViews: [UIView]) -> TimeInterval {
     var duration: TimeInterval = 0
 
     // animate
-    for v in fromViews {
-      animate(view: v, appearing: false)
-    }
-    for v in toViews {
-      animate(view: v, appearing: true)
-    }
+    for v in fromViews { animate(view: v, appearing: false) }
+    for v in toViews { animate(view: v, appearing: true) }
 
     // infinite duration means matching the duration of the longest animation
     var infiniteDurationViewContexts = [HeroDefaultAnimatorViewContext]()
@@ -79,8 +83,8 @@ public class HeroDefaultAnimator: HeroAnimator {
       }
     }
 
-    if duration == 0 && infiniteDurationViewContexts.count > 0 {
-      duration = 0.2
+    for viewContexts in infiniteDurationViewContexts {
+      duration = max(duration, viewContexts.optimizedDurationAndTimingFunction().duration)
     }
 
     for viewContexts in infiniteDurationViewContexts {
