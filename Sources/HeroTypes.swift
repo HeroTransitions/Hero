@@ -22,37 +22,6 @@
 
 import UIKit
 
-public enum HeroAnimationType {
-  public enum Direction {
-    case left, right, up, down
-  }
-  case auto
-  case push(direction: Direction)
-  case pull(direction: Direction)
-  case cover(direction: Direction)
-  case uncover(direction: Direction)
-  case slide(direction: Direction)
-  case zoomSlide(direction: Direction)
-  case pageIn(direction: Direction)
-  case pageOut(direction: Direction)
-  case fade
-  indirect case selectBy(presenting:HeroAnimationType, dismissing:HeroAnimationType)
-  case none
-
-  public var label: String? {
-    let mirror = Mirror(reflecting: self)
-    if let associated = mirror.children.first {
-      let valuesMirror = Mirror(reflecting: associated.value)
-      if !valuesMirror.children.isEmpty {
-        let parameters = valuesMirror.children.map { ".\($0.value)" }.joined(separator: ",")
-        return ".\(associated.label ?? "")(\(parameters))"
-      }
-      return ".\(associated.label ?? "")(.\(associated.value))"
-    }
-    return ".\(self)"
-  }
-}
-
 public protocol HeroPreprocessor {
   weak var context: HeroContext! { get set }
   func process(fromViews: [UIView], toViews: [UIView])
