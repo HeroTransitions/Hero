@@ -22,8 +22,7 @@
 
 import UIKit
 
-@available(tvOS, unavailable)
-@available(iOS 8.0, *)
+#if os(iOS)
 public class HeroDebugPlugin: HeroPlugin {
   static var showOnTop: Bool = false
 
@@ -181,3 +180,4 @@ extension HeroDebugPlugin:HeroDebugViewDelegate {
     Hero.shared.container.layer.sublayerTransform = t
   }
 }
+#endif
