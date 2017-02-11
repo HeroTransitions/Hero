@@ -6,10 +6,7 @@
 ![Xcode 8.2+](https://img.shields.io/badge/Xcode-8.2%2B-blue.svg)
 ![iOS 8.0+](https://img.shields.io/badge/iOS-8.0%2B-blue.svg)
 ![Swift 3.0+](https://img.shields.io/badge/Swift-3.0%2B-orange.svg)
-
-[中文 README](https://github.com/lkzhao/Hero/blob/master/README.zh-cn.md)
-
-## Introduction
+[![中文 README](https://img.shields.io/badge/%E4%B8%AD%E6%96%87-README-blue.svg?style=flat)](https://github.com/lkzhao/Hero/blob/master/README.zh-cn.md)
 
 **Hero** is a library for building iOS view controller transitions. It provides a layer on top of the UIKit's cumbersome transition APIs. Making custom transitions an easy task for developers.
 
@@ -33,7 +30,7 @@ Starting with **0.3.0**. Hero provides several default transitions. These can al
 
 ## Example Gallery
 
-Checkout the [example gallery blog post](http://lkzhao.com/2016/12/28/hero.html) for a general idea of what you can achieve with **Hero**
+Checkout the [Example Gallery Blog Post](http://lkzhao.com/2016/12/28/hero.html) for a general idea of what you can achieve with **Hero**
 
 ## Usage Example 1
 
@@ -108,7 +105,7 @@ You can do these in the **storyboard** too!
 * [Navigation Helpers (dismiss, replace, unwind)](https://github.com/lkzhao/Hero/wiki/Usage-Guide#navigation-helpers-dismiss-replace-unwind)
 * [UINavigationController & UITabBarController](https://github.com/lkzhao/Hero/wiki/Usage-Guide#uinavigationcontroller--uitabbarcontroller)
 
-##### NOTE: Hero won't work on iPhone 7 Simulators due to a [bug](https://forums.developer.apple.com/thread/63438) by Apple. Try using other simulators or a real device when working with Hero.
+##### NOTE: Hero won't work on iPhone 7 (Plus) Simulators due to a [bug](https://forums.developer.apple.com/thread/63438) by Apple. Try using other simulators or a real device when working with Hero.
 
 ## Interactive Transition Tutorials
 
