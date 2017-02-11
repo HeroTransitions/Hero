@@ -43,7 +43,7 @@ public extension UIView {
     get { return objc_getAssociatedObject(self, &AssociatedKeys.heroID) as? String }
     set { objc_setAssociatedObject(self, &AssociatedKeys.heroID, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC) }
   }
-  
+
   /**
    Use **heroModifiers** to specify animations alongside the main transition. Checkout `HeroModifier.swift` for available modifiers.
    */
@@ -105,11 +105,11 @@ public extension UIView {
   }
 
   internal var flattenedViewHierarchy: [UIView] {
-    return [self] + subviews.flatMap{ $0.flattenedViewHierarchy }
+    return [self] + subviews.flatMap { $0.flattenedViewHierarchy }
   }
 
   /// Used for .overFullScreen presentation
-  internal var hero_storedAlpha: CGFloat? {
+  internal var heroStoredAlpha: CGFloat? {
     get {
       if let doubleValue = (objc_getAssociatedObject(self, &AssociatedKeys.heroStoredAlpha) as? NSNumber)?.doubleValue {
         return CGFloat(doubleValue)
@@ -179,7 +179,7 @@ public extension UIViewController {
   }
 
   /// used for .overFullScreen presentation
-  internal var hero_storedSnapshots: [UIView]? {
+  internal var heroStoredSnapshots: [UIView]? {
     get {
       return objc_getAssociatedObject(self, &AssociatedKeys.heroStoredSnapshots) as? [UIView]
     }
@@ -192,13 +192,12 @@ public extension UIViewController {
   @IBAction public func ht_dismiss(_ sender: UIView) {
     hero_dismissViewController()
   }
-  
+
   @available(*, deprecated: 0.1.4, message: "use hero_replaceViewController(with:) instead")
   public func heroReplaceViewController(with next: UIViewController) {
     hero_replaceViewController(with: next)
   }
-  
-  
+
   /**
    Dismiss the current view controller with animation. Will perform a navigationController.popViewController 
    if the current view controller is contained inside a navigationController
@@ -210,42 +209,42 @@ public extension UIViewController {
       dismiss(animated: true, completion: nil)
     }
   }
-  
+
   /**
    Unwind to the root view controller using Hero
    */
   @IBAction public func hero_unwindToRootViewController() {
     hero_unwindToViewController { $0.presentingViewController == nil }
   }
-  
+
   /**
    Unwind to a specific view controller using Hero
    */
   public func hero_unwindToViewController(_ toViewController: UIViewController) {
     hero_unwindToViewController { $0 == toViewController }
   }
-  
+
   /**
    Unwind to a view controller that responds to the given selector using Hero
    */
   public func hero_unwindToViewController(withSelector: Selector) {
     hero_unwindToViewController { $0.responds(to: withSelector) }
   }
-  
+
   /**
    Unwind to a view controller with given class using Hero
    */
   public func hero_unwindToViewController(withClass: AnyClass) {
     hero_unwindToViewController { $0.isKind(of: withClass) }
   }
-  
+
   /**
    Unwind to a view controller that the matchBlock returns true on.
    */
   public func hero_unwindToViewController(withMatchBlock: (UIViewController) -> Bool) {
-    var target:UIViewController? = nil
-    var current:UIViewController? = self
-    
+    var target: UIViewController? = nil
+    var current: UIViewController? = self
+
     while target == nil && current != nil {
       if let childViewControllers = (current as? UINavigationController)?.childViewControllers ?? current!.navigationController?.childViewControllers {
         for vc in childViewControllers.reversed() {
@@ -262,14 +261,14 @@ public extension UIViewController {
         }
       }
     }
-    
+
     if let target = target {
       if target.presentedViewController != nil {
         let _ = target.navigationController?.popToViewController(target, animated: false)
-        
+
         let fromVC = self.navigationController ?? self
         let toVC = target.navigationController ?? target
-        
+
         if target.presentedViewController != fromVC {
           // UIKit's UIViewController.dismiss will jump to target.presentedViewController then perform the dismiss.
           // We overcome this behavior by inserting a snapshot into target.presentedViewController
@@ -278,7 +277,7 @@ public extension UIViewController {
           let snapshotView = fromVC.view.snapshotView(afterScreenUpdates: true)!
           toVC.presentedViewController!.view.addSubview(snapshotView)
         }
-        
+
         toVC.dismiss(animated: true, completion: nil)
       } else {
         let _ = target.navigationController?.popToViewController(target, animated: true)
@@ -307,7 +306,7 @@ public extension UIViewController {
       Hero.shared.transition(from: self, to: next, in: container) { finished in
         if finished {
           UIApplication.shared.keyWindow?.addSubview(next.view)
-          
+
           if let parentVC = parentVC {
             self.dismiss(animated: false) {
               parentVC.present(next, animated: false, completion:nil)
@@ -320,7 +319,7 @@ public extension UIViewController {
     }
   }
 
-  public func hero_presentOnTop(viewController:UIViewController, frame:CGRect) {
+  public func hero_presentOnTop(viewController: UIViewController, frame: CGRect) {
     var oldViews = view.flattenedViewHierarchy
     oldViews.removeFirst()
     let hero = HeroIndependentController()
@@ -344,15 +343,15 @@ internal extension UIImage {
 }
 
 internal extension UIColor {
-  var components:(r:CGFloat, g:CGFloat, b:CGFloat, a:CGFloat) {
-    var r:CGFloat = 0
-    var g:CGFloat = 0
-    var b:CGFloat = 0
-    var a:CGFloat = 0
+  var components:(r:CGFloat, g: CGFloat, b: CGFloat, a: CGFloat) {
+    var r: CGFloat = 0
+    var g: CGFloat = 0
+    var b: CGFloat = 0
+    var a: CGFloat = 0
     getRed(&r, green: &g, blue: &b, alpha: &a)
     return (r, g, b, a)
   }
-  var alphaComponent:CGFloat {
+  var alphaComponent: CGFloat {
     return components.a
   }
 }

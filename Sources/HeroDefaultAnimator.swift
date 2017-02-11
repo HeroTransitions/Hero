@@ -40,7 +40,7 @@ public class HeroDefaultAnimator: HeroAnimator {
     }
     return duration
   }
-  
+
   public func apply(state: HeroTargetState, to view: UIView) {
     guard let context = viewContexts[view] else {
       print("HERO: unable to temporarily set to \(view). The view must be running at least one animation before it can be interactively changed")
@@ -99,7 +99,7 @@ public class HeroDefaultAnimator: HeroAnimator {
     let viewContext = HeroDefaultAnimatorViewContext(animator:self, snapshot: snapshot, targetState: context[view]!, appearing: appearing)
     viewContexts[view] = viewContext
   }
-  
+
   public func clean() {
     for vc in viewContexts.values {
       vc.clean()

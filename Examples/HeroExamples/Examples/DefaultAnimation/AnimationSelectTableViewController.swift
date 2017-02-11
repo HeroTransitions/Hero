@@ -53,7 +53,6 @@ class AnimationSelectTableViewController: UITableViewController {
     Hero.shared.setDefaultAnimationForNextTransition(animations[indexPath.item])
     Hero.shared.setContainerColorForNextTransition(.lightGray)
 
-
     hero_replaceViewController(with: vc)
   }
 

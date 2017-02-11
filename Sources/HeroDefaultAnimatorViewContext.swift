@@ -29,7 +29,7 @@ internal class HeroDefaultAnimatorViewContext {
   var duration: TimeInterval = 0
 
   var targetState: HeroTargetState
-  var defaultTiming: (duration:TimeInterval, timingFunction:CAMediaTimingFunction)!
+  var defaultTiming: (duration: TimeInterval, timingFunction: CAMediaTimingFunction)!
 
   // computed
   var contentLayer: CALayer? {
@@ -82,7 +82,7 @@ internal class HeroDefaultAnimatorViewContext {
     return overlayLayer!
   }
 
-  func overlayKeyFor(key:String) -> String? {
+  func overlayKeyFor(key: String) -> String? {
     if key.hasPrefix("overlay.") {
       var key = key
       key.removeSubrange(key.startIndex..<key.index(key.startIndex, offsetBy: 8))
@@ -245,7 +245,7 @@ internal class HeroDefaultAnimatorViewContext {
     return rtn
   }
 
-  func optimizedDurationAndTimingFunction() -> (duration:TimeInterval, timingFunction:CAMediaTimingFunction) {
+  func optimizedDurationAndTimingFunction() -> (duration: TimeInterval, timingFunction: CAMediaTimingFunction) {
     // timing function
     let fromPos = (state["position"]?.0 as? NSValue)?.cgPointValue ?? snapshot.layer.position
     let toPos = (state["position"]?.1 as? NSValue)?.cgPointValue ?? fromPos
@@ -254,7 +254,7 @@ internal class HeroDefaultAnimatorViewContext {
     let realFromPos = CGPoint.zero.transform(fromTransform) + fromPos
     let realToPos = CGPoint.zero.transform(toTransform) + toPos
 
-    var timingFunction:CAMediaTimingFunction = .standard
+    var timingFunction: CAMediaTimingFunction = .standard
     if let container = container, !container.bounds.contains(realToPos) {
       // acceleration if leaving screen
       timingFunction = .acceleration
@@ -293,7 +293,7 @@ internal class HeroDefaultAnimatorViewContext {
       duration = max(duration, neededTime + delay)
     }
   }
-  
+
   func apply(state: HeroTargetState) {
     let targetState = viewState(targetState: state)
     for (key, targetValue) in targetState {
@@ -350,7 +350,7 @@ internal class HeroDefaultAnimatorViewContext {
     overlayLayer = nil
   }
 
-  func currentValue(key:String) -> Any? {
+  func currentValue(key: String) -> Any? {
     if let key = overlayKeyFor(key: key) {
       return overlayLayer?.value(forKeyPath: key)
     }

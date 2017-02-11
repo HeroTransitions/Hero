@@ -27,7 +27,7 @@ class IgnoreSubviewModifiersPreprocessor: BasePreprocessor {
     process(views:fromViews)
     process(views:toViews)
   }
-  
+
   func process(views: [UIView]) {
     for (viewIndex, view) in views.enumerated() {
       guard let recursive = context[view]?.ignoreSubviewModifiers else { continue }

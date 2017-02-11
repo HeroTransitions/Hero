@@ -27,7 +27,7 @@ public class HeroIndependentController: HeroBaseController {
     super.init()
   }
 
-  public func transition(rootView:UIView, fromViews:[UIView], toViews:[UIView], completion: ((Bool) -> Void)? = nil) {
+  public func transition(rootView: UIView, fromViews: [UIView], toViews: [UIView], completion: ((Bool) -> Void)? = nil) {
     transitionContainer = rootView
     completionCallback = completion
 
