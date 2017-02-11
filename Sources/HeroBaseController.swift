@@ -72,6 +72,7 @@ public class HeroBaseController: NSObject {
 
   internal var displayLink: CADisplayLink?
   internal var progressUpdateObservers: [HeroProgressUpdateObserver]?
+  internal var defaultAnimator: HeroDefaultAnimator!
 
   /// max duration needed by the default animator and plugins
   public internal(set) var totalDuration: TimeInterval = 0.0
@@ -235,8 +236,9 @@ internal extension HeroBaseController {
       SourcePreprocessor(),
       CascadePreprocessor()
     ]
+    defaultAnimator = HeroDefaultAnimator()
     animators = [
-      HeroDefaultAnimator()
+      defaultAnimator
     ]
 
     // There is no covariant in Swift, so we need to add plugins one by one.
@@ -341,6 +343,7 @@ internal extension HeroBaseController {
 
     let completion = completionCallback
 
+    defaultAnimator = nil
     progressUpdateObservers = nil
     transitionContainer = nil
     completionCallback = nil

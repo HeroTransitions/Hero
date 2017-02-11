@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C68" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="540-XZ-2qf">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Default Animation-->
+        <scene sceneID="L1T-fO-G1u">
+            <objects>
+                <tableViewController storyboardIdentifier="animationSelect" id="540-XZ-2qf" customClass="AnimationSelectTableViewController" customModule="HeroExamples" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="G69-Nc-2Eq">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="header" rowHeight="300" id="en5-ZL-BAJ">
+                                <rect key="frame" x="0.0" y="28" width="375" height="300"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="en5-ZL-BAJ" id="IQv-gx-fno">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="299"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="HeroLogo" translatesAutoresizingMaskIntoConstraints="NO" id="zzi-xs-O5L">
+                                            <rect key="frame" x="40" y="20" width="295" height="250"/>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Built-in transitions" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Md3-qE-icu">
+                                            <rect key="frame" x="112" y="210" width="152" height="23"/>
+                                            <fontDescription key="fontDescription" type="system" weight="light" pointSize="19"/>
+                                            <color key="textColor" red="0.99120575189590454" green="0.51333808898925781" blue="0.19727766513824463" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kXp-Zq-0Me">
+                                            <rect key="frame" x="8" y="16" width="48" height="48"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="48" id="M5K-7x-Vrb"/>
+                                                <constraint firstAttribute="height" constant="48" id="ppv-Hj-UEy"/>
+                                            </constraints>
+                                            <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                            <state key="normal" image="ic_keyboard_arrow_down"/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                    <real key="value" value="24"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="string" keyPath="heroModifierString" value="fade translate(0, -150)"/>
+                                                <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="back"/>
+                                            </userDefinedRuntimeAttributes>
+                                            <connections>
+                                                <action selector="hero_dismissViewController" destination="q1W-W4-Me3" eventType="touchUpInside" id="1bM-fC-Wjk"/>
+                                                <action selector="hero_unwindToRootViewController" destination="q1W-W4-Me3" eventType="touchUpInside" id="ldu-lb-SGn"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="zzi-xs-O5L" secondAttribute="trailing" constant="40" id="Blu-Cf-b3G"/>
+                                        <constraint firstItem="zzi-xs-O5L" firstAttribute="leading" secondItem="IQv-gx-fno" secondAttribute="leading" constant="40" id="LDJ-Kj-74I"/>
+                                        <constraint firstItem="kXp-Zq-0Me" firstAttribute="top" secondItem="IQv-gx-fno" secondAttribute="topMargin" constant="8" id="PXf-pc-3rw"/>
+                                        <constraint firstItem="Md3-qE-icu" firstAttribute="top" secondItem="zzi-xs-O5L" secondAttribute="bottom" constant="-60" id="a4I-ff-Chj"/>
+                                        <constraint firstItem="zzi-xs-O5L" firstAttribute="centerY" secondItem="IQv-gx-fno" secondAttribute="centerY" constant="-5" id="jSq-bY-CXf"/>
+                                        <constraint firstItem="kXp-Zq-0Me" firstAttribute="leading" secondItem="IQv-gx-fno" secondAttribute="leading" constant="8" id="lsX-lb-Y1D"/>
+                                        <constraint firstItem="Md3-qE-icu" firstAttribute="centerX" secondItem="IQv-gx-fno" secondAttribute="centerX" id="pAt-3f-dIp"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="item" textLabel="Jff-m2-kij" style="IBUITableViewCellStyleDefault" id="9lb-Zz-xmu">
+                                <rect key="frame" x="0.0" y="328" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="9lb-Zz-xmu" id="1Vx-Fz-mzw">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Jff-m2-kij">
+                                            <rect key="frame" x="15" y="0.0" width="345" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="540-XZ-2qf" id="X5o-dz-0J6"/>
+                            <outlet property="delegate" destination="540-XZ-2qf" id="Bed-5r-d02"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Default Animation" id="j9f-ST-AvG">
+                        <barButtonItem key="leftBarButtonItem" image="ic_close" id="y2l-4M-Z08">
+                            <connections>
+                                <action selector="hero_unwindToRootViewController" destination="q1W-W4-Me3" id="aM1-i2-gb7"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabled" value="YES"/>
+                    </userDefinedRuntimeAttributes>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="q1W-W4-Me3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1039.2" y="736.28185907046486"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="HeroLogo" width="724" height="250"/>
+        <image name="ic_close" width="24" height="24"/>
+        <image name="ic_keyboard_arrow_down" width="24" height="24"/>
+    </resources>
+</document>

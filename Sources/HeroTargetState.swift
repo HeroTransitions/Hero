@@ -50,6 +50,14 @@ public enum HeroCoordinateSpace {
 }
 
 public struct HeroTargetState {
+  class HeroTargetStateWrapper {
+    var state:HeroTargetState
+    init(state:HeroTargetState) {
+      self.state = state
+    }
+  }
+  internal var beginState: HeroTargetStateWrapper?
+
   internal var position: CGPoint?
   internal var size: CGSize?
   internal var transform: CATransform3D?
@@ -65,7 +73,10 @@ public struct HeroTargetState {
   internal var shadowOffset: CGSize?
   internal var shadowRadius: CGFloat?
   internal var shadowPath: CGPath?
+  internal var masksToBounds: Bool?
   internal var displayShadow: Bool = true
+
+  internal var overlay: (color:CGColor, opacity:CGFloat)?
 
   internal var spring: (CGFloat, CGFloat)?
   internal var delay: TimeInterval = 0
