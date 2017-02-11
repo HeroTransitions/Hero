@@ -40,8 +40,8 @@ class MatchPreprocessor: BasePreprocessor {
       fvState.spring = tvState.spring
 
       tvState.opacity = 0
-      if !fv.isOpaque || !tv.isOpaque {
-        // cross fade if fromView is not opaque or if toView is transparent
+      if !fv.isOpaque || fv.alpha < 1 || !tv.isOpaque || tv.alpha < 1 {
+        // cross fade if from/toViews are not opaque
         fvState.opacity = 0
       } else {
         // no cross fade in this case, fromView is always displayed during the transition.

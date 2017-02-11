@@ -105,13 +105,7 @@ public extension UIView {
   }
 
   internal var flattenedViewHierarchy: [UIView] {
-    var flattened: [UIView] = [self]
-    var index = 0
-    while index < flattened.count {
-      flattened.append(contentsOf: flattened[index].subviews)
-      index += 1
-    }
-    return flattened
+    return [self] + subviews.flatMap{ $0.flattenedViewHierarchy }
   }
 
   /// Used for .overFullScreen presentation
