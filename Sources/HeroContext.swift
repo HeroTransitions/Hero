@@ -29,20 +29,20 @@ public class HeroContext {
   internal var viewAlphas = [UIView: CGFloat]()
   internal var targetStates = [UIView: HeroTargetState]()
 
-  internal var defaultCoordinateSpace:HeroCoordinateSpace = .local
+  internal var defaultCoordinateSpace: HeroCoordinateSpace = .local
 
   internal init(container: UIView) {
     self.container = container
   }
 
-  internal func set(fromViews:[UIView], toViews:[UIView]) {
+  internal func set(fromViews: [UIView], toViews: [UIView]) {
     self.fromViews = fromViews
     self.toViews = toViews
     process(views: fromViews, idMap: &heroIDToSourceView)
     process(views: toViews, idMap: &heroIDToDestinationView)
   }
 
-  internal func process(views:[UIView], idMap: inout [String: UIView]) {
+  internal func process(views: [UIView], idMap: inout [String: UIView]) {
     for view in views {
       if container.convert(view.bounds, from: view).intersects(container.bounds) {
         if let heroID = view.heroID {
@@ -109,7 +109,7 @@ extension HeroContext {
     if let snapshot = snapshotViews[view] {
       return snapshot
     }
-    
+
     var containerView = container
     let coordinateSpace = targetStates[view]?.coordinateSpace ?? defaultCoordinateSpace
     switch coordinateSpace {
@@ -126,7 +126,7 @@ extension HeroContext {
     case .global:
       break
     }
- 
+
     unhide(view: view)
 
     // capture a snapshot without alpha & cornerRadius
@@ -136,8 +136,8 @@ extension HeroContext {
     view.alpha = 1
 
     let snapshot: UIView
-    let snapshotType:HeroSnapshotType = self[view]?.snapshotType ?? .optimized
-    
+    let snapshotType: HeroSnapshotType = self[view]?.snapshotType ?? .optimized
+
     switch snapshotType {
     case .normal:
       snapshot = view.snapshotView(afterScreenUpdates: true)!
@@ -167,12 +167,12 @@ extension HeroContext {
           newBarView.tintColor = barView.tintColor
           newBarView.barTintColor = barView.barTintColor
           newBarView.clipsToBounds = false
-          
+
           // take a snapshot without the background
           barView.layer.sublayers![0].opacity = 0
           let realSnapshot = barView.snapshotView(afterScreenUpdates: true)!
           barView.layer.sublayers![0].opacity = 1
-          
+
           newBarView.addSubview(realSnapshot)
           snapshot = newBarView
         } else {
@@ -190,7 +190,7 @@ extension HeroContext {
     if snapshotType != .noSnapshot {
       snapshot.layer.allowsGroupOpacity = false
     }
-    
+
     view.layer.cornerRadius = oldCornerRadius
     view.alpha = oldAlpha
 
@@ -279,7 +279,7 @@ extension HeroContext {
       snapshot.removeFromSuperview()
     }
   }
-  internal func removeSnapshots(rootView:UIView) {
+  internal func removeSnapshots(rootView: UIView) {
     if let snapshot = snapshotViews[rootView], snapshot != rootView {
       snapshot.removeFromSuperview()
     }
@@ -297,16 +297,16 @@ extension HeroContext {
     return snapshots
   }
   internal func loadViewAlpha(rootView: UIView) {
-    if let storedAlpha = rootView.hero_storedAlpha {
+    if let storedAlpha = rootView.heroStoredAlpha {
       rootView.alpha = storedAlpha
-      rootView.hero_storedAlpha = nil
+      rootView.heroStoredAlpha = nil
     }
     for subview in rootView.subviews {
       loadViewAlpha(rootView: subview)
     }
   }
   internal func storeViewAlpha(rootView: UIView) {
-    rootView.hero_storedAlpha = viewAlphas[rootView]
+    rootView.heroStoredAlpha = viewAlphas[rootView]
     for subview in rootView.subviews {
       storeViewAlpha(rootView: subview)
     }

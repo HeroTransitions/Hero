@@ -43,7 +43,7 @@ public class Hero: HeroBaseController {
 
   /// Shared singleton object for controlling the transition
   public static let shared = Hero()
-  
+
   // MARK: Properties
 
   /// destination view controller
@@ -61,7 +61,7 @@ public class Hero: HeroBaseController {
       }
     }
   }
-  
+
   /// a UIViewControllerContextTransitioning object provided by UIKit,
   /// might be nil when transitioning. This happens when calling heroReplaceViewController
   fileprivate weak var transitionContext: UIViewControllerContextTransitioning?
@@ -80,19 +80,19 @@ public class Hero: HeroBaseController {
 
   fileprivate var inNavigationController = false
   fileprivate var inTabBarController = false
-  fileprivate var inContainerController:Bool {
+  fileprivate var inContainerController: Bool {
     return inNavigationController || inTabBarController
   }
-  fileprivate var toOverFullScreen:Bool {
+  fileprivate var toOverFullScreen: Bool {
     return !inContainerController && toViewController!.modalPresentationStyle == .overFullScreen
   }
-  fileprivate var fromOverFullScreen:Bool {
+  fileprivate var fromOverFullScreen: Bool {
     return !inContainerController && fromViewController!.modalPresentationStyle == .overFullScreen
   }
-  
+
   fileprivate var toView: UIView { return toViewController!.view }
   fileprivate var fromView: UIView { return fromViewController!.view }
-  
+
   fileprivate override init() { super.init() }
 }
 
@@ -103,7 +103,6 @@ public extension Hero {
     defaultAnimation = .none
   }
 
-
   /// Set the default animation for next transition
   /// This usually overrides rootView's heroModifiers during the transition
   ///
@@ -111,7 +110,6 @@ public extension Hero {
   func setDefaultAnimationForNextTransition(_ animation: HeroAnimationType) {
     defaultAnimation = animation
   }
-
 
   /// Set the container color for next transition
   ///
@@ -130,7 +128,7 @@ internal extension Hero {
         $0.heroWillStartTransition?()
         $0.heroWillStartAnimatingTo?(viewController: tvc)
       }
-      
+
       closureProcessForHeroDelegate(vc: tvc) {
         $0.heroWillStartTransition?()
         $0.heroWillStartAnimatingFrom?(viewController: fvc)
@@ -141,17 +139,17 @@ internal extension Hero {
     fullScreenSnapshot = transitionContainer.window!.snapshotView(afterScreenUpdates: true)!
     transitionContainer.window!.addSubview(fullScreenSnapshot)
 
-    if let oldSnapshots = fromViewController?.hero_storedSnapshots {
+    if let oldSnapshots = fromViewController?.heroStoredSnapshots {
       for snapshot in oldSnapshots {
         snapshot.removeFromSuperview()
       }
-      fromViewController?.hero_storedSnapshots = nil
+      fromViewController?.heroStoredSnapshots = nil
     }
-    if let oldSnapshots = toViewController?.hero_storedSnapshots {
+    if let oldSnapshots = toViewController?.heroStoredSnapshots {
       for snapshot in oldSnapshots {
         snapshot.removeFromSuperview()
       }
-      toViewController?.hero_storedSnapshots = nil
+      toViewController?.heroStoredSnapshots = nil
     }
 
     prepareForTransition()
@@ -219,13 +217,13 @@ internal extension Hero {
       context.unhide(rootView: toView)
       context.removeSnapshots(rootView: toView)
       context.storeViewAlpha(rootView: fromView)
-      fromViewController!.hero_storedSnapshots = context.snapshots(rootView: fromView)
+      fromViewController!.heroStoredSnapshots = context.snapshots(rootView: fromView)
     } else if !finished && !presenting && fromOverFullScreen {
       // cancelled dismissing a overFullScreen VC
       context.unhide(rootView: fromView)
       context.removeSnapshots(rootView: fromView)
       context.storeViewAlpha(rootView: toView)
-      toViewController!.hero_storedSnapshots = context.snapshots(rootView: toView)
+      toViewController!.heroStoredSnapshots = context.snapshots(rootView: toView)
     } else {
       context.unhideAll()
       context.removeAllSnapshots()
@@ -240,7 +238,7 @@ internal extension Hero {
       // bug: http://openradar.appspot.com/radar?id=5320103646199808
       UIApplication.shared.keyWindow!.addSubview(presenting ? fromView : toView)
     }
-    
+
     // use temp variables to remember these values
     // because we have to reset everything before calling
     // any delegate or completion block
@@ -293,7 +291,7 @@ internal extension Hero {
 
 internal extension Hero {
 
-  func shift(direction: HeroAnimationType.Direction, appearing:Bool, size: CGSize? = nil, transpose: Bool = false) -> CGPoint {
+  func shift(direction: HeroAnimationType.Direction, appearing: Bool, size: CGSize? = nil, transpose: Bool = false) -> CGPoint {
     let size = size ?? container.bounds.size
     let rtn: CGPoint
     switch direction {
@@ -424,31 +422,22 @@ internal extension Hero {
 
 // delegate helper
 fileprivate extension Hero {
-  func closureProcessForHeroDelegate<T: UIViewController>(vc: T, closure: (HeroViewControllerDelegate)->()) {
+  func closureProcessForHeroDelegate<T: UIViewController>(vc: T, closure: (HeroViewControllerDelegate) -> Void) {
     if let delegate = vc as? HeroViewControllerDelegate {
       closure(delegate)
     }
-    
+
     if let navigationController = vc as? UINavigationController,
        let delegate = navigationController.topViewController as? HeroViewControllerDelegate {
       closure(delegate)
     }
-    
+
     if let tabBarController = vc as? UITabBarController,
        let delegate = tabBarController.viewControllers?[tabBarController.selectedIndex] as? HeroViewControllerDelegate {
       closure(delegate)
     }
   }
 }
-
-
-
-
-
-
-
-
-
 
 // MARK: UIKit Protocol Conformance
 

@@ -35,12 +35,12 @@ class SourcePreprocessor: BasePreprocessor {
       prepareFor(view: tv, targetView: fv)
     }
   }
-  
+
   func prepareFor(view: UIView, targetView: UIView) {
     let targetPos = context.container.convert(targetView.layer.position, from: targetView.superview!)
 
     var state = context[view]!
-    
+
     // use global coordinate space since over target position is converted from the global container
     state.coordinateSpace = .global
 

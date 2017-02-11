@@ -22,26 +22,24 @@
 
 import UIKit
 
-
 public enum HeroSnapshotType {
   /// Will optimize for different type of views
   /// For custom views or views with masking, .optimizedDefault might create snapshots 
   /// that appear differently than the actual view.
   /// In that case, use .normal or .slowRender to disable the optimization
   case optimized
-  
+
   /// snapshotView(afterScreenUpdates:)
   case normal
-  
+
   /// layer.render(in: currentContext)
   case layerRender
-  
+
   /// will not create snapshot. animate the view directly.
   /// This will mess up the view hierarchy, therefore, view controllers have to rebuild
   /// its view structure after the transition finishes
   case noSnapshot
 }
-
 
 public enum HeroCoordinateSpace {
   case global
@@ -51,8 +49,8 @@ public enum HeroCoordinateSpace {
 
 public struct HeroTargetState {
   class HeroTargetStateWrapper {
-    var state:HeroTargetState
-    init(state:HeroTargetState) {
+    var state: HeroTargetState
+    init(state: HeroTargetState) {
       self.state = state
     }
   }
@@ -76,7 +74,7 @@ public struct HeroTargetState {
   internal var masksToBounds: Bool?
   internal var displayShadow: Bool = true
 
-  internal var overlay: (color:CGColor, opacity:CGFloat)?
+  internal var overlay: (color: CGColor, opacity: CGFloat)?
 
   internal var spring: (CGFloat, CGFloat)?
   internal var delay: TimeInterval = 0
@@ -86,7 +84,7 @@ public struct HeroTargetState {
   internal var arc: CGFloat?
   internal var source: String?
   internal var cascade: (TimeInterval, CascadeDirection, Bool)?
-  
+
   internal var ignoreSubviewModifiers: Bool?
   internal var coordinateSpace: HeroCoordinateSpace?
   internal var useScaleBasedSizeChange: Bool?

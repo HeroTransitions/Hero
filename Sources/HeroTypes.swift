@@ -39,11 +39,11 @@ public enum HeroAnimationType {
   indirect case selectBy(presenting:HeroAnimationType, dismissing:HeroAnimationType)
   case none
 
-  public var label:String? {
+  public var label: String? {
     let mirror = Mirror(reflecting: self)
     if let associated = mirror.children.first {
       let valuesMirror = Mirror(reflecting: associated.value)
-      if valuesMirror.children.count > 0 {
+      if !valuesMirror.children.isEmpty {
         let parameters = valuesMirror.children.map { ".\($0.value)" }.joined(separator: ",")
         return ".\(associated.label ?? "")(\(parameters))"
       }
@@ -63,7 +63,7 @@ public protocol HeroAnimator {
   func canAnimate(view: UIView, appearing: Bool) -> Bool
   func animate(fromViews: [UIView], toViews: [UIView]) -> TimeInterval
   func clean()
-  
+
   func seekTo(timePassed: TimeInterval)
   func resume(timePassed: TimeInterval, reverse: Bool) -> TimeInterval
   func apply(state: HeroTargetState, to view: UIView)
@@ -77,7 +77,7 @@ public protocol HeroProgressUpdateObserver {
   @objc optional func heroWillStartAnimatingFrom(viewController: UIViewController)
   @objc optional func heroDidEndAnimatingFrom(viewController: UIViewController)
   @objc optional func heroDidCancelAnimatingFrom(viewController: UIViewController)
-  
+
   @objc optional func heroWillStartTransition()
   @objc optional func heroDidEndTransition()
   @objc optional func heroDidCancelTransition()

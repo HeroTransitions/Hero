@@ -40,7 +40,7 @@ class HeroDebugView: UIView {
 
   var delegate: HeroDebugViewDelegate?
   var panGR: UIPanGestureRecognizer!
-  
+
   var pinchGR: UIPinchGestureRecognizer!
 
   var showControls: Bool = false {
@@ -48,7 +48,7 @@ class HeroDebugView: UIView {
       layoutSubviews()
     }
   }
-  
+
   var showOnTop: Bool = false
   var rotation: CGFloat = CGFloat(M_PI / 6)
   var scale: CGFloat = 0.6
@@ -56,7 +56,7 @@ class HeroDebugView: UIView {
   var progress: Float {
     return debugSlider.value
   }
-  
+
   init(initialProcess: Float, showCurveButton: Bool, showOnTop: Bool) {
     super.init(frame:.zero)
     self.showOnTop = showOnTop
@@ -97,7 +97,7 @@ class HeroDebugView: UIView {
     panGR = UIPanGestureRecognizer(target: self, action: #selector(pan))
     panGR.delegate = self
     panGR.maximumNumberOfTouches = 1
-    
+
     addGestureRecognizer(panGR)
 
     pinchGR = UIPinchGestureRecognizer(target: self, action: #selector(pinch))

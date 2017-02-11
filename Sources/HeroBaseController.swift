@@ -113,14 +113,13 @@ public class HeroBaseController: NSObject {
     }
   }
 
-
   internal var finishing: Bool = true
 
   internal var processors: [HeroPreprocessor]!
   internal var animators: [HeroAnimator]!
   internal var plugins: [HeroPlugin]!
 
-  internal var animatingViews: [(fromViews:[UIView], toViews:[UIView])]!
+  internal var animatingViews: [(fromViews: [UIView], toViews: [UIView])]!
 
   internal static var enabledPlugins: [HeroPlugin.Type] = []
 
@@ -283,7 +282,6 @@ internal extension HeroBaseController {
       animatingViews.append((currentFromViews, currentToViews))
     }
   }
-
 
   /// Actually animate the views
   /// subclass should call `prepareForTransition` & `prepareForAnimation` before calling `animate`

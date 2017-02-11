@@ -122,7 +122,7 @@ extension HeroModifier {
     }
   }
 
-  public static func translate(_ point:CGPoint, z: CGFloat = 0) -> HeroModifier {
+  public static func translate(_ point: CGPoint, z: CGFloat = 0) -> HeroModifier {
     return translate(x: point.x, y: point.y, z: z)
   }
 
@@ -154,7 +154,6 @@ extension HeroModifier {
     return .rotate(z: z)
   }
 }
-
 
 extension HeroModifier {
   /**
@@ -306,7 +305,6 @@ extension HeroModifier {
     }
   }
 
-
   /**
    Sets the duration of the animation for a given view to match the longest animation of the transition.
    */
@@ -436,7 +434,7 @@ extension HeroModifier {
    ignore all heroModifiers attributes for a view's direct subviews.
    */
   public static var ignoreSubviewModifiers: HeroModifier = .ignoreSubviewModifiers()
-  
+
   /**
    ignore all heroModifiers attributes for a view's subviews.
    - Parameters:
@@ -447,7 +445,7 @@ extension HeroModifier {
       targetState.ignoreSubviewModifiers = recursive
     }
   }
-  
+
   /**
    Will create snapshot optimized for different view type.
    For custom views or views with masking, useOptimizedSnapshot might create snapshots
@@ -474,7 +472,7 @@ extension HeroModifier {
   public static var useLayerRenderSnapshot: HeroModifier = HeroModifier { targetState in
     targetState.snapshotType = .layerRender
   }
-  
+
   /**
    Force Hero to not create any snapshot when animating this view.
    This will mess up the view hierarchy, therefore, view controllers have to rebuild
