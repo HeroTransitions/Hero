@@ -82,10 +82,13 @@ You can do these in the **storyboard** too!
 
 Checkout the **[wiki pages](https://github.com/lkzhao/Hero/wiki/Usage-Guide)** for documentations. 
 
-For more up-to-date ones, please see the header-doc in code (use **alt+click** in Xcode).
+For more up-to-date ones, please see the header-doc. (use **alt+click** in Xcode)
 <img src="https://cdn.rawgit.com/lkzhao/Hero/master/Resources/headerDoc.png" width="521px"/>
 
-##### NOTE: Hero won't work on iPhone 7 (Plus) Simulators due to a [bug](https://forums.developer.apple.com/thread/63438) by Apple. Try using other simulators or a real device when working with Hero.
+
+## iPhone 7 (Plus) Simulators
+
+Hero **does not work** on iPhone 7 (Plus) Simulators due to an [Apple bug](https://forums.developer.apple.com/thread/63438). Please use other simulators or a real device when working with Hero.
 
 ## Interactive Transition Tutorials
 
