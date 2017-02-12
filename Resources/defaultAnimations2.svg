@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="148px" height="211px" viewBox="0 0 148 211" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <defs>
+        <clipPath id="screen">
+            <rect fill="#FFFFFF" x="0" y="0" width="56" height="98" rx="6"></rect>
+        </clipPath>
+
+        <g id="fade">
+            <text font-family="HelveticaNeue-Light, Helvetica Neue" font-size="14" fill="#000000" x="32" y="6" text-anchor="middle" alignment-baseline="central">
+                Fade
+            </text>
+            <g transform="translate(0, 21)">
+                <rect fill="#0C1E31" x="0" y="0" width="64" height="126" rx="11"></rect>
+                <circle fill="#FFFFFF" cx="32" cy="118" r="4"></circle>
+                <g transform="translate(4, 14)" clip-path="url(#screen)">
+                    <rect fill="#FFFFFF" x="0" y="0" width="56" height="98" rx="6"></rect>
+                    <g>
+                        <rect fill="#37D0AB" x="0" y="0" width="56" height="98">
+                        </rect>
+                        <text font-family="HelveticaNeue-Light, Helvetica Neue" font-size="50" fill="#000000">
+                            <tspan x="15" y="66">1</tspan>
+                        </text>
+                    </g>
+                    <g>
+                        <rect fill="#3A97FC" x="0" y="0" width="56" height="98"></rect>
+                        <text font-family="HelveticaNeue-Light, Helvetica Neue" font-size="50" fill="#000000">
+                            <tspan x="14" y="65">2</tspan>
+                        </text>
+                        <animate 
+                            attributeName="opacity" 
+                            values="0;1;1;0;0" 
+                            dur="2s"
+                            keyTimes="0;0.15;0.5;0.65;1"
+                            calcMode="spline"
+                            keySplines="0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1"
+                            repeatCount="indefinite"
+                            fill="freeze" />
+                    </g>
+                </g>
+            </g>
+        </g>
+
+        <g id="zoom">
+            <text font-family="HelveticaNeue-Light, Helvetica Neue" font-size="14" fill="#000000" x="32" y="6" text-anchor="middle" alignment-baseline="central">
+                Zoom
+            </text>
+            <g transform="translate(0, 21)">
+                <rect fill="#0C1E31" x="0" y="0" width="64" height="126" rx="11"></rect>
+                <circle fill="#FFFFFF" cx="32" cy="118" r="4"></circle>
+                <g transform="translate(4, 14)" clip-path="url(#screen)">
+                    <rect fill="#FFFFFF" x="0" y="0" width="56" height="98" rx="6"></rect>
+                    <g>
+                        <g transform="translate(28, 49)">
+                            <rect fill="#3A97FC" x="-28" y="-49" width="56" height="98" rx="6"></rect>
+                            <text font-family="HelveticaNeue-Light, Helvetica Neue" font-size="50" fill="#000000">
+                                <tspan x="-14" y="16">2</tspan>
+                            </text>
+                            <animateTransform attributeName="transform" 
+                                type="scale"
+                                additive="sum" 
+                                values="0.7 0.7;1 1;1 1;0.7 0.7;0.7 0.7"
+                                dur="2s"
+                                keyTimes="0;0.15;0.5;0.65;1"
+                                calcMode="spline"
+                                keySplines="0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1"
+                                repeatCount="indefinite"
+                                fill="freeze" />
+                        </g>
+                    </g>
+                    <g>
+                        <g transform="translate(28, 49)">
+                            <rect fill="#37D0AB" x="-28" y="-49" width="56" height="98" rx="6"></rect>
+                            <text font-family="HelveticaNeue-Light, Helvetica Neue" font-size="50" fill="#000000">
+                                <tspan x="-13" y="17">1</tspan>
+                            </text>
+                            <animateTransform attributeName="transform" 
+                                type="scale"
+                                additive="sum" 
+                                values="1 1;1.5 1.5;1.5 1.5;1 1;1 1"
+                                dur="2s"
+                                keyTimes="0;0.15;0.5;0.65;1"
+                                calcMode="spline"
+                                keySplines="0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1"
+                                repeatCount="indefinite"
+                                fill="freeze" />
+                            <animate 
+                                attributeName="opacity" 
+                                values="1;0;0;1;1" 
+                                dur="2s"
+                                keyTimes="0;0.15;0.5;0.65;1"
+                                calcMode="spline"
+                                keySplines="0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1"
+                                repeatCount="indefinite"
+                                fill="freeze" />
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </defs>
+    <g transform="translate(0, 40)">
+        <use x="0" xlink:href="#fade" />
+        <use x="84" xlink:href="#zoom" />
+    </g>
+</svg>

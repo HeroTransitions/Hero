@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg width="372px" height="180px" viewBox="0 0 372 180" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg width="316px" height="180px" viewBox="0 0 316 180" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <defs>
         <clipPath id="screen">
             <rect fill="#FFFFFF" x="0" y="0" width="56" height="98" rx="6"></rect>
         </clipPath>
     </defs>
     <g>
-        <g transform="translate(28, 16)">
+        <g transform="translate(0, 16)">
             <text font-family="HelveticaNeue-Light, Helvetica Neue" font-size="14" fill="#000000" x="32" y="6" text-anchor="middle" alignment-baseline="central">
                 Match
             </text>
@@ -67,7 +67,8 @@
                         L18.0007413,53 
                         C13.5820539,53 10,49.4165688 10,44.9992587 
                         L10,25.0007413 Z;" 
-                    dur="1s"
+                            dur="2s"
+                            keyTimes="0;0.15;0.5;0.65;1"
                     repeatCount="indefinite"
                     calcMode="spline"
                     keySplines="0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1"
@@ -126,7 +127,8 @@
                             L28,88 
                             C23.581722,88 20,84.4092877 20,80 
                             L20,80 Z;" 
-                    dur="1s"
+                            dur="2s"
+                            keyTimes="0;0.15;0.5;0.65;1"
                     calcMode="spline"
                     keySplines="0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1"
                     repeatCount="indefinite"
@@ -135,7 +137,7 @@
                 </g>
             </g>
         </g>
-        <g id="Scale" transform="translate(112, 16)">
+        <g id="Scale" transform="translate(84, 16)">
             <text font-family="HelveticaNeue-Light, Helvetica Neue" font-size="14" fill="#000000" x="32" y="6" text-anchor="middle" alignment-baseline="central">
                 Scale
             </text>
@@ -144,58 +146,38 @@
                 <circle fill="#FFFFFF" cx="32" cy="118" r="4"></circle>
                 <g transform="translate(4, 14)">
                     <rect id="Rectangle-3" fill="#FFFFFF" x="0" y="0" width="56" height="98" rx="6"></rect>
-                    <rect id="Rectangle-2" fill="white" x="10" y="39" width="36" height="36" rx="8">
-                        <animate 
-                            attributeName="x" 
-                            values="19;10;10;19;19" 
-                            dur="1s"
+
+                    <g transform="translate(28, 57)" opacity="0">
+                        <rect id="Rectangle-2" fill="#3A97FC" x="-18" y="-18" width="36" height="36" rx="8">
+                        </rect>
+                        <animateTransform attributeName="transform" 
+                            type="scale"
+                            additive="sum" 
+                            values="0.5 0.5;1 1;1 1;0.5 0.5;0.5 0.5"
+                            dur="2s"
+                            keyTimes="0;0.15;0.5;0.65;1"
                             calcMode="spline"
-                            keySplines="0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1"
                             begin="0.25s"
+                            keySplines="0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1"
                             repeatCount="indefinite"
                             fill="freeze" />
                         <animate 
-                            attributeName="y" 
-                            values="48;39;39;48;48" 
-                            dur="1s"
+                            attributeName="opacity" 
+                            values="0;1;1;0;0" 
+                            dur="2s"
+                            keyTimes="0;0.15;0.5;0.65;1"
                             calcMode="spline"
-                            keySplines="0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1"
                             begin="0.25s"
+                            keySplines="0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1"
                             repeatCount="indefinite"
                             fill="freeze" />
-                        <animate 
-                            attributeName="width" 
-                            values="18; 36; 36; 18; 18" 
-                            dur="1s"
-                            calcMode="spline"
-                            keySplines="0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1"
-                            begin="0.25s"
-                            repeatCount="indefinite"
-                            fill="freeze" />
-                        <animate 
-                            attributeName="height" 
-                            values="18; 36; 36; 18; 18" 
-                            dur="1s"
-                            calcMode="spline"
-                            keySplines="0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1"
-                            begin="0.25s"
-                            repeatCount="indefinite"
-                            fill="freeze" />
-                        <animate 
-                            attributeName="fill" 
-                            values="white; #3A97FC; #3A97FC; white; white" 
-                            dur="1s"
-                            calcMode="spline"
-                            keySplines="0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1"
-                            begin="0.25s"
-                            repeatCount="indefinite"
-                            fill="freeze" />
-                    </rect>
+                    </g>
                     <rect id="Rectangle-4" fill="#DDDDDD" x="19" y="38" width="18" height="13" rx="6.5">
                         <animate 
                             attributeName="width" 
                             values="18; 36; 36; 18; 18" 
-                            dur="1s"
+                            dur="2s"
+                            keyTimes="0;0.15;0.5;0.65;1"
                             calcMode="spline"
                             keySplines="0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1"
                             begin="0.25s"
@@ -204,7 +186,8 @@
                         <animate 
                             attributeName="x" 
                             values="19;10;10;19;19" 
-                            dur="1s"
+                            dur="2s"
+                            keyTimes="0;0.15;0.5;0.65;1"
                             calcMode="spline"
                             keySplines="0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1"
                             begin="0.25s"
@@ -213,7 +196,8 @@
                         <animate 
                             attributeName="y" 
                             values="38;21;21;38;38" 
-                            dur="1s"
+                            dur="2s"
+                            keyTimes="0;0.15;0.5;0.65;1"
                             calcMode="spline"
                             keySplines="0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1"
                             begin="0.25s"
@@ -223,7 +207,7 @@
                 </g>
             </g>
         </g>
-        <g id="Translate" transform="translate(196, 16)">
+        <g id="Translate" transform="translate(168, 16)">
             <text font-family="HelveticaNeue-Light, Helvetica Neue" font-size="14" fill="#000000" x="32" y="6" text-anchor="middle" alignment-baseline="central">
                 Translate
             </text>
@@ -236,7 +220,8 @@
                         <animate 
                             attributeName="x" 
                             values="-50; 10; 10; -50; -50;" 
-                            dur="1s"
+                            dur="2s"
+                            keyTimes="0;0.15;0.5;0.65;1"
                             calcMode="spline"
                             keySplines="0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1"
                             begin="0.5s"
@@ -247,7 +232,8 @@
                         <animate 
                             attributeName="width" 
                             values="18; 36; 36; 18; 18" 
-                            dur="1s"
+                            dur="2s"
+                            keyTimes="0;0.15;0.5;0.65;1"
                             calcMode="spline"
                             keySplines="0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1"
                             begin="0.5s"
@@ -256,7 +242,8 @@
                         <animate 
                             attributeName="x" 
                             values="19;10;10;19;19" 
-                            dur="1s"
+                            dur="2s"
+                            keyTimes="0;0.15;0.5;0.65;1"
                             calcMode="spline"
                             keySplines="0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1"
                             begin="0.5s"
@@ -265,7 +252,8 @@
                         <animate 
                             attributeName="y" 
                             values="38;21;21;38;38" 
-                            dur="1s"
+                            dur="2s"
+                            keyTimes="0;0.15;0.5;0.65;1"
                             calcMode="spline"
                             keySplines="0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1"
                             begin="0.5s"
@@ -275,7 +263,7 @@
                 </g>
             </g>
         </g>
-        <g id="Rotate" transform="translate(280, 16)">
+        <g id="Rotate" transform="translate(252, 16)">
             <text font-family="HelveticaNeue-Light, Helvetica Neue" font-size="14" fill="#000000" x="32" y="6" text-anchor="middle" alignment-baseline="central">
                 Rotate
             </text>
@@ -288,7 +276,8 @@
                         <animate 
                             attributeName="x" 
                             values="-50; 10; 10; -50; -50;" 
-                            dur="1s"
+                            dur="2s"
+                            keyTimes="0;0.15;0.5;0.65;1"
                             calcMode="spline"
                             keySplines="0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1"
                             begin="0.75s"
@@ -298,7 +287,8 @@
                             attributeName="transform"
                             type="rotate"
                             values="0 28 57;-180 28 57;-180 28 57;0 28 57;0 28 57;"
-                            dur="1s"
+                            dur="2s"
+                            keyTimes="0;0.15;0.5;0.65;1"
                             begin="0.75s"
                             calcMode="spline"
                             keySplines="0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1"
@@ -310,7 +300,8 @@
                         <animate 
                             attributeName="width" 
                             values="18; 36; 36; 18; 18" 
-                            dur="1s"
+                            dur="2s"
+                            keyTimes="0;0.15;0.5;0.65;1"
                             calcMode="spline"
                             keySplines="0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1"
                             begin="0.75s"
@@ -319,7 +310,8 @@
                         <animate 
                             attributeName="x" 
                             values="19;10;10;19;19" 
-                            dur="1s"
+                            dur="2s"
+                            keyTimes="0;0.15;0.5;0.65;1"
                             calcMode="spline"
                             keySplines="0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1"
                             begin="0.75s"
@@ -328,7 +320,8 @@
                         <animate 
                             attributeName="y" 
                             values="38;21;21;38;38" 
-                            dur="1s"
+                            dur="2s"
+                            keyTimes="0;0.15;0.5;0.65;1"
                             calcMode="spline"
                             keySplines="0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1"
                             begin="0.75s"
