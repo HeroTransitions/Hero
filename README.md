@@ -78,30 +78,12 @@ You can do these in the **storyboard** too!
 <img src="https://cdn.rawgit.com/lkzhao/Hero/master/Resources/storyboardView.png" width="267px"/> 
 <img src="https://cdn.rawgit.com/lkzhao/Hero/master/Resources/storyboardViewController.png" width="267px"/>
 
-## Usage Guide
+## Documentations
 
-* [Installation](https://github.com/lkzhao/Hero/wiki/Usage-Guide#installation)
-* [Usage](https://github.com/lkzhao/Hero/wiki/Usage-Guide#usage)
-	* [Storyboard](https://github.com/lkzhao/Hero/wiki/Usage-Guide#storyboard)
-	* [In Code](https://github.com/lkzhao/Hero/wiki/Usage-Guide#in-code)
-* [Attributes](https://github.com/lkzhao/Hero/wiki/Usage-Guide#attributes)
-	* [HeroID](https://github.com/lkzhao/Hero/wiki/Usage-Guide#heroid)
-	* [HeroModifiers](https://github.com/lkzhao/Hero/wiki/Usage-Guide#heromodifiers)
-	* [HeroModifierString](https://github.com/lkzhao/Hero/wiki/Usage-Guide#heromodifierstring)
-* [Modifiers](https://github.com/lkzhao/Hero/wiki/Usage-Guide#modifiers)
-	* [Basic Modifiers](https://github.com/lkzhao/Hero/wiki/Usage-Guide#basic-modifiers)
-	* [Advance Modifiers](https://github.com/lkzhao/Hero/wiki/Usage-Guide#advance-modifiers)
-	* [Arc](https://github.com/lkzhao/Hero/wiki/Usage-Guide#arc-modifier)
-	* [Source](https://github.com/lkzhao/Hero/wiki/Usage-Guide#source-modifier)
-	* [Cascade](https://github.com/lkzhao/Hero/wiki/Usage-Guide#cascade-modifier)
-	* [IgnoreSubviewModifiers](https://github.com/lkzhao/Hero/wiki/Usage-Guide#ignoresubviewmodifiers-modifier)
-	* [UseScaleBasedSizeChange](https://github.com/lkzhao/Hero/wiki/Usage-Guide#usescalebasedsizechange-modifier)
-* [Coordinate Space](https://github.com/lkzhao/Hero/wiki/Usage-Guide#coordinate-space)
-	* [Global](https://github.com/lkzhao/Hero/wiki/Usage-Guide#global-coordinate-space-default-before-013)
-	* [Local](https://github.com/lkzhao/Hero/wiki/Usage-Guide#local-coordinate-space-default-after-013)
-* [Snapshot Types](https://github.com/lkzhao/Hero/wiki/Usage-Guide#snapshot-types)
-* [Navigation Helpers (dismiss, replace, unwind)](https://github.com/lkzhao/Hero/wiki/Usage-Guide#navigation-helpers-dismiss-replace-unwind)
-* [UINavigationController & UITabBarController](https://github.com/lkzhao/Hero/wiki/Usage-Guide#uinavigationcontroller--uitabbarcontroller)
+Checkout the **[wiki pages](https://github.com/lkzhao/Hero/wiki/Usage-Guide)** for documentations. 
+
+For more up-to-date ones, please see the header-doc in code (use **alt+click** in Xcode).
+<img src="https://cdn.rawgit.com/lkzhao/Hero/master/Resources/headerDoc.png" width="521px"/>
 
 ##### NOTE: Hero won't work on iPhone 7 (Plus) Simulators due to a [bug](https://forums.developer.apple.com/thread/63438) by Apple. Try using other simulators or a real device when working with Hero.
 
