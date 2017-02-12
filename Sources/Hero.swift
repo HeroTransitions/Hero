@@ -177,9 +177,9 @@ internal extension Hero {
       animate()
     #else
       if inNavigationController {
-        // When animating within navigationController, we have to delay a frame.
-        // otherwise snapshots will not be taken. Possibly a bug with UIKit
-        execute(after: 0.01666666667) {
+        // When animating within navigationController, we have to dispatch later into the main queue.
+        // otherwise snapshots will be pure white. Possibly a bug with UIKit
+        DispatchQueue.main.async {
           self.animate()
         }
       } else {
