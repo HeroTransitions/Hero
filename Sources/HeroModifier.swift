@@ -351,8 +351,27 @@ extension HeroModifier {
 // other modifiers
 extension HeroModifier {
   /**
-   transition from/to the state of the view with matching heroID
+   Transition from/to the state of the view with matching heroID
    Will also force the view to use global coordinate space.
+   
+   The following layer properties will be animated from the given view.
+
+       position
+       bounds.size
+       cornerRadius
+       transform
+
+   Note that the following properties **won't** be taken from the source view.
+
+       backgroundColor
+       borderWidth
+       borderColor
+       shadowColor
+       shadowOpacity
+       shadowOffset
+       shadowRadius
+       shadowPath
+
    - Parameters:
      - heroID: the source view's heroId.
    */
@@ -366,6 +385,7 @@ extension HeroModifier {
    Works in combination with position modifier to apply a natural curve when moving to the destination.
    */
   public static var arc: HeroModifier = .arc()
+
   /**
    Works in combination with position modifier to apply a natural curve when moving to the destination.
    - Parameters:
@@ -391,8 +411,8 @@ extension HeroModifier {
      - delayMatchedViews: whether or not to delay matched subviews until all cascading animation have started
    */
   public static func cascade(delta: TimeInterval = 0.02,
-                      direction: CascadeDirection = .topToBottom,
-                      delayMatchedViews: Bool = false) -> HeroModifier {
+                             direction: CascadeDirection = .topToBottom,
+                             delayMatchedViews: Bool = false) -> HeroModifier {
     return HeroModifier { targetState in
       targetState.cascade = (delta, direction, delayMatchedViews)
     }
@@ -402,9 +422,10 @@ extension HeroModifier {
 // advance modifiers
 extension HeroModifier {
   /**
-   Apply modifiers directly to the view when transitioning. The modifiers supplied here won't be animated.
-   They are set directly at the begining of the animation for source views.
-   They replace the target state (final appearance) for destination views.
+   Apply modifiers directly to the view at the start of the transition.
+   The modifiers supplied here won't be animated.
+   For source views, modifiers are set directly at the begining of the animation.
+   For destination views, they replace the target state (final appearance).
    */
   public static func beginWith(modifiers: [HeroModifier]) -> HeroModifier {
     return HeroModifier { targetState in
@@ -412,6 +433,21 @@ extension HeroModifier {
         targetState.beginState = HeroTargetState.HeroTargetStateWrapper(state: [])
       }
       targetState.beginState!.state.append(contentsOf: modifiers)
+    }
+  }
+
+  /**
+   Apply modifiers directly to the view at the start of the transition if the view is matched with another view.
+   The modifiers supplied here won't be animated.
+   For source views, modifiers are set directly at the begining of the animation.
+   For destination views, they replace the target state (final appearance).
+   */
+  public static func beginWithIfMatched(modifiers: [HeroModifier]) -> HeroModifier {
+    return HeroModifier { targetState in
+      if targetState.beginStateIfMatched == nil {
+        targetState.beginStateIfMatched = []
+      }
+      targetState.beginStateIfMatched!.append(contentsOf: modifiers)
     }
   }
 
@@ -526,6 +562,8 @@ extension HeroModifier {
       if let duration = parameters.getDouble(0) {
         modifier = .duration(duration)
       }
+    case "durationMatchLongest":
+      modifier = .durationMatchLongest
     case "delay":
       if let delay = parameters.getDouble(0) {
         modifier = .delay(delay)

@@ -55,6 +55,7 @@ public struct HeroTargetState {
     }
   }
   internal var beginState: HeroTargetStateWrapper?
+  internal var beginStateIfMatched: [HeroModifier]?
 
   internal var position: CGPoint?
   internal var size: CGSize?
