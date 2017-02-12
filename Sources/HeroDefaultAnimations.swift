@@ -38,7 +38,7 @@ public enum HeroDefaultAnimationType {
   case fade
   case zoom
   case zoomOut
-  indirect case selectBy(presenting:HeroDefaultAnimationType, dismissing:HeroDefaultAnimationType)
+  indirect case selectBy(presenting: HeroDefaultAnimationType, dismissing: HeroDefaultAnimationType)
   case none
 
   public var label: String? {

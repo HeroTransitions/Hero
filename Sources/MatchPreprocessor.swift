@@ -33,6 +33,9 @@ class MatchPreprocessor: BasePreprocessor {
       if let beginStateIfMatched = tvState.beginStateIfMatched {
         tvState.append(.beginWith(modifiers: beginStateIfMatched))
       }
+      if let beginStateIfMatched = fvState.beginStateIfMatched {
+        fvState.append(.beginWith(modifiers: beginStateIfMatched))
+      }
 
       // match is just a two-way source effect
       tvState.source = id
