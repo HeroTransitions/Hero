@@ -1,4 +1,4 @@
-<img src="https://cdn.rawgit.com/lkzhao/Hero/aa6b5415e6ccae986758d9865cfb4db3824d3d55/Resources/HeroLogo@2x.png" width="388"/>
+<img src="https://cdn.rawgit.com/lkzhao/Hero/ebb3f2c/Resources/HeroLogo@2x.png" width="388"/>
 
 [![Carthage compatible](https://img.shields.io/badge/Carthage-Compatible-brightgreen.svg?style=flat)](https://github.com/Carthage/Carthage)
 [![Version](https://img.shields.io/cocoapods/v/Hero.svg?style=flat)](http://cocoapods.org/pods/Hero)
@@ -11,8 +11,8 @@
 **Hero** is a library for building iOS view controller transitions. It provides a layer on top of the UIKit's cumbersome transition APIs. Making custom transitions an easy task for developers.
 
 ### Features
-<img src="https://cdn.rawgit.com/lkzhao/Hero/aa6b5415e6ccae986758d9865cfb4db3824d3d55/Resources/features.svg"/>
-<img src="https://cdn.rawgit.com/lkzhao/Hero/aa6b5415e6ccae986758d9865cfb4db3824d3d55/Resources/features2.svg"/>
+<img src="https://cdn.rawgit.com/lkzhao/Hero/ebb3f2c/Resources/features.svg"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<img src="https://cdn.rawgit.com/lkzhao/Hero/ebb3f2c/Resources/features2.svg"/>
 
 #### With Hero, you can easily mix & match these effects to build your own custom transition.
 
@@ -27,7 +27,8 @@ Hero does not make any assumption about how the view is built or structured. It 
 ### What's more
 Starting with **0.3.0**. Hero provides several default transitions. These can also be customized & combined with your custom `heroID` & `heroModifiers`. Makes transitions even easier to implement.
 
-<img src="https://cdn.rawgit.com/lkzhao/Hero/aa6b5415e6ccae986758d9865cfb4db3824d3d55/Resources/defaultAnimations.svg"/>
+<img src="https://cdn.rawgit.com/lkzhao/Hero/ebb3f2c/Resources/defaultAnimations.svg"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<img src="https://cdn.rawgit.com/lkzhao/Hero/ebb3f2c/Resources/defaultAnimations2.svg"/>
 
 ## Example Gallery
 
@@ -35,7 +36,7 @@ Checkout the [Example Gallery Blog Post](http://lkzhao.com/2016/12/28/hero.html)
 
 ## Usage Example 1
 
-<img src="https://cdn.rawgit.com/lkzhao/Hero/aa6b5415e6ccae986758d9865cfb4db3824d3d55/Resources/simple.svg" />
+<img src="https://cdn.rawgit.com/lkzhao/Hero/ebb3f2c/Resources/simple.svg" />
 
 ##### View Controller 1
 ```swift
@@ -53,7 +54,7 @@ whiteView.heroModifiers = [.translate(y:100)]
 
 
 ## Usage Example 2
-<img src="https://cdn.rawgit.com/lkzhao/Hero/aa6b5415e6ccae986758d9865cfb4db3824d3d55/Resources/advanced.svg" />
+<img src="https://cdn.rawgit.com/lkzhao/Hero/ebb3f2c/Resources/advanced.svg" />
 
 ##### View Controller 1
 ```swift
