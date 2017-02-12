@@ -22,13 +22,6 @@
 
 import UIKit
 
-internal var heroOperationQueue: OperationQueue = {
-  let oq = OperationQueue()
-  oq.maxConcurrentOperationCount = 1
-  oq.name = "heroOperationQueue"
-  return oq
-}()
-
 /// Base class for managing a Hero transition
 public class HeroBaseController: NSObject {
   // MARK: Properties
@@ -143,7 +136,7 @@ public extension HeroBaseController {
    */
   public func update(progress: Double) {
     guard transitioning else { return }
-    execute {
+    DispatchQueue.main.async {
       self.beginTime = nil
       self.progress = max(0, min(1, progress))
     }
@@ -156,7 +149,7 @@ public extension HeroBaseController {
    */
   public func end(animate: Bool = true) {
     guard transitioning && interactive else { return }
-    execute {
+    DispatchQueue.main.async {
       if !animate {
         self.complete(finished:true)
         return
@@ -177,7 +170,7 @@ public extension HeroBaseController {
    */
   public func cancel(animate: Bool = true) {
     guard transitioning && interactive else { return }
-    execute {
+    DispatchQueue.main.async {
       if !animate {
         self.complete(finished:false)
         return
@@ -205,7 +198,7 @@ public extension HeroBaseController {
    */
   public func apply(modifiers: [HeroModifier], to view: UIView) {
     guard transitioning && interactive else { return }
-    execute {
+    DispatchQueue.main.async {
       let targetState = HeroTargetState(modifiers: modifiers)
       if let otherView = self.context.pairedView(for: view) {
         for animator in self.animators {
@@ -371,19 +364,6 @@ internal extension HeroBaseController {
     totalDuration = 0
 
     completion?(finished)
-  }
-
-  func execute(after: TimeInterval = 0, block: @escaping () -> Void) {
-    if heroOperationQueue.operationCount > 0 || after > 0 {
-      heroOperationQueue.addOperation {
-        Thread.sleep(forTimeInterval: after)
-        DispatchQueue.main.async {
-          block()
-        }
-      }
-    } else {
-      block()
-    }
   }
 }
 
