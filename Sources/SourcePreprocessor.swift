@@ -59,6 +59,21 @@ class SourcePreprocessor: BasePreprocessor {
     if view.layer.transform != targetView.layer.transform {
       state.transform = targetView.layer.transform
     }
+    if view.layer.shadowColor != targetView.layer.shadowColor {
+      state.shadowColor = targetView.layer.shadowColor
+    }
+    if view.layer.shadowOpacity != targetView.layer.shadowOpacity {
+      state.shadowOpacity = targetView.layer.shadowOpacity
+    }
+    if view.layer.shadowOffset != targetView.layer.shadowOffset {
+      state.shadowOffset = targetView.layer.shadowOffset
+    }
+    if view.layer.shadowRadius != targetView.layer.shadowRadius {
+      state.shadowRadius = targetView.layer.shadowRadius
+    }
+    if view.layer.shadowPath != targetView.layer.shadowPath {
+      state.shadowPath = targetView.layer.shadowPath
+    }
 
     context[view] = state
   }

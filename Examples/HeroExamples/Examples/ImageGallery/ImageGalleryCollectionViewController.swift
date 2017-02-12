@@ -40,6 +40,7 @@ class ImageGalleryViewController: UIViewController {
     // animation is automatic! Holy
     let next = (UIStoryboard(name: "ImageGallery", bundle: nil).instantiateViewController(withIdentifier: "imageGallery") as? ImageGalleryViewController)!
     next.columns = columns == 3 ? 5 : 3
+    Hero.shared.setDefaultAnimationForNextTransition(.none)
     hero_replaceViewController(with: next)
   }
 }
@@ -77,6 +78,7 @@ extension ImageGalleryViewController: UICollectionViewDelegate, UICollectionView
 
 extension ImageGalleryViewController: HeroViewControllerDelegate {
   func heroWillStartAnimatingTo(viewController: UIViewController) {
+    Hero.shared.setDefaultAnimationForNextTransition(.fade)
     if (viewController as? ImageGalleryViewController) != nil {
       collectionView.heroModifiers = [.cascade(delta:0.015, direction:.bottomToTop, delayMatchedViews:true)]
     } else if (viewController as? ImageViewController) != nil {
@@ -87,6 +89,7 @@ extension ImageGalleryViewController: HeroViewControllerDelegate {
     }
   }
   func heroWillStartAnimatingFrom(viewController: UIViewController) {
+    Hero.shared.setDefaultAnimationForNextTransition(.fade)
     view.heroModifiers = nil
     if (viewController as? ImageGalleryViewController) != nil {
       collectionView.heroModifiers = [.cascade(delta:0.015), .delay(0.25)]
