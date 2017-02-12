@@ -30,6 +30,11 @@ class MatchPreprocessor: BasePreprocessor {
       var tvState = context[tv] ?? HeroTargetState()
       var fvState = context[fv] ?? HeroTargetState()
 
+      if let beginStateIfMatched = tvState.beginStateIfMatched {
+        tvState.append(.beginWith(modifiers: beginStateIfMatched))
+      }
+
+      // match is just a two-way source effect
       tvState.source = id
       fvState.source = id
 
