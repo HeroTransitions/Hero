@@ -55,6 +55,7 @@ class ImageViewController: UICollectionViewController {
     let progress = translation.y / 2 / collectionView!.bounds.height
     switch panGR.state {
     case .began:
+      Hero.shared.setDefaultAnimationForNextTransition(.fade)
       hero_dismissViewController()
     case .changed:
       Hero.shared.update(progress: Double(progress))

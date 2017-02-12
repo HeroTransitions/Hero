@@ -22,6 +22,13 @@
 
 import UIKit
 
+internal var heroOperationQueue: OperationQueue = {
+  let oq = OperationQueue()
+  oq.maxConcurrentOperationCount = 1
+  oq.name = "heroOperationQueue"
+  return oq
+}()
+
 /// Base class for managing a Hero transition
 public class HeroBaseController: NSObject {
   // MARK: Properties
@@ -136,9 +143,10 @@ public extension HeroBaseController {
    */
   public func update(progress: Double) {
     guard transitioning else { return }
-    let progress = max(0, min(1, progress))
-    beginTime = nil
-    self.progress = progress
+    execute {
+      self.beginTime = nil
+      self.progress = max(0, min(1, progress))
+    }
   }
 
   /**
@@ -148,15 +156,18 @@ public extension HeroBaseController {
    */
   public func end(animate: Bool = true) {
     guard transitioning && interactive else { return }
-    if !animate {
-      complete(finished:true)
-      return
+    execute {
+      if !animate {
+        self.complete(finished:true)
+        return
+      }
+      var maxTime: TimeInterval = 0
+      for animator in self.animators {
+        maxTime = max(maxTime, animator.resume(timePassed:self.progress * self.totalDuration,
+                                               reverse: false))
+      }
+      self.complete(after: maxTime, finishing: true)
     }
-    var maxTime: TimeInterval = 0
-    for animator in animators {
-      maxTime = max(maxTime, animator.resume(timePassed:progress * totalDuration, reverse: false))
-    }
-    complete(after: maxTime, finishing: true)
   }
 
   /**
@@ -166,15 +177,18 @@ public extension HeroBaseController {
    */
   public func cancel(animate: Bool = true) {
     guard transitioning && interactive else { return }
-    if !animate {
-      complete(finished:false)
-      return
+    execute {
+      if !animate {
+        self.complete(finished:false)
+        return
+      }
+      var maxTime: TimeInterval = 0
+      for animator in self.animators {
+        maxTime = max(maxTime, animator.resume(timePassed:self.progress * self.totalDuration,
+                                               reverse: true))
+      }
+      self.complete(after: maxTime, finishing: false)
     }
-    var maxTime: TimeInterval = 0
-    for animator in animators {
-      maxTime = max(maxTime, animator.resume(timePassed:progress * totalDuration, reverse: true))
-    }
-    complete(after: maxTime, finishing: false)
   }
 
   /**
@@ -191,14 +205,16 @@ public extension HeroBaseController {
    */
   public func apply(modifiers: [HeroModifier], to view: UIView) {
     guard transitioning && interactive else { return }
-    let targetState = HeroTargetState(modifiers: modifiers)
-    if let otherView = context.pairedView(for: view) {
-      for animator in animators {
-        animator.apply(state: targetState, to: otherView)
+    execute {
+      let targetState = HeroTargetState(modifiers: modifiers)
+      if let otherView = self.context.pairedView(for: view) {
+        for animator in self.animators {
+          animator.apply(state: targetState, to: otherView)
+        }
       }
-    }
-    for animator in animators {
-      animator.apply(state: targetState, to: view)
+      for animator in self.animators {
+        animator.apply(state: targetState, to: view)
+      }
     }
   }
 }
@@ -355,6 +371,19 @@ internal extension HeroBaseController {
     totalDuration = 0
 
     completion?(finished)
+  }
+
+  func execute(after: TimeInterval = 0, block: @escaping () -> Void) {
+    if heroOperationQueue.operationCount > 0 || after > 0 {
+      heroOperationQueue.addOperation {
+        Thread.sleep(forTimeInterval: after)
+        DispatchQueue.main.async {
+          block()
+        }
+      }
+    } else {
+      block()
+    }
   }
 }
 

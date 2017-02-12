@@ -79,7 +79,7 @@ internal extension Hero {
 
     if case .auto = defaultAnimation {
       if inNavigationController {
-        defaultAnimation = presenting ? .pull(direction:.left) : .push(direction:.right)
+        defaultAnimation = presenting ? .push(direction:.left) : .pull(direction:.right)
       } else if inTabBarController {
         defaultAnimation = presenting ? .slide(direction:.left) : .slide(direction:.right)
       } else if animators.contains(where: { $0.canAnimate(view: toView, appearing: true) || $0.canAnimate(view: fromView, appearing: false) }) {
@@ -92,8 +92,6 @@ internal extension Hero {
     if case .none = defaultAnimation {
       return
     }
-
-    var fromViewOnTop = false
 
     context[fromView] = [.timingFunction(.standard), .duration(0.375)]
     context[toView] = [.timingFunction(.standard), .duration(0.375)]
@@ -111,7 +109,7 @@ internal extension Hero {
       context[fromView]!.append(contentsOf: [.translate(shift(direction: direction, appearing: false) / 3),
                                              .overlay(color: .black, opacity: 0.3)])
     case .pull(let direction):
-      fromViewOnTop = true
+      insertToViewFirst = true
       context[fromView]!.append(contentsOf: [.translate(shift(direction: direction, appearing: false)),
                                              .shadowOpacity(0),
                                              .beginWith(modifiers: shadowState)])
@@ -129,7 +127,7 @@ internal extension Hero {
                                            .beginWith(modifiers: shadowState)])
       context[fromView]!.append(contentsOf: [.overlay(color: .black, opacity: 0.3)])
     case .uncover(let direction):
-      fromViewOnTop = true
+      insertToViewFirst = true
       context[fromView]!.append(contentsOf: [.translate(shift(direction: direction, appearing: false)),
                                              .shadowOpacity(0),
                                              .beginWith(modifiers: shadowState)])
@@ -140,7 +138,7 @@ internal extension Hero {
                                            .beginWith(modifiers: shadowState)])
       context[fromView]!.append(contentsOf: [.scale(0.7), .overlay(color: .black, opacity: 0.3)])
     case .pageOut(let direction):
-      fromViewOnTop = true
+      insertToViewFirst = true
       context[fromView]!.append(contentsOf: [.translate(shift(direction: direction, appearing: false)),
                                              .shadowOpacity(0),
                                              .beginWith(modifiers: shadowState)])
@@ -158,7 +156,7 @@ internal extension Hero {
       context[toView]!.append(.durationMatchLongest)
       context[fromView]!.append(.durationMatchLongest)
     case .zoom:
-      fromViewOnTop = true
+      insertToViewFirst = true
       context[fromView]!.append(contentsOf: [.scale(1.3), .fade])
       context[toView]!.append(contentsOf: [.scale(0.7)])
     case .zoomOut:
@@ -166,16 +164,6 @@ internal extension Hero {
       context[fromView]!.append(contentsOf: [.scale(0.7)])
     default:
       fatalError("Not implemented")
-    }
-
-    let (backView, topView) = fromViewOnTop ? (toView, fromView) : (fromView, toView)
-    if fromViewOnTop {
-      insertToViewFirst = true
-    }
-    if topView.layer.zPosition < backView.layer.zPosition {
-      // in this case, we have to animate the zPosition as well. otherwise the fade animation will be hidden.
-      context[topView]!.append(contentsOf: [.zPosition(backView.layer.zPosition + 1)])
-      context[backView]!.append(contentsOf: [.zPosition(backView.layer.zPosition - 1)])
     }
   }
 }

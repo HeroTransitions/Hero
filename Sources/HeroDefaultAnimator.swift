@@ -42,11 +42,9 @@ public class HeroDefaultAnimator: HeroAnimator {
   }
 
   public func apply(state: HeroTargetState, to view: UIView) {
-    guard let context = viewContexts[view] else {
-      print("HERO: unable to temporarily set to \(view). The view must be running at least one animation before it can be interactively changed")
-      return
+    if let context = viewContexts[view] {
+      context.apply(state:state)
     }
-    context.apply(state:state)
   }
 
   public func canAnimate(view: UIView, appearing: Bool) -> Bool {

@@ -136,8 +136,8 @@ internal extension Hero {
     }
 
     // take a snapshot to hide all the flashing that might happen
-    fullScreenSnapshot = transitionContainer.window!.snapshotView(afterScreenUpdates: true)!
-    transitionContainer.window!.addSubview(fullScreenSnapshot)
+    fullScreenSnapshot = transitionContainer.window?.snapshotView(afterScreenUpdates: true) ?? fromView.snapshotView(afterScreenUpdates: true)
+    (transitionContainer.window ?? transitionContainer)?.addSubview(fullScreenSnapshot)
 
     if let oldSnapshots = fromViewController?.heroStoredSnapshots {
       for snapshot in oldSnapshots {
@@ -179,7 +179,7 @@ internal extension Hero {
       if inNavigationController {
         // When animating within navigationController, we have to delay a frame.
         // otherwise snapshots will not be taken. Possibly a bug with UIKit
-        delay(0.01666666667) {
+        execute(after: 0.01666666667) {
           self.animate()
         }
       } else {

@@ -224,12 +224,32 @@ extension HeroContext {
 
     hide(view: view)
 
-    if let pairedView = pairedView(for: view), let pairdSnapshot = snapshotViews[pairedView] {
-      containerView.addSubview(pairdSnapshot)
+    if let pairedView = pairedView(for: view), let pairedSnapshot = snapshotViews[pairedView] {
+      let siblingViews = pairedView.superview!.subviews
+      let nextSiblings = siblingViews[siblingViews.index(of: pairedView)!+1..<siblingViews.count]
+      containerView.addSubview(pairedSnapshot)
+      containerView.addSubview(snapshot)
+      for subview in pairedView.subviews {
+        insertGlobalViewTree(view: subview)
+      }
+      for sibling in nextSiblings {
+        insertGlobalViewTree(view: sibling)
+      }
+    } else {
+      containerView.addSubview(snapshot)
     }
     containerView.addSubview(snapshot)
     snapshotViews[view] = snapshot
     return snapshot
+  }
+
+  func insertGlobalViewTree(view: UIView) {
+    if targetStates[view]?.coordinateSpace == .global, let snapshot = snapshotViews[view] {
+      container.addSubview(snapshot)
+    }
+    for subview in view.subviews {
+      insertGlobalViewTree(view: subview)
+    }
   }
 
   public subscript(view: UIView) -> HeroTargetState? {
