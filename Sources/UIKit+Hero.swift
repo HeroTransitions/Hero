@@ -291,6 +291,10 @@ public extension UIViewController {
    Replace the current view controller with another VC on the navigation/modal stack.
    */
   public func hero_replaceViewController(with next: UIViewController) {
+    if Hero.shared.transitioning {
+      print("hero_replaceViewController cancelled because Hero was doing a transition. Use Hero.shared.cancel(animated:false) or Hero.shared.end(animated:false) to stop the transition first before calling hero_replaceViewController.")
+      return
+    }
     if let navigationController = navigationController {
       var vcs = navigationController.childViewControllers
       if !vcs.isEmpty {
