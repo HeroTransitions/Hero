@@ -10,6 +10,12 @@ import UIKit
 import Hero
 
 class MenuViewController: UIViewController {
+
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(hero_dismissViewController)))
+  }
+
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     if let vc = segue.destination as? MenuPageViewController, let sender = sender as? UIButton {
       sender.heroID = "selected"
