@@ -136,10 +136,8 @@ public extension HeroBaseController {
    */
   public func update(progress: Double) {
     guard transitioning else { return }
-    DispatchQueue.main.async {
-      self.beginTime = nil
-      self.progress = max(0, min(1, progress))
-    }
+    self.beginTime = nil
+    self.progress = max(0, min(1, progress))
   }
 
   /**
@@ -149,18 +147,16 @@ public extension HeroBaseController {
    */
   public func end(animate: Bool = true) {
     guard transitioning && interactive else { return }
-    DispatchQueue.main.async {
-      if !animate {
-        self.complete(finished:true)
-        return
-      }
-      var maxTime: TimeInterval = 0
-      for animator in self.animators {
-        maxTime = max(maxTime, animator.resume(timePassed:self.progress * self.totalDuration,
-                                               reverse: false))
-      }
-      self.complete(after: maxTime, finishing: true)
+    if !animate {
+      self.complete(finished:true)
+      return
     }
+    var maxTime: TimeInterval = 0
+    for animator in self.animators {
+      maxTime = max(maxTime, animator.resume(timePassed:self.progress * self.totalDuration,
+                                             reverse: false))
+    }
+    self.complete(after: maxTime, finishing: true)
   }
 
   /**
@@ -170,18 +166,16 @@ public extension HeroBaseController {
    */
   public func cancel(animate: Bool = true) {
     guard transitioning && interactive else { return }
-    DispatchQueue.main.async {
-      if !animate {
-        self.complete(finished:false)
-        return
-      }
-      var maxTime: TimeInterval = 0
-      for animator in self.animators {
-        maxTime = max(maxTime, animator.resume(timePassed:self.progress * self.totalDuration,
-                                               reverse: true))
-      }
-      self.complete(after: maxTime, finishing: false)
+    if !animate {
+      self.complete(finished:false)
+      return
     }
+    var maxTime: TimeInterval = 0
+    for animator in self.animators {
+      maxTime = max(maxTime, animator.resume(timePassed:self.progress * self.totalDuration,
+                                             reverse: true))
+    }
+    self.complete(after: maxTime, finishing: false)
   }
 
   /**
@@ -198,16 +192,14 @@ public extension HeroBaseController {
    */
   public func apply(modifiers: [HeroModifier], to view: UIView) {
     guard transitioning && interactive else { return }
-    DispatchQueue.main.async {
-      let targetState = HeroTargetState(modifiers: modifiers)
-      if let otherView = self.context.pairedView(for: view) {
-        for animator in self.animators {
-          animator.apply(state: targetState, to: otherView)
-        }
-      }
+    let targetState = HeroTargetState(modifiers: modifiers)
+    if let otherView = self.context.pairedView(for: view) {
       for animator in self.animators {
-        animator.apply(state: targetState, to: view)
+        animator.apply(state: targetState, to: otherView)
       }
+    }
+    for animator in self.animators {
+      animator.apply(state: targetState, to: view)
     }
   }
 }

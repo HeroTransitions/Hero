@@ -57,6 +57,7 @@ class AppleProductViewController: UIViewController, HeroViewControllerDelegate {
     case normal, slidingLeft, slidingRight
   }
   var state: TransitionState = .normal
+  weak var nextVC: AppleProductViewController?
 
   func pan() {
     let translateX = panGR.translation(in: nil).x
@@ -74,22 +75,22 @@ class AppleProductViewController: UIViewController, HeroViewControllerDelegate {
         Hero.shared.cancel(animate: false)
         let currentIndex = viewControllerIDs.index(of: self.title!)!
         let nextIndex = (currentIndex + (nextState == .slidingLeft ? 1 : viewControllerIDs.count - 1)) % viewControllerIDs.count
-        let nextVC = self.storyboard!.instantiateViewController(withIdentifier: viewControllerIDs[nextIndex]) as! AppleProductViewController
+        nextVC = self.storyboard!.instantiateViewController(withIdentifier: viewControllerIDs[nextIndex]) as? AppleProductViewController
 
         if nextState == .slidingLeft {
           applyShrinkModifiers()
-          nextVC.applySlideModifiers()
+          nextVC!.applySlideModifiers()
         } else {
           applySlideModifiers()
-          nextVC.applyShrinkModifiers()
+          nextVC!.applyShrinkModifiers()
         }
         state = nextState
-        hero_replaceViewController(with: nextVC)
+        hero_replaceViewController(with: nextVC!)
       } else {
         let progress = abs(Double(translateX / view.bounds.width))
         Hero.shared.update(progress: progress)
-        if state == .slidingLeft {
-          Hero.shared.apply(modifiers: [.translate(x: view.bounds.width + translateX)], to: Hero.shared.toViewController!.view)
+        if state == .slidingLeft, let nextVC = nextVC {
+          Hero.shared.apply(modifiers: [.translate(x: view.bounds.width + translateX)], to: nextVC.view)
         } else {
           Hero.shared.apply(modifiers: [.translate(x: translateX)], to: view)
         }
