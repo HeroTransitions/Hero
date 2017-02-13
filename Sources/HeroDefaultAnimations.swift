@@ -149,9 +149,13 @@ internal extension Hero {
         context[toView] = [.fade]
       }
 
-      if (!presenting && toOverFullScreen) || !fromView.isOpaque || (fromView.backgroundColor?.alphaComponent ?? 1) < 1 {
+      #if os(tvOS)
         context[fromView] = [.fade]
-      }
+      #else
+        if (!presenting && toOverFullScreen) || !fromView.isOpaque || (fromView.backgroundColor?.alphaComponent ?? 1) < 1 {
+          context[fromView] = [.fade]
+        }
+      #endif
 
       context[toView]!.append(.durationMatchLongest)
       context[fromView]!.append(.durationMatchLongest)

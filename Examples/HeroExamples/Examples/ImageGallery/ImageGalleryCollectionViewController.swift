@@ -78,10 +78,10 @@ extension ImageGalleryViewController: UICollectionViewDelegate, UICollectionView
 
 extension ImageGalleryViewController: HeroViewControllerDelegate {
   func heroWillStartAnimatingTo(viewController: UIViewController) {
-    Hero.shared.setDefaultAnimationForNextTransition(.fade)
     if (viewController as? ImageGalleryViewController) != nil {
       collectionView.heroModifiers = [.cascade(delta:0.015, direction:.bottomToTop, delayMatchedViews:true)]
     } else if (viewController as? ImageViewController) != nil {
+      Hero.shared.setDefaultAnimationForNextTransition(.fade)
       let cell = collectionView.cellForItem(at: collectionView.indexPathsForSelectedItems!.first!)!
       collectionView.heroModifiers = [.cascade(delta: 0.015, direction: .radial(center: cell.center), delayMatchedViews: true)]
     } else {
@@ -89,7 +89,6 @@ extension ImageGalleryViewController: HeroViewControllerDelegate {
     }
   }
   func heroWillStartAnimatingFrom(viewController: UIViewController) {
-    Hero.shared.setDefaultAnimationForNextTransition(.fade)
     view.heroModifiers = nil
     if (viewController as? ImageGalleryViewController) != nil {
       collectionView.heroModifiers = [.cascade(delta:0.015), .delay(0.25)]
@@ -102,6 +101,7 @@ extension ImageGalleryViewController: HeroViewControllerDelegate {
       let targetAttribute = collectionView.layoutAttributesForItem(at: currentCellIndex) {
       collectionView.heroModifiers = [.cascade(delta:0.015, direction:.inverseRadial(center:targetAttribute.center))]
       if !collectionView.indexPathsForVisibleItems.contains(currentCellIndex) {
+        Hero.shared.setDefaultAnimationForNextTransition(.fade)
         // make the cell visible
         collectionView.scrollToItem(at: currentCellIndex,
                                     at: originalCellIndex < currentCellIndex ? .bottom : .top,
