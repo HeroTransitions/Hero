@@ -230,7 +230,9 @@ internal extension Hero {
     }
 
     // move fromView & toView back from our container back to the one supplied by UIKit
-    transitionContainer.addSubview(finished ? fromView : toView)
+    if (toOverFullScreen && finished) || (fromOverFullScreen && !finished) {
+      transitionContainer.addSubview(finished ? fromView : toView)
+    }
     transitionContainer.addSubview(finished ? toView : fromView)
 
     if presenting != finished, !inContainerController {
