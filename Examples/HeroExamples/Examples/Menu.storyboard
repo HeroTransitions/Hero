@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16A313a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="hDE-vd-kLY">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C68" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="hDE-vd-kLY">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -13,219 +13,228 @@
         <scene sceneID="FLe-99-9Fd">
             <objects>
                 <viewController modalPresentationStyle="overFullScreen" id="hDE-vd-kLY" customClass="MenuViewController" customModule="HeroExamples" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Dh5-EJ-KLE"/>
-                        <viewControllerLayoutGuide type="bottom" id="7yD-25-9Jm"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="pwy-p7-BFt">
+                    <visualEffectView key="view" opaque="NO" contentMode="scaleToFill" id="T6f-AM-L85">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Tw-b7-MDk">
-                                <rect key="frame" x="200" y="106" width="96" height="96"/>
-                                <color key="backgroundColor" red="0.8536429405" green="0.3644335568" blue="0.24528044460000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="96" id="3zb-uc-Xuy"/>
-                                    <constraint firstAttribute="height" constant="96" id="Vhg-M4-ik1"/>
-                                </constraints>
-                                <color key="tintColor" red="0.25490196079999999" green="0.28627450980000002" blue="0.30980392159999998" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" image="ic_insert_photo_48pt"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="48"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="heroModifierString" value="source(menu)"/>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <segue destination="1JW-M4-2PL" kind="show" id="i17-Fc-O3R"/>
-                                </connections>
-                            </button>
-                            <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dC5-La-4Q6">
-                                <rect key="frame" x="80" y="106" width="96" height="96"/>
-                                <color key="backgroundColor" red="0.65110915899999999" green="0.49157077069999999" blue="0.75600677729999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="96" id="RfA-nf-3t0"/>
-                                    <constraint firstAttribute="width" constant="96" id="e0q-On-d2j"/>
-                                </constraints>
-                                <color key="tintColor" red="0.25490196079999999" green="0.28627450980000002" blue="0.30980392159999998" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" image="ic_audiotrack_48pt"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="48"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="heroModifierString" value="source(menu)"/>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <segue destination="1JW-M4-2PL" kind="show" id="Rsn-IC-JQr"/>
-                                </connections>
-                            </button>
-                            <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2mS-M0-ozC">
-                                <rect key="frame" x="200" y="226" width="96" height="96"/>
-                                <color key="backgroundColor" red="0.96249228720000002" green="0.86748665570000005" blue="0.2182745636" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="96" id="4jG-A8-Yeg"/>
-                                    <constraint firstAttribute="width" constant="96" id="K69-Nh-CHE"/>
-                                </constraints>
-                                <color key="tintColor" red="0.25490196079999999" green="0.28627450980000002" blue="0.30980392159999998" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" image="ic_gif_48pt"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="48"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="heroModifierString" value="source(menu)"/>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <segue destination="1JW-M4-2PL" kind="show" id="E78-QT-i86"/>
-                                </connections>
-                            </button>
-                            <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SLa-DC-TkS">
-                                <rect key="frame" x="80" y="226" width="96" height="96"/>
-                                <color key="backgroundColor" red="0.60663342480000004" green="0.63835191729999996" blue="0.68026506900000006" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="96" id="27k-2m-Hc5"/>
-                                    <constraint firstAttribute="width" constant="96" id="V6h-pa-ElO"/>
-                                </constraints>
-                                <color key="tintColor" red="0.25490196079999999" green="0.28627450980000002" blue="0.30980392159999998" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" image="ic_videocam_48pt"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="48"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="heroModifierString" value="source(menu)"/>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <segue destination="1JW-M4-2PL" kind="show" id="toM-0A-mTp"/>
-                                </connections>
-                            </button>
-                            <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GXz-0P-hCB">
-                                <rect key="frame" x="200" y="346" width="96" height="96"/>
-                                <color key="backgroundColor" red="0.3231979311" green="0.62352418899999995" blue="0.80385208129999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="96" id="4f5-Kc-9Ah"/>
-                                    <constraint firstAttribute="width" constant="96" id="tcU-Vc-X6B"/>
-                                </constraints>
-                                <color key="tintColor" red="0.25490196079999999" green="0.28627450980000002" blue="0.30980392159999998" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" image="ic_chat_48pt"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="48"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="heroModifierString" value="source(menu)"/>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <segue destination="1JW-M4-2PL" kind="show" id="qwa-EV-Iet"/>
-                                </connections>
-                            </button>
-                            <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0eU-DD-3fj">
-                                <rect key="frame" x="80" y="346" width="96" height="96"/>
-                                <color key="backgroundColor" red="0.33910316229999998" green="0.73554944990000004" blue="0.53971123700000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="96" id="RLN-z9-AYa"/>
-                                    <constraint firstAttribute="width" constant="96" id="cpJ-QV-Wwp"/>
-                                </constraints>
-                                <color key="tintColor" red="0.25490196079999999" green="0.28627450980000002" blue="0.30980392159999998" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" image="ic_link_48pt"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="48"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="heroModifierString" value="source(menu)"/>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <segue destination="1JW-M4-2PL" kind="show" id="1J9-Kb-eMi"/>
-                                </connections>
-                            </button>
-                            <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zna-x2-9LS">
-                                <rect key="frame" x="80" y="466" width="96" height="96"/>
-                                <color key="backgroundColor" red="0.92462307210000005" green="0.58727717400000001" blue="0.17350399490000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="96" id="F1K-LL-2Tj"/>
-                                    <constraint firstAttribute="height" constant="96" id="ZDA-s1-a8A"/>
-                                </constraints>
-                                <color key="tintColor" red="0.25490196079999999" green="0.28627450980000002" blue="0.30980392159999998" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" image="ic_format_quote_48pt"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="48"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="heroModifierString" value="source(menu)"/>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="quote"/>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <segue destination="1JW-M4-2PL" kind="show" id="Ba0-y2-7SG"/>
-                                </connections>
-                            </button>
-                            <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BB9-pA-7KT">
-                                <rect key="frame" x="200" y="466" width="96" height="96"/>
-                                <color key="backgroundColor" red="0.96854275469999995" green="0.96868163350000003" blue="0.96851247549999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="96" id="I3r-Zq-Baz"/>
-                                    <constraint firstAttribute="width" constant="96" id="ZKk-nU-nbX"/>
-                                </constraints>
-                                <color key="tintColor" red="0.25490196079999999" green="0.28627450980000002" blue="0.30980392159999998" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" image="ic_text_fields_48pt"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="48"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="menu"/>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <segue destination="1JW-M4-2PL" kind="show" id="Yu8-hp-x7M"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hws-Nu-17n">
-                                <rect key="frame" x="8" y="28" width="48" height="48"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="48" id="2RT-gr-XeT"/>
-                                    <constraint firstAttribute="width" constant="48" id="yyj-0W-K3k"/>
-                                </constraints>
-                                <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                <state key="normal" image="ic_keyboard_arrow_down"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="24"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="heroModifierString" value="fade translate(0, -150)"/>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="back"/>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="hero_unwindToRootViewController" destination="n6n-Yr-iiD" eventType="touchUpInside" id="r0s-95-mIt"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="0.75035761443661975" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="hws-Nu-17n" firstAttribute="leading" secondItem="pwy-p7-BFt" secondAttribute="leading" constant="8" id="3S8-v5-YYE"/>
-                            <constraint firstItem="0eU-DD-3fj" firstAttribute="centerY" secondItem="pwy-p7-BFt" secondAttribute="centerY" constant="60" id="4QG-2X-gyK"/>
-                            <constraint firstItem="4Tw-b7-MDk" firstAttribute="centerY" secondItem="pwy-p7-BFt" secondAttribute="centerY" constant="-180" id="6P2-Ic-ToX"/>
-                            <constraint firstItem="zna-x2-9LS" firstAttribute="centerY" secondItem="pwy-p7-BFt" secondAttribute="centerY" constant="180" id="7Qe-sN-lrk"/>
-                            <constraint firstItem="4Tw-b7-MDk" firstAttribute="centerX" secondItem="pwy-p7-BFt" secondAttribute="centerX" constant="60" id="83r-2f-xmQ"/>
-                            <constraint firstItem="BB9-pA-7KT" firstAttribute="centerX" secondItem="pwy-p7-BFt" secondAttribute="centerX" constant="60" id="8Nn-fI-BFG"/>
-                            <constraint firstItem="2mS-M0-ozC" firstAttribute="centerX" secondItem="pwy-p7-BFt" secondAttribute="centerX" constant="60" id="Ahd-br-luF"/>
-                            <constraint firstItem="dC5-La-4Q6" firstAttribute="centerX" secondItem="pwy-p7-BFt" secondAttribute="centerX" constant="-60" id="D0h-0l-LiF"/>
-                            <constraint firstItem="GXz-0P-hCB" firstAttribute="centerY" secondItem="pwy-p7-BFt" secondAttribute="centerY" constant="60" id="H1D-fx-7zK"/>
-                            <constraint firstItem="hws-Nu-17n" firstAttribute="top" secondItem="Dh5-EJ-KLE" secondAttribute="bottom" constant="8" id="Hkd-1R-gg4"/>
-                            <constraint firstItem="SLa-DC-TkS" firstAttribute="centerX" secondItem="pwy-p7-BFt" secondAttribute="centerX" constant="-60" id="MpM-YC-35S"/>
-                            <constraint firstItem="GXz-0P-hCB" firstAttribute="centerX" secondItem="pwy-p7-BFt" secondAttribute="centerX" constant="60" id="P79-wN-jmc"/>
-                            <constraint firstItem="zna-x2-9LS" firstAttribute="centerX" secondItem="pwy-p7-BFt" secondAttribute="centerX" constant="-60" id="RNn-ei-S13"/>
-                            <constraint firstItem="0eU-DD-3fj" firstAttribute="centerX" secondItem="pwy-p7-BFt" secondAttribute="centerX" constant="-60" id="cAN-nB-mOH"/>
-                            <constraint firstItem="dC5-La-4Q6" firstAttribute="centerY" secondItem="pwy-p7-BFt" secondAttribute="centerY" constant="-180" id="iof-bH-JlS"/>
-                            <constraint firstItem="BB9-pA-7KT" firstAttribute="centerY" secondItem="pwy-p7-BFt" secondAttribute="centerY" constant="180" id="kLY-bQ-Flt"/>
-                            <constraint firstItem="2mS-M0-ozC" firstAttribute="centerY" secondItem="pwy-p7-BFt" secondAttribute="centerY" constant="-60" id="kvZ-gW-rSK"/>
-                            <constraint firstItem="SLa-DC-TkS" firstAttribute="centerY" secondItem="pwy-p7-BFt" secondAttribute="centerY" constant="-60" id="z4C-l9-EYo"/>
-                        </constraints>
-                        <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="menuBackground"/>
-                        </userDefinedRuntimeAttributes>
-                    </view>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="bDd-PE-s8d">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            <subviews>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pwy-p7-BFt">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                    <subviews>
+                                        <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Tw-b7-MDk">
+                                            <rect key="frame" x="200" y="106" width="96" height="96"/>
+                                            <color key="backgroundColor" red="0.8536429405" green="0.3644335568" blue="0.24528044460000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="96" id="3zb-uc-Xuy"/>
+                                                <constraint firstAttribute="height" constant="96" id="Vhg-M4-ik1"/>
+                                            </constraints>
+                                            <color key="tintColor" red="0.25490196079999999" green="0.28627450980000002" blue="0.30980392159999998" alpha="1" colorSpace="calibratedRGB"/>
+                                            <state key="normal" image="ic_insert_photo_48pt"/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                    <real key="value" value="48"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="string" keyPath="heroModifierString" value="source(menu)"/>
+                                            </userDefinedRuntimeAttributes>
+                                            <connections>
+                                                <segue destination="1JW-M4-2PL" kind="show" id="i17-Fc-O3R"/>
+                                            </connections>
+                                        </button>
+                                        <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dC5-La-4Q6">
+                                            <rect key="frame" x="80" y="106" width="96" height="96"/>
+                                            <color key="backgroundColor" red="0.65110915899999999" green="0.49157077069999999" blue="0.75600677729999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="96" id="RfA-nf-3t0"/>
+                                                <constraint firstAttribute="width" constant="96" id="e0q-On-d2j"/>
+                                            </constraints>
+                                            <color key="tintColor" red="0.25490196079999999" green="0.28627450980000002" blue="0.30980392159999998" alpha="1" colorSpace="calibratedRGB"/>
+                                            <state key="normal" image="ic_audiotrack_48pt"/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                    <real key="value" value="48"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="string" keyPath="heroModifierString" value="source(menu)"/>
+                                            </userDefinedRuntimeAttributes>
+                                            <connections>
+                                                <segue destination="1JW-M4-2PL" kind="show" id="Rsn-IC-JQr"/>
+                                            </connections>
+                                        </button>
+                                        <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2mS-M0-ozC">
+                                            <rect key="frame" x="200" y="226" width="96" height="96"/>
+                                            <color key="backgroundColor" red="0.96249228720000002" green="0.86748665570000005" blue="0.2182745636" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="96" id="4jG-A8-Yeg"/>
+                                                <constraint firstAttribute="width" constant="96" id="K69-Nh-CHE"/>
+                                            </constraints>
+                                            <color key="tintColor" red="0.25490196079999999" green="0.28627450980000002" blue="0.30980392159999998" alpha="1" colorSpace="calibratedRGB"/>
+                                            <state key="normal" image="ic_gif_48pt"/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                    <real key="value" value="48"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="string" keyPath="heroModifierString" value="source(menu)"/>
+                                            </userDefinedRuntimeAttributes>
+                                            <connections>
+                                                <segue destination="1JW-M4-2PL" kind="show" id="E78-QT-i86"/>
+                                            </connections>
+                                        </button>
+                                        <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SLa-DC-TkS">
+                                            <rect key="frame" x="80" y="226" width="96" height="96"/>
+                                            <color key="backgroundColor" red="0.60663342480000004" green="0.63835191729999996" blue="0.68026506900000006" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="96" id="27k-2m-Hc5"/>
+                                                <constraint firstAttribute="width" constant="96" id="V6h-pa-ElO"/>
+                                            </constraints>
+                                            <color key="tintColor" red="0.25490196079999999" green="0.28627450980000002" blue="0.30980392159999998" alpha="1" colorSpace="calibratedRGB"/>
+                                            <state key="normal" image="ic_videocam_48pt"/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                    <real key="value" value="48"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="string" keyPath="heroModifierString" value="source(menu)"/>
+                                            </userDefinedRuntimeAttributes>
+                                            <connections>
+                                                <segue destination="1JW-M4-2PL" kind="show" id="toM-0A-mTp"/>
+                                            </connections>
+                                        </button>
+                                        <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GXz-0P-hCB">
+                                            <rect key="frame" x="200" y="346" width="96" height="96"/>
+                                            <color key="backgroundColor" red="0.3231979311" green="0.62352418899999995" blue="0.80385208129999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="96" id="4f5-Kc-9Ah"/>
+                                                <constraint firstAttribute="width" constant="96" id="tcU-Vc-X6B"/>
+                                            </constraints>
+                                            <color key="tintColor" red="0.25490196079999999" green="0.28627450980000002" blue="0.30980392159999998" alpha="1" colorSpace="calibratedRGB"/>
+                                            <state key="normal" image="ic_chat_48pt"/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                    <real key="value" value="48"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="string" keyPath="heroModifierString" value="source(menu)"/>
+                                            </userDefinedRuntimeAttributes>
+                                            <connections>
+                                                <segue destination="1JW-M4-2PL" kind="show" id="qwa-EV-Iet"/>
+                                            </connections>
+                                        </button>
+                                        <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0eU-DD-3fj">
+                                            <rect key="frame" x="80" y="346" width="96" height="96"/>
+                                            <color key="backgroundColor" red="0.33910316229999998" green="0.73554944990000004" blue="0.53971123700000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="96" id="RLN-z9-AYa"/>
+                                                <constraint firstAttribute="width" constant="96" id="cpJ-QV-Wwp"/>
+                                            </constraints>
+                                            <color key="tintColor" red="0.25490196079999999" green="0.28627450980000002" blue="0.30980392159999998" alpha="1" colorSpace="calibratedRGB"/>
+                                            <state key="normal" image="ic_link_48pt"/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                    <real key="value" value="48"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="string" keyPath="heroModifierString" value="source(menu)"/>
+                                            </userDefinedRuntimeAttributes>
+                                            <connections>
+                                                <segue destination="1JW-M4-2PL" kind="show" id="1J9-Kb-eMi"/>
+                                            </connections>
+                                        </button>
+                                        <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zna-x2-9LS">
+                                            <rect key="frame" x="80" y="466" width="96" height="96"/>
+                                            <color key="backgroundColor" red="0.92462307210000005" green="0.58727717400000001" blue="0.17350399490000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="96" id="F1K-LL-2Tj"/>
+                                                <constraint firstAttribute="height" constant="96" id="ZDA-s1-a8A"/>
+                                            </constraints>
+                                            <color key="tintColor" red="0.25490196079999999" green="0.28627450980000002" blue="0.30980392159999998" alpha="1" colorSpace="calibratedRGB"/>
+                                            <state key="normal" image="ic_format_quote_48pt"/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                    <real key="value" value="48"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="string" keyPath="heroModifierString" value="source(menu)"/>
+                                                <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="quote"/>
+                                            </userDefinedRuntimeAttributes>
+                                            <connections>
+                                                <segue destination="1JW-M4-2PL" kind="show" id="Ba0-y2-7SG"/>
+                                            </connections>
+                                        </button>
+                                        <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BB9-pA-7KT">
+                                            <rect key="frame" x="200" y="466" width="96" height="96"/>
+                                            <color key="backgroundColor" red="0.96854275469999995" green="0.96868163350000003" blue="0.96851247549999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="96" id="I3r-Zq-Baz"/>
+                                                <constraint firstAttribute="width" constant="96" id="ZKk-nU-nbX"/>
+                                            </constraints>
+                                            <color key="tintColor" red="0.25490196079999999" green="0.28627450980000002" blue="0.30980392159999998" alpha="1" colorSpace="calibratedRGB"/>
+                                            <state key="normal" image="ic_text_fields_48pt"/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                    <real key="value" value="48"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="menu"/>
+                                            </userDefinedRuntimeAttributes>
+                                            <connections>
+                                                <segue destination="1JW-M4-2PL" kind="show" id="Yu8-hp-x7M"/>
+                                            </connections>
+                                        </button>
+                                        <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hws-Nu-17n">
+                                            <rect key="frame" x="8" y="28" width="48" height="48"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="48" id="2RT-gr-XeT"/>
+                                                <constraint firstAttribute="width" constant="48" id="yyj-0W-K3k"/>
+                                            </constraints>
+                                            <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                            <state key="normal" image="ic_keyboard_arrow_down"/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                    <real key="value" value="24"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="string" keyPath="heroModifierString" value="fade translate(0, -150)"/>
+                                                <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="back"/>
+                                            </userDefinedRuntimeAttributes>
+                                            <connections>
+                                                <action selector="hero_unwindToRootViewController" destination="n6n-Yr-iiD" eventType="touchUpInside" id="r0s-95-mIt"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="hws-Nu-17n" firstAttribute="leading" secondItem="pwy-p7-BFt" secondAttribute="leading" constant="8" id="3S8-v5-YYE"/>
+                                        <constraint firstItem="0eU-DD-3fj" firstAttribute="centerY" secondItem="pwy-p7-BFt" secondAttribute="centerY" constant="60" id="4QG-2X-gyK"/>
+                                        <constraint firstItem="4Tw-b7-MDk" firstAttribute="centerY" secondItem="pwy-p7-BFt" secondAttribute="centerY" constant="-180" id="6P2-Ic-ToX"/>
+                                        <constraint firstItem="zna-x2-9LS" firstAttribute="centerY" secondItem="pwy-p7-BFt" secondAttribute="centerY" constant="180" id="7Qe-sN-lrk"/>
+                                        <constraint firstItem="4Tw-b7-MDk" firstAttribute="centerX" secondItem="pwy-p7-BFt" secondAttribute="centerX" constant="60" id="83r-2f-xmQ"/>
+                                        <constraint firstItem="BB9-pA-7KT" firstAttribute="centerX" secondItem="pwy-p7-BFt" secondAttribute="centerX" constant="60" id="8Nn-fI-BFG"/>
+                                        <constraint firstItem="2mS-M0-ozC" firstAttribute="centerX" secondItem="pwy-p7-BFt" secondAttribute="centerX" constant="60" id="Ahd-br-luF"/>
+                                        <constraint firstItem="hws-Nu-17n" firstAttribute="leading" secondItem="pwy-p7-BFt" secondAttribute="leading" constant="8" id="CKs-h8-15X"/>
+                                        <constraint firstItem="dC5-La-4Q6" firstAttribute="centerX" secondItem="pwy-p7-BFt" secondAttribute="centerX" constant="-60" id="D0h-0l-LiF"/>
+                                        <constraint firstItem="GXz-0P-hCB" firstAttribute="centerY" secondItem="pwy-p7-BFt" secondAttribute="centerY" constant="60" id="H1D-fx-7zK"/>
+                                        <constraint firstItem="SLa-DC-TkS" firstAttribute="centerX" secondItem="pwy-p7-BFt" secondAttribute="centerX" constant="-60" id="MpM-YC-35S"/>
+                                        <constraint firstItem="hws-Nu-17n" firstAttribute="top" secondItem="pwy-p7-BFt" secondAttribute="top" constant="28" id="N25-xM-9G7"/>
+                                        <constraint firstItem="GXz-0P-hCB" firstAttribute="centerX" secondItem="pwy-p7-BFt" secondAttribute="centerX" constant="60" id="P79-wN-jmc"/>
+                                        <constraint firstItem="zna-x2-9LS" firstAttribute="centerX" secondItem="pwy-p7-BFt" secondAttribute="centerX" constant="-60" id="RNn-ei-S13"/>
+                                        <constraint firstItem="0eU-DD-3fj" firstAttribute="centerX" secondItem="pwy-p7-BFt" secondAttribute="centerX" constant="-60" id="cAN-nB-mOH"/>
+                                        <constraint firstItem="dC5-La-4Q6" firstAttribute="centerY" secondItem="pwy-p7-BFt" secondAttribute="centerY" constant="-180" id="iof-bH-JlS"/>
+                                        <constraint firstItem="BB9-pA-7KT" firstAttribute="centerY" secondItem="pwy-p7-BFt" secondAttribute="centerY" constant="180" id="kLY-bQ-Flt"/>
+                                        <constraint firstItem="2mS-M0-ozC" firstAttribute="centerY" secondItem="pwy-p7-BFt" secondAttribute="centerY" constant="-60" id="kvZ-gW-rSK"/>
+                                        <constraint firstItem="SLa-DC-TkS" firstAttribute="centerY" secondItem="pwy-p7-BFt" secondAttribute="centerY" constant="-60" id="z4C-l9-EYo"/>
+                                    </constraints>
+                                </view>
+                            </subviews>
+                            <constraints>
+                                <constraint firstItem="pwy-p7-BFt" firstAttribute="top" secondItem="bDd-PE-s8d" secondAttribute="top" id="0Fi-G0-7Gy"/>
+                                <constraint firstAttribute="bottom" secondItem="pwy-p7-BFt" secondAttribute="bottom" id="6nD-jW-0fs"/>
+                                <constraint firstAttribute="trailing" secondItem="pwy-p7-BFt" secondAttribute="trailing" id="R8T-Ea-ayo"/>
+                                <constraint firstItem="pwy-p7-BFt" firstAttribute="leading" secondItem="bDd-PE-s8d" secondAttribute="leading" id="Y2k-D5-ehx"/>
+                            </constraints>
+                        </view>
+                        <blurEffect style="dark"/>
+                    </visualEffectView>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabled" value="YES"/>
                     </userDefinedRuntimeAttributes>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="n6n-Yr-iiD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="800" y="0.0"/>
+            <point key="canvasLocation" x="575" y="-71"/>
         </scene>
         <!--Menu Page View Controller-->
         <scene sceneID="7u7-EV-Uun">
