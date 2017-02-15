@@ -22,55 +22,32 @@
 
 import UIKit
 
-internal class HeroDefaultAnimatorViewContext {
-  weak var animator: HeroDefaultAnimator?
-  var snapshot: UIView
-  var state = [String: (Any?, Any?)]()
-  var duration: TimeInterval = 0
+internal class HeroCoreAnimationViewContext: HeroAnimatorViewContext {
 
-  var targetState: HeroTargetState
-  var defaultTiming: (duration: TimeInterval, timingFunction: CAMediaTimingFunction)!
+  var state = [String: (Any?, Any?)]()
+  var timingFunction: CAMediaTimingFunction = .standard
 
   // computed
   var contentLayer: CALayer? {
     return snapshot.layer.sublayers?.get(0)
   }
   var overlayLayer: CALayer?
-  var currentTime: TimeInterval {
-    return snapshot.layer.convertTime(CACurrentMediaTime(), from: nil)
-  }
-  var container: UIView? {
-    return animator?.context.container
-  }
 
-  /*
-  // return (delay, duration, easing)
-  func getTiming(key:String, fromValue:Any?, toValue:Any?) -> (TimeInterval, TimeInterval, CAMediaTimingFunction){
-    // delay should be for a specific animation. this shouldn't include the baseDelay
-
-    // TODO: dynamic delay and duration for different key
-    // https://material.io/guidelines/motion/choreography.html#choreography-continuity
-
-    switch key {
-    case "opacity":
-      if let value = (toValue as? NSNumber)?.floatValue{
-        switch value {
-        case 0.0:
-          // disappearing element
-          return (0, 0.075, .standard)
-        case 1.0:
-          // appearing element
-          return (0.075, defaultTiming.0 - 0.075, .standard)
-        default:
-          break
-        }
-      }
-    default:
-      break
-    }
-    return (0.0, defaultTiming.0, defaultTiming.1)
+  override class func canAnimate(view: UIView, state: HeroTargetState, appearing: Bool) -> Bool {
+    return  state.position != nil ||
+      state.size != nil ||
+      state.transform != nil ||
+      state.cornerRadius != nil ||
+      state.opacity != nil ||
+      state.overlay != nil ||
+      state.borderColor != nil ||
+      state.borderWidth != nil ||
+      state.shadowOpacity != nil ||
+      state.shadowRadius != nil ||
+      state.shadowOffset != nil ||
+      state.shadowColor != nil ||
+      state.shadowPath != nil
   }
-  */
 
   func getOverlayLayer() -> CALayer {
     if overlayLayer == nil {
@@ -91,11 +68,16 @@ internal class HeroDefaultAnimatorViewContext {
     return nil
   }
 
+  func currentValue(key: String) -> Any? {
+    if let key = overlayKeyFor(key: key) {
+      return overlayLayer?.value(forKeyPath: key)
+    }
+    return (snapshot.layer.presentation() ?? snapshot.layer).value(forKeyPath: key)
+  }
+
   func getAnimation(key: String, beginTime: TimeInterval, fromValue: Any?, toValue: Any?, ignoreArc: Bool = false) -> CAPropertyAnimation {
     let key = overlayKeyFor(key: key) ?? key
     let anim: CAPropertyAnimation
-
-    let (delay, duration, timingFunction) = (0.0, defaultTiming.0, defaultTiming.1)
 
     if !ignoreArc, key == "position", let arcIntensity = targetState.arc,
       let fromPos = (fromValue as? NSValue)?.cgPointValue,
@@ -134,12 +116,12 @@ internal class HeroDefaultAnimatorViewContext {
 
     anim.fillMode = kCAFillModeBoth
     anim.isRemovedOnCompletion = false
-    anim.beginTime = beginTime + delay
+    anim.beginTime = beginTime
     return anim
   }
 
   // return the completion duration of the animation (duration + initial delay, not counting the beginTime)
-  @discardableResult func addAnimation(key: String, beginTime: TimeInterval, fromValue: Any?, toValue: Any?) -> TimeInterval {
+  func animate(key: String, beginTime: TimeInterval, fromValue: Any?, toValue: Any?) -> TimeInterval {
     let anim = getAnimation(key: key, beginTime:beginTime, fromValue: fromValue, toValue: toValue)
 
     if let overlayKey = overlayKeyFor(key:key) {
@@ -177,12 +159,32 @@ internal class HeroDefaultAnimatorViewContext {
     return anim.duration + anim.beginTime - beginTime
   }
 
+  func animate(delay: TimeInterval) {
+    if let tf = targetState.timingFunction {
+      timingFunction = tf
+    }
+    if let d = targetState.duration {
+      duration = d
+    } else {
+      duration = snapshot.optimizedDuration(targetState: targetState)
+    }
+
+    let beginTime = currentTime + delay
+    var finalDuration: TimeInterval = duration
+    for (key, (fromValue, toValue)) in state {
+      let neededTime = animate(key: key, beginTime: beginTime, fromValue: fromValue, toValue: toValue)
+      finalDuration = max(finalDuration, neededTime + delay)
+    }
+
+    duration = finalDuration
+  }
+
   /**
    - Returns: a CALayer [keyPath:value] map for animation
    */
-  func viewState(targetState: HeroTargetState) -> [String: Any] {
+  func viewState(targetState: HeroTargetState) -> [String: Any?] {
     var targetState = targetState
-    var rtn = [String: Any]()
+    var rtn = [String: Any?]()
 
     if let size = targetState.size {
       if targetState.useScaleBasedSizeChange ?? self.targetState.useScaleBasedSizeChange ?? false {
@@ -196,7 +198,7 @@ internal class HeroDefaultAnimatorViewContext {
     if let position = targetState.position {
       rtn["position"] = NSValue(cgPoint:position)
     }
-    if let opacity = targetState.opacity {
+    if let opacity = targetState.opacity, !(snapshot is UIVisualEffectView) {
       rtn["opacity"] = NSNumber(value: opacity)
     }
     if let cornerRadius = targetState.cornerRadius {
@@ -245,63 +247,14 @@ internal class HeroDefaultAnimatorViewContext {
     return rtn
   }
 
-  func optimizedDurationAndTimingFunction() -> (duration: TimeInterval, timingFunction: CAMediaTimingFunction) {
-    // timing function
-    let fromPos = (state["position"]?.0 as? NSValue)?.cgPointValue ?? snapshot.layer.position
-    let toPos = (state["position"]?.1 as? NSValue)?.cgPointValue ?? fromPos
-    let fromTransform = (state["transform"]?.0 as? NSValue)?.caTransform3DValue ?? CATransform3DIdentity
-    let toTransform = (state["transform"]?.1 as? NSValue)?.caTransform3DValue ?? CATransform3DIdentity
-    let realFromPos = CGPoint.zero.transform(fromTransform) + fromPos
-    let realToPos = CGPoint.zero.transform(toTransform) + toPos
-
-    var timingFunction: CAMediaTimingFunction = .standard
-    if let container = container, !container.bounds.contains(realToPos) {
-      // acceleration if leaving screen
-      timingFunction = .acceleration
-    } else if let container = container, !container.bounds.contains(realFromPos) {
-      // deceleration if entering screen
-      timingFunction = .deceleration
-    }
-
-    let fromSize = (state["bounds.size"]?.0 as? NSValue)?.cgSizeValue ?? snapshot.layer.bounds.size
-    let toSize = (state["bounds.size"]?.1 as? NSValue)?.cgSizeValue ?? fromSize
-    let realFromSize = fromSize.transform(fromTransform)
-    let realToSize = toSize.transform(toTransform)
-
-    let movePoints = (realFromPos.distance(realToPos) + realFromSize.point.distance(realToSize.point))
-
-    // duration is 0.2 @ 0 to 0.375 @ 500
-    let duration = 0.208 + Double(movePoints.clamp(0, 500)) / 3000
-    return (duration, timingFunction)
-  }
-
-  func animate(delay: TimeInterval) {
-    // calculate timing default
-    defaultTiming = optimizedDurationAndTimingFunction()
-
-    if let timingFunction = targetState.timingFunction {
-      defaultTiming.timingFunction = timingFunction
-    }
-    if let duration = targetState.duration {
-      defaultTiming.duration = duration
-    }
-
-    duration = 0
-    let beginTime = currentTime + delay
-    for (key, (fromValue, toValue)) in state {
-      let neededTime = addAnimation(key: key, beginTime:beginTime, fromValue: fromValue, toValue: toValue)
-      duration = max(duration, neededTime + delay)
-    }
-  }
-
-  func apply(state: HeroTargetState) {
+  override func apply(state: HeroTargetState) {
     let targetState = viewState(targetState: state)
     for (key, targetValue) in targetState {
       if self.state[key] == nil {
         let current = currentValue(key: key)
         self.state[key] = (current, current)
       }
-      addAnimation(key: key, beginTime: 0, fromValue: targetValue, toValue: targetValue)
+      let _ = animate(key: key, beginTime: 0, fromValue: targetValue, toValue: targetValue)
     }
 
     // support changing duration
@@ -312,7 +265,7 @@ internal class HeroDefaultAnimatorViewContext {
     }
   }
 
-  func resume(timePassed: TimeInterval, reverse: Bool) {
+  override func resume(timePassed: TimeInterval, reverse: Bool) {
     for (key, (fromValue, toValue)) in state {
       let realToValue = !reverse ? toValue : fromValue
       let realFromValue = currentValue(key: key)
@@ -333,7 +286,7 @@ internal class HeroDefaultAnimatorViewContext {
     }
   }
 
-  func seek(timePassed: TimeInterval) {
+  override func seek(timePassed: TimeInterval) {
     seek(layer:snapshot.layer, timePassed:timePassed)
     if let contentLayer = contentLayer {
       seek(layer:contentLayer, timePassed:timePassed)
@@ -343,26 +296,14 @@ internal class HeroDefaultAnimatorViewContext {
     }
   }
 
-  func clean() {
-    snapshot.layer.removeAllAnimations()
+  override func clean() {
+    super.clean()
     contentLayer?.removeAllAnimations()
     overlayLayer?.removeFromSuperlayer()
     overlayLayer = nil
   }
 
-  func currentValue(key: String) -> Any? {
-    if let key = overlayKeyFor(key: key) {
-      return overlayLayer?.value(forKeyPath: key)
-    }
-    return (snapshot.layer.presentation() ?? snapshot.layer).value(forKeyPath: key)
-  }
-
-  init(animator: HeroDefaultAnimator, snapshot: UIView, targetState: HeroTargetState, appearing: Bool) {
-    self.animator = animator
-    self.snapshot = snapshot
-    self.targetState = targetState
-
-    let disappeared = viewState(targetState: targetState)
+  override func startAnimations(appearing: Bool) {
     if let beginState = targetState.beginState?.state {
       let appeared = viewState(targetState: beginState)
       for (key, value) in appeared {
@@ -374,6 +315,8 @@ internal class HeroDefaultAnimatorViewContext {
         overlayLayer!.opacity = Float(opacity)
       }
     }
+
+    let disappeared = viewState(targetState: targetState)
 
     for (key, disappearedState) in disappeared {
       let appearingState = currentValue(key: key)
