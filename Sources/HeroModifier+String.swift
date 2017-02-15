@@ -51,6 +51,12 @@ extension HeroModifier {
       modifier = .translate(x: parameters.getCGFloat(0) ?? 0,
                             y: parameters.getCGFloat(1) ?? 0,
                             z: parameters.getCGFloat(2) ?? 0)
+    case "overlay":
+      modifier = .overlay(color: UIColor(red: parameters.getCGFloat(0) ?? 1,
+                                         green: parameters.getCGFloat(1) ?? 1,
+                                         blue: parameters.getCGFloat(2) ?? 1,
+                                         alpha: 1),
+                          opacity: parameters.getCGFloat(3) ?? 1)
     case "duration":
       if let duration = parameters.getDouble(0) {
         modifier = .duration(duration)
