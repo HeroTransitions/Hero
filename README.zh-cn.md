@@ -10,8 +10,8 @@
 **Hero**是一个iOS界面切换库。它代替了UIKit本身的转场动画接口，使制作自定义的转场动画(View Controller Transition)非常简单！
 
 ### 特点
-<img src="https://cdn.rawgit.com/lkzhao/Hero/f6e87630249bf398cbc138c16eb9e4e3a301cace/Resources/basic.svg"/>
-<img src="https://cdn.rawgit.com/lkzhao/Hero/f6e87630249bf398cbc138c16eb9e4e3a301cace/Resources/effects.svg"/>
+<img src="https://cdn.rawgit.com/lkzhao/Hero/ebb3f2c/Resources/features.svg"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<img src="https://cdn.rawgit.com/lkzhao/Hero/ebb3f2c/Resources/features2.svg"/>
 
 #### 你可以使用这些效果来拼凑出你想要的转场动画。
 
@@ -19,17 +19,19 @@ Hero很像Keynote的[“神奇移动”过渡(Magic Move)](https://support.apple
 
 不仅如此，Hero还可以为没有配对的视图制作动画。每一个视图都可以轻易的用`heroModifiers`来告诉Hero你想为这个视图所创造的动画。交互式动画(interactive transition)也是支持的哟。
 
-Hero还参照Google的[Material Design Motion Guide](https://material.io/guidelines/motion/duration-easing.html)来提供动态的动画长度与时间曲线。你不需要告诉Hero动画的长度与时间曲线，Hero会参照视图的移动长度和大小来自动选择最适合的参数。
+Hero还参照Google的[Material Design Motion Guide](https://material.io/guidelines/motion/duration-easing.html)来提供动态的动画长度。你不需要告诉Hero动画时间，Hero会参照视图的移动长度和大小来自动选择最适合的参数。
 
 无论你使用怎样的方法制作和布局你的视图，Hero都能帮你省去很多时间制作动画。Hero支持 **auto layout**, **programmatic layout**, **UICollectionView**, **UITableView**, **UINavigationController**, **UITabBarController**, 等等。。
 
-## 视频
+### 还有
+从**0.3.0**开始. Hero自带许多转场动画. 这些自带的转场动画可以与你的`heroID` & `heroModifiers`结合，搭配出简单却又独一无二的动画。
 
-1. 实例介绍。**Example Project**.
-2. 自带的校错程序介绍, 可以显示时间轴，曲线路线，和3D视图。**built-in debugger** 
+<img src="https://cdn.rawgit.com/lkzhao/Hero/ebb3f2c/Resources/defaultAnimations.svg"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<img src="https://cdn.rawgit.com/lkzhao/Hero/ebb3f2c/Resources/defaultAnimations2.svg"/>
 
-<a href="https://youtu.be/-6L79or6Iq8"><img src="https://github.com/lkzhao/Hero/blob/master/Resources/overview.png?raw=true" height="300"/></a>
-<a href="https://youtu.be/NFhA6qZdunA"><img src="https://github.com/lkzhao/Hero/blob/master/Resources/debugger.png?raw=true" height="300"/></a>
+## 效果
+
+请看[Example Gallery Blog Post](http://lkzhao.com/2016/12/28/hero.html)来了解Hero具体能做出什么样的效果
 
 ## 安装方法与用法
 Hero可以用Carthage或者Cocoapods安装，具体用法请见**[Usage Guide](https://github.com/lkzhao/Hero/wiki/Usage-Guide)**。
@@ -38,9 +40,7 @@ Hero可以用Carthage或者Cocoapods安装，具体用法请见**[Usage Guide](h
 
 ## 简单实例 1
 
-<img src="https://cdn.rawgit.com/lkzhao/Hero/e4b0d15a15d738ac4b163797816059c199100e22/Resources/simple-v1.svg" />
-<img src="https://cdn.rawgit.com/lkzhao/Hero/e4b0d15a15d738ac4b163797816059c199100e22/Resources/simple-v2.svg" />
-<img src="https://cdn.rawgit.com/lkzhao/Hero/e4b0d15a15d738ac4b163797816059c199100e22/Resources/simple-animation.svg" />
+<img src="https://cdn.rawgit.com/lkzhao/Hero/ebb3f2c/Resources/simple.svg" />
 
 ##### View Controller 1
 ```swift
@@ -58,9 +58,7 @@ greenView.heroModifiers = [.translate(x:0, y:100), .scale(0.5)]
 
 
 ## 简单实例 2
-<img src="https://cdn.rawgit.com/lkzhao/Hero/e4b0d15a15d738ac4b163797816059c199100e22/Resources/advance-v1.svg" />
-<img src="https://cdn.rawgit.com/lkzhao/Hero/e4b0d15a15d738ac4b163797816059c199100e22/Resources/advance-v2.svg" />
-<img src="https://cdn.rawgit.com/lkzhao/Hero/e4b0d15a15d738ac4b163797816059c199100e22/Resources/advance-animation.svg" />
+<img src="https://cdn.rawgit.com/lkzhao/Hero/ebb3f2c/Resources/advanced.svg" />
 
 ##### View Controller 1
 ```swift
