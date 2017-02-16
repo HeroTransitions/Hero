@@ -239,7 +239,7 @@ internal extension HeroBaseController {
       HeroDefaultAnimator<HeroCoreAnimationViewContext>()
     ]
 
-    if #available(iOS 10, *) {
+    if #available(iOS 10, tvOS 10, *) {
       animators.append(HeroDefaultAnimator<HeroViewPropertyViewContext>())
     }
 

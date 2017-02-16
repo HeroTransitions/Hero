@@ -22,7 +22,7 @@
 
 import UIKit
 
-@available(iOS 10, *)
+@available(iOS 10, tvOS 10, *)
 internal class HeroViewPropertyViewContext: HeroAnimatorViewContext {
 
   var viewPropertyAnimator: UIViewPropertyAnimator?
