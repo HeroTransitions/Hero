@@ -36,6 +36,7 @@ class ListTableViewCell: UITableViewCell {
 class ListTableViewController: UITableViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
+    navigationController?.heroNavigationAnimationType = .fade
   }
 
   override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -77,7 +78,6 @@ class ListTableViewController: UITableViewController {
 
 extension ListTableViewController: HeroViewControllerDelegate {
   func heroWillStartAnimatingTo(viewController: UIViewController) {
-    Hero.shared.setDefaultAnimationForNextTransition(.fade)
     if let _ = viewController as? GridCollectionViewController {
       tableView.heroModifiers = [.ignoreSubviewModifiers]
     } else if viewController is ImageViewController {
@@ -86,7 +86,6 @@ extension ListTableViewController: HeroViewControllerDelegate {
     }
   }
   func heroWillStartAnimatingFrom(viewController: UIViewController) {
-    Hero.shared.setDefaultAnimationForNextTransition(.fade)
     if let _ = viewController as? GridCollectionViewController {
       tableView.heroModifiers = [.ignoreSubviewModifiers]
     } else {

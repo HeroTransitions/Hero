@@ -33,6 +33,7 @@ class ImageGalleryViewController: UIViewController {
     super.viewDidLoad()
     collectionView.reloadData()
     collectionView.indicatorStyle = .white
+    navigationController?.heroNavigationAnimationType = .fade
   }
 
   @IBAction func switchLayout(_ sender: Any) {
@@ -40,7 +41,6 @@ class ImageGalleryViewController: UIViewController {
     // animation is automatic! Holy
     let next = (UIStoryboard(name: "ImageGallery", bundle: nil).instantiateViewController(withIdentifier: "imageGallery") as? ImageGalleryViewController)!
     next.columns = columns == 3 ? 5 : 3
-    Hero.shared.setDefaultAnimationForNextTransition(.none)
     hero_replaceViewController(with: next)
   }
 }
@@ -81,7 +81,6 @@ extension ImageGalleryViewController: HeroViewControllerDelegate {
     if (viewController as? ImageGalleryViewController) != nil {
       collectionView.heroModifiers = [.cascade(delta:0.015, direction:.bottomToTop, delayMatchedViews:true)]
     } else if (viewController as? ImageViewController) != nil {
-      Hero.shared.setDefaultAnimationForNextTransition(.fade)
       let cell = collectionView.cellForItem(at: collectionView.indexPathsForSelectedItems!.first!)!
       collectionView.heroModifiers = [.cascade(delta: 0.015, direction: .radial(center: cell.center), delayMatchedViews: true)]
     } else {
@@ -101,7 +100,6 @@ extension ImageGalleryViewController: HeroViewControllerDelegate {
       let targetAttribute = collectionView.layoutAttributesForItem(at: currentCellIndex) {
       collectionView.heroModifiers = [.cascade(delta:0.015, direction:.inverseRadial(center:targetAttribute.center))]
       if !collectionView.indexPathsForVisibleItems.contains(currentCellIndex) {
-        Hero.shared.setDefaultAnimationForNextTransition(.fade)
         // make the cell visible
         collectionView.scrollToItem(at: currentCellIndex,
                                     at: originalCellIndex < currentCellIndex ? .bottom : .top,

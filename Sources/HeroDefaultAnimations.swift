@@ -73,17 +73,27 @@ internal extension Hero {
   }
 
   func prepareDefaultAnimation() {
+    if case .auto = defaultAnimation {
+      if inNavigationController, let navAnim = toViewController?.navigationController?.heroNavigationAnimationType {
+        defaultAnimation = navAnim
+      } else if inTabBarController, let tabAnim = toViewController?.tabBarController?.heroTabBarAnimationType {
+        defaultAnimation = tabAnim
+      } else if let modalAnim = toViewController?.heroModalAnimationType {
+        defaultAnimation = modalAnim
+      }
+    }
+
     if case .selectBy(let presentAnim, let dismissAnim) = defaultAnimation {
       defaultAnimation = presenting ? presentAnim : dismissAnim
     }
 
     if case .auto = defaultAnimation {
-      if inNavigationController {
+      if animators.contains(where: { $0.canAnimate(view: toView, appearing: true) || $0.canAnimate(view: fromView, appearing: false) }) {
+        defaultAnimation = .none
+      } else if inNavigationController {
         defaultAnimation = presenting ? .push(direction:.left) : .pull(direction:.right)
       } else if inTabBarController {
         defaultAnimation = presenting ? .slide(direction:.left) : .slide(direction:.right)
-      } else if animators.contains(where: { $0.canAnimate(view: toView, appearing: true) || $0.canAnimate(view: fromView, appearing: false) }) {
-        defaultAnimation = .none
       } else {
         defaultAnimation = .fade
       }
