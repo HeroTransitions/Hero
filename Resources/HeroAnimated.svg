@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="750px" height="250px" viewBox="0 0 750 250" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Hero</title>
+    <defs>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="darkOrangeGradient">
+            <stop stop-color="#FF8938" offset="0%"></stop>
+            <stop stop-color="#F76F1E" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="70.563613%" y1="-29.9665328%" x2="39.8308304%" y2="90.2273182%" id="centerOrangeGradient">
+            <stop stop-color="#FBDA61" offset="0%"></stop>
+            <stop stop-color="#F76B1C" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="defaultOrangeGradient">
+            <stop stop-color="#FBDA61" offset="0%"></stop>
+            <stop stop-color="#F76B1C" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Hero">
+        <text id="Hero" font-family="HelveticaNeue-UltraLight, Helvetica Neue" font-size="280" font-weight="200" fill="#FD8332">
+            <tspan x="250" y="231">H
+                <animate 
+                    attributeName="font-size" 
+                    values="280;0;0;280;280"
+                    dur="10s"
+                    calcMode="spline"
+                    keySplines="0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1"
+                    keyTimes="0;0.05;0.23;0.28;1"
+                    begin="5.6s"
+                    repeatCount="indefinite"
+                    fill="freeze" />
+                <animate 
+                    attributeName="y" 
+                    values="231;180;180;231;231"
+                    dur="10s"
+                    calcMode="spline"
+                    keySplines="0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1"
+                    keyTimes="0;0.05;0.23;0.28;1"
+                    begin="5.6s"
+                    repeatCount="indefinite"
+                    fill="freeze" />
+            </tspan>
+            <tspan x="420" y="231">e
+                <animate 
+                    attributeName="font-size" 
+                    values="280;0;0;280;280"
+                    dur="10s"
+                    calcMode="spline"
+                    keySplines="0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1"
+                    keyTimes="0;0.05;0.27;0.32;1"
+                    begin="5.4s"
+                    repeatCount="indefinite"
+                    fill="freeze" />
+                <animate 
+                    attributeName="y" 
+                    values="231;180;180;231;231"
+                    dur="10s"
+                    calcMode="spline"
+                    keySplines="0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1"
+                    keyTimes="0;0.05;0.27;0.32;1"
+                    begin="5.4s"
+                    repeatCount="indefinite"
+                    fill="freeze" />
+            </tspan>
+            <tspan x="550" y="231">r
+                <animate 
+                    attributeName="font-size" 
+                    values="280;0;0;280;280"
+                    dur="10s"
+                    calcMode="spline"
+                    keySplines="0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1"
+                    keyTimes="0;0.05;0.31;0.36;1"
+                    begin="5.2s"
+                    repeatCount="indefinite"
+                    fill="freeze" />
+                <animate 
+                    attributeName="y" 
+                    values="231;180;180;231;231"
+                    dur="10s"
+                    calcMode="spline"
+                    keySplines="0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1"
+                    keyTimes="0;0.05;0.31;0.36;1"
+                    begin="5.2s"
+                    repeatCount="indefinite"
+                    fill="freeze" />
+            </tspan>
+            <tspan x="610" y="231">o
+                <animate 
+                    attributeName="font-size" 
+                    values="280;0;0;280;280"
+                    dur="10s"
+                    calcMode="spline"
+                    keySplines="0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1"
+                    keyTimes="0;0.05;0.35;0.4;1"
+                    begin="5s"
+                    repeatCount="indefinite"
+                    fill="freeze" />
+                <animate 
+                    attributeName="y" 
+                    values="231;180;180;231;231"
+                    dur="10s"
+                    calcMode="spline"
+                    keySplines="0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1"
+                    keyTimes="0;0.05;0.35;0.4;1"
+                    repeatCount="indefinite"
+                    begin="5s"
+                    fill="freeze" />
+            </tspan>
+        </text>
+        <g id="right" transform="translate(100,0)">
+            <path d="M0,-1.42108547e-14 L52.6291862,30.0738207 C62.2228218,35.5558982 70,48.9562589 70,59.9930619 L70,250 L1.42108547e-14,210 L0,-1.42108547e-14 Z" id="top" fill="url(#defaultOrangeGradient)"></path>
+            <polygon id="bottom" fill="url(#darkOrangeGradient)" points="0 100 70 130 70 250 0 210"></polygon>
+            <animateTransform attributeName="transform" 
+                type="translate"
+                values="100 0;0 0;0 0;100 0;100 0"
+                dur="10s"
+                calcMode="spline"
+                keySplines="0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1"
+                keyTimes="0;0.05;0.19;0.24;1"
+                begin="5.8s"
+                repeatCount="indefinite"
+                fill="freeze" />
+            <animate 
+                attributeName="opacity"
+                values="1;0;1;1"
+                dur="10s"
+                calcMode="discrete"
+                keyTimes="0;0.05;0.19;1"
+                begin="5.8s"
+                repeatCount="indefinite"
+                fill="freeze" />
+        </g>
+        <path d="M0,100 L100,100 L170,130 L100.003297,130 C83.4329338,130 70,143.431508 70,159.994535 L70,160 L0,100 Z" id="center" fill="url(#centerOrangeGradient)">
+            <animate 
+                attributeName="d" 
+                values="M0,100 L100,100 L170,130 L100.003297,130 C83.4329338,130 70,143.431508 70,159.994535 L70,160 L0,100 Z;
+                        M0,100 L0,100 L70,130 L70,130 C70,130 70,130 70,130 L70,160 L0,100 Z;
+                        M0,100 L0,100 L70,130 L70,130 C70,130 70,130 70,130 L70,160 L0,100 Z;
+                        M0,100 L100,100 L170,130 L100.003297,130 C83.4329338,130 70,143.431508 70,159.994535 L70,160 L0,100 Z;
+                        M0,100 L100,100 L170,130 L100.003297,130 C83.4329338,130 70,143.431508 70,159.994535 L70,160 L0,100 Z;"
+                dur="10s"
+                begin="5.8s"
+                calcMode="spline"
+                keySplines="0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1"
+                keyTimes="0;0.05;0.19;0.24;1"
+                repeatCount="indefinite"
+                fill="freeze" />
+            <animate 
+                attributeName="opacity"
+                values="1;0;1;1"
+                dur="10s"
+                begin="5.8s"
+                calcMode="discrete"
+                keyTimes="0;0.05;0.19;1"
+                repeatCount="indefinite"
+                fill="freeze" />
+        </path>
+        <g id="left">
+            <path d="M0,0 
+                     C0,0 0,0 0,0
+                     L52.6291862,30.0738207
+                     C62.2228218,35.5558982 70,48.9562589 70,59.9930619
+                     L70,250
+                     C70,250 70,250 70,250
+                     L0,210
+                     C0,210 0,210 0,210
+                     L0,0 Z;" id="orange" fill="url(#defaultOrangeGradient)">
+                <animate 
+                    attributeName="d" 
+                    values="
+                        M0,0 
+                        C0,0 0,0 0,0
+                        L52.6291862,30.0738207
+                        C62.2228218,35.5558982 70,48.9562589 70,59.9930619
+                        L70,250
+                        C70,250 70,250 70,250
+                        L0,210
+                        C0,210 0,210 0,210
+                        L0,0 Z;
+
+                        M35,125 
+                        C35,125 35,125 35,125
+                        L35,125
+                        C35,125 35,125 35,125
+                        L35,125
+                        C35,125 35,125 35,125
+                        L35,125
+                        C35,125 35,125 35,125
+                        L35,125 Z;
+
+                        M35,125 
+                        C35,125 35,125 35,125
+                        L35,125
+                        C35,125 35,125 35,125
+                        L35,125
+                        C35,125 35,125 35,125
+                        L35,125
+                        C35,125 35,125 35,125
+                        L35,125 Z;
+
+                        M0,0 
+                        C0,0 0,0 0,0
+                        L52.6291862,30.0738207
+                        C62.2228218,35.5558982 70,48.9562589 70,59.9930619
+                        L70,250
+                        C70,250 70,250 70,250
+                        L0,210
+                        C0,210 0,210 0,210
+                        L0,0 Z;
+
+                        M0,0 
+                        C0,0 0,0 0,0
+                        L52.6291862,30.0738207
+                        C62.2228218,35.5558982 70,48.9562589 70,59.9930619
+                        L70,250
+                        C70,250 70,250 70,250
+                        L0,210
+                        C0,210 0,210 0,210
+                        L0,0 Z;"
+                dur="10s"
+                calcMode="spline"
+                keySplines="0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1"
+                begin="6.3s"
+                keyTimes="0;0.05;0.10;0.15;1"
+                repeatCount="indefinite"
+                fill="freeze"
+                id="leftShrink" />
+            </path>
+        </g>
+    </g>
+</svg>
