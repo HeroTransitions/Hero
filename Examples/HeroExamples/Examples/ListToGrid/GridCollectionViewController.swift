@@ -72,7 +72,6 @@ class GridCollectionViewController: UICollectionViewController, UICollectionView
 
 extension GridCollectionViewController: HeroViewControllerDelegate {
   func heroWillStartAnimatingTo(viewController: UIViewController) {
-    Hero.shared.setDefaultAnimationForNextTransition(.fade)
     if let _ = viewController as? ImageViewController,
        let index = collectionView!.indexPathsForSelectedItems?[0],
        let cell = collectionView!.cellForItem(at: index) as? GridImageCell {
@@ -84,7 +83,6 @@ extension GridCollectionViewController: HeroViewControllerDelegate {
   }
 
   func heroWillStartAnimatingFrom(viewController: UIViewController) {
-    Hero.shared.setDefaultAnimationForNextTransition(.fade)
     if let vc = viewController as? ImageViewController,
        let originalCellIndex = vc.selectedIndex,
        let currentCellIndex = vc.collectionView?.indexPathsForVisibleItems[0] {

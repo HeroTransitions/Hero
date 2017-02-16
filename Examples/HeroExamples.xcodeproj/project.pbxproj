@@ -90,6 +90,10 @@
 		A37D7B601E2C0CBD00AC1959 /* HeroTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37D7B581E2C0CBD00AC1959 /* HeroTypes.swift */; };
 		A37D7B631E2C0CD100AC1959 /* HeroDebugPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37D7B611E2C0CD000AC1959 /* HeroDebugPlugin.swift */; };
 		A37D7B641E2C0CD100AC1959 /* HeroDebugView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37D7B621E2C0CD100AC1959 /* HeroDebugView.swift */; };
+		B101B2CB1E56140A007E7112 /* UIView+Hero.swift in Sources */ = {isa = PBXBuildFile; fileRef = B101B2C91E561408007E7112 /* UIView+Hero.swift */; };
+		B101B2CC1E56140B007E7112 /* UIView+Hero.swift in Sources */ = {isa = PBXBuildFile; fileRef = B101B2C91E561408007E7112 /* UIView+Hero.swift */; };
+		B101B2CE1E561421007E7112 /* UIViewController+Hero.swift in Sources */ = {isa = PBXBuildFile; fileRef = B101B2CD1E561421007E7112 /* UIViewController+Hero.swift */; };
+		B101B2CF1E561421007E7112 /* UIViewController+Hero.swift in Sources */ = {isa = PBXBuildFile; fileRef = B101B2CD1E561421007E7112 /* UIViewController+Hero.swift */; };
 		B114B6901E412A0B0009CEDE /* AppleProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B114B68F1E412A0B0009CEDE /* AppleProductViewController.swift */; };
 		B1193AB61E525CD8005B1C87 /* HeroViewPropertyViewContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1193AB51E525CD8005B1C87 /* HeroViewPropertyViewContext.swift */; };
 		B1193AB71E525CD8005B1C87 /* HeroViewPropertyViewContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1193AB51E525CD8005B1C87 /* HeroViewPropertyViewContext.swift */; };
@@ -203,6 +207,8 @@
 		A37D7B611E2C0CD000AC1959 /* HeroDebugPlugin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeroDebugPlugin.swift; sourceTree = "<group>"; };
 		A37D7B621E2C0CD100AC1959 /* HeroDebugView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeroDebugView.swift; sourceTree = "<group>"; };
 		A41D45F75C2C4244CC105281 /* Pods-HeroTvOSExamples.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HeroTvOSExamples.release.xcconfig"; path = "Pods/Target Support Files/Pods-HeroTvOSExamples/Pods-HeroTvOSExamples.release.xcconfig"; sourceTree = "<group>"; };
+		B101B2C91E561408007E7112 /* UIView+Hero.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Hero.swift"; sourceTree = "<group>"; };
+		B101B2CD1E561421007E7112 /* UIViewController+Hero.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Hero.swift"; sourceTree = "<group>"; };
 		B114B68F1E412A0B0009CEDE /* AppleProductViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppleProductViewController.swift; path = AppleHomepage/AppleProductViewController.swift; sourceTree = "<group>"; };
 		B1193AB51E525CD8005B1C87 /* HeroViewPropertyViewContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeroViewPropertyViewContext.swift; sourceTree = "<group>"; wrapsLines = 1; };
 		B1193AB81E525D12005B1C87 /* HeroAnimatorViewContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeroAnimatorViewContext.swift; sourceTree = "<group>"; };
@@ -281,6 +287,8 @@
 				A37D7B481E2C0C9300AC1959 /* CG+Hero.swift */,
 				A37D7B491E2C0C9300AC1959 /* DispatchQueue+Hero.swift */,
 				A37D7B4A1E2C0C9300AC1959 /* UIKit+Hero.swift */,
+				B101B2C91E561408007E7112 /* UIView+Hero.swift */,
+				B101B2CD1E561421007E7112 /* UIViewController+Hero.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -845,7 +853,9 @@
 				2D1F7FD71E49DD18004D944B /* UIKit+Hero.swift in Sources */,
 				2D1F7FD81E49DD1D004D944B /* HeroDefaultAnimator.swift in Sources */,
 				2D1F7FCC1E49DD08004D944B /* HeroTypes.swift in Sources */,
+				B101B2CC1E56140B007E7112 /* UIView+Hero.swift in Sources */,
 				A32D2D141E501C4F008D35FF /* HeroModifier+String.swift in Sources */,
+				B101B2CF1E561421007E7112 /* UIViewController+Hero.swift in Sources */,
 				2D1F7FCD1E49DD13004D944B /* BasePreprocessor.swift in Sources */,
 				2D1F7FD41E49DD18004D944B /* CAMediaTimingFunction+Hero.swift in Sources */,
 				2D1F7FD21E49DD18004D944B /* Array+HeroModifier.swift in Sources */,
@@ -893,7 +903,9 @@
 				A37D7B601E2C0CBD00AC1959 /* HeroTypes.swift in Sources */,
 				A37D7B441E2C0C7E00AC1959 /* SourcePreprocessor.swift in Sources */,
 				A37D7B5E1E2C0CBD00AC1959 /* HeroPlugin.swift in Sources */,
+				B101B2CB1E56140A007E7112 /* UIView+Hero.swift in Sources */,
 				A32D2D131E501C4F008D35FF /* HeroModifier+String.swift in Sources */,
+				B101B2CE1E561421007E7112 /* UIViewController+Hero.swift in Sources */,
 				A37D7B421E2C0C7E00AC1959 /* IgnoreSubviewModifiersPreprocessor.swift in Sources */,
 				A3298CDA1E304851005B06BB /* BasePreprocessor.swift in Sources */,
 				A37D7B4E1E2C0C9300AC1959 /* CG+Hero.swift in Sources */,
