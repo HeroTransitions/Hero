@@ -62,6 +62,7 @@ public struct HeroTargetState {
   internal var transform: CATransform3D?
   internal var opacity: Float?
   internal var cornerRadius: CGFloat?
+  internal var backgroundColor: CGColor?
   internal var zPosition: CGFloat?
 
   internal var borderWidth: CGFloat?
