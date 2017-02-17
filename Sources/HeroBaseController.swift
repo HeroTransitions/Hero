@@ -344,6 +344,7 @@ internal extension HeroBaseController {
 
     let completion = completionCallback
 
+    animatingViews = nil
     progressUpdateObservers = nil
     transitionContainer = nil
     completionCallback = nil
