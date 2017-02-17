@@ -105,7 +105,10 @@ public extension UIView {
   }
 
   internal var flattenedViewHierarchy: [UIView] {
-    return isHidden ? [] : ([self] + subviews.flatMap { $0.flattenedViewHierarchy })
+    if #available(iOS 9.0, *) {
+      return isHidden && (superview is UICollectionView || superview is UIStackView) ? [] : ([self] + subviews.flatMap { $0.flattenedViewHierarchy })
+    }
+    return isHidden && (superview is UICollectionView) ? [] : ([self] + subviews.flatMap { $0.flattenedViewHierarchy })
   }
 
   /// Used for .overFullScreen presentation
