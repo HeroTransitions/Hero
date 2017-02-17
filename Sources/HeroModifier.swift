@@ -168,6 +168,17 @@ extension HeroModifier {
   }
 
   /**
+   Set the backgroundColor for the view to animate from/to.
+   - Parameters:
+   - backgroundColor: backgroundColor for the view to animate from/to
+   */
+  public static func backgroundColor(_ backgroundColor: UIColor) -> HeroModifier {
+    return HeroModifier { targetState in
+      targetState.backgroundColor = backgroundColor.cgColor
+    }
+  }
+
+  /**
    Set the cornerRadius for the view to animate from/to.
    - Parameters:
      - cornerRadius: cornerRadius for the view to animate from/to

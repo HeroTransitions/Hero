@@ -40,6 +40,7 @@ internal class HeroCoreAnimationViewContext: HeroAnimatorViewContext {
       state.cornerRadius != nil ||
       state.opacity != nil ||
       state.overlay != nil ||
+      state.backgroundColor != nil ||
       state.borderColor != nil ||
       state.borderWidth != nil ||
       state.shadowOpacity != nil ||
@@ -203,6 +204,9 @@ internal class HeroCoreAnimationViewContext: HeroAnimatorViewContext {
     }
     if let cornerRadius = targetState.cornerRadius {
       rtn["cornerRadius"] = NSNumber(value: cornerRadius.native)
+    }
+    if let backgroundColor = targetState.backgroundColor {
+      rtn["backgroundColor"] = backgroundColor
     }
     if let zPosition = targetState.zPosition {
       rtn["zPosition"] = NSNumber(value: zPosition.native)
