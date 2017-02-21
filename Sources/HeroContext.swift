@@ -272,7 +272,7 @@ extension HeroContext {
       if view is UIVisualEffectView {
         view.isHidden = true
         viewAlphas[view] = 1
-      } else{
+      } else {
         viewAlphas[view] = view.isOpaque ? .infinity : view.alpha
         view.alpha = 0
       }

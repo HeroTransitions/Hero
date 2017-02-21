@@ -42,7 +42,11 @@ class ExampleViewController: UITableViewController {
     if indexPath.item < storyboards[indexPath.section].count {
       let storyboardName = storyboards[indexPath.section][indexPath.item]
       let vc = viewController(forStoryboardName: storyboardName)
-      present(vc, animated: true, completion: nil)
+
+      // iOS bug: https://github.com/lkzhao/Hero/issues/106 https://github.com/lkzhao/Hero/issues/79
+      DispatchQueue.main.async {
+        self.present(vc, animated: true, completion: nil)
+      }
     }
   }
 }
