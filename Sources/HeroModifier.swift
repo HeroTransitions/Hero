@@ -201,6 +201,28 @@ extension HeroModifier {
   }
 
   /**
+   Set the contentsRect for the view to animate from/to.
+   - Parameters:
+   - contentsRect: contentsRect for the view to animate from/to
+   */
+  public static func contentsRect(_ contentsRect: CGRect) -> HeroModifier {
+    return HeroModifier { targetState in
+      targetState.contentsRect = contentsRect
+    }
+  }
+
+  /**
+   Set the contentsScale for the view to animate from/to.
+   - Parameters:
+   - contentsScale: contentsScale for the view to animate from/to
+   */
+  public static func contentsScale(_ contentsScale: CGFloat) -> HeroModifier {
+    return HeroModifier { targetState in
+      targetState.contentsScale = contentsScale
+    }
+  }
+
+  /**
    Set the borderWidth for the view to animate from/to.
    - Parameters:
    - borderWidth: borderWidth for the view to animate from/to

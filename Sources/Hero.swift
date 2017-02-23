@@ -84,10 +84,10 @@ public class Hero: HeroBaseController {
     return inNavigationController || inTabBarController
   }
   internal var toOverFullScreen: Bool {
-    return !inContainerController && toViewController!.modalPresentationStyle == .overFullScreen
+    return !inContainerController && (toViewController!.modalPresentationStyle == .overFullScreen || toViewController!.modalPresentationStyle == .overCurrentContext)
   }
   internal var fromOverFullScreen: Bool {
-    return !inContainerController && fromViewController!.modalPresentationStyle == .overFullScreen
+    return !inContainerController && (fromViewController!.modalPresentationStyle == .overFullScreen || toViewController!.modalPresentationStyle == .overCurrentContext)
   }
 
   internal var toView: UIView { return toViewController!.view }

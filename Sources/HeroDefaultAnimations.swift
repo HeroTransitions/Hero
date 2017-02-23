@@ -118,7 +118,7 @@ internal extension Hero {
                                            .beginWith(modifiers: shadowState),
                                            .timingFunction(.deceleration)])
       context[fromView]!.append(contentsOf: [.translate(shift(direction: direction, appearing: false) / 3),
-                                             .overlay(color: .black, opacity: 0.3),
+                                             .overlay(color: .black, opacity: 0.1),
                                              .timingFunction(.deceleration)])
     case .pull(let direction):
       insertToViewFirst = true
@@ -126,7 +126,7 @@ internal extension Hero {
                                              .shadowOpacity(0),
                                              .beginWith(modifiers: shadowState)])
       context[toView]!.append(contentsOf: [.translate(shift(direction: direction, appearing: true) / 3),
-                                           .overlay(color: .black, opacity: 0.3)])
+                                           .overlay(color: .black, opacity: 0.1)])
     case .slide(let direction):
       context[fromView]!.append(contentsOf: [.translate(shift(direction: direction, appearing: false))])
       context[toView]!.append(contentsOf: [.translate(shift(direction: direction, appearing: true))])
@@ -138,21 +138,21 @@ internal extension Hero {
                                            .shadowOpacity(0),
                                            .beginWith(modifiers: shadowState),
                                            .timingFunction(.deceleration)])
-      context[fromView]!.append(contentsOf: [.overlay(color: .black, opacity: 0.3),
+      context[fromView]!.append(contentsOf: [.overlay(color: .black, opacity: 0.1),
                                              .timingFunction(.deceleration)])
     case .uncover(let direction):
       insertToViewFirst = true
       context[fromView]!.append(contentsOf: [.translate(shift(direction: direction, appearing: false)),
                                              .shadowOpacity(0),
                                              .beginWith(modifiers: shadowState)])
-      context[toView]!.append(contentsOf: [.overlay(color: .black, opacity: 0.3)])
+      context[toView]!.append(contentsOf: [.overlay(color: .black, opacity: 0.1)])
     case .pageIn(let direction):
       context[toView]!.append(contentsOf: [.translate(shift(direction: direction, appearing: true)),
                                            .shadowOpacity(0),
                                            .beginWith(modifiers: shadowState),
                                            .timingFunction(.deceleration)])
       context[fromView]!.append(contentsOf: [.scale(0.7),
-                                             .overlay(color: .black, opacity: 0.3),
+                                             .overlay(color: .black, opacity: 0.1),
                                              .timingFunction(.deceleration)])
     case .pageOut(let direction):
       insertToViewFirst = true
@@ -160,7 +160,7 @@ internal extension Hero {
                                              .shadowOpacity(0),
                                              .beginWith(modifiers: shadowState)])
       context[toView]!.append(contentsOf: [.scale(0.7),
-                                           .overlay(color: .black, opacity: 0.3)])
+                                           .overlay(color: .black, opacity: 0.1)])
     case .fade:
       // TODO: clean up this. overFullScreen logic shouldn't be here
       if !(fromOverFullScreen && !presenting) {
