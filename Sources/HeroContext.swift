@@ -213,6 +213,8 @@ extension HeroContext {
     snapshot.layer.borderColor = view.layer.borderColor
     snapshot.layer.borderWidth = view.layer.borderWidth
     snapshot.layer.transform = view.layer.transform
+    snapshot.layer.contentsRect = view.layer.contentsRect
+    snapshot.layer.contentsScale = view.layer.contentsScale
 
     if self[view]?.displayShadow ?? true {
       snapshot.layer.shadowRadius = view.layer.shadowRadius

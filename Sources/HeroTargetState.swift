@@ -65,6 +65,9 @@ public struct HeroTargetState {
   internal var backgroundColor: CGColor?
   internal var zPosition: CGFloat?
 
+  internal var contentsRect: CGRect?
+  internal var contentsScale: CGFloat?
+
   internal var borderWidth: CGFloat?
   internal var borderColor: CGColor?
 

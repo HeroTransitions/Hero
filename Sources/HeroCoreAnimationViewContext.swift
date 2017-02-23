@@ -47,7 +47,8 @@ internal class HeroCoreAnimationViewContext: HeroAnimatorViewContext {
       state.shadowRadius != nil ||
       state.shadowOffset != nil ||
       state.shadowColor != nil ||
-      state.shadowPath != nil
+      state.shadowPath != nil ||
+      state.contentsRect != nil
   }
 
   func getOverlayLayer() -> CALayer {
@@ -238,6 +239,14 @@ internal class HeroCoreAnimationViewContext: HeroAnimatorViewContext {
       if let shadowOffset = targetState.shadowOffset {
         rtn["shadowOffset"] = NSValue(cgSize: shadowOffset)
       }
+    }
+
+    if let contentsRect = targetState.contentsRect {
+      rtn["contentsRect"] = NSValue(cgRect: contentsRect)
+    }
+
+    if let contentsScale = targetState.contentsScale {
+      rtn["contentsScale"] = NSNumber(value: contentsScale.native)
     }
 
     if let transform = targetState.transform {
