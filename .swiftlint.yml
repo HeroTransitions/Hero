@@ -7,6 +7,7 @@ disabled_rules: # rule identifiers to exclude from running
   - cyclomatic_complexity
   - function_body_length
   - todo
+  - large_tuple
 
 opt_in_rules: # some rules are only opt-in
   - empty_count
