@@ -74,6 +74,12 @@ class SourcePreprocessor: BasePreprocessor {
     if view.layer.shadowPath != targetView.layer.shadowPath {
       state.shadowPath = targetView.layer.shadowPath
     }
+    if view.layer.contentsRect != targetView.layer.contentsRect {
+      state.contentsRect = targetView.layer.contentsRect
+    }
+    if view.layer.contentsScale != targetView.layer.contentsScale {
+      state.contentsScale = targetView.layer.contentsScale
+    }
 
     context[view] = state
   }
