@@ -24,7 +24,7 @@ import UIKit
 
 #if os(iOS)
 public class HeroDebugPlugin: HeroPlugin {
-  static var showOnTop: Bool = false
+  public static var showOnTop: Bool = false
 
   var debugView: HeroDebugView?
   var zPositionMap = [UIView: CGFloat]()
