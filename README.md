@@ -80,7 +80,7 @@ You can do these in the **storyboard** too!
 
 ## Documentations
 
-Checkout the **[WIKI PAGES](https://github.com/lkzhao/Hero/wiki/Usage-Guide)** for documentations. 
+Checkout the **[WIKI PAGES (Usage Guide)](https://github.com/lkzhao/Hero/wiki/Usage-Guide)** for documentations. 
 
 For more up-to-date ones, please see the header-doc. (use **alt+click** in Xcode)
 <img src="https://cdn.rawgit.com/lkzhao/Hero/master/Resources/headerDoc.png" width="521px"/>
@@ -93,7 +93,7 @@ Hero **does not work** on iPhone 7 (Plus) Simulators due to an [Apple bug](https
 
 #### Not able to use Hero transition even when `isHeroEnabled` is set to true
 
-Make sure that you have also enabled `isHeroEnabled` on the navigation controller if doing a push/pop inside the navigation controller.
+Make sure that you have also enabled `isHeroEnabled` on the navigation controller if you are doing a push/pop inside the navigation controller.
 
 #### Views being covered by another matched view during the transition
 
