@@ -80,15 +80,24 @@ You can do these in the **storyboard** too!
 
 ## Documentations
 
-Checkout the **[wiki pages](https://github.com/lkzhao/Hero/wiki/Usage-Guide)** for documentations. 
+Checkout the **[WIKI PAGES](https://github.com/lkzhao/Hero/wiki/Usage-Guide)** for documentations. 
 
 For more up-to-date ones, please see the header-doc. (use **alt+click** in Xcode)
 <img src="https://cdn.rawgit.com/lkzhao/Hero/master/Resources/headerDoc.png" width="521px"/>
 
+## FAQ
 
-## iPhone 7 (Plus) Simulators
+#### White flashes occurs on iPhone 7 (Plus) Simulators
 
 Hero **does not work** on iPhone 7 (Plus) Simulators due to an [Apple bug](https://forums.developer.apple.com/thread/63438). Please use other simulators or a real device when working with Hero.
+
+#### Not able to use Hero transition even when `isHeroEnabled` is set to true
+
+Make sure that you have also enabled `isHeroEnabled` on the navigation controller if doing a push/pop inside the navigation controller.
+
+#### Views being covered by another matched view during the transition
+
+Matched views use global coordinate space while unmatched views use local coordinate space by default. Local coordinate spaced views might be covered by other global coordinate spaced views. To solve this, use `useGlobalCoordinateSpace` modifier on the views being covered. Checkout [Coordinate Space Wiki page](https://github.com/lkzhao/Hero/wiki/Coordinate-Space) for details.
 
 ## Interactive Transition Tutorials
 
