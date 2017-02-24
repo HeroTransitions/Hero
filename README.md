@@ -85,6 +85,10 @@ Checkout the **[WIKI PAGES (Usage Guide)](https://github.com/lkzhao/Hero/wiki/Us
 For more up-to-date ones, please see the header-doc. (use **alt+click** in Xcode)
 <img src="https://cdn.rawgit.com/lkzhao/Hero/master/Resources/headerDoc.png" width="521px"/>
 
+## Interactive Transition Tutorials
+
+[Interactive transitions with Hero (Part 1)](http://lkzhao.com/2017/02/05/hero-interactive-transition.html)
+
 ## FAQ
 
 #### White flashes occurs on iPhone 7 (Plus) Simulators
@@ -99,14 +103,10 @@ Make sure that you have also enabled `isHeroEnabled` on the navigation controlle
 
 Matched views use global coordinate space while unmatched views use local coordinate space by default. Local coordinate spaced views might be covered by other global coordinate spaced views. To solve this, use `useGlobalCoordinateSpace` modifier on the views being covered. Checkout [Coordinate Space Wiki page](https://github.com/lkzhao/Hero/wiki/Coordinate-Space) for details.
 
-## Interactive Transition Tutorials
+#### Weird behavior with UIVisualEffectView
 
-[Interactive transitions with Hero (Part 1)](http://lkzhao.com/2017/02/05/hero-interactive-transition.html)
+UIVisualEffectView is quite hard to animate due to the private implementation and incompatibility with many of the UIKit APIs like `snapshotAfterScreenUpdate` and Core Animation APIs. We are trying to get these solved as much as we can. Currently, as of 0.3.2, only unmatched UIVisualEffectView with noninteractive `.fade` animation is supported.
 
 ## Contribute
 
 We welcome any contributions. Please read the [Contribution Guide](https://github.com/lkzhao/Hero/wiki/Contribution-Guide).
-
-## License
-
-Hero is available under the MIT license. See the LICENSE file for more info.
