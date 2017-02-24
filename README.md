@@ -107,6 +107,10 @@ Matched views use global coordinate space while unmatched views use local coordi
 
 UIVisualEffectView is quite hard to animate due to the private implementation and incompatibility with many of the UIKit APIs like `snapshotAfterScreenUpdate` and Core Animation APIs. We are trying to get these solved as much as we can. Currently, as of 0.3.2, only unmatched UIVisualEffectView with noninteractive `.fade` animation is supported.
 
+#### Push animation is shown along side my custom animation
+
+This is the default animation for navigation controller provided by Hero. To disable to the push animation, set `heroNavigationAnimationType` to `.fade` or `.none` on the navigation controller.
+
 ## Contribute
 
 We welcome any contributions. Please read the [Contribution Guide](https://github.com/lkzhao/Hero/wiki/Contribution-Guide).
