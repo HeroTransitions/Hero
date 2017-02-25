@@ -6,7 +6,6 @@
 ![Xcode 8.2+](https://img.shields.io/badge/Xcode-8.2%2B-blue.svg)
 ![iOS 8.0+](https://img.shields.io/badge/iOS-8.0%2B-blue.svg)
 ![Swift 3.0+](https://img.shields.io/badge/Swift-3.0%2B-orange.svg)
-
 [![中文 README](https://img.shields.io/badge/%E4%B8%AD%E6%96%87-README-blue.svg?style=flat)](https://github.com/lkzhao/Hero/blob/master/README.zh-cn.md)
 [![Donate](https://img.shields.io/badge/Donate-PayPal-blue.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=NT5F7Y2MPV7RE)
 
@@ -107,11 +106,11 @@ Matched views use global coordinate space while unmatched views use local coordi
 
 #### Weird behavior with UIVisualEffectView
 
-UIVisualEffectView is quite hard to animate due to the private implementation and incompatibility with many of the UIKit APIs like `snapshotAfterScreenUpdate` and Core Animation APIs. We are trying to get these solved as much as we can. Currently, as of 0.3.2, only unmatched UIVisualEffectView with noninteractive `.fade` animation is supported.
+UIVisualEffectView is quite hard to animate due to the private implementation and incompatibility with  `snapshotAfterScreenUpdate` and some Core Animation APIs. We are trying to get these solved as much as we can. Currently, as of 0.3.2, only unmatched UIVisualEffectView with noninteractive `.fade` animation is supported.
 
 #### Push animation is shown along side my custom animation
 
-This is the default animation for navigation controller provided by Hero. To disable to the push animation, set `heroNavigationAnimationType` to `.fade` or `.none` on the navigation controller.
+This is the default animation for navigation controller provided by Hero. To disable the push animation, set `heroNavigationAnimationType` to `.fade` or `.none` on the navigation controller.
 
 ## Contribute
 
