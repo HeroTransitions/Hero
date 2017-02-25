@@ -130,10 +130,11 @@ internal class HeroCoreAnimationViewContext: HeroAnimatorViewContext {
       getOverlayLayer().add(anim, forKey: overlayKey)
     } else {
       snapshot.layer.add(anim, forKey: key)
-      if key == "cornerRadius" {
+      switch key {
+      case "cornerRadius", "contentsRect", "contentsScale":
         contentLayer?.add(anim, forKey: key)
         overlayLayer?.add(anim, forKey: key)
-      } else if key == "bounds.size" {
+      case "bounds.size":
         let fromSize = (fromValue as? NSValue)!.cgSizeValue
         let toSize = (toValue as? NSValue)!.cgSizeValue
 
@@ -155,6 +156,7 @@ internal class HeroCoreAnimationViewContext: HeroAnimatorViewContext {
 
         overlayLayer?.add(positionAnim, forKey: "position")
         overlayLayer?.add(anim, forKey: key)
+      default: break
       }
     }
 
