@@ -8,7 +8,7 @@ Pod::Spec.new do |s|
                        DESC
 
   s.homepage         = "https://github.com/lkzhao/Hero"
-  s.screenshots      = "https://github.com/lkzhao/Hero/blob/master/Resources/Hero.svg?raw=true"
+  s.screenshots      = "https://github.com/lkzhao/Hero/blob/master/Resources/Hero.png?raw=true"
   s.license          = 'MIT'
   s.author           = { "Luke" => "lzhaoyilun@gmail.com" }
   s.source           = { :git => "https://github.com/lkzhao/Hero.git", :tag => s.version.to_s }
