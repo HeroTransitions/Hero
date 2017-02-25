@@ -255,16 +255,4 @@ extension UIViewController {
       }
     }
   }
-
-  public func hero_presentOnTop(viewController: UIViewController, frame: CGRect) {
-    var oldViews = view.flattenedViewHierarchy
-    oldViews.removeFirst()
-    let hero = HeroIndependentController()
-    addChildViewController(viewController)
-    viewController.view.frame = frame
-    view.addSubview(viewController.view)
-    viewController.didMove(toParentViewController: self)
-    viewController.view.heroModifiers = [.scale(0.5), .fade]
-    hero.transition(rootView: view, fromViews: oldViews, toViews: viewController.view.flattenedViewHierarchy)
-  }
 }
