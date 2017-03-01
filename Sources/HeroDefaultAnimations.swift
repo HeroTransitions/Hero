@@ -50,16 +50,6 @@ public enum HeroDefaultAnimationType {
   indirect case selectBy(presenting: HeroDefaultAnimationType, dismissing: HeroDefaultAnimationType)
   case none
 
-  init?(_ label: String?) {
-    if let label = label {
-      switch label {
-      case "auto":
-        break
-      default: break
-      }
-    }
-    return nil
-  }
   public var label: String? {
     let mirror = Mirror(reflecting: self)
     if let associated = mirror.children.first {
