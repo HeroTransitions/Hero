@@ -22,56 +22,58 @@
 
 import UIKit
 
-internal class HeroAnimationConfig: NSObject {
+internal class HeroViewControllerConfig: NSObject {
   var modalAnimation: HeroDefaultAnimationType = .auto
   var navigationAnimation: HeroDefaultAnimationType = .auto
   var tabBarAnimation: HeroDefaultAnimationType = .auto
+  
+  var storedSnapshots: [UIView]?
+  var previousNavigationDelegate: UINavigationControllerDelegate?
+  var previousTabBarDelegate: UITabBarControllerDelegate?
 }
 
 public extension UIViewController {
   private struct AssociatedKeys {
-    static var previousNavigationDelegate = "previousNavigationDelegate"
-    static var previousTabBarDelegate = "previousTabBarDelegate"
-    static var heroStoredSnapshots = "heroStoredSnapshots"
-    static var heroAnimationConfig = "heroAnimationConfig"
+    static var heroConfig = "heroConfig"
   }
 
-  internal var heroAnimationConfig: HeroAnimationConfig {
+  internal var heroConfig: HeroViewControllerConfig {
     get {
-      if let config = objc_getAssociatedObject(self, &AssociatedKeys.heroAnimationConfig) as? HeroAnimationConfig {
+      if let config = objc_getAssociatedObject(self, &AssociatedKeys.heroConfig) as? HeroViewControllerConfig {
         return config
       }
-      let config = HeroAnimationConfig()
-      self.heroAnimationConfig = config
+      let config = HeroViewControllerConfig()
+      self.heroConfig = config
       return config
     }
-    set { objc_setAssociatedObject(self, &AssociatedKeys.heroAnimationConfig, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC) }
+    set { objc_setAssociatedObject(self, &AssociatedKeys.heroConfig, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC) }
   }
 
   internal var previousNavigationDelegate: UINavigationControllerDelegate? {
-    get { return objc_getAssociatedObject(self, &AssociatedKeys.previousNavigationDelegate) as? UINavigationControllerDelegate }
-    set { objc_setAssociatedObject(self, &AssociatedKeys.previousNavigationDelegate, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC) }
+    get { return heroConfig.previousNavigationDelegate }
+    set { heroConfig.previousNavigationDelegate = newValue }
   }
 
   internal var previousTabBarDelegate: UITabBarControllerDelegate? {
-    get { return objc_getAssociatedObject(self, &AssociatedKeys.previousTabBarDelegate) as? UITabBarControllerDelegate }
-    set { objc_setAssociatedObject(self, &AssociatedKeys.previousTabBarDelegate, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC) }
+    get { return heroConfig.previousTabBarDelegate }
+    set { heroConfig.previousTabBarDelegate = newValue }
   }
 
   /// used for .overFullScreen presentation
   internal var heroStoredSnapshots: [UIView]? {
-    get {
-      return objc_getAssociatedObject(self, &AssociatedKeys.heroStoredSnapshots) as? [UIView]
-    }
-    set {
-      objc_setAssociatedObject(self, &AssociatedKeys.heroStoredSnapshots, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
-    }
+    get { return heroConfig.storedSnapshots }
+    set { heroConfig.storedSnapshots = newValue }
   }
 
   /// default hero animation type for presenting & dismissing modally
   public var heroModalAnimationType: HeroDefaultAnimationType {
-    get { return heroAnimationConfig.modalAnimation }
-    set { heroAnimationConfig.modalAnimation = newValue }
+    get { return heroConfig.modalAnimation }
+    set { heroConfig.modalAnimation = newValue }
+  }
+  
+  @IBInspectable public var heroModalAnimationTypeString: String? {
+    get { return heroConfig.modalAnimation.label }
+    set { heroConfig.modalAnimation = newValue?.parseOne() ?? .auto }
   }
 
   @IBInspectable public var isHeroEnabled: Bool {
@@ -107,16 +109,26 @@ public extension UIViewController {
 extension UINavigationController {
   /// default hero animation type for push and pop within the navigation controller
   public var heroNavigationAnimationType: HeroDefaultAnimationType {
-    get { return heroAnimationConfig.navigationAnimation }
-    set { heroAnimationConfig.navigationAnimation = newValue }
+    get { return heroConfig.navigationAnimation }
+    set { heroConfig.navigationAnimation = newValue }
+  }
+
+  @IBInspectable public var heroNavigationAnimationTypeString: String? {
+    get { return heroConfig.navigationAnimation.label }
+    set { heroConfig.navigationAnimation = newValue?.parseOne() ?? .auto }
   }
 }
 
 extension UITabBarController {
   /// default hero animation type for switching tabs within the tab bar controller
   public var heroTabBarAnimationType: HeroDefaultAnimationType {
-    get { return heroAnimationConfig.tabBarAnimation }
-    set { heroAnimationConfig.tabBarAnimation = newValue }
+    get { return heroConfig.tabBarAnimation }
+    set { heroConfig.tabBarAnimation = newValue }
+  }
+
+  @IBInspectable public var heroNavigationAnimationTypeString: String? {
+    get { return heroConfig.tabBarAnimation.label }
+    set { heroConfig.tabBarAnimation = newValue?.parseOne() ?? .auto }
   }
 }
 

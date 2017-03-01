@@ -22,9 +22,6 @@
 
 import UIKit
 
-fileprivate let parameterRegex = "(?:\\-?\\d+(\\.?\\d+)?)|\\w+"
-fileprivate let modifiersRegex = "(\\w+)(?:\\(([^\\)]*)\\))?"
-
 public extension UIView {
   private struct AssociatedKeys {
     static var heroID    = "heroID"
@@ -57,37 +54,7 @@ public extension UIView {
    */
   @IBInspectable public var heroModifierString: String? {
     get { fatalError("Reverse lookup is not supported") }
-    set {
-      guard let newValue = newValue else {
-        heroModifiers = nil
-        return
-      }
-      let modifierString = newValue as NSString
-      func matches(for regex: String, text: NSString) -> [NSTextCheckingResult] {
-        do {
-          let regex = try NSRegularExpression(pattern: regex)
-          return regex.matches(in: text as String, range: NSRange(location: 0, length: text.length))
-        } catch let error {
-          print("invalid regex: \(error.localizedDescription)")
-          return []
-        }
-      }
-      var modifiers = [HeroModifier]()
-      for r in matches(for: modifiersRegex, text:modifierString) {
-        var parameters = [String]()
-        if r.numberOfRanges > 2, r.rangeAt(2).location < modifierString.length {
-          let parameterString = modifierString.substring(with: r.rangeAt(2)) as NSString
-          for r in matches(for: parameterRegex, text: parameterString) {
-            parameters.append(parameterString.substring(with: r.range))
-          }
-        }
-        let name = modifierString.substring(with: r.rangeAt(1))
-        if let modifier = HeroModifier.from(name: name, parameters: parameters) {
-          modifiers.append(modifier)
-        }
-      }
-      heroModifiers = modifiers
-    }
+    set { heroModifiers = newValue?.parse() }
   }
 
   internal func slowSnapshotView() -> UIView {

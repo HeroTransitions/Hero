@@ -33,7 +33,6 @@ class ImageGalleryViewController: UIViewController {
     super.viewDidLoad()
     collectionView.reloadData()
     collectionView.indicatorStyle = .white
-    navigationController?.heroNavigationAnimationType = .fade
   }
 
   @IBAction func switchLayout(_ sender: Any) {

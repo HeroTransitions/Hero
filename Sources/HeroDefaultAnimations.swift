@@ -23,8 +23,17 @@
 import UIKit
 
 public enum HeroDefaultAnimationType {
-  public enum Direction {
+  public enum Direction: HeroStringConvertible {
     case left, right, up, down
+    public static func from(node:ExprNode) -> Direction? {
+      switch node.name {
+      case "left": return .left
+      case "right": return .right
+      case "up": return .up
+      case "down": return .down
+      default: return nil
+      }
+    }
   }
   case auto
   case push(direction: Direction)
@@ -41,6 +50,16 @@ public enum HeroDefaultAnimationType {
   indirect case selectBy(presenting: HeroDefaultAnimationType, dismissing: HeroDefaultAnimationType)
   case none
 
+  init?(_ label: String?) {
+    if let label = label {
+      switch label {
+      case "auto":
+        break
+      default: break
+      }
+    }
+    return nil
+  }
   public var label: String? {
     let mirror = Mirror(reflecting: self)
     if let associated = mirror.children.first {
@@ -52,6 +71,63 @@ public enum HeroDefaultAnimationType {
       return ".\(associated.label ?? "")(.\(associated.value))"
     }
     return ".\(self)"
+  }
+}
+
+extension HeroDefaultAnimationType: HeroStringConvertible {
+  public static func from(node:ExprNode) -> HeroDefaultAnimationType? {
+    let name: String = node.name
+    let parameters: [ExprNode] = (node as? CallNode)?.arguments ?? []
+
+    switch name {
+    case "auto":
+      return .auto
+    case "push":
+      if let node = parameters.get(0), let direction = Direction.from(node: node) {
+        return .push(direction: direction)
+      }
+    case "pull":
+      if let node = parameters.get(0), let direction = Direction.from(node: node) {
+        return .pull(direction: direction)
+      }
+    case "cover":
+      if let node = parameters.get(0), let direction = Direction.from(node: node) {
+        return .cover(direction: direction)
+      }
+    case "uncover":
+      if let node = parameters.get(0), let direction = Direction.from(node: node) {
+        return .uncover(direction: direction)
+      }
+    case "slide":
+      if let node = parameters.get(0), let direction = Direction.from(node: node) {
+        return .slide(direction: direction)
+      }
+    case "zoomSlide":
+      if let node = parameters.get(0), let direction = Direction.from(node: node) {
+        return .zoomSlide(direction: direction)
+      }
+    case "pageIn":
+      if let node = parameters.get(0), let direction = Direction.from(node: node) {
+        return .pageIn(direction: direction)
+      }
+    case "pageOut":
+      if let node = parameters.get(0), let direction = Direction.from(node: node) {
+        return .pageOut(direction: direction)
+      }
+    case "fade": return .fade
+    case "zoom": return .zoom
+    case "zoomOut": return .zoomOut
+    case "selectBy":
+      if let presentingNode = parameters.get(0),
+         let presenting = HeroDefaultAnimationType.from(node: presentingNode),
+         let dismissingNode = parameters.get(0),
+         let dismissing = HeroDefaultAnimationType.from(node: dismissingNode){
+        return .selectBy(presenting: presenting, dismissing: dismissing)
+      }
+    case "none": return .none
+    default: break
+    }
+    return nil
   }
 }
 
