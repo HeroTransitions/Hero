@@ -22,38 +22,32 @@
 
 import UIKit
 
-internal extension Array {
-  func get(_ index: Int) -> Element? {
-    if index < count {
-      return self[index]
-    }
-    return nil
-  }
+public protocol HeroStringConvertible {
+  static func from(node:ExprNode) -> Self?
 }
 
-internal extension Array where Element: ExprNode {
-  func getCGFloat(_ index: Int) -> CGFloat? {
-    if let s = get(index) as? NumberNode {
-      return CGFloat(s.value)
+extension String {
+  func parse<T: HeroStringConvertible>() -> [T]? {
+    let lexer = Lexer(input: self)
+    let parser = Parser(tokens: lexer.tokenize())
+    do {
+      let nodes = try parser.parse()
+      var results = [T]()
+      for node in nodes {
+        if let modifier = T.from(node: node) {
+          results.append(modifier)
+        } else {
+          print("\(node.name) doesn't exist in \(T.self)")
+        }
+      }
+      return results
+    } catch let error {
+      print("failed to parse \"\(self)\", error: \(error)")
     }
     return nil
   }
-  func getDouble(_ index: Int) -> Double? {
-    if let s = get(index) as? NumberNode {
-      return Double(s.value)
-    }
-    return nil
-  }
-  func getFloat(_ index: Int) -> Float? {
-    if let s = get(index) as? NumberNode {
-      return s.value
-    }
-    return nil
-  }
-  func getBool(_ index: Int) -> Bool? {
-    if let s = get(index) as? VariableNode, let f = Bool(s.name) {
-      return f
-    }
-    return nil
+
+  func parseOne<T: HeroStringConvertible>() -> T? {
+    return parse()?.last
   }
 }

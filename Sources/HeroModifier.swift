@@ -22,7 +22,7 @@
 
 import UIKit
 
-public class HeroModifier {
+public final class HeroModifier {
   internal let apply:(inout HeroTargetState) -> Void
   public init(applyFunction:@escaping (inout HeroTargetState) -> Void) {
     apply = applyFunction

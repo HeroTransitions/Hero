@@ -34,10 +34,6 @@ class ListTableViewCell: UITableViewCell {
 }
 
 class ListTableViewController: UITableViewController {
-  override func viewDidLoad() {
-    super.viewDidLoad()
-    navigationController?.heroNavigationAnimationType = .fade
-  }
 
   override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return ImageLibrary.count
