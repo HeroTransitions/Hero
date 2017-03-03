@@ -59,7 +59,11 @@ internal class HeroDefaultAnimator<ViewContext>: HeroAnimator where ViewContext:
     var duration: TimeInterval = 0
     for (_, context) in viewContexts {
       context.resume(timePassed: timePassed, reverse: reverse)
-      duration = max(duration, context.duration)
+      if reverse {
+        duration = max(duration, timePassed)
+      } else {
+        duration = max(duration, context.duration - timePassed)
+      }
     }
     return duration
   }
