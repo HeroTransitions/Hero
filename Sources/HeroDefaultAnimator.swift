@@ -23,13 +23,17 @@
 import UIKit
 
 internal extension UIView {
-  func optimizedDuration(targetState state: HeroTargetState) -> TimeInterval {
+  func optimizedDuration(targetState:HeroTargetState) -> TimeInterval {
+    return optimizedDurationTo(position: targetState.position, size: targetState.size, transform: targetState.transform)
+  }
+
+  func optimizedDurationTo(position:CGPoint?, size:CGSize?, transform:CATransform3D?) -> TimeInterval {
     let fromPos = (layer.presentation() ?? layer).position
-    let toPos = state.position ?? fromPos
+    let toPos = position ?? fromPos
     let fromSize = (layer.presentation() ?? layer).bounds.size
-    let toSize = state.size ?? fromSize
+    let toSize = size ?? fromSize
     let fromTransform = (layer.presentation() ?? layer).transform
-    let toTransform = state.transform ?? fromTransform
+    let toTransform = transform ?? fromTransform
 
     let realFromPos = CGPoint.zero.transform(fromTransform) + fromPos
     let realToPos = CGPoint.zero.transform(toTransform) + toPos
@@ -56,14 +60,10 @@ internal class HeroDefaultAnimator<ViewContext>: HeroAnimator where ViewContext:
   }
 
   public func resume(timePassed: TimeInterval, reverse: Bool) -> TimeInterval {
-    var duration: TimeInterval = 0
+    var duration: TimeInterval = reverse ? timePassed : 0
     for (_, context) in viewContexts {
       context.resume(timePassed: timePassed, reverse: reverse)
-      if reverse {
-        duration = max(duration, timePassed)
-      } else {
-        duration = max(duration, context.duration - timePassed)
-      }
+      duration = max(duration, context.duration)
     }
     return duration
   }
