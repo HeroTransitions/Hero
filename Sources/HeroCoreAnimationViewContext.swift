@@ -170,7 +170,9 @@ internal class HeroCoreAnimationViewContext: HeroAnimatorViewContext {
     if let d = targetState.duration {
       duration = d
     } else {
-      duration = snapshot.optimizedDuration(targetState: targetState)
+      duration = snapshot.optimizedDurationTo(position: (state["position"]?.1 as? NSValue)?.cgPointValue,
+                                              size: (state["bounds.size"]?.1 as? NSValue)?.cgSizeValue,
+                                              transform: (state["transform"]?.1 as? NSValue)?.caTransform3DValue)
     }
 
     let beginTime = currentTime + delay
@@ -325,9 +327,9 @@ internal class HeroCoreAnimationViewContext: HeroAnimatorViewContext {
         snapshot.layer.setValue(value, forKeyPath: key)
       }
       if let (color, opacity) = beginState.overlay {
-        overlayLayer = getOverlayLayer()
-        overlayLayer!.backgroundColor = color
-        overlayLayer!.opacity = Float(opacity)
+        let overlay = getOverlayLayer()
+        overlay.backgroundColor = color
+        overlay.opacity = Float(opacity)
       }
     }
 
@@ -338,6 +340,12 @@ internal class HeroCoreAnimationViewContext: HeroAnimatorViewContext {
       let toValue = appearing ? appearingState : disappearedState
       let fromValue = !appearing ? appearingState : disappearedState
       state[key] = (fromValue, toValue)
+      if let key = overlayKeyFor(key: key) {
+        let overlay = getOverlayLayer()
+        overlay.setValue(fromValue, forKeyPath: key)
+      } else {
+        snapshot.layer.setValue(fromValue, forKeyPath: key)
+      }
     }
 
     animate(delay: targetState.delay)
