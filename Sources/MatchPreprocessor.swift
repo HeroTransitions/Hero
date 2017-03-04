@@ -48,7 +48,9 @@ class MatchPreprocessor: BasePreprocessor {
       fvState.spring = tvState.spring
 
       tvState.opacity = 0
-      if !fv.isOpaque || fv.alpha < 1 || !tv.isOpaque || tv.alpha < 1 {
+      let forceNonFade = tvState.nonFade || fvState.nonFade
+      let isNonOpaque = !fv.isOpaque || fv.alpha < 1 || !tv.isOpaque || tv.alpha < 1
+      if !forceNonFade && isNonOpaque {
         // cross fade if from/toViews are not opaque
         fvState.opacity = 0
       } else {

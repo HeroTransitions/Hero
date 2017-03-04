@@ -55,57 +55,58 @@ public struct HeroTargetState {
     }
   }
   internal var beginState: HeroTargetStateWrapper?
-  internal var beginStateIfMatched: [HeroModifier]?
+  public var beginStateIfMatched: [HeroModifier]?
 
-  internal var position: CGPoint?
-  internal var size: CGSize?
-  internal var transform: CATransform3D?
-  internal var opacity: Float?
-  internal var cornerRadius: CGFloat?
-  internal var backgroundColor: CGColor?
-  internal var zPosition: CGFloat?
+  public var position: CGPoint?
+  public var size: CGSize?
+  public var transform: CATransform3D?
+  public var opacity: Float?
+  public var cornerRadius: CGFloat?
+  public var backgroundColor: CGColor?
+  public var zPosition: CGFloat?
 
-  internal var contentsRect: CGRect?
-  internal var contentsScale: CGFloat?
+  public var contentsRect: CGRect?
+  public var contentsScale: CGFloat?
 
-  internal var borderWidth: CGFloat?
-  internal var borderColor: CGColor?
+  public var borderWidth: CGFloat?
+  public var borderColor: CGColor?
 
-  internal var shadowColor: CGColor?
-  internal var shadowOpacity: Float?
-  internal var shadowOffset: CGSize?
-  internal var shadowRadius: CGFloat?
-  internal var shadowPath: CGPath?
-  internal var masksToBounds: Bool?
-  internal var displayShadow: Bool = true
+  public var shadowColor: CGColor?
+  public var shadowOpacity: Float?
+  public var shadowOffset: CGSize?
+  public var shadowRadius: CGFloat?
+  public var shadowPath: CGPath?
+  public var masksToBounds: Bool?
+  public var displayShadow: Bool = true
 
-  internal var overlay: (color: CGColor, opacity: CGFloat)?
+  public var overlay: (color: CGColor, opacity: CGFloat)?
 
-  internal var spring: (CGFloat, CGFloat)?
-  internal var delay: TimeInterval = 0
-  internal var duration: TimeInterval?
-  internal var timingFunction: CAMediaTimingFunction?
+  public var spring: (CGFloat, CGFloat)?
+  public var delay: TimeInterval = 0
+  public var duration: TimeInterval?
+  public var timingFunction: CAMediaTimingFunction?
 
-  internal var arc: CGFloat?
-  internal var source: String?
-  internal var cascade: (TimeInterval, CascadeDirection, Bool)?
+  public var arc: CGFloat?
+  public var source: String?
+  public var cascade: (TimeInterval, CascadeDirection, Bool)?
 
-  internal var ignoreSubviewModifiers: Bool?
-  internal var coordinateSpace: HeroCoordinateSpace?
-  internal var useScaleBasedSizeChange: Bool?
-  internal var snapshotType: HeroSnapshotType?
+  public var ignoreSubviewModifiers: Bool?
+  public var coordinateSpace: HeroCoordinateSpace?
+  public var useScaleBasedSizeChange: Bool?
+  public var snapshotType: HeroSnapshotType?
 
-  internal var custom: [String:Any]?
+  public var nonFade: Bool = false
+  public var custom: [String:Any]?
 
   init(modifiers: [HeroModifier]) {
     append(contentsOf: modifiers)
   }
 
-  mutating func append(_ modifier: HeroModifier) {
+  public mutating func append(_ modifier: HeroModifier) {
     modifier.apply(&self)
   }
 
-  mutating func append(contentsOf modifiers: [HeroModifier]) {
+  public mutating func append(contentsOf modifiers: [HeroModifier]) {
     for modifier in modifiers {
       modifier.apply(&self)
     }

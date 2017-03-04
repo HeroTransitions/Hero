@@ -37,6 +37,14 @@ extension HeroModifier {
   public static var fade = HeroModifier { targetState in
     targetState.opacity = 0
   }
+    
+    
+  /**
+   Force don't fade view during transition
+   */
+  public static var forceNonFade = HeroModifier { targetState in
+    targetState.nonFade = true
+  }
 
   /**
    Set the position for the view to animate from/to.
