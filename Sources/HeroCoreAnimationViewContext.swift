@@ -289,6 +289,12 @@ internal class HeroCoreAnimationViewContext: HeroAnimatorViewContext {
       state[key] = (realFromValue, realToValue)
     }
 
+    // if there is a user specified duration, we need to update it to reflect current state
+    // otherwise, we rely on the optimizedDuration to give up the best duration
+    if let duration = targetState.duration {
+      targetState.duration = reverse ? timePassed - targetState.delay : duration - timePassed
+    }
+
     let realDelay = max(0, targetState.delay - timePassed)
     animate(delay: realDelay)
   }
