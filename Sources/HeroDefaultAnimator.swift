@@ -60,7 +60,7 @@ internal class HeroDefaultAnimator<ViewContext>: HeroAnimator where ViewContext:
   }
 
   public func resume(timePassed: TimeInterval, reverse: Bool) -> TimeInterval {
-    var duration: TimeInterval = reverse ? timePassed : 0
+    var duration: TimeInterval = 0
     for (_, context) in viewContexts {
       context.resume(timePassed: timePassed, reverse: reverse)
       duration = max(duration, context.duration)
