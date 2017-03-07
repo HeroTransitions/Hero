@@ -50,7 +50,7 @@ class HeroDebugView: UIView {
   }
 
   var showOnTop: Bool = false
-  var rotation: CGFloat = CGFloat(M_PI / 6)
+  var rotation: CGFloat = CGFloat.pi / 6
   var scale: CGFloat = 0.6
   var translation: CGPoint = .zero
   var progress: Float {
@@ -139,10 +139,10 @@ class HeroDebugView: UIView {
       startRotation = rotation
     }
     rotation = startRotation + panGR.translation(in: nil).x / 150
-    if rotation > CGFloat(M_PI) {
-      rotation -= CGFloat(2 * M_PI)
-    } else if rotation < -CGFloat(M_PI) {
-      rotation += CGFloat(2 * M_PI)
+    if rotation > CGFloat.pi {
+      rotation -= 2 * CGFloat.pi
+    } else if rotation < -CGFloat.pi {
+      rotation += 2 * CGFloat.pi
     }
     delegate?.onPerspectiveChanged(translation:translation, rotation: rotation, scale:scale)
   }

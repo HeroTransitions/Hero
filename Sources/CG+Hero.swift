@@ -22,7 +22,7 @@
 
 import MetalKit
 
-let π = CGFloat(M_PI)
+let π = CGFloat.pi
 
 internal struct KeySet<Key:Hashable, Value:Hashable> {
   var dict: [Key:Set<Value>] = [:]
