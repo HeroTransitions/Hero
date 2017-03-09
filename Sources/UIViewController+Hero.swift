@@ -27,7 +27,7 @@ internal class HeroViewControllerConfig: NSObject {
   var navigationAnimation: HeroDefaultAnimationType = .auto
   var tabBarAnimation: HeroDefaultAnimationType = .auto
   
-  var storedSnapshots: [UIView]?
+  var storedSnapshot: UIView?
   var previousNavigationDelegate: UINavigationControllerDelegate?
   var previousTabBarDelegate: UITabBarControllerDelegate?
 }
@@ -60,9 +60,9 @@ public extension UIViewController {
   }
 
   /// used for .overFullScreen presentation
-  internal var heroStoredSnapshots: [UIView]? {
-    get { return heroConfig.storedSnapshots }
-    set { heroConfig.storedSnapshots = newValue }
+  internal var heroStoredSnapshot: UIView? {
+    get { return heroConfig.storedSnapshot }
+    set { heroConfig.storedSnapshot = newValue }
   }
 
   /// default hero animation type for presenting & dismissing modally
