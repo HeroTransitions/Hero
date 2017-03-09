@@ -29,6 +29,8 @@ extension HeroModifier: HeroStringConvertible {
     switch name {
     case "fade":
       return .fade
+    case "opacity":
+      return HeroModifier.opacity(parameters.getFloat(0) ?? 1)
     case "position":
       return .position(CGPoint(x: parameters.getCGFloat(0) ?? 0, y: parameters.getCGFloat(1) ?? 0))
     case "size":
@@ -97,6 +99,8 @@ extension HeroModifier: HeroStringConvertible {
       }
     case "useGlobalCoordinateSpace":
       return .useGlobalCoordinateSpace
+    case "useSameParentCoordinateSpace":
+      return .useSameParentCoordinateSpace
     case "ignoreSubviewModifiers":
       return .ignoreSubviewModifiers(recursive:parameters.getBool(0) ?? false)
     case "zPosition":
@@ -111,6 +115,8 @@ extension HeroModifier: HeroStringConvertible {
       return .useLayerRenderSnapshot
     case "useNoSnapshot":
       return .useNoSnapshot
+    case "forceAnimate":
+      return .forceAnimate
     default: break
     }
     return nil

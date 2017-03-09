@@ -338,8 +338,6 @@ internal extension HeroBaseController {
       animator.clean()
     }
 
-    container.removeFromSuperview()
-
     transitionContainer!.isUserInteractionEnabled = true
 
     let completion = completionCallback
