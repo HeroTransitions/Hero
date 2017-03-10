@@ -23,7 +23,7 @@
 import UIKit
 
 public protocol HeroStringConvertible {
-  static func from(node:ExprNode) -> Self?
+  static func from(node: ExprNode) -> Self?
 }
 
 extension String {

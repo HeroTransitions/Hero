@@ -49,7 +49,6 @@ extension HeroModifier {
     }
   }
 
-    
   /**
    Force don't fade view during transition
    */

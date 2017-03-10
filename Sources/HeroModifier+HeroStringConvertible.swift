@@ -22,7 +22,7 @@
 
 /// used to construct HeroModifier from heroModifierString
 extension HeroModifier: HeroStringConvertible {
-  public static func from(node:ExprNode) -> HeroModifier? {
+  public static func from(node: ExprNode) -> HeroModifier? {
     let name: String = node.name
     let parameters: [ExprNode] = (node as? CallNode)?.arguments ?? []
 

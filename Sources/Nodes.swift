@@ -19,7 +19,7 @@ public class ExprNode: CustomStringConvertible, Equatable {
   }
 }
 
-public func ==(lhs: ExprNode, rhs: ExprNode) -> Bool {
+public func == (lhs: ExprNode, rhs: ExprNode) -> Bool {
   return lhs.description == rhs.description
 }
 

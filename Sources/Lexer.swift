@@ -24,7 +24,7 @@ let tokenList: [(String, TokenGenerator)] = [
   ("\\-?[0-9.]+", { .number(Float($0)!, $1) }),
   ("\\(", { .parensOpen($1) }),
   ("\\)", { .parensClose($1) }),
-  (",", { .comma($1) }),
+  (",", { .comma($1) })
 ]
 
 public class Lexer {
