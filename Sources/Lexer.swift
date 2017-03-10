@@ -36,7 +36,7 @@ public class Lexer {
     var tokens = [Token]()
     var content = input
 
-    while (content.characters.count > 0) {
+    while !content.characters.isEmpty {
       var matched = false
 
       for (pattern, generator) in tokenList {
