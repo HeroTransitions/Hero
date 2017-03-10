@@ -96,6 +96,7 @@ public struct HeroTargetState {
   public var snapshotType: HeroSnapshotType?
 
   public var nonFade: Bool = false
+  public var forceAnimate: Bool = false
   public var custom: [String:Any]?
 
   init(modifiers: [HeroModifier]) {

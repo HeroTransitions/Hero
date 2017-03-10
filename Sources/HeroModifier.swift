@@ -37,7 +37,18 @@ extension HeroModifier {
   public static var fade = HeroModifier { targetState in
     targetState.opacity = 0
   }
-    
+
+  /**
+   Set the opacity for the view to animate from/to.
+   - Parameters:
+   - opacity: opacity for the view to animate from/to
+   */
+  public static func opacity(_ opacity: Float) -> HeroModifier {
+    return HeroModifier { targetState in
+      targetState.opacity = opacity
+    }
+  }
+
     
   /**
    Force don't fade view during transition
@@ -508,6 +519,13 @@ extension HeroModifier {
   }
 
   /**
+   Use same parent coordinate space.
+   */
+  public static var useSameParentCoordinateSpace: HeroModifier = HeroModifier { targetState in
+    targetState.coordinateSpace = .sameParent
+  }
+
+  /**
    ignore all heroModifiers attributes for a view's direct subviews.
    */
   public static var ignoreSubviewModifiers: HeroModifier = .ignoreSubviewModifiers()
@@ -557,6 +575,13 @@ extension HeroModifier {
    */
   public static var useNoSnapshot: HeroModifier = HeroModifier { targetState in
     targetState.snapshotType = .noSnapshot
+  }
+
+  /**
+   Force the view to animate (Hero will create animation context & snapshots for them, so that they can be interact)
+   */
+  public static var forceAnimate = HeroModifier { targetState in
+    targetState.forceAnimate = true
   }
 
   /**

@@ -51,7 +51,6 @@ internal class HeroAnimatorViewContext {
   }
 
   func clean() {
-    snapshot.layer.removeAllAnimations()
     animator = nil
   }
 

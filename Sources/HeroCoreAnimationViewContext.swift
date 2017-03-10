@@ -48,7 +48,8 @@ internal class HeroCoreAnimationViewContext: HeroAnimatorViewContext {
       state.shadowOffset != nil ||
       state.shadowColor != nil ||
       state.shadowPath != nil ||
-      state.contentsRect != nil
+      state.contentsRect != nil ||
+      state.forceAnimate
   }
 
   func getOverlayLayer() -> CALayer {
@@ -321,8 +322,6 @@ internal class HeroCoreAnimationViewContext: HeroAnimatorViewContext {
 
   override func clean() {
     super.clean()
-    contentLayer?.removeAllAnimations()
-    overlayLayer?.removeFromSuperlayer()
     overlayLayer = nil
   }
 
