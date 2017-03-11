@@ -126,7 +126,7 @@ extension UITabBarController {
     set { heroConfig.tabBarAnimation = newValue }
   }
 
-  @IBInspectable public var heroNavigationAnimationTypeString: String? {
+  @IBInspectable public var heroTabBarAnimationTypeString: String? {
     get { return heroConfig.tabBarAnimation.label }
     set { heroConfig.tabBarAnimation = newValue?.parseOne() ?? .auto }
   }
