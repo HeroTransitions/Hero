@@ -25,7 +25,7 @@ import UIKit
 public enum HeroDefaultAnimationType {
   public enum Direction: HeroStringConvertible {
     case left, right, up, down
-    public static func from(node:ExprNode) -> Direction? {
+    public static func from(node: ExprNode) -> Direction? {
       switch node.name {
       case "left": return .left
       case "right": return .right
@@ -65,7 +65,7 @@ public enum HeroDefaultAnimationType {
 }
 
 extension HeroDefaultAnimationType: HeroStringConvertible {
-  public static func from(node:ExprNode) -> HeroDefaultAnimationType? {
+  public static func from(node: ExprNode) -> HeroDefaultAnimationType? {
     let name: String = node.name
     let parameters: [ExprNode] = (node as? CallNode)?.arguments ?? []
 
@@ -111,7 +111,7 @@ extension HeroDefaultAnimationType: HeroStringConvertible {
       if let presentingNode = parameters.get(0),
          let presenting = HeroDefaultAnimationType.from(node: presentingNode),
          let dismissingNode = parameters.get(0),
-         let dismissing = HeroDefaultAnimationType.from(node: dismissingNode){
+         let dismissing = HeroDefaultAnimationType.from(node: dismissingNode) {
         return .selectBy(presenting: presenting, dismissing: dismissing)
       }
     case "none": return .none

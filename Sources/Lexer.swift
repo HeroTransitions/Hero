@@ -24,7 +24,7 @@ let tokenList: [(String, TokenGenerator)] = [
   ("\\-?[0-9.]+", { .number(Float($0)!, $1) }),
   ("\\(", { .parensOpen($1) }),
   ("\\)", { .parensClose($1) }),
-  (",", { .comma($1) }),
+  (",", { .comma($1) })
 ]
 
 public class Lexer {
@@ -36,7 +36,7 @@ public class Lexer {
     var tokens = [Token]()
     var content = input
 
-    while (content.characters.count > 0) {
+    while !content.characters.isEmpty {
       var matched = false
 
       for (pattern, generator) in tokenList {

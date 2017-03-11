@@ -23,7 +23,7 @@
 import UIKit
 
 #if os(iOS)
-protocol HeroDebugViewDelegate {
+protocol HeroDebugViewDelegate: class {
   func onProcessSliderChanged(progress: Float)
   func onPerspectiveChanged(translation: CGPoint, rotation: CGFloat, scale: CGFloat)
   func on3D(wants3D: Bool)

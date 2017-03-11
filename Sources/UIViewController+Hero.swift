@@ -26,7 +26,7 @@ internal class HeroViewControllerConfig: NSObject {
   var modalAnimation: HeroDefaultAnimationType = .auto
   var navigationAnimation: HeroDefaultAnimationType = .auto
   var tabBarAnimation: HeroDefaultAnimationType = .auto
-  
+
   var storedSnapshot: UIView?
   var previousNavigationDelegate: UINavigationControllerDelegate?
   var previousTabBarDelegate: UITabBarControllerDelegate?
@@ -70,7 +70,7 @@ public extension UIViewController {
     get { return heroConfig.modalAnimation }
     set { heroConfig.modalAnimation = newValue }
   }
-  
+
   @IBInspectable public var heroModalAnimationTypeString: String? {
     get { return heroConfig.modalAnimation.label }
     set { heroConfig.modalAnimation = newValue?.parseOne() ?? .auto }

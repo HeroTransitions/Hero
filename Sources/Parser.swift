@@ -34,7 +34,7 @@ public class Parser {
   }
 
   @discardableResult func popCurrentToken() -> Token {
-    defer{ index += 1 }
+    defer { index += 1 }
     return tokens[index]
   }
 
@@ -76,8 +76,7 @@ public class Parser {
 
     var arguments = [ExprNode]()
     if case .parensClose = peekCurrentToken() {
-    }
-    else {
+    } else {
       while true {
         let argument = try parseExpression()
         arguments.append(argument)
