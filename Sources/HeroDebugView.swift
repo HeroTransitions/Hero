@@ -38,7 +38,7 @@ class HeroDebugView: UIView {
   var doneButton: UIButton!
   var arcCurveButton: UIButton?
 
-  var delegate: HeroDebugViewDelegate?
+  weak var delegate: HeroDebugViewDelegate?
   var panGR: UIPanGestureRecognizer!
 
   var pinchGR: UIPinchGestureRecognizer!
