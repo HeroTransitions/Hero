@@ -15,11 +15,15 @@ public extension String {
         if let exists = expressions[regex] {
             expression = exists
         } else {
-            expression = try! NSRegularExpression(pattern: "^\(regex)", options: [])
-            expressions[regex] = expression
+            do {
+               expression = try NSRegularExpression(pattern: "^\(regex)", options: [])
+               expressions[regex] = expression
+            } catch {
+              return nil
+            }
         }
-        
-        let range = expression.rangeOfFirstMatch(in: self, options: [], range: NSMakeRange(0, self.utf16.count))
+
+        let range = expression.rangeOfFirstMatch(in: self, options: [], range: NSRange(0 ..< self.utf16.count))
         if range.location != NSNotFound {
             return ((self as NSString).substring(with: range), range.location ..< range.location + range.length )
         }
