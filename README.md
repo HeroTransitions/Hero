@@ -11,25 +11,22 @@
 
 **Hero** is a library for building iOS view controller transitions. It provides a layer on top of the UIKit's cumbersome transition APIs. Making custom transitions an easy task for developers.
 
-### Features
 <img src="https://cdn.rawgit.com/lkzhao/Hero/ebb3f2c/Resources/features.svg"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 <img src="https://cdn.rawgit.com/lkzhao/Hero/ebb3f2c/Resources/features2.svg"/>
 
-#### With Hero, you can easily mix & match these effects to build your own custom transition.
-
-At its core, Hero is similar to Keynote's **Magic Move**. It checks the `heroID` property on all source and destination views. Every matched view pairs are then automatically transitioned from its old state to its new state.
+Hero is similar to Keynote's **Magic Move**. It checks the `heroID` property on all source and destination views. Every matched view pairs are then automatically transitioned from its old state to its new state.
 
 Hero can also construct animations for unmatched views. It is easy to define these animations via the `heroModifiers` property. Hero will run these animations alongside the **Magic Move** animations. All of these animations can be **interactively controlled** by user gestures.
+
+At view controller level, Hero provides several template transitions that you can set through `heroModalAnimationType`, `heroNavigationAnimationType`, & `heroTabBarAnimationType`. These can be used as the foundation of your custom transitions. Combine with `heroID` & `heroModifiers` to make truly some unique transitions.
+
+<img src="https://cdn.rawgit.com/lkzhao/Hero/ebb3f2c/Resources/defaultAnimations.svg"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<img src="https://cdn.rawgit.com/lkzhao/Hero/ebb3f2c/Resources/defaultAnimations2.svg"/>
 
 By default, Hero provides **dynamic duration** based on the [Material Design Motion Guide](https://material.io/guidelines/motion/duration-easing.html). The duration is determined by the distance & size change. It save you the hassle while providing consistent and delightful animations.
 
 Hero does not make any assumption about how the view is built or structured. It will not modify any of your views' states other than hiding them during the animation. This makes it work with **Auto Layout**, **programmatic layout**, **UICollectionView** (without modifying its layout object), **UITableView**, **UINavigationController**, **UITabBarController**, etc... 
 
-### What's more
-Starting with **0.3.0**. Hero provides several default transitions. These can also be customized & combined with your custom `heroID` & `heroModifiers`. Makes transitions even easier to implement.
-
-<img src="https://cdn.rawgit.com/lkzhao/Hero/ebb3f2c/Resources/defaultAnimations.svg"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<img src="https://cdn.rawgit.com/lkzhao/Hero/ebb3f2c/Resources/defaultAnimations2.svg"/>
 
 ## Example Gallery
 
