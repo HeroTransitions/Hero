@@ -358,7 +358,7 @@
 			name = Animator;
 			sourceTree = "<group>";
 		};
-		2D1F7FE31E49DD90004D944B /* HeroTvOSExamples */ = {
+		2D1F7FE31E49DD90004D944B /* TvOSExamples */ = {
 			isa = PBXGroup;
 			children = (
 				2D1F7FE41E49DD90004D944B /* AppDelegate.swift */,
@@ -369,6 +369,7 @@
 				A32D2D041E4A81D5008D35FF /* ImageViewer.storyboard */,
 				2D1F7FED1E49DD90004D944B /* Info.plist */,
 			);
+			name = TvOSExamples;
 			path = HeroTvOSExamples;
 			sourceTree = "<group>";
 		};
@@ -383,7 +384,7 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		A306D3B31E1C7A2E00B6C23A /* Hero */ = {
+		A306D3B31E1C7A2E00B6C23A /* Sources */ = {
 			isa = PBXGroup;
 			children = (
 				A37D7B511E2C0CBD00AC1959 /* Hero.swift */,
@@ -405,8 +406,7 @@
 				A306D3B41E1C7A2E00B6C23A /* Hero.h */,
 				A306D3B51E1C7A2E00B6C23A /* Info.plist */,
 			);
-			name = Hero;
-			path = ../Sources;
+			path = Sources;
 			sourceTree = "<group>";
 		};
 		A32D2D0E1E4D5463008D35FF /* Menu */ = {
@@ -430,10 +430,10 @@
 		A33E60981DE761C90065CBD8 = {
 			isa = PBXGroup;
 			children = (
-				A33E60A31DE761C90065CBD8 /* HeroExamples */,
-				2D1F7FE31E49DD90004D944B /* HeroTvOSExamples */,
-				A306D3B31E1C7A2E00B6C23A /* Hero */,
-				AF1E1B521E66822C00ECE039 /* HeroTests */,
+				A306D3B31E1C7A2E00B6C23A /* Sources */,
+				A33E60A31DE761C90065CBD8 /* Examples */,
+				2D1F7FE31E49DD90004D944B /* TvOSExamples */,
+				AF1E1B521E66822C00ECE039 /* Tests */,
 				A33E60A21DE761C90065CBD8 /* Products */,
 				46383DC6A22A87056E5B40EC /* Pods */,
 				0ED3C727BC790F37EE7BD698 /* Frameworks */,
@@ -454,7 +454,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		A33E60A31DE761C90065CBD8 /* HeroExamples */ = {
+		A33E60A31DE761C90065CBD8 /* Examples */ = {
 			isa = PBXGroup;
 			children = (
 				A33E60A81DE761C90065CBD8 /* Main.storyboard */,
@@ -464,6 +464,7 @@
 				A33E60B71DE7621C0065CBD8 /* Examples */,
 				A33E60C21DE76CEF0065CBD8 /* Resources */,
 			);
+			name = Examples;
 			path = HeroExamples;
 			sourceTree = "<group>";
 		};
@@ -520,12 +521,13 @@
 			name = ImageGallery;
 			sourceTree = "<group>";
 		};
-		AF1E1B521E66822C00ECE039 /* HeroTests */ = {
+		AF1E1B521E66822C00ECE039 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
 				AF1E1B531E66822C00ECE039 /* HeroTests.swift */,
 				AF1E1B551E66822C00ECE039 /* Info.plist */,
 			);
+			name = Tests;
 			path = HeroTests;
 			sourceTree = "<group>";
 		};
@@ -701,6 +703,7 @@
 				TargetAttributes = {
 					2D1F7FBE1E49DCB5004D944B = {
 						CreatedOnToolsVersion = 8.2;
+						DevelopmentTeam = 4VSEW78TKT;
 						ProvisioningStyle = Automatic;
 					};
 					2D1F7FE11E49DD90004D944B = {
@@ -727,7 +730,7 @@
 					};
 				};
 			};
-			buildConfigurationList = A33E609C1DE761C90065CBD8 /* Build configuration list for PBXProject "HeroExamples" */;
+			buildConfigurationList = A33E609C1DE761C90065CBD8 /* Build configuration list for PBXProject "Hero" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -740,9 +743,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				A33E60A01DE761C90065CBD8 /* HeroExamples */,
 				A306D3B11E1C7A2E00B6C23A /* Hero (iOS) */,
 				2D1F7FBE1E49DCB5004D944B /* Hero (tvOS) */,
+				A33E60A01DE761C90065CBD8 /* HeroExamples */,
 				2D1F7FE11E49DD90004D944B /* HeroTvOSExamples */,
 				AF1E1B501E66822C00ECE039 /* HeroTests */,
 			);
@@ -1108,12 +1111,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 4VSEW78TKT;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "$(SRCROOT)/../Sources/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Sources/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.lkzhao.Hero;
@@ -1134,10 +1139,11 @@
 				CODE_SIGN_IDENTITY = "";
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 4VSEW78TKT;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "$(SRCROOT)/../Sources/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Sources/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.lkzhao.Hero;
@@ -1200,7 +1206,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "$(SRCROOT)/../Sources/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Sources/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -1226,7 +1232,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "$(SRCROOT)/../Sources/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Sources/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -1427,7 +1433,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A33E609C1DE761C90065CBD8 /* Build configuration list for PBXProject "HeroExamples" */ = {
+		A33E609C1DE761C90065CBD8 /* Build configuration list for PBXProject "Hero" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A33E60B11DE761C90065CBD8 /* Debug */,
