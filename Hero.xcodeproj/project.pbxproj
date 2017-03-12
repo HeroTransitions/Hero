@@ -176,19 +176,19 @@
 		2D1F7FED1E49DD90004D944B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5CD4F09A588E81DA75C2BE38 /* Pods-HeroExamples.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HeroExamples.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HeroExamples/Pods-HeroExamples.debug.xcconfig"; sourceTree = "<group>"; };
 		86C87C73D89E75C8443B5071 /* Pods-HeroTvOSExamples.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HeroTvOSExamples.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HeroTvOSExamples/Pods-HeroTvOSExamples.debug.xcconfig"; sourceTree = "<group>"; };
-		A304BF831DF2717900A03345 /* ImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageViewController.swift; path = ImageGallery/ImageViewController.swift; sourceTree = "<group>"; };
-		A304BF891DF647FC00A03345 /* ImageCells.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageCells.swift; path = ImageGallery/ImageCells.swift; sourceTree = "<group>"; };
+		A304BF831DF2717900A03345 /* ImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageViewController.swift; sourceTree = "<group>"; };
+		A304BF891DF647FC00A03345 /* ImageCells.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCells.swift; sourceTree = "<group>"; };
 		A306D3B21E1C7A2E00B6C23A /* Hero.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Hero.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A306D3B41E1C7A2E00B6C23A /* Hero.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Hero.h; sourceTree = "<group>"; };
 		A306D3B51E1C7A2E00B6C23A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A313499A1E1E2AED00EB5139 /* ImageLibrary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageLibrary.swift; path = ImageGallery/ImageLibrary.swift; sourceTree = "<group>"; };
+		A313499A1E1E2AED00EB5139 /* ImageLibrary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageLibrary.swift; sourceTree = "<group>"; };
 		A3298CD91E304851005B06BB /* BasePreprocessor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasePreprocessor.swift; sourceTree = "<group>"; };
 		A32D2D001E4A8153008D35FF /* Basic.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Basic.storyboard; sourceTree = "<group>"; };
 		A32D2D011E4A8153008D35FF /* ImageGallery.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ImageGallery.storyboard; sourceTree = "<group>"; };
 		A32D2D041E4A81D5008D35FF /* ImageViewer.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ImageViewer.storyboard; sourceTree = "<group>"; };
 		A32D2D061E4B84A1008D35FF /* HeroBaseController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeroBaseController.swift; sourceTree = "<group>"; };
 		A32D2D091E4BD20B008D35FF /* HeroIndependentController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeroIndependentController.swift; sourceTree = "<group>"; };
-		A32D2D0C1E4D545B008D35FF /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MenuViewController.swift; path = Menu/MenuViewController.swift; sourceTree = "<group>"; };
+		A32D2D0C1E4D545B008D35FF /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		A32D2D0F1E4E14DD008D35FF /* BuiltInTransitions.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = BuiltInTransitions.storyboard; sourceTree = "<group>"; };
 		A32D2D121E501C4F008D35FF /* HeroModifier+HeroStringConvertible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "HeroModifier+HeroStringConvertible.swift"; sourceTree = "<group>"; };
 		A33E60A11DE761C90065CBD8 /* HeroExamples.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HeroExamples.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -202,7 +202,7 @@
 		A33E60BA1DE7621C0065CBD8 /* CityGuideCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CityGuideCell.swift; sourceTree = "<group>"; };
 		A33E60BB1DE7621C0065CBD8 /* CityGuideViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CityGuideViewController.swift; sourceTree = "<group>"; };
 		A33E60BC1DE7621C0065CBD8 /* CityViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CityViewController.swift; sourceTree = "<group>"; };
-		A3499D9E1DF2024E0049B541 /* ImageGalleryCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageGalleryCollectionViewController.swift; path = ImageGallery/ImageGalleryCollectionViewController.swift; sourceTree = "<group>"; };
+		A3499D9E1DF2024E0049B541 /* ImageGalleryCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageGalleryCollectionViewController.swift; sourceTree = "<group>"; };
 		A35949171E1A2BE60095F407 /* ExampleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleViewController.swift; sourceTree = "<group>"; };
 		A37D7B3D1E2C0C7E00AC1959 /* CascadePreprocessor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CascadePreprocessor.swift; sourceTree = "<group>"; };
 		A37D7B3E1E2C0C7E00AC1959 /* IgnoreSubviewModifiersPreprocessor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IgnoreSubviewModifiersPreprocessor.swift; sourceTree = "<group>"; };
@@ -235,23 +235,23 @@
 		AFA306C91E6B446C00CAF719 /* Regex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Regex.swift; sourceTree = "<group>"; };
 		B101B2C91E561408007E7112 /* UIView+Hero.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Hero.swift"; sourceTree = "<group>"; };
 		B101B2CD1E561421007E7112 /* UIViewController+Hero.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Hero.swift"; sourceTree = "<group>"; };
-		B114B68F1E412A0B0009CEDE /* AppleProductViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppleProductViewController.swift; path = AppleHomepage/AppleProductViewController.swift; sourceTree = "<group>"; };
+		B114B68F1E412A0B0009CEDE /* AppleProductViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppleProductViewController.swift; sourceTree = "<group>"; };
 		B1193AB51E525CD8005B1C87 /* HeroViewPropertyViewContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeroViewPropertyViewContext.swift; sourceTree = "<group>"; wrapsLines = 1; };
 		B1193AB81E525D12005B1C87 /* HeroAnimatorViewContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeroAnimatorViewContext.swift; sourceTree = "<group>"; };
 		B1275D921E4C0CFD0099A0E9 /* LabelMorphPlugin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelMorphPlugin.swift; sourceTree = "<group>"; };
 		B1275D961E4C0D850099A0E9 /* PluginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PluginViewController.swift; sourceTree = "<group>"; };
-		B16A219F1E4E3907007B8B4C /* AnimationSelectTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AnimationSelectTableViewController.swift; path = DefaultAnimation/AnimationSelectTableViewController.swift; sourceTree = "<group>"; };
+		B16A219F1E4E3907007B8B4C /* AnimationSelectTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimationSelectTableViewController.swift; sourceTree = "<group>"; };
 		B16ECD021E4FC0B300EAE0E0 /* HeroDefaultAnimations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeroDefaultAnimations.swift; sourceTree = "<group>"; };
-		B185A4E51DFA6E0C00C3B85D /* ListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ListTableViewController.swift; path = ListToGrid/ListTableViewController.swift; sourceTree = "<group>"; };
-		B185A4E71DFA6FE200C3B85D /* GridCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GridCollectionViewController.swift; path = ListToGrid/GridCollectionViewController.swift; sourceTree = "<group>"; };
-		B19F76981E46C38E002DBC58 /* AppleHomePage.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = AppleHomePage.storyboard; path = AppleHomepage/AppleHomePage.storyboard; sourceTree = "<group>"; };
+		B185A4E51DFA6E0C00C3B85D /* ListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListTableViewController.swift; sourceTree = "<group>"; };
+		B185A4E71DFA6FE200C3B85D /* GridCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridCollectionViewController.swift; sourceTree = "<group>"; };
+		B19F76981E46C38E002DBC58 /* AppleHomePage.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AppleHomePage.storyboard; sourceTree = "<group>"; };
 		B19F769A1E46C3A2002DBC58 /* Basic.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Basic.storyboard; sourceTree = "<group>"; };
 		B19F769B1E46C3A2002DBC58 /* Menu.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Menu.storyboard; sourceTree = "<group>"; };
 		B19F769C1E46C3A2002DBC58 /* MusicPlayer.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MusicPlayer.storyboard; sourceTree = "<group>"; };
 		B19F76A01E46C3C2002DBC58 /* CityGuide.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CityGuide.storyboard; sourceTree = "<group>"; };
-		B19F76A21E46C3CB002DBC58 /* ListToGrid.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = ListToGrid.storyboard; path = ListToGrid/ListToGrid.storyboard; sourceTree = "<group>"; };
-		B19F76A41E46C3D7002DBC58 /* ImageGallery.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = ImageGallery.storyboard; path = ImageGallery/ImageGallery.storyboard; sourceTree = "<group>"; };
-		B19F76A51E46C3D7002DBC58 /* ImageViewer.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = ImageViewer.storyboard; path = ImageGallery/ImageViewer.storyboard; sourceTree = "<group>"; };
+		B19F76A21E46C3CB002DBC58 /* ListToGrid.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ListToGrid.storyboard; sourceTree = "<group>"; };
+		B19F76A41E46C3D7002DBC58 /* ImageGallery.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ImageGallery.storyboard; sourceTree = "<group>"; };
+		B19F76A51E46C3D7002DBC58 /* ImageViewer.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ImageViewer.storyboard; sourceTree = "<group>"; };
 		B19F76AF1E46C449002DBC58 /* VideoPlayer.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = VideoPlayer.storyboard; sourceTree = "<group>"; };
 		B19F76B01E46C449002DBC58 /* VideoPlayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoPlayerViewController.swift; sourceTree = "<group>"; };
 		C377744CBFF1E24426E80F55 /* Pods-HeroExamples.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HeroExamples.release.xcconfig"; path = "Pods/Target Support Files/Pods-HeroExamples/Pods-HeroExamples.release.xcconfig"; sourceTree = "<group>"; };
@@ -323,7 +323,7 @@
 				B101B2C91E561408007E7112 /* UIView+Hero.swift */,
 				B101B2CD1E561421007E7112 /* UIViewController+Hero.swift */,
 			);
-			name = Extensions;
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		29FF2D9D1E21AD8900EA4E65 /* Preprocessors */ = {
@@ -335,7 +335,7 @@
 				A37D7B3F1E2C0C7E00AC1959 /* MatchPreprocessor.swift */,
 				A37D7B401E2C0C7E00AC1959 /* SourcePreprocessor.swift */,
 			);
-			name = Preprocessors;
+			path = Preprocessors;
 			sourceTree = "<group>";
 		};
 		29FF2D9E1E21AD9E00EA4E65 /* Debug Plugin */ = {
@@ -344,33 +344,32 @@
 				A37D7B611E2C0CD000AC1959 /* HeroDebugPlugin.swift */,
 				A37D7B621E2C0CD100AC1959 /* HeroDebugView.swift */,
 			);
-			name = "Debug Plugin";
+			path = "Debug Plugin";
 			sourceTree = "<group>";
 		};
 		29FF2D9F1E21ADB300EA4E65 /* Animator */ = {
 			isa = PBXGroup;
 			children = (
-				A37D7B531E2C0CBD00AC1959 /* HeroDefaultAnimator.swift */,
 				B1193AB81E525D12005B1C87 /* HeroAnimatorViewContext.swift */,
 				A37D7B541E2C0CBD00AC1959 /* HeroCoreAnimationViewContext.swift */,
+				A37D7B531E2C0CBD00AC1959 /* HeroDefaultAnimator.swift */,
 				B1193AB51E525CD8005B1C87 /* HeroViewPropertyViewContext.swift */,
 			);
-			name = Animator;
+			path = Animator;
 			sourceTree = "<group>";
 		};
 		2D1F7FE31E49DD90004D944B /* TvOSExamples */ = {
 			isa = PBXGroup;
 			children = (
 				2D1F7FE41E49DD90004D944B /* AppDelegate.swift */,
-				2D1F7FE61E49DD90004D944B /* TVImageGalleryViewController.swift */,
-				2D1F7FE81E49DD90004D944B /* Main.storyboard */,
 				A32D2D001E4A8153008D35FF /* Basic.storyboard */,
 				A32D2D011E4A8153008D35FF /* ImageGallery.storyboard */,
 				A32D2D041E4A81D5008D35FF /* ImageViewer.storyboard */,
 				2D1F7FED1E49DD90004D944B /* Info.plist */,
+				2D1F7FE81E49DD90004D944B /* Main.storyboard */,
+				2D1F7FE61E49DD90004D944B /* TVImageGalleryViewController.swift */,
 			);
-			name = TvOSExamples;
-			path = HeroTvOSExamples;
+			path = TvOSExamples;
 			sourceTree = "<group>";
 		};
 		46383DC6A22A87056E5B40EC /* Pods */ = {
@@ -387,23 +386,23 @@
 		A306D3B31E1C7A2E00B6C23A /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				A37D7B511E2C0CBD00AC1959 /* Hero.swift */,
-				B16ECD021E4FC0B300EAE0E0 /* HeroDefaultAnimations.swift */,
-				A32D2D091E4BD20B008D35FF /* HeroIndependentController.swift */,
-				A32D2D061E4B84A1008D35FF /* HeroBaseController.swift */,
-				A37D7B521E2C0CBD00AC1959 /* HeroContext.swift */,
-				A37D7B551E2C0CBD00AC1959 /* HeroModifier.swift */,
-				A32D2D121E501C4F008D35FF /* HeroModifier+HeroStringConvertible.swift */,
-				A37D7B561E2C0CBD00AC1959 /* HeroPlugin.swift */,
-				A37D7B571E2C0CBD00AC1959 /* HeroTargetState.swift */,
-				A37D7B581E2C0CBD00AC1959 /* HeroTypes.swift */,
-				AF6D93491E65168D00FCD55E /* HeroStringConvertible.swift */,
-				AFA306D21E6B447200CAF719 /* Parser */,
-				29FF2D9D1E21AD8900EA4E65 /* Preprocessors */,
-				29FF2D9C1E21ACF400EA4E65 /* Extensions */,
 				29FF2D9F1E21ADB300EA4E65 /* Animator */,
 				29FF2D9E1E21AD9E00EA4E65 /* Debug Plugin */,
+				29FF2D9C1E21ACF400EA4E65 /* Extensions */,
+				AFA306D21E6B447200CAF719 /* Parser */,
+				29FF2D9D1E21AD8900EA4E65 /* Preprocessors */,
 				A306D3B41E1C7A2E00B6C23A /* Hero.h */,
+				A37D7B511E2C0CBD00AC1959 /* Hero.swift */,
+				A32D2D061E4B84A1008D35FF /* HeroBaseController.swift */,
+				A37D7B521E2C0CBD00AC1959 /* HeroContext.swift */,
+				B16ECD021E4FC0B300EAE0E0 /* HeroDefaultAnimations.swift */,
+				A32D2D091E4BD20B008D35FF /* HeroIndependentController.swift */,
+				A32D2D121E501C4F008D35FF /* HeroModifier+HeroStringConvertible.swift */,
+				A37D7B551E2C0CBD00AC1959 /* HeroModifier.swift */,
+				A37D7B561E2C0CBD00AC1959 /* HeroPlugin.swift */,
+				AF6D93491E65168D00FCD55E /* HeroStringConvertible.swift */,
+				A37D7B571E2C0CBD00AC1959 /* HeroTargetState.swift */,
+				A37D7B581E2C0CBD00AC1959 /* HeroTypes.swift */,
 				A306D3B51E1C7A2E00B6C23A /* Info.plist */,
 			);
 			path = Sources;
@@ -415,16 +414,16 @@
 				B19F769B1E46C3A2002DBC58 /* Menu.storyboard */,
 				A32D2D0C1E4D545B008D35FF /* MenuViewController.swift */,
 			);
-			name = Menu;
+			path = Menu;
 			sourceTree = "<group>";
 		};
 		A32D2D111E4E9899008D35FF /* BuiltInTransition */ = {
 			isa = PBXGroup;
 			children = (
-				A32D2D0F1E4E14DD008D35FF /* BuiltInTransitions.storyboard */,
 				B16A219F1E4E3907007B8B4C /* AnimationSelectTableViewController.swift */,
+				A32D2D0F1E4E14DD008D35FF /* BuiltInTransitions.storyboard */,
 			);
-			name = BuiltInTransition;
+			path = BuiltInTransition;
 			sourceTree = "<group>";
 		};
 		A33E60981DE761C90065CBD8 = {
@@ -434,9 +433,9 @@
 				A33E60A31DE761C90065CBD8 /* Examples */,
 				2D1F7FE31E49DD90004D944B /* TvOSExamples */,
 				AF1E1B521E66822C00ECE039 /* Tests */,
-				A33E60A21DE761C90065CBD8 /* Products */,
-				46383DC6A22A87056E5B40EC /* Pods */,
 				0ED3C727BC790F37EE7BD698 /* Frameworks */,
+				46383DC6A22A87056E5B40EC /* Pods */,
+				A33E60A21DE761C90065CBD8 /* Products */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -457,29 +456,28 @@
 		A33E60A31DE761C90065CBD8 /* Examples */ = {
 			isa = PBXGroup;
 			children = (
-				A33E60A81DE761C90065CBD8 /* Main.storyboard */,
-				A35949171E1A2BE60095F407 /* ExampleViewController.swift */,
-				B1275D961E4C0D850099A0E9 /* PluginViewController.swift */,
-				B1275D921E4C0CFD0099A0E9 /* LabelMorphPlugin.swift */,
 				A33E60B71DE7621C0065CBD8 /* Examples */,
 				A33E60C21DE76CEF0065CBD8 /* Resources */,
+				A35949171E1A2BE60095F407 /* ExampleViewController.swift */,
+				B1275D921E4C0CFD0099A0E9 /* LabelMorphPlugin.swift */,
+				A33E60A81DE761C90065CBD8 /* Main.storyboard */,
+				B1275D961E4C0D850099A0E9 /* PluginViewController.swift */,
 			);
-			name = Examples;
-			path = HeroExamples;
+			path = Examples;
 			sourceTree = "<group>";
 		};
 		A33E60B71DE7621C0065CBD8 /* Examples */ = {
 			isa = PBXGroup;
 			children = (
-				B19F769A1E46C3A2002DBC58 /* Basic.storyboard */,
-				B19F769C1E46C3A2002DBC58 /* MusicPlayer.storyboard */,
+				B114B6931E412A1B0009CEDE /* AppleHomePage */,
 				A32D2D111E4E9899008D35FF /* BuiltInTransition */,
+				A33E60B81DE7621C0065CBD8 /* CityGuide */,
+				A3499D9D1DF202350049B541 /* ImageGallery */,
+				B185A4E91DFA6FE700C3B85D /* ListToGrid */,
 				A32D2D0E1E4D5463008D35FF /* Menu */,
 				B19F76AE1E46C449002DBC58 /* VideoPlayer */,
-				B114B6931E412A1B0009CEDE /* AppleHomePage */,
-				A33E60B81DE7621C0065CBD8 /* CityGuide */,
-				B185A4E91DFA6FE700C3B85D /* ListToGrid */,
-				A3499D9D1DF202350049B541 /* ImageGallery */,
+				B19F769A1E46C3A2002DBC58 /* Basic.storyboard */,
+				B19F769C1E46C3A2002DBC58 /* MusicPlayer.storyboard */,
 			);
 			path = Examples;
 			sourceTree = "<group>";
@@ -487,8 +485,8 @@
 		A33E60B81DE7621C0065CBD8 /* CityGuide */ = {
 			isa = PBXGroup;
 			children = (
-				B19F76A01E46C3C2002DBC58 /* CityGuide.storyboard */,
 				A33E60B91DE7621C0065CBD8 /* City.swift */,
+				B19F76A01E46C3C2002DBC58 /* CityGuide.storyboard */,
 				A33E60BA1DE7621C0065CBD8 /* CityGuideCell.swift */,
 				A33E60BB1DE7621C0065CBD8 /* CityGuideViewController.swift */,
 				A33E60BC1DE7621C0065CBD8 /* CityViewController.swift */,
@@ -500,25 +498,25 @@
 			isa = PBXGroup;
 			children = (
 				A33E60A41DE761C90065CBD8 /* AppDelegate.swift */,
-				A33E60B61DE7621C0065CBD8 /* UIKit+HeroExamples.swift */,
 				A33E60AB1DE761C90065CBD8 /* Assets.xcassets */,
-				A33E60AD1DE761C90065CBD8 /* LaunchScreen.storyboard */,
 				A33E60B01DE761C90065CBD8 /* Info.plist */,
+				A33E60AD1DE761C90065CBD8 /* LaunchScreen.storyboard */,
+				A33E60B61DE7621C0065CBD8 /* UIKit+HeroExamples.swift */,
 			);
-			name = Resources;
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		A3499D9D1DF202350049B541 /* ImageGallery */ = {
 			isa = PBXGroup;
 			children = (
-				B19F76A41E46C3D7002DBC58 /* ImageGallery.storyboard */,
-				B19F76A51E46C3D7002DBC58 /* ImageViewer.storyboard */,
-				A3499D9E1DF2024E0049B541 /* ImageGalleryCollectionViewController.swift */,
-				A304BF831DF2717900A03345 /* ImageViewController.swift */,
-				A313499A1E1E2AED00EB5139 /* ImageLibrary.swift */,
 				A304BF891DF647FC00A03345 /* ImageCells.swift */,
+				B19F76A41E46C3D7002DBC58 /* ImageGallery.storyboard */,
+				A3499D9E1DF2024E0049B541 /* ImageGalleryCollectionViewController.swift */,
+				A313499A1E1E2AED00EB5139 /* ImageLibrary.swift */,
+				A304BF831DF2717900A03345 /* ImageViewController.swift */,
+				B19F76A51E46C3D7002DBC58 /* ImageViewer.storyboard */,
 			);
-			name = ImageGallery;
+			path = ImageGallery;
 			sourceTree = "<group>";
 		};
 		AF1E1B521E66822C00ECE039 /* Tests */ = {
@@ -527,8 +525,7 @@
 				AF1E1B531E66822C00ECE039 /* HeroTests.swift */,
 				AF1E1B551E66822C00ECE039 /* Info.plist */,
 			);
-			name = Tests;
-			path = HeroTests;
+			path = Tests;
 			sourceTree = "<group>";
 		};
 		AFA306D21E6B447200CAF719 /* Parser */ = {
@@ -539,7 +536,7 @@
 				AFA306C81E6B446C00CAF719 /* Parser.swift */,
 				AFA306C91E6B446C00CAF719 /* Regex.swift */,
 			);
-			name = Parser;
+			path = Parser;
 			sourceTree = "<group>";
 		};
 		B114B6931E412A1B0009CEDE /* AppleHomePage */ = {
@@ -548,17 +545,17 @@
 				B19F76981E46C38E002DBC58 /* AppleHomePage.storyboard */,
 				B114B68F1E412A0B0009CEDE /* AppleProductViewController.swift */,
 			);
-			name = AppleHomePage;
+			path = AppleHomePage;
 			sourceTree = "<group>";
 		};
 		B185A4E91DFA6FE700C3B85D /* ListToGrid */ = {
 			isa = PBXGroup;
 			children = (
-				B19F76A21E46C3CB002DBC58 /* ListToGrid.storyboard */,
-				B185A4E51DFA6E0C00C3B85D /* ListTableViewController.swift */,
 				B185A4E71DFA6FE200C3B85D /* GridCollectionViewController.swift */,
+				B185A4E51DFA6E0C00C3B85D /* ListTableViewController.swift */,
+				B19F76A21E46C3CB002DBC58 /* ListToGrid.storyboard */,
 			);
-			name = ListToGrid;
+			path = ListToGrid;
 			sourceTree = "<group>";
 		};
 		B19F76AE1E46C449002DBC58 /* VideoPlayer */ = {
@@ -1086,6 +1083,7 @@
 				2D1F7FE91E49DD90004D944B /* Base */,
 			);
 			name = Main.storyboard;
+			path = .;
 			sourceTree = "<group>";
 		};
 		A33E60A81DE761C90065CBD8 /* Main.storyboard */ = {
@@ -1094,6 +1092,7 @@
 				A33E60A91DE761C90065CBD8 /* Base */,
 			);
 			name = Main.storyboard;
+			path = .;
 			sourceTree = "<group>";
 		};
 		A33E60AD1DE761C90065CBD8 /* LaunchScreen.storyboard */ = {
@@ -1102,6 +1101,7 @@
 				A33E60AE1DE761C90065CBD8 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			path = .;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -1165,7 +1165,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				DEVELOPMENT_TEAM = 4VSEW78TKT;
-				INFOPLIST_FILE = HeroTvOSExamples/Info.plist;
+				INFOPLIST_FILE = TvOSExamples/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.lkzhao.HeroTvOSExamples;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1183,7 +1183,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				DEVELOPMENT_TEAM = 4VSEW78TKT;
-				INFOPLIST_FILE = HeroTvOSExamples/Info.plist;
+				INFOPLIST_FILE = TvOSExamples/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.lkzhao.HeroTvOSExamples;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1346,7 +1346,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 4VSEW78TKT;
-				INFOPLIST_FILE = HeroExamples/Info.plist;
+				INFOPLIST_FILE = Examples/Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.lkzhao.HeroExamples;
@@ -1363,7 +1363,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 4VSEW78TKT;
-				INFOPLIST_FILE = HeroExamples/Info.plist;
+				INFOPLIST_FILE = Examples/Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.lkzhao.HeroExamples;
@@ -1378,7 +1378,7 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEVELOPMENT_TEAM = 4VSEW78TKT;
-				INFOPLIST_FILE = HeroTests/Info.plist;
+				INFOPLIST_FILE = Tests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.lkzhao.HeroTests;
@@ -1393,7 +1393,7 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEVELOPMENT_TEAM = 4VSEW78TKT;
-				INFOPLIST_FILE = HeroTests/Info.plist;
+				INFOPLIST_FILE = Tests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.lkzhao.HeroTests;
