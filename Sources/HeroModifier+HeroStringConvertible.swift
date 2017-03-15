@@ -20,6 +20,8 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
+import UIKit
+
 /// used to construct HeroModifier from heroModifierString
 extension HeroModifier: HeroStringConvertible {
   public static func from(node: ExprNode) -> HeroModifier? {
