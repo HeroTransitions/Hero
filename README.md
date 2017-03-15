@@ -109,6 +109,16 @@ UIVisualEffectView is quite hard to animate due to the private implementation an
 
 This is the default animation for navigation controller provided by Hero. To disable the push animation, set `heroNavigationAnimationType` to `.fade` or `.none` on the navigation controller.
 
+#### How do I use a different default animation when dismissing
+
+You can use the animation type `.selectBy(presenting:dismissing)` to specify a different default animation for dismiss.
+
+For example:
+
+```swift
+    heroModalAnimationType = .selectBy(presenting:.zoom, dismissing:.zoomOut)
+```
+
 ## Contribute
 
 We welcome any contributions. Please read the [Contribution Guide](https://github.com/lkzhao/Hero/wiki/Contribution-Guide).
