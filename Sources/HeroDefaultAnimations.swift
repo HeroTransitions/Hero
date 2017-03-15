@@ -144,7 +144,7 @@ internal extension Hero {
         defaultAnimation = navAnim
       } else if inTabBarController, let tabAnim = toViewController?.tabBarController?.heroTabBarAnimationType {
         defaultAnimation = tabAnim
-      } else if let modalAnim = toViewController?.heroModalAnimationType {
+      } else if let modalAnim = (presenting ? toViewController : fromViewController)?.heroModalAnimationType {
         defaultAnimation = modalAnim
       }
     }
