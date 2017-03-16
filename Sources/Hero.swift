@@ -149,6 +149,7 @@ internal extension Hero {
     }
 
     prepareForTransition()
+    insert(preprocessor: DefaultAnimationPreprocessor(hero: self), before: DurationPreprocessor.self)
 
     context.loadViewAlpha(rootView: toView)
     context.loadViewAlpha(rootView: fromView)
@@ -163,8 +164,6 @@ internal extension Hero {
     context.set(fromViews: fromView.flattenedViewHierarchy, toViews: toView.flattenedViewHierarchy)
 
     processContext()
-
-    prepareDefaultAnimation()
     prepareForAnimation()
 
     context.hide(view: toView)

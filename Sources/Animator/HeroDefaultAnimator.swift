@@ -82,26 +82,11 @@ internal class HeroDefaultAnimator<ViewContext>: HeroAnimator where ViewContext:
   public func animate(fromViews: [UIView], toViews: [UIView]) -> TimeInterval {
     var duration: TimeInterval = 0
 
-    // animate
     for v in fromViews { animate(view: v, appearing: false) }
     for v in toViews { animate(view: v, appearing: true) }
 
-    // infinite duration means matching the duration of the longest animation
-    var infiniteDurationViewContexts = [ViewContext]()
     for viewContext in viewContexts.values {
-      if viewContext.duration == .infinity {
-        infiniteDurationViewContexts.append(viewContext)
-      } else {
-        duration = max(duration, viewContext.duration)
-      }
-    }
-
-    for viewContext in infiniteDurationViewContexts {
-      duration = max(duration, viewContext.snapshot.optimizedDuration(targetState: viewContext.targetState))
-    }
-
-    for viewContext in infiniteDurationViewContexts {
-      viewContext.apply(state: [.duration(duration)])
+      duration = max(duration, viewContext.duration)
     }
 
     return duration

@@ -168,13 +168,8 @@ internal class HeroCoreAnimationViewContext: HeroAnimatorViewContext {
     if let tf = targetState.timingFunction {
       timingFunction = tf
     }
-    if let d = targetState.duration {
-      duration = d
-    } else {
-      duration = snapshot.optimizedDurationTo(position: (state["position"]?.1 as? NSValue)?.cgPointValue,
-                                              size: (state["bounds.size"]?.1 as? NSValue)?.cgSizeValue,
-                                              transform: (state["transform"]?.1 as? NSValue)?.caTransform3DValue)
-    }
+
+    duration = targetState.duration!
 
     let beginTime = currentTime + delay
     var finalDuration: TimeInterval = duration
@@ -274,13 +269,6 @@ internal class HeroCoreAnimationViewContext: HeroAnimatorViewContext {
       }
       let _ = animate(key: key, beginTime: 0, fromValue: targetValue, toValue: targetValue)
     }
-
-    // support changing duration
-    if let duration = state.duration {
-      self.targetState.duration = duration
-      self.duration = duration
-      animate(delay: self.targetState.delay - Hero.shared.progress * Hero.shared.totalDuration)
-    }
   }
 
   override func resume(timePassed: TimeInterval, reverse: Bool) {
@@ -290,11 +278,8 @@ internal class HeroCoreAnimationViewContext: HeroAnimatorViewContext {
       state[key] = (realFromValue, realToValue)
     }
 
-    // if there is a user specified duration, we need to update it to reflect current state
-    // otherwise, we rely on the optimizedDuration to give up the best duration
-    if let duration = targetState.duration {
-      targetState.duration = reverse ? timePassed - targetState.delay : duration - timePassed
-    }
+    // we need to update the duration to reflect current state
+    targetState.duration = reverse ? timePassed - targetState.delay : duration - timePassed
 
     let realDelay = max(0, targetState.delay - timePassed)
     animate(delay: realDelay)
@@ -345,12 +330,6 @@ internal class HeroCoreAnimationViewContext: HeroAnimatorViewContext {
       let toValue = appearing ? appearingState : disappearedState
       let fromValue = !appearing ? appearingState : disappearedState
       state[key] = (fromValue, toValue)
-      if let key = overlayKeyFor(key: key) {
-        let overlay = getOverlayLayer()
-        overlay.setValue(fromValue, forKeyPath: key)
-      } else {
-        snapshot.layer.setValue(fromValue, forKeyPath: key)
-      }
     }
 
     animate(delay: targetState.delay)

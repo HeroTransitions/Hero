@@ -52,7 +52,7 @@ internal class HeroViewPropertyViewContext: HeroAnimatorViewContext {
     let disappearedEffect = targetState.opacity == 0 ? nil : visualEffectView.effect
     visualEffectView.effect = appearing ? disappearedEffect : appearedEffect
 
-    duration = snapshot.optimizedDuration(targetState: targetState)
+    duration = targetState.duration!
     viewPropertyAnimator = UIViewPropertyAnimator(duration: duration, curve: .easeInOut) {
       visualEffectView.effect = appearing ? appearedEffect : disappearedEffect
     }

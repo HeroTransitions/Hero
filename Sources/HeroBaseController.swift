@@ -233,7 +233,8 @@ internal extension HeroBaseController {
       IgnoreSubviewModifiersPreprocessor(),
       MatchPreprocessor(),
       SourcePreprocessor(),
-      CascadePreprocessor()
+      CascadePreprocessor(),
+      DurationPreprocessor()
     ]
     animators = [
       HeroDefaultAnimator<HeroCoreAnimationViewContext>()
@@ -257,11 +258,11 @@ internal extension HeroBaseController {
 
     context = HeroContext(container:container)
 
-    for i in 0..<processors.count {
-      processors[i].context = context
+    for processor in processors {
+      processor.context = context
     }
-    for i in 0..<animators.count {
-      animators[i].context = context
+    for animator in animators {
+      animator.context = context
     }
   }
 
@@ -374,5 +375,16 @@ internal extension HeroBaseController {
     if let index = enabledPlugins.index(where: { return $0 == plugin}) {
       enabledPlugins.remove(at: index)
     }
+  }
+}
+
+internal extension HeroBaseController {
+  // should call this after `prepareForTransition` & before `processContext`
+  func insert<T>(preprocessor: HeroPreprocessor, before: T.Type) {
+    let processorIndex = processors.index {
+      $0 is T
+    } ?? processors.count
+    preprocessor.context = context
+    processors.insert(preprocessor, at: processorIndex)
   }
 }
