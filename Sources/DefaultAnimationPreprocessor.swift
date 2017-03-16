@@ -121,10 +121,16 @@ extension HeroDefaultAnimationType: HeroStringConvertible {
   }
 }
 
-internal extension Hero {
+class DefaultAnimationPreprocessor: BasePreprocessor {
+
+  weak var hero: Hero?
+
+  init(hero: Hero) {
+    self.hero = hero
+  }
 
   func shift(direction: HeroDefaultAnimationType.Direction, appearing: Bool, size: CGSize? = nil, transpose: Bool = false) -> CGPoint {
-    let size = size ?? container.bounds.size
+    let size = size ?? context.container.bounds.size
     let rtn: CGPoint
     switch direction {
     case .left, .right:
@@ -138,7 +144,20 @@ internal extension Hero {
     return rtn
   }
 
-  func prepareDefaultAnimation() {
+  override func process(fromViews: [UIView], toViews: [UIView]) {
+    guard let hero = hero else { return }
+    var defaultAnimation = hero.defaultAnimation
+    let inNavigationController = hero.inNavigationController
+    let inTabBarController = hero.inTabBarController
+    let toViewController = hero.toViewController
+    let fromViewController = hero.fromViewController
+    let presenting = hero.presenting
+    let fromOverFullScreen = hero.fromOverFullScreen
+    let toOverFullScreen = hero.toOverFullScreen
+    let toView = hero.toView
+    let fromView = hero.fromView
+    let animators = hero.animators
+
     if case .auto = defaultAnimation {
       if inNavigationController, let navAnim = toViewController?.navigationController?.heroNavigationAnimationType {
         defaultAnimation = navAnim
@@ -154,7 +173,7 @@ internal extension Hero {
     }
 
     if case .auto = defaultAnimation {
-      if animators.contains(where: { $0.canAnimate(view: toView, appearing: true) || $0.canAnimate(view: fromView, appearing: false) }) {
+      if animators!.contains(where: { $0.canAnimate(view: toView, appearing: true) || $0.canAnimate(view: fromView, appearing: false) }) {
         defaultAnimation = .none
       } else if inNavigationController {
         defaultAnimation = presenting ? .push(direction:.left) : .pull(direction:.right)
@@ -187,7 +206,7 @@ internal extension Hero {
                                              .overlay(color: .black, opacity: 0.1),
                                              .timingFunction(.deceleration)])
     case .pull(let direction):
-      insertToViewFirst = true
+      hero.insertToViewFirst = true
       context[fromView]!.append(contentsOf: [.translate(shift(direction: direction, appearing: false)),
                                              .shadowOpacity(0),
                                              .beginWith(modifiers: shadowState)])
@@ -207,7 +226,7 @@ internal extension Hero {
       context[fromView]!.append(contentsOf: [.overlay(color: .black, opacity: 0.1),
                                              .timingFunction(.deceleration)])
     case .uncover(let direction):
-      insertToViewFirst = true
+      hero.insertToViewFirst = true
       context[fromView]!.append(contentsOf: [.translate(shift(direction: direction, appearing: false)),
                                              .shadowOpacity(0),
                                              .beginWith(modifiers: shadowState)])
@@ -221,7 +240,7 @@ internal extension Hero {
                                              .overlay(color: .black, opacity: 0.1),
                                              .timingFunction(.deceleration)])
     case .pageOut(let direction):
-      insertToViewFirst = true
+      hero.insertToViewFirst = true
       context[fromView]!.append(contentsOf: [.translate(shift(direction: direction, appearing: false)),
                                              .shadowOpacity(0),
                                              .beginWith(modifiers: shadowState)])
@@ -244,7 +263,7 @@ internal extension Hero {
       context[toView]!.append(.durationMatchLongest)
       context[fromView]!.append(.durationMatchLongest)
     case .zoom:
-      insertToViewFirst = true
+      hero.insertToViewFirst = true
       context[fromView]!.append(contentsOf: [.scale(1.3), .fade])
       context[toView]!.append(contentsOf: [.scale(0.7)])
     case .zoomOut:
