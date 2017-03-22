@@ -110,7 +110,7 @@ extension HeroDefaultAnimationType: HeroStringConvertible {
     case "selectBy":
       if let presentingNode = parameters.get(0),
          let presenting = HeroDefaultAnimationType.from(node: presentingNode),
-         let dismissingNode = parameters.get(0),
+         let dismissingNode = parameters.get(1),
          let dismissing = HeroDefaultAnimationType.from(node: dismissingNode) {
         return .selectBy(presenting: presenting, dismissing: dismissing)
       }
