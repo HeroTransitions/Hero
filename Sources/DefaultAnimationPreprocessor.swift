@@ -53,37 +53,37 @@ public enum HeroDefaultAnimationType {
   func reversed() -> HeroDefaultAnimationType{
     switch self {
     case .push(direction: .up):
-      return .push(direction: .down)
-    case .push(direction: .down):
-      return .push(direction: .up)
-    case .push(direction: .left):
-      return .push(direction: .right)
-    case .push(direction: .right):
-      return .push(direction: .left)
-    case .pull(direction: .up):
       return .pull(direction: .down)
-    case .pull(direction: .down):
-      return .pull(direction: .up)
-    case .pull(direction: .left):
-      return .pull(direction: .right)
-    case .pull(direction: .right):
+    case .push(direction: .right):
       return .pull(direction: .left)
+    case .push(direction: .down):
+      return .pull(direction: .up)
+    case .push(direction: .left):
+      return .pull(direction: .right)
+    case .pull(direction: .up):
+      return .push(direction: .down)
+    case .pull(direction: .right):
+      return .push(direction: .left)
+    case .pull(direction: .down):
+      return .push(direction: .up)
+    case .pull(direction: .left):
+      return .push(direction: .right)
     case .cover(direction: .up):
-      return .cover(direction: .down)
-    case .cover(direction: .down):
-      return .cover(direction: .up)
-    case .cover(direction: .left):
-      return .cover(direction: .right)
-    case .cover(direction: .right):
-      return .cover(direction: .left)
-    case .uncover(direction: .up):
       return .uncover(direction: .down)
-    case .uncover(direction: .down):
-      return .uncover(direction: .up)
-    case .uncover(direction: .left):
-      return .uncover(direction: .right)
-    case .uncover(direction: .right):
+    case .cover(direction: .right):
       return .uncover(direction: .left)
+    case .cover(direction: .down):
+      return .uncover(direction: .up)
+    case .cover(direction: .left):
+      return .uncover(direction: .right)
+    case .uncover(direction: .up):
+      return .cover(direction: .down)
+    case .uncover(direction: .right):
+      return .cover(direction: .left)
+    case .uncover(direction: .down):
+      return .cover(direction: .up)
+    case .uncover(direction: .left):
+      return .cover(direction: .right)
     case .slide(direction: .up):
       return .slide(direction: .down)
     case .slide(direction: .down):
@@ -101,25 +101,26 @@ public enum HeroDefaultAnimationType {
     case .zoomSlide(direction: .right):
       return .zoomSlide(direction: .left)
     case .pageIn(direction: .up):
-      return .pageIn(direction: .down)
-    case .pageIn(direction: .down):
-      return .pageIn(direction: .up)
-    case .pageIn(direction: .left):
-      return .pageIn(direction: .right)
-    case .pageIn(direction: .right):
-      return .pageIn(direction: .left)
-    case .pageOut(direction: .up):
       return .pageOut(direction: .down)
-    case .pageOut(direction: .down):
-      return .pageOut(direction: .up)
-    case .pageOut(direction: .left):
-      return .pageOut(direction: .right)
-    case .pageOut(direction: .right):
+    case .pageIn(direction: .right):
       return .pageOut(direction: .left)
+    case .pageIn(direction: .down):
+      return .pageOut(direction: .up)
+    case .pageIn(direction: .left):
+      return .pageOut(direction: .right)
+    case .pageOut(direction: .up):
+      return .pageIn(direction: .down)
+    case .pageOut(direction: .right):
+      return .pageIn(direction: .left)
+    case .pageOut(direction: .down):
+      return .pageIn(direction: .up)
+    case .pageOut(direction: .left):
+      return .pageIn(direction: .right)
     case .zoom:
       return .zoomOut
     case .zoomOut:
       return .zoom
+      
     default:
       return self
     }
