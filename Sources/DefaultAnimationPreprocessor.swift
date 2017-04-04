@@ -50,7 +50,7 @@ public enum HeroDefaultAnimationType {
   indirect case selectBy(presenting: HeroDefaultAnimationType, dismissing: HeroDefaultAnimationType)
   case none
   
-  func flipped() -> HeroDefaultAnimationType{
+  func reversed() -> HeroDefaultAnimationType{
     switch self {
     case .push(direction: .up):
       return .push(direction: .down)
@@ -244,7 +244,7 @@ class DefaultAnimationPreprocessor: BasePreprocessor {
     }
     
     if !presenting && hero.reverseMode{
-      defaultAnimation = defaultAnimation.flipped()
+      defaultAnimation = defaultAnimation.reversed()
     }
 
     if case .selectBy(let presentAnim, let dismissAnim) = defaultAnimation {
