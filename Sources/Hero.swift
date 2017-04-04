@@ -52,6 +52,8 @@ public class Hero: HeroBaseController {
   public internal(set) var fromViewController: UIViewController?
   /// whether or not we are presenting the destination view controller
   public internal(set) var presenting = true
+  /// whether or not we want to reverse the animation that was used for presenting when dismissing
+  public internal(set) var reverseMode = false
 
   /// progress of the current transition. 0 if no transition is happening
   public override var progress: Double {

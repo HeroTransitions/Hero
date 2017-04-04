@@ -49,6 +49,81 @@ public enum HeroDefaultAnimationType {
   case zoomOut
   indirect case selectBy(presenting: HeroDefaultAnimationType, dismissing: HeroDefaultAnimationType)
   case none
+  
+  func flipped() -> HeroDefaultAnimationType{
+    switch self {
+    case .push(direction: .up):
+      return .push(direction: .down)
+    case .push(direction: .down):
+      return .push(direction: .up)
+    case .push(direction: .left):
+      return .push(direction: .right)
+    case .push(direction: .right):
+      return .push(direction: .left)
+    case .pull(direction: .up):
+      return .pull(direction: .down)
+    case .pull(direction: .down):
+      return .pull(direction: .up)
+    case .pull(direction: .left):
+      return .pull(direction: .right)
+    case .pull(direction: .right):
+      return .pull(direction: .left)
+    case .cover(direction: .up):
+      return .cover(direction: .down)
+    case .cover(direction: .down):
+      return .cover(direction: .up)
+    case .cover(direction: .left):
+      return .cover(direction: .right)
+    case .cover(direction: .right):
+      return .cover(direction: .left)
+    case .uncover(direction: .up):
+      return .uncover(direction: .down)
+    case .uncover(direction: .down):
+      return .uncover(direction: .up)
+    case .uncover(direction: .left):
+      return .uncover(direction: .right)
+    case .uncover(direction: .right):
+      return .uncover(direction: .left)
+    case .slide(direction: .up):
+      return .slide(direction: .down)
+    case .slide(direction: .down):
+      return .slide(direction: .up)
+    case .slide(direction: .left):
+      return .slide(direction: .right)
+    case .slide(direction: .right):
+      return .slide(direction: .left)
+    case .zoomSlide(direction: .up):
+      return .zoomSlide(direction: .down)
+    case .zoomSlide(direction: .down):
+      return .zoomSlide(direction: .up)
+    case .zoomSlide(direction: .left):
+      return .zoomSlide(direction: .right)
+    case .zoomSlide(direction: .right):
+      return .zoomSlide(direction: .left)
+    case .pageIn(direction: .up):
+      return .pageIn(direction: .down)
+    case .pageIn(direction: .down):
+      return .pageIn(direction: .up)
+    case .pageIn(direction: .left):
+      return .pageIn(direction: .right)
+    case .pageIn(direction: .right):
+      return .pageIn(direction: .left)
+    case .pageOut(direction: .up):
+      return .pageOut(direction: .down)
+    case .pageOut(direction: .down):
+      return .pageOut(direction: .up)
+    case .pageOut(direction: .left):
+      return .pageOut(direction: .right)
+    case .pageOut(direction: .right):
+      return .pageOut(direction: .left)
+    case .zoom:
+      return .zoomOut
+    case .zoomOut:
+      return .zoom
+    default:
+      return self
+    }
+  }
 
   public var label: String? {
     let mirror = Mirror(reflecting: self)
@@ -166,6 +241,10 @@ class DefaultAnimationPreprocessor: BasePreprocessor {
       } else if let modalAnim = (presenting ? toViewController : fromViewController)?.heroModalAnimationType {
         defaultAnimation = modalAnim
       }
+    }
+    
+    if !presenting && hero.reverseMode{
+      defaultAnimation = defaultAnimation.flipped()
     }
 
     if case .selectBy(let presentAnim, let dismissAnim) = defaultAnimation {
