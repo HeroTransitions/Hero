@@ -50,7 +50,7 @@ public enum HeroDefaultAnimationType {
   
   indirect case selectBy(presenting: HeroDefaultAnimationType, dismissing: HeroDefaultAnimationType)
   
-  open static func autoReverse(presenting: HeroDefaultAnimationType) -> HeroDefaultAnimationType{
+  public static func autoReverse(presenting: HeroDefaultAnimationType) -> HeroDefaultAnimationType{
     return .selectBy(presenting: presenting, dismissing: presenting.reversed())
   }
   
