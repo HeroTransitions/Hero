@@ -27,6 +27,7 @@ public extension UIView {
     static var heroID    = "heroID"
     static var heroModifiers = "heroModifers"
     static var heroStoredAlpha = "heroStoredAlpha"
+    static var heroEnabled = "heroEnabled"
   }
 
   /**
@@ -41,6 +42,17 @@ public extension UIView {
     set { objc_setAssociatedObject(self, &AssociatedKeys.heroID, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC) }
   }
 
+  
+  /**
+   **isHeroEnabled** allows to specify whether a view and its subviews should be consider for animations.
+   If true, Hero will search through all the subviews for heroIds and modifiers. Defaults to true
+   */
+  @IBInspectable public var isHeroEnabled: Bool {
+    get { return objc_getAssociatedObject(self, &AssociatedKeys.heroEnabled) as? Bool ?? true }
+    set { objc_setAssociatedObject(self, &AssociatedKeys.heroEnabled, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC) }
+  }
+  
+  
   /**
    Use **heroModifiers** to specify animations alongside the main transition. Checkout `HeroModifier.swift` for available modifiers.
    */
@@ -72,10 +84,12 @@ public extension UIView {
   }
 
   internal var flattenedViewHierarchy: [UIView] {
+    guard isHeroEnabled else { return [] }
+    
     if #available(iOS 9.0, *) {
-      return isHidden && (superview is UICollectionView || superview is UIStackView) ? [] : ([self] + subviews.flatMap { $0.flattenedViewHierarchy })
+      return isHidden && (superview is UICollectionView || superview is UIStackView || self is UITableViewCell) ? [] : ([self] + subviews.flatMap { $0.flattenedViewHierarchy })
     }
-    return isHidden && (superview is UICollectionView) ? [] : ([self] + subviews.flatMap { $0.flattenedViewHierarchy })
+    return isHidden && (superview is UICollectionView || self is UITableViewCell) ? [] : ([self] + subviews.flatMap { $0.flattenedViewHierarchy })    
   }
 
   /// Used for .overFullScreen presentation
