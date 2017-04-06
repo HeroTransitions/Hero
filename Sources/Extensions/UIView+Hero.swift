@@ -84,10 +84,12 @@ public extension UIView {
   }
 
   internal var flattenedViewHierarchy: [UIView] {
+    guard isHeroEnabled else { return [] }
+    
     if #available(iOS 9.0, *) {
-      return (isHidden && (superview is UICollectionView || superview is UIStackView)) || !isHeroEnabled ? [] : ([self] + subviews.flatMap { $0.flattenedViewHierarchy })
+      return isHidden && (superview is UICollectionView || superview is UIStackView || self is UITableViewCell) ? [] : ([self] + subviews.flatMap { $0.flattenedViewHierarchy })
     }
-    return (isHidden && (superview is UICollectionView)) || !isHeroEnabled ? [] : ([self] + subviews.flatMap { $0.flattenedViewHierarchy })
+    return isHidden && (superview is UICollectionView || self is UITableViewCell) ? [] : ([self] + subviews.flatMap { $0.flattenedViewHierarchy })    
   }
 
   /// Used for .overFullScreen presentation
