@@ -47,9 +47,14 @@ public enum HeroDefaultAnimationType {
   case fade
   case zoom
   case zoomOut
+  
   indirect case selectBy(presenting: HeroDefaultAnimationType, dismissing: HeroDefaultAnimationType)
   case none
-
+  
+  static func autoReverse(_ anim: HeroDefaultAnimationType) -> HeroDefaultAnimationType {
+    return .selectBy(presenting: anim, dismissing: anim.reversed())
+  }
+  
   func reversed() -> HeroDefaultAnimationType{
     switch self {
     case .push(direction: .up):
@@ -260,10 +265,6 @@ class DefaultAnimationPreprocessor: BasePreprocessor {
       }
     }
 
-    if !presenting && hero.reverseMode{
-      defaultAnimation = defaultAnimation.reversed()
-    }
-    
     if case .none = defaultAnimation {
       return
     }
