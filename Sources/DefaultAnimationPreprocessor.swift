@@ -47,9 +47,91 @@ public enum HeroDefaultAnimationType {
   case fade
   case zoom
   case zoomOut
+  
   indirect case selectBy(presenting: HeroDefaultAnimationType, dismissing: HeroDefaultAnimationType)
+  
+  open static func autoReverse(presenting: HeroDefaultAnimationType) -> HeroDefaultAnimationType{
+    return .selectBy(presenting: presenting, dismissing: presenting.reversed())
+  }
+  
   case none
-
+  
+  func reversed() -> HeroDefaultAnimationType{
+    switch self {
+    case .push(direction: .up):
+      return .pull(direction: .down)
+    case .push(direction: .right):
+      return .pull(direction: .left)
+    case .push(direction: .down):
+      return .pull(direction: .up)
+    case .push(direction: .left):
+      return .pull(direction: .right)
+    case .pull(direction: .up):
+      return .push(direction: .down)
+    case .pull(direction: .right):
+      return .push(direction: .left)
+    case .pull(direction: .down):
+      return .push(direction: .up)
+    case .pull(direction: .left):
+      return .push(direction: .right)
+    case .cover(direction: .up):
+      return .uncover(direction: .down)
+    case .cover(direction: .right):
+      return .uncover(direction: .left)
+    case .cover(direction: .down):
+      return .uncover(direction: .up)
+    case .cover(direction: .left):
+      return .uncover(direction: .right)
+    case .uncover(direction: .up):
+      return .cover(direction: .down)
+    case .uncover(direction: .right):
+      return .cover(direction: .left)
+    case .uncover(direction: .down):
+      return .cover(direction: .up)
+    case .uncover(direction: .left):
+      return .cover(direction: .right)
+    case .slide(direction: .up):
+      return .slide(direction: .down)
+    case .slide(direction: .down):
+      return .slide(direction: .up)
+    case .slide(direction: .left):
+      return .slide(direction: .right)
+    case .slide(direction: .right):
+      return .slide(direction: .left)
+    case .zoomSlide(direction: .up):
+      return .zoomSlide(direction: .down)
+    case .zoomSlide(direction: .down):
+      return .zoomSlide(direction: .up)
+    case .zoomSlide(direction: .left):
+      return .zoomSlide(direction: .right)
+    case .zoomSlide(direction: .right):
+      return .zoomSlide(direction: .left)
+    case .pageIn(direction: .up):
+      return .pageOut(direction: .down)
+    case .pageIn(direction: .right):
+      return .pageOut(direction: .left)
+    case .pageIn(direction: .down):
+      return .pageOut(direction: .up)
+    case .pageIn(direction: .left):
+      return .pageOut(direction: .right)
+    case .pageOut(direction: .up):
+      return .pageIn(direction: .down)
+    case .pageOut(direction: .right):
+      return .pageIn(direction: .left)
+    case .pageOut(direction: .down):
+      return .pageIn(direction: .up)
+    case .pageOut(direction: .left):
+      return .pageIn(direction: .right)
+    case .zoom:
+      return .zoomOut
+    case .zoomOut:
+      return .zoom
+      
+    default:
+      return self
+    }
+  }
+  
   public var label: String? {
     let mirror = Mirror(reflecting: self)
     if let associated = mirror.children.first {
@@ -68,7 +150,7 @@ extension HeroDefaultAnimationType: HeroStringConvertible {
   public static func from(node: ExprNode) -> HeroDefaultAnimationType? {
     let name: String = node.name
     let parameters: [ExprNode] = (node as? CallNode)?.arguments ?? []
-
+    
     switch name {
     case "auto":
       return .auto
@@ -109,9 +191,9 @@ extension HeroDefaultAnimationType: HeroStringConvertible {
     case "zoomOut": return .zoomOut
     case "selectBy":
       if let presentingNode = parameters.get(0),
-         let presenting = HeroDefaultAnimationType.from(node: presentingNode),
-         let dismissingNode = parameters.get(1),
-         let dismissing = HeroDefaultAnimationType.from(node: dismissingNode) {
+        let presenting = HeroDefaultAnimationType.from(node: presentingNode),
+        let dismissingNode = parameters.get(1),
+        let dismissing = HeroDefaultAnimationType.from(node: dismissingNode) {
         return .selectBy(presenting: presenting, dismissing: dismissing)
       }
     case "none": return .none
@@ -122,13 +204,13 @@ extension HeroDefaultAnimationType: HeroStringConvertible {
 }
 
 class DefaultAnimationPreprocessor: BasePreprocessor {
-
+  
   weak var hero: Hero?
-
+  
   init(hero: Hero) {
     self.hero = hero
   }
-
+  
   func shift(direction: HeroDefaultAnimationType.Direction, appearing: Bool, size: CGSize? = nil, transpose: Bool = false) -> CGPoint {
     let size = size ?? context.container.bounds.size
     let rtn: CGPoint
@@ -143,7 +225,7 @@ class DefaultAnimationPreprocessor: BasePreprocessor {
     }
     return rtn
   }
-
+  
   override func process(fromViews: [UIView], toViews: [UIView]) {
     guard let hero = hero else { return }
     var defaultAnimation = hero.defaultAnimation
@@ -157,7 +239,7 @@ class DefaultAnimationPreprocessor: BasePreprocessor {
     let toView = hero.toView
     let fromView = hero.fromView
     let animators = hero.animators
-
+    
     if case .auto = defaultAnimation {
       if inNavigationController, let navAnim = toViewController?.navigationController?.heroNavigationAnimationType {
         defaultAnimation = navAnim
@@ -167,11 +249,11 @@ class DefaultAnimationPreprocessor: BasePreprocessor {
         defaultAnimation = modalAnim
       }
     }
-
+    
     if case .selectBy(let presentAnim, let dismissAnim) = defaultAnimation {
       defaultAnimation = presenting ? presentAnim : dismissAnim
     }
-
+    
     if case .auto = defaultAnimation {
       if animators!.contains(where: { $0.canAnimate(view: toView, appearing: true) || $0.canAnimate(view: fromView, appearing: false) }) {
         defaultAnimation = .none
@@ -183,14 +265,14 @@ class DefaultAnimationPreprocessor: BasePreprocessor {
         defaultAnimation = .fade
       }
     }
-
+    
     if case .none = defaultAnimation {
       return
     }
-
+    
     context[fromView] = [.timingFunction(.standard), .duration(0.35)]
     context[toView] = [.timingFunction(.standard), .duration(0.35)]
-
+    
     let shadowState: [HeroModifier] = [.shadowOpacity(0.5),
                                        .shadowColor(.black),
                                        .shadowRadius(5),
@@ -251,7 +333,7 @@ class DefaultAnimationPreprocessor: BasePreprocessor {
       if !(fromOverFullScreen && !presenting) {
         context[toView] = [.fade]
       }
-
+      
       #if os(tvOS)
         context[fromView] = [.fade]
       #else
@@ -259,7 +341,7 @@ class DefaultAnimationPreprocessor: BasePreprocessor {
           context[fromView] = [.fade]
         }
       #endif
-
+      
       context[toView]!.append(.durationMatchLongest)
       context[fromView]!.append(.durationMatchLongest)
     case .zoom:
