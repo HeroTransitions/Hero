@@ -209,7 +209,7 @@ extension UIViewController {
 
     if let target = target {
       if target.presentedViewController != nil {
-        let _ = target.navigationController?.popToViewController(target, animated: false)
+        _ = target.navigationController?.popToViewController(target, animated: false)
 
         let fromVC = self.navigationController ?? self
         let toVC = target.navigationController ?? target
@@ -225,7 +225,7 @@ extension UIViewController {
 
         toVC.dismiss(animated: true, completion: nil)
       } else {
-        let _ = target.navigationController?.popToViewController(target, animated: true)
+        _ = target.navigationController?.popToViewController(target, animated: true)
       }
     } else {
       // unwind target not found
