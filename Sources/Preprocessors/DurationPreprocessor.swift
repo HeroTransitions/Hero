@@ -20,28 +20,22 @@ class DurationPreprocessor: BasePreprocessor {
 
   func applyOptimizedDurationIfNoDuration(views: [UIView]) -> TimeInterval {
     var maxDuration: TimeInterval = 0
-    for view in views {
-      if context[view] != nil {
-        if context[view]?.duration == nil {
-          context[view]!.duration = view.optimizedDuration(targetState: context[view]!)
-        }
-        if context[view]!.duration! == .infinity {
-          maxDuration = max(maxDuration, view.optimizedDuration(targetState: context[view]!))
-        } else {
-          maxDuration = max(maxDuration, context[view]!.duration!)
-        }
+    for view in views where context[view] != nil {
+      if context[view]?.duration == nil {
+        context[view]!.duration = view.optimizedDuration(targetState: context[view]!)
+      }
+      if context[view]!.duration! == .infinity {
+        maxDuration = max(maxDuration, view.optimizedDuration(targetState: context[view]!))
+      } else {
+        maxDuration = max(maxDuration, context[view]!.duration!)
       }
     }
     return maxDuration
   }
 
   func setDurationForInfiniteDuration(views: [UIView], duration: TimeInterval) {
-    for view in views {
-      if context[view] != nil {
-        if context[view]!.duration! == .infinity {
-          context[view]!.duration = duration
-        }
-      }
+    for view in views where context[view]?.duration == .infinity {
+      context[view]!.duration = duration
     }
   }
 }

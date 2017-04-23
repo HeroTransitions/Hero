@@ -34,11 +34,9 @@ public class HeroDebugPlugin: HeroPlugin {
   override public func animate(fromViews: [UIView], toViews: [UIView]) -> TimeInterval {
     if Hero.shared.forceNotInteractive { return 0 }
     var hasArc = false
-    for v in context.fromViews + context.toViews {
-      if context[v]?.arc != nil && context[v]?.position != nil {
-        hasArc = true
-        break
-      }
+    for v in context.fromViews + context.toViews where context[v]?.arc != nil && context[v]?.position != nil {
+      hasArc = true
+      break
     }
     let debugView = HeroDebugView(initialProcess: Hero.shared.presenting ? 0.0 : 1.0, showCurveButton:hasArc, showOnTop:HeroDebugPlugin.showOnTop)
     debugView.frame = Hero.shared.container.bounds
@@ -135,11 +133,9 @@ extension HeroDebugPlugin:HeroDebugViewDelegate {
     var t = CATransform3DIdentity
     if wants3D {
       var viewsWithZPosition = Set<UIView>()
-      for view in Hero.shared.container.subviews {
-        if view.layer.zPosition != 0 {
-          viewsWithZPosition.insert(view)
-          zPositionMap[view] = view.layer.zPosition
-        }
+      for view in Hero.shared.container.subviews where view.layer.zPosition != 0 {
+        viewsWithZPosition.insert(view)
+        zPositionMap[view] = view.layer.zPosition
       }
 
       let viewsWithoutZPosition = Hero.shared.container.subviews.filter { return !viewsWithZPosition.contains($0) }
