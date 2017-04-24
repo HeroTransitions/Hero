@@ -389,7 +389,7 @@ extension HeroModifier {
    (iOS 9+) Use spring animation with custom stiffness & damping. The duration will be automatically calculated. Will be ignored if arc, timingFunction, or duration is set.
    - Parameters:
      - stiffness: stiffness of the spring
-     - damping: stiffness of the spring
+     - damping: damping of the spring
    */
   @available(iOS 9, *)
   public static func spring(stiffness: CGFloat, damping: CGFloat) -> HeroModifier {
