@@ -47,10 +47,8 @@ public class HeroBaseController: NSObject {
             animator.seekTo(timePassed: timePassed)
           }
         } else {
-          for plugin in plugins {
-            if plugin.requirePerFrameCallback {
-              plugin.seekTo(timePassed: timePassed)
-            }
+          for plugin in plugins where plugin.requirePerFrameCallback {
+            plugin.seekTo(timePassed: timePassed)
           }
         }
       }
