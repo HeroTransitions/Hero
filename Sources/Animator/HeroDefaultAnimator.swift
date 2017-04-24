@@ -23,13 +23,9 @@
 import UIKit
 
 internal extension UIView {
-  func optimizedDuration(targetState: HeroTargetState) -> TimeInterval {
-    return optimizedDurationTo(position: targetState.position, size: targetState.size, transform: targetState.transform)
-  }
-
-  func optimizedDurationTo(position: CGPoint?, size: CGSize?, transform: CATransform3D?) -> TimeInterval {
-    let fromPos = (layer.presentation() ?? layer).position
-    let toPos = position ?? fromPos
+  func optimizedDuration(fromPosition: CGPoint, toPosition: CGPoint?, size: CGSize?, transform: CATransform3D?) -> TimeInterval {
+    let fromPos = fromPosition
+    let toPos = toPosition ?? fromPos
     let fromSize = (layer.presentation() ?? layer).bounds.size
     let toSize = size ?? fromSize
     let fromTransform = (layer.presentation() ?? layer).transform
