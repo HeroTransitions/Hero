@@ -24,18 +24,18 @@ import UIKit
 
 /**
  ### The singleton class/object for controlling interactive transitions.
- 
+
  ```swift
-   Hero.shared
+ Hero.shared
  ```
- 
+
  #### Use the following methods for controlling the interactive transition:
 
  ```swift
-   func update(progress:Double)
-   func end()
-   func cancel()
-   func apply(modifiers:[HeroModifier], to view:UIView)
+ func update(progress:Double)
+ func end()
+ func cancel()
+ func apply(modifiers:[HeroModifier], to view:UIView)
  ```
  */
 public class Hero: HeroBaseController {
@@ -62,7 +62,7 @@ public class Hero: HeroBaseController {
     }
   }
 
-  public var isAnimating:Bool = false
+  public var isAnimating: Bool = false
   /// a UIViewControllerContextTransitioning object provided by UIKit,
   /// might be nil when transitioning. This happens when calling heroReplaceViewController
   internal weak var transitionContext: UIViewControllerContextTransitioning?
@@ -313,12 +313,12 @@ internal extension Hero {
     }
 
     if let navigationController = vc as? UINavigationController,
-       let delegate = navigationController.topViewController as? HeroViewControllerDelegate {
+      let delegate = navigationController.topViewController as? HeroViewControllerDelegate {
       closure(delegate)
     }
 
     if let tabBarController = vc as? UITabBarController,
-       let delegate = tabBarController.viewControllers?[tabBarController.selectedIndex] as? HeroViewControllerDelegate {
+      let delegate = tabBarController.viewControllers?[tabBarController.selectedIndex] as? HeroViewControllerDelegate {
       closure(delegate)
     }
   }
@@ -342,7 +342,7 @@ extension Hero: UIViewControllerAnimatedTransitioning {
   public func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
     return 0.375 // doesn't matter, real duration will be calculated later
   }
-  
+
   public func animationEnded(_ transitionCompleted: Bool) {
     isAnimating = !transitionCompleted
   }
@@ -402,7 +402,7 @@ extension Hero: UITabBarControllerDelegate {
   public func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
     return !isAnimating
   }
-  
+
   public func tabBarController(_ tabBarController: UITabBarController, interactionControllerFor animationController: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
     return interactiveTransitioning
   }
