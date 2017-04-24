@@ -62,6 +62,7 @@ public class Hero: HeroBaseController {
     }
   }
 
+  public var isAnimating:Bool = false
   /// a UIViewControllerContextTransitioning object provided by UIKit,
   /// might be nil when transitioning. This happens when calling heroReplaceViewController
   internal weak var transitionContext: UIViewControllerContextTransitioning?
@@ -341,6 +342,10 @@ extension Hero: UIViewControllerAnimatedTransitioning {
   public func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
     return 0.375 // doesn't matter, real duration will be calculated later
   }
+  
+  public func animationEnded(_ transitionCompleted: Bool) {
+    isAnimating = !transitionCompleted
+  }
 }
 
 extension Hero:UIViewControllerTransitioningDelegate {
@@ -394,11 +399,16 @@ extension Hero: UINavigationControllerDelegate {
 }
 
 extension Hero: UITabBarControllerDelegate {
+  public func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
+    return !isAnimating
+  }
+  
   public func tabBarController(_ tabBarController: UITabBarController, interactionControllerFor animationController: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
     return interactiveTransitioning
   }
 
   public func tabBarController(_ tabBarController: UITabBarController, animationControllerForTransitionFrom fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+    isAnimating = true
     let fromVCIndex = tabBarController.childViewControllers.index(of: fromVC)!
     let toVCIndex = tabBarController.childViewControllers.index(of: toVC)!
     self.presenting = toVCIndex > fromVCIndex
