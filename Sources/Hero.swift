@@ -193,14 +193,16 @@ internal extension Hero {
       container.backgroundColor = toView.backgroundColor
     }
 
-    super.animate()
-
-    if case .none = defaultAnimation {
-    } else if insertToViewFirst {
-      let toViewSnapshot = context.snapshotView(for: toView)
-      let fromViewSnapshot = context.snapshotView(for: fromView)
-      container.insertSubview(toViewSnapshot, belowSubview: fromViewSnapshot)
+    if fromOverFullScreen {
+      insertToViewFirst = true
     }
+    for animator in animators {
+      if let animator = animator as? HasInsertOrder {
+        animator.insertToViewFirst = insertToViewFirst
+      }
+    }
+
+    super.animate()
 
     fullScreenSnapshot!.removeFromSuperview()
   }
