@@ -78,12 +78,4 @@ class VideoPlayerViewController: UIViewController {
     playerView.frame = CGRect(x: 0, y: 0, width: view.bounds.width, height: view.bounds.width / 16 * 9)
     playerView.center = view.center
   }
-
-  override func viewDidAppear(_ animated: Bool) {
-    super.viewDidAppear(animated)
-    // must re-insert the playerView since we used .useNoSnapshot modifier on it.
-    // Hero will take it out of the view hierarchy during the transition.
-    playerView.frame = view.bounds
-    view.insertSubview(playerView, at: 0)
-  }
 }

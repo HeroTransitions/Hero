@@ -75,6 +75,9 @@ internal class HeroCoreAnimationViewContext: HeroAnimatorViewContext {
     if let key = overlayKeyFor(key: key) {
       return overlayLayer?.value(forKeyPath: key)
     }
+    if snapshot.layer.animationKeys()?.isEmpty != false {
+      return snapshot.layer.value(forKeyPath:key)
+    }
     return (snapshot.layer.presentation() ?? snapshot.layer).value(forKeyPath: key)
   }
 

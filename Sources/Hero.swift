@@ -210,6 +210,7 @@ internal extension Hero {
   override func complete(finished: Bool) {
     guard transitioning else { return }
 
+    context.clean()
     if finished && presenting && toOverFullScreen {
       // finished presenting a overFullScreen VC
       context.unhide(rootView: toView)
