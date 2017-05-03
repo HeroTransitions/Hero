@@ -77,8 +77,6 @@ public class Hero: HeroBaseController {
   // UINavigationController.setViewControllers not able to handle interactive transition
   internal var forceNotInteractive = false
 
-  internal var insertToViewFirst = false
-
   internal var inNavigationController = false
   internal var inTabBarController = false
   internal var inContainerController: Bool {
@@ -196,11 +194,6 @@ internal extension Hero {
     if fromOverFullScreen {
       insertToViewFirst = true
     }
-    for animator in animators {
-      if let animator = animator as? HasInsertOrder {
-        animator.insertToViewFirst = insertToViewFirst
-      }
-    }
 
     super.animate()
 
@@ -211,6 +204,13 @@ internal extension Hero {
     guard transitioning else { return }
 
     context.clean()
+
+    // move fromView & toView back from our container back to the one supplied by UIKit
+    if (toOverFullScreen && finished) || (fromOverFullScreen && !finished) {
+      transitionContainer.addSubview(finished ? fromView : toView)
+    }
+    transitionContainer.addSubview(finished ? toView : fromView)
+
     if finished && presenting && toOverFullScreen {
       // finished presenting a overFullScreen VC
       context.unhide(rootView: toView)
@@ -233,12 +233,6 @@ internal extension Hero {
       container.removeFromSuperview()
     }
 
-    // move fromView & toView back from our container back to the one supplied by UIKit
-    if (toOverFullScreen && finished) || (fromOverFullScreen && !finished) {
-      transitionContainer.addSubview(finished ? fromView : toView)
-    }
-    transitionContainer.addSubview(finished ? toView : fromView)
-
     if presenting != finished, !inContainerController {
       // only happens when present a .overFullScreen VC
       // bug: http://openradar.appspot.com/radar?id=5320103646199808
@@ -259,7 +253,6 @@ internal extension Hero {
     inNavigationController = false
     inTabBarController = false
     forceNotInteractive = false
-    insertToViewFirst = false
     defaultAnimation = .auto
 
     super.complete(finished: finished)

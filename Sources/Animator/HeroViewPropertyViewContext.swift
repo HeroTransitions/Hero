@@ -25,13 +25,16 @@ import UIKit
 @available(iOS 10, tvOS 10, *)
 internal class HeroViewPropertyViewContext: HeroAnimatorViewContext {
 
-  var viewPropertyAnimator: UIViewPropertyAnimator?
+  var viewPropertyAnimator: UIViewPropertyAnimator!
+  var endEffect: UIVisualEffect?
+  var startEffect: UIVisualEffect?
 
   override class func canAnimate(view: UIView, state: HeroTargetState, appearing: Bool) -> Bool {
     return view is UIVisualEffectView && state.opacity != nil
   }
 
   override func resume(timePassed: TimeInterval, reverse: Bool) {
+    viewPropertyAnimator?.stopAnimation(true)
     viewPropertyAnimator?.finishAnimation(at: reverse ? .start : .end)
   }
 
@@ -42,7 +45,6 @@ internal class HeroViewPropertyViewContext: HeroAnimatorViewContext {
 
   override func clean() {
     super.clean()
-    viewPropertyAnimator?.stopAnimation(true)
     viewPropertyAnimator = nil
   }
 
@@ -50,12 +52,13 @@ internal class HeroViewPropertyViewContext: HeroAnimatorViewContext {
     guard let visualEffectView = snapshot as? UIVisualEffectView else { return }
     let appearedEffect = visualEffectView.effect
     let disappearedEffect = targetState.opacity == 0 ? nil : visualEffectView.effect
-    visualEffectView.effect = appearing ? disappearedEffect : appearedEffect
-
+    startEffect = appearing ? disappearedEffect : appearedEffect
+    endEffect = appearing ? appearedEffect : disappearedEffect
     duration = targetState.duration!
-    viewPropertyAnimator = UIViewPropertyAnimator(duration: duration, curve: .easeInOut) {
-      visualEffectView.effect = appearing ? appearedEffect : disappearedEffect
+    visualEffectView.effect = startEffect
+    viewPropertyAnimator = UIViewPropertyAnimator(duration: duration, curve: .linear) {
+      visualEffectView.effect = self.endEffect
     }
-    viewPropertyAnimator!.startAnimation()
+    viewPropertyAnimator.startAnimation()
   }
 }

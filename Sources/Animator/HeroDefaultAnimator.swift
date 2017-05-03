@@ -45,13 +45,9 @@ internal extension UIView {
   }
 }
 
-protocol HasInsertOrder: class {
-  var insertToViewFirst: Bool { get set }
-}
-internal class HeroDefaultAnimator<ViewContext: HeroAnimatorViewContext>: HeroAnimator, HasInsertOrder {
+internal class HeroDefaultAnimator<ViewContext: HeroAnimatorViewContext>: HeroAnimator {
   weak public var context: HeroContext!
   var viewContexts: [UIView: ViewContext] = [:]
-  internal var insertToViewFirst = false
 
   public func seekTo(timePassed: TimeInterval) {
     for viewContext in viewContexts.values {
@@ -82,13 +78,8 @@ internal class HeroDefaultAnimator<ViewContext: HeroAnimatorViewContext>: HeroAn
   public func animate(fromViews: [UIView], toViews: [UIView]) -> TimeInterval {
     var duration: TimeInterval = 0
 
-    if insertToViewFirst {
-      for v in toViews { animate(view: v, appearing: true) }
-      for v in fromViews { animate(view: v, appearing: false) }
-    } else {
-      for v in fromViews { animate(view: v, appearing: false) }
-      for v in toViews { animate(view: v, appearing: true) }
-    }
+    for v in fromViews { animate(view: v, appearing: false) }
+    for v in toViews { animate(view: v, appearing: true) }
 
     for viewContext in viewContexts.values {
       duration = max(duration, viewContext.duration)
@@ -109,6 +100,5 @@ internal class HeroDefaultAnimator<ViewContext: HeroAnimatorViewContext>: HeroAn
       vc.clean()
     }
     viewContexts.removeAll()
-    insertToViewFirst = false
   }
 }

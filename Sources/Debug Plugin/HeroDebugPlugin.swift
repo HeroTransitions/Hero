@@ -77,7 +77,7 @@ extension HeroDebugPlugin:HeroDebugViewDelegate {
     guard let debugView = debugView else { return }
     let seekValue = Hero.shared.presenting ? debugView.progress : 1.0 - debugView.progress
     if seekValue > 0.5 {
-      Hero.shared.end()
+      Hero.shared.finish()
     } else {
       Hero.shared.cancel()
     }
@@ -85,7 +85,7 @@ extension HeroDebugPlugin:HeroDebugViewDelegate {
 
   public func onProcessSliderChanged(progress: Float) {
     let seekValue = Hero.shared.presenting ? progress : 1.0 - progress
-    Hero.shared.update(progress: Double(seekValue))
+    Hero.shared.update(CGFloat(seekValue))
   }
 
   func onPerspectiveChanged(translation: CGPoint, rotation: CGFloat, scale: CGFloat) {

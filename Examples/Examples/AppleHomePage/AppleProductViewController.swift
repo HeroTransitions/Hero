@@ -87,8 +87,8 @@ class AppleProductViewController: UIViewController, HeroViewControllerDelegate {
         state = nextState
         hero_replaceViewController(with: nextVC!)
       } else {
-        let progress = abs(Double(translateX / view.bounds.width))
-        Hero.shared.update(progress: progress)
+        let progress = abs(translateX / view.bounds.width)
+        Hero.shared.update(progress)
         if state == .slidingLeft, let nextVC = nextVC {
           Hero.shared.apply(modifiers: [.translate(x: view.bounds.width + translateX)], to: nextVC.view)
         } else {
@@ -98,7 +98,7 @@ class AppleProductViewController: UIViewController, HeroViewControllerDelegate {
     default:
       let progress = (translateX + velocityX) / view.bounds.width
       if (progress < 0) == (state == .slidingLeft) && abs(progress) > 0.3 {
-        Hero.shared.end()
+        Hero.shared.finish()
       } else {
         Hero.shared.cancel()
       }

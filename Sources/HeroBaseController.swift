@@ -54,6 +54,7 @@ public class HeroBaseController: NSObject {
       }
     }
   }
+
   /// whether or not we are doing a transition
   public var transitioning: Bool {
     return transitionContainer != nil
@@ -62,6 +63,8 @@ public class HeroBaseController: NSObject {
   /// container we created to hold all animating views, will be a subview of the
   /// transitionContainer when transitioning
   public internal(set) var container: UIView!
+
+  internal var insertToViewFirst = false
 
   /// this is the container supplied by UIKit
   internal var transitionContainer: UIView!
@@ -76,7 +79,7 @@ public class HeroBaseController: NSObject {
 
   /// current animation complete duration.
   /// (differs from totalDuration because this one could be the duration for finishing interactive transition)
-  internal var duration: TimeInterval = 0.0
+  internal var currentDuration: TimeInterval = 0.0
   internal var beginTime: TimeInterval? {
     didSet {
       if beginTime != nil {
@@ -92,10 +95,10 @@ public class HeroBaseController: NSObject {
     }
   }
   func displayUpdate(_ link: CADisplayLink) {
-    if transitioning, duration > 0, let beginTime = beginTime {
+    if transitioning, currentDuration > 0, let beginTime = beginTime {
       let timePassed = CACurrentMediaTime() - beginTime
 
-      if timePassed > duration {
+      if timePassed > currentDuration {
         progress = finishing ? 1 : 0
         self.beginTime = nil
         complete(finished: finishing)
@@ -116,14 +119,13 @@ public class HeroBaseController: NSObject {
   internal var animators: [HeroAnimator]!
   internal var plugins: [HeroPlugin]!
 
-  internal var animatingViews: [(fromViews: [UIView], toViews: [UIView])]!
+  internal var animatingFromViews: [UIView]!
+  internal var animatingToViews: [UIView]!
 
   internal static var enabledPlugins: [HeroPlugin.Type] = []
 
   internal override init() {}
-}
 
-public extension HeroBaseController {
   // MARK: Interactive Transition
 
   /**
@@ -131,10 +133,10 @@ public extension HeroBaseController {
    - Parameters:
    - progress: the current progress, must be between -1...1
    */
-  public func update(progress: Double) {
+  public func update(_ percentageComplete: CGFloat) {
     guard transitioning else { return }
     self.beginTime = nil
-    self.progress = max(-1, min(1, progress))
+    self.progress = max(-1, min(1, Double(percentageComplete)))
   }
 
   /**
@@ -142,7 +144,7 @@ public extension HeroBaseController {
    Will stop the interactive transition and animate from the
    current state to the **end** state
    */
-  public func end(animate: Bool = true) {
+  public func finish(animate: Bool = true) {
     guard transitioning else { return }
     if !animate {
       self.complete(finished:true)
@@ -277,15 +279,21 @@ internal extension HeroBaseController {
 
   func prepareForAnimation() {
     guard transitioning else { fatalError() }
-    animatingViews = [([UIView], [UIView])]()
-    for animator in animators {
-      let currentFromViews = context.fromViews.filter { (view: UIView) -> Bool in
-        return animator.canAnimate(view: view, appearing: false)
+    animatingFromViews = context.fromViews.filter { (view: UIView) -> Bool in
+      for animator in animators {
+        if animator.canAnimate(view: view, appearing: false) {
+          return true
+        }
       }
-      let currentToViews = context.toViews.filter { (view: UIView) -> Bool in
-        return animator.canAnimate(view: view, appearing: true)
+      return false
+    }
+    animatingToViews = context.toViews.filter { (view: UIView) -> Bool in
+      for animator in animators {
+        if animator.canAnimate(view: view, appearing: true) {
+          return true
+        }
       }
-      animatingViews.append((currentFromViews, currentToViews))
+      return false
     }
   }
 
@@ -293,21 +301,28 @@ internal extension HeroBaseController {
   /// subclass should call `prepareForTransition` & `prepareForAnimation` before calling `animate`
   func animate() {
     guard transitioning else { fatalError() }
-    for (currentFromViews, currentToViews) in animatingViews {
-      // auto hide all animated views
-      for view in currentFromViews {
-        context.hide(view: view)
-      }
-      for view in currentToViews {
-        context.hide(view: view)
-      }
+    // auto hide all animated views
+    for view in animatingFromViews {
+      context.hide(view: view)
+    }
+    for view in animatingToViews {
+      context.hide(view: view)
     }
 
     var totalDuration: TimeInterval = 0
     var animatorWantsInteractive = false
-    for (i, animator) in animators.enumerated() {
-      let duration = animator.animate(fromViews: animatingViews[i].0,
-                                      toViews: animatingViews[i].1)
+
+    if insertToViewFirst {
+      for v in animatingToViews { _ = context.snapshotView(for: v) }
+      for v in animatingFromViews { _ = context.snapshotView(for: v) }
+    } else {
+      for v in animatingFromViews { _ = context.snapshotView(for: v) }
+      for v in animatingToViews { _ = context.snapshotView(for: v) }
+    }
+
+    for animator in animators {
+      let duration = animator.animate(fromViews: animatingFromViews.filter({ animator.canAnimate(view: $0, appearing: false) }),
+                                      toViews: animatingToViews.filter({ animator.canAnimate(view: $0, appearing: true) }))
       if duration == .infinity {
         animatorWantsInteractive = true
       } else {
@@ -317,7 +332,7 @@ internal extension HeroBaseController {
 
     self.totalDuration = totalDuration
     if animatorWantsInteractive {
-      update(progress: 0)
+      update(0)
     } else {
       complete(after: totalDuration, finishing: true)
     }
@@ -331,7 +346,7 @@ internal extension HeroBaseController {
     }
     let timePassed = (finishing ? progress : 1 - progress) * totalDuration
     self.finishing = finishing
-    self.duration = after + timePassed
+    self.currentDuration = after + timePassed
     self.beginTime = CACurrentMediaTime() - timePassed
   }
 
@@ -345,7 +360,8 @@ internal extension HeroBaseController {
 
     let completion = completionCallback
 
-    animatingViews = nil
+    animatingToViews = nil
+    animatingFromViews = nil
     progressUpdateObservers = nil
     transitionContainer = nil
     completionCallback = nil
@@ -357,6 +373,7 @@ internal extension HeroBaseController {
     beginTime = nil
     progress = 0
     totalDuration = 0
+    insertToViewFirst = false
 
     completion?(finished)
   }

@@ -57,14 +57,14 @@ class ImageViewController: UICollectionViewController {
     case .began:
       hero_dismissViewController()
     case .changed:
-      Hero.shared.update(progress: Double(progress))
+      Hero.shared.update(progress)
       if let cell = collectionView?.visibleCells[0]  as? ScrollingImageCell {
         let currentPos = CGPoint(x: translation.x + view.center.x, y: translation.y + view.center.y)
         Hero.shared.apply(modifiers: [.position(currentPos)], to: cell.imageView)
       }
     default:
       if progress + panGR.velocity(in: nil).y / collectionView!.bounds.height > 0.3 {
-        Hero.shared.end()
+        Hero.shared.finish()
       } else {
         Hero.shared.cancel()
       }

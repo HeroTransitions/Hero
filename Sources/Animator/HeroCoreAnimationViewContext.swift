@@ -34,22 +34,23 @@ internal class HeroCoreAnimationViewContext: HeroAnimatorViewContext {
   var overlayLayer: CALayer?
 
   override class func canAnimate(view: UIView, state: HeroTargetState, appearing: Bool) -> Bool {
-    return  state.position != nil ||
-      state.size != nil ||
-      state.transform != nil ||
-      state.cornerRadius != nil ||
-      state.opacity != nil ||
-      state.overlay != nil ||
-      state.backgroundColor != nil ||
-      state.borderColor != nil ||
-      state.borderWidth != nil ||
-      state.shadowOpacity != nil ||
-      state.shadowRadius != nil ||
-      state.shadowOffset != nil ||
-      state.shadowColor != nil ||
-      state.shadowPath != nil ||
-      state.contentsRect != nil ||
-      state.forceAnimate
+    return !(view is UIVisualEffectView) && (
+              state.position != nil ||
+              state.size != nil ||
+              state.transform != nil ||
+              state.cornerRadius != nil ||
+              state.opacity != nil ||
+              state.overlay != nil ||
+              state.backgroundColor != nil ||
+              state.borderColor != nil ||
+              state.borderWidth != nil ||
+              state.shadowOpacity != nil ||
+              state.shadowRadius != nil ||
+              state.shadowOffset != nil ||
+              state.shadowColor != nil ||
+              state.shadowPath != nil ||
+              state.contentsRect != nil ||
+              state.forceAnimate)
   }
 
   func getOverlayLayer() -> CALayer {
