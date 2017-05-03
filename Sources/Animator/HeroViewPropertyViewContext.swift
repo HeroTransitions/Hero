@@ -34,8 +34,14 @@ internal class HeroViewPropertyViewContext: HeroAnimatorViewContext {
   }
 
   override func resume(timePassed: TimeInterval, reverse: Bool) {
-    viewPropertyAnimator?.stopAnimation(true)
-    viewPropertyAnimator?.finishAnimation(at: reverse ? .start : .end)
+    guard let visualEffectView = snapshot as? UIVisualEffectView else { return }
+    if reverse {
+      viewPropertyAnimator?.stopAnimation(false)
+      viewPropertyAnimator = UIViewPropertyAnimator(duration: duration, curve: .linear) {
+        visualEffectView.effect = reverse ? self.startEffect : self.endEffect
+      }
+    }
+    viewPropertyAnimator.startAnimation()
   }
 
   override func seek(timePassed: TimeInterval) {

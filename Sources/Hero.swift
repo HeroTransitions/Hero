@@ -205,12 +205,6 @@ internal extension Hero {
 
     context.clean()
 
-    // move fromView & toView back from our container back to the one supplied by UIKit
-    if (toOverFullScreen && finished) || (fromOverFullScreen && !finished) {
-      transitionContainer.addSubview(finished ? fromView : toView)
-    }
-    transitionContainer.addSubview(finished ? toView : fromView)
-
     if finished && presenting && toOverFullScreen {
       // finished presenting a overFullScreen VC
       context.unhide(rootView: toView)
@@ -232,6 +226,12 @@ internal extension Hero {
       context.removeAllSnapshots()
       container.removeFromSuperview()
     }
+
+    // move fromView & toView back from our container back to the one supplied by UIKit
+    if (toOverFullScreen && finished) || (fromOverFullScreen && !finished) {
+      transitionContainer.addSubview(finished ? fromView : toView)
+    }
+    transitionContainer.addSubview(finished ? toView : fromView)
 
     if presenting != finished, !inContainerController {
       // only happens when present a .overFullScreen VC
