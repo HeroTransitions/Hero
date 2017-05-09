@@ -199,6 +199,9 @@ extension HeroContext {
     view.layer.cornerRadius = oldCornerRadius
     view.alpha = oldAlpha
 
+    snapshot.frame = containerView.convert(view.bounds, from: view)
+    snapshot.heroID = view.heroID
+
     if snapshotType != .noSnapshot {
       snapshot.layer.allowsGroupOpacity = false
 
@@ -228,12 +231,9 @@ extension HeroContext {
         snapshot.layer.shadowOffset = view.layer.shadowOffset
         snapshot.layer.shadowPath = view.layer.shadowPath
       }
+
+      hide(view: view)
     }
-
-    snapshot.frame = containerView.convert(view.bounds, from: view)
-    snapshot.heroID = view.heroID
-
-    hide(view: view)
 
     if let pairedView = pairedView(for: view), let pairedSnapshot = snapshotViews[pairedView] {
       let siblingViews = pairedView.superview!.subviews
@@ -284,7 +284,7 @@ extension HeroContext {
 // internal
 extension HeroContext {
   public func hide(view: UIView) {
-    if viewAlphas[view] == nil, self[view]?.snapshotType != .noSnapshot {
+    if viewAlphas[view] == nil {
       if view is UIVisualEffectView {
         view.isHidden = true
         viewAlphas[view] = 1
