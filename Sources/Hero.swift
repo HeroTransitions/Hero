@@ -122,6 +122,12 @@ public extension Hero {
 internal extension Hero {
   func start() {
     guard transitioning else { return }
+
+    toView.frame = fromView.frame
+    toView.updateConstraints()
+    toView.setNeedsLayout()
+    toView.layoutIfNeeded()
+
     if let fvc = fromViewController, let tvc = toViewController {
       closureProcessForHeroDelegate(vc: fvc) {
         $0.heroWillStartTransition?()
@@ -154,11 +160,6 @@ internal extension Hero {
     context.loadViewAlpha(rootView: fromView)
     container.addSubview(toView)
     container.addSubview(fromView)
-
-    toView.frame = fromView.frame
-    toView.updateConstraints()
-    toView.setNeedsLayout()
-    toView.layoutIfNeeded()
 
     context.set(fromViews: fromView.flattenedViewHierarchy, toViews: toView.flattenedViewHierarchy)
 
