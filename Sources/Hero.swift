@@ -124,7 +124,6 @@ internal extension Hero {
     guard transitioning else { return }
 
     toView.frame = fromView.frame
-    toView.updateConstraints()
     toView.setNeedsLayout()
     toView.layoutIfNeeded()
 
@@ -160,6 +159,10 @@ internal extension Hero {
     context.loadViewAlpha(rootView: fromView)
     container.addSubview(toView)
     container.addSubview(fromView)
+
+    toView.updateConstraints()
+    toView.setNeedsLayout()
+    toView.layoutIfNeeded()
 
     context.set(fromViews: fromView.flattenedViewHierarchy, toViews: toView.flattenedViewHierarchy)
 

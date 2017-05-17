@@ -146,10 +146,12 @@ extension HeroContext {
     case .layerRender:
       snapshot = view.slowSnapshotView()
     case .noSnapshot:
-      if superviewToNoSnapshotSubviewMap[view.superview!] == nil {
-        superviewToNoSnapshotSubviewMap[view.superview!] = []
+      if view.superview != container {
+        if superviewToNoSnapshotSubviewMap[view.superview!] == nil {
+          superviewToNoSnapshotSubviewMap[view.superview!] = []
+        }
+        superviewToNoSnapshotSubviewMap[view.superview!]!.append((view.superview!.subviews.index(of: view)!, view))
       }
-      superviewToNoSnapshotSubviewMap[view.superview!]!.append((view.superview!.subviews.index(of: view)!, view))
       snapshot = view
     case .optimized:
       #if os(tvOS)
