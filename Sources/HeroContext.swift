@@ -199,7 +199,9 @@ extension HeroContext {
     view.layer.cornerRadius = oldCornerRadius
     view.alpha = oldAlpha
 
-    snapshot.frame = containerView.convert(view.bounds, from: view)
+    snapshot.layer.anchorPoint = view.layer.anchorPoint
+    snapshot.layer.position = containerView.convert(view.layer.position, from: view.superview!)
+    snapshot.layer.bounds = view.layer.bounds
     snapshot.heroID = view.heroID
 
     if snapshotType != .noSnapshot {
