@@ -288,7 +288,7 @@ class DefaultAnimationPreprocessor: BasePreprocessor {
                                              .overlay(color: .black, opacity: 0.1),
                                              .timingFunction(.deceleration)])
     case .pull(let direction):
-      hero.insertToViewFirst = true
+      context.insertToViewFirst = true
       context[fromView]!.append(contentsOf: [.translate(shift(direction: direction, appearing: false)),
                                              .shadowOpacity(0),
                                              .beginWith(modifiers: shadowState)])
@@ -308,7 +308,7 @@ class DefaultAnimationPreprocessor: BasePreprocessor {
       context[fromView]!.append(contentsOf: [.overlay(color: .black, opacity: 0.1),
                                              .timingFunction(.deceleration)])
     case .uncover(let direction):
-      hero.insertToViewFirst = true
+      context.insertToViewFirst = true
       context[fromView]!.append(contentsOf: [.translate(shift(direction: direction, appearing: false)),
                                              .shadowOpacity(0),
                                              .beginWith(modifiers: shadowState)])
@@ -322,7 +322,7 @@ class DefaultAnimationPreprocessor: BasePreprocessor {
                                              .overlay(color: .black, opacity: 0.1),
                                              .timingFunction(.deceleration)])
     case .pageOut(let direction):
-      hero.insertToViewFirst = true
+      context.insertToViewFirst = true
       context[fromView]!.append(contentsOf: [.translate(shift(direction: direction, appearing: false)),
                                              .shadowOpacity(0),
                                              .beginWith(modifiers: shadowState)])
@@ -345,7 +345,7 @@ class DefaultAnimationPreprocessor: BasePreprocessor {
       context[toView]!.append(.durationMatchLongest)
       context[fromView]!.append(.durationMatchLongest)
     case .zoom:
-      hero.insertToViewFirst = true
+      context.insertToViewFirst = true
       context[fromView]!.append(contentsOf: [.scale(1.3), .fade])
       context[toView]!.append(contentsOf: [.scale(0.7)])
     case .zoomOut:

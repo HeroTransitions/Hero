@@ -29,6 +29,7 @@ public class HeroContext {
   internal var viewAlphas = [UIView: CGFloat]()
   internal var targetStates = [UIView: HeroTargetState]()
   internal var superviewToNoSnapshotSubviewMap: [UIView: [(Int, UIView)]] = [:]
+  internal var insertToViewFirst = false
 
   internal var defaultCoordinateSpace: HeroCoordinateSpace = .local
 

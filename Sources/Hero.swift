@@ -166,6 +166,10 @@ internal extension Hero {
 
     context.set(fromViews: fromView.flattenedViewHierarchy, toViews: toView.flattenedViewHierarchy)
 
+    if (!presenting && !inTabBarController) {
+      context.insertToViewFirst = true
+    }
+
     processContext()
     prepareForAnimation()
 
@@ -193,10 +197,6 @@ internal extension Hero {
       container.backgroundColor = containerColor
     } else if !toOverFullScreen && !fromOverFullScreen {
       container.backgroundColor = toView.backgroundColor
-    }
-
-    if fromOverFullScreen {
-      insertToViewFirst = true
     }
 
     super.animate()

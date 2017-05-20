@@ -64,8 +64,6 @@ public class HeroBaseController: NSObject {
   /// transitionContainer when transitioning
   public internal(set) var container: UIView!
 
-  internal var insertToViewFirst = false
-
   /// this is the container supplied by UIKit
   internal var transitionContainer: UIView!
 
@@ -312,7 +310,7 @@ internal extension HeroBaseController {
     var totalDuration: TimeInterval = 0
     var animatorWantsInteractive = false
 
-    if insertToViewFirst {
+    if context.insertToViewFirst {
       for v in animatingToViews { _ = context.snapshotView(for: v) }
       for v in animatingFromViews { _ = context.snapshotView(for: v) }
     } else {
@@ -373,7 +371,6 @@ internal extension HeroBaseController {
     beginTime = nil
     progress = 0
     totalDuration = 0
-    insertToViewFirst = false
 
     completion?(finished)
   }
