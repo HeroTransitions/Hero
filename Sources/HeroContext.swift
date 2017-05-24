@@ -199,6 +199,11 @@ extension HeroContext {
     view.layer.cornerRadius = oldCornerRadius
     view.alpha = oldAlpha
 
+    let transform = view.layer.transform
+    view.layer.transform = CATransform3DIdentity
+    snapshot.frame = containerView.convert(view.bounds, from: view)
+    view.layer.transform = transform
+    
     if snapshotType != .noSnapshot {
       snapshot.layer.allowsGroupOpacity = false
 
@@ -217,7 +222,7 @@ extension HeroContext {
       snapshot.layer.masksToBounds = view.layer.masksToBounds
       snapshot.layer.borderColor = view.layer.borderColor
       snapshot.layer.borderWidth = view.layer.borderWidth
-      snapshot.layer.transform = view.layer.transform
+      snapshot.layer.transform = transform
       snapshot.layer.contentsRect = view.layer.contentsRect
       snapshot.layer.contentsScale = view.layer.contentsScale
 
@@ -230,7 +235,6 @@ extension HeroContext {
       }
     }
 
-    snapshot.frame = containerView.convert(view.bounds, from: view)
     snapshot.heroID = view.heroID
 
     hide(view: view)
