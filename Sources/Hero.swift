@@ -215,7 +215,7 @@ internal extension Hero {
       context.removeSnapshots(rootView: toView)
       context.storeViewAlpha(rootView: fromView)
       fromViewController!.heroStoredSnapshot = container
-      fromView.removeFromSuperview()
+      container.superview!.addSubview(fromView)
       fromView.addSubview(container)
     } else if !finished && !presenting && fromOverFullScreen {
       // cancelled dismissing a overFullScreen VC
@@ -223,12 +223,11 @@ internal extension Hero {
       context.removeSnapshots(rootView: fromView)
       context.storeViewAlpha(rootView: toView)
       toViewController!.heroStoredSnapshot = container
-      toView.removeFromSuperview()
+      container.superview!.addSubview(toView)
       toView.addSubview(container)
     } else {
       context.unhideAll()
       context.removeAllSnapshots()
-      container.removeFromSuperview()
     }
 
     // move fromView & toView back from our container back to the one supplied by UIKit
@@ -241,6 +240,10 @@ internal extension Hero {
       // only happens when present a .overFullScreen VC
       // bug: http://openradar.appspot.com/radar?id=5320103646199808
       UIApplication.shared.keyWindow!.addSubview(presenting ? fromView : toView)
+    }
+
+    if container.superview == transitionContainer {
+      container.removeFromSuperview()
     }
 
     // use temp variables to remember these values
