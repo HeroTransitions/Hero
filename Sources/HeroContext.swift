@@ -198,7 +198,7 @@ extension HeroContext {
 
     view.layer.cornerRadius = oldCornerRadius
     view.alpha = oldAlpha
-    
+
     let transform = view.layer.transform
     view.layer.transform = CATransform3DIdentity
     snapshot.frame = containerView.convert(view.bounds, from: view)
@@ -206,14 +206,14 @@ extension HeroContext {
     
     if snapshotType != .noSnapshot {
       snapshot.layer.allowsGroupOpacity = false
-      
+
       if !(view is UINavigationBar), let contentView = snapshot.subviews.get(0) {
         // the Snapshot's contentView must have hold the cornerRadius value,
         // since the snapshot might not have maskToBounds set
         contentView.layer.cornerRadius = view.layer.cornerRadius
         contentView.layer.masksToBounds = true
       }
-      
+
       snapshot.layer.cornerRadius = view.layer.cornerRadius
       snapshot.layer.zPosition = view.layer.zPosition
       snapshot.layer.opacity = view.layer.opacity
@@ -225,7 +225,7 @@ extension HeroContext {
       snapshot.layer.transform = transform
       snapshot.layer.contentsRect = view.layer.contentsRect
       snapshot.layer.contentsScale = view.layer.contentsScale
-      
+
       if self[view]?.displayShadow ?? true {
         snapshot.layer.shadowRadius = view.layer.shadowRadius
         snapshot.layer.shadowOpacity = view.layer.shadowOpacity
@@ -234,7 +234,7 @@ extension HeroContext {
         snapshot.layer.shadowPath = view.layer.shadowPath
       }
     }
-    
+
     snapshot.heroID = view.heroID
 
     hide(view: view)
