@@ -328,14 +328,19 @@ extension HeroContext {
   internal func removeAllSnapshots() {
     for (view, snapshot) in snapshotViews {
       if view != snapshot {
-        // do not remove when it is using .useNoSnapshot
         snapshot.removeFromSuperview()
+      } else {
+        view.layer.removeAllAnimations()
       }
     }
   }
   internal func removeSnapshots(rootView: UIView) {
-    if let snapshot = snapshotViews[rootView], snapshot != rootView {
-      snapshot.removeFromSuperview()
+    if let snapshot = snapshotViews[rootView] {
+      if rootView != snapshot {
+        snapshot.removeFromSuperview()
+      } else {
+        rootView.layer.removeAllAnimations()
+      }
     }
     for subview in rootView.subviews {
       removeSnapshots(rootView: subview)
