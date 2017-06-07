@@ -50,7 +50,7 @@ class ImageViewController: UICollectionViewController {
     }
   }
 
-  func pan() {
+  @objc func pan() {
     let translation = panGR.translation(in: nil)
     let progress = translation.y / 2 / collectionView!.bounds.height
     switch panGR.state {

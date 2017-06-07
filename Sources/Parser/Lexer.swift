@@ -19,7 +19,7 @@ public enum Token {
 
 typealias TokenGenerator = (String, CountableRange<Int>) -> Token?
 let tokenList: [(String, TokenGenerator)] = [
-  ("[ \t\n]", { _ in nil }),
+  ("[ \t\n]", { _, _ in nil }),
   ("[a-zA-Z][a-zA-Z0-9]*", { .identifier($0, $1) }),
   ("\\-?[0-9.]+", { .number(Float($0)!, $1) }),
   ("\\(", { .parensOpen($1) }),

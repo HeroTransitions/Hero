@@ -59,7 +59,7 @@ class AppleProductViewController: UIViewController, HeroViewControllerDelegate {
   var state: TransitionState = .normal
   weak var nextVC: AppleProductViewController?
 
-  func pan() {
+  @objc func pan() {
     let translateX = panGR.translation(in: nil).x
     let velocityX = panGR.velocity(in: nil).x
     switch panGR.state {

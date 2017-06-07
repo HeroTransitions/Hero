@@ -93,12 +93,9 @@ public class Hero: HeroBaseController {
   internal var fromView: UIView { return fromViewController!.view }
 
   internal override init() { super.init() }
-}
-
-public extension Hero {
 
   /// Turn off built-in animation for next transition
-  func disableDefaultAnimationForNextTransition() {
+  public func disableDefaultAnimationForNextTransition() {
     defaultAnimation = .none
   }
 
@@ -106,20 +103,17 @@ public extension Hero {
   /// This usually overrides rootView's heroModifiers during the transition
   ///
   /// - Parameter animation: animation type
-  func setDefaultAnimationForNextTransition(_ animation: HeroDefaultAnimationType) {
+  public func setDefaultAnimationForNextTransition(_ animation: HeroDefaultAnimationType) {
     defaultAnimation = animation
   }
 
   /// Set the container color for next transition
   ///
   /// - Parameter color: container color
-  func setContainerColorForNextTransition(_ color: UIColor?) {
+  public func setContainerColorForNextTransition(_ color: UIColor?) {
     containerColor = color
   }
-}
 
-// internal methods for transition
-internal extension Hero {
   func start() {
     guard transitioning else { return }
 
@@ -166,7 +160,7 @@ internal extension Hero {
 
     context.set(fromViews: fromView.flattenedViewHierarchy, toViews: toView.flattenedViewHierarchy)
 
-    if (!presenting && !inTabBarController) {
+    if !presenting && !inTabBarController {
       context.insertToViewFirst = true
     }
 
@@ -190,7 +184,7 @@ internal extension Hero {
     #endif
   }
 
-  override func animate() {
+  open override func animate() {
     context.unhide(view: toView)
 
     if let containerColor = containerColor {

@@ -220,7 +220,12 @@ extension UIViewController {
           // And also force Hero to use the current VC as the fromViewController
           Hero.shared.fromViewController = fromVC
           let snapshotView = fromVC.view.snapshotView(afterScreenUpdates: true)!
-          toVC.presentedViewController!.view.addSubview(snapshotView)
+          let targetSuperview = toVC.presentedViewController!.view!
+          if let visualEffectView = targetSuperview as? UIVisualEffectView {
+            visualEffectView.contentView.addSubview(snapshotView)
+          } else {
+            targetSuperview.addSubview(snapshotView)
+          }
         }
 
         toVC.dismiss(animated: true, completion: nil)

@@ -92,7 +92,7 @@ public class HeroBaseController: NSObject {
       }
     }
   }
-  func displayUpdate(_ link: CADisplayLink) {
+  @objc func displayUpdate(_ link: CADisplayLink) {
     if transitioning, currentDuration > 0, let beginTime = beginTime {
       let timePassed = CACurrentMediaTime() - beginTime
 
@@ -203,28 +203,7 @@ public class HeroBaseController: NSObject {
       animator.apply(state: targetState, to: view)
     }
   }
-}
 
-public extension HeroBaseController {
-  // MARK: Observe Progress
-
-  /**
-   Receive callbacks on each animation frame.
-   Observers will be cleaned when transition completes
-
-   - Parameters:
-   - observer: the observer
-   */
-  func observeForProgressUpdate(observer: HeroProgressUpdateObserver) {
-    if progressUpdateObservers == nil {
-      progressUpdateObservers = []
-    }
-    progressUpdateObservers!.append(observer)
-  }
-}
-
-// internal methods for transition
-internal extension HeroBaseController {
   /// Load plugins, processors, animators, container, & context
   /// must have transitionContainer set already
   /// subclass should call context.set(fromViews:toViews) after inserting fromViews & toViews into the container
@@ -297,7 +276,7 @@ internal extension HeroBaseController {
 
   /// Actually animate the views
   /// subclass should call `prepareForTransition` & `prepareForAnimation` before calling `animate`
-  func animate() {
+  open func animate() {
     guard transitioning else { fatalError() }
     // auto hide all animated views
     for view in animatingFromViews {
@@ -373,6 +352,24 @@ internal extension HeroBaseController {
     totalDuration = 0
 
     completion?(finished)
+  }
+}
+
+public extension HeroBaseController {
+  // MARK: Observe Progress
+
+  /**
+   Receive callbacks on each animation frame.
+   Observers will be cleaned when transition completes
+
+   - Parameters:
+   - observer: the observer
+   */
+  func observeForProgressUpdate(observer: HeroProgressUpdateObserver) {
+    if progressUpdateObservers == nil {
+      progressUpdateObservers = []
+    }
+    progressUpdateObservers!.append(observer)
   }
 }
 

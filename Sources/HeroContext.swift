@@ -124,6 +124,10 @@ extension HeroContext {
       if let snapshot = snapshotViews[containerView] {
         containerView = snapshot
       }
+
+      if let visualEffectView = containerView as? UIVisualEffectView {
+        containerView = visualEffectView.contentView
+      }
     case .sameParent:
       containerView = view.superview!
     case .global:
@@ -138,7 +142,7 @@ extension HeroContext {
     view.layer.cornerRadius = 0
     view.alpha = 1
 
-    let snapshot: UIView
+    var snapshot: UIView!
     let snapshotType: HeroSnapshotType = self[view]?.snapshotType ?? .optimized
 
     switch snapshotType {
@@ -208,7 +212,15 @@ extension HeroContext {
     snapshot.heroID = view.heroID
 
     if snapshotType != .noSnapshot {
-      snapshot.layer.allowsGroupOpacity = false
+      if #available(iOS 11.0, *) {
+        // in iOS 11, the snapshot taken by snapshotView(afterScreenUpdates) won't contain a container view
+        let oldSnapshot = snapshot!
+        snapshot = UIView()
+        snapshot.layer.bounds = oldSnapshot.layer.bounds
+        snapshot.layer.position = oldSnapshot.layer.position
+        oldSnapshot.layer.position = snapshot.layer.bounds.center
+        snapshot.addSubview(oldSnapshot)
+      }
 
       if !(view is UINavigationBar), let contentView = snapshot.subviews.get(0) {
         // the Snapshot's contentView must have hold the cornerRadius value,
@@ -217,6 +229,7 @@ extension HeroContext {
         contentView.layer.masksToBounds = true
       }
 
+      snapshot.layer.allowsGroupOpacity = false
       snapshot.layer.cornerRadius = view.layer.cornerRadius
       snapshot.layer.zPosition = view.layer.zPosition
       snapshot.layer.opacity = view.layer.opacity

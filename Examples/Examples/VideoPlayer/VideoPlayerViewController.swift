@@ -54,7 +54,7 @@ class VideoPlayerViewController: UIViewController {
     player.play()
   }
 
-  func pan() {
+  @objc func pan() {
     let translation = panGR.translation(in: nil)
     let progress = translation.y / 2 / view.bounds.height
     switch panGR.state {
