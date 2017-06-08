@@ -36,6 +36,8 @@ class MatchPreprocessor: BasePreprocessor {
       if let beginStateIfMatched = fvState.beginStateIfMatched {
         fvState.append(.beginWith(modifiers: beginStateIfMatched))
       }
+      applyIfMatchedSubviewModifiers(tv)
+      applyIfMatchedSubviewModifiers(fv)
 
       // match is just a two-way source effect
       tvState.source = id
@@ -78,6 +80,16 @@ class MatchPreprocessor: BasePreprocessor {
 
       context[tv] = tvState
       context[fv] = fvState
+    }
+  }
+
+  private func applyIfMatchedSubviewModifiers(_ view: UIView) {
+    if let ifMatched = context[view]?.ifMatched {
+      context[view]!.append(contentsOf: ifMatched)
+      context[view]!.ifMatched = nil
+    }
+    for view in view.subviews {
+      applyIfMatchedSubviewModifiers(view)
     }
   }
 }

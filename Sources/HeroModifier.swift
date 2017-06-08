@@ -503,6 +503,19 @@ extension HeroModifier {
   }
 
   /**
+   Apply modifiers at the start of the transition if the view is matched with another view.
+   Note that this will apply if a parent view is matched.
+   */
+  public static func ifMatched(modifiers: [HeroModifier]) -> HeroModifier {
+    return HeroModifier { targetState in
+      if targetState.ifMatched == nil {
+        targetState.ifMatched = []
+      }
+      targetState.ifMatched!.append(contentsOf: modifiers)
+    }
+  }
+
+  /**
    Use global coordinate space.
    
    When using global coordinate space. The view become a independent view that is not a subview of any view.
