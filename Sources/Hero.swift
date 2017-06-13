@@ -233,7 +233,7 @@ public class Hero: HeroBaseController {
     if presenting != finished, !inContainerController {
       // only happens when present a .overFullScreen VC
       // bug: http://openradar.appspot.com/radar?id=5320103646199808
-      UIApplication.shared.keyWindow!.addSubview(presenting ? fromView : toView)
+      UIApplication.shared.keyWindow?.addSubview(presenting ? fromView : toView)
     }
 
     if container.superview == transitionContainer {
