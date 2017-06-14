@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="750px" height="250px" viewBox="0 0 750 250" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Hero</title>
+    <defs>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="darkOrangeGradient">
+            <stop stop-color="#FF8938" offset="0%"></stop>
+            <stop stop-color="#F76F1E" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="70.563613%" y1="-29.9665328%" x2="39.8308304%" y2="90.2273182%" id="centerOrangeGradient">
+            <stop stop-color="#FBDA61" offset="0%"></stop>
+            <stop stop-color="#F76B1C" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="defaultOrangeGradient">
+            <stop stop-color="#FBDA61" offset="0%"></stop>
+            <stop stop-color="#F76B1C" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Hero">
+        <text id="Hero" font-family="HelveticaNeue-UltraLight, Helvetica Neue" font-size="280" font-weight="200" fill="#FD8332">
+            <tspan x="250" y="231">H</tspan>
+            <tspan x="420" y="231">e</tspan>
+            <tspan x="550" y="231">r</tspan>
+            <tspan x="610" y="231">o</tspan>
+        </text>
+        <g id="right" transform="translate(100,0)">
+            <path d="M0,-1.42108547e-14 L52.6291862,30.0738207 C62.2228218,35.5558982 70,48.9562589 70,59.9930619 L70,250 L1.42108547e-14,210 L0,-1.42108547e-14 Z" id="top" fill="url(#defaultOrangeGradient)"></path>
+            <polygon id="bottom" fill="url(#darkOrangeGradient)" points="0 100 70 130 70 250 0 210"></polygon>
+        </g>
+        <path d="M0,100 L100,100 L170,130 L100.003297,130 C83.4329338,130 70,143.431508 70,159.994535 L70,160 L0,100 Z" id="center" fill="url(#centerOrangeGradient)">
+        </path>
+        <g id="left">
+            <path d="M0,0 
+                     C0,0 0,0 0,0
+                     L52.6291862,30.0738207
+                     C62.2228218,35.5558982 70,48.9562589 70,59.9930619
+                     L70,250
+                     C70,250 70,250 70,250
+                     L0,210
+                     C0,210 0,210 0,210
+                     L0,0 Z;" id="orange" fill="url(#defaultOrangeGradient)">
+            </path>
+        </g>
+    </g>
+</svg>

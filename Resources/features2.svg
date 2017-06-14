@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="316px" height="180px" viewBox="0 0 316 180" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <defs>
+        <clipPath id="screen">
+            <rect fill="#FFFFFF" x="0" y="0" width="56" height="98" rx="6"></rect>
+        </clipPath>
+    </defs>
+    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Arc" transform="translate(0, 16)">
+            <text font-family="HelveticaNeue-Light, Helvetica Neue" font-size="14" fill="#000000" x="32" y="6" text-anchor="middle" alignment-baseline="central">
+                Arc
+            </text>
+            <g id="Group" transform="translate(0, 21)">
+                <rect id="Rectangle" fill="#0C1E31" x="0" y="0" width="64" height="126" rx="11"></rect>
+                <circle id="Oval" fill="#FFFFFF" cx="32" cy="118" r="4"></circle>
+                <g id="Group-2" transform="translate(4, 14)">
+                    <rect id="Rectangle-3" fill="#FFFFFF" x="0" y="0" width="56" height="98" rx="6"></rect>
+                    <path d="M16.5,25.5 C16.5,25.5 16,52 22.5,63 C31,74 41.5,72.5 41.5,72.5" 
+                          id="arcPath" stroke="#DDDDDD" stroke-linecap="round"></path>
+                    <rect id="Rectangle-2" fill="#3A97FC" x="-8.5" y="-8.5" width="17" height="17" rx="8.5">
+                        <animateMotion id="arcDown" dur=".4s" fill="freeze" begin="0s;arcUp.end + 0.6s" 
+                            calcMode="spline"
+                            keySplines="0.4,0,0.2,1"
+                            keyTimes="0;1">
+                          <mpath xlink:href="#arcPath" />
+                        </animateMotion>
+                        <animateMotion id="arcUp" dur=".4s" fill="freeze" begin="arcDown.end + 0.6s" keyPoints="1;0"
+                            calcMode="spline"
+                            keySplines="0.4,0,0.2,1"
+                            keyTimes="0;1">
+                          <mpath xlink:href="#arcPath" />
+                        </animateMotion>
+
+                    </rect>
+                </g>
+            </g>
+        </g>
+        <g id="Cascade" transform="translate(84, 16)">
+            <text font-family="HelveticaNeue-Light, Helvetica Neue" font-size="14" fill="#000000" x="32" y="6" text-anchor="middle" alignment-baseline="central">
+                Cascade
+            </text>
+            <g id="Group" transform="translate(0, 21)">
+                <rect id="Rectangle" fill="#0C1E31" x="0" y="0" width="64" height="126" rx="11"></rect>
+                <circle id="Oval" fill="#FFFFFF" cx="32" cy="118" r="4"></circle>
+                <g id="Group-2" transform="translate(4, 14)">
+                    <rect id="Rectangle-3" fill="#FFFFFF" x="0" y="0" width="56" height="98" rx="6"></rect>
+                    <rect id="Rectangle-2" fill="white" x="9" y="19" width="16" height="16" rx="8">
+                        <animate 
+                            attributeName="fill" 
+                            values="white; #3A97FC; #3A97FC; white; white" 
+                            dur="2s"
+                            keyTimes="0;0.15;0.5;0.65;1"
+                            begin="0.25s"
+                            repeatCount="indefinite"
+                            fill="freeze" />
+                    </rect>
+                    <rect id="Rectangle-2-Copy" fill="white" x="31" y="19" width="16" height="16" rx="8">
+                        <animate 
+                            attributeName="fill" 
+                            values="white; #3A97FC; #3A97FC; white; white" 
+                            dur="2s"
+                            keyTimes="0;0.15;0.5;0.65;1"
+                            begin="0.30s"
+                            repeatCount="indefinite"
+                            fill="freeze" /></rect>
+                    <rect id="Rectangle-2" fill="white" x="9" y="63" width="16" height="16" rx="8">
+                        <animate 
+                            attributeName="fill" 
+                            values="white; #3A97FC; #3A97FC; white; white" 
+                            dur="2s"
+                            keyTimes="0;0.15;0.5;0.65;1"
+                            begin="0.45s"
+                            repeatCount="indefinite"
+                            fill="freeze" />
+                        </rect>
+                    <rect id="Rectangle-2-Copy" fill="white" x="31" y="63" width="16" height="16" rx="8">
+                        <animate 
+                            attributeName="fill" 
+                            values="white; #3A97FC; #3A97FC; white; white" 
+                            dur="2s"
+                            keyTimes="0;0.15;0.5;0.65;1"
+                            begin="0.5s"
+                            repeatCount="indefinite"
+                            fill="freeze" />
+                        </rect>
+                    <rect id="Rectangle-2" fill="white" x="9" y="41" width="16" height="16" rx="8">
+                        <animate 
+                            attributeName="fill" 
+                            values="white; #3A97FC; #3A97FC; white; white" 
+                            dur="2s"
+                            keyTimes="0;0.15;0.5;0.65;1"
+                            begin="0.35s"
+                            repeatCount="indefinite"
+                            fill="freeze" />
+                        </rect>
+                    <rect id="Rectangle-2-Copy" fill="white" x="31" y="41" width="16" height="16" rx="8">
+                        <animate 
+                            attributeName="fill" 
+                            values="white; #3A97FC; #3A97FC; white; white" 
+                            dur="2s"
+                            keyTimes="0;0.15;0.5;0.65;1"
+                            begin="0.4s"
+                            repeatCount="indefinite"
+                            fill="freeze" />
+                        </rect>
+                </g>
+            </g>
+        </g>
+        <g id="Interactive" transform="translate(168, 16)">
+            <text font-family="HelveticaNeue-Light, Helvetica Neue" font-size="14" fill="#000000" x="32" y="6" text-anchor="middle" alignment-baseline="central">
+                Interactive
+            </text>
+            <g id="Group" transform="translate(0, 21)">
+                <rect id="Rectangle" fill="#0C1E31" x="0" y="0" width="64" height="126" rx="11"></rect>
+                <circle id="Oval" fill="#FFFFFF" cx="32" cy="118" r="4"></circle>
+                <g id="Group-2" transform="translate(4, 14)" clip-path="url(#screen)">
+                    <rect id="Rectangle-3" fill="#FFFFFF" x="0" y="0" width="56" height="98" rx="6"></rect>
+                    <path d="M28,73 C28,73 29.5,58.5 34.5,44.5 C39.5,30.5 42,32.5 43,27 C44,21.5 38,17 30.5,17 C23,17 17.5,18.5 17.5,23 C17.5,27.5 43,31.5 43,22 C43,12.5 19,11.5 19,28.5 C19,45.5 28,73 28,73 Z" id="interactivePath" stroke="white"></path>
+                    <g id="Box" transform="translate(-19, -19)">
+                        <rect id="Rectangle-2" fill="#3A97FC" x="0" y="0" width="38" height="38" rx="8"></rect>
+                        <rect id="Rectangle-2" stroke="#FFFFFF" fill-opacity="0.520493659" fill="#F0FFFC" x="19" y="9" width="10" height="10" rx="5">
+                            <animate 
+                                attributeName="opacity" 
+                                values="0; 1.0; 1.0; 1.0; 0" 
+                                dur="1s"
+                                begin="0s;interactiveAnim.end+0.5s"
+                                fill="freeze" />
+                        </rect>
+
+                        <animateMotion dur="1s" fill="freeze" begin="0s;interactiveAnim.end+1s" id="interactiveAnim">
+                          <mpath xlink:href="#interactivePath" />
+                        </animateMotion>
+                    </g>
+                </g>
+            </g>
+        </g>
+        <g id="Dynamic" transform="translate(252, 16)">
+            <text font-family="HelveticaNeue-Light, Helvetica Neue" font-size="14" fill="#000000" x="32" y="6" text-anchor="middle" alignment-baseline="central">
+                Dynamic
+            </text>
+            <g id="Group" transform="translate(0, 21)">
+                <rect id="Rectangle" fill="#0C1E31" x="0" y="0" width="64" height="126" rx="11"></rect>
+                <circle id="Oval" fill="#FFFFFF" cx="32" cy="118" r="4"></circle>
+                <g id="Group-2" transform="translate(4, 14)">
+                    <rect id="Rectangle-3" fill="#FFFFFF" x="0" y="0" width="56" height="98" rx="6"></rect>
+                    <rect id="Rectangle-2" stroke="#FFFFFF" fill-opacity="0.520493659" fill="#F0FFFC" x="28" y="44" width="10" height="10" rx="5"></rect>
+
+                    <circle id="Rectangle-2" fill="#3A97FC" cx="9" cy="14" r="5">
+                        <animate 
+                            attributeName="cx" 
+                            values="9;13;13;9;9" 
+                            dur="2s"
+                            keyTimes="0;0.15;0.5;0.65;1"
+                            begin="0.75s"
+                            calcMode="spline"
+                            keySplines="0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1"
+                            repeatCount="indefinite"
+                            fill="freeze" />
+                        <animate 
+                            attributeName="cy" 
+                            values="14;84;84;14;14" 
+                            dur="2s"
+                            keyTimes="0;0.15;0.5;0.65;1"
+                            calcMode="spline"
+                            keySplines="0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1"
+                            begin="0.75s"
+                            repeatCount="indefinite"
+                            fill="freeze" />
+                        <animate 
+                            attributeName="r" 
+                            values="5; 9; 9; 5; 5" 
+                            dur="2s"
+                            keyTimes="0;0.15;0.5;0.65;1"
+                            calcMode="spline"
+                            keySplines="0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1"
+                            begin="0.75s"
+                            repeatCount="indefinite"
+                            fill="freeze" />
+                    </circle>
+
+                    <circle id="Rectangle-2" fill="#3A97FC" cx="25" cy="20" r="7">
+                        <animate 
+                            attributeName="cx" 
+                            values="25;31;31;25;25" 
+                            dur="2s"
+                            keyTimes="0;0.15;0.5;0.65;1"
+                            calcMode="spline"
+                            keySplines="0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1"
+                            begin="0.8s"
+                            repeatCount="indefinite"
+                            fill="freeze" />
+                        <animate 
+                            attributeName="cy" 
+                            values="20;79;79;20;20" 
+                            dur="2s"
+                            keyTimes="0;0.15;0.5;0.65;1"
+                            calcMode="spline"
+                            keySplines="0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1"
+                            begin="0.8s"
+                            repeatCount="indefinite"
+                            fill="freeze" />
+                    </circle>
+
+                    <circle id="Rectangle-2" fill="#3A97FC" cx="43" cy="28" r="8">
+                        <animate 
+                            attributeName="cx" 
+                            values="43;47;47;43;43" 
+                            dur="2s"
+                            keyTimes="0;0.15;0.5;0.65;1"
+                            calcMode="spline"
+                            keySplines="0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1"
+                            begin="0.85s"
+                            repeatCount="indefinite"
+                            fill="freeze" />
+                        <animate 
+                            attributeName="cy" 
+                            values="28;76;76;28;28" 
+                            dur="2s"
+                            keyTimes="0;0.15;0.5;0.65;1"
+                            calcMode="spline"
+                            keySplines="0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1"
+                            begin="0.85s"
+                            repeatCount="indefinite"
+                            fill="freeze" />
+                        <animate 
+                            attributeName="r" 
+                            values="8; 5; 5; 8; 8" 
+                            dur="2s"
+                            keyTimes="0;0.15;0.5;0.65;1"
+                            calcMode="spline"
+                            keySplines="0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1"
+                            begin="0.85s"
+                            repeatCount="indefinite"
+                            fill="freeze" />
+                    </circle>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

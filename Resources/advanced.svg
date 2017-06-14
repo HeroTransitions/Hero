@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="316px" height="180px" viewBox="0 0 316 180" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <defs>
+        <clipPath id="screen">
+            <rect fill="#FFFFFF" x="0" y="0" width="56" height="98" rx="6"></rect>
+        </clipPath>
+
+        <rect id="square" fill="#FC3A5E" x="-8" y="-8" width="16" height="16" rx="5"></rect>
+
+        <g id="v1">
+            <text font-family="HelveticaNeue-Light, Helvetica Neue" font-size="14" fill="#000000" x="32" y="6" text-anchor="middle" alignment-baseline="central">
+                VC 1
+            </text>
+            <g transform="translate(0, 21)">
+                <rect fill="#99A9BA" x="0" y="0" width="64" height="126" rx="11"></rect>
+                <g transform="translate(4, 14)" clip-path="url(#screen)">
+                    <rect fill="#FFFFFF" x="0" y="0" width="56" height="98" rx="6"></rect>
+                    <rect fill="#DDDDDD" x="32" y="74" width="16" height="16" rx="8"></rect>
+                </g>
+            </g>
+        </g>
+
+        <g id="v2">
+            <text font-family="HelveticaNeue-Light, Helvetica Neue" font-size="14" fill="#000000" x="32" y="6" text-anchor="middle" alignment-baseline="central">
+                VC 2
+            </text>
+            <g transform="translate(0, 21)">
+                <rect fill="#99A9BA" x="0" y="0" width="64" height="126" rx="11"></rect>
+                <g transform="translate(4, 14)" clip-path="url(#screen)">
+                    <rect fill="#FFFFFF" x="0" y="0" width="56" height="98" rx="6"></rect>
+                    <rect fill="#DDDDDD" x="8" y="12" width="40" height="16" rx="8"></rect>
+                    <g transform="translate(0, 45)">
+                        <use x="10" xlink:href="#square" />
+                        <use x="28" xlink:href="#square" />
+                        <use x="46" xlink:href="#square" />
+                    </g>
+                    <g transform="translate(0, 63)">
+                        <use x="10" xlink:href="#square" />
+                        <use x="28" xlink:href="#square" />
+                        <use x="46" xlink:href="#square" />
+                    </g>
+                    <g transform="translate(0, 81)">
+                        <use x="10" xlink:href="#square" />
+                        <use x="28" xlink:href="#square" />
+                        <use x="46" xlink:href="#square" />
+                    </g>
+                </g>
+            </g>
+        </g>
+
+        <g id="animate">
+            <text font-family="HelveticaNeue-Light, Helvetica Neue" font-size="14" fill="#000000" x="32" y="6" text-anchor="middle" alignment-baseline="central">
+                Result
+            </text>
+            <g transform="translate(0, 21)">
+                <rect fill="#0C1E31" x="0" y="0" width="64" height="126" rx="11"></rect>
+                <circle fill="#FFFFFF" cx="32" cy="118" r="4"></circle>
+                <g transform="translate(4, 14)" clip-path="url(#screen)">
+                    <rect fill="#FFFFFF" x="0" y="0" width="56" height="98" rx="6"></rect>
+                    <g transform="translate(0, 45)">
+                        <use transform="translate(10,0)" xlink:href="#square">
+                            <animateTransform attributeName="transform" 
+                                type="scale"
+                                additive="sum" 
+                                values="0.5 0.5;1 1;1 1;0.5 0.5;0.5 0.5"
+                                dur="2s"
+                                calcMode="spline"
+                                keySplines="0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1"
+                                keyTimes="0;0.15;0.5;0.65;1"
+                                repeatCount="indefinite"
+                                fill="freeze" />
+                            <animate 
+                                attributeName="opacity" 
+                                values="0; 1.0; 1.0; 0; 0" 
+                                calcMode="spline"
+                                keySplines="0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1"
+                                dur="2s"
+                                repeatCount="indefinite"
+                                fill="freeze" />
+                        </use>
+                        <use transform="translate(28,0)" xlink:href="#square">
+                            <animateTransform attributeName="transform" 
+                                type="scale"
+                                additive="sum" 
+                                values="0.5 0.5;1 1;1 1;0.5 0.5;0.5 0.5"
+                                dur="2s"
+                                begin="0.04s"
+                                calcMode="spline"
+                                keySplines="0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1"
+                                keyTimes="0;0.15;0.5;0.65;1"
+                                repeatCount="indefinite"
+                                fill="freeze" />
+                            <animate 
+                                attributeName="opacity" 
+                                values="0; 1.0; 1.0; 0; 0" 
+                                calcMode="spline"
+                                keySplines="0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1"
+                                dur="2s"
+                                begin="0.04s"
+                                repeatCount="indefinite"
+                                fill="freeze" />
+                        </use>
+                        <use transform="translate(46,0)" xlink:href="#square">
+                            <animateTransform attributeName="transform" 
+                                type="scale"
+                                additive="sum" 
+                                values="0.5 0.5;1 1;1 1;0.5 0.5;0.5 0.5"
+                                dur="2s"
+                                begin="0.08s"
+                                calcMode="spline"
+                                keySplines="0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1"
+                                keyTimes="0;0.15;0.5;0.65;1"
+                                repeatCount="indefinite"
+                                fill="freeze" />
+                            <animate 
+                                attributeName="opacity" 
+                                values="0; 1.0; 1.0; 0; 0" 
+                                calcMode="spline"
+                                keySplines="0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1"
+                                dur="2s"
+                                begin="0.08s"
+                                repeatCount="indefinite"
+                                fill="freeze" />
+                        </use>
+                    </g>
+                    <g transform="translate(0, 63)">
+                        <use transform="translate(10,0)" xlink:href="#square">
+                            <animateTransform attributeName="transform" 
+                                type="scale"
+                                additive="sum" 
+                                values="0.5 0.5;1 1;1 1;0.5 0.5;0.5 0.5"
+                                dur="2s"
+                                begin="0.12s"
+                                calcMode="spline"
+                                keySplines="0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1"
+                                keyTimes="0;0.15;0.5;0.65;1"
+                                repeatCount="indefinite"
+                                fill="freeze" />
+                            <animate 
+                                attributeName="opacity" 
+                                values="0; 1.0; 1.0; 0; 0" 
+                                calcMode="spline"
+                                keySplines="0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1"
+                                dur="2s"
+                                begin="0.12s"
+                                repeatCount="indefinite"
+                                fill="freeze" />
+                        </use>
+                        <use transform="translate(28,0)" xlink:href="#square">
+                            <animateTransform attributeName="transform" 
+                                type="scale"
+                                additive="sum" 
+                                values="0.5 0.5;1 1;1 1;0.5 0.5;0.5 0.5"
+                                dur="2s"
+                                begin="0.16s"
+                                calcMode="spline"
+                                keySplines="0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1"
+                                keyTimes="0;0.15;0.5;0.65;1"
+                                repeatCount="indefinite"
+                                fill="freeze" />
+                            <animate 
+                                attributeName="opacity" 
+                                values="0; 1.0; 1.0; 0; 0" 
+                                calcMode="spline"
+                                keySplines="0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1"
+                                dur="2s"
+                                begin="0.16s"
+                                repeatCount="indefinite"
+                                fill="freeze" />
+                        </use>
+                        <use transform="translate(46,0)" xlink:href="#square">
+                            <animateTransform attributeName="transform" 
+                                type="scale"
+                                additive="sum" 
+                                values="0.5 0.5;1 1;1 1;0.5 0.5;0.5 0.5"
+                                dur="2s"
+                                begin="0.2s"
+                                calcMode="spline"
+                                keySplines="0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1"
+                                keyTimes="0;0.15;0.5;0.65;1"
+                                repeatCount="indefinite"
+                                fill="freeze" />
+                            <animate 
+                                attributeName="opacity" 
+                                values="0; 1.0; 1.0; 0; 0" 
+                                calcMode="spline"
+                                keySplines="0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1"
+                                dur="2s"
+                                begin="0.2s"
+                                repeatCount="indefinite"
+                                fill="freeze" />
+                        </use>
+                    </g>
+                    <g transform="translate(0, 81)">
+                        <use transform="translate(10,0)" xlink:href="#square">
+                            <animateTransform attributeName="transform" 
+                                type="scale"
+                                additive="sum" 
+                                values="0.5 0.5;1 1;1 1;0.5 0.5;0.5 0.5"
+                                dur="2s"
+                                begin="0.24s"
+                                calcMode="spline"
+                                keySplines="0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1"
+                                keyTimes="0;0.15;0.5;0.65;1"
+                                repeatCount="indefinite"
+                                fill="freeze" />
+                            <animate 
+                                attributeName="opacity" 
+                                values="0; 1.0; 1.0; 0; 0" 
+                                calcMode="spline"
+                                keySplines="0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1"
+                                dur="2s"
+                                begin="0.24s"
+                                repeatCount="indefinite"
+                                fill="freeze" />
+                        </use>
+                        <use transform="translate(28,0)" xlink:href="#square">
+                            <animateTransform attributeName="transform" 
+                                type="scale"
+                                additive="sum" 
+                                values="0.5 0.5;1 1;1 1;0.5 0.5;0.5 0.5"
+                                dur="2s"
+                                begin="0.28s"
+                                calcMode="spline"
+                                keySplines="0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1"
+                                keyTimes="0;0.15;0.5;0.65;1"
+                                repeatCount="indefinite"
+                                fill="freeze" />
+                            <animate 
+                                attributeName="opacity" 
+                                values="0; 1.0; 1.0; 0; 0" 
+                                calcMode="spline"
+                                keySplines="0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1"
+                                dur="2s"
+                                begin="0.28s"
+                                repeatCount="indefinite"
+                                fill="freeze" />
+                        </use>
+                        <use transform="translate(46,0)" xlink:href="#square">
+                            <animateTransform attributeName="transform" 
+                                type="scale"
+                                additive="sum" 
+                                values="0.5 0.5;1 1;1 1;0.5 0.5;0.5 0.5"
+                                dur="2s"
+                                begin="0.32s"
+                                calcMode="spline"
+                                keySplines="0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1"
+                                keyTimes="0;0.15;0.5;0.65;1"
+                                repeatCount="indefinite"
+                                fill="freeze" />
+                            <animate 
+                                attributeName="opacity" 
+                                values="0; 1.0; 1.0; 0; 0" 
+                                calcMode="spline"
+                                keySplines="0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1"
+                                dur="2s"
+                                keyTimes="0;0.15;0.5;0.65;1"
+                                begin="0.32s"
+                                repeatCount="indefinite"
+                                fill="freeze" />
+                        </use>
+                    </g>
+
+                    <rect fill="#DDDDDD" x="32" y="74" width="16" height="16" rx="8">
+                        <animate 
+                            attributeName="x" 
+                            values="32;8;8;32;32" 
+                            dur="2s"
+                            keyTimes="0;0.15;0.6;0.75;1"
+                            calcMode="spline"
+                            keySplines="0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1"
+                            repeatCount="indefinite"
+                            fill="freeze" />
+                        <animate 
+                            attributeName="y" 
+                            values="74;12;12;74;74" 
+                            dur="2s"
+                            keyTimes="0;0.15;0.6;0.75;1"
+                            calcMode="spline"
+                            keySplines="0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1"
+                            repeatCount="indefinite"
+                            fill="freeze" />
+                        <animate 
+                            attributeName="width" 
+                            values="16;40;40;16;16" 
+                            dur="2s"
+                            keyTimes="0;0.15;0.6;0.75;1"
+                            calcMode="spline"
+                            keySplines="0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1"
+                            repeatCount="indefinite"
+                            fill="freeze" />
+                    </rect>
+                </g>
+            </g>
+        </g>
+    </defs>
+
+    <g transform="translate(0, 16)">
+        <use x="0" xlink:href="#v1" />
+        <use x="84" xlink:href="#v2" />
+        <use x="252" xlink:href="#animate" />
+    </g>
+</svg>

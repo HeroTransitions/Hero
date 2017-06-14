@@ -28,6 +28,7 @@ public extension UIView {
     static var heroModifiers = "heroModifers"
     static var heroStoredAlpha = "heroStoredAlpha"
     static var heroEnabled = "heroEnabled"
+    static var heroEnabledForSubviews = "heroEnabledForSubviews"
   }
 
   /**
@@ -49,6 +50,15 @@ public extension UIView {
   @IBInspectable public var isHeroEnabled: Bool {
     get { return objc_getAssociatedObject(self, &AssociatedKeys.heroEnabled) as? Bool ?? true }
     set { objc_setAssociatedObject(self, &AssociatedKeys.heroEnabled, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC) }
+  }
+
+  /**
+   **isHeroEnabledForSubviews** allows to specify whether a view's subviews should be consider for animations.
+   If true, Hero will search through all the subviews for heroIds and modifiers. Defaults to true
+   */
+  @IBInspectable public var isHeroEnabledForSubviews: Bool {
+    get { return objc_getAssociatedObject(self, &AssociatedKeys.heroEnabledForSubviews) as? Bool ?? true }
+    set { objc_setAssociatedObject(self, &AssociatedKeys.heroEnabledForSubviews, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC) }
   }
 
   /**
@@ -83,10 +93,15 @@ public extension UIView {
 
   internal var flattenedViewHierarchy: [UIView] {
     guard isHeroEnabled else { return [] }
-    if #available(iOS 9.0, *) {
-      return isHidden && (superview is UICollectionView || superview is UIStackView || self is UITableViewCell) ? [] : ([self] + subviews.flatMap { $0.flattenedViewHierarchy })
+    if #available(iOS 9.0, *), isHidden && (superview is UICollectionView || superview is UIStackView || self is UITableViewCell) {
+      return []
+    } else if isHidden && (superview is UICollectionView || self is UITableViewCell) {
+      return []
+    } else if isHeroEnabledForSubviews {
+      return [self] + subviews.flatMap { $0.flattenedViewHierarchy }
+    } else {
+      return [self]
     }
-    return isHidden && (superview is UICollectionView || self is UITableViewCell) ? [] : ([self] + subviews.flatMap { $0.flattenedViewHierarchy })
   }
 
   /// Used for .overFullScreen presentation

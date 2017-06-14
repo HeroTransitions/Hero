@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="316px" height="180px" viewBox="0 0 316 180" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <defs>
+        <clipPath id="screen">
+            <rect fill="#FFFFFF" x="0" y="0" width="56" height="98" rx="6"></rect>
+        </clipPath>
+
+        <rect id="square" fill="#FC3A5E" x="-8" y="-8" width="16" height="16" rx="5"></rect>
+
+        <g id="v1">
+            <text font-family="HelveticaNeue-Light, Helvetica Neue" font-size="14" fill="#000000" x="32" y="6" text-anchor="middle" alignment-baseline="central">
+                VC 1
+            </text>
+            <g transform="translate(0, 21)">
+                <rect fill="#99A9BA" x="0" y="0" width="64" height="126" rx="11"></rect>
+                <g transform="translate(4, 14)" clip-path="url(#screen)">
+                    <rect fill="#FFFFFF" x="0" y="0" width="56" height="98" rx="6"></rect>
+                    <rect fill="#FC3A5E" x="8" y="39" width="40" height="40" rx="6"></rect>
+                    <rect fill="#555555" x="8" y="19" width="40" height="14" rx="6"></rect>
+                </g>
+            </g>
+        </g>
+
+        <g id="v2">
+            <text font-family="HelveticaNeue-Light, Helvetica Neue" font-size="14" fill="#000000" x="32" y="6" text-anchor="middle" alignment-baseline="central">
+                VC 2
+            </text>
+            <g transform="translate(0, 21)">
+                <rect fill="#99A9BA" x="0" y="0" width="64" height="126" rx="11"></rect>
+                <g transform="translate(4, 14)" clip-path="url(#screen)">
+                    <rect fill="#FFFFFF" x="0" y="0" width="56" height="98" rx="6"></rect>
+                    <rect fill="#FC3A5E" x="0" y="0" width="56" height="98" rx="6"></rect>
+                    <rect fill="#555555" x="8" y="9" width="40" height="14" rx="6"></rect>
+                    <rect fill="#FFFFFF" x="6" y="29" width="44" height="90" rx="6"></rect>
+                </g>
+            </g>
+        </g>
+
+        <g id="animate">
+            <text font-family="HelveticaNeue-Light, Helvetica Neue" font-size="14" fill="#000000" x="32" y="6" text-anchor="middle" alignment-baseline="central">
+                Result
+            </text>
+            <g transform="translate(0, 21)">
+                <rect fill="#0C1E31" x="0" y="0" width="64" height="126" rx="11"></rect>
+                <circle fill="#FFFFFF" cx="32" cy="118" r="4"></circle>
+                <g transform="translate(4, 14)" clip-path="url(#screen)">
+                    <rect fill="#FFFFFF" x="0" y="0" width="56" height="98" rx="6"></rect>
+
+                    <rect fill="#FC3A5E" x="8" y="39" width="40" height="40" rx="6">
+                        <animate 
+                            attributeName="x" 
+                            values="8;0;0;8;8" 
+                            dur="2s"
+                            keyTimes="0;0.15;0.5;0.65;1"
+                            calcMode="spline"
+                            keySplines="0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1"
+                            repeatCount="indefinite"
+                            fill="freeze" />
+                        <animate 
+                            attributeName="y" 
+                            values="39;0;0;39;39" 
+                            dur="2s"
+                            keyTimes="0;0.15;0.5;0.65;1"
+                            calcMode="spline"
+                            keySplines="0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1"
+                            repeatCount="indefinite"
+                            fill="freeze" />
+                        <animate 
+                            attributeName="width" 
+                            values="40;56;56;40;40" 
+                            dur="2s"
+                            keyTimes="0;0.15;0.5;0.65;1"
+                            calcMode="spline"
+                            keySplines="0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1"
+                            repeatCount="indefinite"
+                            fill="freeze" />
+                        <animate 
+                            attributeName="height" 
+                            values="40;98;98;40;40" 
+                            dur="2s"
+                            keyTimes="0;0.15;0.5;0.65;1"
+                            calcMode="spline"
+                            keySplines="0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1"
+                            repeatCount="indefinite"
+                            fill="freeze" />
+                    </rect>
+                    <rect fill="#555555" x="8" y="19" width="40" height="14" rx="6">
+                        <animate 
+                            attributeName="y" 
+                            values="19;9;9;19;19" 
+                            dur="2s"
+                            keyTimes="0;0.15;0.5;0.65;1"
+                            calcMode="spline"
+                            keySplines="0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1"
+                            repeatCount="indefinite"
+                            fill="freeze" />
+                    </rect>
+                    <rect fill="#FFFFFF" x="8" y="98" width="40" height="80" rx="6">
+                        <animate 
+                            attributeName="y" 
+                            values="98;29;29;98;98" 
+                            dur="2s"
+                            keyTimes="0;0.15;0.5;0.65;1"
+                            calcMode="spline"
+                            keySplines="0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1;0.4,0,0.2,1"
+                            repeatCount="indefinite"
+                            fill="freeze" />
+                    </rect>
+                </g>
+            </g>
+        </g>
+    </defs>
+
+    <g transform="translate(0, 16)">
+        <use x="0" xlink:href="#v1" />
+        <use x="84" xlink:href="#v2" />
+        <use x="252" xlink:href="#animate" />
+    </g>
+</svg>
