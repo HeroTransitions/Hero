@@ -38,13 +38,36 @@ import UIKit
  func apply(modifiers:[HeroModifier], to view:UIView)
  ```
  */
-public class Hero: HeroBaseController {
+public class Hero: NSObject {
   // MARK: Shared Access
 
   /// Shared singleton object for controlling the transition
   public static let shared = Hero()
 
-  // MARK: Properties
+  /// whether or not we are doing a transition
+  public var transitioning: Bool {
+    return transitionContainer != nil
+  }
+
+  /// container we created to hold all animating views, will be a subview of the
+  /// transitionContainer when transitioning
+  public internal(set) var container: UIView!
+
+  /// this is the container supplied by UIKit
+  internal var transitionContainer: UIView!
+
+  internal var completionCallback: ((Bool) -> Void)?
+
+  internal var finishing: Bool = true
+
+  internal var processors: [HeroPreprocessor]!
+  internal var animators: [HeroAnimator]!
+  internal var plugins: [HeroPlugin]!
+
+  internal var animatingFromViews: [UIView]!
+  internal var animatingToViews: [UIView]!
+
+  internal static var enabledPlugins: [HeroPlugin.Type] = []
 
   /// destination view controller
   public internal(set) var toViewController: UIViewController?
@@ -53,10 +76,79 @@ public class Hero: HeroBaseController {
   /// whether or not we are presenting the destination view controller
   public internal(set) var presenting = true
 
+  /// context object holding transition informations
+  public internal(set) var context: HeroContext!
+
+  /// whether or not we are handling transition interactively
+  public var interactive: Bool {
+    return displayLink == nil
+  }
+
+
+  internal var displayLink: CADisplayLink?
+  internal var progressUpdateObservers: [HeroProgressUpdateObserver]?
+
+  /// max duration needed by the default animator and plugins
+  public internal(set) var totalDuration: TimeInterval = 0.0
+
+  /// current animation complete duration.
+  /// (differs from totalDuration because this one could be the duration for finishing interactive transition)
+  internal var currentDuration: TimeInterval = 0.0
+  internal var beginTime: TimeInterval? {
+    didSet {
+      if beginTime != nil {
+        if displayLink == nil {
+          displayLink = CADisplayLink(target: self, selector: #selector(displayUpdate(_:)))
+          displayLink!.add(to: RunLoop.main, forMode: RunLoopMode(rawValue: RunLoopMode.commonModes.rawValue))
+        }
+      } else {
+        displayLink?.isPaused = true
+        displayLink?.remove(from: RunLoop.main, forMode: RunLoopMode(rawValue: RunLoopMode.commonModes.rawValue))
+        displayLink = nil
+      }
+    }
+  }
+
+  @objc func displayUpdate(_ link: CADisplayLink) {
+    if transitioning, currentDuration > 0, let beginTime = beginTime {
+      let timePassed = CACurrentMediaTime() - beginTime
+
+      if timePassed > currentDuration {
+        progress = finishing ? 1 : 0
+        self.beginTime = nil
+        complete(finished: finishing)
+      } else {
+        var completed = timePassed / totalDuration
+        if !finishing {
+          completed = 1 - completed
+        }
+        completed = max(0, min(1, completed))
+        progress = completed
+      }
+    }
+  }
+
   /// progress of the current transition. 0 if no transition is happening
-  public override var progress: Double {
+  public internal(set) var progress: Double = 0 {
     didSet {
       if transitioning {
+        if let progressUpdateObservers = progressUpdateObservers {
+          for observer in progressUpdateObservers {
+            observer.heroDidUpdateProgress(progress: progress)
+          }
+        }
+
+        let timePassed = progress * totalDuration
+        if interactive {
+          for animator in animators {
+            animator.seekTo(timePassed: timePassed)
+          }
+        } else {
+          for plugin in plugins where plugin.requirePerFrameCallback {
+            plugin.seekTo(timePassed: timePassed)
+          }
+        }
+
         transitionContext?.updateInteractiveTransition(CGFloat(progress))
       }
     }
@@ -146,8 +238,43 @@ public class Hero: HeroBaseController {
       toViewController?.heroStoredSnapshot = nil
     }
 
-    prepareForTransition()
-    insert(preprocessor: DefaultAnimationPreprocessor(hero: self), before: DurationPreprocessor.self)
+    plugins = Hero.enabledPlugins.map({ return $0.init() })
+    processors = [
+      IgnoreSubviewModifiersPreprocessor(),
+      MatchPreprocessor(),
+      SourcePreprocessor(),
+      CascadePreprocessor(),
+      DefaultAnimationPreprocessor(hero: self),
+      DurationPreprocessor()
+    ]
+    animators = [
+      HeroDefaultAnimator<HeroCoreAnimationViewContext>()
+    ]
+
+    if #available(iOS 10, tvOS 10, *) {
+      animators.append(HeroDefaultAnimator<HeroViewPropertyViewContext>())
+    }
+
+    // There is no covariant in Swift, so we need to add plugins one by one.
+    for plugin in plugins {
+      processors.append(plugin)
+      animators.append(plugin)
+    }
+
+    transitionContainer.isUserInteractionEnabled = false
+
+    // a view to hold all the animating views
+    container = UIView(frame: transitionContainer.bounds)
+    transitionContainer.addSubview(container)
+
+    context = HeroContext(container:container)
+
+    for processor in processors {
+      processor.context = context
+    }
+    for animator in animators {
+      animator.context = context
+    }
 
     context.loadViewAlpha(rootView: toView)
     context.loadViewAlpha(rootView: fromView)
@@ -164,8 +291,25 @@ public class Hero: HeroBaseController {
       context.insertToViewFirst = true
     }
 
-    processContext()
-    prepareForAnimation()
+    for processor in processors {
+      processor.process(fromViews: context.fromViews, toViews: context.toViews)
+    }
+    animatingFromViews = context.fromViews.filter { (view: UIView) -> Bool in
+      for animator in animators {
+        if animator.canAnimate(view: view, appearing: false) {
+          return true
+        }
+      }
+      return false
+    }
+    animatingToViews = context.toViews.filter { (view: UIView) -> Bool in
+      for animator in animators {
+        if animator.canAnimate(view: view, appearing: true) {
+          return true
+        }
+      }
+      return false
+    }
 
     context.hide(view: toView)
 
@@ -184,22 +328,20 @@ public class Hero: HeroBaseController {
     #endif
   }
 
-  open override func animate() {
-    context.unhide(view: toView)
-
-    if let containerColor = containerColor {
-      container.backgroundColor = containerColor
-    } else if !toOverFullScreen && !fromOverFullScreen {
-      container.backgroundColor = toView.backgroundColor
+  func complete(after: TimeInterval, finishing: Bool) {
+    guard transitioning else { fatalError() }
+    if after <= 0.001 {
+      complete(finished: finishing)
+      return
     }
-
-    super.animate()
-
-    fullScreenSnapshot!.removeFromSuperview()
+    let timePassed = (finishing ? progress : 1 - progress) * totalDuration
+    self.finishing = finishing
+    self.currentDuration = after + timePassed
+    self.beginTime = CACurrentMediaTime() - timePassed
   }
 
-  override func complete(finished: Bool) {
-    guard transitioning else { return }
+  func complete(finished: Bool) {
+    guard transitioning else { fatalError() }
 
     context.clean()
 
@@ -256,7 +398,29 @@ public class Hero: HeroBaseController {
     forceNotInteractive = false
     defaultAnimation = .auto
 
-    super.complete(finished: finished)
+    for animator in animators {
+      animator.clean()
+    }
+
+    transitionContainer!.isUserInteractionEnabled = true
+
+    let completion = completionCallback
+
+    animatingToViews = nil
+    animatingFromViews = nil
+    progressUpdateObservers = nil
+    transitionContainer = nil
+    completionCallback = nil
+    container = nil
+    processors = nil
+    animators = nil
+    plugins = nil
+    context = nil
+    beginTime = nil
+    progress = 0
+    totalDuration = 0
+
+    completion?(finished)
 
     if finished {
       if let fvc = fvc, let tvc = tvc {
@@ -286,6 +450,58 @@ public class Hero: HeroBaseController {
       tContext?.cancelInteractiveTransition()
     }
     tContext?.completeTransition(finished)
+  }
+
+  /// Actually animate the views
+  /// subclass should call `prepareForTransition` & `prepareForAnimation` before calling `animate`
+  open func animate() {
+    guard transitioning else { fatalError() }
+
+    context.unhide(view: toView)
+
+    if let containerColor = containerColor {
+      container.backgroundColor = containerColor
+    } else if !toOverFullScreen && !fromOverFullScreen {
+      container.backgroundColor = toView.backgroundColor
+    }
+
+    // auto hide all animated views
+    for view in animatingFromViews {
+      context.hide(view: view)
+    }
+    for view in animatingToViews {
+      context.hide(view: view)
+    }
+
+    var totalDuration: TimeInterval = 0
+    var animatorWantsInteractive = false
+
+    if context.insertToViewFirst {
+      for v in animatingToViews { _ = context.snapshotView(for: v) }
+      for v in animatingFromViews { _ = context.snapshotView(for: v) }
+    } else {
+      for v in animatingFromViews { _ = context.snapshotView(for: v) }
+      for v in animatingToViews { _ = context.snapshotView(for: v) }
+    }
+
+    for animator in animators {
+      let duration = animator.animate(fromViews: animatingFromViews.filter({ animator.canAnimate(view: $0, appearing: false) }),
+                                      toViews: animatingToViews.filter({ animator.canAnimate(view: $0, appearing: true) }))
+      if duration == .infinity {
+        animatorWantsInteractive = true
+      } else {
+        totalDuration = max(totalDuration, duration)
+      }
+    }
+
+    self.totalDuration = totalDuration
+    if animatorWantsInteractive {
+      update(0)
+    } else {
+      complete(after: totalDuration, finishing: true)
+    }
+
+    fullScreenSnapshot!.removeFromSuperview()
   }
 }
 
