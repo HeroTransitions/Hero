@@ -22,6 +22,25 @@
 
 import UIKit
 
+public enum HeroState: Int {
+  // Hero is able to start a new transition
+  case possible
+
+  // UIKit has notified Hero about a pending transition.
+  // Hero haven't started preparing.
+  case notified
+
+  // Hero's `start` method has been called. Preparing the animation.
+  case starting
+
+  // Hero's `animate` method has been called. Animation has started.
+  case animating
+
+  // Hero's `complete` method has been called. Transition is ended or cancelled. Hero is doing cleanup.
+  case completing
+}
+
+
 /**
  ### The singleton class/object for controlling interactive transitions.
 
@@ -44,10 +63,23 @@ public class Hero: NSObject {
   /// Shared singleton object for controlling the transition
   public static let shared = Hero()
 
-  /// whether or not we are doing a transition
-  public var transitioning: Bool {
-    return transitionContainer != nil
+  public internal(set) var state: HeroState = .possible {
+    didSet {
+      print("Hero state \(state)")
+    }
   }
+
+
+  public var transitioning: Bool {
+    return isTransitioning
+  }
+  public var isTransitioning: Bool {
+    return state != .possible
+  }
+  public var presenting: Bool {
+    return isPresenting
+  }
+  public internal(set) var isPresenting: Bool = true
 
   /// container we created to hold all animating views, will be a subview of the
   /// transitionContainer when transitioning
@@ -58,23 +90,17 @@ public class Hero: NSObject {
 
   internal var completionCallback: ((Bool) -> Void)?
 
-  internal var finishing: Bool = true
-
   internal var processors: [HeroPreprocessor]!
   internal var animators: [HeroAnimator]!
   internal var plugins: [HeroPlugin]!
-
   internal var animatingFromViews: [UIView]!
   internal var animatingToViews: [UIView]!
-
   internal static var enabledPlugins: [HeroPlugin.Type] = []
 
   /// destination view controller
   public internal(set) var toViewController: UIViewController?
   /// source view controller
   public internal(set) var fromViewController: UIViewController?
-  /// whether or not we are presenting the destination view controller
-  public internal(set) var presenting = true
 
   /// context object holding transition informations
   public internal(set) var context: HeroContext!
@@ -83,7 +109,6 @@ public class Hero: NSObject {
   public var interactive: Bool {
     return displayLink == nil
   }
-
 
   internal var displayLink: CADisplayLink?
   internal var progressUpdateObservers: [HeroProgressUpdateObserver]?
@@ -94,6 +119,7 @@ public class Hero: NSObject {
   /// current animation complete duration.
   /// (differs from totalDuration because this one could be the duration for finishing interactive transition)
   internal var currentDuration: TimeInterval = 0.0
+  internal var finishing: Bool = true
   internal var beginTime: TimeInterval? {
     didSet {
       if beginTime != nil {
@@ -131,7 +157,7 @@ public class Hero: NSObject {
   /// progress of the current transition. 0 if no transition is happening
   public internal(set) var progress: Double = 0 {
     didSet {
-      if transitioning {
+      if state == .animating {
         if let progressUpdateObservers = progressUpdateObservers {
           for observer in progressUpdateObservers {
             observer.heroDidUpdateProgress(progress: progress)
@@ -154,7 +180,6 @@ public class Hero: NSObject {
     }
   }
 
-  public var isAnimating: Bool = false
   /// a UIViewControllerContextTransitioning object provided by UIKit,
   /// might be nil when transitioning. This happens when calling heroReplaceViewController
   internal weak var transitionContext: UIViewControllerContextTransitioning?
@@ -207,7 +232,8 @@ public class Hero: NSObject {
   }
 
   func start() {
-    guard transitioning else { return }
+    guard state == .notified else { return }
+    state = .starting
 
     toView.frame = fromView.frame
     toView.setNeedsLayout()
@@ -341,7 +367,8 @@ public class Hero: NSObject {
   }
 
   func complete(finished: Bool) {
-    guard transitioning else { fatalError() }
+    guard [HeroState.animating, .starting, .notified].contains(state) else { fatalError() }
+    state = .completing
 
     context.clean()
 
@@ -455,7 +482,8 @@ public class Hero: NSObject {
   /// Actually animate the views
   /// subclass should call `prepareForTransition` & `prepareForAnimation` before calling `animate`
   open func animate() {
-    guard transitioning else { fatalError() }
+    guard state == .starting else { fatalError() }
+    state = .animating
 
     context.unhide(view: toView)
 
@@ -508,12 +536,16 @@ public class Hero: NSObject {
 // custom transition helper, used in hero_replaceViewController
 internal extension Hero {
   func transition(from: UIViewController, to: UIViewController, in view: UIView, completion: ((Bool) -> Void)? = nil) {
-    guard !transitioning else { return }
-    presenting = true
+    guard !isTransitioning else { return }
+    self.state = .notified
+    isPresenting = true
     transitionContainer = view
     fromViewController = from
     toViewController = to
-    completionCallback = completion
+    completionCallback = {
+      completion?($0)
+      self.state = .possible
+    }
     start()
   }
 }
@@ -545,7 +577,6 @@ internal extension Hero {
 
 extension Hero: UIViewControllerAnimatedTransitioning {
   public func animateTransition(using context: UIViewControllerContextTransitioning) {
-    guard !transitioning else { return }
     transitionContext = context
     fromViewController = fromViewController ?? context.viewController(forKey: .from)
     toViewController = toViewController ?? context.viewController(forKey: .to)
@@ -557,7 +588,7 @@ extension Hero: UIViewControllerAnimatedTransitioning {
   }
 
   public func animationEnded(_ transitionCompleted: Bool) {
-    isAnimating = !transitionCompleted
+    self.state = .possible
   }
 }
 
@@ -567,14 +598,18 @@ extension Hero:UIViewControllerTransitioningDelegate {
   }
 
   public func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-    self.presenting = true
+    guard !isTransitioning else { return nil }
+    self.state = .notified
+    self.isPresenting = true
     self.fromViewController = fromViewController ?? presenting
     self.toViewController = toViewController ?? presented
     return self
   }
 
   public func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-    self.presenting = false
+    guard !isTransitioning else { return nil }
+    self.state = .notified
+    self.isPresenting = false
     self.fromViewController = fromViewController ?? dismissed
     return self
   }
@@ -599,7 +634,9 @@ extension Hero: UIViewControllerInteractiveTransitioning {
 
 extension Hero: UINavigationControllerDelegate {
   public func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationControllerOperation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-    self.presenting = operation == .push
+    guard !isTransitioning else { return nil }
+    self.state = .notified
+    self.isPresenting = operation == .push
     self.fromViewController = fromViewController ?? fromVC
     self.toViewController = toViewController ?? toVC
     self.inNavigationController = true
@@ -613,7 +650,7 @@ extension Hero: UINavigationControllerDelegate {
 
 extension Hero: UITabBarControllerDelegate {
   public func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
-    return !isAnimating
+    return !isTransitioning
   }
 
   public func tabBarController(_ tabBarController: UITabBarController, interactionControllerFor animationController: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
@@ -621,10 +658,11 @@ extension Hero: UITabBarControllerDelegate {
   }
 
   public func tabBarController(_ tabBarController: UITabBarController, animationControllerForTransitionFrom fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-    isAnimating = true
+    guard !isTransitioning else { return nil }
+    self.state = .notified
     let fromVCIndex = tabBarController.childViewControllers.index(of: fromVC)!
     let toVCIndex = tabBarController.childViewControllers.index(of: toVC)!
-    self.presenting = toVCIndex > fromVCIndex
+    self.isPresenting = toVCIndex > fromVCIndex
     self.fromViewController = fromViewController ?? fromVC
     self.toViewController = toViewController ?? toVC
     self.inTabBarController = true
