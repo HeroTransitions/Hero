@@ -16,7 +16,7 @@ extension Hero {
    */
   public func update(_ percentageComplete: CGFloat) {
     guard transitioning else { return }
-    self.beginTime = nil
+    self.progressRunner.stop()
     self.progress = max(-1, min(1, Double(percentageComplete)))
   }
 

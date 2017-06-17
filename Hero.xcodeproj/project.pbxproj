@@ -115,6 +115,10 @@
 		B16197E01EF451C500A540D2 /* Hero+Interactive.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16197DF1EF451C400A540D2 /* Hero+Interactive.swift */; };
 		B16197E11EF451C500A540D2 /* Hero+Interactive.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16197DF1EF451C400A540D2 /* Hero+Interactive.swift */; };
 		B16A21A01E4E3907007B8B4C /* AnimationSelectTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16A219F1E4E3907007B8B4C /* AnimationSelectTableViewController.swift */; };
+		B16B75311EF45A110018DBEF /* HeroState.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16B75301EF45A110018DBEF /* HeroState.swift */; };
+		B16B75321EF45A110018DBEF /* HeroState.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16B75301EF45A110018DBEF /* HeroState.swift */; };
+		B16B75341EF461090018DBEF /* HeroProgressRunner.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16B75331EF461090018DBEF /* HeroProgressRunner.swift */; };
+		B16B75351EF461090018DBEF /* HeroProgressRunner.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16B75331EF461090018DBEF /* HeroProgressRunner.swift */; };
 		B16ECD031E4FC0B300EAE0E0 /* DefaultAnimationPreprocessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16ECD021E4FC0B300EAE0E0 /* DefaultAnimationPreprocessor.swift */; };
 		B16ECD041E4FC0B300EAE0E0 /* DefaultAnimationPreprocessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16ECD021E4FC0B300EAE0E0 /* DefaultAnimationPreprocessor.swift */; };
 		B185A4E61DFA6E0C00C3B85D /* ListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B185A4E51DFA6E0C00C3B85D /* ListTableViewController.swift */; };
@@ -244,6 +248,8 @@
 		B1461D3A1E7ADF84006AD3F2 /* DurationPreprocessor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DurationPreprocessor.swift; sourceTree = "<group>"; };
 		B16197DF1EF451C400A540D2 /* Hero+Interactive.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Hero+Interactive.swift"; sourceTree = "<group>"; };
 		B16A219F1E4E3907007B8B4C /* AnimationSelectTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimationSelectTableViewController.swift; sourceTree = "<group>"; };
+		B16B75301EF45A110018DBEF /* HeroState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroState.swift; sourceTree = "<group>"; };
+		B16B75331EF461090018DBEF /* HeroProgressRunner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroProgressRunner.swift; sourceTree = "<group>"; };
 		B16ECD021E4FC0B300EAE0E0 /* DefaultAnimationPreprocessor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DefaultAnimationPreprocessor.swift; path = ../DefaultAnimationPreprocessor.swift; sourceTree = "<group>"; };
 		B185A4E51DFA6E0C00C3B85D /* ListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListTableViewController.swift; sourceTree = "<group>"; };
 		B185A4E71DFA6FE200C3B85D /* GridCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridCollectionViewController.swift; sourceTree = "<group>"; };
@@ -398,6 +404,8 @@
 				29FF2D9D1E21AD8900EA4E65 /* Preprocessors */,
 				A306D3B41E1C7A2E00B6C23A /* Hero.h */,
 				A37D7B511E2C0CBD00AC1959 /* Hero.swift */,
+				B16B75331EF461090018DBEF /* HeroProgressRunner.swift */,
+				B16B75301EF45A110018DBEF /* HeroState.swift */,
 				B16197DF1EF451C400A540D2 /* Hero+Interactive.swift */,
 				A32D2D061E4B84A1008D35FF /* HeroBaseController.swift */,
 				A37D7B521E2C0CBD00AC1959 /* HeroContext.swift */,
@@ -934,6 +942,7 @@
 				2D1F7FDB1E49DD21004D944B /* HeroDebugView.swift in Sources */,
 				B16197E11EF451C500A540D2 /* Hero+Interactive.swift in Sources */,
 				2D1F7FC91E49DD08004D944B /* HeroModifier.swift in Sources */,
+				B16B75351EF461090018DBEF /* HeroProgressRunner.swift in Sources */,
 				2D1F7FD71E49DD18004D944B /* UIKit+Hero.swift in Sources */,
 				AF6D934B1E65168D00FCD55E /* HeroStringConvertible.swift in Sources */,
 				2D1F7FD81E49DD1D004D944B /* HeroDefaultAnimator.swift in Sources */,
@@ -943,6 +952,7 @@
 				B101B2CF1E561421007E7112 /* UIViewController+Hero.swift in Sources */,
 				2D1F7FCD1E49DD13004D944B /* BasePreprocessor.swift in Sources */,
 				2D1F7FD41E49DD18004D944B /* CAMediaTimingFunction+Hero.swift in Sources */,
+				B16B75321EF45A110018DBEF /* HeroState.swift in Sources */,
 				2D1F7FD21E49DD18004D944B /* Array+HeroModifier.swift in Sources */,
 				2D1F7FD51E49DD18004D944B /* CG+Hero.swift in Sources */,
 				2D1F7FD91E49DD1D004D944B /* HeroCoreAnimationViewContext.swift in Sources */,
@@ -990,6 +1000,7 @@
 				A37D7B5C1E2C0CBD00AC1959 /* HeroCoreAnimationViewContext.swift in Sources */,
 				B16197E01EF451C500A540D2 /* Hero+Interactive.swift in Sources */,
 				A37D7B641E2C0CD100AC1959 /* HeroDebugView.swift in Sources */,
+				B16B75341EF461090018DBEF /* HeroProgressRunner.swift in Sources */,
 				A37D7B601E2C0CBD00AC1959 /* HeroTypes.swift in Sources */,
 				AF6D934A1E65168D00FCD55E /* HeroStringConvertible.swift in Sources */,
 				A37D7B441E2C0C7E00AC1959 /* SourcePreprocessor.swift in Sources */,
@@ -999,6 +1010,7 @@
 				B101B2CE1E561421007E7112 /* UIViewController+Hero.swift in Sources */,
 				A37D7B421E2C0C7E00AC1959 /* IgnoreSubviewModifiersPreprocessor.swift in Sources */,
 				A3298CDA1E304851005B06BB /* BasePreprocessor.swift in Sources */,
+				B16B75311EF45A110018DBEF /* HeroState.swift in Sources */,
 				A37D7B4E1E2C0C9300AC1959 /* CG+Hero.swift in Sources */,
 				A37D7B4F1E2C0C9300AC1959 /* DispatchQueue+Hero.swift in Sources */,
 				A37D7B591E2C0CBD00AC1959 /* Hero.swift in Sources */,

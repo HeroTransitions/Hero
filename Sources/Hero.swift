@@ -22,24 +22,6 @@
 
 import UIKit
 
-public enum HeroState: Int {
-  // Hero is able to start a new transition
-  case possible
-
-  // UIKit has notified Hero about a pending transition.
-  // Hero haven't started preparing.
-  case notified
-
-  // Hero's `start` method has been called. Preparing the animation.
-  case starting
-
-  // Hero's `animate` method has been called. Animation has started.
-  case animating
-
-  // Hero's `complete` method has been called. Transition is ended or cancelled. Hero is doing cleanup.
-  case completing
-}
-
 
 /**
  ### The singleton class/object for controlling interactive transitions.
@@ -58,8 +40,6 @@ public enum HeroState: Int {
  ```
  */
 public class Hero: NSObject {
-  // MARK: Shared Access
-
   /// Shared singleton object for controlling the transition
   public static let shared = Hero()
 
@@ -68,7 +48,6 @@ public class Hero: NSObject {
       print("Hero state \(state)")
     }
   }
-
 
   public var transitioning: Bool {
     return isTransitioning
@@ -107,52 +86,13 @@ public class Hero: NSObject {
 
   /// whether or not we are handling transition interactively
   public var interactive: Bool {
-    return displayLink == nil
+    return !progressRunner.isRunning
   }
 
-  internal var displayLink: CADisplayLink?
   internal var progressUpdateObservers: [HeroProgressUpdateObserver]?
 
-  /// max duration needed by the default animator and plugins
+  /// max duration needed by the animators
   public internal(set) var totalDuration: TimeInterval = 0.0
-
-  /// current animation complete duration.
-  /// (differs from totalDuration because this one could be the duration for finishing interactive transition)
-  internal var currentDuration: TimeInterval = 0.0
-  internal var finishing: Bool = true
-  internal var beginTime: TimeInterval? {
-    didSet {
-      if beginTime != nil {
-        if displayLink == nil {
-          displayLink = CADisplayLink(target: self, selector: #selector(displayUpdate(_:)))
-          displayLink!.add(to: RunLoop.main, forMode: RunLoopMode(rawValue: RunLoopMode.commonModes.rawValue))
-        }
-      } else {
-        displayLink?.isPaused = true
-        displayLink?.remove(from: RunLoop.main, forMode: RunLoopMode(rawValue: RunLoopMode.commonModes.rawValue))
-        displayLink = nil
-      }
-    }
-  }
-
-  @objc func displayUpdate(_ link: CADisplayLink) {
-    if transitioning, currentDuration > 0, let beginTime = beginTime {
-      let timePassed = CACurrentMediaTime() - beginTime
-
-      if timePassed > currentDuration {
-        progress = finishing ? 1 : 0
-        self.beginTime = nil
-        complete(finished: finishing)
-      } else {
-        var completed = timePassed / totalDuration
-        if !finishing {
-          completed = 1 - completed
-        }
-        completed = max(0, min(1, completed))
-        progress = completed
-      }
-    }
-  }
 
   /// progress of the current transition. 0 if no transition is happening
   public internal(set) var progress: Double = 0 {
@@ -179,6 +119,11 @@ public class Hero: NSObject {
       }
     }
   }
+  lazy var progressRunner: HeroProgressRunner = {
+    let runner = HeroProgressRunner()
+    runner.delegate = self
+    return runner
+  }()
 
   /// a UIViewControllerContextTransitioning object provided by UIKit,
   /// might be nil when transitioning. This happens when calling heroReplaceViewController
@@ -356,20 +301,18 @@ public class Hero: NSObject {
 
   func complete(after: TimeInterval, finishing: Bool) {
     guard transitioning else { fatalError() }
-    if after <= 0.001 {
+    if after <= 1.0 / 120 {
       complete(finished: finishing)
       return
     }
-    let timePassed = (finishing ? progress : 1 - progress) * totalDuration
-    self.finishing = finishing
-    self.currentDuration = after + timePassed
-    self.beginTime = CACurrentMediaTime() - timePassed
+    progressRunner.start(currentProgress: progress, totalTime: totalDuration, reverse: !finishing)
   }
 
   func complete(finished: Bool) {
     guard [HeroState.animating, .starting, .notified].contains(state) else { fatalError() }
     state = .completing
 
+    progressRunner.stop()
     context.clean()
 
     if finished && presenting && toOverFullScreen {
@@ -443,7 +386,6 @@ public class Hero: NSObject {
     animators = nil
     plugins = nil
     context = nil
-    beginTime = nil
     progress = 0
     totalDuration = 0
 
@@ -530,6 +472,12 @@ public class Hero: NSObject {
     }
 
     fullScreenSnapshot!.removeFromSuperview()
+  }
+}
+
+extension Hero: HeroProgressRunnerDelegate {
+  func updateProgress(progress: Double) {
+    self.progress = progress
   }
 }
 
