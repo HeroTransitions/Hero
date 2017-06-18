@@ -101,8 +101,6 @@ extension HeroModifier: HeroStringConvertible {
       }
     case "useGlobalCoordinateSpace":
       return .useGlobalCoordinateSpace
-    case "useSameParentCoordinateSpace":
-      return .useSameParentCoordinateSpace
     case "ignoreSubviewModifiers":
       return .ignoreSubviewModifiers(recursive:parameters.getBool(0) ?? false)
     case "zPosition":

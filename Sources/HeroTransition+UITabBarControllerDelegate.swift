@@ -22,20 +22,24 @@
 
 import UIKit
 
-public extension HeroTransition {
-  // MARK: Observe Progress
+extension HeroTransition: UITabBarControllerDelegate {
+  public func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
+    return !isTransitioning
+  }
 
-  /**
-   Receive callbacks on each animation frame.
-   Observers will be cleaned when transition completes
+  public func tabBarController(_ tabBarController: UITabBarController, interactionControllerFor animationController: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
+    return interactiveTransitioning
+  }
 
-   - Parameters:
-   - observer: the observer
-   */
-  func observeForProgressUpdate(observer: HeroProgressUpdateObserver) {
-    if progressUpdateObservers == nil {
-      progressUpdateObservers = []
-    }
-    progressUpdateObservers!.append(observer)
+  public func tabBarController(_ tabBarController: UITabBarController, animationControllerForTransitionFrom fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+    guard !isTransitioning else { return nil }
+    self.state = .notified
+    let fromVCIndex = tabBarController.childViewControllers.index(of: fromVC)!
+    let toVCIndex = tabBarController.childViewControllers.index(of: toVC)!
+    self.isPresenting = toVCIndex > fromVCIndex
+    self.fromViewController = fromViewController ?? fromVC
+    self.toViewController = toViewController ?? toVC
+    self.inTabBarController = true
+    return self
   }
 }

@@ -1,21 +1,35 @@
+// The MIT License (MIT)
 //
-//  Hero+Interactive.swift
-//  Hero
+// Copyright (c) 2016 Luke Zhao <me@lkzhao.com>
 //
-//  Created by Luke on 6/16/17.
-//  Copyright © 2017 Luke Zhao. All rights reserved.
+// Permission is hereby granted, free of charge, to any person obtaining a copy
+// of this software and associated documentation files (the "Software"), to deal
+// in the Software without restriction, including without limitation the rights
+// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+// copies of the Software, and to permit persons to whom the Software is
+// furnished to do so, subject to the following conditions:
 //
+// The above copyright notice and this permission notice shall be included in
+// all copies or substantial portions of the Software.
+//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+// THE SOFTWARE.
 
 import Foundation
 
-extension Hero {
+extension HeroTransition {
   /**
    Update the progress for the interactive transition.
    - Parameters:
    - progress: the current progress, must be between -1...1
    */
   public func update(_ percentageComplete: CGFloat) {
-    guard transitioning else { return }
+    guard isTransitioning else { return }
     self.progressRunner.stop()
     self.progress = max(-1, min(1, Double(percentageComplete)))
   }
@@ -26,7 +40,7 @@ extension Hero {
    current state to the **end** state
    */
   public func finish(animate: Bool = true) {
-    guard transitioning else { return }
+    guard isTransitioning else { return }
     if !animate {
       self.complete(finished:true)
       return
@@ -45,7 +59,7 @@ extension Hero {
    current state to the **begining** state
    */
   public func cancel(animate: Bool = true) {
-    guard transitioning else { return }
+    guard isTransitioning else { return }
     if !animate {
       self.complete(finished:false)
       return
@@ -75,7 +89,7 @@ extension Hero {
    - view: the view to override to
    */
   public func apply(modifiers: [HeroModifier], to view: UIView) {
-    guard transitioning else { return }
+    guard isTransitioning else { return }
     let targetState = HeroTargetState(modifiers: modifiers)
     if let otherView = self.context.pairedView(for: view) {
       for animator in self.animators {

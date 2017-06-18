@@ -38,7 +38,7 @@ public class HeroDebugPlugin: HeroPlugin {
       hasArc = true
       break
     }
-    let debugView = HeroDebugView(initialProcess: Hero.shared.presenting ? 0.0 : 1.0, showCurveButton:hasArc, showOnTop:HeroDebugPlugin.showOnTop)
+    let debugView = HeroDebugView(initialProcess: Hero.shared.isPresenting ? 0.0 : 1.0, showCurveButton:hasArc, showOnTop:HeroDebugPlugin.showOnTop)
     debugView.frame = Hero.shared.container.bounds
     debugView.delegate = self
     UIApplication.shared.keyWindow!.addSubview(debugView)
@@ -75,7 +75,7 @@ public class HeroDebugPlugin: HeroPlugin {
 extension HeroDebugPlugin:HeroDebugViewDelegate {
   public func onDone() {
     guard let debugView = debugView else { return }
-    let seekValue = Hero.shared.presenting ? debugView.progress : 1.0 - debugView.progress
+    let seekValue = Hero.shared.isPresenting ? debugView.progress : 1.0 - debugView.progress
     if seekValue > 0.5 {
       Hero.shared.finish()
     } else {
@@ -84,7 +84,7 @@ extension HeroDebugPlugin:HeroDebugViewDelegate {
   }
 
   public func onProcessSliderChanged(progress: Float) {
-    let seekValue = Hero.shared.presenting ? progress : 1.0 - progress
+    let seekValue = Hero.shared.isPresenting ? progress : 1.0 - progress
     Hero.shared.update(CGFloat(seekValue))
   }
 

@@ -22,7 +22,7 @@
 
 import Foundation
 
-public enum HeroState: Int {
+public enum HeroTransitionState: Int {
   // Hero is able to start a new transition
   case possible
 

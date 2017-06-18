@@ -20,22 +20,21 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-import UIKit
+import Foundation
 
-public extension HeroTransition {
-  // MARK: Observe Progress
-
-  /**
-   Receive callbacks on each animation frame.
-   Observers will be cleaned when transition completes
-
-   - Parameters:
-   - observer: the observer
-   */
-  func observeForProgressUpdate(observer: HeroProgressUpdateObserver) {
-    if progressUpdateObservers == nil {
-      progressUpdateObservers = []
+// custom transition helper, used in hero_replaceViewController
+internal extension HeroTransition {
+  func transition(from: UIViewController, to: UIViewController, in view: UIView, completion: ((Bool) -> Void)? = nil) {
+    guard !isTransitioning else { return }
+    self.state = .notified
+    isPresenting = true
+    transitionContainer = view
+    fromViewController = from
+    toViewController = to
+    completionCallback = {
+      completion?($0)
+      self.state = .possible
     }
-    progressUpdateObservers!.append(observer)
+    start()
   }
 }

@@ -128,8 +128,6 @@ extension HeroContext {
       if let visualEffectView = containerView as? UIVisualEffectView {
         containerView = visualEffectView.contentView
       }
-    case .sameParent:
-      containerView = view.superview!
     case .global:
       break
     }

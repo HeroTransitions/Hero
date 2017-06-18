@@ -531,13 +531,6 @@ extension HeroModifier {
   }
 
   /**
-   Use same parent coordinate space.
-   */
-  public static var useSameParentCoordinateSpace: HeroModifier = HeroModifier { targetState in
-    targetState.coordinateSpace = .sameParent
-  }
-
-  /**
    ignore all heroModifiers attributes for a view's direct subviews.
    */
   public static var ignoreSubviewModifiers: HeroModifier = .ignoreSubviewModifiers()

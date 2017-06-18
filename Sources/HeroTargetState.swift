@@ -44,7 +44,6 @@ public enum HeroSnapshotType {
 public enum HeroCoordinateSpace {
   case global
   case local
-  case sameParent
 }
 
 public struct HeroTargetState {

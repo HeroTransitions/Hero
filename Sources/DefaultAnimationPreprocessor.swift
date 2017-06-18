@@ -205,9 +205,9 @@ extension HeroDefaultAnimationType: HeroStringConvertible {
 
 class DefaultAnimationPreprocessor: BasePreprocessor {
 
-  weak var hero: Hero?
+  weak var hero: HeroTransition?
 
-  init(hero: Hero) {
+  init(hero: HeroTransition) {
     self.hero = hero
   }
 
@@ -233,7 +233,7 @@ class DefaultAnimationPreprocessor: BasePreprocessor {
     let inTabBarController = hero.inTabBarController
     let toViewController = hero.toViewController
     let fromViewController = hero.fromViewController
-    let presenting = hero.presenting
+    let presenting = hero.isPresenting
     let fromOverFullScreen = hero.fromOverFullScreen
     let toOverFullScreen = hero.toOverFullScreen
     let toView = hero.toView

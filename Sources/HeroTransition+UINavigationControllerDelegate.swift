@@ -22,20 +22,18 @@
 
 import UIKit
 
-public extension HeroTransition {
-  // MARK: Observe Progress
+extension HeroTransition: UINavigationControllerDelegate {
+  public func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationControllerOperation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+    guard !isTransitioning else { return nil }
+    self.state = .notified
+    self.isPresenting = operation == .push
+    self.fromViewController = fromViewController ?? fromVC
+    self.toViewController = toViewController ?? toVC
+    self.inNavigationController = true
+    return self
+  }
 
-  /**
-   Receive callbacks on each animation frame.
-   Observers will be cleaned when transition completes
-
-   - Parameters:
-   - observer: the observer
-   */
-  func observeForProgressUpdate(observer: HeroProgressUpdateObserver) {
-    if progressUpdateObservers == nil {
-      progressUpdateObservers = []
-    }
-    progressUpdateObservers!.append(observer)
+  public func navigationController(_ navigationController: UINavigationController, interactionControllerFor animationController: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
+    return interactiveTransitioning
   }
 }

@@ -78,7 +78,7 @@ public extension UIViewController {
 
   @IBInspectable public var isHeroEnabled: Bool {
     get {
-      return transitioningDelegate is Hero
+      return transitioningDelegate is HeroTransition
     }
 
     set {
@@ -95,10 +95,10 @@ public extension UIViewController {
         }
       } else {
         transitioningDelegate = nil
-        if let navi = self as? UINavigationController, navi.delegate is Hero {
+        if let navi = self as? UINavigationController, navi.delegate is HeroTransition {
           navi.delegate = previousNavigationDelegate
         }
-        if let tab = self as? UITabBarController, tab.delegate is Hero {
+        if let tab = self as? UITabBarController, tab.delegate is HeroTransition {
           tab.delegate = previousTabBarDelegate
         }
       }
@@ -241,7 +241,7 @@ extension UIViewController {
    Replace the current view controller with another VC on the navigation/modal stack.
    */
   public func hero_replaceViewController(with next: UIViewController) {
-    if Hero.shared.transitioning {
+    if Hero.shared.isTransitioning {
       print("hero_replaceViewController cancelled because Hero was doing a transition. Use Hero.shared.cancel(animated:false) or Hero.shared.end(animated:false) to stop the transition first before calling hero_replaceViewController.")
       return
     }
