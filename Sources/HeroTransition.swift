@@ -186,6 +186,22 @@ open class HeroTransition: NSObject {
     }
     progressRunner.start(currentProgress: progress, totalTime: totalDuration, reverse: !finishing)
   }
+
+  // MARK: Observe Progress
+
+  /**
+   Receive callbacks on each animation frame.
+   Observers will be cleaned when transition completes
+
+   - Parameters:
+   - observer: the observer
+   */
+  func observeForProgressUpdate(observer: HeroProgressUpdateObserver) {
+    if progressUpdateObservers == nil {
+      progressUpdateObservers = []
+    }
+    progressUpdateObservers!.append(observer)
+  }
 }
 
 extension HeroTransition: HeroProgressRunnerDelegate {

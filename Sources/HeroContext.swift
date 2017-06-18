@@ -210,16 +210,6 @@ extension HeroContext {
     snapshot.heroID = view.heroID
 
     if snapshotType != .noSnapshot {
-      if #available(iOS 11.0, *) {
-        // in iOS 11, the snapshot taken by snapshotView(afterScreenUpdates) won't contain a container view
-        let oldSnapshot = snapshot!
-        snapshot = UIView()
-        snapshot.layer.bounds = oldSnapshot.layer.bounds
-        snapshot.layer.position = oldSnapshot.layer.position
-        oldSnapshot.layer.position = snapshot.layer.bounds.center
-        snapshot.addSubview(oldSnapshot)
-      }
-
       if !(view is UINavigationBar), let contentView = snapshot.subviews.get(0) {
         // the Snapshot's contentView must have hold the cornerRadius value,
         // since the snapshot might not have maskToBounds set
