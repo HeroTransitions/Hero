@@ -131,8 +131,18 @@ extension HeroTransition {
 
     context.hide(view: toView)
 
-    DispatchQueue.main.async {
-      self.animate()
-    }
+    #if os(tvOS)
+      animate()
+    #else
+      if inNavigationController {
+        // When animating within navigationController, we have to dispatch later into the main queue.
+        // otherwise snapshots will be pure white. Possibly a bug with UIKit
+        DispatchQueue.main.async {
+          self.animate()
+        }
+      } else {
+        animate()
+      }
+    #endif
   }
 }

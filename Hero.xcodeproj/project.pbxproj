@@ -137,8 +137,6 @@
 		B19F76A71E46C3D7002DBC58 /* ImageViewer.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B19F76A51E46C3D7002DBC58 /* ImageViewer.storyboard */; };
 		B19F76B11E46C449002DBC58 /* VideoPlayer.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B19F76AF1E46C449002DBC58 /* VideoPlayer.storyboard */; };
 		B19F76B21E46C449002DBC58 /* VideoPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19F76B01E46C449002DBC58 /* VideoPlayerViewController.swift */; };
-		B1BBED271EF778BB003A29DE /* HeroViewAnimationRunner.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1BBED261EF778BB003A29DE /* HeroViewAnimationRunner.swift */; };
-		B1BBED281EF778BB003A29DE /* HeroViewAnimationRunner.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1BBED261EF778BB003A29DE /* HeroViewAnimationRunner.swift */; };
 		B1D816DF1EF5A5DF007B9776 /* HeroViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D816DE1EF5A5DF007B9776 /* HeroViewControllerDelegate.swift */; };
 		B1D816E01EF5A5DF007B9776 /* HeroViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D816DE1EF5A5DF007B9776 /* HeroViewControllerDelegate.swift */; };
 		B1D816E21EF5A630007B9776 /* HeroTransition+CustomTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D816E11EF5A630007B9776 /* HeroTransition+CustomTransition.swift */; };
@@ -281,7 +279,6 @@
 		B19F76A51E46C3D7002DBC58 /* ImageViewer.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ImageViewer.storyboard; sourceTree = "<group>"; };
 		B19F76AF1E46C449002DBC58 /* VideoPlayer.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = VideoPlayer.storyboard; sourceTree = "<group>"; };
 		B19F76B01E46C449002DBC58 /* VideoPlayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoPlayerViewController.swift; sourceTree = "<group>"; };
-		B1BBED261EF778BB003A29DE /* HeroViewAnimationRunner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeroViewAnimationRunner.swift; sourceTree = "<group>"; };
 		B1D816DE1EF5A5DF007B9776 /* HeroViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroViewControllerDelegate.swift; sourceTree = "<group>"; };
 		B1D816E11EF5A630007B9776 /* HeroTransition+CustomTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HeroTransition+CustomTransition.swift"; sourceTree = "<group>"; };
 		B1D816E41EF5A6AE007B9776 /* HeroTransition+Start.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HeroTransition+Start.swift"; sourceTree = "<group>"; };
@@ -388,7 +385,6 @@
 				A37D7B531E2C0CBD00AC1959 /* HeroDefaultAnimator.swift */,
 				B1193AB81E525D12005B1C87 /* HeroAnimatorViewContext.swift */,
 				A37D7B541E2C0CBD00AC1959 /* HeroCoreAnimationViewContext.swift */,
-				B1BBED261EF778BB003A29DE /* HeroViewAnimationRunner.swift */,
 				B1193AB51E525CD8005B1C87 /* HeroViewPropertyViewContext.swift */,
 			);
 			path = Animator;
@@ -968,7 +964,6 @@
 				2D1F7FD61E49DD18004D944B /* DispatchQueue+Hero.swift in Sources */,
 				2D1F7FCB1E49DD08004D944B /* HeroTargetState.swift in Sources */,
 				B17D888D1EF5A5500048D3E8 /* HeroTransition+UIViewControllerTransitioningDelegate.swift in Sources */,
-				B1BBED281EF778BB003A29DE /* HeroViewAnimationRunner.swift in Sources */,
 				B1D816E01EF5A5DF007B9776 /* HeroViewControllerDelegate.swift in Sources */,
 				B1193ABA1E525D12005B1C87 /* HeroAnimatorViewContext.swift in Sources */,
 				2D1F7FCA1E49DD08004D944B /* HeroPlugin.swift in Sources */,
@@ -1034,7 +1029,6 @@
 				A37D7B4D1E2C0C9300AC1959 /* CAMediaTimingFunction+Hero.swift in Sources */,
 				A37D7B5D1E2C0CBD00AC1959 /* HeroModifier.swift in Sources */,
 				B17D888C1EF5A5500048D3E8 /* HeroTransition+UIViewControllerTransitioningDelegate.swift in Sources */,
-				B1BBED271EF778BB003A29DE /* HeroViewAnimationRunner.swift in Sources */,
 				B1D816DF1EF5A5DF007B9776 /* HeroViewControllerDelegate.swift in Sources */,
 				B1193AB91E525D12005B1C87 /* HeroAnimatorViewContext.swift in Sources */,
 				A37D7B5B1E2C0CBD00AC1959 /* HeroDefaultAnimator.swift in Sources */,

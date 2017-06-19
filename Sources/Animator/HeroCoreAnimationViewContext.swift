@@ -26,7 +26,6 @@ internal class HeroCoreAnimationViewContext: HeroAnimatorViewContext {
 
   var state = [String: (Any?, Any?)]()
   var timingFunction: CAMediaTimingFunction = .standard
-  var animations: [(CALayer, String, CAAnimation)] = []
 
   // computed
   var contentLayer: CALayer? {
@@ -130,12 +129,14 @@ internal class HeroCoreAnimationViewContext: HeroAnimatorViewContext {
 
   func setSize(view: UIView, newSize: CGSize) {
     let oldSize = view.bounds.size
-    for subview in view.subviews {
-      let center = subview.center
-      let size = subview.bounds.size
-      subview.center = CGPoint(x: center.x / oldSize.width * newSize.width, y: center.y / oldSize.height * newSize.height)
-      subview.bounds.size = size / oldSize * newSize
-      setSize(view: subview, newSize: size / oldSize * newSize)
+    if targetState.snapshotType != .noSnapshot {
+      for subview in view.subviews {
+        let center = subview.center
+        let size = subview.bounds.size
+        subview.center = CGPoint(x: center.x / oldSize.width * newSize.width, y: center.y / oldSize.height * newSize.height)
+        subview.bounds.size = size / oldSize * newSize
+        setSize(view: subview, newSize: size / oldSize * newSize)
+      }
     }
     view.bounds.size = newSize
   }
@@ -159,13 +160,14 @@ internal class HeroCoreAnimationViewContext: HeroAnimatorViewContext {
         setSize(view: snapshot, newSize: fromSize)
         CATransaction.begin()
         if let (stiffness, damping) = targetState.spring {
-          UIView.animate(withDuration: duration, delay: beginTime - currentTime, usingSpringWithDamping: damping / 100, initialSpringVelocity: 0, options: [.beginFromCurrentState], animations: {
+          let fakeDamping = damping / (stiffness / 5)
+          UIView.animate(withDuration: anim.duration, delay: beginTime - currentTime, usingSpringWithDamping: fakeDamping, initialSpringVelocity: 0, options: [.beginFromCurrentState], animations: {
             self.setSize(view: self.snapshot, newSize: toSize)
           }, completion: nil)
         } else {
-          CATransaction.setAnimationDuration(duration)
+          CATransaction.setAnimationDuration(anim.duration)
           CATransaction.setAnimationTimingFunction(timingFunction)
-          UIView.animate(withDuration: duration, delay: beginTime - currentTime, options: [.beginFromCurrentState], animations: {
+          UIView.animate(withDuration: anim.duration, delay: beginTime - currentTime, options: [.beginFromCurrentState], animations: {
             self.setSize(view: self.snapshot, newSize: toSize)
           }, completion: nil)
         }
@@ -293,16 +295,12 @@ internal class HeroCoreAnimationViewContext: HeroAnimatorViewContext {
 
     duration = targetState.duration!
 
-    addedAnimations = []
     let beginTime = currentTime + delay
     var finalDuration: TimeInterval = duration
     for (key, (fromValue, toValue)) in state {
-      print(key, fromValue!, toValue!)
       let neededTime = animate(key: key, beginTime: beginTime, fromValue: fromValue, toValue: toValue)
       finalDuration = max(finalDuration, neededTime + delay)
     }
-    animations = addedAnimations!
-    addedAnimations = nil
 
     duration = finalDuration
   }
@@ -320,7 +318,7 @@ internal class HeroCoreAnimationViewContext: HeroAnimatorViewContext {
   override func seek(timePassed: TimeInterval) {
     seek(layer:snapshot.layer, timePassed:timePassed)
     if let contentLayer = contentLayer {
-      seek(layer:contentLayer, timePassed:timePassed)
+      seek(layer: contentLayer, timePassed:timePassed)
     }
     if let overlayLayer = overlayLayer {
       seek(layer: overlayLayer, timePassed: timePassed)
