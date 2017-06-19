@@ -55,6 +55,8 @@ public enum HeroDefaultAnimationType {
   }
 
   case none
+  case noneForceFromViewBack
+  case noneForceToViewBack
 
   func reversed() -> HeroDefaultAnimationType {
     switch self {
@@ -351,6 +353,10 @@ class DefaultAnimationPreprocessor: BasePreprocessor {
     case .zoomOut:
       context[toView]!.append(contentsOf: [.scale(1.3), .fade])
       context[fromView]!.append(contentsOf: [.scale(0.7)])
+    case .noneForceFromViewBack:
+      context.insertToViewFirst = false
+    case .noneForceToViewBack:
+      context.insertToViewFirst = true
     default:
       fatalError("Not implemented")
     }
