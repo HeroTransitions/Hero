@@ -69,6 +69,10 @@ extension HeroTransition {
       HeroDefaultAnimator<HeroCoreAnimationViewContext>()
     ]
 
+    if #available(iOS 10, tvOS 10, *) {
+      animators.append(HeroDefaultAnimator<HeroViewPropertyViewContext>())
+    }
+
     // There is no covariant in Swift, so we need to add plugins one by one.
     for plugin in plugins {
       processors.append(plugin)

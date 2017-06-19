@@ -42,7 +42,7 @@ extension CALayer {
     swizzled_layoutSubviews()
     print("swizzled_layoutSubviews")
   }
-  dynamic func hero_add(anim: CAAnimation, forKey: String?) {
+  @objc dynamic func hero_add(anim: CAAnimation, forKey: String?) {
     addedAnimations?.append((self, forKey!, anim))
     hero_add(anim: anim, forKey: forKey)
   }

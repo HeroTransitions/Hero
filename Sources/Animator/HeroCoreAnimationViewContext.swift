@@ -134,6 +134,7 @@ internal class HeroCoreAnimationViewContext: HeroAnimatorViewContext {
       let center = subview.center
       let size = subview.bounds.size
       subview.center = CGPoint(x: center.x / oldSize.width * newSize.width, y: center.y / oldSize.height * newSize.height)
+      subview.bounds.size = size / oldSize * newSize
       setSize(view: subview, newSize: size / oldSize * newSize)
     }
     view.bounds.size = newSize
@@ -158,13 +159,13 @@ internal class HeroCoreAnimationViewContext: HeroAnimatorViewContext {
         setSize(view: snapshot, newSize: fromSize)
         CATransaction.begin()
         if let (stiffness, damping) = targetState.spring {
-          UIView.animate(withDuration: duration, delay: beginTime - currentTime, usingSpringWithDamping: damping / 100, initialSpringVelocity: 0, options: [], animations: {
+          UIView.animate(withDuration: duration, delay: beginTime - currentTime, usingSpringWithDamping: damping / 100, initialSpringVelocity: 0, options: [.beginFromCurrentState], animations: {
             self.setSize(view: self.snapshot, newSize: toSize)
           }, completion: nil)
         } else {
           CATransaction.setAnimationDuration(duration)
           CATransaction.setAnimationTimingFunction(timingFunction)
-          UIView.animate(withDuration: duration, delay: beginTime - currentTime, options: [], animations: {
+          UIView.animate(withDuration: duration, delay: beginTime - currentTime, options: [.beginFromCurrentState], animations: {
             self.setSize(view: self.snapshot, newSize: toSize)
           }, completion: nil)
         }
@@ -175,25 +176,6 @@ internal class HeroCoreAnimationViewContext: HeroAnimatorViewContext {
     }
 
     return anim.duration + anim.beginTime - beginTime
-  }
-
-  func animate(delay: TimeInterval) {
-    if let tf = targetState.timingFunction {
-      timingFunction = tf
-    }
-
-    duration = targetState.duration!
-
-    addedAnimations = []
-    let beginTime = currentTime + delay
-    var finalDuration: TimeInterval = duration
-    for (key, (fromValue, toValue)) in state {
-      let neededTime = animate(key: key, beginTime: beginTime, fromValue: fromValue, toValue: toValue)
-      finalDuration = max(finalDuration, neededTime + delay)
-    }
-    animations = addedAnimations!
-
-    duration = finalDuration
   }
 
   /**
@@ -300,6 +282,31 @@ internal class HeroCoreAnimationViewContext: HeroAnimatorViewContext {
     animate(delay: realDelay)
   }
 
+  func animate(delay: TimeInterval) {
+    snapshot.layer.removeAllAnimations()
+    contentLayer?.removeAllAnimations()
+    overlayLayer?.removeAllAnimations()
+
+    if let tf = targetState.timingFunction {
+      timingFunction = tf
+    }
+
+    duration = targetState.duration!
+
+    addedAnimations = []
+    let beginTime = currentTime + delay
+    var finalDuration: TimeInterval = duration
+    for (key, (fromValue, toValue)) in state {
+      print(key, fromValue!, toValue!)
+      let neededTime = animate(key: key, beginTime: beginTime, fromValue: fromValue, toValue: toValue)
+      finalDuration = max(finalDuration, neededTime + delay)
+    }
+    animations = addedAnimations!
+    addedAnimations = nil
+
+    duration = finalDuration
+  }
+
   func seek(layer: CALayer, timePassed: TimeInterval) {
     let timeOffset = timePassed - targetState.delay
     for (key, anim) in layer.animations {
@@ -311,19 +318,19 @@ internal class HeroCoreAnimationViewContext: HeroAnimatorViewContext {
   }
 
   override func seek(timePassed: TimeInterval) {
-//    seek(layer:snapshot.layer, timePassed:timePassed)
-//    if let contentLayer = contentLayer {
-//      seek(layer:contentLayer, timePassed:timePassed)
-//    }
-//    if let overlayLayer = overlayLayer {
-//      seek(layer: overlayLayer, timePassed: timePassed)
-//    }
-    for (layer, key, anim) in animations {
-      anim.speed = 0
-      anim.timeOffset = (timePassed - targetState.delay).clamp(0, anim.duration - 0.01)
-      layer.removeAnimation(forKey: key)
-      layer.add(anim, forKey: key)
+    seek(layer:snapshot.layer, timePassed:timePassed)
+    if let contentLayer = contentLayer {
+      seek(layer:contentLayer, timePassed:timePassed)
     }
+    if let overlayLayer = overlayLayer {
+      seek(layer: overlayLayer, timePassed: timePassed)
+    }
+//    for (layer, key, anim) in animations {
+//      anim.speed = 0
+//      anim.timeOffset = (timePassed - targetState.delay).clamp(0, anim.duration - 0.01)
+//      layer.removeAnimation(forKey: key)
+//      layer.add(anim, forKey: key)
+//    }
   }
 
   override func clean() {
