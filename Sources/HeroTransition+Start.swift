@@ -66,7 +66,7 @@ extension HeroTransition {
       DurationPreprocessor()
     ]
     animators = [
-      HeroDefaultAnimator<HeroViewAnimationRunner>()
+      HeroDefaultAnimator<HeroCoreAnimationViewContext>()
     ]
 
     // There is no covariant in Swift, so we need to add plugins one by one.
