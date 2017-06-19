@@ -127,6 +127,17 @@ internal class HeroCoreAnimationViewContext: HeroAnimatorViewContext {
     return anim
   }
 
+  func setSize(view: UIView, newSize: CGSize) {
+    let oldSize = view.bounds.size
+    for subview in view.subviews {
+      let center = subview.center
+      let size = subview.bounds.size
+      subview.center = CGPoint(x: center.x / oldSize.width * newSize.width, y: center.y / oldSize.height * newSize.height)
+      setSize(view: subview, newSize: size / oldSize * newSize)
+    }
+    view.bounds.size = newSize
+  }
+
   // return the completion duration of the animation (duration + initial delay, not counting the beginTime)
   func animate(key: String, beginTime: TimeInterval, fromValue: Any?, toValue: Any?) -> TimeInterval {
     let anim = getAnimation(key: key, beginTime:beginTime, fromValue: fromValue, toValue: toValue)
@@ -134,9 +145,9 @@ internal class HeroCoreAnimationViewContext: HeroAnimatorViewContext {
     if let overlayKey = overlayKeyFor(key:key) {
       getOverlayLayer().add(anim, forKey: overlayKey)
     } else {
-      snapshot.layer.add(anim, forKey: key)
       switch key {
       case "cornerRadius", "contentsRect", "contentsScale":
+        snapshot.layer.add(anim, forKey: key)
         contentLayer?.add(anim, forKey: key)
         overlayLayer?.add(anim, forKey: key)
       case "bounds.size":
@@ -156,12 +167,15 @@ internal class HeroCoreAnimationViewContext: HeroAnimatorViewContext {
         positionAnim.timingFunction = anim.timingFunction
         positionAnim.duration = anim.duration
 
-        contentLayer?.add(positionAnim, forKey: "position")
-        contentLayer?.add(anim, forKey: key)
-
-        overlayLayer?.add(positionAnim, forKey: "position")
-        overlayLayer?.add(anim, forKey: key)
-      default: break
+        CATransaction.begin()
+        CATransaction.setAnimationDuration(anim.duration)
+        CATransaction.setAnimationTimingFunction(anim.timingFunction)
+        UIView.animate(withDuration: anim.duration, delay: 0, options: [], animations: {
+          self.setSize(view: self.snapshot, newSize: toSize)
+        }, completion: nil)
+        CATransaction.commit()
+      default:
+        snapshot.layer.add(anim, forKey: key)
       }
     }
 

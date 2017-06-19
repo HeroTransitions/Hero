@@ -91,6 +91,20 @@ public extension UIView {
     return snapshotView
   }
 
+  internal func snapshotView() -> UIView {
+    var snapshot = snapshotView(afterScreenUpdates: true)!
+    if #available(iOS 11.0, *) {
+      // in iOS 11, the snapshot taken by snapshotView(afterScreenUpdates) won't contain a container view
+      let oldSnapshot = snapshot
+      snapshot = UIView()
+      snapshot.bounds = oldSnapshot.bounds
+      snapshot.center = oldSnapshot.center
+      oldSnapshot.center = snapshot.bounds.center
+      snapshot.addSubview(oldSnapshot)
+    }
+    return snapshot
+  }
+
   internal var flattenedViewHierarchy: [UIView] {
     guard isHeroEnabled else { return [] }
     if #available(iOS 9.0, *), isHidden && (superview is UICollectionView || superview is UIStackView || self is UITableViewCell) {

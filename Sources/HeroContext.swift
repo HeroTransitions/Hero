@@ -145,7 +145,7 @@ extension HeroContext {
 
     switch snapshotType {
     case .normal:
-      snapshot = view.snapshotView(afterScreenUpdates: true)!
+      snapshot = view.snapshotView()
     case .layerRender:
       snapshot = view.slowSnapshotView()
     case .noSnapshot:
@@ -190,7 +190,7 @@ extension HeroContext {
           snapshot = UIVisualEffectView(effect: effectView.effect)
           snapshot.frame = effectView.bounds
         } else {
-          snapshot = view.snapshotView(afterScreenUpdates: true)!
+          snapshot = view.snapshotView()
         }
       #endif
     }

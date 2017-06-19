@@ -129,7 +129,7 @@ internal func * (left: CGSize, right: CGFloat) -> CGSize {
   return CGSize(width: left.width*right, height: left.height*right)
 }
 internal func * (left: CGSize, right: CGSize) -> CGSize {
-  return CGSize(width: left.width*right.width, height: left.height*right.width)
+  return CGSize(width: left.width*right.width, height: left.height*right.height)
 }
 internal func / (left: CGSize, right: CGSize) -> CGSize {
   return CGSize(width: left.width/right.width, height: left.height/right.height)
