@@ -47,13 +47,7 @@ public enum HeroCoordinateSpace {
 }
 
 public struct HeroTargetState {
-  class HeroTargetStateWrapper {
-    var state: HeroTargetState
-    init(state: HeroTargetState) {
-      self.state = state
-    }
-  }
-  internal var beginState: HeroTargetStateWrapper?
+  public var beginState: [HeroModifier]?
   public var beginStateIfMatched: [HeroModifier]?
   public var ifMatched: [HeroModifier]?
 

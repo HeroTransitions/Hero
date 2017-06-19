@@ -481,9 +481,9 @@ extension HeroModifier {
   public static func beginWith(modifiers: [HeroModifier]) -> HeroModifier {
     return HeroModifier { targetState in
       if targetState.beginState == nil {
-        targetState.beginState = HeroTargetState.HeroTargetStateWrapper(state: [])
+        targetState.beginState = []
       }
-      targetState.beginState!.state.append(contentsOf: modifiers)
+      targetState.beginState!.append(contentsOf: modifiers)
     }
   }
 

@@ -418,24 +418,14 @@
 		A306D3B31E1C7A2E00B6C23A /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				B11769D81EF8626C00A1373A /* Transition */,
 				29FF2D9F1E21ADB300EA4E65 /* Animator */,
 				29FF2D9E1E21AD9E00EA4E65 /* Debug Plugin */,
 				29FF2D9C1E21ACF400EA4E65 /* Extensions */,
 				AFA306D21E6B447200CAF719 /* Parser */,
 				29FF2D9D1E21AD8900EA4E65 /* Preprocessors */,
 				A306D3B41E1C7A2E00B6C23A /* Hero.h */,
-				A37D7B511E2C0CBD00AC1959 /* HeroTransition.swift */,
-				B1D816E41EF5A6AE007B9776 /* HeroTransition+Start.swift */,
-				B1D816EA1EF5A720007B9776 /* HeroTransition+Animate.swift */,
-				B1D816E71EF5A6FE007B9776 /* HeroTransition+Complete.swift */,
-				B17D888B1EF5A5500048D3E8 /* HeroTransition+UIViewControllerTransitioningDelegate.swift */,
-				B17D88881EF5A5330048D3E8 /* HeroTransition+UINavigationControllerDelegate.swift */,
-				B17D88851EF5A51C0048D3E8 /* HeroTransition+UITabBarControllerDelegate.swift */,
-				B1D816E11EF5A630007B9776 /* HeroTransition+CustomTransition.swift */,
-				B16197DF1EF451C400A540D2 /* HeroTransition+Interactive.swift */,
 				B1D816DE1EF5A5DF007B9776 /* HeroViewControllerDelegate.swift */,
-				B16B75301EF45A110018DBEF /* HeroTransitionState.swift */,
-				B16B75331EF461090018DBEF /* HeroProgressRunner.swift */,
 				A37D7B521E2C0CBD00AC1959 /* HeroContext.swift */,
 				A32D2D121E501C4F008D35FF /* HeroModifier+HeroStringConvertible.swift */,
 				A37D7B551E2C0CBD00AC1959 /* HeroModifier.swift */,
@@ -586,6 +576,24 @@
 				B114B68F1E412A0B0009CEDE /* AppleProductViewController.swift */,
 			);
 			path = AppleHomePage;
+			sourceTree = "<group>";
+		};
+		B11769D81EF8626C00A1373A /* Transition */ = {
+			isa = PBXGroup;
+			children = (
+				A37D7B511E2C0CBD00AC1959 /* HeroTransition.swift */,
+				B16B75301EF45A110018DBEF /* HeroTransitionState.swift */,
+				B16B75331EF461090018DBEF /* HeroProgressRunner.swift */,
+				B1D816E41EF5A6AE007B9776 /* HeroTransition+Start.swift */,
+				B1D816EA1EF5A720007B9776 /* HeroTransition+Animate.swift */,
+				B1D816E71EF5A6FE007B9776 /* HeroTransition+Complete.swift */,
+				B17D888B1EF5A5500048D3E8 /* HeroTransition+UIViewControllerTransitioningDelegate.swift */,
+				B17D88881EF5A5330048D3E8 /* HeroTransition+UINavigationControllerDelegate.swift */,
+				B17D88851EF5A51C0048D3E8 /* HeroTransition+UITabBarControllerDelegate.swift */,
+				B1D816E11EF5A630007B9776 /* HeroTransition+CustomTransition.swift */,
+				B16197DF1EF451C400A540D2 /* HeroTransition+Interactive.swift */,
+			);
+			name = Transition;
 			sourceTree = "<group>";
 		};
 		B185A4E91DFA6FE700C3B85D /* ListToGrid */ = {

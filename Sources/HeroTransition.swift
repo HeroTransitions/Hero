@@ -44,11 +44,7 @@ public class Hero: NSObject {
 }
 
 open class HeroTransition: NSObject {
-  public internal(set) var state: HeroTransitionState = .possible {
-    didSet {
-      print("Hero state \(state)")
-    }
-  }
+  public internal(set) var state: HeroTransitionState = .possible
 
   public var isTransitioning: Bool { return state != .possible }
   public internal(set) var isPresenting: Bool = true
@@ -108,7 +104,6 @@ open class HeroTransition: NSObject {
 
         let timePassed = progress * totalDuration
         if interactive {
-          print("Hero seek \(timePassed)")
           for animator in animators {
             animator.seekTo(timePassed: timePassed)
           }
@@ -210,4 +205,3 @@ extension HeroTransition: HeroProgressRunnerDelegate {
     self.progress = progress
   }
 }
-

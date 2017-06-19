@@ -337,7 +337,8 @@ internal class HeroCoreAnimationViewContext: HeroAnimatorViewContext {
   }
 
   override func startAnimations(appearing: Bool) {
-    if let beginState = targetState.beginState?.state {
+    if let beginStateModifiers = targetState.beginState {
+      let beginState = HeroTargetState(modifiers: beginStateModifiers)
       let appeared = viewState(targetState: beginState)
       for (key, value) in appeared {
         snapshot.layer.setValue(value, forKeyPath: key)
