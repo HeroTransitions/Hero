@@ -79,7 +79,7 @@ extension HeroTransition {
       animators.append(plugin)
     }
 
-    transitionContainer.isUserInteractionEnabled = false
+    transitionContainer.isUserInteractionEnabled = isUserInteractionEnabled
 
     // a view to hold all the animating views
     container = UIView(frame: transitionContainer.bounds)

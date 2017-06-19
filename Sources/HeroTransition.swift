@@ -44,6 +44,11 @@ public class Hero: NSObject {
 }
 
 open class HeroTransition: NSObject {
+
+  public var defaultAnimation: HeroDefaultAnimationType = .auto
+  public var containerColor: UIColor?
+  public var isUserInteractionEnabled = false
+
   public internal(set) var state: HeroTransitionState = .possible
 
   public var isTransitioning: Bool { return state != .possible }
@@ -129,9 +134,6 @@ open class HeroTransition: NSObject {
 
   internal var fullScreenSnapshot: UIView!
 
-  internal var defaultAnimation: HeroDefaultAnimationType = .auto
-  internal var containerColor: UIColor?
-
   // By default, Hero will always appear to be interactive to UIKit. This forces it to appear non-interactive.
   // Used when doing a hero_replaceViewController within a UINavigationController, to fix a bug with
   // UINavigationController.setViewControllers not able to handle interactive transition
@@ -153,26 +155,6 @@ open class HeroTransition: NSObject {
   internal var fromView: UIView { return fromViewController!.view }
 
   internal override init() { super.init() }
-
-  /// Turn off built-in animation for next transition
-  public func disableDefaultAnimationForNextTransition() {
-    defaultAnimation = .none
-  }
-
-  /// Set the default animation for next transition
-  /// This usually overrides rootView's heroModifiers during the transition
-  ///
-  /// - Parameter animation: animation type
-  public func setDefaultAnimationForNextTransition(_ animation: HeroDefaultAnimationType) {
-    defaultAnimation = animation
-  }
-
-  /// Set the container color for next transition
-  ///
-  /// - Parameter color: container color
-  public func setContainerColorForNextTransition(_ color: UIColor?) {
-    containerColor = color
-  }
 
   func complete(after: TimeInterval, finishing: Bool) {
     guard [HeroTransitionState.animating, .starting, .notified].contains(state) else { fatalError() }
