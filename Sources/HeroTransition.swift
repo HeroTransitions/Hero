@@ -40,7 +40,7 @@ import UIKit
  */
 public class Hero: NSObject {
   /// Shared singleton object for controlling the transition
-  public static let shared = HeroTransition()
+  public static var shared = HeroTransition()
 }
 
 open class HeroTransition: NSObject {
@@ -154,7 +154,7 @@ open class HeroTransition: NSObject {
   internal var toView: UIView { return toViewController!.view }
   internal var fromView: UIView { return fromViewController!.view }
 
-  internal override init() { super.init() }
+  public override init() { super.init() }
 
   func complete(after: TimeInterval, finishing: Bool) {
     guard [HeroTransitionState.animating, .starting, .notified].contains(state) else { fatalError() }
