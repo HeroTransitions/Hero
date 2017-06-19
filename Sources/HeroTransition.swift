@@ -108,6 +108,7 @@ open class HeroTransition: NSObject {
 
         let timePassed = progress * totalDuration
         if interactive {
+          print("Hero seek \(timePassed)")
           for animator in animators {
             animator.seekTo(timePassed: timePassed)
           }

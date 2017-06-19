@@ -66,12 +66,8 @@ extension HeroTransition {
       DurationPreprocessor()
     ]
     animators = [
-      HeroDefaultAnimator<HeroCoreAnimationViewContext>()
+      HeroDefaultAnimator<HeroViewAnimationRunner>()
     ]
-
-    if #available(iOS 10, tvOS 10, *) {
-      animators.append(HeroDefaultAnimator<HeroViewPropertyViewContext>())
-    }
 
     // There is no covariant in Swift, so we need to add plugins one by one.
     for plugin in plugins {
@@ -131,18 +127,8 @@ extension HeroTransition {
 
     context.hide(view: toView)
 
-    #if os(tvOS)
-      animate()
-    #else
-      if inNavigationController {
-        // When animating within navigationController, we have to dispatch later into the main queue.
-        // otherwise snapshots will be pure white. Possibly a bug with UIKit
-        DispatchQueue.main.async {
-          self.animate()
-        }
-      } else {
-        animate()
-      }
-    #endif
+    DispatchQueue.main.async {
+      self.animate()
+    }
   }
 }

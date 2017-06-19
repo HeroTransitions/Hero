@@ -71,6 +71,11 @@ extension CGFloat {
     return self < a ? a : (self > b ? b : self)
   }
 }
+extension TimeInterval {
+  internal func clamp(_ a: TimeInterval, _ b: TimeInterval) -> TimeInterval {
+    return self < a ? a : (self > b ? b : self)
+  }
+}
 extension CGPoint {
   internal func translate(_ dx: CGFloat, dy: CGFloat) -> CGPoint {
     return CGPoint(x: self.x+dx, y: self.y+dy)
