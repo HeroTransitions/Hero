@@ -259,7 +259,7 @@ extension UIViewController {
       let parentVC = presentingViewController
       Hero.shared.transition(from: self, to: next, in: container) { finished in
         if finished {
-          UIApplication.shared.keyWindow?.addSubview(next.view)
+          (UIApplication.shared.keyWindow ?? container).addSubview(next.view)
 
           if let parentVC = parentVC {
             self.dismiss(animated: false) {

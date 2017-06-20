@@ -54,6 +54,11 @@ extension HeroTransition {
       for v in animatingToViews { _ = context.snapshotView(for: v) }
     }
 
+    // UIKit appears to set fromView setNeedLayout to be true.
+    // We don't want fromView to layout after our animation starts.
+    // Therefore we kick off the layout beforehand
+    fromView.layoutIfNeeded()
+
     for animator in animators {
       let duration = animator.animate(fromViews: animatingFromViews.filter({ animator.canAnimate(view: $0, appearing: false) }),
                                       toViews: animatingToViews.filter({ animator.canAnimate(view: $0, appearing: true) }))

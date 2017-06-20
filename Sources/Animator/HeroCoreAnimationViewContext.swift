@@ -137,8 +137,11 @@ internal class HeroCoreAnimationViewContext: HeroAnimatorViewContext {
         subview.bounds.size = size / oldSize * newSize
         setSize(view: subview, newSize: size / oldSize * newSize)
       }
+      view.bounds.size = newSize
+    } else {
+      view.bounds.size = newSize
+      view.layoutSubviews()
     }
-    view.bounds.size = newSize
   }
 
   // return the completion duration of the animation (duration + initial delay, not counting the beginTime)
