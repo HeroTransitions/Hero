@@ -84,11 +84,7 @@ class AnimationSelectTableViewController: UITableViewController {
 
   override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     let vc = self.storyboard!.instantiateViewController(withIdentifier: "animationSelect")
-
-    // the following two lines configures the animation. default is .auto
-    Hero.shared.setDefaultAnimationForNextTransition(animations[indexPath.item])
-    Hero.shared.setContainerColorForNextTransition(.lightGray)
-
+    vc.heroModalAnimationType = animations[indexPath.item]
     hero_replaceViewController(with: vc)
   }
 

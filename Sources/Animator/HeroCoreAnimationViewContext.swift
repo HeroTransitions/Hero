@@ -22,10 +22,31 @@
 
 import UIKit
 
+extension CALayer {
+  internal static var heroAddedAnimations: [(CALayer, String, CAAnimation)]? = {
+    let swizzling: (AnyClass, Selector, Selector) -> Void = { forClass, originalSelector, swizzledSelector in
+      let originalMethod = class_getInstanceMethod(forClass, originalSelector)
+      let swizzledMethod = class_getInstanceMethod(forClass, swizzledSelector)
+      method_exchangeImplementations(originalMethod, swizzledMethod)
+    }
+    let originalSelector = #selector(add(_:forKey:))
+    let swizzledSelector = #selector(hero_add(anim:forKey:))
+    swizzling(CALayer.self, originalSelector, swizzledSelector)
+    return nil
+  }()
+
+  @objc dynamic func hero_add(anim: CAAnimation, forKey: String?) {
+    CALayer.heroAddedAnimations?.append((self, forKey!, anim))
+    hero_add(anim: anim, forKey: forKey)
+  }
+}
+
 internal class HeroCoreAnimationViewContext: HeroAnimatorViewContext {
 
   var state = [String: (Any?, Any?)]()
   var timingFunction: CAMediaTimingFunction = .standard
+
+  var animations: [(CALayer, String, CAAnimation)] = []
 
   // computed
   var contentLayer: CALayer? {
@@ -34,23 +55,22 @@ internal class HeroCoreAnimationViewContext: HeroAnimatorViewContext {
   var overlayLayer: CALayer?
 
   override class func canAnimate(view: UIView, state: HeroTargetState, appearing: Bool) -> Bool {
-    return !(view is UIVisualEffectView) && (
-              state.position != nil ||
-              state.size != nil ||
-              state.transform != nil ||
-              state.cornerRadius != nil ||
-              state.opacity != nil ||
-              state.overlay != nil ||
-              state.backgroundColor != nil ||
-              state.borderColor != nil ||
-              state.borderWidth != nil ||
-              state.shadowOpacity != nil ||
-              state.shadowRadius != nil ||
-              state.shadowOffset != nil ||
-              state.shadowColor != nil ||
-              state.shadowPath != nil ||
-              state.contentsRect != nil ||
-              state.forceAnimate)
+    return state.position != nil ||
+           state.size != nil ||
+           state.transform != nil ||
+           state.cornerRadius != nil ||
+           state.opacity != nil ||
+           state.overlay != nil ||
+           state.backgroundColor != nil ||
+           state.borderColor != nil ||
+           state.borderWidth != nil ||
+           state.shadowOpacity != nil ||
+           state.shadowRadius != nil ||
+           state.shadowOffset != nil ||
+           state.shadowColor != nil ||
+           state.shadowPath != nil ||
+           state.contentsRect != nil ||
+           state.forceAnimate
   }
 
   func getOverlayLayer() -> CALayer {
@@ -288,9 +308,9 @@ internal class HeroCoreAnimationViewContext: HeroAnimatorViewContext {
   }
 
   func animate(delay: TimeInterval) {
-    snapshot.layer.removeAllAnimations()
-    contentLayer?.removeAllAnimations()
-    overlayLayer?.removeAllAnimations()
+    for (layer, key, _) in animations {
+      layer.removeAnimation(forKey: key)
+    }
 
     if let tf = targetState.timingFunction {
       timingFunction = tf
@@ -300,10 +320,14 @@ internal class HeroCoreAnimationViewContext: HeroAnimatorViewContext {
 
     let beginTime = currentTime + delay
     var finalDuration: TimeInterval = duration
+
+    CALayer.heroAddedAnimations = []
     for (key, (fromValue, toValue)) in state {
       let neededTime = animate(key: key, beginTime: beginTime, fromValue: fromValue, toValue: toValue)
       finalDuration = max(finalDuration, neededTime + delay)
     }
+    animations = CALayer.heroAddedAnimations!
+    CALayer.heroAddedAnimations = nil
 
     duration = finalDuration
   }
@@ -319,19 +343,21 @@ internal class HeroCoreAnimationViewContext: HeroAnimatorViewContext {
   }
 
   override func seek(timePassed: TimeInterval) {
-    seek(layer:snapshot.layer, timePassed:timePassed)
-    if let contentLayer = contentLayer {
-      seek(layer: contentLayer, timePassed:timePassed)
-    }
-    if let overlayLayer = overlayLayer {
-      seek(layer: overlayLayer, timePassed: timePassed)
-    }
-//    for (layer, key, anim) in animations {
-//      anim.speed = 0
-//      anim.timeOffset = (timePassed - targetState.delay).clamp(0, anim.duration - 0.01)
-//      layer.removeAnimation(forKey: key)
-//      layer.add(anim, forKey: key)
+//    seek(layer:snapshot.layer, timePassed:timePassed)
+//    if let contentLayer = contentLayer {
+//      seek(layer: contentLayer, timePassed:timePassed)
 //    }
+//    if let overlayLayer = overlayLayer {
+//      seek(layer: overlayLayer, timePassed: timePassed)
+//    }
+
+    let timeOffset = timePassed - targetState.delay
+    for (layer, key, anim) in animations {
+      anim.speed = 0
+      anim.timeOffset = max(0, min(anim.duration - 0.01, timeOffset))
+      layer.removeAnimation(forKey: key)
+      layer.add(anim, forKey: key)
+    }
   }
 
   override func clean() {
