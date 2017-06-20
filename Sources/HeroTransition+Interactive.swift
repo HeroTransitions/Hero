@@ -29,7 +29,7 @@ extension HeroTransition {
    - progress: the current progress, must be between -1...1
    */
   public func update(_ percentageComplete: CGFloat) {
-    guard isTransitioning else { return }
+    guard state == .animating else { return }
     self.progressRunner.stop()
     self.progress = max(-1, min(1, Double(percentageComplete)))
   }
@@ -40,7 +40,7 @@ extension HeroTransition {
    current state to the **end** state
    */
   public func finish(animate: Bool = true) {
-    guard isTransitioning else { return }
+    guard state == .animating else { return }
     if !animate {
       self.complete(finished:true)
       return
@@ -59,7 +59,7 @@ extension HeroTransition {
    current state to the **begining** state
    */
   public func cancel(animate: Bool = true) {
-    guard isTransitioning else { return }
+    guard state == .animating else { return }
     if !animate {
       self.complete(finished:false)
       return
@@ -89,7 +89,7 @@ extension HeroTransition {
    - view: the view to override to
    */
   public func apply(modifiers: [HeroModifier], to view: UIView) {
-    guard isTransitioning else { return }
+    guard state == .animating else { return }
     let targetState = HeroTargetState(modifiers: modifiers)
     if let otherView = self.context.pairedView(for: view) {
       for animator in self.animators {

@@ -163,7 +163,7 @@ internal class HeroCoreAnimationViewContext: HeroAnimatorViewContext {
         setSize(view: snapshot, newSize: fromSize)
         CATransaction.begin()
         if let (stiffness, damping) = targetState.spring {
-          let fakeDamping = damping / (stiffness / 5)
+          let fakeDamping = damping / (stiffness / 7.5)
           UIView.animate(withDuration: anim.duration, delay: beginTime - currentTime, usingSpringWithDamping: fakeDamping, initialSpringVelocity: 0, options: [.beginFromCurrentState], animations: {
             self.setSize(view: self.snapshot, newSize: toSize)
           }, completion: nil)
