@@ -59,7 +59,7 @@ extension HeroTransition {
     plugins = HeroTransition.enabledPlugins.map({ return $0.init() })
     processors = [
       IgnoreSubviewModifiersPreprocessor(),
-      DefaultAnimationPreprocessor(hero: self),
+      DefaultAnimationPreprocessor(),
       MatchPreprocessor(),
       SourcePreprocessor(),
       CascadePreprocessor(),
@@ -88,10 +88,10 @@ extension HeroTransition {
     context = HeroContext(container:container)
 
     for processor in processors {
-      processor.context = context
+      processor.hero = self
     }
     for animator in animators {
-      animator.context = context
+      animator.hero = self
     }
 
     context.loadViewAlpha(rootView: toView)
@@ -105,7 +105,8 @@ extension HeroTransition {
 
     context.set(fromViews: fromView.flattenedViewHierarchy, toViews: toView.flattenedViewHierarchy)
 
-    if !isPresenting && !inTabBarController {
+    if (viewOrderingStrategy == .auto && !isPresenting && !inTabBarController) ||
+       viewOrderingStrategy == .sourceViewOnTop {
       context.insertToViewFirst = true
     }
 

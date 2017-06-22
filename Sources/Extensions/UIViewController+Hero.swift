@@ -241,7 +241,9 @@ extension UIViewController {
    Replace the current view controller with another VC on the navigation/modal stack.
    */
   public func hero_replaceViewController(with next: UIViewController) {
-    if Hero.shared.isTransitioning {
+    let hero = next.transitioningDelegate as? HeroTransition ?? Hero.shared
+
+    if hero.isTransitioning {
       print("hero_replaceViewController cancelled because Hero was doing a transition. Use Hero.shared.cancel(animated:false) or Hero.shared.end(animated:false) to stop the transition first before calling hero_replaceViewController.")
       return
     }
@@ -252,12 +254,12 @@ extension UIViewController {
         vcs.append(next)
       }
       if navigationController.isHeroEnabled {
-        Hero.shared.forceNotInteractive = true
+        hero.forceNotInteractive = true
       }
       navigationController.setViewControllers(vcs, animated: true)
     } else if let container = view.superview {
       let parentVC = presentingViewController
-      Hero.shared.transition(from: self, to: next, in: container) { finished in
+      hero.transition(from: self, to: next, in: container) { finished in
         if finished {
           next.view.window?.addSubview(next.view)
 

@@ -25,7 +25,10 @@
 import UIKit
 
 class BasePreprocessor: HeroPreprocessor {
-  weak public var context: HeroContext!
+  weak public var hero: HeroTransition!
+  public var context: HeroContext! {
+    return hero?.context
+  }
 
   func process(fromViews: [UIView], toViews: [UIView]) {}
 }

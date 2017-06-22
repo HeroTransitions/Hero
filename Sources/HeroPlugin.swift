@@ -23,7 +23,10 @@
 import UIKit
 
 open class HeroPlugin: NSObject, HeroPreprocessor, HeroAnimator {
-  weak public var context: HeroContext!
+  weak public var hero: HeroTransition!
+  public var context: HeroContext! {
+    return hero.context
+  }
 
   /**
     Determines whether or not to receive `seekTo` callback on every frame.

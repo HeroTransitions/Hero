@@ -34,7 +34,7 @@ internal class HeroAnimatorViewContext {
     return snapshot.layer.convertTime(CACurrentMediaTime(), from: nil)
   }
   var container: UIView? {
-    return animator?.context.container
+    return animator?.hero.context.container
   }
 
   class func canAnimate(view: UIView, state: HeroTargetState, appearing: Bool) -> Bool {

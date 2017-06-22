@@ -46,7 +46,10 @@ internal extension UIView {
 }
 
 internal class HeroDefaultAnimator<ViewContext: HeroAnimatorViewContext>: HeroAnimator {
-  weak public var context: HeroContext!
+  weak public var hero: HeroTransition!
+  public var context: HeroContext! {
+    return hero?.context
+  }
   var viewContexts: [UIView: ViewContext] = [:]
 
   public func seekTo(timePassed: TimeInterval) {

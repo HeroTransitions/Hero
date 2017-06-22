@@ -32,16 +32,16 @@ public class HeroDebugPlugin: HeroPlugin {
   var updating = false
 
   override public func animate(fromViews: [UIView], toViews: [UIView]) -> TimeInterval {
-    if Hero.shared.forceNotInteractive { return 0 }
+    if hero.forceNotInteractive { return 0 }
     var hasArc = false
     for v in context.fromViews + context.toViews where context[v]?.arc != nil && context[v]?.position != nil {
       hasArc = true
       break
     }
-    let debugView = HeroDebugView(initialProcess: Hero.shared.isPresenting ? 0.0 : 1.0, showCurveButton:hasArc, showOnTop:HeroDebugPlugin.showOnTop)
-    debugView.frame = Hero.shared.container.bounds
+    let debugView = HeroDebugView(initialProcess: hero.isPresenting ? 0.0 : 1.0, showCurveButton:hasArc, showOnTop:HeroDebugPlugin.showOnTop)
+    debugView.frame = hero.container.bounds
     debugView.delegate = self
-    UIApplication.shared.keyWindow!.addSubview(debugView)
+    hero.container.window?.addSubview(debugView)
 
     debugView.layoutSubviews()
     self.debugView = debugView
@@ -75,17 +75,17 @@ public class HeroDebugPlugin: HeroPlugin {
 extension HeroDebugPlugin:HeroDebugViewDelegate {
   public func onDone() {
     guard let debugView = debugView else { return }
-    let seekValue = Hero.shared.isPresenting ? debugView.progress : 1.0 - debugView.progress
+    let seekValue = hero.isPresenting ? debugView.progress : 1.0 - debugView.progress
     if seekValue > 0.5 {
-      Hero.shared.finish()
+      hero.finish()
     } else {
-      Hero.shared.cancel()
+      hero.cancel()
     }
   }
 
   public func onProcessSliderChanged(progress: Float) {
-    let seekValue = Hero.shared.isPresenting ? progress : 1.0 - progress
-    Hero.shared.update(CGFloat(seekValue))
+    let seekValue = hero.isPresenting ? progress : 1.0 - progress
+    hero.update(CGFloat(seekValue))
   }
 
   func onPerspectiveChanged(translation: CGPoint, rotation: CGFloat, scale: CGFloat) {
@@ -94,7 +94,7 @@ extension HeroDebugPlugin:HeroDebugViewDelegate {
     t = CATransform3DTranslate(t, translation.x, translation.y, 0)
     t = CATransform3DScale(t, scale, scale, 1)
     t = CATransform3DRotate(t, rotation, 0, 1, 0)
-    Hero.shared.container.layer.sublayerTransform = t
+    hero.container.layer.sublayerTransform = t
   }
 
   func animateZPosition(view: UIView, to: CGFloat) {
@@ -113,7 +113,7 @@ extension HeroDebugPlugin:HeroDebugViewDelegate {
       addedLayers.removeAll()
     }
     if wantsCurve {
-      for layer in Hero.shared.container.layer.sublayers! {
+      for layer in hero.container.layer.sublayers! {
         for (_, anim) in layer.animations {
           if let keyframeAnim = anim as? CAKeyframeAnimation, let path = keyframeAnim.path {
             let s = CAShapeLayer()
@@ -121,7 +121,7 @@ extension HeroDebugPlugin:HeroDebugViewDelegate {
             s.path = path
             s.strokeColor = UIColor.blue.cgColor
             s.fillColor = UIColor.clear.cgColor
-            Hero.shared.container.layer.addSublayer(s)
+            hero.container.layer.addSublayer(s)
             addedLayers.append(s)
           }
         }
@@ -133,12 +133,12 @@ extension HeroDebugPlugin:HeroDebugViewDelegate {
     var t = CATransform3DIdentity
     if wants3D {
       var viewsWithZPosition = Set<UIView>()
-      for view in Hero.shared.container.subviews where view.layer.zPosition != 0 {
+      for view in hero.container.subviews where view.layer.zPosition != 0 {
         viewsWithZPosition.insert(view)
         zPositionMap[view] = view.layer.zPosition
       }
 
-      let viewsWithoutZPosition = Hero.shared.container.subviews.filter { return !viewsWithZPosition.contains($0) }
+      let viewsWithoutZPosition = hero.container.subviews.filter { return !viewsWithZPosition.contains($0) }
       let viewsWithPositiveZPosition = viewsWithZPosition.filter { return $0.layer.zPosition > 0 }
 
       for (i, v) in viewsWithoutZPosition.enumerated() {
@@ -156,14 +156,14 @@ extension HeroDebugPlugin:HeroDebugViewDelegate {
       t = CATransform3DScale(t, debugView!.scale, debugView!.scale, 1)
       t = CATransform3DRotate(t, debugView!.rotation, 0, 1, 0)
     } else {
-      for v in Hero.shared.container.subviews {
+      for v in hero.container.subviews {
         animateZPosition(view:v, to:self.zPositionMap[v] ?? 0)
       }
       self.zPositionMap.removeAll()
     }
 
     let a = CABasicAnimation(keyPath: "sublayerTransform")
-    a.fromValue = Hero.shared.container.layer.value(forKeyPath: "sublayerTransform")
+    a.fromValue = hero.container.layer.value(forKeyPath: "sublayerTransform")
     a.toValue = NSValue(caTransform3D: t)
     a.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
     a.duration = 0.4
@@ -172,8 +172,8 @@ extension HeroDebugPlugin:HeroDebugViewDelegate {
       self.context.container.backgroundColor = UIColor(white: 0.85, alpha: 1.0)
     }
 
-    Hero.shared.container.layer.add(a, forKey: "debug")
-    Hero.shared.container.layer.sublayerTransform = t
+    hero.container.layer.add(a, forKey: "debug")
+    hero.container.layer.sublayerTransform = t
   }
 }
 #endif

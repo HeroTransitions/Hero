@@ -55,8 +55,6 @@ public enum HeroDefaultAnimationType {
   }
 
   case none
-  case noneForceFromViewBack
-  case noneForceToViewBack
 
   func reversed() -> HeroDefaultAnimationType {
     switch self {
@@ -206,13 +204,6 @@ extension HeroDefaultAnimationType: HeroStringConvertible {
 }
 
 class DefaultAnimationPreprocessor: BasePreprocessor {
-
-  weak var hero: HeroTransition?
-
-  init(hero: HeroTransition) {
-    self.hero = hero
-  }
-
   func shift(direction: HeroDefaultAnimationType.Direction, appearing: Bool, size: CGSize? = nil, transpose: Bool = false) -> CGPoint {
     let size = size ?? context.container.bounds.size
     let rtn: CGPoint
@@ -353,10 +344,6 @@ class DefaultAnimationPreprocessor: BasePreprocessor {
     case .zoomOut:
       context[toView]!.append(contentsOf: [.scale(1.3), .fade])
       context[fromView]!.append(contentsOf: [.scale(0.7)])
-    case .noneForceFromViewBack:
-      context.insertToViewFirst = false
-    case .noneForceToViewBack:
-      context.insertToViewFirst = true
     default:
       fatalError("Not implemented")
     }

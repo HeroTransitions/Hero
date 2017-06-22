@@ -102,7 +102,7 @@ internal class HeroCoreAnimationViewContext: HeroAnimatorViewContext {
     return (snapshot.layer.presentation() ?? snapshot.layer).value(forKeyPath: key)
   }
 
-  func getAnimation(key: String, beginTime: TimeInterval, fromValue: Any?, toValue: Any?, ignoreArc: Bool = false) -> CAPropertyAnimation {
+  func getAnimation(key: String, beginTime: TimeInterval, duration: TimeInterval, fromValue: Any?, toValue: Any?, ignoreArc: Bool = false) -> CAPropertyAnimation {
     let key = overlayKeyFor(key: key) ?? key
     let anim: CAPropertyAnimation
 
@@ -165,8 +165,8 @@ internal class HeroCoreAnimationViewContext: HeroAnimatorViewContext {
   }
 
   // return the completion duration of the animation (duration + initial delay, not counting the beginTime)
-  func animate(key: String, beginTime: TimeInterval, fromValue: Any?, toValue: Any?) -> TimeInterval {
-    let anim = getAnimation(key: key, beginTime:beginTime, fromValue: fromValue, toValue: toValue)
+  func animate(key: String, beginTime: TimeInterval, duration: TimeInterval, fromValue: Any?, toValue: Any?) -> TimeInterval {
+    let anim = getAnimation(key: key, beginTime: beginTime, duration: duration, fromValue: fromValue, toValue: toValue)
 
     if let overlayKey = overlayKeyFor(key:key) {
       getOverlayLayer().add(anim, forKey: overlayKey)
@@ -289,7 +289,7 @@ internal class HeroCoreAnimationViewContext: HeroAnimatorViewContext {
         let current = currentValue(key: key)
         self.state[key] = (current, current)
       }
-      _ = animate(key: key, beginTime: 0, fromValue: targetValue, toValue: targetValue)
+      _ = animate(key: key, beginTime: 0, duration: 100, fromValue: targetValue, toValue: targetValue)
     }
   }
 
@@ -300,14 +300,24 @@ internal class HeroCoreAnimationViewContext: HeroAnimatorViewContext {
       state[key] = (realFromValue, realToValue)
     }
 
-    // we need to update the duration to reflect current state
-    targetState.duration = reverse ? timePassed - targetState.delay : duration - timePassed
-
-    let realDelay = max(0, targetState.delay - timePassed)
-    animate(delay: realDelay)
+    if reverse {
+      if timePassed > targetState.delay + targetState.duration! {
+        let backDelay = timePassed - (targetState.delay + targetState.duration!)
+        animate(beginTime: currentTime + backDelay, duration: targetState.duration!)
+      } else if timePassed > targetState.delay {
+        animate(beginTime: currentTime, duration: targetState.duration! - (timePassed - targetState.delay))
+      }
+    } else {
+      if timePassed <= targetState.delay {
+        animate(beginTime: currentTime + targetState.delay - timePassed, duration: targetState.duration!)
+      } else if timePassed <= targetState.delay + targetState.duration! {
+        let timePassedDelay = timePassed - targetState.delay
+        animate(beginTime: currentTime, duration: duration - timePassedDelay)
+      }
+    }
   }
 
-  func animate(delay: TimeInterval) {
+  func animate(beginTime: TimeInterval, duration: TimeInterval) {
     for (layer, key, _) in animations {
       layer.removeAnimation(forKey: key)
     }
@@ -316,20 +326,17 @@ internal class HeroCoreAnimationViewContext: HeroAnimatorViewContext {
       timingFunction = tf
     }
 
-    duration = targetState.duration!
-
-    let beginTime = currentTime + delay
-    var finalDuration: TimeInterval = duration
+    var timeUntilStop: TimeInterval = duration
 
     CALayer.heroAddedAnimations = []
     for (key, (fromValue, toValue)) in state {
-      let neededTime = animate(key: key, beginTime: beginTime, fromValue: fromValue, toValue: toValue)
-      finalDuration = max(finalDuration, neededTime + delay)
+      let neededTime = animate(key: key, beginTime: beginTime, duration: duration, fromValue: fromValue, toValue: toValue)
+      timeUntilStop = max(timeUntilStop, neededTime)
     }
     animations = CALayer.heroAddedAnimations!
     CALayer.heroAddedAnimations = nil
 
-    duration = finalDuration
+    self.duration = timeUntilStop + beginTime - currentTime
   }
 
   func seek(layer: CALayer, timePassed: TimeInterval) {
@@ -343,14 +350,6 @@ internal class HeroCoreAnimationViewContext: HeroAnimatorViewContext {
   }
 
   override func seek(timePassed: TimeInterval) {
-//    seek(layer:snapshot.layer, timePassed:timePassed)
-//    if let contentLayer = contentLayer {
-//      seek(layer: contentLayer, timePassed:timePassed)
-//    }
-//    if let overlayLayer = overlayLayer {
-//      seek(layer: overlayLayer, timePassed: timePassed)
-//    }
-
     let timeOffset = timePassed - targetState.delay
     for (layer, key, anim) in animations {
       anim.speed = 0
@@ -388,6 +387,6 @@ internal class HeroCoreAnimationViewContext: HeroAnimatorViewContext {
       state[key] = (fromValue, toValue)
     }
 
-    animate(delay: targetState.delay)
+    animate(beginTime: currentTime + targetState.delay, duration: targetState.duration!)
   }
 }
