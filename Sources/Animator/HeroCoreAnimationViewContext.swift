@@ -128,7 +128,7 @@ internal class HeroCoreAnimationViewContext: HeroAnimatorViewContext {
       let sanim = CASpringAnimation(keyPath: key)
       sanim.stiffness = stiffness
       sanim.damping = damping
-      sanim.duration = sanim.settlingDuration * 0.9
+      sanim.duration = sanim.settlingDuration
       sanim.fromValue = fromValue
       sanim.toValue = toValue
       anim = sanim

@@ -295,7 +295,7 @@ extension HeroContext {
         view.isHidden = true
         viewAlphas[view] = 1
       } else {
-        viewAlphas[view] = view.isOpaque ? .infinity : view.alpha
+        viewAlphas[view] = view.alpha
         view.alpha = 0
       }
     }
@@ -304,9 +304,6 @@ extension HeroContext {
     if let oldAlpha = viewAlphas[view] {
       if view is UIVisualEffectView {
         view.isHidden = false
-      } else if oldAlpha == .infinity {
-        view.alpha = 1
-        view.isOpaque = true
       } else {
         view.alpha = oldAlpha
       }
