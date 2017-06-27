@@ -23,11 +23,11 @@
 import UIKit
 
 internal class HeroAnimatorViewContext {
-  var animator: HeroAnimator?
-  var snapshot: UIView
-  var duration: TimeInterval = 0
-
+  weak var animator: HeroAnimator?
+  let snapshot: UIView
+  let appearing: Bool
   var targetState: HeroTargetState
+  var duration: TimeInterval = 0
 
   // computed
   var currentTime: TimeInterval {
@@ -54,12 +54,13 @@ internal class HeroAnimatorViewContext {
     animator = nil
   }
 
-  func startAnimations(appearing: Bool) {
+  func startAnimations() {
   }
 
-  required init(animator: HeroAnimator, snapshot: UIView, targetState: HeroTargetState) {
+  required init(animator: HeroAnimator, snapshot: UIView, targetState: HeroTargetState, appearing: Bool) {
     self.animator = animator
     self.snapshot = snapshot
     self.targetState = targetState
+    self.appearing = appearing
   }
 }

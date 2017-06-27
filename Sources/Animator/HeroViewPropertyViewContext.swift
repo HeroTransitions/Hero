@@ -54,13 +54,12 @@ internal class HeroViewPropertyViewContext: HeroAnimatorViewContext {
     viewPropertyAnimator = nil
   }
 
-  override func startAnimations(appearing: Bool) {
+  override func startAnimations() {
     guard let visualEffectView = snapshot as? UIVisualEffectView else { return }
     let appearedEffect = visualEffectView.effect
     let disappearedEffect = targetState.opacity == 0 ? nil : visualEffectView.effect
     startEffect = appearing ? disappearedEffect : appearedEffect
     endEffect = appearing ? appearedEffect : disappearedEffect
-    duration = targetState.duration!
     visualEffectView.effect = startEffect
     viewPropertyAnimator = UIViewPropertyAnimator(duration: duration, curve: .linear) {
       visualEffectView.effect = self.endEffect

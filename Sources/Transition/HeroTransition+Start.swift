@@ -63,7 +63,7 @@ extension HeroTransition {
       MatchPreprocessor(),
       SourcePreprocessor(),
       CascadePreprocessor(),
-      DurationPreprocessor()
+//      DurationPreprocessor()
     ]
     animators = [
       HeroDefaultAnimator<HeroCoreAnimationViewContext>()

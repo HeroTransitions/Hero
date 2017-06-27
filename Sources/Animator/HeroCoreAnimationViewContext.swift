@@ -303,16 +303,16 @@ internal class HeroCoreAnimationViewContext: HeroAnimatorViewContext {
     }
 
     if reverse {
-      if timePassed > targetState.delay + targetState.duration! {
-        let backDelay = timePassed - (targetState.delay + targetState.duration!)
-        animate(beginTime: currentTime + backDelay, duration: targetState.duration!)
+      if timePassed > targetState.delay + duration {
+        let backDelay = timePassed - (targetState.delay + duration)
+        animate(beginTime: currentTime + backDelay, duration: duration)
       } else if timePassed > targetState.delay {
-        animate(beginTime: currentTime, duration: targetState.duration! - (timePassed - targetState.delay))
+        animate(beginTime: currentTime, duration: duration - (timePassed - targetState.delay))
       }
     } else {
       if timePassed <= targetState.delay {
-        animate(beginTime: currentTime + targetState.delay - timePassed, duration: targetState.duration!)
-      } else if timePassed <= targetState.delay + targetState.duration! {
+        animate(beginTime: currentTime + targetState.delay - timePassed, duration: duration)
+      } else if timePassed <= targetState.delay + duration {
         let timePassedDelay = timePassed - targetState.delay
         animate(beginTime: currentTime, duration: duration - timePassedDelay)
       }
@@ -366,7 +366,7 @@ internal class HeroCoreAnimationViewContext: HeroAnimatorViewContext {
     overlayLayer = nil
   }
 
-  override func startAnimations(appearing: Bool) {
+  override func startAnimations() {
     if let beginStateModifiers = targetState.beginState {
       let beginState = HeroTargetState(modifiers: beginStateModifiers)
       let appeared = viewState(targetState: beginState)
@@ -389,6 +389,6 @@ internal class HeroCoreAnimationViewContext: HeroAnimatorViewContext {
       state[key] = (fromValue, toValue)
     }
 
-    animate(beginTime: currentTime + targetState.delay, duration: targetState.duration!)
+    animate(beginTime: currentTime + targetState.delay, duration: duration)
   }
 }

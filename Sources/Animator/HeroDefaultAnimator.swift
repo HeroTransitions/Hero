@@ -23,9 +23,9 @@
 import UIKit
 
 internal extension UIView {
-  func optimizedDuration(fromPosition: CGPoint, toPosition: CGPoint?, size: CGSize?, transform: CATransform3D?) -> TimeInterval {
-    let fromPos = fromPosition
-    let toPos = toPosition ?? fromPos
+  func optimizedDurationTo(position: CGPoint?, size: CGSize?, transform: CATransform3D?) -> TimeInterval {
+    let fromPos = (layer.presentation() ?? layer).position
+    let toPos = position ?? fromPos
     let fromSize = (layer.presentation() ?? layer).bounds.size
     let toSize = size ?? fromSize
     let fromTransform = (layer.presentation() ?? layer).transform
@@ -79,23 +79,47 @@ internal class HeroDefaultAnimator<ViewContext: HeroAnimatorViewContext>: HeroAn
   }
 
   public func animate(fromViews: [UIView], toViews: [UIView]) -> TimeInterval {
-    var duration: TimeInterval = 0
+    var maxDuration: TimeInterval = 0
 
-    for v in fromViews { animate(view: v, appearing: false) }
-    for v in toViews { animate(view: v, appearing: true) }
+    for v in fromViews { createViewContext(view: v, appearing: false) }
+    for v in toViews { createViewContext(view: v, appearing: true) }
 
     for viewContext in viewContexts.values {
-      duration = max(duration, viewContext.duration)
+      if let duration = viewContext.targetState.duration, duration != .infinity {
+        viewContext.duration = duration
+        maxDuration = max(maxDuration, duration)
+      } else {
+        let duration = calculateOptimizedDuration(snapshot: viewContext.snapshot, targetState: viewContext.targetState)
+        if viewContext.targetState.duration == nil {
+          viewContext.duration = duration
+        }
+        maxDuration = max(maxDuration, duration)
+      }
+    }
+    for viewContext in viewContexts.values {
+      if viewContext.targetState.duration == .infinity {
+        viewContext.duration = maxDuration
+      }
+      viewContext.startAnimations()
     }
 
-    return duration
+    for viewContext in viewContexts.values {
+      maxDuration = max(maxDuration, viewContext.duration)
+    }
+
+    return maxDuration
   }
 
-  func animate(view: UIView, appearing: Bool) {
+  func calculateOptimizedDuration(snapshot: UIView, targetState: HeroTargetState) -> TimeInterval {
+    return snapshot.optimizedDurationTo(position: targetState.position,
+                                        size: targetState.size,
+                                        transform: targetState.transform)
+  }
+
+  func createViewContext(view: UIView, appearing: Bool) {
     let snapshot = context.snapshotView(for: view)
-    let viewContext = ViewContext(animator:self, snapshot: snapshot, targetState: context[view]!)
+    let viewContext = ViewContext(animator:self, snapshot: snapshot, targetState: context[view]!, appearing: appearing)
     viewContexts[view] = viewContext
-    viewContext.startAnimations(appearing: appearing)
   }
 
   public func clean() {
