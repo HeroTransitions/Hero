@@ -24,7 +24,10 @@ import UIKit
 
 extension HeroTransition: UITabBarControllerDelegate {
   public func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
-    return !isTransitioning
+    if isTransitioning {
+      cancel(animate: false)
+    }
+    return true
   }
 
   public func tabBarController(_ tabBarController: UITabBarController, interactionControllerFor animationController: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
