@@ -165,16 +165,39 @@ internal class HeroCoreAnimationViewContext: HeroAnimatorViewContext {
   }
 
   func uiViewBasedAnimate(duration: TimeInterval, delay: TimeInterval, _ animations: @escaping () -> Void) {
-    CATransaction.begin()
+    CALayer.heroAddedAnimations = []
+
     if let (stiffness, damping) = targetState.spring {
-      let fakeDamping = damping / (stiffness / 7.5)
-      UIView.animate(withDuration: duration, delay: delay, usingSpringWithDamping: fakeDamping, initialSpringVelocity: 0, options: [.beginFromCurrentState], animations: animations, completion: nil)
+      UIView.animate(withDuration: duration, delay: delay, usingSpringWithDamping: 1, initialSpringVelocity: 0, options: [.layoutSubviews], animations: animations, completion: nil)
+
+      let addedAnimations = CALayer.heroAddedAnimations!
+      CALayer.heroAddedAnimations = nil
+
+      for (layer, key, anim) in addedAnimations {
+        if #available(iOS 9.0, *), let anim = anim as? CASpringAnimation {
+          anim.stiffness = stiffness
+          anim.damping = damping
+          self.addAnimation(anim, for: key, to: layer)
+        } else {
+          self.animations.append((layer, key, anim))
+        }
+      }
     } else {
-      CATransaction.setAnimationDuration(duration)
-      CATransaction.setAnimationTimingFunction(timingFunction)
-      UIView.animate(withDuration: duration, delay: delay, options: [.beginFromCurrentState], animations: animations, completion: nil)
+      UIView.animate(withDuration: duration, delay: delay, options: [.layoutSubviews], animations: animations, completion: nil)
+
+      let addedAnimations = CALayer.heroAddedAnimations!
+      CALayer.heroAddedAnimations = nil
+
+      for (layer, key, anim) in addedAnimations {
+        anim.timingFunction = timingFunction
+        self.addAnimation(anim, for: key, to: layer)
+      }
     }
-    CATransaction.commit()
+  }
+
+  func addAnimation(_ animation: CAAnimation, for key: String, to layer: CALayer) {
+    animations.append((layer, key, animation))
+    layer.add(animation, forKey: key)
   }
 
   // return the completion duration of the animation (duration + initial delay, not counting the beginTime)
@@ -182,13 +205,17 @@ internal class HeroCoreAnimationViewContext: HeroAnimatorViewContext {
     let anim = getAnimation(key: key, beginTime: beginTime, duration: duration, fromValue: fromValue, toValue: toValue)
 
     if let overlayKey = overlayKeyFor(key:key) {
-      getOverlayLayer().add(anim, forKey: overlayKey)
+      addAnimation(anim, for: overlayKey, to: getOverlayLayer())
     } else {
       switch key {
       case "cornerRadius", "contentsRect", "contentsScale":
-        snapshot.layer.add(anim, forKey: key)
-        contentLayer?.add(anim, forKey: key)
-        overlayLayer?.add(anim, forKey: key)
+        addAnimation(anim, for: key, to: snapshot.layer)
+        if let contentLayer = contentLayer {
+          addAnimation(anim.copy() as! CAAnimation, for: key, to: contentLayer)
+        }
+        if let overlayLayer = overlayLayer {
+          addAnimation(anim.copy() as! CAAnimation, for: key, to: overlayLayer)
+        }
       case "bounds.size":
         let fromSize = (fromValue as? NSValue)!.cgSizeValue
         let toSize = (toValue as? NSValue)!.cgSizeValue
@@ -198,7 +225,7 @@ internal class HeroCoreAnimationViewContext: HeroAnimatorViewContext {
           self.setSize(view: self.snapshot, newSize: toSize)
         }
       default:
-        snapshot.layer.add(anim, forKey: key)
+        addAnimation(anim, for: key, to: snapshot.layer)
       }
     }
 
@@ -330,13 +357,11 @@ internal class HeroCoreAnimationViewContext: HeroAnimatorViewContext {
 
     var timeUntilStop: TimeInterval = duration
 
-    CALayer.heroAddedAnimations = []
+    animations = []
     for (key, (fromValue, toValue)) in state {
       let neededTime = animate(key: key, beginTime: beginTime, duration: duration, fromValue: fromValue, toValue: toValue)
       timeUntilStop = max(timeUntilStop, neededTime)
     }
-    animations = CALayer.heroAddedAnimations!
-    CALayer.heroAddedAnimations = nil
 
     self.duration = timeUntilStop + beginTime - currentTime
   }
