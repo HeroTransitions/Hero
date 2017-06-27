@@ -583,7 +583,8 @@ extension HeroModifier {
   }
 
   /**
-   Force the view to animate (Hero will create animation context & snapshots for them, so that they can be interact)
+   Force the view to animate (Hero will create animation context & snapshots for them,
+   so they can be interact with)
    */
   public static var forceAnimate = HeroModifier { targetState in
     targetState.forceAnimate = true
