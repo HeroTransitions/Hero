@@ -164,6 +164,19 @@ internal class HeroCoreAnimationViewContext: HeroAnimatorViewContext {
     }
   }
 
+  func uiViewBasedAnimate(duration: TimeInterval, delay: TimeInterval, _ animations: @escaping () -> Void) {
+    CATransaction.begin()
+    if let (stiffness, damping) = targetState.spring {
+      let fakeDamping = damping / (stiffness / 7.5)
+      UIView.animate(withDuration: duration, delay: delay, usingSpringWithDamping: fakeDamping, initialSpringVelocity: 0, options: [.beginFromCurrentState], animations: animations, completion: nil)
+    } else {
+      CATransaction.setAnimationDuration(duration)
+      CATransaction.setAnimationTimingFunction(timingFunction)
+      UIView.animate(withDuration: duration, delay: delay, options: [.beginFromCurrentState], animations: animations, completion: nil)
+    }
+    CATransaction.commit()
+  }
+
   // return the completion duration of the animation (duration + initial delay, not counting the beginTime)
   func animate(key: String, beginTime: TimeInterval, duration: TimeInterval, fromValue: Any?, toValue: Any?) -> TimeInterval {
     let anim = getAnimation(key: key, beginTime: beginTime, duration: duration, fromValue: fromValue, toValue: toValue)
@@ -181,20 +194,9 @@ internal class HeroCoreAnimationViewContext: HeroAnimatorViewContext {
         let toSize = (toValue as? NSValue)!.cgSizeValue
 
         setSize(view: snapshot, newSize: fromSize)
-        CATransaction.begin()
-        if let (stiffness, damping) = targetState.spring {
-          let fakeDamping = damping / (stiffness / 7.5)
-          UIView.animate(withDuration: anim.duration, delay: beginTime - currentTime, usingSpringWithDamping: fakeDamping, initialSpringVelocity: 0, options: [.beginFromCurrentState], animations: {
-            self.setSize(view: self.snapshot, newSize: toSize)
-          }, completion: nil)
-        } else {
-          CATransaction.setAnimationDuration(anim.duration)
-          CATransaction.setAnimationTimingFunction(timingFunction)
-          UIView.animate(withDuration: anim.duration, delay: beginTime - currentTime, options: [.beginFromCurrentState], animations: {
-            self.setSize(view: self.snapshot, newSize: toSize)
-          }, completion: nil)
+        uiViewBasedAnimate(duration: anim.duration, delay: beginTime - currentTime) {
+          self.setSize(view: self.snapshot, newSize: toSize)
         }
-        CATransaction.commit()
       default:
         snapshot.layer.add(anim, forKey: key)
       }
