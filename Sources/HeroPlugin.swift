@@ -23,7 +23,9 @@
 import UIKit
 
 open class HeroPlugin: NSObject, HeroPreprocessor, HeroAnimator {
+
   weak public var hero: HeroTransition!
+
   public var context: HeroContext! {
     return hero.context
   }

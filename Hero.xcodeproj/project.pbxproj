@@ -263,7 +263,7 @@
 		B16A219F1E4E3907007B8B4C /* AnimationSelectTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimationSelectTableViewController.swift; sourceTree = "<group>"; };
 		B16B75301EF45A110018DBEF /* HeroTransitionState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroTransitionState.swift; sourceTree = "<group>"; };
 		B16B75331EF461090018DBEF /* HeroProgressRunner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroProgressRunner.swift; sourceTree = "<group>"; };
-		B16ECD021E4FC0B300EAE0E0 /* DefaultAnimationPreprocessor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DefaultAnimationPreprocessor.swift; path = ../DefaultAnimationPreprocessor.swift; sourceTree = "<group>"; };
+		B16ECD021E4FC0B300EAE0E0 /* DefaultAnimationPreprocessor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultAnimationPreprocessor.swift; sourceTree = "<group>"; };
 		B17D88851EF5A51C0048D3E8 /* HeroTransition+UITabBarControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HeroTransition+UITabBarControllerDelegate.swift"; sourceTree = "<group>"; };
 		B17D88881EF5A5330048D3E8 /* HeroTransition+UINavigationControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HeroTransition+UINavigationControllerDelegate.swift"; sourceTree = "<group>"; };
 		B17D888B1EF5A5500048D3E8 /* HeroTransition+UIViewControllerTransitioningDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HeroTransition+UIViewControllerTransitioningDelegate.swift"; sourceTree = "<group>"; };
@@ -361,11 +361,11 @@
 			children = (
 				A3298CD91E304851005B06BB /* BasePreprocessor.swift */,
 				A37D7B3D1E2C0C7E00AC1959 /* CascadePreprocessor.swift */,
+				B16ECD021E4FC0B300EAE0E0 /* DefaultAnimationPreprocessor.swift */,
+				B1461D3A1E7ADF84006AD3F2 /* DurationPreprocessor.swift */,
 				A37D7B3E1E2C0C7E00AC1959 /* IgnoreSubviewModifiersPreprocessor.swift */,
 				A37D7B3F1E2C0C7E00AC1959 /* MatchPreprocessor.swift */,
 				A37D7B401E2C0C7E00AC1959 /* SourcePreprocessor.swift */,
-				B16ECD021E4FC0B300EAE0E0 /* DefaultAnimationPreprocessor.swift */,
-				B1461D3A1E7ADF84006AD3F2 /* DurationPreprocessor.swift */,
 			);
 			path = Preprocessors;
 			sourceTree = "<group>";
@@ -382,9 +382,9 @@
 		29FF2D9F1E21ADB300EA4E65 /* Animator */ = {
 			isa = PBXGroup;
 			children = (
-				A37D7B531E2C0CBD00AC1959 /* HeroDefaultAnimator.swift */,
 				B1193AB81E525D12005B1C87 /* HeroAnimatorViewContext.swift */,
 				A37D7B541E2C0CBD00AC1959 /* HeroCoreAnimationViewContext.swift */,
+				A37D7B531E2C0CBD00AC1959 /* HeroDefaultAnimator.swift */,
 				B1193AB51E525CD8005B1C87 /* HeroViewPropertyViewContext.swift */,
 			);
 			path = Animator;
@@ -418,20 +418,20 @@
 		A306D3B31E1C7A2E00B6C23A /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				B11769D81EF8626C00A1373A /* Transition */,
 				29FF2D9F1E21ADB300EA4E65 /* Animator */,
 				29FF2D9E1E21AD9E00EA4E65 /* Debug Plugin */,
 				29FF2D9C1E21ACF400EA4E65 /* Extensions */,
 				AFA306D21E6B447200CAF719 /* Parser */,
 				29FF2D9D1E21AD8900EA4E65 /* Preprocessors */,
+				B11769D81EF8626C00A1373A /* Transition */,
 				A306D3B41E1C7A2E00B6C23A /* Hero.h */,
-				B1D816DE1EF5A5DF007B9776 /* HeroViewControllerDelegate.swift */,
 				A37D7B521E2C0CBD00AC1959 /* HeroContext.swift */,
 				A32D2D121E501C4F008D35FF /* HeroModifier+HeroStringConvertible.swift */,
 				A37D7B551E2C0CBD00AC1959 /* HeroModifier.swift */,
 				A37D7B561E2C0CBD00AC1959 /* HeroPlugin.swift */,
 				A37D7B571E2C0CBD00AC1959 /* HeroTargetState.swift */,
 				A37D7B581E2C0CBD00AC1959 /* HeroTypes.swift */,
+				B1D816DE1EF5A5DF007B9776 /* HeroViewControllerDelegate.swift */,
 				A306D3B51E1C7A2E00B6C23A /* Info.plist */,
 			);
 			path = Sources;
@@ -460,11 +460,11 @@
 			children = (
 				A306D3B31E1C7A2E00B6C23A /* Sources */,
 				A33E60A31DE761C90065CBD8 /* Examples */,
-				2D1F7FE31E49DD90004D944B /* TvOSExamples */,
-				AF1E1B521E66822C00ECE039 /* Tests */,
 				0ED3C727BC790F37EE7BD698 /* Frameworks */,
 				46383DC6A22A87056E5B40EC /* Pods */,
 				A33E60A21DE761C90065CBD8 /* Products */,
+				AF1E1B521E66822C00ECE039 /* Tests */,
+				2D1F7FE31E49DD90004D944B /* TvOSExamples */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -581,19 +581,19 @@
 		B11769D81EF8626C00A1373A /* Transition */ = {
 			isa = PBXGroup;
 			children = (
-				A37D7B511E2C0CBD00AC1959 /* HeroTransition.swift */,
-				B16B75301EF45A110018DBEF /* HeroTransitionState.swift */,
 				B16B75331EF461090018DBEF /* HeroProgressRunner.swift */,
-				B1D816E41EF5A6AE007B9776 /* HeroTransition+Start.swift */,
 				B1D816EA1EF5A720007B9776 /* HeroTransition+Animate.swift */,
 				B1D816E71EF5A6FE007B9776 /* HeroTransition+Complete.swift */,
-				B17D888B1EF5A5500048D3E8 /* HeroTransition+UIViewControllerTransitioningDelegate.swift */,
-				B17D88881EF5A5330048D3E8 /* HeroTransition+UINavigationControllerDelegate.swift */,
-				B17D88851EF5A51C0048D3E8 /* HeroTransition+UITabBarControllerDelegate.swift */,
 				B1D816E11EF5A630007B9776 /* HeroTransition+CustomTransition.swift */,
 				B16197DF1EF451C400A540D2 /* HeroTransition+Interactive.swift */,
+				B1D816E41EF5A6AE007B9776 /* HeroTransition+Start.swift */,
+				B17D88881EF5A5330048D3E8 /* HeroTransition+UINavigationControllerDelegate.swift */,
+				B17D88851EF5A51C0048D3E8 /* HeroTransition+UITabBarControllerDelegate.swift */,
+				B17D888B1EF5A5500048D3E8 /* HeroTransition+UIViewControllerTransitioningDelegate.swift */,
+				A37D7B511E2C0CBD00AC1959 /* HeroTransition.swift */,
+				B16B75301EF45A110018DBEF /* HeroTransitionState.swift */,
 			);
-			name = Transition;
+			path = Transition;
 			sourceTree = "<group>";
 		};
 		B185A4E91DFA6FE700C3B85D /* ListToGrid */ = {
