@@ -59,11 +59,11 @@ extension HeroTransition {
     plugins = HeroTransition.enabledPlugins.map({ return $0.init() })
     processors = [
       IgnoreSubviewModifiersPreprocessor(),
+      ConditionalPreprocessor(),
       DefaultAnimationPreprocessor(),
       MatchPreprocessor(),
       SourcePreprocessor(),
-      CascadePreprocessor(),
-//      DurationPreprocessor()
+      CascadePreprocessor()
     ]
     animators = [
       HeroDefaultAnimator<HeroCoreAnimationViewContext>()

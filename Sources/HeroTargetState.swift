@@ -48,8 +48,7 @@ public enum HeroCoordinateSpace {
 
 public struct HeroTargetState {
   public var beginState: [HeroModifier]?
-  public var beginStateIfMatched: [HeroModifier]?
-  public var ifMatched: [HeroModifier]?
+  public var conditionalModifiers: [((HeroConditionalContext) -> Bool, [HeroModifier])]?
 
   public var position: CGPoint?
   public var size: CGSize?

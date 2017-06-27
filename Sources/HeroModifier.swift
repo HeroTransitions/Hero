@@ -470,6 +470,45 @@ extension HeroModifier {
   }
 }
 
+// conditional modifiers
+extension HeroModifier {
+  /**
+   Apply modifiers only if the condition return true.
+   */
+  public static func when(_ condition: @escaping (HeroConditionalContext) -> Bool, _ modifiers: [HeroModifier]) -> HeroModifier {
+    return HeroModifier { targetState in
+      if targetState.conditionalModifiers == nil {
+        targetState.conditionalModifiers = []
+      }
+      targetState.conditionalModifiers!.append((condition, modifiers))
+    }
+  }
+
+  public static func when(_ condition: @escaping (HeroConditionalContext) -> Bool, _ modifiers: HeroModifier...) -> HeroModifier {
+    return .when(condition, modifiers)
+  }
+
+  public static func whenMatched(_ modifiers: HeroModifier...) -> HeroModifier {
+    return .when({ $0.isMatched }, modifiers)
+  }
+
+  public static func whenPresenting(_ modifiers: HeroModifier...) -> HeroModifier {
+    return .when({ $0.isPresenting }, modifiers)
+  }
+
+  public static func whenDismissing(_ modifiers: HeroModifier...) -> HeroModifier {
+    return .when({ !$0.isPresenting }, modifiers)
+  }
+
+  public static func whenAppearing(_ modifiers: HeroModifier...) -> HeroModifier {
+    return .when({ $0.isAppearing }, modifiers)
+  }
+
+  public static func whenDisappearing(_ modifiers: HeroModifier...) -> HeroModifier {
+    return .when({ !$0.isAppearing }, modifiers)
+  }
+}
+
 // advance modifiers
 extension HeroModifier {
   /**
@@ -478,7 +517,7 @@ extension HeroModifier {
    For source views, modifiers are set directly at the begining of the animation.
    For destination views, they replace the target state (final appearance).
    */
-  public static func beginWith(modifiers: [HeroModifier]) -> HeroModifier {
+  public static func beginWith(_ modifiers: [HeroModifier]) -> HeroModifier {
     return HeroModifier { targetState in
       if targetState.beginState == nil {
         targetState.beginState = []
@@ -487,32 +526,12 @@ extension HeroModifier {
     }
   }
 
-  /**
-   Apply modifiers directly to the view at the start of the transition if the view is matched with another view.
-   The modifiers supplied here won't be animated.
-   For source views, modifiers are set directly at the begining of the animation.
-   For destination views, they replace the target state (final appearance).
-   */
-  public static func beginWithIfMatched(modifiers: [HeroModifier]) -> HeroModifier {
-    return HeroModifier { targetState in
-      if targetState.beginStateIfMatched == nil {
-        targetState.beginStateIfMatched = []
-      }
-      targetState.beginStateIfMatched!.append(contentsOf: modifiers)
-    }
+  public static func beginWith(modifiers: [HeroModifier]) -> HeroModifier {
+    return .beginWith(modifiers)
   }
 
-  /**
-   Apply modifiers at the start of the transition if the view is matched with another view.
-   Note that this will apply if a parent view is matched.
-   */
-  public static func ifMatched(modifiers: [HeroModifier]) -> HeroModifier {
-    return HeroModifier { targetState in
-      if targetState.ifMatched == nil {
-        targetState.ifMatched = []
-      }
-      targetState.ifMatched!.append(contentsOf: modifiers)
-    }
+  public static func beginWith(_ modifiers: HeroModifier...) -> HeroModifier {
+    return .beginWith(modifiers)
   }
 
   /**
