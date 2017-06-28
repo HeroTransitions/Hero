@@ -60,9 +60,12 @@ internal class HeroDefaultAnimator<ViewContext: HeroAnimatorViewContext>: HeroAn
 
   public func resume(timePassed: TimeInterval, reverse: Bool) -> TimeInterval {
     var duration: TimeInterval = 0
-    for (_, context) in viewContexts {
-      context.resume(timePassed: timePassed, reverse: reverse)
-      duration = max(duration, context.duration)
+    for (_, viewContext) in viewContexts {
+      if viewContext.targetState.duration == nil {
+        viewContext.duration = calculateOptimizedDuration(snapshot: viewContext.snapshot, targetState: viewContext.targetState) + timePassed
+      }
+      viewContext.resume(timePassed: timePassed, reverse: reverse)
+      duration = max(duration, viewContext.duration)
     }
     return duration
   }
