@@ -62,7 +62,9 @@ internal class HeroDefaultAnimator<ViewContext: HeroAnimatorViewContext>: HeroAn
     var duration: TimeInterval = 0
     for (_, viewContext) in viewContexts {
       if viewContext.targetState.duration == nil {
-        viewContext.duration = calculateOptimizedDuration(snapshot: viewContext.snapshot, targetState: viewContext.targetState) + timePassed
+        viewContext.duration = max(viewContext.duration,
+                                   calculateOptimizedDuration(snapshot: viewContext.snapshot,
+                                                              targetState: viewContext.targetState) + timePassed)
       }
       viewContext.resume(timePassed: timePassed, reverse: reverse)
       duration = max(duration, viewContext.duration)
