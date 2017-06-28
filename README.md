@@ -1,5 +1,7 @@
 <img src="https://cdn.rawgit.com/lkzhao/Hero/427d5f2/Resources/Hero.svg" width="388"/>
 
+**Hero** is a library for building iOS view controller transitions. It provides a declarative layer on top of the UIKit's cumbersome transition APIs. Making custom transitions an easy task for developers.
+
 [![Carthage compatible](https://img.shields.io/badge/Carthage-Compatible-brightgreen.svg?style=flat)](https://github.com/Carthage/Carthage)
 [![Version](https://img.shields.io/cocoapods/v/Hero.svg?style=flat)](http://cocoapods.org/pods/Hero)
 [![License](https://img.shields.io/cocoapods/l/Hero.svg?style=flat)](https://github.com/lkzhao/Hero/blob/master/LICENSE?raw=true)
@@ -9,8 +11,6 @@
 [![中文 README](https://img.shields.io/badge/%E4%B8%AD%E6%96%87-README-blue.svg?style=flat)](https://github.com/lkzhao/Hero/blob/master/README.zh-cn.md)
 [![Donate](https://img.shields.io/badge/Donate-PayPal-blue.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=NT5F7Y2MPV7RE)
 
-**Hero** is a library for building iOS view controller transitions. It provides a layer on top of the UIKit's cumbersome transition APIs. Making custom transitions an easy task for developers.
-
 <img src="https://cdn.rawgit.com/lkzhao/Hero/ebb3f2c/Resources/features.svg"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 <img src="https://cdn.rawgit.com/lkzhao/Hero/ebb3f2c/Resources/features2.svg"/>
 
@@ -18,7 +18,7 @@ Hero is similar to Keynote's **Magic Move**. It checks the `heroID` property on 
 
 Hero can also construct animations for unmatched views. It is easy to define these animations via the `heroModifiers` property. Hero will run these animations alongside the **Magic Move** animations. All of these animations can be **interactively controlled** by user gestures.
 
-At view controller level, Hero provides several template transitions that you can set through `heroModalAnimationType`, `heroNavigationAnimationType`, & `heroTabBarAnimationType`. These can be used as the foundation of your custom transitions. Combine with `heroID` & `heroModifiers` to make truly some unique transitions.
+At view controller level, Hero provides several template transitions that you can set through `heroModalAnimationType`, `heroNavigationAnimationType`, & `heroTabBarAnimationType`. These can be used as the foundation of your custom transitions. Combine with `heroID` & `heroModifiers` to make your unique transitions.
 
 <img src="https://cdn.rawgit.com/lkzhao/Hero/ebb3f2c/Resources/defaultAnimations.svg"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 <img src="https://cdn.rawgit.com/lkzhao/Hero/ebb3f2c/Resources/defaultAnimations2.svg"/>
