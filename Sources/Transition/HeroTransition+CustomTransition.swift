@@ -23,8 +23,8 @@
 import Foundation
 
 // custom transition helper, used in hero_replaceViewController
-internal extension HeroTransition {
-  func transition(from: UIViewController, to: UIViewController, in view: UIView, completion: ((Bool) -> Void)? = nil) {
+public extension HeroTransition {
+  public func transition(from: UIViewController, to: UIViewController, in view: UIView, completion: ((Bool) -> Void)? = nil) {
     guard !isTransitioning else { return }
     self.state = .notified
     isPresenting = true
