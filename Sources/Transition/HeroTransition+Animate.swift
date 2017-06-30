@@ -24,7 +24,7 @@ import Foundation
 
 extension HeroTransition {
   open func animate() {
-    guard state == .starting else { fatalError() }
+    guard state == .starting else { return }
     state = .animating
 
     context.unhide(view: toView)

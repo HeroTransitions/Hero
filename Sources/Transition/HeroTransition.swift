@@ -158,7 +158,7 @@ open class HeroTransition: NSObject {
   public override init() { super.init() }
 
   func complete(after: TimeInterval, finishing: Bool) {
-    guard [HeroTransitionState.animating, .starting, .notified].contains(state) else { fatalError() }
+    guard [HeroTransitionState.animating, .starting, .notified].contains(state) else { return }
     if after <= 1.0 / 120 {
       complete(finished: finishing)
       return

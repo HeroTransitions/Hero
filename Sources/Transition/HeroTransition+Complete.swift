@@ -24,7 +24,7 @@ import Foundation
 
 extension HeroTransition {
   open func complete(finished: Bool) {
-    guard [HeroTransitionState.animating, .starting, .notified].contains(state) else { fatalError() }
+    guard [HeroTransitionState.animating, .starting, .notified].contains(state) else { return }
     state = .completing
 
     progressRunner.stop()
