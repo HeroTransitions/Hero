@@ -1,10 +1,10 @@
 Pod::Spec.new do |s|
   s.name             = "Hero"
-  s.version          = "1.0.0"
+  s.version          = "1.0.0-alpha.1"
   s.summary          = "Elegant transition library for iOS"
 
   s.description      = <<-DESC
-                        Elegant transition library for iOS. Build your custom view transitions with few lines of code or even no code at all. Inspired by Polymer's neon-animated-pages and Keynote's Magic Move.
+                        Hero is a library for building iOS view controller transitions. It provides a declarative layer on top of the UIKit's cumbersome transition APIs. Making custom transitions an easy task for developers.
                        DESC
 
   s.homepage         = "https://github.com/lkzhao/Hero"
