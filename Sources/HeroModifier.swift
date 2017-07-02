@@ -602,8 +602,9 @@ extension HeroModifier {
   }
 
   /**
-   Force the view to animate (Hero will create animation context & snapshots for them,
-   so they can be interact with)
+   Force the view to animate.
+   
+   By default, Hero will not animate if the view is outside the screen bounds or if there is no animatable hero modifier, unless this modifier is used.
    */
   public static var forceAnimate = HeroModifier { targetState in
     targetState.forceAnimate = true
