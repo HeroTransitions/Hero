@@ -273,6 +273,7 @@ class DefaultAnimationPreprocessor: BasePreprocessor {
                                        .masksToBounds(false)]
     switch defaultAnimation {
     case .push(let direction):
+      context.insertToViewFirst = false
       context[toView]!.append(contentsOf: [.translate(shift(direction: direction, appearing: true)),
                                            .shadowOpacity(0),
                                            .beginWith(modifiers: shadowState),
@@ -294,6 +295,7 @@ class DefaultAnimationPreprocessor: BasePreprocessor {
       context[fromView]!.append(contentsOf: [.translate(shift(direction: direction, appearing: false)), .scale(0.8)])
       context[toView]!.append(contentsOf: [.translate(shift(direction: direction, appearing: true)), .scale(0.8)])
     case .cover(let direction):
+      context.insertToViewFirst = false
       context[toView]!.append(contentsOf: [.translate(shift(direction: direction, appearing: true)),
                                            .shadowOpacity(0),
                                            .beginWith(modifiers: shadowState),
@@ -307,6 +309,7 @@ class DefaultAnimationPreprocessor: BasePreprocessor {
                                              .beginWith(modifiers: shadowState)])
       context[toView]!.append(contentsOf: [.overlay(color: .black, opacity: 0.1)])
     case .pageIn(let direction):
+      context.insertToViewFirst = false
       context[toView]!.append(contentsOf: [.translate(shift(direction: direction, appearing: true)),
                                            .shadowOpacity(0),
                                            .beginWith(modifiers: shadowState),
@@ -342,6 +345,7 @@ class DefaultAnimationPreprocessor: BasePreprocessor {
       context[fromView]!.append(contentsOf: [.scale(1.3), .fade])
       context[toView]!.append(contentsOf: [.scale(0.7)])
     case .zoomOut:
+      context.insertToViewFirst = false
       context[toView]!.append(contentsOf: [.scale(1.3), .fade])
       context[fromView]!.append(contentsOf: [.scale(0.7)])
     default:

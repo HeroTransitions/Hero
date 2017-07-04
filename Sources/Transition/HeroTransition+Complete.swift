@@ -77,11 +77,9 @@ extension HeroTransition {
     transitionContext = nil
     fromViewController = nil
     toViewController = nil
-    containerColor = nil
     inNavigationController = false
     inTabBarController = false
     forceNotInteractive = false
-    defaultAnimation = .auto
 
     for animator in animators {
       animator.clean()
