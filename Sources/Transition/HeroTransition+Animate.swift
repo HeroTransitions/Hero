@@ -29,12 +29,6 @@ extension HeroTransition {
 
     context.unhide(view: toView)
 
-    if let containerColor = containerColor {
-      container.backgroundColor = containerColor
-    } else if !toOverFullScreen && !fromOverFullScreen {
-      container.backgroundColor = toView.backgroundColor
-    }
-
     // auto hide all animated views
     for view in animatingFromViews {
       context.hide(view: view)

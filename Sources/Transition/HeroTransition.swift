@@ -46,7 +46,7 @@ public class Hero: NSObject {
 open class HeroTransition: NSObject {
 
   public var defaultAnimation: HeroDefaultAnimationType = .auto
-  public var containerColor: UIColor?
+  public var containerColor: UIColor = .black
   public var isUserInteractionEnabled = false
   public var viewOrderingStrategy: HeroViewOrderingStrategy = .auto
 

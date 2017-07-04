@@ -83,6 +83,7 @@ extension HeroTransition {
 
     // a view to hold all the animating views
     container = UIView(frame: transitionContainer.bounds)
+    container.backgroundColor = containerColor
     transitionContainer.addSubview(container)
 
     context = HeroContext(container:container)
