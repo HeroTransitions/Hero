@@ -27,9 +27,11 @@ extension HeroTransition {
     guard state == .notified else { return }
     state = .starting
 
-    toView.frame = fromView.frame
-    toView.setNeedsLayout()
-    toView.layoutIfNeeded()
+    if let toView = toView, let fromView = fromView {
+      toView.frame = fromView.frame
+      toView.setNeedsLayout()
+      toView.layoutIfNeeded()
+    }
 
     if let fvc = fromViewController, let tvc = toViewController {
       closureProcessForHeroDelegate(vc: fvc) {
@@ -44,8 +46,10 @@ extension HeroTransition {
     }
 
     // take a snapshot to hide all the flashing that might happen
-    fullScreenSnapshot = transitionContainer.window?.snapshotView(afterScreenUpdates: true) ?? fromView.snapshotView(afterScreenUpdates: true)
-    (transitionContainer.window ?? transitionContainer)?.addSubview(fullScreenSnapshot)
+    fullScreenSnapshot = transitionContainer?.window?.snapshotView(afterScreenUpdates: true) ?? fromView?.snapshotView(afterScreenUpdates: true)
+    if let fullScreenSnapshot = fullScreenSnapshot {
+      (transitionContainer?.window ?? transitionContainer)?.addSubview(fullScreenSnapshot)
+    }
 
     if let oldSnapshot = fromViewController?.heroStoredSnapshot {
       oldSnapshot.removeFromSuperview()
@@ -79,12 +83,12 @@ extension HeroTransition {
       animators.append(plugin)
     }
 
-    transitionContainer.isUserInteractionEnabled = isUserInteractionEnabled
+    transitionContainer?.isUserInteractionEnabled = isUserInteractionEnabled
 
     // a view to hold all the animating views
-    container = UIView(frame: transitionContainer.bounds)
+    container = UIView(frame: transitionContainer?.bounds ?? .zero)
     container.backgroundColor = containerColor
-    transitionContainer.addSubview(container)
+    transitionContainer?.addSubview(container)
 
     context = HeroContext(container:container)
 
@@ -95,16 +99,18 @@ extension HeroTransition {
       animator.hero = self
     }
 
-    context.loadViewAlpha(rootView: toView)
-    context.loadViewAlpha(rootView: fromView)
-    container.addSubview(toView)
-    container.addSubview(fromView)
+    if let toView = toView, let fromView = fromView {
+      context.loadViewAlpha(rootView: toView)
+      context.loadViewAlpha(rootView: fromView)
+      container.addSubview(toView)
+      container.addSubview(fromView)
 
-    toView.updateConstraints()
-    toView.setNeedsLayout()
-    toView.layoutIfNeeded()
+      toView.updateConstraints()
+      toView.setNeedsLayout()
+      toView.layoutIfNeeded()
 
-    context.set(fromViews: fromView.flattenedViewHierarchy, toViews: toView.flattenedViewHierarchy)
+      context.set(fromViews: fromView.flattenedViewHierarchy, toViews: toView.flattenedViewHierarchy)
+    }
 
     if (viewOrderingStrategy == .auto && !isPresenting && !inTabBarController) ||
        viewOrderingStrategy == .sourceViewOnTop {
@@ -131,7 +137,9 @@ extension HeroTransition {
       return false
     }
 
-    context.hide(view: toView)
+    if let toView = toView {
+      context.hide(view: toView)
+    }
 
     #if os(tvOS)
       animate()

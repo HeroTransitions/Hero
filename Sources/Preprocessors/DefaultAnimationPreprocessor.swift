@@ -220,7 +220,7 @@ class DefaultAnimationPreprocessor: BasePreprocessor {
   }
 
   override func process(fromViews: [UIView], toViews: [UIView]) {
-    guard let hero = hero else { return }
+    guard let hero = hero, let toView = hero.toView, let fromView = hero.fromView else { return }
     var defaultAnimation = hero.defaultAnimation
     let inNavigationController = hero.inNavigationController
     let inTabBarController = hero.inTabBarController
@@ -229,8 +229,6 @@ class DefaultAnimationPreprocessor: BasePreprocessor {
     let presenting = hero.isPresenting
     let fromOverFullScreen = hero.fromOverFullScreen
     let toOverFullScreen = hero.toOverFullScreen
-    let toView = hero.toView
-    let fromView = hero.fromView
     let animators = hero.animators
 
     if case .auto = defaultAnimation {

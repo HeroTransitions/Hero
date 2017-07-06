@@ -70,12 +70,12 @@ public class HeroContext {
   /**
    A flattened list of all views from source ViewController
    */
-  public var fromViews: [UIView]!
+  public var fromViews: [UIView] = []
 
   /**
    A flattened list of all views from destination ViewController
    */
-  public var toViews: [UIView]!
+  public var toViews: [UIView] = []
 }
 
 // public

@@ -27,7 +27,9 @@ extension HeroTransition {
     guard state == .starting else { return }
     state = .animating
 
-    context.unhide(view: toView)
+    if let toView = toView {
+      context.unhide(view: toView)
+    }
 
     // auto hide all animated views
     for view in animatingFromViews {
@@ -51,7 +53,7 @@ extension HeroTransition {
     // UIKit appears to set fromView setNeedLayout to be true.
     // We don't want fromView to layout after our animation starts.
     // Therefore we kick off the layout beforehand
-    fromView.layoutIfNeeded()
+    fromView?.layoutIfNeeded()
 
     for animator in animators {
       let duration = animator.animate(fromViews: animatingFromViews.filter({ animator.canAnimate(view: $0, appearing: false) }),
@@ -64,7 +66,9 @@ extension HeroTransition {
     }
 
     self.totalDuration = totalDuration
-    if animatorWantsInteractive {
+    if let forceFinishing = forceFinishing {
+      complete(finished: forceFinishing)
+    } else if animatorWantsInteractive {
       update(0)
     } else {
       complete(after: totalDuration, finishing: true)

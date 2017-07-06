@@ -24,88 +24,86 @@ import Foundation
 
 extension HeroTransition {
   open func complete(finished: Bool) {
-    guard [HeroTransitionState.animating, .starting, .notified].contains(state) else { return }
+    if state == .notified {
+      forceFinishing = finished
+    }
+    guard state == .animating || state == .starting else { return }
+    defer {
+      transitionContext = nil
+      fromViewController = nil
+      toViewController = nil
+      inNavigationController = false
+      inTabBarController = false
+      forceNotInteractive = false
+      animatingToViews = nil
+      animatingFromViews = nil
+      progressUpdateObservers = nil
+      transitionContainer = nil
+      completionCallback = nil
+      forceFinishing = nil
+      container = nil
+      processors = nil
+      animators = nil
+      plugins = nil
+      context = nil
+      progress = 0
+      totalDuration = 0
+      state = .possible
+    }
     state = .completing
 
     progressRunner.stop()
     context.clean()
 
-    if finished && isPresenting && toOverFullScreen {
-      // finished presenting a overFullScreen VC
-      context.unhide(rootView: toView)
-      context.removeSnapshots(rootView: toView)
-      context.storeViewAlpha(rootView: fromView)
-      fromViewController!.heroStoredSnapshot = container
-      container.superview!.addSubview(fromView)
-      fromView.addSubview(container)
-    } else if !finished && !isPresenting && fromOverFullScreen {
-      // cancelled dismissing a overFullScreen VC
-      context.unhide(rootView: fromView)
-      context.removeSnapshots(rootView: fromView)
-      context.storeViewAlpha(rootView: toView)
-      toViewController!.heroStoredSnapshot = container
-      container.superview!.addSubview(toView)
-      toView.addSubview(container)
-    } else {
-      context.unhideAll()
-      context.removeAllSnapshots()
-    }
+    if let toView = toView, let fromView = fromView {
+      if finished && isPresenting && toOverFullScreen {
+        // finished presenting a overFullScreen VC
+        context.unhide(rootView: toView)
+        context.removeSnapshots(rootView: toView)
+        context.storeViewAlpha(rootView: fromView)
+        fromViewController!.heroStoredSnapshot = container
+        container.superview!.addSubview(fromView)
+        fromView.addSubview(container)
+      } else if !finished && !isPresenting && fromOverFullScreen {
+        // cancelled dismissing a overFullScreen VC
+        context.unhide(rootView: fromView)
+        context.removeSnapshots(rootView: fromView)
+        context.storeViewAlpha(rootView: toView)
+        toViewController!.heroStoredSnapshot = container
+        container.superview!.addSubview(toView)
+        toView.addSubview(container)
+      } else {
+        context.unhideAll()
+        context.removeAllSnapshots()
+      }
 
-    // move fromView & toView back from our container back to the one supplied by UIKit
-    if (toOverFullScreen && finished) || (fromOverFullScreen && !finished) {
-      transitionContainer.addSubview(finished ? fromView : toView)
-    }
-    transitionContainer.addSubview(finished ? toView : fromView)
+      // move fromView & toView back from our container back to the one supplied by UIKit
+      if (toOverFullScreen && finished) || (fromOverFullScreen && !finished) {
+        transitionContainer?.addSubview(finished ? fromView : toView)
+      }
+      transitionContainer?.addSubview(finished ? toView : fromView)
 
-    if isPresenting != finished, !inContainerController, transitionContext != nil {
-      // only happens when present a .overFullScreen VC
-      // bug: http://openradar.appspot.com/radar?id=5320103646199808
-      UIApplication.shared.keyWindow?.addSubview(isPresenting ? fromView : toView)
+      if isPresenting != finished, !inContainerController, transitionContext != nil {
+        // only happens when present a .overFullScreen VC
+        // bug: http://openradar.appspot.com/radar?id=5320103646199808
+        UIApplication.shared.keyWindow?.addSubview(isPresenting ? fromView : toView)
+      }
     }
 
     if container.superview == transitionContainer {
       container.removeFromSuperview()
     }
 
-    // use temp variables to remember these values
-    // because we have to reset everything before calling
-    // any delegate or completion block
-    let tContext = transitionContext
-    let fvc = fromViewController
-    let tvc = toViewController
-
-    transitionContext = nil
-    fromViewController = nil
-    toViewController = nil
-    inNavigationController = false
-    inTabBarController = false
-    forceNotInteractive = false
-
     for animator in animators {
       animator.clean()
     }
 
-    transitionContainer!.isUserInteractionEnabled = true
+    transitionContainer?.isUserInteractionEnabled = true
 
-    let completion = completionCallback
-
-    animatingToViews = nil
-    animatingFromViews = nil
-    progressUpdateObservers = nil
-    transitionContainer = nil
-    completionCallback = nil
-    container = nil
-    processors = nil
-    animators = nil
-    plugins = nil
-    context = nil
-    progress = 0
-    totalDuration = 0
-
-    completion?(finished)
+    completionCallback?(finished)
 
     if finished {
-      if let fvc = fvc, let tvc = tvc {
+      if let fvc = fromViewController, let tvc = toViewController {
         closureProcessForHeroDelegate(vc: fvc) {
           $0.heroDidEndAnimatingTo?(viewController: tvc)
           $0.heroDidEndTransition?()
@@ -116,9 +114,9 @@ extension HeroTransition {
           $0.heroDidEndTransition?()
         }
       }
-      tContext?.finishInteractiveTransition()
+      transitionContext?.finishInteractiveTransition()
     } else {
-      if let fvc = fvc, let tvc = tvc {
+      if let fvc = fromViewController, let tvc = toViewController {
         closureProcessForHeroDelegate(vc: fvc) {
           $0.heroDidCancelAnimatingTo?(viewController: tvc)
           $0.heroDidCancelTransition?()
@@ -129,8 +127,8 @@ extension HeroTransition {
           $0.heroDidCancelTransition?()
         }
       }
-      tContext?.cancelInteractiveTransition()
+      transitionContext?.cancelInteractiveTransition()
     }
-    tContext?.completeTransition(finished)
+    transitionContext?.completeTransition(finished)
   }
 }

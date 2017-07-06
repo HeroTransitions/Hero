@@ -69,7 +69,7 @@ open class HeroTransition: NSObject {
   public internal(set) var container: UIView!
 
   /// this is the container supplied by UIKit
-  internal var transitionContainer: UIView!
+  internal var transitionContainer: UIView?
 
   internal var completionCallback: ((Bool) -> Void)?
 
@@ -133,12 +133,13 @@ open class HeroTransition: NSObject {
   /// might be nil when transitioning. This happens when calling heroReplaceViewController
   internal weak var transitionContext: UIViewControllerContextTransitioning?
 
-  internal var fullScreenSnapshot: UIView!
+  internal var fullScreenSnapshot: UIView?
 
   // By default, Hero will always appear to be interactive to UIKit. This forces it to appear non-interactive.
   // Used when doing a hero_replaceViewController within a UINavigationController, to fix a bug with
   // UINavigationController.setViewControllers not able to handle interactive transition
   internal var forceNotInteractive = false
+  internal var forceFinishing: Bool? = nil
 
   internal var inNavigationController = false
   internal var inTabBarController = false
@@ -152,8 +153,8 @@ open class HeroTransition: NSObject {
     return !inContainerController && (fromViewController!.modalPresentationStyle == .overFullScreen || fromViewController!.modalPresentationStyle == .overCurrentContext)
   }
 
-  internal var toView: UIView { return toViewController!.view }
-  internal var fromView: UIView { return fromViewController!.view }
+  internal var toView: UIView? { return toViewController?.view }
+  internal var fromView: UIView? { return fromViewController?.view }
 
   public override init() { super.init() }
 
