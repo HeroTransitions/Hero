@@ -40,7 +40,7 @@ extension HeroTransition {
    current state to the **end** state
    */
   public func finish(animate: Bool = true) {
-    guard state == .animating else { return }
+    guard state == .animating || state == .notified || state == .starting else { return }
     if !animate {
       self.complete(finished:true)
       return
@@ -59,7 +59,7 @@ extension HeroTransition {
    current state to the **begining** state
    */
   public func cancel(animate: Bool = true) {
-    guard state == .animating else { return }
+    guard state == .animating || state == .notified || state == .starting else { return }
     if !animate {
       self.complete(finished:false)
       return
