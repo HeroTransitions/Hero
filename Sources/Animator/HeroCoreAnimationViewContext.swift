@@ -318,7 +318,10 @@ internal class HeroCoreAnimationViewContext: HeroAnimatorViewContext {
         let current = currentValue(key: key)
         self.state[key] = (current, current)
       }
+      let oldAnimations = animations
+      animations = []
       _ = animate(key: key, beginTime: 0, duration: 100, fromValue: targetValue, toValue: targetValue)
+      animations = oldAnimations
     }
   }
 
