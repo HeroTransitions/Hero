@@ -54,9 +54,9 @@ class ScrollingImageCell: UICollectionViewCell {
     scrollView.contentMode = .center
     scrollView.showsHorizontalScrollIndicator = false
     scrollView.showsVerticalScrollIndicator = false
-    if #available(iOS 9.0, *) {
+    #if os(tvOS)
       scrollView.panGestureRecognizer.allowedTouchTypes = [ NSNumber(value:UITouchType.indirect.rawValue) ]
-    }
+    #endif
     addSubview(scrollView)
 
     dTapGR = UITapGestureRecognizer(target: self, action: #selector(doubleTap(gr:)))
