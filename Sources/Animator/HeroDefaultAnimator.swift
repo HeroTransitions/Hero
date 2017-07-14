@@ -66,8 +66,8 @@ internal class HeroDefaultAnimator<ViewContext: HeroAnimatorViewContext>: HeroAn
                                    calculateOptimizedDuration(snapshot: viewContext.snapshot,
                                                               targetState: viewContext.targetState) + timePassed)
       }
-      viewContext.resume(timePassed: timePassed, reverse: reverse)
-      duration = max(duration, viewContext.duration)
+      let timeUntilStopped = viewContext.resume(timePassed: timePassed, reverse: reverse)
+      duration = max(duration, timeUntilStopped)
     }
     return duration
   }
@@ -105,11 +105,8 @@ internal class HeroDefaultAnimator<ViewContext: HeroAnimatorViewContext>: HeroAn
       if viewContext.targetState.duration == .infinity {
         viewContext.duration = maxDuration
       }
-      viewContext.startAnimations()
-    }
-
-    for viewContext in viewContexts.values {
-      maxDuration = max(maxDuration, viewContext.duration)
+      let timeUntilStopped = viewContext.startAnimations()
+      maxDuration = max(maxDuration, timeUntilStopped)
     }
 
     return maxDuration

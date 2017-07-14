@@ -33,8 +33,8 @@ internal class HeroViewPropertyViewContext: HeroAnimatorViewContext {
     return view is UIVisualEffectView && state.opacity != nil
   }
 
-  override func resume(timePassed: TimeInterval, reverse: Bool) {
-    guard let visualEffectView = snapshot as? UIVisualEffectView else { return }
+  override func resume(timePassed: TimeInterval, reverse: Bool) -> TimeInterval {
+    guard let visualEffectView = snapshot as? UIVisualEffectView else { return 0 }
     if reverse {
       viewPropertyAnimator?.stopAnimation(false)
       viewPropertyAnimator = UIViewPropertyAnimator(duration: duration, curve: .linear) {
@@ -42,6 +42,7 @@ internal class HeroViewPropertyViewContext: HeroAnimatorViewContext {
       }
     }
     viewPropertyAnimator.startAnimation()
+    return duration
   }
 
   override func seek(timePassed: TimeInterval) {
@@ -54,8 +55,8 @@ internal class HeroViewPropertyViewContext: HeroAnimatorViewContext {
     viewPropertyAnimator = nil
   }
 
-  override func startAnimations() {
-    guard let visualEffectView = snapshot as? UIVisualEffectView else { return }
+  override func startAnimations() -> TimeInterval {
+    guard let visualEffectView = snapshot as? UIVisualEffectView else { return 0 }
     let appearedEffect = visualEffectView.effect
     let disappearedEffect = targetState.opacity == 0 ? nil : visualEffectView.effect
     startEffect = appearing ? disappearedEffect : appearedEffect
@@ -65,5 +66,6 @@ internal class HeroViewPropertyViewContext: HeroAnimatorViewContext {
       visualEffectView.effect = self.endEffect
     }
     viewPropertyAnimator.startAnimation()
+    return duration
   }
 }

@@ -44,7 +44,8 @@ internal class HeroAnimatorViewContext {
   func apply(state: HeroTargetState) {
   }
 
-  func resume(timePassed: TimeInterval, reverse: Bool) {
+  func resume(timePassed: TimeInterval, reverse: Bool) -> TimeInterval {
+    return 0
   }
 
   func seek(timePassed: TimeInterval) {
@@ -54,7 +55,8 @@ internal class HeroAnimatorViewContext {
     animator = nil
   }
 
-  func startAnimations() {
+  func startAnimations() -> TimeInterval {
+    return 0
   }
 
   required init(animator: HeroAnimator, snapshot: UIView, targetState: HeroTargetState, appearing: Bool) {

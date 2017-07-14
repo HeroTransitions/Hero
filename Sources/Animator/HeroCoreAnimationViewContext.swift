@@ -325,7 +325,7 @@ internal class HeroCoreAnimationViewContext: HeroAnimatorViewContext {
     }
   }
 
-  override func resume(timePassed: TimeInterval, reverse: Bool) {
+  override func resume(timePassed: TimeInterval, reverse: Bool) -> TimeInterval {
     for (key, (fromValue, toValue)) in state {
       let realToValue = !reverse ? toValue : fromValue
       let realFromValue = currentValue(key: key)
@@ -335,21 +335,25 @@ internal class HeroCoreAnimationViewContext: HeroAnimatorViewContext {
     if reverse {
       if timePassed > targetState.delay + duration {
         let backDelay = timePassed - (targetState.delay + duration)
-        animate(beginTime: currentTime + backDelay, duration: duration)
+        return animate(delay: backDelay, duration: duration)
       } else if timePassed > targetState.delay {
-        animate(beginTime: currentTime, duration: duration - (timePassed - targetState.delay))
+        return animate(delay: 0, duration: duration - (timePassed - targetState.delay))
+      } else {
+        return 0
       }
     } else {
       if timePassed <= targetState.delay {
-        animate(beginTime: currentTime + targetState.delay - timePassed, duration: duration)
+        return animate(delay: targetState.delay - timePassed, duration: duration)
       } else if timePassed <= targetState.delay + duration {
         let timePassedDelay = timePassed - targetState.delay
-        animate(beginTime: currentTime, duration: duration - timePassedDelay)
+        return animate(delay: 0, duration: duration - timePassedDelay)
+      } else {
+        return 0
       }
     }
   }
 
-  func animate(beginTime: TimeInterval, duration: TimeInterval) {
+  func animate(delay: TimeInterval, duration: TimeInterval) -> TimeInterval {
     for (layer, key, _) in animations {
       layer.removeAnimation(forKey: key)
     }
@@ -362,11 +366,11 @@ internal class HeroCoreAnimationViewContext: HeroAnimatorViewContext {
 
     animations = []
     for (key, (fromValue, toValue)) in state {
-      let neededTime = animate(key: key, beginTime: beginTime, duration: duration, fromValue: fromValue, toValue: toValue)
+      let neededTime = animate(key: key, beginTime: currentTime + delay, duration: duration, fromValue: fromValue, toValue: toValue)
       timeUntilStop = max(timeUntilStop, neededTime)
     }
 
-    self.duration = timeUntilStop + beginTime - currentTime
+    return timeUntilStop + delay
   }
 
   func seek(layer: CALayer, timePassed: TimeInterval) {
@@ -394,7 +398,7 @@ internal class HeroCoreAnimationViewContext: HeroAnimatorViewContext {
     overlayLayer = nil
   }
 
-  override func startAnimations() {
+  override func startAnimations() -> TimeInterval {
     if let beginStateModifiers = targetState.beginState {
       let beginState = HeroTargetState(modifiers: beginStateModifiers)
       let appeared = viewState(targetState: beginState)
@@ -417,6 +421,6 @@ internal class HeroCoreAnimationViewContext: HeroAnimatorViewContext {
       state[key] = (fromValue, toValue)
     }
 
-    animate(beginTime: currentTime + targetState.delay, duration: duration)
+    return animate(delay: targetState.delay, duration: duration)
   }
 }
