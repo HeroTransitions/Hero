@@ -210,6 +210,7 @@ extension HeroContext {
 
     snapshot.layer.anchorPoint = view.layer.anchorPoint
     snapshot.layer.position = containerView.convert(view.layer.position, from: view.superview!)
+    snapshot.layer.transform = containerView.layer.flatTransformTo(layer: view.layer)
     snapshot.layer.bounds = view.layer.bounds
     snapshot.heroID = view.heroID
 
@@ -230,7 +231,6 @@ extension HeroContext {
       snapshot.layer.masksToBounds = view.layer.masksToBounds
       snapshot.layer.borderColor = view.layer.borderColor
       snapshot.layer.borderWidth = view.layer.borderWidth
-      snapshot.layer.transform = view.layer.transform
       snapshot.layer.contentsRect = view.layer.contentsRect
       snapshot.layer.contentsScale = view.layer.contentsScale
 

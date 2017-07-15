@@ -31,4 +31,14 @@ internal extension CALayer {
     }
     return []
   }
+
+  func flatTransformTo(layer: CALayer) -> CATransform3D {
+    var layer = layer
+    var trans = layer.transform
+    while let superlayer = layer.superlayer, superlayer != self {
+      trans = CATransform3DConcat(superlayer.transform, trans)
+      layer = superlayer
+    }
+    return trans
+  }
 }

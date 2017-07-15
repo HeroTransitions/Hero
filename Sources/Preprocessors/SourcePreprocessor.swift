@@ -38,15 +38,17 @@ class SourcePreprocessor: BasePreprocessor {
 
   func prepareFor(view: UIView, targetView: UIView) {
     let targetPos = context.container.convert(targetView.layer.position, from: targetView.superview!)
+    let targetTransform = context.container.layer.flatTransformTo(layer: targetView.layer)
 
     var state = context[view]!
 
     // use global coordinate space since over target position is converted from the global container
     state.coordinateSpace = .global
 
-    // remove incompatible options
     state.position = targetPos
-    state.transform = nil
+    state.transform = targetTransform
+
+    // remove incompatible options
     state.size = nil
     state.cornerRadius = nil
 
@@ -55,9 +57,6 @@ class SourcePreprocessor: BasePreprocessor {
     }
     if view.layer.cornerRadius != targetView.layer.cornerRadius {
       state.cornerRadius = targetView.layer.cornerRadius
-    }
-    if view.layer.transform != targetView.layer.transform {
-      state.transform = targetView.layer.transform
     }
     if view.layer.shadowColor != targetView.layer.shadowColor {
       state.shadowColor = targetView.layer.shadowColor
