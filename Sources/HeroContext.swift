@@ -144,12 +144,12 @@ extension HeroContext {
     view.layer.cornerRadius = 0
     view.alpha = 1
 
-    var snapshot: UIView!
+    let snapshot: UIView
     let snapshotType: HeroSnapshotType = self[view]?.snapshotType ?? .optimized
 
     switch snapshotType {
     case .normal:
-      snapshot = view.snapshotView()
+      snapshot = view.snapshotView() ?? UIView()
     case .layerRender:
       snapshot = view.slowSnapshotView()
     case .noSnapshot:
@@ -194,7 +194,7 @@ extension HeroContext {
           snapshot = UIVisualEffectView(effect: effectView.effect)
           snapshot.frame = effectView.bounds
         } else {
-          snapshot = view.snapshotView()
+          snapshot = view.snapshotView() ?? UIView()
         }
       #endif
     }

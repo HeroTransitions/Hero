@@ -91,18 +91,19 @@ public extension UIView {
     return snapshotView
   }
 
-  internal func snapshotView() -> UIView {
-    var snapshot = snapshotView(afterScreenUpdates: true)!
-    if #available(iOS 11.0, *) {
+  internal func snapshotView() -> UIView? {
+    let snapshot = snapshotView(afterScreenUpdates: true)
+    if #available(iOS 11.0, *), let oldSnapshot = snapshot {
       // in iOS 11, the snapshot taken by snapshotView(afterScreenUpdates) won't contain a container view
-      let oldSnapshot = snapshot
-      snapshot = UIView()
-      snapshot.bounds = oldSnapshot.bounds
-      snapshot.center = oldSnapshot.center
-      oldSnapshot.center = snapshot.bounds.center
-      snapshot.addSubview(oldSnapshot)
+      let wrappedSnapshot = UIView()
+      wrappedSnapshot.bounds = oldSnapshot.bounds
+      wrappedSnapshot.center = oldSnapshot.center
+      oldSnapshot.center = wrappedSnapshot.bounds.center
+      wrappedSnapshot.addSubview(oldSnapshot)
+      return wrappedSnapshot
+    } else {
+      return snapshot
     }
-    return snapshot
   }
 
   internal var flattenedViewHierarchy: [UIView] {
