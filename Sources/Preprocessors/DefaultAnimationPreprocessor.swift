@@ -246,7 +246,7 @@ class DefaultAnimationPreprocessor: BasePreprocessor {
     }
 
     if case .auto = defaultAnimation {
-      if animators!.contains(where: { $0.canAnimate(view: toView, appearing: true) || $0.canAnimate(view: fromView, appearing: false) }) {
+      if animators.contains(where: { $0.canAnimate(view: toView, appearing: true) || $0.canAnimate(view: fromView, appearing: false) }) {
         defaultAnimation = .none
       } else if inNavigationController {
         defaultAnimation = presenting ? .push(direction:.left) : .pull(direction:.right)

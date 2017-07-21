@@ -35,16 +35,16 @@ extension HeroTransition {
       inNavigationController = false
       inTabBarController = false
       forceNotInteractive = false
-      animatingToViews = nil
-      animatingFromViews = nil
+      animatingToViews.removeAll()
+      animatingFromViews.removeAll()
       progressUpdateObservers = nil
       transitionContainer = nil
       completionCallback = nil
       forceFinishing = nil
       container = nil
-      processors = nil
-      animators = nil
-      plugins = nil
+      processors.removeAll()
+      animators.removeAll()
+      plugins.removeAll()
       context = nil
       progress = 0
       totalDuration = 0
@@ -61,16 +61,16 @@ extension HeroTransition {
         context.unhide(rootView: toView)
         context.removeSnapshots(rootView: toView)
         context.storeViewAlpha(rootView: fromView)
-        fromViewController!.heroStoredSnapshot = container
-        container.superview!.addSubview(fromView)
+        fromViewController?.heroStoredSnapshot = container
+        container.superview?.addSubview(fromView)
         fromView.addSubview(container)
       } else if !finished && !isPresenting && fromOverFullScreen {
         // cancelled dismissing a overFullScreen VC
         context.unhide(rootView: fromView)
         context.removeSnapshots(rootView: fromView)
         context.storeViewAlpha(rootView: toView)
-        toViewController!.heroStoredSnapshot = container
-        container.superview!.addSubview(toView)
+        toViewController?.heroStoredSnapshot = container
+        container.superview?.addSubview(toView)
         toView.addSubview(container)
       } else {
         context.unhideAll()

@@ -74,6 +74,6 @@ extension HeroTransition {
       complete(after: totalDuration, finishing: true)
     }
 
-    fullScreenSnapshot!.removeFromSuperview()
+    fullScreenSnapshot?.removeFromSuperview()
   }
 }

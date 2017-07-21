@@ -73,11 +73,11 @@ open class HeroTransition: NSObject {
 
   internal var completionCallback: ((Bool) -> Void)?
 
-  internal var processors: [HeroPreprocessor]!
-  internal var animators: [HeroAnimator]!
-  internal var plugins: [HeroPlugin]!
-  internal var animatingFromViews: [UIView]!
-  internal var animatingToViews: [UIView]!
+  internal var processors: [HeroPreprocessor] = []
+  internal var animators: [HeroAnimator] = []
+  internal var plugins: [HeroPlugin] = []
+  internal var animatingFromViews: [UIView] = []
+  internal var animatingToViews: [UIView] = []
   internal static var enabledPlugins: [HeroPlugin.Type] = []
 
   /// destination view controller
