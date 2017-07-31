@@ -50,7 +50,14 @@ open class HeroTransition: NSObject {
   public var isUserInteractionEnabled = false
   public var viewOrderingStrategy: HeroViewOrderingStrategy = .auto
 
-  public internal(set) var state: HeroTransitionState = .possible
+  public internal(set) var state: HeroTransitionState = .possible {
+    didSet {
+      if state != .notified, state != .starting {
+        beginCallback?(state == .animating)
+        beginCallback = nil
+      }
+    }
+  }
 
   public var isTransitioning: Bool { return state != .possible }
   public internal(set) var isPresenting: Bool = true
@@ -72,6 +79,7 @@ open class HeroTransition: NSObject {
   internal var transitionContainer: UIView?
 
   internal var completionCallback: ((Bool) -> Void)?
+  internal var beginCallback: ((Bool) -> Void)?
 
   internal var processors: [HeroPreprocessor] = []
   internal var animators: [HeroAnimator] = []
