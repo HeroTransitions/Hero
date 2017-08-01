@@ -55,9 +55,9 @@ class HeroProgressRunner {
     delegate?.updateProgress(progress: timePassed / duration)
   }
 
-  func start(currentProgress: Double, totalTime: Double, reverse: Bool) {
+  func start(timePassed: TimeInterval, totalTime: TimeInterval, reverse: Bool) {
     stop()
-    self.timePassed = currentProgress * totalTime
+    self.timePassed = timePassed
     self.isReversed = reverse
     self.duration = totalTime
     displayLink = CADisplayLink(target: self, selector: #selector(displayUpdate(_:)))

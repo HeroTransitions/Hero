@@ -172,7 +172,13 @@ open class HeroTransition: NSObject {
       complete(finished: finishing)
       return
     }
-    progressRunner.start(currentProgress: progress, totalTime: totalDuration, reverse: !finishing)
+    let totalTime: TimeInterval
+    if finishing {
+      totalTime = after / max((1 - progress), 0.01)
+    } else {
+      totalTime = after / max(progress, 0.01)
+    }
+    progressRunner.start(timePassed: progress * totalTime, totalTime: totalTime, reverse: !finishing)
   }
 
   // MARK: Observe Progress
