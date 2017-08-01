@@ -24,7 +24,7 @@ import UIKit
 
 public struct HeroConditionalContext {
   internal weak var hero: HeroTransition!
-  internal weak var view: UIView!
+  public weak var view: UIView!
 
   public private(set) var isAppearing: Bool
 
