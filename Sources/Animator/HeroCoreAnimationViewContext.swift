@@ -36,7 +36,7 @@ extension CALayer {
   }()
 
   @objc dynamic func hero_add(anim: CAAnimation, forKey: String?) {
-    CALayer.heroAddedAnimations?.append((self, forKey!, anim))
+    CALayer.heroAddedAnimations?.append((self, forKey!, anim.copy() as! CAAnimation))
     hero_add(anim: anim, forKey: forKey)
   }
 }
