@@ -46,11 +46,13 @@ internal extension HeroTransition {
     if let navigationController = vc as? UINavigationController,
       let delegate = navigationController.topViewController as? HeroViewControllerDelegate {
       closure(delegate)
-    }
-
-    if let tabBarController = vc as? UITabBarController,
+    } else if let tabBarController = vc as? UITabBarController,
       let delegate = tabBarController.viewControllers?[tabBarController.selectedIndex] as? HeroViewControllerDelegate {
       closure(delegate)
+    } else {
+      for vc in vc.childViewControllers {
+        self.closureProcessForHeroDelegate(vc: vc, closure: closure)
+      }
     }
   }
 }
