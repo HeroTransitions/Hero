@@ -168,7 +168,7 @@ internal class HeroCoreAnimationViewContext: HeroAnimatorViewContext {
     CALayer.heroAddedAnimations = []
 
     if let (stiffness, damping) = targetState.spring {
-      UIView.animate(withDuration: duration, delay: delay, usingSpringWithDamping: 1, initialSpringVelocity: 0, options: [.layoutSubviews, .allowUserInteraction], animations: animations, completion: nil)
+      UIView.animate(withDuration: duration, delay: delay, usingSpringWithDamping: 1, initialSpringVelocity: 0, options: [], animations: animations, completion: nil)
 
       let addedAnimations = CALayer.heroAddedAnimations!
       CALayer.heroAddedAnimations = nil
@@ -183,15 +183,13 @@ internal class HeroCoreAnimationViewContext: HeroAnimatorViewContext {
         }
       }
     } else {
-      UIView.animate(withDuration: duration, delay: delay, options: [.layoutSubviews, .allowUserInteraction], animations: animations, completion: nil)
-
+      CATransaction.begin()
+      CATransaction.setAnimationTimingFunction(timingFunction)
+      UIView.animate(withDuration: duration, delay: delay, options: [], animations: animations, completion: nil)
+      CATransaction.commit()
       let addedAnimations = CALayer.heroAddedAnimations!
       CALayer.heroAddedAnimations = nil
-
-      for (layer, key, anim) in addedAnimations {
-        anim.timingFunction = timingFunction
-        self.addAnimation(anim, for: key, to: layer)
-      }
+      self.animations.append(contentsOf: addedAnimations)
     }
   }
 
