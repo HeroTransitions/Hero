@@ -257,15 +257,21 @@ extension UIViewController {
         hero.forceNotInteractive = true
       }
       navigationController.setViewControllers(vcs, animated: true)
-    } else if let parentVC = presentingViewController {
-      hero.toViewController = next
-      parentVC.dismiss(animated: true) {
-        parentVC.present(next, animated: false, completion: nil)
+    } else if let container = view.superview {
+      let parentVC = presentingViewController
+      hero.transition(from: self, to: next, in: container) { finished in
+        if finished {
+          next.view.window?.addSubview(next.view)
+
+          if let parentVC = parentVC {
+            self.dismiss(animated: false) {
+              parentVC.present(next, animated: false, completion:nil)
+            }
+          } else {
+            UIApplication.shared.keyWindow?.rootViewController = next
+          }
+        }
       }
-    } else if let window = view.window {
-      window.addSubview(next.view)
-      view.removeFromSuperview()
-      window.rootViewController = next
     }
   }
 }
