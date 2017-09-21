@@ -32,7 +32,7 @@ extension HeroModifier: HeroStringConvertible {
     case "fade":
       return .fade
     case "opacity":
-      return HeroModifier.opacity(parameters.getFloat(0) ?? 1)
+      return HeroModifier.opacity(CGFloat(parameters.getFloat(0) ?? 1))
     case "position":
       return .position(CGPoint(x: parameters.getCGFloat(0) ?? 0, y: parameters.getCGFloat(1) ?? 0))
     case "size":

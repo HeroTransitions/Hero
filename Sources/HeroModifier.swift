@@ -39,17 +39,6 @@ extension HeroModifier {
   }
 
   /**
-   Set the opacity for the view to animate from/to.
-   - Parameters:
-   - opacity: opacity for the view to animate from/to
-   */
-  public static func opacity(_ opacity: Float) -> HeroModifier {
-    return HeroModifier { targetState in
-      targetState.opacity = opacity
-    }
-  }
-
-  /**
    Force don't fade view during transition
    */
   public static var forceNonFade = HeroModifier { targetState in
