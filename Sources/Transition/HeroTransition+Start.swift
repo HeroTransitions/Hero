@@ -47,15 +47,13 @@ extension HeroTransition {
 
     // take a snapshot to hide all the flashing that might happen
     if #available(iOS 11.0, *), inNavigationController {
-      self.fullScreenSnapshot = self.transitionContainer?.window?.snapshotView(afterScreenUpdates: false) ?? self.fromView?.snapshotView(afterScreenUpdates: false)
-      if let fullScreenSnapshot = self.fullScreenSnapshot {
-          (self.transitionContainer?.window ?? self.transitionContainer)?.addSubview(fullScreenSnapshot)
-      }
+      fullScreenSnapshot = transitionContainer?.window?.snapshotView(afterScreenUpdates: false) ?? fromView?.snapshotView(afterScreenUpdates: false)
     } else {
-     fullScreenSnapshot = transitionContainer?.window?.snapshotView(afterScreenUpdates: true) ?? fromView?.snapshotView(afterScreenUpdates: true)
-     if let fullScreenSnapshot = fullScreenSnapshot {
-      (transitionContainer?.window ?? transitionContainer)?.addSubview(fullScreenSnapshot)
-     }
+      fullScreenSnapshot = transitionContainer?.window?.snapshotView(afterScreenUpdates: true) ?? fromView?.snapshotView(afterScreenUpdates: true)
+    }
+    
+    if let fullScreenSnapshot = self.fullScreenSnapshot {
+      (self.transitionContainer?.window ?? self.transitionContainer)?.addSubview(fullScreenSnapshot)
     }
 
     if let oldSnapshot = fromViewController?.heroStoredSnapshot {
