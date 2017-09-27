@@ -22,6 +22,23 @@
 
 import UIKit
 
+class SnapshotWrapperView: UIView {
+  let contentView: UIView
+  init(contentView: UIView) {
+    self.contentView = contentView
+    super.init(frame: contentView.frame)
+    addSubview(contentView)
+  }
+  required init?(coder aDecoder: NSCoder) {
+    fatalError("init(coder:) has not been implemented")
+  }
+  override func layoutSubviews() {
+    super.layoutSubviews()
+    contentView.bounds.size = bounds.size
+    contentView.center = bounds.center
+  }
+}
+
 public extension UIView {
   private struct AssociatedKeys {
     static var heroID    = "heroID"
@@ -86,21 +103,14 @@ public extension UIView {
 
     let imageView = UIImageView(image: image)
     imageView.frame = bounds
-    let snapshotView = UIView(frame:bounds)
-    snapshotView.addSubview(imageView)
-    return snapshotView
+    return SnapshotWrapperView(contentView: imageView)
   }
 
   internal func snapshotView() -> UIView? {
     let snapshot = snapshotView(afterScreenUpdates: true)
     if #available(iOS 11.0, *), let oldSnapshot = snapshot {
       // in iOS 11, the snapshot taken by snapshotView(afterScreenUpdates) won't contain a container view
-      let wrappedSnapshot = UIView()
-      wrappedSnapshot.bounds = oldSnapshot.bounds
-      wrappedSnapshot.center = oldSnapshot.center
-      oldSnapshot.center = wrappedSnapshot.bounds.center
-      wrappedSnapshot.addSubview(oldSnapshot)
-      return wrappedSnapshot
+      return SnapshotWrapperView(contentView: oldSnapshot)
     } else {
       return snapshot
     }
