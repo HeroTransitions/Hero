@@ -53,7 +53,8 @@ internal class HeroViewPropertyViewContext: HeroAnimatorViewContext {
 
   override func clean() {
     super.clean()
-    viewPropertyAnimator.finishAnimation(at: .current)
+    viewPropertyAnimator?.stopAnimation(false)
+    viewPropertyAnimator?.finishAnimation(at: .current)
     viewPropertyAnimator = nil
   }
 
