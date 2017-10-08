@@ -36,7 +36,9 @@ extension CALayer {
   }()
 
   @objc dynamic func hero_add(anim: CAAnimation, forKey: String?) {
-    CALayer.heroAddedAnimations?.append((self, forKey!, anim.copy() as! CAAnimation))
+    let copiedAnim = anim.copy() as! CAAnimation
+    copiedAnim.delegate = nil // having delegate resulted some weird animation behavior
+    CALayer.heroAddedAnimations?.append((self, forKey!, copiedAnim))
     hero_add(anim: anim, forKey: forKey)
   }
 }
@@ -371,21 +373,11 @@ internal class HeroCoreAnimationViewContext: HeroAnimatorViewContext {
     return timeUntilStop + delay
   }
 
-  func seek(layer: CALayer, timePassed: TimeInterval) {
-    let timeOffset = timePassed - targetState.delay
-    for (key, anim) in layer.animations {
-      anim.speed = 0
-      anim.timeOffset = max(0, min(anim.duration - 0.01, timeOffset))
-      layer.removeAnimation(forKey: key)
-      layer.add(anim, forKey: key)
-    }
-  }
-
   override func seek(timePassed: TimeInterval) {
     let timeOffset = timePassed - targetState.delay
     for (layer, key, anim) in animations {
       anim.speed = 0
-      anim.timeOffset = max(0, min(anim.duration - 0.01, timeOffset))
+      anim.timeOffset = max(0.01, min(anim.duration - 0.01, timeOffset))
       layer.removeAnimation(forKey: key)
       layer.add(anim, forKey: key)
     }

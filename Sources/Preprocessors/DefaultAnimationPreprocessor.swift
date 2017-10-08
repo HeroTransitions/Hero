@@ -196,7 +196,7 @@ extension HeroDefaultAnimationType: HeroStringConvertible {
         let dismissing = HeroDefaultAnimationType.from(node: dismissingNode) {
         return .selectBy(presenting: presenting, dismissing: dismissing)
       }
-    case "none": return .none
+    case "none": return HeroDefaultAnimationType.none
     default: break
     }
     return nil
