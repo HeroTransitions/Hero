@@ -45,7 +45,7 @@ public class Lexer {
             tokens.append(t)
           }
 
-          content = content.substring(from: content.index(content.startIndex, offsetBy: m.characters.count))
+          content = String(content[content.index(content.startIndex, offsetBy: m.characters.count)...])
           matched = true
           break
         }
@@ -54,8 +54,8 @@ public class Lexer {
       if !matched {
         let index = content.index(content.startIndex, offsetBy: 1)
         let intIndex = content.distance(from: content.startIndex, to: index)
-        tokens.append(.other(content.substring(to: index), intIndex..<intIndex+1))
-        content = content.substring(from: index)
+        tokens.append(.other(String(content[..<index]), intIndex..<intIndex+1))
+        content = String(content[index...])
       }
     }
     return tokens
