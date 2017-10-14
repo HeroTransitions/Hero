@@ -42,7 +42,7 @@ public func end(animate: Bool = true)
 /**
  Cancel the interactive transition.
  Will stop the interactive transition and animate from the 
- current state to the **begining** state
+ current state to the **beginning** state
  */
 public func cancel(animate: Bool = true)
 
