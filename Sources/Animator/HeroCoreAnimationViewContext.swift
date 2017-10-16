@@ -27,7 +27,7 @@ extension CALayer {
     let swizzling: (AnyClass, Selector, Selector) -> Void = { forClass, originalSelector, swizzledSelector in
       let originalMethod = class_getInstanceMethod(forClass, originalSelector)
       let swizzledMethod = class_getInstanceMethod(forClass, swizzledSelector)
-      method_exchangeImplementations(originalMethod, swizzledMethod)
+      method_exchangeImplementations(originalMethod!, swizzledMethod!)
     }
     let originalSelector = #selector(add(_:forKey:))
     let swizzledSelector = #selector(hero_add(anim:forKey:))
