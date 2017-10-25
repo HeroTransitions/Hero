@@ -147,7 +147,7 @@ open class HeroTransition: NSObject {
   // Used when doing a hero_replaceViewController within a UINavigationController, to fix a bug with
   // UINavigationController.setViewControllers not able to handle interactive transition
   internal var forceNotInteractive = false
-  internal var forceFinishing: Bool? = nil
+  internal var forceFinishing: Bool?
 
   internal var inNavigationController = false
   internal var inTabBarController = false

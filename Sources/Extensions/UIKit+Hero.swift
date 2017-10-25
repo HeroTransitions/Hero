@@ -22,8 +22,8 @@
 
 import UIKit
 
-fileprivate let parameterRegex = "(?:\\-?\\d+(\\.?\\d+)?)|\\w+"
-fileprivate let modifiersRegex = "(\\w+)(?:\\(([^\\)]*)\\))?"
+private let parameterRegex = "(?:\\-?\\d+(\\.?\\d+)?)|\\w+"
+private let modifiersRegex = "(\\w+)(?:\\(([^\\)]*)\\))?"
 
 internal extension NSObject {
   func copyWithArchiver() -> Any? {
