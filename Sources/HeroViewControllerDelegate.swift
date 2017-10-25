@@ -50,7 +50,7 @@ internal extension HeroTransition {
       let delegate = tabBarController.viewControllers?[tabBarController.selectedIndex] as? HeroViewControllerDelegate {
       closure(delegate)
     } else {
-      for vc in vc.childViewControllers {
+      for vc in vc.childViewControllers where vc.isViewLoaded {
         self.closureProcessForHeroDelegate(vc: vc, closure: closure)
       }
     }
