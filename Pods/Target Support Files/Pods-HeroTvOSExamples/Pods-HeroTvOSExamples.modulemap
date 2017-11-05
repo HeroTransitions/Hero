@@ -1,6 +1,0 @@
-framework module Pods_HeroTvOSExamples {
-  umbrella header "Pods-HeroTvOSExamples-umbrella.h"
-
-  export *
-  module * { export * }
-}
