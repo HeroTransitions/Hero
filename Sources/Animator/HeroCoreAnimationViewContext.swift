@@ -99,7 +99,7 @@ internal class HeroCoreAnimationViewContext: HeroAnimatorViewContext {
       return (overlayLayer?.presentation() ?? overlayLayer)?.value(forKeyPath: key)
     }
     if snapshot.layer.animationKeys()?.isEmpty != false {
-      return snapshot.layer.value(forKeyPath:key)
+      return snapshot.layer.value(forKeyPath: key)
     }
     return (snapshot.layer.presentation() ?? snapshot.layer).value(forKeyPath: key)
   }
@@ -204,7 +204,7 @@ internal class HeroCoreAnimationViewContext: HeroAnimatorViewContext {
   func animate(key: String, beginTime: TimeInterval, duration: TimeInterval, fromValue: Any?, toValue: Any?) -> TimeInterval {
     let anim = getAnimation(key: key, beginTime: beginTime, duration: duration, fromValue: fromValue, toValue: toValue)
 
-    if let overlayKey = overlayKeyFor(key:key) {
+    if let overlayKey = overlayKeyFor(key: key) {
       addAnimation(anim, for: overlayKey, to: getOverlayLayer())
     } else {
       switch key {
@@ -245,11 +245,11 @@ internal class HeroCoreAnimationViewContext: HeroAnimatorViewContext {
         targetState.append(.scale(x:size.width / currentSize.width,
                                   y:size.height / currentSize.height))
       } else {
-        rtn["bounds.size"] = NSValue(cgSize:size)
+        rtn["bounds.size"] = NSValue(cgSize: size)
       }
     }
     if let position = targetState.position {
-      rtn["position"] = NSValue(cgPoint:position)
+      rtn["position"] = NSValue(cgPoint: position)
     }
     if let opacity = targetState.opacity, !(snapshot is UIVisualEffectView) {
       rtn["opacity"] = NSNumber(value: opacity)

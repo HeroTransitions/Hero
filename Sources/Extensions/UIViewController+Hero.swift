@@ -265,7 +265,7 @@ extension UIViewController {
 
           if let parentVC = parentVC {
             self.dismiss(animated: false) {
-              parentVC.present(next, animated: false, completion:nil)
+              parentVC.present(next, animated: false, completion: nil)
             }
           } else {
             UIApplication.shared.keyWindow?.rootViewController = next

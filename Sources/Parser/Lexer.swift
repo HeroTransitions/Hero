@@ -36,7 +36,7 @@ public class Lexer {
     var tokens = [Token]()
     var content = input
 
-    while !content.characters.isEmpty {
+    while !content.isEmpty {
       var matched = false
 
       for (pattern, generator) in tokenList {
@@ -45,7 +45,7 @@ public class Lexer {
             tokens.append(t)
           }
 
-          content = String(content[content.index(content.startIndex, offsetBy: m.characters.count)...])
+          content = String(content[content.index(content.startIndex, offsetBy: m.count)...])
           matched = true
           break
         }

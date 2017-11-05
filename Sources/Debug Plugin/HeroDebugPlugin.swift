@@ -38,7 +38,7 @@ public class HeroDebugPlugin: HeroPlugin {
       hasArc = true
       break
     }
-    let debugView = HeroDebugView(initialProcess: hero.isPresenting ? 0.0 : 1.0, showCurveButton:hasArc, showOnTop:HeroDebugPlugin.showOnTop)
+    let debugView = HeroDebugView(initialProcess: hero.isPresenting ? 0.0 : 1.0, showCurveButton: hasArc, showOnTop: HeroDebugPlugin.showOnTop)
     debugView.frame = hero.container.bounds
     debugView.delegate = self
     hero.container.window?.addSubview(debugView)
@@ -72,7 +72,7 @@ public class HeroDebugPlugin: HeroPlugin {
   }
 }
 
-extension HeroDebugPlugin:HeroDebugViewDelegate {
+extension HeroDebugPlugin: HeroDebugViewDelegate {
   public func onDone() {
     guard let debugView = debugView else { return }
     let seekValue = hero.isPresenting ? debugView.progress : 1.0 - debugView.progress
@@ -142,13 +142,13 @@ extension HeroDebugPlugin:HeroDebugViewDelegate {
       let viewsWithPositiveZPosition = viewsWithZPosition.filter { return $0.layer.zPosition > 0 }
 
       for (i, v) in viewsWithoutZPosition.enumerated() {
-        animateZPosition(view:v, to:CGFloat(i * 10))
+        animateZPosition(view: v, to: CGFloat(i * 10))
       }
 
       var maxZPosition: CGFloat = 0
       for v in viewsWithPositiveZPosition {
         maxZPosition = max(maxZPosition, v.layer.zPosition)
-        animateZPosition(view:v, to:v.layer.zPosition + CGFloat(viewsWithoutZPosition.count * 10))
+        animateZPosition(view: v, to: v.layer.zPosition + CGFloat(viewsWithoutZPosition.count * 10))
       }
 
       t.m34 = -1 / 4000
@@ -157,7 +157,7 @@ extension HeroDebugPlugin:HeroDebugViewDelegate {
       t = CATransform3DRotate(t, debugView!.rotation, 0, 1, 0)
     } else {
       for v in hero.container.subviews {
-        animateZPosition(view:v, to:self.zPositionMap[v] ?? 0)
+        animateZPosition(view: v, to: self.zPositionMap[v] ?? 0)
       }
       self.zPositionMap.removeAll()
     }
@@ -168,7 +168,7 @@ extension HeroDebugPlugin:HeroDebugViewDelegate {
     a.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
     a.duration = 0.4
 
-    UIView.animate(withDuration:0.4) {
+    UIView.animate(withDuration: 0.4) {
       self.context.container.backgroundColor = UIColor(white: 0.85, alpha: 1.0)
     }
 

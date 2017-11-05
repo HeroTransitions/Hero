@@ -25,7 +25,7 @@ import MetalKit
 let π = CGFloat.pi
 
 internal struct KeySet<Key: Hashable, Value: Hashable> {
-  var dict: [Key:Set<Value>] = [:]
+  var dict: [Key: Set<Value>] = [:]
   internal subscript(key: Key) -> Set<Value> {
     mutating get {
       if dict[key] == nil {

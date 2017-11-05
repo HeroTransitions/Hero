@@ -42,12 +42,12 @@ extension HeroTransition {
   public func finish(animate: Bool = true) {
     guard state == .animating || state == .notified || state == .starting else { return }
     if !animate {
-      self.complete(finished:true)
+      self.complete(finished: true)
       return
     }
     var maxTime: TimeInterval = 0
     for animator in self.animators {
-      maxTime = max(maxTime, animator.resume(timePassed:self.progress * self.totalDuration,
+      maxTime = max(maxTime, animator.resume(timePassed: self.progress * self.totalDuration,
                                              reverse: false))
     }
     self.complete(after: maxTime, finishing: true)
@@ -61,7 +61,7 @@ extension HeroTransition {
   public func cancel(animate: Bool = true) {
     guard state == .animating || state == .notified || state == .starting else { return }
     if !animate {
-      self.complete(finished:false)
+      self.complete(finished: false)
       return
     }
     var maxTime: TimeInterval = 0
@@ -70,7 +70,7 @@ extension HeroTransition {
       if adjustedProgress < 0 {
         adjustedProgress = -adjustedProgress
       }
-      maxTime = max(maxTime, animator.resume(timePassed:adjustedProgress * self.totalDuration,
+      maxTime = max(maxTime, animator.resume(timePassed: adjustedProgress * self.totalDuration,
                                              reverse: true))
     }
     self.complete(after: maxTime, finishing: false)

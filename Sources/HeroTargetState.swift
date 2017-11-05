@@ -90,7 +90,7 @@ public struct HeroTargetState {
 
   public var nonFade: Bool = false
   public var forceAnimate: Bool = false
-  public var custom: [String:Any]?
+  public var custom: [String: Any]?
 
   init(modifiers: [HeroModifier]) {
     append(contentsOf: modifiers)

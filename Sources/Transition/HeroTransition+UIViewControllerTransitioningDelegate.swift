@@ -22,7 +22,7 @@
 
 import UIKit
 
-extension HeroTransition:UIViewControllerTransitioningDelegate {
+extension HeroTransition: UIViewControllerTransitioningDelegate {
   var interactiveTransitioning: UIViewControllerInteractiveTransitioning? {
     return forceNotInteractive ? nil : self
   }

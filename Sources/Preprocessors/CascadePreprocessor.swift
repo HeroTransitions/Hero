@@ -66,8 +66,8 @@ public enum CascadeDirection {
 
 class CascadePreprocessor: BasePreprocessor {
   override func process(fromViews: [UIView], toViews: [UIView]) {
-    process(views:fromViews)
-    process(views:toViews)
+    process(views: fromViews)
+    process(views: toViews)
   }
 
   func process(views: [UIView]) {

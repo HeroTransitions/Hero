@@ -58,9 +58,9 @@ class HeroDebugView: UIView {
   }
 
   init(initialProcess: Float, showCurveButton: Bool, showOnTop: Bool) {
-    super.init(frame:.zero)
+    super.init(frame: .zero)
     self.showOnTop = showOnTop
-    backgroundView = UIView(frame:.zero)
+    backgroundView = UIView(frame: .zero)
     backgroundView.backgroundColor = UIColor(white: 1.0, alpha: 0.95)
     backgroundView.layer.shadowColor = UIColor.darkGray.cgColor
     backgroundView.layer.shadowOpacity = 0.3
@@ -126,9 +126,9 @@ class HeroDebugView: UIView {
     debugSlider.frame = sliderFrame
 
     perspectiveButton.sizeToFit()
-    perspectiveButton.frame.origin = CGPoint(x:bounds.maxX - perspectiveButton.bounds.width - 10, y: 4)
+    perspectiveButton.frame.origin = CGPoint(x: bounds.maxX - perspectiveButton.bounds.width - 10, y: 4)
     doneButton.sizeToFit()
-    doneButton.frame.origin = CGPoint(x:10, y: 4)
+    doneButton.frame.origin = CGPoint(x: 10, y: 4)
     arcCurveButton?.sizeToFit()
     arcCurveButton?.center = CGPoint(x: center.x, y: doneButton.center.y)
   }
@@ -144,7 +144,7 @@ class HeroDebugView: UIView {
     } else if rotation < -π {
       rotation += 2 * π
     }
-    delegate?.onPerspectiveChanged(translation:translation, rotation: rotation, scale:scale)
+    delegate?.onPerspectiveChanged(translation: translation, rotation: rotation, scale: scale)
   }
 
   var startLocation: CGPoint = .zero
@@ -161,7 +161,7 @@ class HeroDebugView: UIView {
       if pinchGR.numberOfTouches >= 2 {
         scale = min(1, max(0.2, startScale * pinchGR.scale))
         translation = startTranslation + pinchGR.location(in: nil) - startLocation
-        delegate?.onPerspectiveChanged(translation:translation, rotation: rotation, scale:scale)
+        delegate?.onPerspectiveChanged(translation: translation, rotation: rotation, scale: scale)
       }
     default:
       break
@@ -184,7 +184,7 @@ class HeroDebugView: UIView {
   }
 }
 
-extension HeroDebugView:UIGestureRecognizerDelegate {
+extension HeroDebugView: UIGestureRecognizerDelegate {
   public override func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
     return perspectiveButton.isSelected
   }

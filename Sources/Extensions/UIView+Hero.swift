@@ -139,7 +139,7 @@ public extension UIView {
     }
     set {
       if let newValue = newValue {
-        objc_setAssociatedObject(self, &AssociatedKeys.heroStoredAlpha, NSNumber(value:newValue.native), .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+        objc_setAssociatedObject(self, &AssociatedKeys.heroStoredAlpha, NSNumber(value: newValue.native), .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
       } else {
         objc_setAssociatedObject(self, &AssociatedKeys.heroStoredAlpha, nil, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
       }
