@@ -108,6 +108,8 @@
 		B1193ABA1E525D12005B1C87 /* HeroAnimatorViewContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1193AB81E525D12005B1C87 /* HeroAnimatorViewContext.swift */; };
 		B1275D941E4C0CFD0099A0E9 /* LabelMorphPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1275D921E4C0CFD0099A0E9 /* LabelMorphPlugin.swift */; };
 		B1275D971E4C0D850099A0E9 /* PluginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1275D961E4C0D850099A0E9 /* PluginViewController.swift */; };
+		B147F2651FAEA8F0006475A3 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B147F2631FAEA8F0006475A3 /* FirstViewController.swift */; };
+		B147F2661FAEA8F0006475A3 /* Navigation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B147F2641FAEA8F0006475A3 /* Navigation.storyboard */; };
 		B16197E01EF451C500A540D2 /* HeroTransition+Interactive.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16197DF1EF451C400A540D2 /* HeroTransition+Interactive.swift */; };
 		B16197E11EF451C500A540D2 /* HeroTransition+Interactive.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16197DF1EF451C400A540D2 /* HeroTransition+Interactive.swift */; };
 		B16A21A01E4E3907007B8B4C /* AnimationSelectTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16A219F1E4E3907007B8B4C /* AnimationSelectTableViewController.swift */; };
@@ -258,6 +260,8 @@
 		B1193AB81E525D12005B1C87 /* HeroAnimatorViewContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeroAnimatorViewContext.swift; sourceTree = "<group>"; };
 		B1275D921E4C0CFD0099A0E9 /* LabelMorphPlugin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelMorphPlugin.swift; sourceTree = "<group>"; };
 		B1275D961E4C0D850099A0E9 /* PluginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PluginViewController.swift; sourceTree = "<group>"; };
+		B147F2631FAEA8F0006475A3 /* FirstViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
+		B147F2641FAEA8F0006475A3 /* Navigation.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Navigation.storyboard; sourceTree = "<group>"; };
 		B16197DF1EF451C400A540D2 /* HeroTransition+Interactive.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "HeroTransition+Interactive.swift"; sourceTree = "<group>"; };
 		B16A219F1E4E3907007B8B4C /* AnimationSelectTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimationSelectTableViewController.swift; sourceTree = "<group>"; };
 		B16B75301EF45A110018DBEF /* HeroTransitionState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroTransitionState.swift; sourceTree = "<group>"; };
@@ -505,6 +509,7 @@
 				B185A4E91DFA6FE700C3B85D /* ListToGrid */,
 				A32D2D0E1E4D5463008D35FF /* Menu */,
 				B19F76AE1E46C449002DBC58 /* VideoPlayer */,
+				B147F2621FAEA8F0006475A3 /* Navigation */,
 				B19F769A1E46C3A2002DBC58 /* Basic.storyboard */,
 				B19F769C1E46C3A2002DBC58 /* MusicPlayer.storyboard */,
 			);
@@ -594,6 +599,15 @@
 				B16B75301EF45A110018DBEF /* HeroTransitionState.swift */,
 			);
 			path = Transition;
+			sourceTree = "<group>";
+		};
+		B147F2621FAEA8F0006475A3 /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				B147F2631FAEA8F0006475A3 /* FirstViewController.swift */,
+				B147F2641FAEA8F0006475A3 /* Navigation.storyboard */,
+			);
+			path = Navigation;
 			sourceTree = "<group>";
 		};
 		B185A4E91DFA6FE700C3B85D /* ListToGrid */ = {
@@ -835,6 +849,7 @@
 				B19F76B11E46C449002DBC58 /* VideoPlayer.storyboard in Resources */,
 				A32D2D101E4E14DD008D35FF /* BuiltInTransitions.storyboard in Resources */,
 				B19F76A61E46C3D7002DBC58 /* ImageGallery.storyboard in Resources */,
+				B147F2661FAEA8F0006475A3 /* Navigation.storyboard in Resources */,
 				B19F76A31E46C3CB002DBC58 /* ListToGrid.storyboard in Resources */,
 				B19F76991E46C38E002DBC58 /* AppleHomePage.storyboard in Resources */,
 				B19F769F1E46C3A2002DBC58 /* MusicPlayer.storyboard in Resources */,
@@ -1108,6 +1123,7 @@
 				A33E60C11DE7621C0065CBD8 /* CityViewController.swift in Sources */,
 				B185A4E81DFA6FE200C3B85D /* GridCollectionViewController.swift in Sources */,
 				A32D2D0D1E4D545B008D35FF /* MenuViewController.swift in Sources */,
+				B147F2651FAEA8F0006475A3 /* FirstViewController.swift in Sources */,
 				A304BF8A1DF647FC00A03345 /* ImageCells.swift in Sources */,
 				B1275D971E4C0D850099A0E9 /* PluginViewController.swift in Sources */,
 				B19F76B21E46C449002DBC58 /* VideoPlayerViewController.swift in Sources */,
@@ -1436,7 +1452,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 4VSEW78TKT;
 				INFOPLIST_FILE = Examples/Resources/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.lkzhao.HeroExamples;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1454,7 +1470,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 4VSEW78TKT;
 				INFOPLIST_FILE = Examples/Resources/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.lkzhao.HeroExamples;
 				PRODUCT_NAME = "$(TARGET_NAME)";

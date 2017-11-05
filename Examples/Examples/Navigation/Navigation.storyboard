@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13770" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Yym-df-Bre">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13770"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="Pzv-vl-U7I">
+            <objects>
+                <navigationController id="Yym-df-Bre" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="9jF-TL-dq6">
+                        <rect key="frame" x="0.0" y="20" width="375" height="96"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="69h-JX-TSU" kind="relationship" relationship="rootViewController" id="MKw-On-Czj"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TsS-E5-5Hg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-247" y="233"/>
+        </scene>
+        <!--First-->
+        <scene sceneID="KBp-hh-AcT">
+            <objects>
+                <viewController id="69h-JX-TSU" customClass="FirstViewController" customModule="HeroExamples" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="O4I-Sq-6sO">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="For handling transition inside UINavigationController. You have to set isHeroEnabled on the navigationController" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="92l-5Z-qi9">
+                                <rect key="frame" x="44" y="156" width="287" height="50.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="5nz-JV-JCb">
+                                <rect key="frame" x="282" y="236" width="51" height="31"/>
+                                <connections>
+                                    <action selector="toggleIsHeroEnabled:" destination="69h-JX-TSU" eventType="valueChanged" id="1fs-wN-eB5"/>
+                                </connections>
+                            </switch>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="isHeroEnabled" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ykx-Eh-Ggw">
+                                <rect key="frame" x="44" y="241" width="111" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Ea-6N-A5Q">
+                                <rect key="frame" x="171" y="597" width="32" height="30"/>
+                                <state key="normal" title="Next"/>
+                                <connections>
+                                    <segue destination="h5j-9x-2rK" kind="show" id="vdW-7w-bQq"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pbw-BG-dYF">
+                                <rect key="frame" x="156" y="296.5" width="63" height="168"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="140"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="item"/>
+                                </userDefinedRuntimeAttributes>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="5nz-JV-JCb" firstAttribute="top" secondItem="92l-5Z-qi9" secondAttribute="bottom" constant="30" id="15m-3c-juR"/>
+                            <constraint firstItem="92l-5Z-qi9" firstAttribute="leading" secondItem="0Om-Mx-oK7" secondAttribute="leading" constant="44" id="6tE-uO-HPr"/>
+                            <constraint firstItem="0Om-Mx-oK7" firstAttribute="trailing" secondItem="92l-5Z-qi9" secondAttribute="trailing" constant="44" id="7td-7t-xZo"/>
+                            <constraint firstItem="ykx-Eh-Ggw" firstAttribute="leading" secondItem="0Om-Mx-oK7" secondAttribute="leading" constant="44" id="JVX-WB-zh9"/>
+                            <constraint firstItem="pbw-BG-dYF" firstAttribute="top" secondItem="92l-5Z-qi9" secondAttribute="bottom" constant="90" id="Lib-kS-9hY"/>
+                            <constraint firstItem="pbw-BG-dYF" firstAttribute="centerX" secondItem="O4I-Sq-6sO" secondAttribute="centerX" id="aOE-jC-OEh"/>
+                            <constraint firstItem="92l-5Z-qi9" firstAttribute="top" secondItem="0Om-Mx-oK7" secondAttribute="top" constant="40" id="fSm-Mu-7iu"/>
+                            <constraint firstItem="5nz-JV-JCb" firstAttribute="centerY" secondItem="ykx-Eh-Ggw" secondAttribute="centerY" id="h8q-Eu-r2F"/>
+                            <constraint firstItem="4Ea-6N-A5Q" firstAttribute="centerX" secondItem="O4I-Sq-6sO" secondAttribute="centerX" id="kB2-O4-pPV"/>
+                            <constraint firstItem="0Om-Mx-oK7" firstAttribute="trailing" secondItem="5nz-JV-JCb" secondAttribute="trailing" constant="44" id="l8B-Dh-LZ1"/>
+                            <constraint firstItem="0Om-Mx-oK7" firstAttribute="bottom" secondItem="4Ea-6N-A5Q" secondAttribute="bottom" constant="40" id="nbf-hj-CQi"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="0Om-Mx-oK7"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="First" id="Bdd-qU-Cjk">
+                        <barButtonItem key="leftBarButtonItem" title="Back" id="7em-ys-78s">
+                            <connections>
+                                <action selector="hero_dismissViewController" destination="WWq-iG-Bzr" id="wwz-Zb-nbC"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WWq-iG-Bzr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="456.80000000000001" y="232.53373313343329"/>
+        </scene>
+        <!--Second-->
+        <scene sceneID="TmG-c4-V7B">
+            <objects>
+                <viewController id="h5j-9x-2rK" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="bZq-Ak-jNh">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="idh-Iq-CSj">
+                                <rect key="frame" x="147.5" y="250" width="80" height="168"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="140"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="item"/>
+                                </userDefinedRuntimeAttributes>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="idh-Iq-CSj" firstAttribute="centerY" secondItem="bZq-Ak-jNh" secondAttribute="centerY" id="oGk-ZK-aqg"/>
+                            <constraint firstItem="idh-Iq-CSj" firstAttribute="centerX" secondItem="bZq-Ak-jNh" secondAttribute="centerX" id="q2r-12-MCn"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="X6y-3S-Z2j"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Second" id="Zp5-W6-Wfc"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QWf-5l-0YJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1161" y="233"/>
+        </scene>
+    </scenes>
+</document>
