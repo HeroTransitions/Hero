@@ -190,7 +190,7 @@ open class HeroTransition: NSObject {
    - Parameters:
    - observer: the observer
    */
-  func observeForProgressUpdate(observer: HeroProgressUpdateObserver) {
+  public func observeForProgressUpdate(observer: HeroProgressUpdateObserver) {
     if progressUpdateObservers == nil {
       progressUpdateObservers = []
     }
