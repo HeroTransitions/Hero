@@ -50,12 +50,11 @@ class SourcePreprocessor: BasePreprocessor {
 
     // remove incompatible options
     state.size = nil
-    state.cornerRadius = nil
 
     if view.bounds.size != targetView.bounds.size {
       state.size = targetView.bounds.size
     }
-    if view.layer.cornerRadius != targetView.layer.cornerRadius {
+    if state.cornerRadius == nil, view.layer.cornerRadius != targetView.layer.cornerRadius {
       state.cornerRadius = targetView.layer.cornerRadius
     }
     if view.layer.shadowColor != targetView.layer.shadowColor {
