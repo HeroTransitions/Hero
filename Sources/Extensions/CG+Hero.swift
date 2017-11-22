@@ -139,6 +139,9 @@ internal func * (left: CGSize, right: CGSize) -> CGSize {
 internal func / (left: CGSize, right: CGSize) -> CGSize {
   return CGSize(width: left.width/right.width, height: left.height/right.height)
 }
+internal func / (left: CGPoint, right: CGSize) -> CGPoint {
+  return CGPoint(x: left.x/right.width, y: left.y/right.height)
+}
 
 internal func == (lhs: CATransform3D, rhs: CATransform3D) -> Bool {
   var lhs = lhs

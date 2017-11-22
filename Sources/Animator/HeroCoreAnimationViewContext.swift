@@ -152,12 +152,21 @@ internal class HeroCoreAnimationViewContext: HeroAnimatorViewContext {
   func setSize(view: UIView, newSize: CGSize) {
     let oldSize = view.bounds.size
     if targetState.snapshotType != .noSnapshot {
-      for subview in view.subviews {
-        let center = subview.center
-        let size = subview.bounds.size
-        subview.center = CGPoint(x: center.x / oldSize.width * newSize.width, y: center.y / oldSize.height * newSize.height)
-        subview.bounds.size = size / oldSize * newSize
-        setSize(view: subview, newSize: size / oldSize * newSize)
+      if oldSize.width == 0 || oldSize.height == 0 || newSize.width == 0 || newSize.height == 0 {
+        for subview in view.subviews {
+          subview.center = newSize.center
+          subview.bounds.size = newSize
+          setSize(view: subview, newSize: newSize)
+        }
+      } else {
+        let sizeRatio = oldSize / newSize
+        for subview in view.subviews {
+          let center = subview.center
+          let size = subview.bounds.size
+          subview.center = center / sizeRatio
+          subview.bounds.size = size / sizeRatio
+          setSize(view: subview, newSize: size / sizeRatio)
+        }
       }
       view.bounds.size = newSize
     } else {
