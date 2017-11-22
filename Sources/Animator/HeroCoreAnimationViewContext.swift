@@ -217,8 +217,10 @@ internal class HeroCoreAnimationViewContext: HeroAnimatorViewContext {
           addAnimation(anim.copy() as! CAAnimation, for: key, to: overlayLayer)
         }
       case "bounds.size":
-        let fromSize = (fromValue as? NSValue)!.cgSizeValue
-        let toSize = (toValue as? NSValue)!.cgSizeValue
+        guard let fromSize = (fromValue as? NSValue)?.cgSizeValue, let toSize = (toValue as? NSValue)?.cgSizeValue else {
+          addAnimation(anim, for: key, to: snapshot.layer)
+          break
+        }
 
         setSize(view: snapshot, newSize: fromSize)
         uiViewBasedAnimate(duration: anim.duration, delay: beginTime - currentTime) {
