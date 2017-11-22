@@ -26,12 +26,15 @@ extension HeroTransition {
   /**
    Update the progress for the interactive transition.
    - Parameters:
-   - progress: the current progress, must be between -1...1
+   - progress: the current progress, must be between 0...1
    */
   public func update(_ percentageComplete: CGFloat) {
-    guard state == .animating else { return }
+    guard state == .animating else {
+      startingProgress = percentageComplete
+      return
+    }
     self.progressRunner.stop()
-    self.progress = max(-1, min(1, Double(percentageComplete)))
+    self.progress = Double(percentageComplete.clamp(0, 1))
   }
 
   /**

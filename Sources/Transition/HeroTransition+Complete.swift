@@ -42,6 +42,7 @@ extension HeroTransition {
       completionCallback = nil
       forceFinishing = nil
       container = nil
+      startingProgress = nil
       processors.removeAll()
       animators.removeAll()
       plugins.removeAll()

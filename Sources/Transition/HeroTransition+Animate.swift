@@ -68,6 +68,8 @@ extension HeroTransition {
     self.totalDuration = totalDuration
     if let forceFinishing = forceFinishing {
       complete(finished: forceFinishing)
+    } else if let startingProgress = startingProgress {
+      update(startingProgress)
     } else if animatorWantsInteractive {
       update(0)
     } else {

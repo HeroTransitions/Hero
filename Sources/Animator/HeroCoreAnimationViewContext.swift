@@ -388,7 +388,7 @@ internal class HeroCoreAnimationViewContext: HeroAnimatorViewContext {
     let timeOffset = timePassed - targetState.delay
     for (layer, key, anim) in animations {
       anim.speed = 0
-      anim.timeOffset = timeOffset.clamp(0, anim.duration)
+      anim.timeOffset = timeOffset.clamp(0, anim.duration - 0.001)
       layer.removeAnimation(forKey: key)
       layer.add(anim, forKey: key)
     }

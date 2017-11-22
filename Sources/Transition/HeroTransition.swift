@@ -148,6 +148,7 @@ open class HeroTransition: NSObject {
   // UINavigationController.setViewControllers not able to handle interactive transition
   internal var forceNotInteractive = false
   internal var forceFinishing: Bool?
+  internal var startingProgress: CGFloat?
 
   internal var inNavigationController = false
   internal var inTabBarController = false
