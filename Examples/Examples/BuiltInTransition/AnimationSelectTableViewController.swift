@@ -53,6 +53,25 @@ class AnimationSelectTableViewController: UITableViewController {
     super.viewDidLoad()
     tableView.backgroundColor = UIColor.randomFlat
     labelColor = UIColor(contrastingBlackOrWhiteColorOn: tableView.backgroundColor!, isFlat: true)
+    let screenEdgePanGR = UIScreenEdgePanGestureRecognizer(target: self, action: #selector(handlePan(gr:)))
+    screenEdgePanGR.edges = .left
+    view.addGestureRecognizer(screenEdgePanGR)
+  }
+
+  @objc func handlePan(gr: UIPanGestureRecognizer) {
+    switch gr.state {
+    case .began:
+      dismiss(animated: true, completion: nil)
+    case .changed:
+      let progress = gr.translation(in: nil).x / view.bounds.width
+      Hero.shared.update(progress)
+    default:
+      if (gr.translation(in: nil).x + gr.velocity(in: nil).x) / view.bounds.width > 0.5 {
+        Hero.shared.finish()
+      } else {
+        Hero.shared.cancel()
+      }
+    }
   }
 
   override func numberOfSections(in tableView: UITableView) -> Int {
