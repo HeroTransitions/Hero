@@ -96,8 +96,12 @@ public extension UIView {
 
   internal func slowSnapshotView() -> UIView {
     UIGraphicsBeginImageContextWithOptions(bounds.size, isOpaque, 0)
-    layer.render(in: UIGraphicsGetCurrentContext()!)
-
+    guard let currentContext = UIGraphicsGetCurrentContext() else {
+      UIGraphicsEndImageContext()
+      return UIView()
+    }
+    layer.render(in: currentContext)
+		
     let image = UIGraphicsGetImageFromCurrentImageContext()
     UIGraphicsEndImageContext()
 
