@@ -23,7 +23,7 @@
 import UIKit
 
 #if os(iOS)
-public class HeroDebugPlugin: HeroPlugin {
+@objc public class HeroDebugPlugin: HeroPlugin {
   public static var showOnTop: Bool = false
 
   var debugView: HeroDebugView?
@@ -31,7 +31,7 @@ public class HeroDebugPlugin: HeroPlugin {
   var addedLayers: [CALayer] = []
   var updating = false
 
-  override public func animate(fromViews: [UIView], toViews: [UIView]) -> TimeInterval {
+  @objc override public func animate(fromViews: [UIView], toViews: [UIView]) -> TimeInterval {
     if hero.forceNotInteractive { return 0 }
     var hasArc = false
     for v in context.fromViews + context.toViews where context[v]?.arc != nil && context[v]?.position != nil {
@@ -53,7 +53,7 @@ public class HeroDebugPlugin: HeroPlugin {
     return .infinity
   }
 
-  public override func resume(timePassed: TimeInterval, reverse: Bool) -> TimeInterval {
+  @objc public override func resume(timePassed: TimeInterval, reverse: Bool) -> TimeInterval {
     guard let debugView = debugView else { return 0.4 }
     debugView.delegate = nil
 
@@ -66,14 +66,14 @@ public class HeroDebugPlugin: HeroPlugin {
     return 0.4
   }
 
-  public override func clean() {
+  @objc public override func clean() {
     debugView?.removeFromSuperview()
     debugView = nil
   }
 }
 
-extension HeroDebugPlugin: HeroDebugViewDelegate {
-  public func onDone() {
+@objc extension HeroDebugPlugin: HeroDebugViewDelegate {
+  @objc public func onDone() {
     guard let debugView = debugView else { return }
     let seekValue = hero.isPresenting ? debugView.progress : 1.0 - debugView.progress
     if seekValue > 0.5 {
@@ -83,12 +83,12 @@ extension HeroDebugPlugin: HeroDebugViewDelegate {
     }
   }
 
-  public func onProcessSliderChanged(progress: Float) {
+  @objc public func onProcessSliderChanged(progress: Float) {
     let seekValue = hero.isPresenting ? progress : 1.0 - progress
     hero.update(CGFloat(seekValue))
   }
 
-  func onPerspectiveChanged(translation: CGPoint, rotation: CGFloat, scale: CGFloat) {
+  @objc func onPerspectiveChanged(translation: CGPoint, rotation: CGFloat, scale: CGFloat) {
     var t = CATransform3DIdentity
     t.m34 = -1 / 4000
     t = CATransform3DTranslate(t, translation.x, translation.y, 0)
@@ -97,7 +97,7 @@ extension HeroDebugPlugin: HeroDebugViewDelegate {
     hero.container.layer.sublayerTransform = t
   }
 
-  func animateZPosition(view: UIView, to: CGFloat) {
+  @objc func animateZPosition(view: UIView, to: CGFloat) {
     let a = CABasicAnimation(keyPath: "zPosition")
     a.fromValue = view.layer.value(forKeyPath: "zPosition")
     a.toValue = NSNumber(value: Double(to))
@@ -107,7 +107,7 @@ extension HeroDebugPlugin: HeroDebugViewDelegate {
     view.layer.zPosition = to
   }
 
-  func onDisplayArcCurve(wantsCurve: Bool) {
+  @objc func onDisplayArcCurve(wantsCurve: Bool) {
     for layer in addedLayers {
       layer.removeFromSuperlayer()
       addedLayers.removeAll()
@@ -129,7 +129,7 @@ extension HeroDebugPlugin: HeroDebugViewDelegate {
     }
   }
 
-  func on3D(wants3D: Bool) {
+  @objc func on3D(wants3D: Bool) {
     var t = CATransform3DIdentity
     if wants3D {
       var viewsWithZPosition = Set<UIView>()

@@ -8,10 +8,10 @@
 
 import Foundation
 
-public class ExprNode: CustomStringConvertible, Equatable {
+@objc public class ExprNode: NSObject {
   public var range: CountableRange<Int> = 0..<0
   public let name: String
-  public var description: String {
+  public override var description: String {
     return "ExprNode(name: \"\(name)\")"
   }
   public init(name: String) {

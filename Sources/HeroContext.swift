@@ -22,7 +22,7 @@
 
 import UIKit
 
-public class HeroContext {
+@objc public class HeroContext: NSObject {
   internal var heroIDToSourceView = [String: UIView]()
   internal var heroIDToDestinationView = [String: UIView]()
   internal var snapshotViews = [UIView: UIView]()
@@ -79,26 +79,26 @@ public class HeroContext {
 }
 
 // public
-extension HeroContext {
+@objc extension HeroContext {
 
   /**
    - Returns: a source view matching the heroID, nil if not found
    */
-  public func sourceView(for heroID: String) -> UIView? {
+  @objc public func sourceView(for heroID: String) -> UIView? {
     return heroIDToSourceView[heroID]
   }
 
   /**
    - Returns: a destination view matching the heroID, nil if not found
    */
-  public func destinationView(for heroID: String) -> UIView? {
+  @objc public func destinationView(for heroID: String) -> UIView? {
     return heroIDToDestinationView[heroID]
   }
 
   /**
    - Returns: a view with the same heroID, but on different view controller, nil if not found
    */
-  public func pairedView(for view: UIView) -> UIView? {
+  @objc public func pairedView(for view: UIView) -> UIView? {
     if let id = view.heroID {
       if sourceView(for: id) == view {
         return destinationView(for: id)
@@ -112,7 +112,7 @@ extension HeroContext {
   /**
    - Returns: a snapshot view for animation
    */
-  public func snapshotView(for view: UIView) -> UIView {
+  @objc public func snapshotView(for view: UIView) -> UIView {
     if let snapshot = snapshotViews[view] {
       return snapshot
     }
@@ -264,29 +264,23 @@ extension HeroContext {
     return snapshot
   }
 
-  func insertGlobalViewTree(view: UIView) {
-    if targetStates[view]?.coordinateSpace == .global, let snapshot = snapshotViews[view] {
-      container.addSubview(snapshot)
-    }
-    for subview in view.subviews {
-      insertGlobalViewTree(view: subview)
+  @objc public func clean() {
+    for (superview, subviews) in superviewToNoSnapshotSubviewMap {
+      for (index, view) in subviews.reversed() {
+        superview.insertSubview(view, at: index)
+      }
     }
   }
+}
 
+//swift only
+extension HeroContext {
   public subscript(view: UIView) -> HeroTargetState? {
     get {
       return targetStates[view]
     }
     set {
       targetStates[view] = newValue
-    }
-  }
-
-  public func clean() {
-    for (superview, subviews) in superviewToNoSnapshotSubviewMap {
-      for (index, view) in subviews.reversed() {
-        superview.insertSubview(view, at: index)
-      }
     }
   }
 }
@@ -370,6 +364,15 @@ extension HeroContext {
     rootView.heroStoredAlpha = viewAlphas[rootView]
     for subview in rootView.subviews {
       storeViewAlpha(rootView: subview)
+    }
+  }
+  
+  internal func insertGlobalViewTree(view: UIView) {
+    if targetStates[view]?.coordinateSpace == .global, let snapshot = snapshotViews[view] {
+      container.addSubview(snapshot)
+    }
+    for subview in view.subviews {
+      insertGlobalViewTree(view: subview)
     }
   }
 }

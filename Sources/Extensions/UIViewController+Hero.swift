@@ -32,45 +32,8 @@ internal class HeroViewControllerConfig: NSObject {
   var previousTabBarDelegate: UITabBarControllerDelegate?
 }
 
-public extension UIViewController {
-  private struct AssociatedKeys {
-    static var heroConfig = "heroConfig"
-  }
-
-  internal var heroConfig: HeroViewControllerConfig {
-    get {
-      if let config = objc_getAssociatedObject(self, &AssociatedKeys.heroConfig) as? HeroViewControllerConfig {
-        return config
-      }
-      let config = HeroViewControllerConfig()
-      self.heroConfig = config
-      return config
-    }
-    set { objc_setAssociatedObject(self, &AssociatedKeys.heroConfig, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC) }
-  }
-
-  internal var previousNavigationDelegate: UINavigationControllerDelegate? {
-    get { return heroConfig.previousNavigationDelegate }
-    set { heroConfig.previousNavigationDelegate = newValue }
-  }
-
-  internal var previousTabBarDelegate: UITabBarControllerDelegate? {
-    get { return heroConfig.previousTabBarDelegate }
-    set { heroConfig.previousTabBarDelegate = newValue }
-  }
-
-  /// used for .overFullScreen presentation
-  internal var heroStoredSnapshot: UIView? {
-    get { return heroConfig.storedSnapshot }
-    set { heroConfig.storedSnapshot = newValue }
-  }
-
+@objc public extension UIViewController {
   /// default hero animation type for presenting & dismissing modally
-  public var heroModalAnimationType: HeroDefaultAnimationType {
-    get { return heroConfig.modalAnimation }
-    set { heroConfig.modalAnimation = newValue }
-  }
-
   @IBInspectable public var heroModalAnimationTypeString: String? {
     get { return heroConfig.modalAnimation.label }
     set { heroConfig.modalAnimation = newValue?.parseOne() ?? .auto }
@@ -106,35 +69,87 @@ public extension UIViewController {
   }
 }
 
-extension UINavigationController {
-  /// default hero animation type for push and pop within the navigation controller
-  public var heroNavigationAnimationType: HeroDefaultAnimationType {
-    get { return heroConfig.navigationAnimation }
-    set { heroConfig.navigationAnimation = newValue }
+//swift only
+extension UIViewController {
+  /// default hero animation type for presenting & dismissing modally
+  public var heroModalAnimationType: HeroDefaultAnimationType {
+    get { return heroConfig.modalAnimation }
+    set { heroConfig.modalAnimation = newValue }
   }
+}
 
+//internal
+extension UIViewController {
+  private struct AssociatedKeys {
+    static var heroConfig = "heroConfig"
+  }
+  
+  internal var heroConfig: HeroViewControllerConfig {
+    get {
+      if let config = objc_getAssociatedObject(self, &AssociatedKeys.heroConfig) as? HeroViewControllerConfig {
+        return config
+      }
+      let config = HeroViewControllerConfig()
+      self.heroConfig = config
+      return config
+    }
+    set { objc_setAssociatedObject(self, &AssociatedKeys.heroConfig, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC) }
+  }
+  
+  internal var previousNavigationDelegate: UINavigationControllerDelegate? {
+    get { return heroConfig.previousNavigationDelegate }
+    set { heroConfig.previousNavigationDelegate = newValue }
+  }
+  
+  internal var previousTabBarDelegate: UITabBarControllerDelegate? {
+    get { return heroConfig.previousTabBarDelegate }
+    set { heroConfig.previousTabBarDelegate = newValue }
+  }
+  
+  /// used for .overFullScreen presentation
+  internal var heroStoredSnapshot: UIView? {
+    get { return heroConfig.storedSnapshot }
+    set { heroConfig.storedSnapshot = newValue }
+  }
+}
+
+@objc extension UINavigationController {
+  /// default hero animation type for push and pop within the navigation controller
   @IBInspectable public var heroNavigationAnimationTypeString: String? {
     get { return heroConfig.navigationAnimation.label }
     set { heroConfig.navigationAnimation = newValue?.parseOne() ?? .auto }
   }
 }
 
-extension UITabBarController {
-  /// default hero animation type for switching tabs within the tab bar controller
-  public var heroTabBarAnimationType: HeroDefaultAnimationType {
-    get { return heroConfig.tabBarAnimation }
-    set { heroConfig.tabBarAnimation = newValue }
+//swift only
+extension UINavigationController {
+  /// default hero animation type for push and pop within the navigation controller
+  public var heroNavigationAnimationType: HeroDefaultAnimationType {
+    get { return heroConfig.navigationAnimation }
+    set { heroConfig.navigationAnimation = newValue }
   }
+}
 
+@objc extension UITabBarController {
+  /// default hero animation type for switching tabs within the tab bar controller
   @IBInspectable public var heroTabBarAnimationTypeString: String? {
     get { return heroConfig.tabBarAnimation.label }
     set { heroConfig.tabBarAnimation = newValue?.parseOne() ?? .auto }
   }
 }
 
-extension UIViewController {
+//swift only
+extension UITabBarController {
+  /// default hero animation type for switching tabs within the tab bar controller
+  public var heroTabBarAnimationType: HeroDefaultAnimationType {
+    get { return heroConfig.tabBarAnimation }
+    set { heroConfig.tabBarAnimation = newValue }
+  }
+}
+
+@objc extension UIViewController {
   @available(*, deprecated: 0.1.4, message: "use hero_dismissViewController instead")
-  @IBAction public func ht_dismiss(_ sender: UIView) {
+  @objc @IBAction public func ht_dismiss(_ sender: UIView) {
     hero_dismissViewController()
   }
 
@@ -147,7 +162,7 @@ extension UIViewController {
    Dismiss the current view controller with animation. Will perform a navigationController.popViewController
    if the current view controller is contained inside a navigationController
    */
-  @IBAction public func hero_dismissViewController() {
+  @objc@IBAction public func hero_dismissViewController() {
     if let navigationController = navigationController, navigationController.viewControllers.first != self {
       navigationController.popViewController(animated: true)
     } else {
@@ -158,35 +173,35 @@ extension UIViewController {
   /**
    Unwind to the root view controller using Hero
    */
-  @IBAction public func hero_unwindToRootViewController() {
+  @objc @IBAction public func hero_unwindToRootViewController() {
     hero_unwindToViewController { $0.presentingViewController == nil }
   }
 
   /**
    Unwind to a specific view controller using Hero
    */
-  public func hero_unwindToViewController(_ toViewController: UIViewController) {
+  @objc public func hero_unwindToViewController(_ toViewController: UIViewController) {
     hero_unwindToViewController { $0 == toViewController }
   }
 
   /**
    Unwind to a view controller that responds to the given selector using Hero
    */
-  public func hero_unwindToViewController(withSelector: Selector) {
+  @objc public func hero_unwindToViewController(withSelector: Selector) {
     hero_unwindToViewController { $0.responds(to: withSelector) }
   }
 
   /**
    Unwind to a view controller with given class using Hero
    */
-  public func hero_unwindToViewController(withClass: AnyClass) {
+  @objc public func hero_unwindToViewController(withClass: AnyClass) {
     hero_unwindToViewController { $0.isKind(of: withClass) }
   }
 
   /**
    Unwind to a view controller that the matchBlock returns true on.
    */
-  public func hero_unwindToViewController(withMatchBlock: (UIViewController) -> Bool) {
+  @objc public func hero_unwindToViewController(withMatchBlock: (UIViewController) -> Bool) {
     var target: UIViewController? = nil
     var current: UIViewController? = self
 
@@ -240,7 +255,7 @@ extension UIViewController {
   /**
    Replace the current view controller with another VC on the navigation/modal stack.
    */
-  public func hero_replaceViewController(with next: UIViewController) {
+  @objc public func hero_replaceViewController(with next: UIViewController) {
     let hero = next.transitioningDelegate as? HeroTransition ?? Hero.shared
 
     if hero.isTransitioning {

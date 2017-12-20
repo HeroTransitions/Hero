@@ -22,7 +22,7 @@
 
 import UIKit
 
-public enum HeroSnapshotType {
+@objc public enum HeroSnapshotType: Int {
   /// Will optimize for different type of views
   /// For custom views or views with masking, .optimizedDefault might create snapshots 
   /// that appear differently than the actual view.
@@ -41,7 +41,7 @@ public enum HeroSnapshotType {
   case noSnapshot
 }
 
-public enum HeroCoordinateSpace {
+@objc public enum HeroCoordinateSpace: Int {
   case global
   case local
 }

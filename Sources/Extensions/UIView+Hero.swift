@@ -39,15 +39,7 @@ class SnapshotWrapperView: UIView {
   }
 }
 
-public extension UIView {
-  private struct AssociatedKeys {
-    static var heroID    = "heroID"
-    static var heroModifiers = "heroModifers"
-    static var heroStoredAlpha = "heroStoredAlpha"
-    static var heroEnabled = "heroEnabled"
-    static var heroEnabledForSubviews = "heroEnabledForSubviews"
-  }
-
+@objc public extension UIView {
   /**
    **heroID** is the identifier for the view. When doing a transition between two view controllers,
    Hero will search through all the subviews for both view controllers and matches views with the same **heroID**.
@@ -93,7 +85,18 @@ public extension UIView {
     get { fatalError("Reverse lookup is not supported") }
     set { heroModifiers = newValue?.parse() }
   }
+}
 
+//internal
+internal extension UIView {
+  private struct AssociatedKeys {
+    static var heroID    = "heroID"
+    static var heroModifiers = "heroModifers"
+    static var heroStoredAlpha = "heroStoredAlpha"
+    static var heroEnabled = "heroEnabled"
+    static var heroEnabledForSubviews = "heroEnabledForSubviews"
+  }
+  
   internal func slowSnapshotView() -> UIView {
     UIGraphicsBeginImageContextWithOptions(bounds.size, isOpaque, 0)
     guard let currentContext = UIGraphicsGetCurrentContext() else {
@@ -101,15 +104,15 @@ public extension UIView {
       return UIView()
     }
     layer.render(in: currentContext)
-		
+    
     let image = UIGraphicsGetImageFromCurrentImageContext()
     UIGraphicsEndImageContext()
-
+    
     let imageView = UIImageView(image: image)
     imageView.frame = bounds
     return SnapshotWrapperView(contentView: imageView)
   }
-
+  
   internal func snapshotView() -> UIView? {
     let snapshot = snapshotView(afterScreenUpdates: true)
     if #available(iOS 11.0, *), let oldSnapshot = snapshot {
@@ -119,7 +122,7 @@ public extension UIView {
       return snapshot
     }
   }
-
+  
   internal var flattenedViewHierarchy: [UIView] {
     guard isHeroEnabled else { return [] }
     if #available(iOS 9.0, *), isHidden && (superview is UICollectionView || superview is UIStackView || self is UITableViewCell) {
@@ -132,7 +135,7 @@ public extension UIView {
       return [self]
     }
   }
-
+  
   /// Used for .overFullScreen presentation
   internal var heroStoredAlpha: CGFloat? {
     get {

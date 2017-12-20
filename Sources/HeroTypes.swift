@@ -22,9 +22,9 @@
 
 import UIKit
 
-public protocol HeroPreprocessor: class {
+@objc public protocol HeroPreprocessor: class {
   weak var hero: HeroTransition! { get set }
-  func process(fromViews: [UIView], toViews: [UIView])
+  @objc func process(fromViews: [UIView], toViews: [UIView])
 }
 
 public protocol HeroAnimator: class {
@@ -38,10 +38,10 @@ public protocol HeroAnimator: class {
   func apply(state: HeroTargetState, to view: UIView)
 }
 
-public protocol HeroProgressUpdateObserver: class {
-  func heroDidUpdateProgress(progress: Double)
+@objc public protocol HeroProgressUpdateObserver: class {
+  @objc func heroDidUpdateProgress(progress: Double)
 }
 
-public enum HeroViewOrderingStrategy {
+@objc public enum HeroViewOrderingStrategy: Int {
   case auto, sourceViewOnTop, destinationViewOnTop
 }

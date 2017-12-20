@@ -22,7 +22,7 @@
 
 import UIKit
 
-open class HeroPlugin: NSObject, HeroPreprocessor, HeroAnimator {
+@objc open class HeroPlugin: NSObject, HeroPreprocessor, HeroAnimator {
 
   weak public var hero: HeroTransition!
 
@@ -63,7 +63,7 @@ open class HeroPlugin: NSObject, HeroPreprocessor, HeroAnimator {
        context[view, "modifier1"] = ["parameter1", "parameter2"]
 
   */
-  open func process(fromViews: [UIView], toViews: [UIView]) {}
+  @objc open func process(fromViews: [UIView], toViews: [UIView]) {}
 
   /**
    - Returns: return true if the plugin can handle animating the view.
@@ -74,7 +74,7 @@ open class HeroPlugin: NSObject, HeroPreprocessor, HeroAnimator {
    If return true, Hero won't animate and won't let any other plugins animate this view.
    The view will also be hidden automatically during the animation.
    */
-  open func canAnimate(view: UIView, appearing: Bool) -> Bool { return false }
+  @objc open func canAnimate(view: UIView, appearing: Bool) -> Bool { return false }
 
   /**
    Perform the animation.
@@ -87,14 +87,14 @@ open class HeroPlugin: NSObject, HeroPreprocessor, HeroAnimator {
    - Returns: The duration needed to complete the animation
    */
 
-  open func animate(fromViews: [UIView], toViews: [UIView]) -> TimeInterval { return 0 }
+  @objc open func animate(fromViews: [UIView], toViews: [UIView]) -> TimeInterval { return 0 }
 
   /**
    Called when all animations are completed.
 
    Should perform cleanup and release any reference
    */
-  open func clean() {}
+  @objc open func clean() {}
 
   /**
    For supporting interactive animation only.
@@ -104,7 +104,7 @@ open class HeroPlugin: NSObject, HeroPreprocessor, HeroAnimator {
    - Parameters:
      - timePassed: time of the animation to seek to.
    */
-  open func seekTo(timePassed: TimeInterval) {}
+  @objc open func seekTo(timePassed: TimeInterval) {}
 
   /**
    For supporting interactive animation only.
@@ -115,7 +115,7 @@ open class HeroPlugin: NSObject, HeroPreprocessor, HeroAnimator {
    - timePassed: will be the same value since last `seekTo`
    - reverse: a boolean value indicating whether or not the animation should reverse
    */
-  open func resume(timePassed: TimeInterval, reverse: Bool) -> TimeInterval { return 0 }
+  @objc open func resume(timePassed: TimeInterval, reverse: Bool) -> TimeInterval { return 0 }
 
   /**
    For supporting interactive animation only.
@@ -130,7 +130,7 @@ open class HeroPlugin: NSObject, HeroPreprocessor, HeroAnimator {
 }
 
 // methods for enable/disable the current plugin
-extension HeroPlugin {
+@objc extension HeroPlugin {
   public static var isEnabled: Bool {
     get {
       return HeroTransition.isEnabled(plugin: self)
@@ -143,10 +143,10 @@ extension HeroPlugin {
       }
     }
   }
-  public static func enable() {
+  @objc public static func enable() {
     HeroTransition.enable(plugin: self)
   }
-  public static func disable() {
+  @objc public static func disable() {
     HeroTransition.disable(plugin: self)
   }
 }

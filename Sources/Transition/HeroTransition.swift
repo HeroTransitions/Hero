@@ -38,12 +38,12 @@ import UIKit
  func apply(modifiers:[HeroModifier], to view:UIView)
  ```
  */
-public class Hero: NSObject {
+@objc public class Hero: NSObject {
   /// Shared singleton object for controlling the transition
   public static var shared = HeroTransition()
 }
 
-open class HeroTransition: NSObject {
+@objc open class HeroTransition: NSObject {
 
   public var defaultAnimation: HeroDefaultAnimationType = .auto
   public var containerColor: UIColor = .black
