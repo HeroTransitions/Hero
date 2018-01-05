@@ -103,6 +103,16 @@ extension HeroTransition {
 
     completionCallback?(finished)
 
+    // https://github.com/lkzhao/Hero/issues/354
+    // tabbar not responding after pushing a view controller with hideBottomBarWhenPushed
+    // this is due to iOS adding a few extra animation to the tabbar but they are not removed when
+    // the transition completes. Possibly another iOS bug. let me know if you have better work around.
+    if finished {
+      toViewController?.tabBarController?.tabBar.layer.removeAllAnimations()
+    } else {
+      fromViewController?.tabBarController?.tabBar.layer.removeAllAnimations()
+    }
+
     if finished {
       if let fvc = fromViewController, let tvc = toViewController {
         closureProcessForHeroDelegate(vc: fvc) {
