@@ -39,8 +39,32 @@ class SnapshotWrapperView: UIView {
   }
 }
 
+extension UIView: HeroCompatible { }
+public extension HeroExtension where Base: UIView {
+  
+  /**
+   **ID** is the identifier for the view. When doing a transition between two view controllers,
+   Hero will search through all the subviews for both view controllers and matches views with the same **heroID**.
+   
+   Whenever a pair is discovered,
+   Hero will automatically transit the views from source state to the destination state.
+   */
+   public var ID: String? {
+    get { return objc_getAssociatedObject(self, &type(of: base).AssociatedKeys.heroID) as? String }
+    set { objc_setAssociatedObject(self, &type(of: base).AssociatedKeys.heroID, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC) }
+  }
+  
+  /**
+   Use **modifiers** to specify animations alongside the main transition. Checkout `HeroModifier.swift` for available modifiers.
+   */
+  public var modifiers: [HeroModifier]? {
+    get { return objc_getAssociatedObject(self, &type(of: base).AssociatedKeys.heroModifiers) as? [HeroModifier] }
+    set { objc_setAssociatedObject(self, &type(of: base).AssociatedKeys.heroModifiers, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC) }
+  }
+}
+
 public extension UIView {
-  private struct AssociatedKeys {
+  fileprivate struct AssociatedKeys {
     static var heroID    = "heroID"
     static var heroModifiers = "heroModifers"
     static var heroStoredAlpha = "heroStoredAlpha"
@@ -48,13 +72,7 @@ public extension UIView {
     static var heroEnabledForSubviews = "heroEnabledForSubviews"
   }
 
-  /**
-   **heroID** is the identifier for the view. When doing a transition between two view controllers,
-   Hero will search through all the subviews for both view controllers and matches views with the same **heroID**.
-
-   Whenever a pair is discovered,
-   Hero will automatically transit the views from source state to the destination state.
-   */
+  @available(*, deprecated, message: "Use hero.ID instead")
   @IBInspectable public var heroID: String? {
     get { return objc_getAssociatedObject(self, &AssociatedKeys.heroID) as? String }
     set { objc_setAssociatedObject(self, &AssociatedKeys.heroID, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC) }
@@ -78,9 +96,7 @@ public extension UIView {
     set { objc_setAssociatedObject(self, &AssociatedKeys.heroEnabledForSubviews, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC) }
   }
 
-  /**
-   Use **heroModifiers** to specify animations alongside the main transition. Checkout `HeroModifier.swift` for available modifiers.
-   */
+  @available(*, deprecated, message: "Use hero.modifiers instead")
   public var heroModifiers: [HeroModifier]? {
     get { return objc_getAssociatedObject(self, &AssociatedKeys.heroModifiers) as? [HeroModifier] }
     set { objc_setAssociatedObject(self, &AssociatedKeys.heroModifiers, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC) }
@@ -89,9 +105,9 @@ public extension UIView {
   /**
    **heroModifierString** provides another way to set **heroModifiers**. It can be assigned through storyboard.
    */
-  @IBInspectable public var heroModifierString: String? {
+  @IBInspectable var heroModifierString: String? {
     get { fatalError("Reverse lookup is not supported") }
-    set { heroModifiers = newValue?.parse() }
+    set { hero.modifiers = newValue?.parse() }
   }
 
   internal func slowSnapshotView() -> UIView {

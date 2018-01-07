@@ -112,7 +112,7 @@ internal func * (left: CGPoint, right: CGFloat) -> CGPoint {
   return CGPoint(x: left.x*right, y: left.y*right)
 }
 internal func * (left: CGPoint, right: CGSize) -> CGPoint {
-  return CGPoint(x: left.x*right.width, y: left.y*right.width)
+  return CGPoint(x: left.x*right.width, y: left.y*right.height)
 }
 internal func * (left: CGFloat, right: CGPoint) -> CGPoint {
   return right * left

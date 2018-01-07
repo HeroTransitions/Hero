@@ -48,13 +48,13 @@ public class HeroContext {
     for view in views {
       view.layer.removeAllAnimations()
       let targetState: HeroTargetState?
-      if let modifiers = view.heroModifiers {
+      if let modifiers = view.hero.modifiers {
         targetState = HeroTargetState(modifiers: modifiers)
       } else {
         targetState = nil
       }
       if targetState?.forceAnimate == true || container.convert(view.bounds, from: view).intersects(container.bounds) {
-        if let heroID = view.heroID {
+        if let heroID = view.hero.ID {
           idMap[heroID] = view
         }
         targetStates[view] = targetState
@@ -99,7 +99,7 @@ extension HeroContext {
    - Returns: a view with the same heroID, but on different view controller, nil if not found
    */
   public func pairedView(for view: UIView) -> UIView? {
-    if let id = view.heroID {
+    if let id = view.hero.ID {
       if sourceView(for: id) == view {
         return destinationView(for: id)
       } else if destinationView(for: id) == view {
@@ -212,7 +212,7 @@ extension HeroContext {
     snapshot.layer.position = containerView.convert(view.layer.position, from: view.superview!)
     snapshot.layer.transform = containerView.layer.flatTransformTo(layer: view.layer)
     snapshot.layer.bounds = view.layer.bounds
-    snapshot.heroID = view.heroID
+    snapshot.hero.ID = view.hero.ID
 
     if snapshotType != .noSnapshot {
       if !(view is UINavigationBar), let contentView = snapshot.subviews.get(0) {
