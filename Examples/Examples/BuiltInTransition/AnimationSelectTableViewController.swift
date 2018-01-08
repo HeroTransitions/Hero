@@ -103,8 +103,8 @@ class AnimationSelectTableViewController: UITableViewController {
 
   override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     let vc = self.storyboard!.instantiateViewController(withIdentifier: "animationSelect")
-    vc.heroModalAnimationType = animations[indexPath.item]
-    hero_replaceViewController(with: vc)
+    vc.hero.modalAnimationType = animations[indexPath.item]
+    hero.replaceViewController(with: vc)
   }
 
   override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

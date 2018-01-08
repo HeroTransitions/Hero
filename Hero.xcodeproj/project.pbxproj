@@ -33,6 +33,7 @@
 		2D1F7FE71E49DD90004D944B /* TVImageGalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D1F7FE61E49DD90004D944B /* TVImageGalleryViewController.swift */; };
 		2D1F7FEA1E49DD90004D944B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2D1F7FE81E49DD90004D944B /* Main.storyboard */; };
 		2D1F7FF21E49E043004D944B /* Hero.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D1F7FBF1E49DCB5004D944B /* Hero.framework */; };
+		5C5442AA2004092500E1E326 /* HeroCompatible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C69728F2002CDBD001A5051 /* HeroCompatible.swift */; };
 		5C6972902002CDBD001A5051 /* HeroCompatible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C69728F2002CDBD001A5051 /* HeroCompatible.swift */; };
 		83043017B73BC66DBB920D5C /* Pods_HeroExamples.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EEE340F89FF0A49DD23A5A6E /* Pods_HeroExamples.framework */; };
 		A304BF841DF2717900A03345 /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A304BF831DF2717900A03345 /* ImageViewController.swift */; };
@@ -1031,6 +1032,7 @@
 				2D1F7FC71E49DD02004D944B /* HeroTransition.swift in Sources */,
 				2D1F7FC81E49DD04004D944B /* HeroContext.swift in Sources */,
 				B16ECD041E4FC0B300EAE0E0 /* DefaultAnimationPreprocessor.swift in Sources */,
+				5C5442AA2004092500E1E326 /* HeroCompatible.swift in Sources */,
 				B1D816E61EF5A6AE007B9776 /* HeroTransition+Start.swift in Sources */,
 				AFA306CB1E6B446C00CAF719 /* Lexer.swift in Sources */,
 				B1D816EC1EF5A720007B9776 /* HeroTransition+Animate.swift in Sources */,

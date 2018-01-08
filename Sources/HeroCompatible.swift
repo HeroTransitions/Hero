@@ -24,7 +24,7 @@ import Foundation
 
 public protocol HeroCompatible {
   associatedtype CompatibleType
-  
+
   var hero: HeroExtension<CompatibleType> { get set }
 }
 
@@ -37,7 +37,7 @@ public extension HeroCompatible {
 
 public class HeroExtension<Base> {
   public let base: Base
-  
+
   init(_ base: Base) {
     self.base = base
   }

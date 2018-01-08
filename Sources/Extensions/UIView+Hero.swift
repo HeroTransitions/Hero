@@ -41,7 +41,7 @@ class SnapshotWrapperView: UIView {
 
 extension UIView: HeroCompatible { }
 public extension HeroExtension where Base: UIView {
-  
+
   /**
    **ID** is the identifier for the view. When doing a transition between two view controllers,
    Hero will search through all the subviews for both view controllers and matches views with the same **heroID**.
@@ -50,16 +50,59 @@ public extension HeroExtension where Base: UIView {
    Hero will automatically transit the views from source state to the destination state.
    */
    public var ID: String? {
-    get { return objc_getAssociatedObject(self, &type(of: base).AssociatedKeys.heroID) as? String }
-    set { objc_setAssociatedObject(self, &type(of: base).AssociatedKeys.heroID, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC) }
+    get { return objc_getAssociatedObject(base, &type(of: base).AssociatedKeys.heroID) as? String }
+    set { objc_setAssociatedObject(base, &type(of: base).AssociatedKeys.heroID, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC) }
   }
-  
+
+  /**
+   **isEnabled** allows to specify whether a view and its subviews should be consider for animations.
+   If true, Hero will search through all the subviews for heroIds and modifiers. Defaults to true
+   */
+  public var isEnabled: Bool {
+    get { return objc_getAssociatedObject(base, &type(of: base).AssociatedKeys.heroEnabled) as? Bool ?? true }
+    set { objc_setAssociatedObject(base, &type(of: base).AssociatedKeys.heroEnabled, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC) }
+  }
+
+  /**
+   **isEnabledForSubviews** allows to specify whether a view's subviews should be consider for animations.
+   If true, Hero will search through all the subviews for heroIds and modifiers. Defaults to true
+   */
+  public var isEnabledForSubviews: Bool {
+    get { return objc_getAssociatedObject(base, &type(of: base).AssociatedKeys.heroEnabledForSubviews) as? Bool ?? true }
+    set { objc_setAssociatedObject(base, &type(of: base).AssociatedKeys.heroEnabledForSubviews, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC) }
+  }
+
   /**
    Use **modifiers** to specify animations alongside the main transition. Checkout `HeroModifier.swift` for available modifiers.
    */
   public var modifiers: [HeroModifier]? {
-    get { return objc_getAssociatedObject(self, &type(of: base).AssociatedKeys.heroModifiers) as? [HeroModifier] }
-    set { objc_setAssociatedObject(self, &type(of: base).AssociatedKeys.heroModifiers, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC) }
+    get { return objc_getAssociatedObject(base, &type(of: base).AssociatedKeys.heroModifiers) as? [HeroModifier] }
+    set { objc_setAssociatedObject(base, &type(of: base).AssociatedKeys.heroModifiers, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC) }
+  }
+
+  /**
+   **modifierString** provides another way to set **modifiers**. It can be assigned through storyboard.
+   */
+  public var modifierString: String? {
+    get { fatalError("Reverse lookup is not supported") }
+    set { modifiers = newValue?.parse() }
+  }
+
+  /// Used for .overFullScreen presentation
+  internal var storedAlpha: CGFloat? {
+    get {
+      if let doubleValue = (objc_getAssociatedObject(base, &type(of: base).AssociatedKeys.heroStoredAlpha) as? NSNumber)?.doubleValue {
+        return CGFloat(doubleValue)
+      }
+      return nil
+    }
+    set {
+      if let newValue = newValue {
+        objc_setAssociatedObject(base, &type(of: base).AssociatedKeys.heroStoredAlpha, NSNumber(value: newValue.native), .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+      } else {
+        objc_setAssociatedObject(base, &type(of: base).AssociatedKeys.heroStoredAlpha, nil, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+      }
+    }
   }
 }
 
@@ -72,39 +115,35 @@ public extension UIView {
     static var heroEnabledForSubviews = "heroEnabledForSubviews"
   }
 
+  // TODO: can be moved to internal later (will still be accessible via IB)
   @available(*, deprecated, message: "Use hero.ID instead")
-  @IBInspectable public var heroID: String? {
-    get { return objc_getAssociatedObject(self, &AssociatedKeys.heroID) as? String }
-    set { objc_setAssociatedObject(self, &AssociatedKeys.heroID, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC) }
+  @IBInspectable var heroID: String? {
+    get { return hero.ID }
+    set { hero.ID = newValue }
   }
 
-  /**
-   **isHeroEnabled** allows to specify whether a view and its subviews should be consider for animations.
-   If true, Hero will search through all the subviews for heroIds and modifiers. Defaults to true
-   */
-  @IBInspectable public var isHeroEnabled: Bool {
-    get { return objc_getAssociatedObject(self, &AssociatedKeys.heroEnabled) as? Bool ?? true }
-    set { objc_setAssociatedObject(self, &AssociatedKeys.heroEnabled, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC) }
+  // TODO: can be moved to internal later (will still be accessible via IB)
+  @available(*, deprecated, message: "Use hero.isEnabled instead")
+  @IBInspectable var isHeroEnabled: Bool {
+    get { return hero.isEnabled }
+    set { hero.isEnabled = newValue }
   }
 
-  /**
-   **isHeroEnabledForSubviews** allows to specify whether a view's subviews should be consider for animations.
-   If true, Hero will search through all the subviews for heroIds and modifiers. Defaults to true
-   */
-  @IBInspectable public var isHeroEnabledForSubviews: Bool {
-    get { return objc_getAssociatedObject(self, &AssociatedKeys.heroEnabledForSubviews) as? Bool ?? true }
-    set { objc_setAssociatedObject(self, &AssociatedKeys.heroEnabledForSubviews, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC) }
+  // TODO: can be moved to internal later (will still be accessible via IB)
+  @available(*, deprecated, message: "Use hero.isEnabledForSubviews instead")
+  @IBInspectable var isHeroEnabledForSubviews: Bool {
+    get { return hero.isEnabledForSubviews }
+    set { hero.isEnabledForSubviews = newValue }
   }
 
   @available(*, deprecated, message: "Use hero.modifiers instead")
   public var heroModifiers: [HeroModifier]? {
-    get { return objc_getAssociatedObject(self, &AssociatedKeys.heroModifiers) as? [HeroModifier] }
-    set { objc_setAssociatedObject(self, &AssociatedKeys.heroModifiers, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC) }
+    get { return hero.modifiers }
+    set { hero.modifiers = newValue }
   }
 
-  /**
-   **heroModifierString** provides another way to set **heroModifiers**. It can be assigned through storyboard.
-   */
+  // TODO: can be moved to internal later (will still be accessible via IB)
+  @available(*, deprecated, message: "Use hero.modifierString instead")
   @IBInspectable var heroModifierString: String? {
     get { fatalError("Reverse lookup is not supported") }
     set { hero.modifiers = newValue?.parse() }
@@ -117,7 +156,7 @@ public extension UIView {
       return UIView()
     }
     layer.render(in: currentContext)
-		
+
     let image = UIGraphicsGetImageFromCurrentImageContext()
     UIGraphicsEndImageContext()
 
@@ -137,32 +176,21 @@ public extension UIView {
   }
 
   internal var flattenedViewHierarchy: [UIView] {
-    guard isHeroEnabled else { return [] }
+    guard hero.isEnabled else { return [] }
     if #available(iOS 9.0, *), isHidden && (superview is UICollectionView || superview is UIStackView || self is UITableViewCell) {
       return []
     } else if isHidden && (superview is UICollectionView || self is UITableViewCell) {
       return []
-    } else if isHeroEnabledForSubviews {
+    } else if hero.isEnabledForSubviews {
       return [self] + subviews.flatMap { $0.flattenedViewHierarchy }
     } else {
       return [self]
     }
   }
 
-  /// Used for .overFullScreen presentation
+  @available(*, deprecated, message: "Use hero.storedAplha instead")
   internal var heroStoredAlpha: CGFloat? {
-    get {
-      if let doubleValue = (objc_getAssociatedObject(self, &AssociatedKeys.heroStoredAlpha) as? NSNumber)?.doubleValue {
-        return CGFloat(doubleValue)
-      }
-      return nil
-    }
-    set {
-      if let newValue = newValue {
-        objc_setAssociatedObject(self, &AssociatedKeys.heroStoredAlpha, NSNumber(value: newValue.native), .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
-      } else {
-        objc_setAssociatedObject(self, &AssociatedKeys.heroStoredAlpha, nil, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
-      }
-    }
+    get { return hero.storedAlpha }
+    set { hero.storedAlpha = newValue }
   }
 }

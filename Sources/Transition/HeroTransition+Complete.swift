@@ -62,7 +62,7 @@ extension HeroTransition {
         context.unhide(rootView: toView)
         context.removeSnapshots(rootView: toView)
         context.storeViewAlpha(rootView: fromView)
-        fromViewController?.heroStoredSnapshot = container
+        fromViewController?.hero.storedSnapshot = container
         container.superview?.addSubview(fromView)
         fromView.addSubview(container)
       } else if !finished && !isPresenting && fromOverFullScreen {
@@ -70,7 +70,7 @@ extension HeroTransition {
         context.unhide(rootView: fromView)
         context.removeSnapshots(rootView: fromView)
         context.storeViewAlpha(rootView: toView)
-        toViewController?.heroStoredSnapshot = container
+        toViewController?.hero.storedSnapshot = container
         container.superview?.addSubview(toView)
         toView.addSubview(container)
       } else {

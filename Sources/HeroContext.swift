@@ -358,16 +358,16 @@ extension HeroContext {
     return snapshots
   }
   internal func loadViewAlpha(rootView: UIView) {
-    if let storedAlpha = rootView.heroStoredAlpha {
+    if let storedAlpha = rootView.hero.storedAlpha {
       rootView.alpha = storedAlpha
-      rootView.heroStoredAlpha = nil
+      rootView.hero.storedAlpha = nil
     }
     for subview in rootView.subviews {
       loadViewAlpha(rootView: subview)
     }
   }
   internal func storeViewAlpha(rootView: UIView) {
-    rootView.heroStoredAlpha = viewAlphas[rootView]
+    rootView.hero.storedAlpha = viewAlphas[rootView]
     for subview in rootView.subviews {
       storeViewAlpha(rootView: subview)
     }
