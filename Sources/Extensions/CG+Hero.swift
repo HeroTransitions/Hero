@@ -56,7 +56,7 @@ internal extension CGSize {
 
 internal extension CGRect {
   internal var center: CGPoint {
-    return CGPoint(x: origin.x + size.width/2, y: origin.y + size.height/2)
+    return CGPoint(x: origin.x + width/2, y: origin.y + height/2)
   }
   internal var bounds: CGRect {
     return CGRect(origin: CGPoint.zero, size: size)
@@ -92,63 +92,65 @@ extension CGPoint {
   internal func distance(_ b: CGPoint) -> CGFloat {
     return sqrt(pow(self.x - b.x, 2) + pow(self.y - b.y, 2))
   }
+
+  internal static func + (left: CGPoint, right: CGPoint) -> CGPoint {
+    return CGPoint(x: left.x + right.x, y: left.y + right.y)
+  }
+
+  internal static func - (left: CGPoint, right: CGPoint) -> CGPoint {
+    return CGPoint(x: left.x - right.x, y: left.y - right.y)
+  }
+
+  internal static func / (left: CGPoint, right: CGFloat) -> CGPoint {
+    return CGPoint(x: left.x/right, y: left.y/right)
+  }
+  internal static func / (left: CGPoint, right: CGPoint) -> CGPoint {
+    return CGPoint(x: left.x/right.x, y: left.y/right.y)
+  }
+  internal static func * (left: CGPoint, right: CGFloat) -> CGPoint {
+    return CGPoint(x: left.x*right, y: left.y*right)
+  }
+  internal static func * (left: CGPoint, right: CGSize) -> CGPoint {
+    return CGPoint(x: left.x*right.width, y: left.y*right.width)
+  }
+  internal static func * (left: CGFloat, right: CGPoint) -> CGPoint {
+    return right * left
+  }
+
+  internal static func * (left: CGPoint, right: CGPoint) -> CGPoint {
+    return CGPoint(x: left.x*right.x, y: left.y*right.y)
+  }
+
+  internal static prefix func - (point: CGPoint) -> CGPoint {
+    return .zero - point
+  }
+
+  internal static func abs(_ p: CGPoint) -> CGPoint {
+    return CGPoint(x: Swift.abs(p.x), y: Swift.abs(p.y))
+  }
 }
 
-internal func + (left: CGPoint, right: CGPoint) -> CGPoint {
-  return CGPoint(x: left.x + right.x, y: left.y + right.y)
+extension CGSize {
+  internal static func * (left: CGSize, right: CGFloat) -> CGSize {
+    return CGSize(width: left.width*right, height: left.height*right)
+  }
+  internal static func * (left: CGSize, right: CGSize) -> CGSize {
+    return CGSize(width: left.width*right.width, height: left.height*right.height)
+  }
+  internal static func / (left: CGSize, right: CGSize) -> CGSize {
+    return CGSize(width: left.width/right.width, height: left.height/right.height)
+  }
+  internal static func / (left: CGPoint, right: CGSize) -> CGPoint {
+    return CGPoint(x: left.x/right.width, y: left.y/right.height)
+  }
 }
 
-internal func - (left: CGPoint, right: CGPoint) -> CGPoint {
-  return CGPoint(x: left.x - right.x, y: left.y - right.y)
+extension CATransform3D : Equatable {
+  public static func == (lhs: CATransform3D, rhs: CATransform3D) -> Bool {
+    var lhs = lhs
+    var rhs = rhs
+    return memcmp(&lhs, &rhs, MemoryLayout<CATransform3D>.size) == 0
+  }
 }
 
-internal func / (left: CGPoint, right: CGFloat) -> CGPoint {
-  return CGPoint(x: left.x/right, y: left.y/right)
-}
-internal func / (left: CGPoint, right: CGPoint) -> CGPoint {
-  return CGPoint(x: left.x/right.x, y: left.y/right.y)
-}
-internal func * (left: CGPoint, right: CGFloat) -> CGPoint {
-  return CGPoint(x: left.x*right, y: left.y*right)
-}
-internal func * (left: CGPoint, right: CGSize) -> CGPoint {
-  return CGPoint(x: left.x*right.width, y: left.y*right.width)
-}
-internal func * (left: CGFloat, right: CGPoint) -> CGPoint {
-  return right * left
-}
 
-internal func * (left: CGPoint, right: CGPoint) -> CGPoint {
-  return CGPoint(x: left.x*right.x, y: left.y*right.y)
-}
-
-internal prefix func - (point: CGPoint) -> CGPoint {
-  return CGPoint.zero - point
-}
-
-internal func abs(_ p: CGPoint) -> CGPoint {
-  return CGPoint(x: abs(p.x), y: abs(p.y))
-}
-
-internal func * (left: CGSize, right: CGFloat) -> CGSize {
-  return CGSize(width: left.width*right, height: left.height*right)
-}
-internal func * (left: CGSize, right: CGSize) -> CGSize {
-  return CGSize(width: left.width*right.width, height: left.height*right.height)
-}
-internal func / (left: CGSize, right: CGSize) -> CGSize {
-  return CGSize(width: left.width/right.width, height: left.height/right.height)
-}
-internal func / (left: CGPoint, right: CGSize) -> CGPoint {
-  return CGPoint(x: left.x/right.width, y: left.y/right.height)
-}
-
-internal func == (lhs: CATransform3D, rhs: CATransform3D) -> Bool {
-  var lhs = lhs
-  var rhs = rhs
-  return memcmp(&lhs, &rhs, MemoryLayout<CATransform3D>.size) == 0
-}
-
-internal func != (lhs: CATransform3D, rhs: CATransform3D) -> Bool {
-  return !(lhs == rhs)
-}
