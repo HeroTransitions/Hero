@@ -46,7 +46,7 @@ public class HeroContext {
 
   internal func process(views: [UIView], idMap: inout [String: UIView]) {
     for view in views {
-      view.layer.removeAllAnimations()
+      view.layer.removeAllHeroAnimations()
       let targetState: HeroTargetState?
       if let modifiers = view.hero.modifiers {
         targetState = HeroTargetState(modifiers: modifiers)
@@ -332,7 +332,7 @@ extension HeroContext {
       if view != snapshot {
         snapshot.removeFromSuperview()
       } else {
-        view.layer.removeAllAnimations()
+        view.layer.removeAllHeroAnimations()
       }
     }
   }
@@ -341,7 +341,7 @@ extension HeroContext {
       if rootView != snapshot {
         snapshot.removeFromSuperview()
       } else {
-        rootView.layer.removeAllAnimations()
+        rootView.layer.removeAllHeroAnimations()
       }
     }
     for subview in rootView.subviews {

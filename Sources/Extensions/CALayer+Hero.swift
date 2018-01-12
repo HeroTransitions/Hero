@@ -41,4 +41,11 @@ internal extension CALayer {
     }
     return trans
   }
+
+  func removeAllHeroAnimations() {
+    guard let keys = animationKeys() else { return }
+    for animationKey in keys where animationKey.hasPrefix("hero.") {
+      removeAnimation(forKey: animationKey)
+    }
+  }
 }
