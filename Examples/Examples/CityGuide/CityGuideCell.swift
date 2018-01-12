@@ -35,7 +35,7 @@ class CityCell: UICollectionViewCell {
       guard let city = city else { return }
       let name = city.name
 
-      hero.ID = "\(name)"
+      hero.id = "\(name)"
 
       nameLabel.text = name
       imageView.image = city.image

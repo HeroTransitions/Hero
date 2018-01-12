@@ -43,7 +43,7 @@ class ListTableViewController: UITableViewController {
     let cell = tableView.dequeueReusableCell(withIdentifier: "item", for: indexPath)
 
     cell.hero.modifiers = [.fade, .translate(x:-100)]
-    cell.imageView!.hero.ID = "image_\(indexPath.item)"
+    cell.imageView!.hero.id = "image_\(indexPath.item)"
     cell.imageView!.hero.modifiers = [.arc]
     cell.imageView!.image = ImageLibrary.thumbnail(index:indexPath.item)
     cell.imageView!.isOpaque = true

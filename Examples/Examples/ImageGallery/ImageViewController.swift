@@ -80,7 +80,7 @@ extension ImageViewController {
   override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
     let imageCell = (collectionView.dequeueReusableCell(withReuseIdentifier: "item", for: indexPath) as? ScrollingImageCell)!
     imageCell.image = ImageLibrary.image(index:indexPath.item)
-    imageCell.imageView.hero.ID = "image_\(indexPath.item)"
+    imageCell.imageView.hero.id = "image_\(indexPath.item)"
     imageCell.imageView.hero.modifiers = [.position(CGPoint(x:view.bounds.width/2, y:view.bounds.height+view.bounds.width/2)), .scale(0.6), .fade]
     imageCell.topInset = topLayoutGuide.length
     imageCell.imageView.isOpaque = true

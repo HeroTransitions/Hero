@@ -62,7 +62,7 @@ extension ImageGalleryViewController: UICollectionViewDataSource {
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
     let imageCell = (collectionView.dequeueReusableCell(withReuseIdentifier: "item", for: indexPath) as? ImageCell)!
     imageCell.imageView.image = ImageLibrary.thumbnail(index:indexPath.item)
-    imageCell.imageView.hero.ID = "image_\(indexPath.item)"
+    imageCell.imageView.hero.id = "image_\(indexPath.item)"
     imageCell.imageView.hero.modifiers = [.fade, .scale(0.8)]
     imageCell.imageView.isOpaque = true
     return imageCell

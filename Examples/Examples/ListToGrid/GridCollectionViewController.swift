@@ -51,7 +51,7 @@ class GridCollectionViewController: UICollectionViewController, UICollectionView
     let image = ImageLibrary.thumbnail(index:indexPath.item)
     cell.hero.modifiers = [.fade, .translate(y:20)]
     cell.imageView!.image = image
-    cell.imageView!.hero.ID = "image_\(indexPath.item)"
+    cell.imageView!.hero.id = "image_\(indexPath.item)"
     cell.imageView!.hero.modifiers = [.arc]
     cell.imageView!.isOpaque = true
     cell.textLabel!.text = "Item \(indexPath.item)"

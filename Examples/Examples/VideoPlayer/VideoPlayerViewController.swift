@@ -42,7 +42,7 @@ class VideoPlayerViewController: UIViewController {
     playerView = AVPlayerView(frame: view.bounds)
     playerView.backgroundColor = .black
     (playerView.layer as! AVPlayerLayer).player = player
-    playerView.hero.ID = "videoPlayer"
+    playerView.hero.id = "videoPlayer"
     playerView.hero.modifiers = [.useNoSnapshot, .useScaleBasedSizeChange]
     view.insertSubview(playerView, at: 0)
 

@@ -49,7 +49,7 @@ public extension HeroExtension where Base: UIView {
    Whenever a pair is discovered,
    Hero will automatically transit the views from source state to the destination state.
    */
-   public var ID: String? {
+   public var id: String? {
     get { return objc_getAssociatedObject(base, &type(of: base).AssociatedKeys.heroID) as? String }
     set { objc_setAssociatedObject(base, &type(of: base).AssociatedKeys.heroID, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC) }
   }
@@ -116,10 +116,10 @@ public extension UIView {
   }
 
   // TODO: can be moved to internal later (will still be accessible via IB)
-  @available(*, deprecated, message: "Use hero.ID instead")
+  @available(*, deprecated, message: "Use hero.id instead")
   @IBInspectable var heroID: String? {
-    get { return hero.ID }
-    set { hero.ID = newValue }
+    get { return hero.id }
+    set { hero.id = newValue }
   }
 
   // TODO: can be moved to internal later (will still be accessible via IB)
