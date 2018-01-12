@@ -55,7 +55,7 @@ internal class HeroCoreAnimationViewContext: HeroAnimatorViewContext {
 
   // computed
   var contentLayer: CALayer? {
-    return snapshot.layer.sublayers?.get(0)
+    return targetState.snapshotType == .noSnapshot ? nil : snapshot.layer.sublayers?.get(0)
   }
   var overlayLayer: CALayer?
 
