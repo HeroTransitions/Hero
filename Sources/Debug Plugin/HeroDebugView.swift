@@ -112,23 +112,29 @@ class HeroDebugView: UIView {
   public override func layoutSubviews() {
     super.layoutSubviews()
     var backgroundFrame = bounds
-    backgroundFrame.size.height = 72
+    let safeInset: CGFloat
+    if #available(iOS 11.0, *) {
+      safeInset = showOnTop ? safeAreaInsets.top : safeAreaInsets.bottom
+    } else {
+      safeInset = 0
+    }
+    backgroundFrame.size.height = 72 + safeInset
     if showOnTop {
       backgroundFrame.origin.y = showControls ? 0 : -80
     } else {
-      backgroundFrame.origin.y = bounds.maxY - CGFloat(showControls ? 72.0 : -8.0)
+      backgroundFrame.origin.y = bounds.maxY - CGFloat(showControls ? 72.0 + safeInset : -8.0)
     }
     backgroundView.frame = backgroundFrame
 
     var sliderFrame = bounds.insetBy(dx: 10, dy: 0)
     sliderFrame.size.height = 44
-    sliderFrame.origin.y = 28
+    sliderFrame.origin.y = showOnTop ? 28 + safeInset : 28
     debugSlider.frame = sliderFrame
 
     perspectiveButton.sizeToFit()
-    perspectiveButton.frame.origin = CGPoint(x: bounds.maxX - perspectiveButton.bounds.width - 10, y: 4)
+    perspectiveButton.frame.origin = CGPoint(x: bounds.maxX - perspectiveButton.bounds.width - 10, y: showOnTop ? 4 + safeInset : 4)
     doneButton.sizeToFit()
-    doneButton.frame.origin = CGPoint(x: 10, y: 4)
+    doneButton.frame.origin = CGPoint(x: 10, y: showOnTop ? 4 + safeInset : 4)
     arcCurveButton?.sizeToFit()
     arcCurveButton?.center = CGPoint(x: center.x, y: doneButton.center.y)
   }
