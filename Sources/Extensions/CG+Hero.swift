@@ -56,13 +56,13 @@ internal extension CGSize {
 
 internal extension CGRect {
   internal var center: CGPoint {
-    return CGPoint(x: origin.x + width/2, y: origin.y + height/2)
+    return CGPoint(x: origin.x + width / 2, y: origin.y + height / 2)
   }
   internal var bounds: CGRect {
     return CGRect(origin: CGPoint.zero, size: size)
   }
   init(center: CGPoint, size: CGSize) {
-    self.init(x: center.x - size.width/2, y: center.y - size.height/2, width: size.width, height: size.height)
+    self.init(x: center.x - size.width / 2, y: center.y - size.height / 2, width: size.width, height: size.height)
   }
 }
 
@@ -78,7 +78,7 @@ extension TimeInterval {
 }
 extension CGPoint {
   internal func translate(_ dx: CGFloat, dy: CGFloat) -> CGPoint {
-    return CGPoint(x: self.x+dx, y: self.y+dy)
+    return CGPoint(x: self.x + dx, y: self.y + dy)
   }
 
   internal func transform(_ t: CGAffineTransform) -> CGPoint {
@@ -102,23 +102,23 @@ extension CGPoint {
   }
 
   internal static func / (left: CGPoint, right: CGFloat) -> CGPoint {
-    return CGPoint(x: left.x/right, y: left.y/right)
+    return CGPoint(x: left.x / right, y: left.y / right)
   }
   internal static func / (left: CGPoint, right: CGPoint) -> CGPoint {
-    return CGPoint(x: left.x/right.x, y: left.y/right.y)
+    return CGPoint(x: left.x / right.x, y: left.y / right.y)
   }
   internal static func * (left: CGPoint, right: CGFloat) -> CGPoint {
-    return CGPoint(x: left.x*right, y: left.y*right)
+    return CGPoint(x: left.x * right, y: left.y * right)
   }
   internal static func * (left: CGPoint, right: CGSize) -> CGPoint {
-    return CGPoint(x: left.x*right.width, y: left.y*right.width)
+    return CGPoint(x: left.x * right.width, y: left.y * right.height)
   }
   internal static func * (left: CGFloat, right: CGPoint) -> CGPoint {
     return right * left
   }
 
   internal static func * (left: CGPoint, right: CGPoint) -> CGPoint {
-    return CGPoint(x: left.x*right.x, y: left.y*right.y)
+    return CGPoint(x: left.x * right.x, y: left.y * right.y)
   }
 
   internal static prefix func - (point: CGPoint) -> CGPoint {
@@ -132,16 +132,16 @@ extension CGPoint {
 
 extension CGSize {
   internal static func * (left: CGSize, right: CGFloat) -> CGSize {
-    return CGSize(width: left.width*right, height: left.height*right)
+    return CGSize(width: left.width * right, height: left.height * right)
   }
   internal static func * (left: CGSize, right: CGSize) -> CGSize {
-    return CGSize(width: left.width*right.width, height: left.height*right.height)
+    return CGSize(width: left.width * right.width, height: left.height * right.height)
   }
   internal static func / (left: CGSize, right: CGSize) -> CGSize {
-    return CGSize(width: left.width/right.width, height: left.height/right.height)
+    return CGSize(width: left.width / right.width, height: left.height / right.height)
   }
   internal static func / (left: CGPoint, right: CGSize) -> CGPoint {
-    return CGPoint(x: left.x/right.width, y: left.y/right.height)
+    return CGPoint(x: left.x / right.width, y: left.y / right.height)
   }
 }
 

@@ -40,17 +40,17 @@ class AppleProductViewController: UIViewController, HeroViewControllerDelegate {
   }
 
   func applyShrinkModifiers() {
-    view.heroModifiers = nil
-    primaryLabel.heroModifiers = [.translate(x:-50, y:(view.center.y - primaryLabel.center.y)/10), .scale(0.9), HeroModifier.duration(0.3)]
-    secondaryLabel.heroModifiers = [.translate(x:-50, y:(view.center.y - secondaryLabel.center.y)/10), .scale(0.9), HeroModifier.duration(0.3)]
-    imageView.heroModifiers = [.translate(x:-80), .scale(0.9), HeroModifier.duration(0.3)]
+    view.hero.modifiers = nil
+    primaryLabel.hero.modifiers = [.translate(x:-50, y:(view.center.y - primaryLabel.center.y)/10), .scale(0.9), HeroModifier.duration(0.3)]
+    secondaryLabel.hero.modifiers = [.translate(x:-50, y:(view.center.y - secondaryLabel.center.y)/10), .scale(0.9), HeroModifier.duration(0.3)]
+    imageView.hero.modifiers = [.translate(x:-80), .scale(0.9), HeroModifier.duration(0.3)]
   }
 
   func applySlideModifiers() {
-    view.heroModifiers = [.translate(x: view.bounds.width), .duration(0.3), .beginWith(modifiers: [.zPosition(2)])]
-    primaryLabel.heroModifiers = [.translate(x:100), .duration(0.3)]
-    secondaryLabel.heroModifiers = [.translate(x:100), .duration(0.3)]
-    imageView.heroModifiers = nil
+    view.hero.modifiers = [.translate(x: view.bounds.width), .duration(0.3), .beginWith(modifiers: [.zPosition(2)])]
+    primaryLabel.hero.modifiers = [.translate(x:100), .duration(0.3)]
+    secondaryLabel.hero.modifiers = [.translate(x:100), .duration(0.3)]
+    imageView.hero.modifiers = nil
   }
 
   enum TransitionState {
@@ -85,7 +85,7 @@ class AppleProductViewController: UIViewController, HeroViewControllerDelegate {
           nextVC!.applyShrinkModifiers()
         }
         state = nextState
-        hero_replaceViewController(with: nextVC!)
+        hero.replaceViewController(with: nextVC!)
       } else {
         let progress = abs(translateX / view.bounds.width)
         Hero.shared.update(progress)
@@ -108,7 +108,7 @@ class AppleProductViewController: UIViewController, HeroViewControllerDelegate {
 
   func heroWillStartAnimatingTo(viewController: UIViewController) {
     if !(viewController is AppleProductViewController) {
-      view.heroModifiers = [.ignoreSubviewModifiers(recursive: true)]
+      view.hero.modifiers = [.ignoreSubviewModifiers(recursive: true)]
     }
   }
 }

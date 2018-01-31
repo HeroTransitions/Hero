@@ -55,13 +55,13 @@ extension HeroTransition {
       (transitionContainer?.window ?? transitionContainer)?.addSubview(fullScreenSnapshot)
     }
 
-    if let oldSnapshot = fromViewController?.heroStoredSnapshot {
+    if let oldSnapshot = fromViewController?.hero.storedSnapshot {
       oldSnapshot.removeFromSuperview()
-      fromViewController?.heroStoredSnapshot = nil
+      fromViewController?.hero.storedSnapshot = nil
     }
-    if let oldSnapshot = toViewController?.heroStoredSnapshot {
+    if let oldSnapshot = toViewController?.hero.storedSnapshot {
       oldSnapshot.removeFromSuperview()
-      toViewController?.heroStoredSnapshot = nil
+      toViewController?.hero.storedSnapshot = nil
     }
 
     plugins = HeroTransition.enabledPlugins.map({ return $0.init() })

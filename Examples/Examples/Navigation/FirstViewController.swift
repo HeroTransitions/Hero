@@ -15,7 +15,7 @@ class FirstViewController: UIViewController {
     // uncomment the following code to configure different animation type
     // navigationController?.heroNavigationAnimationType = .zoomOut
 
-    navigationController?.isHeroEnabled = sender.isOn
+    navigationController?.hero.isEnabled = sender.isOn
   }
 
 }

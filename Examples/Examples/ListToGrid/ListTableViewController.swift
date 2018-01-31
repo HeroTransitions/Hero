@@ -42,9 +42,9 @@ class ListTableViewController: UITableViewController {
   override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: "item", for: indexPath)
 
-    cell.heroModifiers = [.fade, .translate(x:-100)]
-    cell.imageView!.heroID = "image_\(indexPath.item)"
-    cell.imageView!.heroModifiers = [.arc]
+    cell.hero.modifiers = [.fade, .translate(x:-100)]
+    cell.imageView!.hero.id = "image_\(indexPath.item)"
+    cell.imageView!.hero.modifiers = [.arc]
     cell.imageView!.image = ImageLibrary.thumbnail(index:indexPath.item)
     cell.imageView!.isOpaque = true
     cell.textLabel!.text = "Item \(indexPath.item)"
@@ -60,7 +60,7 @@ class ListTableViewController: UITableViewController {
   @IBAction func toGrid(_ sender: Any) {
     let next = (UIStoryboard(name: "ListToGrid", bundle: nil).instantiateViewController(withIdentifier: "grid") as? GridCollectionViewController)!
     next.collectionView?.contentOffset.y = tableView.contentOffset.y + tableView.contentInset.top
-    hero_replaceViewController(with: next)
+    hero.replaceViewController(with: next)
   }
 
   override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -75,17 +75,17 @@ class ListTableViewController: UITableViewController {
 extension ListTableViewController: HeroViewControllerDelegate {
   func heroWillStartAnimatingTo(viewController: UIViewController) {
     if let _ = viewController as? GridCollectionViewController {
-      tableView.heroModifiers = [.ignoreSubviewModifiers]
+      tableView.hero.modifiers = [.ignoreSubviewModifiers]
     } else if viewController is ImageViewController {
     } else {
-      tableView.heroModifiers = [.cascade]
+      tableView.hero.modifiers = [.cascade]
     }
   }
   func heroWillStartAnimatingFrom(viewController: UIViewController) {
     if let _ = viewController as? GridCollectionViewController {
-      tableView.heroModifiers = [.ignoreSubviewModifiers]
+      tableView.hero.modifiers = [.ignoreSubviewModifiers]
     } else {
-      tableView.heroModifiers = [.cascade]
+      tableView.hero.modifiers = [.cascade]
     }
     if let vc = viewController as? ImageViewController,
       let originalCellIndex = vc.selectedIndex,

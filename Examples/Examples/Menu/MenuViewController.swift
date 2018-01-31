@@ -13,18 +13,22 @@ class MenuViewController: UIViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
-    view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(hero_dismissViewController)))
+    view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(dismissMenu)))
   }
 
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     if let vc = segue.destination as? MenuPageViewController, let sender = sender as? UIButton {
-      sender.heroID = "selected"
-      vc.view.heroModifiers = [.source(heroID: "selected")]
-      vc.centerButton.heroID = "selected"
-      vc.centerButton.heroModifiers = [.durationMatchLongest]
+      sender.hero.id = "selected"
+      vc.view.hero.modifiers = [.source(heroID: "selected")]
+      vc.centerButton.hero.id = "selected"
+      vc.centerButton.hero.modifiers = [.durationMatchLongest]
       vc.view.backgroundColor = sender.backgroundColor
       vc.centerButton.setImage(sender.image(for: .normal), for: .normal)
     }
+  }
+  
+  @objc private func dismissMenu() {
+    hero.dismissViewController()
   }
 }
 

@@ -20,26 +20,25 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-import UIKit
+import Foundation
 
-class CityCell: UICollectionViewCell {
-  @IBOutlet weak var imageView: UIImageView!
+public protocol HeroCompatible {
+  associatedtype CompatibleType
 
-  @IBOutlet weak var nameLabel: UILabel!
-  @IBOutlet weak var descriptionLabel: UILabel!
+  var hero: HeroExtension<CompatibleType> { get set }
+}
 
-  var useShortDescription: Bool = true
+public extension HeroCompatible {
+  public var hero: HeroExtension<Self> {
+    get { return HeroExtension(self) }
+    set { }
+  }
+}
 
-  var city: City? {
-    didSet {
-      guard let city = city else { return }
-      let name = city.name
+public class HeroExtension<Base> {
+  public let base: Base
 
-      hero.id = "\(name)"
-
-      nameLabel.text = name
-      imageView.image = city.image
-      descriptionLabel.text = useShortDescription ? city.shortDescription : city.description
-    }
+  init(_ base: Base) {
+    self.base = base
   }
 }

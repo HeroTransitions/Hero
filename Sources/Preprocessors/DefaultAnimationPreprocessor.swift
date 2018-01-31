@@ -232,11 +232,11 @@ class DefaultAnimationPreprocessor: BasePreprocessor {
     let animators = hero.animators
 
     if case .auto = defaultAnimation {
-      if inNavigationController, let navAnim = toViewController?.navigationController?.heroNavigationAnimationType {
+      if inNavigationController, let navAnim = toViewController?.navigationController?.hero.navigationAnimationType {
         defaultAnimation = navAnim
-      } else if inTabBarController, let tabAnim = toViewController?.tabBarController?.heroTabBarAnimationType {
+      } else if inTabBarController, let tabAnim = toViewController?.tabBarController?.hero.tabBarAnimationType {
         defaultAnimation = tabAnim
-      } else if let modalAnim = (presenting ? toViewController : fromViewController)?.heroModalAnimationType {
+      } else if let modalAnim = (presenting ? toViewController : fromViewController)?.hero.modalAnimationType {
         defaultAnimation = modalAnim
       }
     }

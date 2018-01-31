@@ -33,6 +33,8 @@
 		2D1F7FE71E49DD90004D944B /* TVImageGalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D1F7FE61E49DD90004D944B /* TVImageGalleryViewController.swift */; };
 		2D1F7FEA1E49DD90004D944B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2D1F7FE81E49DD90004D944B /* Main.storyboard */; };
 		2D1F7FF21E49E043004D944B /* Hero.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D1F7FBF1E49DCB5004D944B /* Hero.framework */; };
+		5C5442AA2004092500E1E326 /* HeroCompatible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C69728F2002CDBD001A5051 /* HeroCompatible.swift */; };
+		5C6972902002CDBD001A5051 /* HeroCompatible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C69728F2002CDBD001A5051 /* HeroCompatible.swift */; };
 		83043017B73BC66DBB920D5C /* Pods_HeroExamples.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EEE340F89FF0A49DD23A5A6E /* Pods_HeroExamples.framework */; };
 		A304BF841DF2717900A03345 /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A304BF831DF2717900A03345 /* ImageViewController.swift */; };
 		A304BF8A1DF647FC00A03345 /* ImageCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = A304BF891DF647FC00A03345 /* ImageCells.swift */; };
@@ -196,6 +198,7 @@
 		2D1F7FE61E49DD90004D944B /* TVImageGalleryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVImageGalleryViewController.swift; sourceTree = "<group>"; };
 		2D1F7FE91E49DD90004D944B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2D1F7FED1E49DD90004D944B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5C69728F2002CDBD001A5051 /* HeroCompatible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroCompatible.swift; sourceTree = "<group>"; };
 		5CD4F09A588E81DA75C2BE38 /* Pods-HeroExamples.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HeroExamples.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HeroExamples/Pods-HeroExamples.debug.xcconfig"; sourceTree = "<group>"; };
 		86C87C73D89E75C8443B5071 /* Pods-HeroTvOSExamples.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HeroTvOSExamples.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HeroTvOSExamples/Pods-HeroTvOSExamples.debug.xcconfig"; sourceTree = "<group>"; };
 		A304BF831DF2717900A03345 /* ImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageViewController.swift; sourceTree = "<group>"; };
@@ -429,6 +432,7 @@
 				29FF2D9D1E21AD8900EA4E65 /* Preprocessors */,
 				B11769D81EF8626C00A1373A /* Transition */,
 				A306D3B41E1C7A2E00B6C23A /* Hero.h */,
+				5C69728F2002CDBD001A5051 /* HeroCompatible.swift */,
 				A37D7B521E2C0CBD00AC1959 /* HeroContext.swift */,
 				A32D2D121E501C4F008D35FF /* HeroModifier+HeroStringConvertible.swift */,
 				A37D7B551E2C0CBD00AC1959 /* HeroModifier.swift */,
@@ -1028,6 +1032,7 @@
 				2D1F7FC71E49DD02004D944B /* HeroTransition.swift in Sources */,
 				2D1F7FC81E49DD04004D944B /* HeroContext.swift in Sources */,
 				B16ECD041E4FC0B300EAE0E0 /* DefaultAnimationPreprocessor.swift in Sources */,
+				5C5442AA2004092500E1E326 /* HeroCompatible.swift in Sources */,
 				B1D816E61EF5A6AE007B9776 /* HeroTransition+Start.swift in Sources */,
 				AFA306CB1E6B446C00CAF719 /* Lexer.swift in Sources */,
 				B1D816EC1EF5A720007B9776 /* HeroTransition+Animate.swift in Sources */,
@@ -1093,6 +1098,7 @@
 				A37D7B431E2C0C7E00AC1959 /* MatchPreprocessor.swift in Sources */,
 				A37D7B5F1E2C0CBD00AC1959 /* HeroTargetState.swift in Sources */,
 				B16ECD031E4FC0B300EAE0E0 /* DefaultAnimationPreprocessor.swift in Sources */,
+				5C6972902002CDBD001A5051 /* HeroCompatible.swift in Sources */,
 				B1D816E51EF5A6AE007B9776 /* HeroTransition+Start.swift in Sources */,
 				AFA306CA1E6B446C00CAF719 /* Lexer.swift in Sources */,
 				B1D816EB1EF5A720007B9776 /* HeroTransition+Animate.swift in Sources */,
