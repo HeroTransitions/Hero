@@ -36,4 +36,13 @@ extension HeroTransition: UINavigationControllerDelegate {
   public func navigationController(_ navigationController: UINavigationController, interactionControllerFor animationController: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
     return interactiveTransitioning
   }
+    
+  public func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {
+    navigationController.previousNavigationDelegate?.navigationController?(navigationController, didShow: viewController, animated: animated)
+  }
+    
+  public func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
+    navigationController.previousNavigationDelegate?.navigationController?(navigationController, willShow: viewController, animated: animated)
+  }
+    
 }
