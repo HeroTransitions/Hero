@@ -34,17 +34,21 @@ public enum CascadeDirection {
   var comparator: (UIView, UIView) -> Bool {
     switch self {
     case .topToBottom:
-      return { return $0.frame.minY < $1.frame.minY }
+      return topToBottomComperator
     case .bottomToTop:
-      return { return $0.frame.maxY == $1.frame.maxY ? $0.frame.maxX > $1.frame.maxX : $0.frame.maxY > $1.frame.maxY }
+      return bottomToTopComperator
     case .leftToRight:
-      return { return $0.frame.minX < $1.frame.minX }
+      return leftToRightComperator
     case .rightToLeft:
-      return { return $0.frame.maxX > $1.frame.maxX }
+      return rightToLeftComperator
     case .radial(let center):
-      return { return $0.center.distance(center) < $1.center.distance(center) }
+      return { (lhs: UIView, rhs: UIView) -> Bool in
+        return lhs.center.distance(center) < rhs.center.distance(center)
+      }
     case .inverseRadial(let center):
-      return { return $0.center.distance(center) > $1.center.distance(center) }
+      return { (lhs: UIView, rhs: UIView) -> Bool in
+        return lhs.center.distance(center) > rhs.center.distance(center)
+      }
     }
   }
 
@@ -61,6 +65,22 @@ public enum CascadeDirection {
     default:
       return nil
     }
+  }
+  
+  private func topToBottomComperator(lhs: UIView, rhs: UIView) -> Bool {
+    return lhs.frame.minY < rhs.frame.minY
+  }
+  
+  private func bottomToTopComperator(lhs: UIView, rhs: UIView) -> Bool {
+    return lhs.frame.maxY == rhs.frame.maxY ? lhs.frame.maxX > rhs.frame.maxX : lhs.frame.maxY > rhs.frame.maxY
+  }
+  
+  private func leftToRightComperator(lhs: UIView, rhs: UIView) -> Bool {
+    return lhs.frame.minX < rhs.frame.minX
+  }
+  
+  private func rightToLeftComperator(lhs: UIView, rhs: UIView) -> Bool {
+    return lhs.frame.maxX > rhs.frame.maxX
   }
 }
 
