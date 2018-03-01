@@ -35,7 +35,7 @@ internal extension CALayer {
   func flatTransformTo(layer: CALayer) -> CATransform3D {
     var layer = layer
     var trans = layer.transform
-    while let superlayer = layer.superlayer, superlayer != self {
+    while let superlayer = layer.superlayer, superlayer != self, !(superlayer.delegate is UIWindow) {
       trans = CATransform3DConcat(superlayer.transform, trans)
       layer = superlayer
     }
