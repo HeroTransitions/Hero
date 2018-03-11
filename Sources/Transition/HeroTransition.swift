@@ -43,7 +43,13 @@ public class Hero: NSObject {
   public static var shared = HeroTransition()
 }
 
+protocol HeroTransitionDelegate: class {
+  func heroTransition(_ hero: HeroTransition, didUpdate state: HeroTransitionState)
+  func heroTransition(_ hero: HeroTransition, didUpdate progress: Double)
+}
+
 open class HeroTransition: NSObject {
+  weak var delegate: HeroTransitionDelegate?
 
   public var defaultAnimation: HeroDefaultAnimationType = .auto
   public var containerColor: UIColor = .black
@@ -56,6 +62,7 @@ open class HeroTransition: NSObject {
         beginCallback?(state == .animating)
         beginCallback = nil
       }
+      delegate?.heroTransition(self, didUpdate: state)
     }
   }
 
@@ -129,6 +136,7 @@ open class HeroTransition: NSObject {
 
         transitionContext?.updateInteractiveTransition(CGFloat(progress))
       }
+      delegate?.heroTransition(self, didUpdate: progress)
     }
   }
   lazy var progressRunner: HeroProgressRunner = {
