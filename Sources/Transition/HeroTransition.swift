@@ -43,13 +43,13 @@ public class Hero: NSObject {
   public static var shared = HeroTransition()
 }
 
-protocol HeroTransitionDelegate: class {
+public protocol HeroTransitionDelegate: class {
   func heroTransition(_ hero: HeroTransition, didUpdate state: HeroTransitionState)
   func heroTransition(_ hero: HeroTransition, didUpdate progress: Double)
 }
 
 open class HeroTransition: NSObject {
-  weak var delegate: HeroTransitionDelegate?
+  public weak var delegate: HeroTransitionDelegate?
 
   public var defaultAnimation: HeroDefaultAnimationType = .auto
   public var containerColor: UIColor = .black
