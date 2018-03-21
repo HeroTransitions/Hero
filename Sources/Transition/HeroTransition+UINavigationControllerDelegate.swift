@@ -23,6 +23,18 @@
 import UIKit
 
 extension HeroTransition: UINavigationControllerDelegate {
+  public func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
+    if let previousNavigationDelegate = navigationController.previousNavigationDelegate {
+      previousNavigationDelegate.navigationController?(navigationController, willShow: viewController, animated: animated)
+    }
+  }
+  
+  public func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {
+    if let previousNavigationDelegate = navigationController.previousNavigationDelegate {
+      previousNavigationDelegate.navigationController?(navigationController, didShow: viewController, animated: animated)
+    }
+  }
+  
   public func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationControllerOperation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
     guard !isTransitioning else { return nil }
     self.state = .notified
