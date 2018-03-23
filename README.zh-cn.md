@@ -44,16 +44,16 @@ Hero可以用Carthage或者Cocoapods安装，具体用法请见**[Usage Guide](h
 
 ##### View Controller 1
 ```swift
-redView.heroID = "foo"
-greyView.heroID = "bar"
+redView.hero.id = "ironMan"
+blackView.hero.id = "batMan"
 ```
 
 ##### View Controller 2
 ```swift
-isHeroEnabled = true
-redView.heroID = "foo"
-greyView.heroID = "bar"
-greenView.heroModifiers = [.translate(x:0, y:100), .scale(0.5)]
+self.hero.isEnabled = true
+redView.hero.id = "ironMan"
+blackView.hero.id = "batMan"
+whiteView.hero.modifiers = [.translate(y:100)]
 ```
 
 
@@ -62,18 +62,18 @@ greenView.heroModifiers = [.translate(x:0, y:100), .scale(0.5)]
 
 ##### View Controller 1
 ```swift
-greyView.heroID = "foo"
+greyView.hero.id = "skyWalker"
 ```
 
 ##### View Controller 2
 ```swift
-isHeroEnabled = true
-greyView.heroID = "foo"
+self.hero.isEnabled = true
+greyView.hero.id = "skyWalker"
 
-// collectionView 是所有红色视图的父视图
-collectionView.heroModifiers = [.cascade]
+// collectionView is the parent view of all red cells
+collectionView.hero.modifiers = [.cascade]
 for cell in redCells {
-	cell.heroModifiers = [.fade, .scale(0.5)]
+	cell.hero.modifiers = [.fade, .scale(0.5)]
 }
 ```
 
