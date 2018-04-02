@@ -172,6 +172,9 @@ extension HeroContext {
           contentView.contentMode = imageView.contentMode
           contentView.tintColor = imageView.tintColor
           contentView.backgroundColor = imageView.backgroundColor
+          contentView.layer.magnificationFilter = imageView.layer.magnificationFilter
+          contentView.layer.minificationFilter = imageView.layer.minificationFilter
+          contentView.layer.minificationFilterBias = imageView.layer.minificationFilterBias
           let snapShotView = UIView()
           snapShotView.addSubview(contentView)
           snapshot = snapShotView
