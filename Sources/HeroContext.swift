@@ -138,11 +138,17 @@ extension HeroContext {
 
     unhide(view: view)
 
-    // capture a snapshot without alpha & cornerRadius
+    // capture a snapshot without alpha, cornerRadius, or shadows
     let oldCornerRadius = view.layer.cornerRadius
     let oldAlpha = view.alpha
+		let oldShadowRadius = view.layer.shadowRadius
+		let oldShadowOffset = view.layer.shadowOffset
+		let oldShadowPath = view.layer.shadowPath
     view.layer.cornerRadius = 0
     view.alpha = 1
+		view.layer.shadowRadius = 0.0
+		view.layer.shadowOffset = .zero
+		view.layer.shadowPath = nil
 
     let snapshot: UIView
     let snapshotType: HeroSnapshotType = self[view]?.snapshotType ?? .optimized
@@ -210,6 +216,9 @@ extension HeroContext {
 
     view.layer.cornerRadius = oldCornerRadius
     view.alpha = oldAlpha
+		view.layer.shadowRadius = oldShadowRadius
+		view.layer.shadowOffset = oldShadowOffset
+		view.layer.shadowPath = oldShadowPath
 
     snapshot.layer.anchorPoint = view.layer.anchorPoint
     snapshot.layer.position = containerView.convert(view.layer.position, from: view.superview!)
