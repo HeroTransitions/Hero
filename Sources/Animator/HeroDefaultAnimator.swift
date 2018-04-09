@@ -78,6 +78,12 @@ internal class HeroDefaultAnimator<ViewContext: HeroAnimatorViewContext>: HeroAn
     }
   }
 
+  public func changeTarget(state: HeroTargetState, isDestination: Bool, to view: UIView) {
+    if let context = viewContexts[view] {
+      context.changeTarget(state: state, isDestination: isDestination)
+    }
+  }
+
   public func canAnimate(view: UIView, appearing: Bool) -> Bool {
     guard let state = context[view] else { return false }
     return ViewContext.canAnimate(view: view, state: state, appearing: appearing)

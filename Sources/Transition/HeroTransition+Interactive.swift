@@ -103,4 +103,30 @@ extension HeroTransition {
       animator.apply(state: targetState, to: view)
     }
   }
+
+  /**
+   Override target statue during an interactive animation.
+
+   For example:
+
+   Hero.shared.changeTarget([.position(x:50, y:50)], to:view)
+
+   will animate the view's position to 50, 50 once `finish(animate:)` is called
+   - Parameters:
+   - modifiers: the modifiers to override
+   - isDestination: if false, it changes the starting state
+   - view: the view to override to
+   */
+  public func changeTarget(modifiers: [HeroModifier], isDestination: Bool = true, to view: UIView) {
+    guard state == .animating else { return }
+    let targetState = HeroTargetState(modifiers: modifiers)
+    if let otherView = self.context.pairedView(for: view) {
+      for animator in self.animators {
+        animator.changeTarget(state: targetState, isDestination: !isDestination, to: otherView)
+      }
+    }
+    for animator in self.animators {
+      animator.changeTarget(state: targetState, isDestination: isDestination, to: view)
+    }
+  }
 }

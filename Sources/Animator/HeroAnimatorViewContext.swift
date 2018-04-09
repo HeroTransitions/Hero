@@ -44,6 +44,9 @@ internal class HeroAnimatorViewContext {
   func apply(state: HeroTargetState) {
   }
 
+  func changeTarget(state: HeroTargetState, isDestination: Bool) {
+  }
+
   func resume(timePassed: TimeInterval, reverse: Bool) -> TimeInterval {
     return 0
   }

@@ -127,6 +127,7 @@ open class HeroPlugin: NSObject, HeroPreprocessor, HeroAnimator {
        - view: the view to override
    */
   open func apply(state: HeroTargetState, to view: UIView) {}
+  open func changeTarget(state: HeroTargetState, isDestination: Bool, to view: UIView) {}
 }
 
 // methods for enable/disable the current plugin

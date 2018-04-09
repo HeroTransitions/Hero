@@ -348,6 +348,26 @@ internal class HeroCoreAnimationViewContext: HeroAnimatorViewContext {
     }
   }
 
+  override func changeTarget(state: HeroTargetState, isDestination: Bool) {
+    let targetState = viewState(targetState: state)
+    for (key, targetValue) in targetState {
+      let from: Any?, to: Any?
+      if let data = self.state[key] {
+        from = data.0
+        to = data.1
+      } else {
+        let data = currentValue(key: key)
+        from = data
+        to = data
+      }
+      if isDestination {
+        self.state[key] = (from, targetValue)
+      } else {
+        self.state[key] = (targetValue, to)
+      }
+    }
+  }
+
   override func resume(timePassed: TimeInterval, reverse: Bool) -> TimeInterval {
     for (key, (fromValue, toValue)) in state {
       let realToValue = !reverse ? toValue : fromValue

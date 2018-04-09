@@ -36,6 +36,7 @@ public protocol HeroAnimator: class {
   func seekTo(timePassed: TimeInterval)
   func resume(timePassed: TimeInterval, reverse: Bool) -> TimeInterval
   func apply(state: HeroTargetState, to view: UIView)
+  func changeTarget(state: HeroTargetState, isDestination: Bool, to view: UIView)
 }
 
 public protocol HeroProgressUpdateObserver: class {
