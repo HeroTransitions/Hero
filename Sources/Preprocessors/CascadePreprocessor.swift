@@ -66,19 +66,19 @@ public enum CascadeDirection {
       return nil
     }
   }
-  
+
   private func topToBottomComperator(lhs: UIView, rhs: UIView) -> Bool {
     return lhs.frame.minY < rhs.frame.minY
   }
-  
+
   private func bottomToTopComperator(lhs: UIView, rhs: UIView) -> Bool {
     return lhs.frame.maxY == rhs.frame.maxY ? lhs.frame.maxX > rhs.frame.maxX : lhs.frame.maxY > rhs.frame.maxY
   }
-  
+
   private func leftToRightComperator(lhs: UIView, rhs: UIView) -> Bool {
     return lhs.frame.minX < rhs.frame.minX
   }
-  
+
   private func rightToLeftComperator(lhs: UIView, rhs: UIView) -> Bool {
     return lhs.frame.maxX > rhs.frame.maxX
   }

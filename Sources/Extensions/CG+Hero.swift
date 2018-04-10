@@ -145,12 +145,10 @@ extension CGSize {
   }
 }
 
-extension CATransform3D : Equatable {
+extension CATransform3D: Equatable {
   public static func == (lhs: CATransform3D, rhs: CATransform3D) -> Bool {
     var lhs = lhs
     var rhs = rhs
     return memcmp(&lhs, &rhs, MemoryLayout<CATransform3D>.size) == 0
   }
 }
-
-

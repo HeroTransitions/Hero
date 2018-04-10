@@ -43,7 +43,7 @@ class VideoPlayerViewController: UIViewController {
     playerView.backgroundColor = .black
     (playerView.layer as! AVPlayerLayer).player = player
     playerView.hero.id = "videoPlayer"
-    playerView.hero.modifiers = [.useNoSnapshot, .useScaleBasedSizeChange]
+    playerView.hero.modifiers = [.useNoSnapshot]
     view.insertSubview(playerView, at: 0)
 
     panGR = UIPanGestureRecognizer(target: self, action: #selector(pan))
@@ -56,7 +56,7 @@ class VideoPlayerViewController: UIViewController {
 
   @objc func pan() {
     let translation = panGR.translation(in: nil)
-    let progress = translation.y / 2 / view.bounds.height
+    let progress = translation.y / view.bounds.height
     switch panGR.state {
     case .began:
       hero.dismissViewController()

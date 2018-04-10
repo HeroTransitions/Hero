@@ -192,12 +192,12 @@ internal class HeroCoreAnimationViewContext: HeroAnimatorViewContext {
       CALayer.heroAddedAnimations = nil
 
       for (layer, key, anim) in addedAnimations {
+        layer.removeAnimation(forKey: key)
         if #available(iOS 9.0, *), let anim = anim as? CASpringAnimation {
           anim.stiffness = stiffness
           anim.damping = damping
           self.addAnimation(anim, for: key, to: layer)
         } else {
-          layer.removeAnimation(forKey: key)
           self.addAnimation(anim, for: key, to: layer)
         }
       }
