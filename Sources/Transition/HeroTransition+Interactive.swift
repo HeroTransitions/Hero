@@ -105,7 +105,7 @@ extension HeroTransition {
   }
 
   /**
-   Override target statue during an interactive animation.
+   Override target state during an interactive animation.
 
    For example:
 
