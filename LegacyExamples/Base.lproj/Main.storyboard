@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13770" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="udv-KB-P6K">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="udv-KB-P6K">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13770"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -13,7 +13,7 @@
         <!--Examples-->
         <scene sceneID="dg5-iE-Ikz">
             <objects>
-                <tableViewController title="Examples" id="WQJ-W3-mcX" customClass="ExampleViewController" customModule="HeroExamples" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController title="Examples" id="WQJ-W3-mcX" customClass="LegacyExampleViewController" customModule="HeroExamples" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="kmB-C0-WMD">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="1400"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -732,26 +732,8 @@
                                     <userDefinedRuntimeAttribute type="string" keyPath="heroID" value="heroTransition"/>
                                 </userDefinedRuntimeAttributes>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LabelMorphPlugin" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ezR-8n-vYS">
-                                <rect key="frame" x="40" y="455.5" width="183" height="27"/>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="F9A-Nc-Ayt">
-                                <rect key="frame" x="286" y="453.5" width="51" height="31"/>
-                                <connections>
-                                    <action selector="togglePlugin:" destination="uv4-Wk-GeR" eventType="valueChanged" id="3Oj-XF-KaC"/>
-                                </connections>
-                            </switch>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Built-in" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IIL-pF-BfF">
                                 <rect key="frame" x="40" y="318.5" width="58" height="22"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Custom (Example)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LjA-vP-vWN">
-                                <rect key="frame" x="40" y="425.5" width="149" height="22"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -759,17 +741,11 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="F9A-Nc-Ayt" secondAttribute="trailing" constant="24" id="31G-3A-cqh"/>
-                            <constraint firstItem="ezR-8n-vYS" firstAttribute="leading" secondItem="NOs-oT-gmc" secondAttribute="leadingMargin" constant="24" id="3Qd-da-JVm"/>
                             <constraint firstAttribute="trailingMargin" secondItem="ksW-BX-k0n" secondAttribute="trailing" constant="24" id="4Hl-5v-XlE"/>
                             <constraint firstItem="fUh-RG-Pga" firstAttribute="leading" secondItem="NOs-oT-gmc" secondAttribute="leadingMargin" constant="24" id="OHw-3r-crp"/>
-                            <constraint firstItem="LjA-vP-vWN" firstAttribute="leading" secondItem="NOs-oT-gmc" secondAttribute="leadingMargin" constant="24" id="T4R-u4-ZLD"/>
                             <constraint firstItem="ksW-BX-k0n" firstAttribute="centerY" secondItem="NOs-oT-gmc" secondAttribute="centerY" constant="-140" id="Thq-bv-JyO"/>
-                            <constraint firstItem="LjA-vP-vWN" firstAttribute="top" secondItem="fUh-RG-Pga" secondAttribute="bottom" constant="48" id="UaK-ZD-njt"/>
                             <constraint firstItem="IIL-pF-BfF" firstAttribute="leading" secondItem="NOs-oT-gmc" secondAttribute="leadingMargin" constant="24" id="cHL-mW-Wik"/>
-                            <constraint firstItem="F9A-Nc-Ayt" firstAttribute="centerY" secondItem="ezR-8n-vYS" secondAttribute="centerY" id="fpZ-OJ-KqQ"/>
                             <constraint firstAttribute="trailingMargin" secondItem="aRb-d8-Hfb" secondAttribute="trailing" constant="24" id="hBe-0Q-rES"/>
-                            <constraint firstItem="ezR-8n-vYS" firstAttribute="top" secondItem="LjA-vP-vWN" secondAttribute="bottom" constant="8" id="hqh-Wm-Cwn"/>
                             <constraint firstItem="aRb-d8-Hfb" firstAttribute="centerY" secondItem="fUh-RG-Pga" secondAttribute="centerY" id="hzI-zp-ii3"/>
                             <constraint firstItem="ksW-BX-k0n" firstAttribute="leading" secondItem="NOs-oT-gmc" secondAttribute="leadingMargin" constant="24" id="kUw-7R-eet"/>
                             <constraint firstItem="IIL-pF-BfF" firstAttribute="top" secondItem="ksW-BX-k0n" secondAttribute="bottom" id="kzx-tw-mwn"/>
@@ -780,7 +756,6 @@
                     <tabBarItem key="tabBarItem" title="Plugins" image="ic_code" id="bDK-79-b3B"/>
                     <connections>
                         <outlet property="debugSwitch" destination="aRb-d8-Hfb" id="akh-Sj-ck3"/>
-                        <outlet property="labelMorphSwitch" destination="F9A-Nc-Ayt" id="Xrj-4X-NLo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dRE-jW-6vS" userLabel="First Responder" sceneMemberID="firstResponder"/>

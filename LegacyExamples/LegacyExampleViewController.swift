@@ -23,7 +23,7 @@
 import UIKit
 import Hero
 
-class ExampleViewController: UITableViewController {
+class LegacyExampleViewController: UITableViewController {
 
   var storyboards: [[String]] = [
     [],

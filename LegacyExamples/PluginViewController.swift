@@ -25,19 +25,15 @@ import Hero
 
 class PluginViewController: UIViewController {
   @IBOutlet weak var debugSwitch: UISwitch!
-  @IBOutlet weak var labelMorphSwitch: UISwitch!
 
   @IBAction func togglePlugin(_ sender: UISwitch) {
     if sender == debugSwitch {
       HeroDebugPlugin.isEnabled = sender.isOn
-    } else {
-      LabelMorphPlugin.isEnabled = sender.isOn
     }
   }
 
   override func viewDidLoad() {
     super.viewDidLoad()
     debugSwitch.isOn = HeroDebugPlugin.isEnabled
-    labelMorphSwitch.isOn = LabelMorphPlugin.isEnabled
   }
 }
