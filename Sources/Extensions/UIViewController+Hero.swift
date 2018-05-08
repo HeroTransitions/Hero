@@ -205,11 +205,11 @@ public extension HeroExtension where Base: UIViewController {
    Dismiss the current view controller with animation. Will perform a navigationController.popViewController
    if the current view controller is contained inside a navigationController
    */
-  public func dismissViewController() {
+  public func dismissViewController(completion: (() -> Void)? = nil) {
     if let navigationController = base.navigationController, navigationController.viewControllers.first != base {
       navigationController.popViewController(animated: true)
     } else {
-      base.dismiss(animated: true, completion: nil)
+      base.dismiss(animated: true, completion: completion)
     }
   }
 
@@ -295,7 +295,7 @@ public extension HeroExtension where Base: UIViewController {
   /**
    Replace the current view controller with another VC on the navigation/modal stack.
    */
-  public func replaceViewController(with next: UIViewController) {
+  public func replaceViewController(with next: UIViewController, completion: (() -> Void)? = nil) {
     let hero = next.transitioningDelegate as? HeroTransition ?? Hero.shared
 
     if hero.isTransitioning {
@@ -321,7 +321,7 @@ public extension HeroExtension where Base: UIViewController {
         next.view.window?.addSubview(next.view)
         if let parentVC = parentVC {
           base.dismiss(animated: false) {
-            parentVC.present(next, animated: false, completion: nil)
+            parentVC.present(next, animated: false, completion: completion)
           }
         } else {
           UIApplication.shared.keyWindow?.rootViewController = next
