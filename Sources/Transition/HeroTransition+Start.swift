@@ -91,6 +91,7 @@ extension HeroTransition {
 
     // a view to hold all the animating views
     container = UIView(frame: transitionContainer?.bounds ?? .zero)
+    container.isUserInteractionEnabled = false
     if !toOverFullScreen && !fromOverFullScreen {
       container.backgroundColor = containerColor
     }
