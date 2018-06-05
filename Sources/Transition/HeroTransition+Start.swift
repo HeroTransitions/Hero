@@ -150,15 +150,24 @@ extension HeroTransition {
     #if os(tvOS)
       animate()
     #else
-      if inNavigationController {
-        // When animating within navigationController, we have to dispatch later into the main queue.
+    
+    var isSafeAreaTransition: Bool {
+        if #available(iOS 11.0, *), let window = transitionContainer?.window {
+            return window.safeAreaInsets.top > CGFloat(0.0) || window.safeAreaInsets.bottom > CGFloat(0.0)
+        }
+        
+        return false
+    }
+    
+    if inNavigationController || isSafeAreaTransition {
+        // When animating within navigationController or Device has safeArea, we have to dispatch later into the main queue.
         // otherwise snapshots will be pure white. Possibly a bug with UIKit
         DispatchQueue.main.async {
-          self.animate()
+            self.animate()
         }
-      } else {
+    } else {
         animate()
-      }
+    }
     #endif
   }
 }
