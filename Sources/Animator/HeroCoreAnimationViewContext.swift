@@ -40,6 +40,7 @@ extension CALayer {
       let copiedAnim = anim.copy() as! CAAnimation
       copiedAnim.delegate = nil // having delegate resulted some weird animation behavior
       CALayer.heroAddedAnimations!.append((self, forKey!, copiedAnim))
+      hero_add(anim: anim, forKey: forKey)
     } else {
       hero_add(anim: anim, forKey: forKey)
     }
