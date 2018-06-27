@@ -246,7 +246,7 @@ public extension HeroExtension where Base: UIViewController {
     var current: UIViewController? = base
 
     while target == nil && current != nil {
-      if let childViewControllers = (current as? UINavigationController)?.childViewControllers ?? current!.navigationController?.childViewControllers {
+      if let childViewControllers = (current as? UINavigationController)?.children ?? current!.navigationController?.children {
         for vc in childViewControllers.reversed() {
           if vc != base, withMatchBlock(vc) {
             target = vc
@@ -303,7 +303,7 @@ public extension HeroExtension where Base: UIViewController {
       return
     }
     if let navigationController = base.navigationController {
-      var vcs = navigationController.childViewControllers
+      var vcs = navigationController.children
       if !vcs.isEmpty {
         vcs.removeLast()
         vcs.append(next)

@@ -90,7 +90,7 @@ extension GridCollectionViewController: HeroViewControllerDelegate {
       if !collectionView!.indexPathsForVisibleItems.contains(currentCellIndex) {
         // make the cell visible
         collectionView!.scrollToItem(at: currentCellIndex,
-                                    at: originalCellIndex < currentCellIndex ? .bottom : .top,
+                                    at: originalCellIndex < currentCellIndex ? UICollectionView.ScrollPosition.bottom : UICollectionView.ScrollPosition.top,
                                     animated: false)
       }
     } else {

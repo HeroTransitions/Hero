@@ -180,8 +180,8 @@ extension HeroContext {
           contentView.contentMode = imageView.contentMode
           contentView.tintColor = imageView.tintColor
           contentView.backgroundColor = imageView.backgroundColor
-          contentView.layer.magnificationFilter = imageView.layer.magnificationFilter
-          contentView.layer.minificationFilter = imageView.layer.minificationFilter
+          contentView.layer.magnificationFilter = convertToCALayerContentsFilter(convertFromCALayerContentsFilter(imageView.layer.magnificationFilter))
+          contentView.layer.minificationFilter = convertToCALayerContentsFilter(convertFromCALayerContentsFilter(imageView.layer.minificationFilter))
           contentView.layer.minificationFilterBias = imageView.layer.minificationFilterBias
           let snapShotView = UIView()
           snapShotView.addSubview(contentView)
@@ -387,4 +387,14 @@ extension HeroContext {
       storeViewAlpha(rootView: subview)
     }
   }
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+private func convertToCALayerContentsFilter(_ input: String) -> CALayerContentsFilter {
+	return CALayerContentsFilter(rawValue: input)
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+private func convertFromCALayerContentsFilter(_ input: CALayerContentsFilter) -> String {
+	return input.rawValue
 }

@@ -35,7 +35,7 @@ class ImageViewController: UICollectionViewController {
     view.layoutIfNeeded()
     collectionView!.reloadData()
     if let selectedIndex = selectedIndex {
-      collectionView!.scrollToItem(at: selectedIndex, at: .centeredHorizontally, animated: false)
+      collectionView!.scrollToItem(at: selectedIndex, at: UICollectionView.ScrollPosition.centeredHorizontally, animated: false)
     }
 
     panGR.addTarget(self, action: #selector(pan))

@@ -151,7 +151,7 @@ internal class HeroCoreAnimationViewContext: HeroAnimatorViewContext {
       anim = banim
     }
 
-    anim.fillMode = kCAFillModeBoth
+    anim.fillMode = convertToCAMediaTimingFillMode(convertFromCAMediaTimingFillMode(CAMediaTimingFillMode.both))
     anim.isRemovedOnCompletion = false
     anim.beginTime = beginTime
     return anim
@@ -456,4 +456,14 @@ internal class HeroCoreAnimationViewContext: HeroAnimatorViewContext {
     }
     return animate(delay: targetState.delay, duration: duration)
   }
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+private func convertToCAMediaTimingFillMode(_ input: String) -> CAMediaTimingFillMode {
+	return CAMediaTimingFillMode(rawValue: input)
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+private func convertFromCAMediaTimingFillMode(_ input: CAMediaTimingFillMode) -> String {
+	return input.rawValue
 }
