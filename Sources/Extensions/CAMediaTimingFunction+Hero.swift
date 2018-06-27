@@ -24,10 +24,10 @@ import UIKit
 
 public extension CAMediaTimingFunction {
   // default
-  public static let linear = CAMediaTimingFunction(name: kCAMediaTimingFunctionLinear)
-  public static let easeIn = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseIn)
-  public static let easeOut = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
-  public static let easeInOut = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
+  public static let linear = CAMediaTimingFunction(name: convertToCAMediaTimingFunctionName(convertFromCAMediaTimingFunctionName(CAMediaTimingFunctionName.linear)))
+  public static let easeIn = CAMediaTimingFunction(name: convertToCAMediaTimingFunctionName(convertFromCAMediaTimingFunctionName(CAMediaTimingFunctionName.easeIn)))
+  public static let easeOut = CAMediaTimingFunction(name: convertToCAMediaTimingFunctionName(convertFromCAMediaTimingFunctionName(CAMediaTimingFunctionName.easeOut)))
+  public static let easeInOut = CAMediaTimingFunction(name: convertToCAMediaTimingFunctionName(convertFromCAMediaTimingFunctionName(CAMediaTimingFunctionName.easeInEaseOut)))
 
   // material
   public static let standard = CAMediaTimingFunction(controlPoints: 0.4, 0.0, 0.2, 1.0)
@@ -60,4 +60,14 @@ public extension CAMediaTimingFunction {
       return nil
     }
   }
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+private func convertToCAMediaTimingFunctionName(_ input: String) -> CAMediaTimingFunctionName {
+	return CAMediaTimingFunctionName(rawValue: input)
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+private func convertFromCAMediaTimingFunctionName(_ input: CAMediaTimingFunctionName) -> String {
+	return input.rawValue
 }

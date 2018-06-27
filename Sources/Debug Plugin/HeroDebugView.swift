@@ -69,19 +69,19 @@ class HeroDebugView: UIView {
     addSubview(backgroundView)
 
     doneButton = UIButton(type: .system)
-    doneButton.setTitle("Done", for: .normal)
-    doneButton.addTarget(self, action: #selector(onDone), for: .touchUpInside)
+    doneButton.setTitle("Done", for: UIControl.State.normal)
+    doneButton.addTarget(self, action: #selector(onDone), for: UIControl.Event.touchUpInside)
     backgroundView.addSubview(doneButton)
 
     perspectiveButton = UIButton(type: .system)
-    perspectiveButton.setTitle("3D View", for: .normal)
-    perspectiveButton.addTarget(self, action: #selector(onPerspective), for: .touchUpInside)
+    perspectiveButton.setTitle("3D View", for: UIControl.State.normal)
+    perspectiveButton.addTarget(self, action: #selector(onPerspective), for: UIControl.Event.touchUpInside)
     backgroundView.addSubview(perspectiveButton)
 
     if showCurveButton {
       arcCurveButton = UIButton(type: .system)
-      arcCurveButton!.setTitle("Show Arcs", for: .normal)
-      arcCurveButton!.addTarget(self, action: #selector(onDisplayArcCurve), for: .touchUpInside)
+      arcCurveButton!.setTitle("Show Arcs", for: UIControl.State.normal)
+      arcCurveButton!.addTarget(self, action: #selector(onDisplayArcCurve), for: UIControl.Event.touchUpInside)
       backgroundView.addSubview(arcCurveButton!)
     }
 
@@ -89,7 +89,7 @@ class HeroDebugView: UIView {
     debugSlider.layer.zPosition = 1000
     debugSlider.minimumValue = 0
     debugSlider.maximumValue = 1
-    debugSlider.addTarget(self, action: #selector(onSlide), for: .valueChanged)
+    debugSlider.addTarget(self, action: #selector(onSlide), for: UIControl.Event.valueChanged)
     debugSlider.isUserInteractionEnabled = true
     debugSlider.value = initialProcess
     backgroundView.addSubview(debugSlider)
@@ -162,7 +162,6 @@ class HeroDebugView: UIView {
       startLocation = pinchGR.location(in: nil)
       startTranslation = translation
       startScale = scale
-      fallthrough
     case .changed:
       if pinchGR.numberOfTouches >= 2 {
         scale = min(1, max(0.2, startScale * pinchGR.scale))

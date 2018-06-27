@@ -31,7 +31,7 @@ class CityViewController: UIViewController {
     super.viewDidLoad()
     view.layoutIfNeeded()
     collectionView.reloadData()
-    collectionView.scrollToItem(at: selectedIndex, at: .centeredHorizontally, animated: false)
+    collectionView.scrollToItem(at: selectedIndex, at: UICollectionView.ScrollPosition.centeredHorizontally, animated: false)
   }
 }
 

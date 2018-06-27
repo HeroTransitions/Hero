@@ -50,7 +50,7 @@ class VideoPlayerViewController: UIViewController {
     view.addGestureRecognizer(panGR)
 
     // skip the initial splash screen of the video
-    player.seek(to: CMTimeMakeWithSeconds(0.35, 1000), toleranceBefore: kCMTimeZero, toleranceAfter: kCMTimeZero)
+    player.seek(to: CMTimeMakeWithSeconds(0.35, preferredTimescale: 1000), toleranceBefore: CMTime.zero, toleranceAfter: CMTime.zero)
     player.play()
   }
 
