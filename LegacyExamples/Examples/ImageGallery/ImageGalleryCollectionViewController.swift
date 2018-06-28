@@ -101,7 +101,7 @@ extension ImageGalleryViewController: HeroViewControllerDelegate {
       if !collectionView.indexPathsForVisibleItems.contains(currentCellIndex) {
         // make the cell visible
         collectionView.scrollToItem(at: currentCellIndex,
-                                    at: originalCellIndex < currentCellIndex ? UICollectionView.ScrollPosition.bottom : UICollectionView.ScrollPosition.top,
+                                    at: originalCellIndex < currentCellIndex ? .bottom : .top,
                                     animated: false)
       }
     }

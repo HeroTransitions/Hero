@@ -17,8 +17,8 @@ class ExampleBaseViewController: UIViewController {
     view.backgroundColor = .white
     view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(onTap)))
 
-    dismissButton.setTitle("Back", for: UIControl.State.normal)
-    dismissButton.addTarget(self, action: #selector(back), for: UIControl.Event.touchUpInside)
+    dismissButton.setTitle("Back", for: .normal)
+    dismissButton.addTarget(self, action: #selector(back), for: .touchUpInside)
     dismissButton.hero.id = "back button"
     view.addSubview(dismissButton)
   }
