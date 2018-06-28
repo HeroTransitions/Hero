@@ -61,4 +61,3 @@ public extension CAMediaTimingFunction {
     }
   }
 }
-
