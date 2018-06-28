@@ -23,7 +23,7 @@ class MenuViewController: UIViewController {
       vc.centerButton.hero.id = "selected"
       vc.centerButton.hero.modifiers = [.durationMatchLongest]
       vc.view.backgroundColor = sender.backgroundColor
-      vc.centerButton.setImage(sender.image(for: UIControl.State.normal), for: UIControl.State.normal)
+      vc.centerButton.setImage(sender.image(for: .normal), for: .normal)
     }
   }
   

@@ -38,8 +38,8 @@ class MainViewController: UIViewController {
     let imageProvider = ViewCollectionProvider(imageView, sizeStrategy: (.fill, .fit))
 
     let legacyButton = UIButton(type: .system)
-    legacyButton.setTitle("Legacy Examples", for: UIControl.State.normal)
-    legacyButton.addTarget(self, action: #selector(showLegacy), for: UIControl.Event.touchUpInside)
+    legacyButton.setTitle("Legacy Examples", for: .normal)
+    legacyButton.addTarget(self, action: #selector(showLegacy), for: .touchUpInside)
     let legacyExamplesProvider = ViewCollectionProvider(legacyButton, sizeStrategy: (.fill, .fit))
 
     collectionView.provider = CollectionComposer(

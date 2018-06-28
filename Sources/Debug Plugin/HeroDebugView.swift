@@ -70,18 +70,18 @@ class HeroDebugView: UIView {
 
     doneButton = UIButton(type: .system)
     doneButton.setTitle("Done", for: UIControl.State.normal)
-    doneButton.addTarget(self, action: #selector(onDone), for: UIControl.Event.touchUpInside)
+    doneButton.addTarget(self, action: #selector(onDone), for: .touchUpInside)
     backgroundView.addSubview(doneButton)
 
     perspectiveButton = UIButton(type: .system)
     perspectiveButton.setTitle("3D View", for: UIControl.State.normal)
-    perspectiveButton.addTarget(self, action: #selector(onPerspective), for: UIControl.Event.touchUpInside)
+    perspectiveButton.addTarget(self, action: #selector(onPerspective), for: .touchUpInside)
     backgroundView.addSubview(perspectiveButton)
 
     if showCurveButton {
       arcCurveButton = UIButton(type: .system)
       arcCurveButton!.setTitle("Show Arcs", for: UIControl.State.normal)
-      arcCurveButton!.addTarget(self, action: #selector(onDisplayArcCurve), for: UIControl.Event.touchUpInside)
+      arcCurveButton!.addTarget(self, action: #selector(onDisplayArcCurve), for: .touchUpInside)
       backgroundView.addSubview(arcCurveButton!)
     }
 
@@ -89,7 +89,7 @@ class HeroDebugView: UIView {
     debugSlider.layer.zPosition = 1000
     debugSlider.minimumValue = 0
     debugSlider.maximumValue = 1
-    debugSlider.addTarget(self, action: #selector(onSlide), for: UIControl.Event.valueChanged)
+    debugSlider.addTarget(self, action: #selector(onSlide), for: .valueChanged)
     debugSlider.isUserInteractionEnabled = true
     debugSlider.value = initialProcess
     backgroundView.addSubview(debugSlider)
