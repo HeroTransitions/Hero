@@ -249,9 +249,17 @@ class DefaultAnimationPreprocessor: BasePreprocessor {
       if animators.contains(where: { $0.canAnimate(view: toView, appearing: true) || $0.canAnimate(view: fromView, appearing: false) }) {
         defaultAnimation = .none
       } else if inNavigationController {
-        defaultAnimation = presenting ? .push(direction:.left) : .pull(direction:.right)
+        if UIApplication.shared.userInterfaceLayoutDirection == .leftToRight {
+          defaultAnimation = presenting ? .push(direction:.left) : .pull(direction:.right)
+        } else {
+          defaultAnimation = presenting ? .push(direction:.right) : .pull(direction:.left)
+        }
       } else if inTabBarController {
-        defaultAnimation = presenting ? .slide(direction:.left) : .slide(direction:.right)
+        if UIApplication.shared.userInterfaceLayoutDirection == .leftToRight {
+          defaultAnimation = presenting ? .slide(direction:.left) : .slide(direction:.right)
+        } else {
+          defaultAnimation = presenting ? .slide(direction:.right) : .slide(direction:.left)
+        }
       } else {
         defaultAnimation = .fade
       }
