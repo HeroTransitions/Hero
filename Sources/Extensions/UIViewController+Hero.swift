@@ -28,8 +28,8 @@ internal class HeroViewControllerConfig: NSObject {
   var tabBarAnimation: HeroDefaultAnimationType = .auto
 
   var storedSnapshot: UIView?
-  var previousNavigationDelegate: UINavigationControllerDelegate?
-  var previousTabBarDelegate: UITabBarControllerDelegate?
+  weak var previousNavigationDelegate: UINavigationControllerDelegate?
+  weak var previousTabBarDelegate: UITabBarControllerDelegate?
 }
 
 extension UIViewController: HeroCompatible { }
