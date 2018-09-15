@@ -27,7 +27,6 @@ By default, Hero provides **dynamic duration** based on the [Material Design Mot
 
 Hero doesn't make any assumptions about how the view is built or structured. It won't modify any of your views' states other than hiding them during the animation. This makes it work with **Auto Layout**, **programmatic layout**, **UICollectionView** (without modifying its layout object), **UITableView**, **UINavigationController**, **UITabBarController**, etc... 
 
-
 ## Example Gallery
 
 Checkout the [Example Gallery Blog Post](http://lkzhao.com/2016/12/28/hero.html) for a general idea of what you can achieve with **Hero**
@@ -75,6 +74,69 @@ You can do these in the **storyboard** too!
 
 <img src="https://cdn.rawgit.com/lkzhao/Hero/master/Resources/storyboardView.png" width="267px"/> 
 <img src="https://cdn.rawgit.com/lkzhao/Hero/master/Resources/storyboardViewController.png" width="267px"/>
+
+## Installation
+
+### CocoaPods
+
+Add the following entry to your Podfile:
+
+```rb
+pod 'Hero'
+```
+
+Then run `pod install`.
+
+Don't forget to `import Hero` in every file you'd like to use Hero.
+
+### Carthage
+
+Add the following entry to your `Cartfile`:
+
+```
+github "HeroTransitions/Hero"
+```
+
+Then run `carthage update`.
+
+If this is your first time using Carthage in the project, you'll need to go through some additional steps as explained [over at Carthage](https://github.com/Carthage/Carthage#adding-frameworks-to-an-application).
+
+### Swift Package Manager
+
+To integrate using Apple's Swift package manager, add the following as a dependency to your `Package.swift`:
+
+```swift
+.package(url: "https://github.com/HeroTransitions/Hero.git", .upToNextMajor(from: "1.3.0"))
+```
+
+and then specify `"Hero"` as a dependency of the Target in which you wish to use Hero.
+Here's an example `PackageDescription`:
+
+```swift
+// swift-tools-version:4.0
+import PackageDescription
+
+let package = Package(
+    name: "MyPackage",
+    products: [
+        .library(
+            name: "MyPackage",
+            targets: ["MyPackage"]),
+    ],
+    dependencies: [
+        .package(url: "https://github.com/HeroTransitions/Hero.git", .upToNextMajor(from: "1.3.0"))
+    ],
+    targets: [
+        .target(
+            name: "MyPackage",
+            dependencies: ["Hero"])
+    ]
+)
+```
+
+### Manually
+
+- Drag the **Sources** folder anywhere in your project.
 
 ## Documentations
 
