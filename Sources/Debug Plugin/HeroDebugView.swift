@@ -69,18 +69,18 @@ class HeroDebugView: UIView {
     addSubview(backgroundView)
 
     doneButton = UIButton(type: .system)
-    doneButton.setTitle("Done", for: UIControl.State.normal)
+    doneButton.setTitle("Done", for: .normal)
     doneButton.addTarget(self, action: #selector(onDone), for: .touchUpInside)
     backgroundView.addSubview(doneButton)
 
     perspectiveButton = UIButton(type: .system)
-    perspectiveButton.setTitle("3D View", for: UIControl.State.normal)
+    perspectiveButton.setTitle("3D View", for: .normal)
     perspectiveButton.addTarget(self, action: #selector(onPerspective), for: .touchUpInside)
     backgroundView.addSubview(perspectiveButton)
 
     if showCurveButton {
       arcCurveButton = UIButton(type: .system)
-      arcCurveButton!.setTitle("Show Arcs", for: UIControl.State.normal)
+      arcCurveButton!.setTitle("Show Arcs", for: .normal)
       arcCurveButton!.addTarget(self, action: #selector(onDisplayArcCurve), for: .touchUpInside)
       backgroundView.addSubview(arcCurveButton!)
     }
@@ -162,6 +162,7 @@ class HeroDebugView: UIView {
       startLocation = pinchGR.location(in: nil)
       startTranslation = translation
       startScale = scale
+      fallthrough
     case .changed:
       if pinchGR.numberOfTouches >= 2 {
         scale = min(1, max(0.2, startScale * pinchGR.scale))
