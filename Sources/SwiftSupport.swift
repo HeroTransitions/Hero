@@ -16,10 +16,6 @@ extension CMTime {
   static let zero = kCMTimeZero
 }
 
-func CMTimeMakeWithSeconds(_ seconds: Float64, _ preferredTimescale: Int32) -> CMTime {
-  return CMTimeMakeWithSeconds(seconds, preferredTimescale)
-}
-
 enum CAMediaTimingFillMode {
   static let both = kCAFillModeBoth
 }

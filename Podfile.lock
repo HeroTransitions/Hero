@@ -9,7 +9,7 @@ DEPENDENCIES:
   - CollectionKit
 
 SPEC REPOS:
-  https://github.com/CocoaPods/Specs.git:
+  https://github.com/cocoapods/specs:
     - CollectionKit
 
 EXTERNAL SOURCES:
@@ -27,4 +27,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: 126cdb5cfac9a9e2d2e798696131fd8758b6c34d
 
-COCOAPODS: 1.5.0
+COCOAPODS: 1.5.3

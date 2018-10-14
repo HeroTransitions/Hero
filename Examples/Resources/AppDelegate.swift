@@ -59,3 +59,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   }
 
 }
+
+#if !(swift(>=4.2))
+import CoreMedia
+
+extension UIApplication {
+  typealias LaunchOptionsKey = UIApplicationLaunchOptionsKey
+}
+
+func CMTimeMakeWithSeconds(_ seconds: Float64, preferredTimescale: Int32) -> CMTime {
+  return CMTimeMakeWithSeconds(seconds, preferredTimescale)
+}
+
+extension CMTime {
+  static let zero = kCMTimeZero
+}
+#endif
