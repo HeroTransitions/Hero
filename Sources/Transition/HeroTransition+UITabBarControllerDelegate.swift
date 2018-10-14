@@ -40,8 +40,8 @@ extension HeroTransition: UITabBarControllerDelegate {
   public func tabBarController(_ tabBarController: UITabBarController, animationControllerForTransitionFrom fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
     guard !isTransitioning else { return nil }
     self.state = .notified
-    let fromVCIndex = tabBarController.childViewControllers.index(of: fromVC)!
-    let toVCIndex = tabBarController.childViewControllers.index(of: toVC)!
+    let fromVCIndex = tabBarController.children.index(of: fromVC)!
+    let toVCIndex = tabBarController.children.index(of: toVC)!
     self.isPresenting = toVCIndex > fromVCIndex
     self.fromViewController = fromViewController ?? fromVC
     self.toViewController = toViewController ?? toVC

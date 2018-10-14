@@ -2,14 +2,16 @@ PODS:
   - ChameleonFramework/Default (2.1.0)
   - ChameleonFramework/Swift (2.1.0):
     - ChameleonFramework/Default
-  - CollectionKit (1.2.1)
+  - CollectionKit (2.2.0):
+    - CollectionKit/Core (= 2.2.0)
+  - CollectionKit/Core (2.2.0)
 
 DEPENDENCIES:
   - ChameleonFramework/Swift (from `https://github.com/ViccAlexander/Chameleon.git`)
   - CollectionKit
 
 SPEC REPOS:
-  https://github.com/CocoaPods/Specs.git:
+  https://github.com/cocoapods/specs:
     - CollectionKit
 
 EXTERNAL SOURCES:
@@ -23,8 +25,8 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   ChameleonFramework: d21a3cc247abfe5e37609a283a8238b03575cf64
-  CollectionKit: 529f21630888b51dfad3e1aa7a2d08e8c28099cb
+  CollectionKit: 5caa5341860d4c9b748ebfeaab97530b2d02c7c0
 
 PODFILE CHECKSUM: 126cdb5cfac9a9e2d2e798696131fd8758b6c34d
 
-COCOAPODS: 1.5.0
+COCOAPODS: 1.5.3

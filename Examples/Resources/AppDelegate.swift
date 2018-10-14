@@ -28,7 +28,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
   var window: UIWindow?
 
-  func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+  func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
     // Override point for customization after application launch.
     window = UIWindow(frame: UIScreen.main.bounds)
     window!.rootViewController = MainViewController()
@@ -59,3 +59,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   }
 
 }
+
+#if !(swift(>=4.2))
+import CoreMedia
+
+extension UIApplication {
+  typealias LaunchOptionsKey = UIApplicationLaunchOptionsKey
+}
+
+func CMTimeMakeWithSeconds(_ seconds: Float64, preferredTimescale: Int32) -> CMTime {
+  return CMTimeMakeWithSeconds(seconds, preferredTimescale)
+}
+
+extension CMTime {
+  static let zero = kCMTimeZero
+}
+#endif

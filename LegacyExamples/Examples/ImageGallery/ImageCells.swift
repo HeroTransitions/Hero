@@ -55,7 +55,9 @@ class ScrollingImageCell: UICollectionViewCell {
     scrollView.showsHorizontalScrollIndicator = false
     scrollView.showsVerticalScrollIndicator = false
     #if os(tvOS)
-      scrollView.panGestureRecognizer.allowedTouchTypes = [ NSNumber(value:UITouchType.indirect.rawValue) ]
+      scrollView.panGestureRecognizer.allowedTouchTypes = [
+        NSNumber(value: UITouch.TouchType.indirect.rawValue)
+    ]
     #endif
     addSubview(scrollView)
 
@@ -131,3 +133,10 @@ extension ScrollingImageCell: UIScrollViewDelegate {
     centerIfNeeded()
   }
 }
+
+#if !(swift(>=4.2))
+extension UITouch {
+  typealias TouchType = UITouchType
+}
+#endif
+

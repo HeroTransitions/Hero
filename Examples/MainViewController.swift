@@ -33,19 +33,21 @@ class MainViewController: UIViewController {
       }
     )
 
+    // TODO: Migrate the example to CollectionKit 2.2.0
+
     let imageView = UIImageView(image: #imageLiteral(resourceName: "HeroLogo"))
     imageView.contentMode = .scaleAspectFit
-    let imageProvider = ViewCollectionProvider(imageView, sizeStrategy: (.fill, .fit))
+    //let imageProvider = ViewCollectionProvider(imageView, sizeStrategy: (.fill, .fit))
 
     let legacyButton = UIButton(type: .system)
     legacyButton.setTitle("Legacy Examples", for: .normal)
     legacyButton.addTarget(self, action: #selector(showLegacy), for: .touchUpInside)
-    let legacyExamplesProvider = ViewCollectionProvider(legacyButton, sizeStrategy: (.fill, .fit))
+    //let legacyExamplesProvider = ViewCollectionProvider(legacyButton, sizeStrategy: (.fill, .fit))
 
-    collectionView.provider = CollectionComposer(
-      layout: FlowLayout(lineSpacing: 10).inset(by: UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)),
-      sections: [imageProvider, examplesProvider, legacyExamplesProvider]
-    )
+//    collectionView.provider = CollectionComposer(
+//      layout: FlowLayout(lineSpacing: 10).inset(by: UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)),
+//      sections: [imageProvider, examplesProvider, legacyExamplesProvider]
+//    )
 
     view.addSubview(collectionView)
   }

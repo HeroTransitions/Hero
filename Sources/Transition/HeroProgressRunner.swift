@@ -61,12 +61,12 @@ class HeroProgressRunner {
     self.isReversed = reverse
     self.duration = totalTime
     displayLink = CADisplayLink(target: self, selector: #selector(displayUpdate(_:)))
-    displayLink!.add(to: RunLoop.main, forMode: RunLoopMode(rawValue: RunLoopMode.commonModes.rawValue))
+    displayLink!.add(to: .main, forMode: RunLoop.Mode.common)
   }
 
   func stop() {
     displayLink?.isPaused = true
-    displayLink?.remove(from: RunLoop.main, forMode: RunLoopMode(rawValue: RunLoopMode.commonModes.rawValue))
+    displayLink?.remove(from: RunLoop.main, forMode: RunLoop.Mode.common)
     displayLink = nil
   }
 }
