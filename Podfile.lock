@@ -11,7 +11,7 @@ DEPENDENCIES:
   - CollectionKit
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs:
+  https://github.com/cocoapods/specs.git:
     - CollectionKit
 
 EXTERNAL SOURCES:
