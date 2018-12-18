@@ -261,7 +261,7 @@ class DefaultAnimationPreprocessor: BasePreprocessor {
       } else if inNavigationController {
         defaultAnimation = presenting ? .push(direction:.leading) : .pull(direction:.trailing)
       } else if inTabBarController {
-        defaultAnimation = presenting ? .push(direction:.leading) : .pull(direction:.trailing)
+        defaultAnimation = presenting ? .slide(direction:.leading) : .slide(direction:.trailing)
       } else {
         defaultAnimation = .fade
       }
