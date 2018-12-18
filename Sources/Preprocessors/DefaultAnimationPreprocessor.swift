@@ -45,6 +45,21 @@ public enum HeroDefaultAnimationType {
       return UIApplication.shared.userInterfaceLayoutDirection == .leftToRight ? .right : .left
     }
   }
+  
+  public enum Strategy {
+    case forceLeftToRight, forceRightToLeft, userInterface
+    func defaultDirection(presenting: Bool) -> Direction {
+      switch self {
+      case .forceLeftToRight:
+        return presenting ? .left : .right
+      case .forceRightToLeft:
+        return presenting ? .right : .left
+      case .userInterface:
+        return presenting ? .leading : .trailing
+      }
+    }
+  }
+  
   case auto
   case push(direction: Direction)
   case pull(direction: Direction)
@@ -259,9 +274,11 @@ class DefaultAnimationPreprocessor: BasePreprocessor {
       if animators.contains(where: { $0.canAnimate(view: toView, appearing: true) || $0.canAnimate(view: fromView, appearing: false) }) {
         defaultAnimation = .none
       } else if inNavigationController {
-        defaultAnimation = presenting ? .push(direction:.leading) : .pull(direction:.trailing)
+        let direction = hero.defaultAnimationDirectionStrategy.defaultDirection(presenting: presenting)
+        defaultAnimation = .push(direction: direction)
       } else if inTabBarController {
-        defaultAnimation = presenting ? .slide(direction:.leading) : .slide(direction:.trailing)
+        let direction = hero.defaultAnimationDirectionStrategy.defaultDirection(presenting: presenting)
+        defaultAnimation = .slide(direction: direction)
       } else {
         defaultAnimation = .fade
       }
