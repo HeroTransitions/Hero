@@ -6,6 +6,11 @@ The changelog for `Hero`. Also see the [releases](https://github.com/HeroTransit
 
 ## Upcoming release
 
+### Added
+
+- Use custom snapshot for views that implement `HeroCustomSnapshotView`.
+[#541](https://github.com/HeroTransitions/Hero/pull/541) by [@ManueGE](https://github.com/ManueGE)
+
 ### Changed
 
 - Added support for right to left languages.
@@ -20,6 +25,7 @@ The changelog for `Hero`. Also see the [releases](https://github.com/HeroTransit
 
 - Added support for Swift 4.2.
 [#534](https://github.com/HeroTransitions/Hero/pull/534) by [@rennarda](https://github.com/rennarda)
+
 
 ## [1.3.1](https://github.com/HeroTransitions/Hero/releases/tag/1.3.1)
 
