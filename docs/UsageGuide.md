@@ -12,12 +12,12 @@
 2. Enable Hero for the destination view controller
 
   ```swift
-    viewController.isHeroEnabled = true
+    viewController.hero.isEnabled = true
   ```
 
 ### UINavigationController & UITabBarController
 
-Hero also supports transitions within a navigation controller or a tab bar controller—just set the 'isHeroEnabled' attribute to true on the UINavigationController/UITabBarController instance.
+Hero also supports transitions within a navigation controller or a tab bar controller—just set the 'hero.isEnabled' attribute to true on the UINavigationController/UITabBarController instance.
 
 ## Attributes
 There are two important attributes to understand: `heroID` and `heroModifiers`. These are implemented as extensions (using associated objects) for `UIView`. Therefore, after the Hero library is imported, every `UIView` will have these two attributes.
@@ -25,7 +25,7 @@ There are two important attributes to understand: `heroID` and `heroModifiers`. 
 | Attribute Name | Description |
 | --- | --- |
 | `heroID`    | Identifier for the view. Hero will automatically transition between views with the same `heroID` |
-| `heroModifiers` | Specifies the extra animations performed alongside the main transition. |
+| `her.modifiers` | Specifies the extra animations performed alongside the main transition. |
 
 ## HeroID
 
@@ -33,12 +33,12 @@ There are two important attributes to understand: `heroID` and `heroModifiers`. 
 
 ## HeroModifiers
 
-Use `heroModifiers` to specify animations alongside the main transition. Checkout [HeroModifier.swift](https://github.com/lkzhao/Hero/blob/master/Sources/HeroModifier.swift) for available modifiers.
+Use `hero.modifiers` to specify animations alongside the main transition. Checkout [HeroModifier.swift](https://github.com/lkzhao/Hero/blob/master/Sources/HeroModifier.swift) for available modifiers.
 
-#### For example, to achieve the following effect, set the `heroModifiers` to be
+#### For example, to achieve the following effect, set the `hero.modifiers` to be
 
 ```swift
-view.heroModifiers = [.fade, .translate(x:0, y:-250), .rotate(x:-1.6), .scale(1.5)]
+view.hero.modifiers = [.fade, .translate(x:0, y:-250), .rotate(x:-1.6), .scale(1.5)]
 ```
 <!--- TODO: Fix broken image below --->
 <img src="https://github.com/lkzhao/Hero/blob/master/Resources/heroTransition.gif?raw=true" width="300">
@@ -47,7 +47,7 @@ Note: For matched views, the target view's heroModifier will be used. The source
 
 ## HeroModifierString
 
-This is a string value. It provides another way to set `heroModifiers`. It can be accessed through the storyboard.
+This is a string value. It provides another way to set `hero.modifiers`. It can be accessed through the storyboard.
 
 It must be in the following syntax:
 
