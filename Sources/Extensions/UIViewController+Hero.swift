@@ -68,7 +68,14 @@ public extension HeroExtension where Base: UIViewController {
   // TODO: can be moved to internal later (will still be accessible via IB)
   public var isEnabled: Bool {
     get {
-      return base.transitioningDelegate is HeroTransition
+      let isTransitioningDelegate = base.transitioningDelegate is HeroTransition
+      if let navi = base as? UINavigationController {
+        return navi.delegate is HeroTransition && isTransitioningDelegate
+      }
+      if let tab = base as? UITabBarController {
+        return tab.delegate is HeroTransition && isTransitioningDelegate
+      }
+      return isTransitioningDelegate
     }
     set {
       guard newValue != isEnabled else { return }
