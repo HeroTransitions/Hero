@@ -170,6 +170,16 @@ extension UINavigationController {
     get { return hero.navigationAnimationTypeString }
     set { hero.navigationAnimationTypeString = newValue }
   }
+  
+  /// This function call the standard setViewControllers() but it also add a completion callback.
+   func setViewControllers(viewControllers: [UIViewController], animated: Bool, completion: (() -> Void)?) {
+		setViewControllers(viewControllers, animated: animated)
+		guard animated, let coordinator = transitionCoordinator else {
+			DispatchQueue.main.async { completion?() }
+			return
+		}
+		coordinator.animate(alongsideTransition: nil) { _ in completion?() }
+	}
 }
 
 public extension HeroExtension where Base: UITabBarController {
@@ -313,7 +323,7 @@ public extension HeroExtension where Base: UIViewController {
       if navigationController.hero.isEnabled {
         hero.forceNotInteractive = true
       }
-      navigationController.setViewControllers(vcs, animated: true)
+      navigationController.setViewControllers(viewControllers: vcs, animated: true, completion: completion)
     } else if let container = base.view.superview {
       let parentVC = base.presentingViewController
       hero.transition(from: base, to: next, in: container) { [weak base] finished in
