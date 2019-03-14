@@ -35,10 +35,6 @@
 		2D1F7FE71E49DD90004D944B /* TVImageGalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D1F7FE61E49DD90004D944B /* TVImageGalleryViewController.swift */; };
 		2D1F7FEA1E49DD90004D944B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2D1F7FE81E49DD90004D944B /* Main.storyboard */; };
 		2D1F7FF21E49E043004D944B /* Hero.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D1F7FBF1E49DCB5004D944B /* Hero.framework */; };
-		3676E7E32059525F0003B9DF /* UIView+Hero.swift in Headers */ = {isa = PBXBuildFile; fileRef = B101B2C91E561408007E7112 /* UIView+Hero.swift */; settings = {ATTRIBUTES = (Public, ); }; };
-		3676E7E4205952620003B9DF /* UIViewController+Hero.swift in Headers */ = {isa = PBXBuildFile; fileRef = B101B2CD1E561421007E7112 /* UIViewController+Hero.swift */; settings = {ATTRIBUTES = (Public, ); }; };
-		3676E7E5205952690003B9DF /* UIView+Hero.swift in Headers */ = {isa = PBXBuildFile; fileRef = B101B2C91E561408007E7112 /* UIView+Hero.swift */; settings = {ATTRIBUTES = (Public, ); }; };
-		3676E7E62059526B0003B9DF /* UIViewController+Hero.swift in Headers */ = {isa = PBXBuildFile; fileRef = B101B2CD1E561421007E7112 /* UIViewController+Hero.swift */; settings = {ATTRIBUTES = (Public, ); }; };
 		4D307DF420E3C6DC00DD9F65 /* HeroModifier+Advanced.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D307DF320E3C6DC00DD9F65 /* HeroModifier+Advanced.swift */; };
 		4D307DF520E3C6DC00DD9F65 /* HeroModifier+Advanced.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D307DF320E3C6DC00DD9F65 /* HeroModifier+Advanced.swift */; };
 		5C5442AA2004092500E1E326 /* HeroCompatible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C69728F2002CDBD001A5051 /* HeroCompatible.swift */; };
@@ -676,8 +672,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				2D1F7FDC1E49DD3C004D944B /* Hero.h in Headers */,
-				3676E7E5205952690003B9DF /* UIView+Hero.swift in Headers */,
-				3676E7E62059526B0003B9DF /* UIViewController+Hero.swift in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -686,8 +680,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				A306D3B61E1C7A2E00B6C23A /* Hero.h in Headers */,
-				3676E7E32059525F0003B9DF /* UIView+Hero.swift in Headers */,
-				3676E7E4205952620003B9DF /* UIViewController+Hero.swift in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
