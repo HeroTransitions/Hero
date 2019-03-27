@@ -13,18 +13,18 @@ import CoreGraphics
 import UIKit
 
 extension CMTime {
-  static let zero = kCMTimeZero
+  static let zero = CMTime.zero
 }
 
 enum CAMediaTimingFillMode {
-  static let both = kCAFillModeBoth
+  static let both = convertFromCAMediaTimingFillMode(CAMediaTimingFillMode.both)
 }
 
 enum CAMediaTimingFunctionName {
-  static let linear = kCAMediaTimingFunctionLinear
-  static let easeIn = kCAMediaTimingFunctionEaseIn
-  static let easeOut = kCAMediaTimingFunctionEaseOut
-  static let easeInEaseOut = kCAMediaTimingFunctionEaseInEaseOut
+  static let linear = convertFromCAMediaTimingFunctionName(CAMediaTimingFunctionName.linear)
+  static let easeIn = convertFromCAMediaTimingFunctionName(CAMediaTimingFunctionName.easeIn)
+  static let easeOut = convertFromCAMediaTimingFunctionName(CAMediaTimingFunctionName.easeOut)
+  static let easeInEaseOut = convertFromCAMediaTimingFunctionName(CAMediaTimingFunctionName.easeInEaseOut)
 }
 
 extension UIControl {
@@ -37,16 +37,26 @@ public extension UINavigationController {
 
 extension UIViewController {
   var children: [UIViewController] {
-    return childViewControllers
+    return children
   }
 }
 
 extension RunLoop {
   enum Mode {
-    static let common = RunLoopMode.commonModes
+    static let common = RunLoop.Mode.common
   }
 }
 #endif
 
 
 
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertFromCAMediaTimingFillMode(_ input: CAMediaTimingFillMode) -> String {
+	return input.rawValue
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertFromCAMediaTimingFunctionName(_ input: CAMediaTimingFunctionName) -> String {
+	return input.rawValue
+}

@@ -101,7 +101,7 @@ extension HeroDebugPlugin: HeroDebugViewDelegate {
     let a = CABasicAnimation(keyPath: "zPosition")
     a.fromValue = view.layer.value(forKeyPath: "zPosition")
     a.toValue = NSNumber(value: Double(to))
-    a.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
+    a.timingFunction = CAMediaTimingFunction(name: convertToCAMediaTimingFunctionName(CAMediaTimingFunctionName.easeInEaseOut.rawValue))
     a.duration = 0.4
     view.layer.add(a, forKey: "zPosition")
     view.layer.zPosition = to
@@ -165,7 +165,7 @@ extension HeroDebugPlugin: HeroDebugViewDelegate {
     let a = CABasicAnimation(keyPath: "sublayerTransform")
     a.fromValue = hero.container.layer.value(forKeyPath: "sublayerTransform")
     a.toValue = NSValue(caTransform3D: t)
-    a.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
+    a.timingFunction = CAMediaTimingFunction(name: convertToCAMediaTimingFunctionName(CAMediaTimingFunctionName.easeInEaseOut.rawValue))
     a.duration = 0.4
 
     UIView.animate(withDuration: 0.4) {
@@ -177,3 +177,8 @@ extension HeroDebugPlugin: HeroDebugViewDelegate {
   }
 }
 #endif
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertToCAMediaTimingFunctionName(_ input: String) -> CAMediaTimingFunctionName {
+	return CAMediaTimingFunctionName(rawValue: input)
+}
