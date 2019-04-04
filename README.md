@@ -102,6 +102,27 @@ Then run `carthage update`.
 
 If this is your first time using Carthage in the project, you'll need to go through some additional steps as explained [over at Carthage](https://github.com/Carthage/Carthage#adding-frameworks-to-an-application).
 
+### Accio
+
+Add the following to your `Package.swift`:
+
+```swift
+.package(url: "https://github.com/HeroTransitions/Hero.git", .upToNextMajor(from: "1.4.0")),
+```
+
+Next, add `Hero` to your App targets dependencies like so:
+
+```swift
+.target(
+    name: "App",
+    dependencies: [
+        "Hero",
+    ]
+),
+```
+
+Then run `accio update`.
+
 ### Swift Package Manager
 
 To integrate using Apple's Swift package manager, add the following as a dependency to your `Package.swift`:
