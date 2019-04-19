@@ -916,7 +916,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-HeroExamples/Pods-HeroExamples-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-HeroExamples/Pods-HeroExamples-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/ChameleonFramework/ChameleonFramework.framework",
 				"${BUILT_PRODUCTS_DIR}/CollectionKit/CollectionKit.framework",
 			);
@@ -927,7 +927,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HeroExamples/Pods-HeroExamples-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-HeroExamples/Pods-HeroExamples-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		89DC76B30A0BF7FD724C24D3 /* [CP] Check Pods Manifest.lock */ = {
@@ -1290,6 +1290,7 @@
 		A306D3BC1E1C7A2E00B6C23A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -1317,6 +1318,7 @@
 		A306D3BD1E1C7A2E00B6C23A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CURRENT_PROJECT_VERSION = 1;

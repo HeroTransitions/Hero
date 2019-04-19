@@ -139,6 +139,11 @@ public extension UIViewController {
     get { return hero.isEnabled }
     set { hero.isEnabled = newValue }
   }
+
+  internal class var sharedApplication: UIApplication? {
+    let selector = NSSelectorFromString("sharedApplication")
+    return UIApplication.perform(selector)?.takeUnretainedValue() as? UIApplication
+  }
 }
 
 public extension HeroExtension where Base: UINavigationController {
@@ -324,7 +329,7 @@ public extension HeroExtension where Base: UIViewController {
             parentVC.present(next, animated: false, completion: completion)
           }
         } else {
-          UIApplication.shared.keyWindow?.rootViewController = next
+          UIViewController.sharedApplication?.keyWindow?.rootViewController = next
         }
       }
     }

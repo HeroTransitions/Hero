@@ -87,7 +87,7 @@ extension HeroTransition {
       if isPresenting != finished, !inContainerController, transitionContext != nil {
         // only happens when present a .overFullScreen VC
         // bug: http://openradar.appspot.com/radar?id=5320103646199808
-        UIApplication.shared.keyWindow?.addSubview(isPresenting ? fromView : toView)
+        UIViewController.sharedApplication?.keyWindow?.addSubview(isPresenting ? fromView : toView)
       }
     }
 

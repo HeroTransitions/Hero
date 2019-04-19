@@ -38,11 +38,11 @@ public enum HeroDefaultAnimationType {
     }
     
     public static var leading: Direction {
-      return UIApplication.shared.userInterfaceLayoutDirection == .leftToRight ? .left : .right
+      return UIViewController.sharedApplication?.userInterfaceLayoutDirection == .leftToRight ? .left : .right
     }
     
     public static var trailing: Direction {
-      return UIApplication.shared.userInterfaceLayoutDirection == .leftToRight ? .right : .left
+      return UIViewController.sharedApplication?.userInterfaceLayoutDirection == .leftToRight ? .right : .left
     }
   }
   
