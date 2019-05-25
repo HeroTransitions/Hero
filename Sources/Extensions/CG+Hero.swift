@@ -40,25 +40,25 @@ internal struct KeySet<Key: Hashable, Value: Hashable> {
 }
 
 internal extension CGSize {
-  internal var center: CGPoint {
+  var center: CGPoint {
     return CGPoint(x: width / 2, y: height / 2)
   }
-  internal var point: CGPoint {
+  var point: CGPoint {
     return CGPoint(x: width, y: height)
   }
-  internal func transform(_ t: CGAffineTransform) -> CGSize {
+  func transform(_ t: CGAffineTransform) -> CGSize {
     return self.applying(t)
   }
-  internal func transform(_ t: CATransform3D) -> CGSize {
+  func transform(_ t: CATransform3D) -> CGSize {
     return self.applying(CATransform3DGetAffineTransform(t))
   }
 }
 
 internal extension CGRect {
-  internal var center: CGPoint {
+  var center: CGPoint {
     return CGPoint(x: origin.x + width / 2, y: origin.y + height / 2)
   }
-  internal var bounds: CGRect {
+  var bounds: CGRect {
     return CGRect(origin: CGPoint.zero, size: size)
   }
   init(center: CGPoint, size: CGSize) {
