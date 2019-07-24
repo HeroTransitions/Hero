@@ -165,18 +165,16 @@ extension HeroContext {
         if superviewToNoSnapshotSubviewMap[view.superview!] == nil {
           superviewToNoSnapshotSubviewMap[view.superview!] = []
         }
-        superviewToNoSnapshotSubviewMap[view.superview!]!.append((view.superview!.subviews.index(of: view)!, view))
+        superviewToNoSnapshotSubviewMap[view.superview!]!.append((view.superview!.subviews.firstIndex(of: view)!, view))
       }
       snapshot = view
     case .optimized:
       #if os(tvOS)
         snapshot = view.snapshotView(afterScreenUpdates: true)!
       #else
-        if let customSnapshotView = view as? HeroCustomSnapshotView, let snapshotView = customSnapshotView.heroSnapshot {
-          snapshot = snapshotView
-        } else if #available(iOS 9.0, *), let stackView = view as? UIStackView {
+        if #available(iOS 9.0, *), let stackView = view as? UIStackView {
           snapshot = stackView.slowSnapshotView()
-        } else if let imageView = view as? UIImageView, view.subviews.filter({!$0.isHidden}).isEmpty {
+        } else if let imageView = view as? UIImageView, view.subviews.isEmpty {
           let contentView = UIImageView(image: imageView.image)
           contentView.frame = imageView.bounds
           contentView.contentMode = imageView.contentMode
@@ -264,7 +262,7 @@ extension HeroContext {
 
     if let pairedView = pairedView(for: view), let pairedSnapshot = snapshotViews[pairedView] {
       let siblingViews = pairedView.superview!.subviews
-      let nextSiblings = siblingViews[siblingViews.index(of: pairedView)!+1..<siblingViews.count]
+      let nextSiblings = siblingViews[siblingViews.firstIndex(of: pairedView)!+1..<siblingViews.count]
       containerView.addSubview(pairedSnapshot)
       containerView.addSubview(snapshot)
       for subview in pairedView.subviews {
@@ -389,9 +387,4 @@ extension HeroContext {
       storeViewAlpha(rootView: subview)
     }
   }
-}
-
-/// Allows a view to create their own custom snapshot when using **Optimized** snapshot
-public protocol HeroCustomSnapshotView {
-	var heroSnapshot: UIView? { get }
 }
