@@ -29,7 +29,7 @@ public protocol HeroCompatible {
 }
 
 public extension HeroCompatible {
-  public var hero: HeroExtension<Self> {
+  var hero: HeroExtension<Self> {
     get { return HeroExtension(self) }
     set { }
   }
