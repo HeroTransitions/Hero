@@ -332,49 +332,49 @@ public extension HeroExtension where Base: UIViewController {
 }
 
 extension UIViewController {
-  @available(*, deprecated: 0.1.4, message: "use hero.dismissViewController instead")
+  @available(*, deprecated, renamed: "hero.dismissViewController()")
   @IBAction public func ht_dismiss(_ sender: UIView) {
     hero.dismissViewController()
   }
 
-  @available(*, deprecated: 0.1.4, message: "use hero.replaceViewController(with:) instead")
+  @available(*, deprecated, renamed: "hero.replaceViewController(with:)")
   public func heroReplaceViewController(with next: UIViewController) {
     hero.replaceViewController(with: next)
   }
 
   // TODO: can be moved to internal later (will still be accessible via IB)
-  @available(*, deprecated, message: "Use hero.dismissViewController instead")
+  @available(*, deprecated, renamed: "hero.dismissViewController()")
   @IBAction public func hero_dismissViewController() {
     hero.dismissViewController()
   }
 
   // TODO: can be moved to internal later (will still be accessible via IB)
-  @available(*, deprecated, message: "Use hero.unwindToRootViewController instead")
+  @available(*, deprecated, renamed: "hero.unwindToRootViewController()")
   @IBAction public func hero_unwindToRootViewController() {
     hero.unwindToRootViewController()
   }
 
-  @available(*, deprecated, message: "Use hero.unwindToViewController(_:) instead")
+  @available(*, deprecated, renamed: "hero.unwindToViewController(_:)")
   public func hero_unwindToViewController(_ toViewController: UIViewController) {
     hero.unwindToViewController(toViewController)
   }
 
-  @available(*, deprecated, message: "Use hero.unwindToViewController(withSelector:) instead")
+  @available(*, deprecated, renamed: "hero.unwindToViewController(withSelector:)")
   public func hero_unwindToViewController(withSelector: Selector) {
     hero.unwindToViewController(withSelector: withSelector)
   }
 
-  @available(*, deprecated, message: "Use hero_unwindToViewController(withClass:) instead")
+  @available(*, deprecated, renamed: "hero_unwindToViewController(withClass:)")
   public func hero_unwindToViewController(withClass: AnyClass) {
     hero.unwindToViewController(withClass: withClass)
   }
 
-  @available(*, deprecated, message: "Use hero.unwindToViewController(withMatchBlock:) instead")
+  @available(*, deprecated, renamed: "hero.unwindToViewController(withMatchBlock:)")
   public func hero_unwindToViewController(withMatchBlock: (UIViewController) -> Bool) {
     hero.unwindToViewController(withMatchBlock: withMatchBlock)
   }
 
-  @available(*, deprecated, message: "Use hero.replaceViewController(with:) instead")
+  @available(*, deprecated, renamed: "hero.replaceViewController(with:)")
   public func hero_replaceViewController(with next: UIViewController) {
     hero.replaceViewController(with: next)
   }
