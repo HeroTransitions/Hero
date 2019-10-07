@@ -51,7 +51,7 @@ class AnimationSelectTableViewController: UITableViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
-    tableView.backgroundColor = UIColor.randomFlat
+    tableView.backgroundColor = UIColor.randomFlat()
     labelColor = UIColor(contrastingBlackOrWhiteColorOn: tableView.backgroundColor!, isFlat: true)
     let screenEdgePanGR = UIScreenEdgePanGestureRecognizer(target: self, action: #selector(handlePan(gr:)))
     screenEdgePanGR.edges = .left

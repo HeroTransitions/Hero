@@ -10,6 +10,16 @@ import UIKit
 
 // basically a view controller with a back button and a tap gesture configured
 class ExampleBaseViewController: UIViewController {
+  
+  init() {
+    super.init(nibName: nil, bundle: nil)
+    modalPresentationStyle = .overFullScreen
+  }
+  
+  required init?(coder: NSCoder) {
+    fatalError("init(coder:) has not been implemented")
+  }
+  
   let dismissButton = UIButton(type: .system)
 
   override func viewDidLoad() {

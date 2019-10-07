@@ -916,7 +916,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-HeroExamples/Pods-HeroExamples-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-HeroExamples/Pods-HeroExamples-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/ChameleonFramework/ChameleonFramework.framework",
 				"${BUILT_PRODUCTS_DIR}/CollectionKit/CollectionKit.framework",
 			);
@@ -927,7 +927,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HeroExamples/Pods-HeroExamples-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-HeroExamples/Pods-HeroExamples-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		89DC76B30A0BF7FD724C24D3 /* [CP] Check Pods Manifest.lock */ = {
