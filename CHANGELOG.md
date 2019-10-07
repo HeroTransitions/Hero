@@ -4,7 +4,7 @@ The changelog for `Hero`. Also see the [releases](https://github.com/HeroTransit
 
 --------------------------------------
 
-## Upcoming release
+## [1.5.0](https://github.com/HeroTransitions/Hero/releases/tag/1.5.0)
 
 ### Added
 
@@ -25,7 +25,6 @@ The changelog for `Hero`. Also see the [releases](https://github.com/HeroTransit
 
 - Added support for Swift 4.2.
 [#534](https://github.com/HeroTransitions/Hero/pull/534) by [@rennarda](https://github.com/rennarda)
-
 
 ## [1.3.1](https://github.com/HeroTransitions/Hero/releases/tag/1.3.1)
 
