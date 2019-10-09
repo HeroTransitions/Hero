@@ -76,7 +76,14 @@ public extension HeroExtension where Base: UIViewController {
         return tab.delegate is HeroTransition && isTransitioningDelegate
       }
       return isTransitioningDelegate
-    }
+	  switch base {
+	  	case let navi as UINavigationController: 
+	  	    return navi.delegate is HeroTransition && isTransitioningDelegate
+	    case let tab as UITabBarController: 
+	  	    return tab.delegate is HeroTransition && isTransitioningDelegate
+	  	default:
+	  	    return isTransitioningDelegate
+	  }
     set {
       guard newValue != isEnabled else { return }
       if newValue {
