@@ -18,7 +18,8 @@ Pod::Spec.new do |s|
   s.ios.deployment_target = '8.0'
   s.tvos.deployment_target = '9.0'
 
-  s.ios.frameworks = 'UIKit', 'Foundation'
+  s.ios.frameworks = 'UIKit', 'Foundation', 'QuartzCore', 'CoreGraphics', 'CoreMedia'
+  s.tvos.frameworks = 'UIKit', 'Foundation', 'QuartzCore', 'CoreGraphics', 'CoreMedia'
 
   s.requires_arc = true
 

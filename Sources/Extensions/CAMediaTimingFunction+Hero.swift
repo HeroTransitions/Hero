@@ -21,6 +21,7 @@
 // THE SOFTWARE.
 
 import UIKit
+import QuartzCore
 
 public extension CAMediaTimingFunction {
   // default
