@@ -21,6 +21,8 @@ Pod::Spec.new do |s|
   s.ios.frameworks = 'UIKit', 'Foundation', 'QuartzCore', 'CoreGraphics', 'CoreMedia'
   s.tvos.frameworks = 'UIKit', 'Foundation', 'QuartzCore', 'CoreGraphics', 'CoreMedia'
 
+  s.swift_versions = '4.2'
+
   s.requires_arc = true
 
   s.source_files = 'Sources/**/*.swift'
