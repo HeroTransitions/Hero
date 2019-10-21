@@ -47,6 +47,3 @@ extension RunLoop {
   }
 }
 #endif
-
-
-

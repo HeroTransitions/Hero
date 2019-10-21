@@ -242,7 +242,7 @@ public extension HeroExtension where Base: UIViewController {
    Unwind to a view controller that the matchBlock returns true on.
    */
   func unwindToViewController(withMatchBlock: (UIViewController) -> Bool) {
-    var target: UIViewController? = nil
+    var target: UIViewController?
     var current: UIViewController? = base
 
     while target == nil && current != nil {
