@@ -12,7 +12,10 @@ Pod::Spec.new do |s|
   s.homepage         = 'https://github.com/HeroTransitions/Hero'
   s.screenshots      = 'https://github.com/HeroTransitions/Hero/blob/master/Resources/Hero.png?raw=true'
   s.license          = 'MIT'
-  s.author           = { 'Luke' => 'lzhaoyilun@gmail.com' }
+  s.author           = { 
+    'Luke' => 'lzhaoyilun@gmail.com',
+    'Joe Mattiello' => 'git@joemattiello.com' 
+  }
   s.source           = { git: 'https://github.com/HeroTransitions/Hero.git', tag: s.version.to_s }
 
   s.ios.deployment_target = '8.0'
