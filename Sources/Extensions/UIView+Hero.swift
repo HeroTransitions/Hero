@@ -116,34 +116,34 @@ public extension UIView {
   }
 
   // TODO: can be moved to internal later (will still be accessible via IB)
-  @available(*, deprecated, message: "Use hero.id instead")
+  @available(*, renamed: "hero.id")
   @IBInspectable var heroID: String? {
     get { return hero.id }
     set { hero.id = newValue }
   }
 
   // TODO: can be moved to internal later (will still be accessible via IB)
-  @available(*, deprecated, message: "Use hero.isEnabled instead")
+  @available(*, renamed: "hero.isEnabled")
   @IBInspectable var isHeroEnabled: Bool {
     get { return hero.isEnabled }
     set { hero.isEnabled = newValue }
   }
 
   // TODO: can be moved to internal later (will still be accessible via IB)
-  @available(*, deprecated, message: "Use hero.isEnabledForSubviews instead")
+  @available(*, renamed: "hero.isEnabledForSubviews")
   @IBInspectable var isHeroEnabledForSubviews: Bool {
     get { return hero.isEnabledForSubviews }
     set { hero.isEnabledForSubviews = newValue }
   }
 
-  @available(*, deprecated, message: "Use hero.modifiers instead")
+  @available(*, renamed: "hero.modifiers")
   var heroModifiers: [HeroModifier]? {
     get { return hero.modifiers }
     set { hero.modifiers = newValue }
   }
 
   // TODO: can be moved to internal later (will still be accessible via IB)
-  @available(*, deprecated, message: "Use hero.modifierString instead")
+  @available(*, renamed: "hero.modifierString")
   @IBInspectable var heroModifierString: String? {
     get { fatalError("Reverse lookup is not supported") }
     set { hero.modifiers = newValue?.parse() }
@@ -188,7 +188,7 @@ public extension UIView {
     }
   }
 
-  @available(*, deprecated, message: "Use hero.storedAplha instead")
+  @available(*, renamed: "hero.storedAplha")
   internal var heroStoredAlpha: CGFloat? {
     get { return hero.storedAlpha }
     set { hero.storedAlpha = newValue }

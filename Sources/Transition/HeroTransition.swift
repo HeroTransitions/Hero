@@ -70,11 +70,11 @@ open class HeroTransition: NSObject {
   public var isTransitioning: Bool { return state != .possible }
   public internal(set) var isPresenting: Bool = true
 
-  @available(*, deprecated, message: "Use isTransitioning instead")
+  @available(*, renamed: "isTransitioning")
   public var transitioning: Bool {
     return isTransitioning
   }
-  @available(*, deprecated, message: "Use isPresenting instead")
+  @available(*, renamed: "isPresenting")
   public var presenting: Bool {
     return isPresenting
   }
