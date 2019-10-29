@@ -9,7 +9,7 @@ class MainViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    if #available(iOS 13.0, *) {
+    if #available(iOS 13.0, tvOS 13, *) {
       view.backgroundColor = UIColor.systemBackground
     } else {
       view.backgroundColor = .white
@@ -35,7 +35,7 @@ class MainViewController: UIViewController {
     let viewSource = ClosureViewSource { (label: UILabel, data: SourceData, index) in
       label.text = "\(index + 1). \(data.exampleTitle)"
       label.textAlignment = .center
-      if #available(iOS 13.0, *) {
+      if #available(iOS 13.0, tvOS 13, *) {
         label.textColor = .label
         label.backgroundColor = .systemBackground
       } else {
