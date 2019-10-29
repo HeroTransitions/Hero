@@ -6,10 +6,10 @@ readme: README.md
 copyright: 'See [license](https://github.com/HeroTransitions/Hero/blob/develop/LICENSE) for more details.'
 
 # ---- URLs ----
-author_url: https://herotransitions.github.io/
-dash_url: https://herotransitions.github.io/Hero.xml
-github_url: https://github.com/HeroTransitions/Hero
-github_file_prefix: https://github.com/HeroTransitions/Hero/tree/version/1.5.0/
+author_url: https://herotransitions.github.io/Hero/
+dash_url: https://herotransitions.github.io/Hero/Hero.xml
+github_url: https://github.com/HeroTransitions/Hero/
+github_file_prefix: https://github.com/HeroTransitions/Hero/tree/1.5.0/
 
 # ---- Sources ----
 podspec: Hero.podspec
@@ -21,7 +21,7 @@ min_acl: public
 hide_documentation_coverage: false
 skip_undocumented: false
 objc: false
-swift_version: 5.0.1    
+# swift_version: 5.1.0 
 
 # ---- Formatting ----
 theme: fullwidth

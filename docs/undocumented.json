@@ -51,14 +51,7 @@
     },
     {
       "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Extensions/CAMediaTimingFunction+Hero.swift",
-      "line": 27,
-      "symbol": "CAMediaTimingFunction.linear",
-      "symbol_kind": "source.lang.swift.decl.var.static",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Extensions/CAMediaTimingFunction+Hero.swift",
-      "line": 27,
+      "line": 28,
       "symbol": "CAMediaTimingFunction.linear",
       "symbol_kind": "source.lang.swift.decl.var.static",
       "warning": "undocumented"
@@ -66,13 +59,13 @@
     {
       "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Extensions/CAMediaTimingFunction+Hero.swift",
       "line": 28,
-      "symbol": "CAMediaTimingFunction.easeIn",
+      "symbol": "CAMediaTimingFunction.linear",
       "symbol_kind": "source.lang.swift.decl.var.static",
       "warning": "undocumented"
     },
     {
       "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Extensions/CAMediaTimingFunction+Hero.swift",
-      "line": 28,
+      "line": 29,
       "symbol": "CAMediaTimingFunction.easeIn",
       "symbol_kind": "source.lang.swift.decl.var.static",
       "warning": "undocumented"
@@ -80,13 +73,13 @@
     {
       "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Extensions/CAMediaTimingFunction+Hero.swift",
       "line": 29,
-      "symbol": "CAMediaTimingFunction.easeOut",
+      "symbol": "CAMediaTimingFunction.easeIn",
       "symbol_kind": "source.lang.swift.decl.var.static",
       "warning": "undocumented"
     },
     {
       "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Extensions/CAMediaTimingFunction+Hero.swift",
-      "line": 29,
+      "line": 30,
       "symbol": "CAMediaTimingFunction.easeOut",
       "symbol_kind": "source.lang.swift.decl.var.static",
       "warning": "undocumented"
@@ -94,27 +87,27 @@
     {
       "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Extensions/CAMediaTimingFunction+Hero.swift",
       "line": 30,
+      "symbol": "CAMediaTimingFunction.easeOut",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Extensions/CAMediaTimingFunction+Hero.swift",
+      "line": 31,
       "symbol": "CAMediaTimingFunction.easeInOut",
       "symbol_kind": "source.lang.swift.decl.var.static",
       "warning": "undocumented"
     },
     {
       "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Extensions/CAMediaTimingFunction+Hero.swift",
-      "line": 30,
+      "line": 31,
       "symbol": "CAMediaTimingFunction.easeInOut",
       "symbol_kind": "source.lang.swift.decl.var.static",
       "warning": "undocumented"
     },
     {
       "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Extensions/CAMediaTimingFunction+Hero.swift",
-      "line": 33,
-      "symbol": "CAMediaTimingFunction.standard",
-      "symbol_kind": "source.lang.swift.decl.var.static",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Extensions/CAMediaTimingFunction+Hero.swift",
-      "line": 33,
+      "line": 34,
       "symbol": "CAMediaTimingFunction.standard",
       "symbol_kind": "source.lang.swift.decl.var.static",
       "warning": "undocumented"
@@ -122,13 +115,13 @@
     {
       "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Extensions/CAMediaTimingFunction+Hero.swift",
       "line": 34,
-      "symbol": "CAMediaTimingFunction.deceleration",
+      "symbol": "CAMediaTimingFunction.standard",
       "symbol_kind": "source.lang.swift.decl.var.static",
       "warning": "undocumented"
     },
     {
       "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Extensions/CAMediaTimingFunction+Hero.swift",
-      "line": 34,
+      "line": 35,
       "symbol": "CAMediaTimingFunction.deceleration",
       "symbol_kind": "source.lang.swift.decl.var.static",
       "warning": "undocumented"
@@ -136,13 +129,13 @@
     {
       "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Extensions/CAMediaTimingFunction+Hero.swift",
       "line": 35,
-      "symbol": "CAMediaTimingFunction.acceleration",
+      "symbol": "CAMediaTimingFunction.deceleration",
       "symbol_kind": "source.lang.swift.decl.var.static",
       "warning": "undocumented"
     },
     {
       "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Extensions/CAMediaTimingFunction+Hero.swift",
-      "line": 35,
+      "line": 36,
       "symbol": "CAMediaTimingFunction.acceleration",
       "symbol_kind": "source.lang.swift.decl.var.static",
       "warning": "undocumented"
@@ -150,41 +143,48 @@
     {
       "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Extensions/CAMediaTimingFunction+Hero.swift",
       "line": 36,
+      "symbol": "CAMediaTimingFunction.acceleration",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Extensions/CAMediaTimingFunction+Hero.swift",
+      "line": 37,
       "symbol": "CAMediaTimingFunction.sharp",
       "symbol_kind": "source.lang.swift.decl.var.static",
       "warning": "undocumented"
     },
     {
       "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Extensions/CAMediaTimingFunction+Hero.swift",
-      "line": 36,
+      "line": 37,
       "symbol": "CAMediaTimingFunction.sharp",
       "symbol_kind": "source.lang.swift.decl.var.static",
       "warning": "undocumented"
     },
     {
       "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Extensions/CAMediaTimingFunction+Hero.swift",
-      "line": 39,
+      "line": 40,
       "symbol": "CAMediaTimingFunction.easeOutBack",
       "symbol_kind": "source.lang.swift.decl.var.static",
       "warning": "undocumented"
     },
     {
       "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Extensions/CAMediaTimingFunction+Hero.swift",
-      "line": 39,
+      "line": 40,
       "symbol": "CAMediaTimingFunction.easeOutBack",
       "symbol_kind": "source.lang.swift.decl.var.static",
       "warning": "undocumented"
     },
     {
       "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Extensions/CAMediaTimingFunction+Hero.swift",
-      "line": 41,
+      "line": 42,
       "symbol": "CAMediaTimingFunction.from(name:)",
       "symbol_kind": "source.lang.swift.decl.function.method.static",
       "warning": "undocumented"
     },
     {
       "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Extensions/CAMediaTimingFunction+Hero.swift",
-      "line": 41,
+      "line": 42,
       "symbol": "CAMediaTimingFunction.from(name:)",
       "symbol_kind": "source.lang.swift.decl.function.method.static",
       "warning": "undocumented"
@@ -639,14 +639,7 @@
     },
     {
       "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroCompatible.swift",
-      "line": 38,
-      "symbol": "HeroExtension",
-      "symbol_kind": "source.lang.swift.decl.class",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroCompatible.swift",
-      "line": 38,
+      "line": 39,
       "symbol": "HeroExtension",
       "symbol_kind": "source.lang.swift.decl.class",
       "warning": "undocumented"
@@ -654,13 +647,20 @@
     {
       "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroCompatible.swift",
       "line": 39,
+      "symbol": "HeroExtension",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroCompatible.swift",
+      "line": 40,
       "symbol": "HeroExtension.base",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroCompatible.swift",
-      "line": 39,
+      "line": 40,
       "symbol": "HeroExtension.base",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
