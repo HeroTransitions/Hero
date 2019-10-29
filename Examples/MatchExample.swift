@@ -65,7 +65,7 @@ class MatchExampleViewController2: ExampleBaseViewController {
     blackView.cornerRadius = 8
     view.addSubview(blackView)
 
-    if #available(iOS 13.0, *) {
+    if #available(iOS 13.0, tvOS 13, *) {
       backgroundView.backgroundColor = .systemBackground
     } else {
       backgroundView.backgroundColor = .white

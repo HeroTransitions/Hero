@@ -14,7 +14,7 @@ class ExampleBaseViewController: UIViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
-    if #available(iOS 13.0, *) {
+    if #available(iOS 13.0, tvOS 13, *) {
       view.backgroundColor = .systemBackground
     } else {
       view.backgroundColor = .white
