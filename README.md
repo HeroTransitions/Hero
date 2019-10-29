@@ -25,7 +25,7 @@ At view controller level, Hero provides several template transitions that you ca
 
 By default, Hero provides **dynamic duration** based on the [Material Design Motion Guide](https://material.io/guidelines/motion/duration-easing.html). Duration is automatically determined by changes to distance and size—saving you the hassle, while providing consistent and delightful animations.
 
-Hero doesn't make any assumptions about how the view is built or structured. It won't modify any of your views' states other than hiding them during the animation. This makes it work with **Auto Layout**, **programmatic layout**, **UICollectionView** (without modifying its layout object), **UITableView**, **UINavigationController**, **UITabBarController**, etc... 
+Hero doesn't make any assumptions about how the view is built or structured. It won't modify any of your views' states other than hiding them during the animation. This makes it work with **Auto Layout**, **programmatic layout**, **UICollectionView** (without modifying its layout object), **UITableView**, **UINavigationController**, **UITabBarController**, etc...
 
 ## Example Gallery
 
@@ -35,13 +35,15 @@ Checkout the [Example Gallery Blog Post](http://lkzhao.com/2016/12/28/hero.html)
 
 <img src="https://cdn.rawgit.com/lkzhao/Hero/ebb3f2c/Resources/simple.svg" />
 
-##### View Controller 1
+### View Controller 1
+
 ```swift
 redView.hero.id = "ironMan"
 blackView.hero.id = "batMan"
 ```
 
-##### View Controller 2
+### View Controller 2
+
 ```swift
 self.hero.isEnabled = true
 redView.hero.id = "ironMan"
@@ -49,16 +51,18 @@ blackView.hero.id = "batMan"
 whiteView.hero.modifiers = [.translate(y:100)]
 ```
 
-
 ## Usage Example 2
+
 <img src="https://cdn.rawgit.com/lkzhao/Hero/ebb3f2c/Resources/advanced.svg" />
 
-##### View Controller 1
+### View Controller 1
+
 ```swift
 greyView.hero.id = "skyWalker"
 ```
 
-##### View Controller 2
+### View Controller 2
+
 ```swift
 self.hero.isEnabled = true
 greyView.hero.id = "skyWalker"
@@ -66,7 +70,7 @@ greyView.hero.id = "skyWalker"
 // collectionView is the parent view of all red cells
 collectionView.hero.modifiers = [.cascade]
 for cell in redCells {
-	cell.hero.modifiers = [.fade, .scale(0.5)]
+    cell.hero.modifiers = [.fade, .scale(0.5)]
 }
 ```
 
@@ -93,7 +97,7 @@ Don't forget to `import Hero` in every file you'd like to use Hero.
 
 Add the following entry to your `Cartfile`:
 
-```
+```text
 github "HeroTransitions/Hero"
 ```
 
@@ -124,7 +128,7 @@ let package = Package(
             targets: ["MyPackage"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/HeroTransitions/Hero.git", .upToNextMajor(from: "1.3.0"))
+        .package(url: "https://github.com/HeroTransitions/Hero.git", .upToNextMajor(from: "1.5.0"))
     ],
     targets: [
         .target(
@@ -140,7 +144,7 @@ let package = Package(
 
 ## Documentations
 
-Checkout the **[WIKI PAGES (Usage Guide)](https://github.com/lkzhao/Hero/wiki/Usage-Guide)** for documentations. 
+Checkout the **[WIKI PAGES (Usage Guide)](https://github.com/lkzhao/Hero/wiki/Usage-Guide)** for documentations.
 
 For more up-to-date ones, please see the header-doc. (use **alt+click** in Xcode)
 <img src="https://cdn.rawgit.com/lkzhao/Hero/master/Resources/headerDoc.png" width="521px"/>
@@ -151,19 +155,19 @@ For more up-to-date ones, please see the header-doc. (use **alt+click** in Xcode
 
 ## FAQ
 
-#### Not able to use Hero transition even when `self.hero.isEnabled` is set to true
+### Not able to use Hero transition even when `self.hero.isEnabled` is set to true
 
 Make sure that you have also enabled `self.hero.isEnabled` on the navigation controller if you are doing a push/pop inside the navigation controller.
 
-#### Views being covered by another matched view during the transition
+### Views being covered by another matched view during the transition
 
 Matched views use global coordinate space while unmatched views use local coordinate space by default. Local coordinate spaced views might be covered by other global coordinate spaced views. To solve this, use the `useGlobalCoordinateSpace` modifier on the views being covered. Checkout [Coordinate Space Wiki page](https://github.com/lkzhao/Hero/wiki/Coordinate-Space) for details.
 
-#### Push animation is shown along side my custom animation
+### Push animation is shown along side my custom animation
 
 This is the default animation for navigation controller provided by Hero. To disable the push animation, set `self.hero.navigationAnimationType` to `.fade` or `.none` on the navigation controller.
 
-#### How do I use a different default animation when dismissing
+### How do I use a different default animation when dismissing
 
 You can use the animation type `.selectBy(presenting:dismissing)` to specify a different default animation for dismiss.
 
