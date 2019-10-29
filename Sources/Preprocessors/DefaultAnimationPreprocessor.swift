@@ -36,16 +36,16 @@ public enum HeroDefaultAnimationType {
       default: return nil
       }
     }
-    
+
     public static var leading: Direction {
       return UIApplication.shared.userInterfaceLayoutDirection == .leftToRight ? .left : .right
     }
-    
+
     public static var trailing: Direction {
       return UIApplication.shared.userInterfaceLayoutDirection == .leftToRight ? .right : .left
     }
   }
-  
+
   public enum Strategy {
     case forceLeftToRight, forceRightToLeft, userInterface
     func defaultDirection(presenting: Bool) -> Direction {
@@ -59,7 +59,7 @@ public enum HeroDefaultAnimationType {
       }
     }
   }
-  
+
   case auto
   case push(direction: Direction)
   case pull(direction: Direction)

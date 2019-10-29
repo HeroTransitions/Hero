@@ -1,0 +1,12 @@
+
+/* Class = "UILabel"; text = "Built-in"; ObjectID = "IIL-pF-BfF"; */
+"IIL-pF-BfF.text" = "Built-in";
+
+/* Class = "UITabBarItem"; title = "Plugins"; ObjectID = "bDK-79-b3B"; */
+"bDK-79-b3B.title" = "Plugins";
+
+/* Class = "UILabel"; text = "HeroDebugPlugin"; ObjectID = "fUh-RG-Pga"; */
+"fUh-RG-Pga.text" = "HeroDebugPlugin";
+
+/* Class = "UIViewController"; title = "Plugins"; ObjectID = "uv4-Wk-GeR"; */
+"uv4-Wk-GeR.title" = "Plugins";
