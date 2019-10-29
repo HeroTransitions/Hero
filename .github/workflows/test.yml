@@ -1,5 +1,15 @@
-on: pull_request
-name: Test
+name: Unit Test
+
+on: 
+  pull_request:
+    paths:
+      - "**.swift"
+      - "**.xcodeproj"
+      - "**.m"
+      - "**.h"
+      - "**.podspec"
+      - "Podfile"
+
 jobs:
   iOS:
     name: Test iOS
@@ -22,6 +32,11 @@ jobs:
           bash <(curl -s https://codecov.io/bash)
         env: 
          destination: ${{ matrix.destination }}
+      - name: Upload Code Coverage
+        run: |
+          bash <(curl -s https://codecov.io/bash)
+        env:
+          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
 
   tvOS:
     name: Test tvOS
@@ -32,7 +47,7 @@ jobs:
         matrix:
           destination: [
             'platform=tvOS Simulator,OS=13.0,name=Apple TV 4K'
-            ]
+          ]
 
     steps:
       - name: Checkout
