@@ -14,7 +14,7 @@ Pod::Spec.new do |s|
   s.homepage          = 'https://github.com/HeroTransitions/Hero'
   s.screenshots       = 'https://github.com/HeroTransitions/Hero/blob/master/Resources/Hero.png?raw=true'
   s.documentation_url = 'https://herotransitions.github.io/Hero/'
-  s.screenshots       = [ https://git.io/JeRkv, https://git.io/JeRke, https://git.io/JeRkf, https://git.io/JeRkJ]
+  s.screenshots       = ['https://git.io/JeRkv', 'https://git.io/JeRke', 'https://git.io/JeRkf', 'https://git.io/JeRkJ']
   s.license           = { :type => 'MIT' }
   s.author            = { 
     'Luke' => 'lzhaoyilun@gmail.com',
