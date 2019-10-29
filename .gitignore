@@ -68,3 +68,4 @@ fastlane/test_output
 # Gitbook
 node_modules
 _book
+xcodebuild.log

@@ -9,7 +9,11 @@ class MainViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    view.backgroundColor = .white
+    if #available(iOS 13.0, *) {
+      view.backgroundColor = UIColor.systemBackground
+    } else {
+      view.backgroundColor = .white
+    }
     
     view.addSubview(collectionView)
     
@@ -27,6 +31,13 @@ class MainViewController: UIViewController {
     let viewSource = ClosureViewSource { (label: UILabel, data: SourceData, index) in
       label.text = "\(index + 1). \(data.1)"
       label.textAlignment = .center
+      if #available(iOS 13.0, *) {
+        label.textColor = .label
+        label.backgroundColor = .systemBackground
+      } else {
+        label.textColor = .darkText
+        label.backgroundColor = .white
+      }
       label.layer.borderColor = UIColor.gray.cgColor
       label.layer.borderWidth = 0.5
       label.layer.cornerRadius = 8
@@ -51,22 +62,13 @@ class MainViewController: UIViewController {
     imageView.contentMode = .scaleAspectFit
     
     let imageProvider = SimpleViewProvider(views: [imageView], sizeStrategy: (.fill, .fit))
-    
-    let legacyButton = UIButton(type: .system)
-    legacyButton.setTitle("Legacy Examples", for: .normal)
-    legacyButton.addTarget(self, action: #selector(showLegacy), for: .touchUpInside)
-    let legacyExamplesProvider = SimpleViewProvider(views: [legacyButton], sizeStrategy: (.fill, .fit))
-    
+        
     collectionView.provider = ComposedProvider(
       layout: FlowLayout(lineSpacing: 10).inset(by: UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)),
-      sections: [imageProvider, examplesProvider, legacyExamplesProvider]
+      sections: [imageProvider, examplesProvider]
     )
   }
-  
-  @objc func showLegacy() {
-    hero.replaceViewController(with: viewController(forStoryboardName: "Main"))
-  }
-  
+    
   override func viewDidLayoutSubviews() {
     super.viewDidLayoutSubviews()
     collectionView.frame = view.bounds
