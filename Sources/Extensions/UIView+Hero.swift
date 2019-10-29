@@ -49,7 +49,7 @@ public extension HeroExtension where Base: UIView {
    Whenever a pair is discovered,
    Hero will automatically transit the views from source state to the destination state.
    */
-   public var id: String? {
+   var id: String? {
     get { return objc_getAssociatedObject(base, &type(of: base).AssociatedKeys.heroID) as? String }
     set { objc_setAssociatedObject(base, &type(of: base).AssociatedKeys.heroID, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC) }
   }
@@ -58,7 +58,7 @@ public extension HeroExtension where Base: UIView {
    **isEnabled** allows to specify whether a view and its subviews should be consider for animations.
    If true, Hero will search through all the subviews for heroIds and modifiers. Defaults to true
    */
-  public var isEnabled: Bool {
+  var isEnabled: Bool {
     get { return objc_getAssociatedObject(base, &type(of: base).AssociatedKeys.heroEnabled) as? Bool ?? true }
     set { objc_setAssociatedObject(base, &type(of: base).AssociatedKeys.heroEnabled, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC) }
   }
@@ -67,7 +67,7 @@ public extension HeroExtension where Base: UIView {
    **isEnabledForSubviews** allows to specify whether a view's subviews should be consider for animations.
    If true, Hero will search through all the subviews for heroIds and modifiers. Defaults to true
    */
-  public var isEnabledForSubviews: Bool {
+  var isEnabledForSubviews: Bool {
     get { return objc_getAssociatedObject(base, &type(of: base).AssociatedKeys.heroEnabledForSubviews) as? Bool ?? true }
     set { objc_setAssociatedObject(base, &type(of: base).AssociatedKeys.heroEnabledForSubviews, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC) }
   }
@@ -75,7 +75,7 @@ public extension HeroExtension where Base: UIView {
   /**
    Use **modifiers** to specify animations alongside the main transition. Checkout `HeroModifier.swift` for available modifiers.
    */
-  public var modifiers: [HeroModifier]? {
+  var modifiers: [HeroModifier]? {
     get { return objc_getAssociatedObject(base, &type(of: base).AssociatedKeys.heroModifiers) as? [HeroModifier] }
     set { objc_setAssociatedObject(base, &type(of: base).AssociatedKeys.heroModifiers, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC) }
   }
@@ -83,7 +83,7 @@ public extension HeroExtension where Base: UIView {
   /**
    **modifierString** provides another way to set **modifiers**. It can be assigned through storyboard.
    */
-  public var modifierString: String? {
+  var modifierString: String? {
     get { fatalError("Reverse lookup is not supported") }
     set { modifiers = newValue?.parse() }
   }
@@ -116,34 +116,34 @@ public extension UIView {
   }
 
   // TODO: can be moved to internal later (will still be accessible via IB)
-  @available(*, deprecated, message: "Use hero.id instead")
+  @available(*, renamed: "hero.id")
   @IBInspectable var heroID: String? {
     get { return hero.id }
     set { hero.id = newValue }
   }
 
   // TODO: can be moved to internal later (will still be accessible via IB)
-  @available(*, deprecated, message: "Use hero.isEnabled instead")
+  @available(*, renamed: "hero.isEnabled")
   @IBInspectable var isHeroEnabled: Bool {
     get { return hero.isEnabled }
     set { hero.isEnabled = newValue }
   }
 
   // TODO: can be moved to internal later (will still be accessible via IB)
-  @available(*, deprecated, message: "Use hero.isEnabledForSubviews instead")
+  @available(*, renamed: "hero.isEnabledForSubviews")
   @IBInspectable var isHeroEnabledForSubviews: Bool {
     get { return hero.isEnabledForSubviews }
     set { hero.isEnabledForSubviews = newValue }
   }
 
-  @available(*, deprecated, message: "Use hero.modifiers instead")
-  public var heroModifiers: [HeroModifier]? {
+  @available(*, renamed: "hero.modifiers")
+  var heroModifiers: [HeroModifier]? {
     get { return hero.modifiers }
     set { hero.modifiers = newValue }
   }
 
   // TODO: can be moved to internal later (will still be accessible via IB)
-  @available(*, deprecated, message: "Use hero.modifierString instead")
+  @available(*, renamed: "hero.modifierString")
   @IBInspectable var heroModifierString: String? {
     get { fatalError("Reverse lookup is not supported") }
     set { hero.modifiers = newValue?.parse() }
@@ -188,7 +188,7 @@ public extension UIView {
     }
   }
 
-  @available(*, deprecated, message: "Use hero.storedAplha instead")
+  @available(*, renamed: "hero.storedAplha")
   internal var heroStoredAlpha: CGFloat? {
     get { return hero.storedAlpha }
     set { hero.storedAlpha = newValue }
