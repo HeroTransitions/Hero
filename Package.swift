@@ -1,15 +1,24 @@
-// swift-tools-version:4.0
+// swift-tools-version:5.0
 // The swift-tools-version declares the minimum version of Swift required to build this package.
 
 import PackageDescription
 
 let package = Package(
     name: "Hero",
-    products: [
-        .library(name: "Hero",  targets: ["Hero"])
+    platforms: [
+        .tvOS(.v9),
+        .iOS(.v9)
     ],
-    dependencies: [],
+    products: [
+        .library(name: "Hero",
+                 type: .dynamic,
+                 targets: ["Hero"]),
+    ],
     targets: [
-        .target(name: "Hero", path: "Sources")
-    ]
+        .target(name: "Hero", path: "Sources"),
+        .testTarget(name: "HeroTests",
+                    dependencies: [.target(name: "Hero")],
+                    path: "Tests"),
+    ],
+    swiftLanguageVersions: [.v5]
 )
