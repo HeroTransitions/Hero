@@ -161,11 +161,13 @@ extension HeroContext {
     case .layerRender:
       snapshot = view.slowSnapshotView()
     case .noSnapshot:
-      if view.superview != container {
-        if superviewToNoSnapshotSubviewMap[view.superview!] == nil {
-          superviewToNoSnapshotSubviewMap[view.superview!] = []
+      if let superview = view.superview, superview != container {
+        if superviewToNoSnapshotSubviewMap[superview] == nil {
+          superviewToNoSnapshotSubviewMap[superview] = []
         }
-        superviewToNoSnapshotSubviewMap[view.superview!]!.append((view.superview!.subviews.index(of: view)!, view))
+        if let index = superview.subviews.index(of: view) {
+          superviewToNoSnapshotSubviewMap[superview]!.append((index, view))
+        }
       }
       snapshot = view
     case .optimized:
@@ -226,7 +228,9 @@ extension HeroContext {
 		view.layer.shadowOpacity = oldShadowOpacity
 
     snapshot.layer.anchorPoint = view.layer.anchorPoint
-    snapshot.layer.position = containerView.convert(view.layer.position, from: view.superview!)
+    if let superview = view.superview {
+      snapshot.layer.position = containerView.convert(view.layer.position, from: superview)
+    }
     snapshot.layer.transform = containerView.layer.flatTransformTo(layer: view.layer)
     snapshot.layer.bounds = view.layer.bounds
     snapshot.hero.id = view.hero.id
