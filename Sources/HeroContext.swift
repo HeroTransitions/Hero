@@ -266,9 +266,12 @@ extension HeroContext {
       hide(view: view)
     }
 
-    if let pairedView = pairedView(for: view), let pairedSnapshot = snapshotViews[pairedView] {
-      let siblingViews = pairedView.superview!.subviews
-      let nextSiblings = siblingViews[siblingViews.index(of: pairedView)!+1..<siblingViews.count]
+    if
+     let pairedView = pairedView(for: view),
+     let pairedSnapshot = snapshotViews[pairedView],
+     let siblingViews = pairedView.superview?.subviews,
+     let index = siblingViews.index(of: pairedView) {
+      let nextSiblings = siblingViews[index+1..<siblingViews.count]
       containerView.addSubview(pairedSnapshot)
       containerView.addSubview(snapshot)
       for subview in pairedView.subviews {
