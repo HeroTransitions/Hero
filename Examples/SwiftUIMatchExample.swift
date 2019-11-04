@@ -1,6 +1,8 @@
 import UIKit
 import SwiftUI
 
+
+@available(iOS 13.0, *)
 class SwiftUIMatchExampleViewController: UIHostingController<ImagesTableView> {
 
   override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
@@ -30,6 +32,7 @@ struct ImageInfo: Identifiable {
   let name: String
 }
 
+@available(iOS 13.0, *)
 struct ImagesTableView: View {
     
   var onTapRow: ((ImageInfo)->())?
@@ -50,9 +53,7 @@ struct ImagesTableView: View {
   }
 }
 
-#if DEBUG
-#endif
-
+@available(iOS 13.0, *)
 struct ImageViewWrapper: View, UIViewRepresentable {
     
   let name: String
@@ -68,16 +69,18 @@ struct ImageViewWrapper: View, UIViewRepresentable {
   }
 }
 
-//MARK: - Previews
+//MARK: - Previews (Will only work when target of HeroExamples is set to iOS 13 +)
 
 #if DEBUG
 
+@available(iOS 13.0, *)
 struct ImagesTableView_Previews: PreviewProvider {
   static var previews: some View {
     ImagesTableView(onTapRow: nil)
   }
 }
 
+@available(iOS 13.0, *)
 struct ImageViewWrapper_Previews: PreviewProvider {
   static var previews: some View {
     ImageViewWrapper(name: "Unsplash0", heroID: nil)
