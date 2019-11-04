@@ -24,10 +24,13 @@ class MainViewController: UIViewController {
     let dataSource = ArrayDataSource<SourceData>(data: [
       (BuiltInTransitionExampleViewController1.self, "Built In Animations"),
       (MatchExampleViewController1.self, "Match Animation"),
-      (SwiftUIMatchExampleViewController.self, "Match SwiftUI"),
       (MatchInCollectionExampleViewController1.self, "Match Cell in Collection"),
       (AppStoreViewController1.self, "App Store Transition"),
       ])
+    
+    if #available(iOS 13.0, *) {
+      dataSource.data.insert((SwiftUIMatchExampleViewController.self, "Match SwiftUI"), at: 2)
+    }
     
     let viewSource = ClosureViewSource { (label: UILabel, data: SourceData, index) in
       label.text = "\(index + 1). \(data.1)"
