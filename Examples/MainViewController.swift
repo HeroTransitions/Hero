@@ -24,6 +24,7 @@ class MainViewController: UIViewController {
     let dataSource = ArrayDataSource<SourceData>(data: [
       (BuiltInTransitionExampleViewController1.self, "Built In Animations"),
       (MatchExampleViewController1.self, "Match Animation"),
+      (SwiftUIMatchExampleViewController.self, "Match SwiftUI"),
       (MatchInCollectionExampleViewController1.self, "Match Cell in Collection"),
       (AppStoreViewController1.self, "App Store Transition"),
       ])
@@ -54,6 +55,7 @@ class MainViewController: UIViewController {
       layout: FlowLayout(lineSpacing: 10))
     { (context) in
       let vc = context.data.0.init()
+      vc.modalPresentationStyle = .fullScreen
       self.present(vc, animated: true, completion: nil)
     }
     // TODO: Migrate the example to CollectionKit 2.2.0

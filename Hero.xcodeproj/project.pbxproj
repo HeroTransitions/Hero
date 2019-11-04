@@ -39,6 +39,7 @@
 		4D307DF520E3C6DC00DD9F65 /* HeroModifier+Advanced.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D307DF320E3C6DC00DD9F65 /* HeroModifier+Advanced.swift */; };
 		5C5442AA2004092500E1E326 /* HeroCompatible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C69728F2002CDBD001A5051 /* HeroCompatible.swift */; };
 		5C6972902002CDBD001A5051 /* HeroCompatible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C69728F2002CDBD001A5051 /* HeroCompatible.swift */; };
+		62EFDDAC236F4FC200F3E85E /* SwiftUIMatchExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62EFDDAB236F4FC200F3E85E /* SwiftUIMatchExample.swift */; };
 		83043017B73BC66DBB920D5C /* Pods_HeroExamples.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EEE340F89FF0A49DD23A5A6E /* Pods_HeroExamples.framework */; };
 		A306D3B61E1C7A2E00B6C23A /* Hero.h in Headers */ = {isa = PBXBuildFile; fileRef = A306D3B41E1C7A2E00B6C23A /* Hero.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A306D3B91E1C7A2E00B6C23A /* Hero.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A306D3B21E1C7A2E00B6C23A /* Hero.framework */; };
@@ -186,6 +187,7 @@
 		5C69728F2002CDBD001A5051 /* HeroCompatible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroCompatible.swift; sourceTree = "<group>"; };
 		5CD4F09A588E81DA75C2BE38 /* Pods-HeroExamples.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HeroExamples.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HeroExamples/Pods-HeroExamples.debug.xcconfig"; sourceTree = "<group>"; };
 		5CEC69C9A9A60129002FD931 /* Pods-HeroTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HeroTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-HeroTests/Pods-HeroTests.release.xcconfig"; sourceTree = "<group>"; };
+		62EFDDAB236F4FC200F3E85E /* SwiftUIMatchExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIMatchExample.swift; sourceTree = "<group>"; };
 		841FFA357ACB279D3F74CDEE /* Pods_HeroTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HeroTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		86C87C73D89E75C8443B5071 /* Pods-HeroTvOSExamples.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HeroTvOSExamples.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HeroTvOSExamples/Pods-HeroTvOSExamples.debug.xcconfig"; sourceTree = "<group>"; };
 		A304BF831DF2717900A03345 /* ImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageViewController.swift; sourceTree = "<group>"; };
@@ -565,6 +567,7 @@
 				A3D060C120833B4E00E48927 /* ExampleBaseViewController.swift */,
 				A3D060BF20833B0700E48927 /* BuiltInTransitionExample.swift */,
 				A3D060C320833D0400E48927 /* MatchExample.swift */,
+				62EFDDAB236F4FC200F3E85E /* SwiftUIMatchExample.swift */,
 				A3D060C5208348CB00E48927 /* MatchInCollectionExample.swift */,
 				A3D060C720834FF100E48927 /* AppStoreCardExample.swift */,
 				A33E60C21DE76CEF0065CBD8 /* Resources */,
@@ -1098,6 +1101,7 @@
 			files = (
 				F482F0BE235D7808002E97ED /* UIColor+HexString.swift in Sources */,
 				A33E60BD1DE7621C0065CBD8 /* UIKit+HeroExamples.swift in Sources */,
+				62EFDDAC236F4FC200F3E85E /* SwiftUIMatchExample.swift in Sources */,
 				A3D060C820834FF100E48927 /* AppStoreCardExample.swift in Sources */,
 				A3D060C420833D0400E48927 /* MatchExample.swift in Sources */,
 				A3D060C020833B0800E48927 /* BuiltInTransitionExample.swift in Sources */,
@@ -1437,7 +1441,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 683UGRW72Z;
 				INFOPLIST_FILE = "$(SRCROOT)/Examples/Resources/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MARKETING_VERSION = 1.5.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.lkzhao.HeroExamples;
@@ -1454,7 +1458,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 683UGRW72Z;
 				INFOPLIST_FILE = "$(SRCROOT)/Examples/Resources/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MARKETING_VERSION = 1.5.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.lkzhao.HeroExamples;
