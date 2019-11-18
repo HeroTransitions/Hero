@@ -1,8 +1,7 @@
-import UIKit
-
 #if canImport(SwiftUI)
+
+import UIKit
 import SwiftUI
-#endif
 
 @available(iOS 13.0, *)
 class SwiftUIMatchExampleViewController: UIHostingController<ImagesTableView> {
@@ -89,4 +88,5 @@ struct ImageViewWrapper_Previews: PreviewProvider {
   }
 }
 
+#endif
 #endif
