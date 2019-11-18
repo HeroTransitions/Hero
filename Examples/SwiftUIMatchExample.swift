@@ -6,14 +6,14 @@ import SwiftUI
 @available(iOS 13.0, *)
 class SwiftUIMatchExampleViewController: UIHostingController<ImagesTableView> {
 
-  override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+  required init() {
     super.init(rootView: ImagesTableView())
     
     rootView.onTapRow = { image in
       
       let destinationViewController = UIHostingController(rootView: ImageViewWrapper(name: image.name, heroID: image.name)
-                                                                      .onTapGesture { [weak self] in
-        self?.presentedViewController?.dismiss(animated: true, completion: nil)
+        .onTapGesture { [weak self] in
+          self?.presentedViewController?.dismiss(animated: true, completion: nil)
       })
       
       destinationViewController.isHeroEnabled = true
