@@ -9,7 +9,7 @@ on:
       - "**.h"
       - "**.podspec"
       - "Podfile"
-
+      - "test.yml"
 jobs:
   iOS:
     name: Test iOS
@@ -19,7 +19,7 @@ jobs:
     strategy:
         matrix:
           destination: [
-            'platform=iOS Simulator,OS=10.2,name=iPhone 7',
+            'platform=iOS Simulator,OS=10.3.1,name=iPhone 7',
             'platform=iOS Simulator,OS=13.1,name=iPhone 11'
           ]
     steps:
@@ -27,6 +27,8 @@ jobs:
         uses: actions/checkout@master
       - name: iOS - ${{ matrix.destination }}
         run: |
+          xcversion simulators --install='iOS 10.3.1'
+          xcversion simulators --install='iOS 13.1'
           pod install
           set -o pipefail && xcodebuild clean test -workspace Hero.xcworkspace -scheme Hero -destination "${destination}" -parallelizeTargets -showBuildTimingSummary -enableThreadSanitizer YES -enableCodeCoverage YES CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO ONLY_ACTIVE_ARCH=NO | xcpretty
           bash <(curl -s https://codecov.io/bash)
@@ -54,6 +56,7 @@ jobs:
         uses: actions/checkout@master
       - name: tvOS - ${{ matrix.destination }}
         run: |
+          xcversion simulators --install='tvOS 13.0'
           pod install
           set -o pipefail && xcodebuild clean build -workspace Hero.xcworkspace -scheme "Hero (tvOS)" -destination "${destination}" -parallelizeTargets -showBuildTimingSummary -enableThreadSanitizer YES CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO ONLY_ACTIVE_ARCH=NO | xcpretty
         env: 
