@@ -69,3 +69,4 @@ fastlane/test_output
 node_modules
 _book
 xcodebuild.log
+.swiftpm

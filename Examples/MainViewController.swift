@@ -3,7 +3,7 @@ import CollectionKit
 
 class MainViewController: UIViewController {
   
-  typealias SourceData = (UIViewController.Type, String)
+  typealias SourceData = (makeViewController: ()->(UIViewController), exampleTitle:String)
   
   let collectionView = CollectionView()
   
@@ -22,14 +22,18 @@ class MainViewController: UIViewController {
   
   func setupcollection() {
     let dataSource = ArrayDataSource<SourceData>(data: [
-      (BuiltInTransitionExampleViewController1.self, "Built In Animations"),
-      (MatchExampleViewController1.self, "Match Animation"),
-      (MatchInCollectionExampleViewController1.self, "Match Cell in Collection"),
-      (AppStoreViewController1.self, "App Store Transition"),
+      ({ BuiltInTransitionExampleViewController1() }, "Built In Animations"),
+      ({ MatchExampleViewController1() }, "Match Animation"),
+      ({ MatchInCollectionExampleViewController1() }, "Match Cell in Collection"),
+      ({ AppStoreViewController1() }, "App Store Transition"),
       ])
     
+    if #available(iOS 13.0, *) {
+      dataSource.data.insert(({ SwiftUIMatchExampleViewController() }, "Match SwiftUI"), at: 2)
+    }
+    
     let viewSource = ClosureViewSource { (label: UILabel, data: SourceData, index) in
-      label.text = "\(index + 1). \(data.1)"
+      label.text = "\(index + 1). \(data.exampleTitle)"
       label.textAlignment = .center
       if #available(iOS 13.0, *) {
         label.textColor = .label
@@ -53,7 +57,8 @@ class MainViewController: UIViewController {
       sizeSource: sizeSource,
       layout: FlowLayout(lineSpacing: 10))
     { (context) in
-      let vc = context.data.0.init()
+      let vc = context.data.makeViewController()
+      vc.modalPresentationStyle = .fullScreen
       self.present(vc, animated: true, completion: nil)
     }
     // TODO: Migrate the example to CollectionKit 2.2.0
