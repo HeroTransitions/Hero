@@ -20,7 +20,7 @@ jobs:
     strategy:
         matrix:
           destination: [
-            'platform=iOS Simulator,OS=13.2,name=iPhone 11'
+            'platform=iOS Simulator,OS=13.2.2,name=iPhone 11'
           ]
     steps:
       - name: Checkout
@@ -71,7 +71,7 @@ jobs:
     strategy:
         matrix:
           destination: [
-            'platform=tvOS Simulator,OS=13.2    ,name=Apple TV 4K'
+            'platform=tvOS Simulator,OS=13.2,name=Apple TV 4K'
           ]
 
     steps:
