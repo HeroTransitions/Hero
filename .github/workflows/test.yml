@@ -9,6 +9,7 @@ on:
       - "**.h"
       - "**.podspec"
       - "Podfile"
+      - "Podfile.lock"
       - "test.yml"
 jobs:
   iOS:
@@ -70,7 +71,7 @@ jobs:
     strategy:
         matrix:
           destination: [
-            'platform=tvOS Simulator,OS=13.2,name=Apple TV 4K'
+            'platform=tvOS Simulator,OS=13.2    ,name=Apple TV 4K'
           ]
 
     steps:
