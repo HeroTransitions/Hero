@@ -15,11 +15,11 @@ jobs:
     name: Test iOS
     runs-on: macOS-latest
     env:
-      DEVELOPER_DIR: /Applications/Xcode_11.1.app/Contents/Developer
+      DEVELOPER_DIR: /Applications/Xcode_11.2.1.app/Contents/Developer
     strategy:
         matrix:
           destination: [
-            'platform=iOS Simulator,OS=13.1,name=iPhone 11'
+            'platform=iOS Simulator,OS=13.2,name=iPhone 11'
           ]
     steps:
       - name: Checkout
@@ -40,7 +40,7 @@ jobs:
     name: Test iOS
     runs-on: macOS-latest
     env:
-      DEVELOPER_DIR: /Applications/Xcode_11.1.app/Contents/Developer
+      DEVELOPER_DIR: /Applications/Xcode_10.3.1.app/Contents/Developer
     strategy:
         matrix:
           destination: [
@@ -66,11 +66,11 @@ jobs:
     name: Test tvOS
     runs-on: macOS-latest
     env:
-      DEVELOPER_DIR: /Applications/Xcode_11.1.app/Contents/Developer
+      DEVELOPER_DIR: /Applications/Xcode_11.2.1.app/Contents/Developer
     strategy:
         matrix:
           destination: [
-            'platform=tvOS Simulator,OS=13.0,name=Apple TV 4K'
+            'platform=tvOS Simulator,OS=13.2,name=Apple TV 4K'
           ]
 
     steps:
