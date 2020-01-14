@@ -1,0 +1,16 @@
+# Rebase PR branch when someone comments /rebase
+on:
+  issue_comment:
+    types: [created]
+name: Automatic Rebase
+jobs:
+  rebase:
+    name: Rebase
+    if: contains(github.event.comment.body, '/rebase')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - name: Automatic Rebase
+        uses: cirrus-actions/rebase@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

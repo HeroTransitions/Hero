@@ -23,7 +23,7 @@
 import UIKit
 
 public extension UIView {
-  @IBInspectable public var cornerRadius: CGFloat {
+  @IBInspectable var cornerRadius: CGFloat {
     get {
       return layer.cornerRadius
     }
@@ -32,7 +32,7 @@ public extension UIView {
       layer.cornerRadius = newValue
     }
   }
-  @IBInspectable public var shadowRadius: CGFloat {
+  @IBInspectable var shadowRadius: CGFloat {
     get {
       return layer.shadowRadius
     }
@@ -41,7 +41,7 @@ public extension UIView {
       layer.shadowRadius = newValue
     }
   }
-  @IBInspectable public var shadowOpacity: Float {
+  @IBInspectable var shadowOpacity: Float {
     get {
       return layer.shadowOpacity
     }
@@ -50,7 +50,7 @@ public extension UIView {
       layer.shadowOpacity = newValue
     }
   }
-  @IBInspectable public var shadowColor: UIColor? {
+  @IBInspectable var shadowColor: UIColor? {
     get {
       return layer.shadowColor != nil ? UIColor(cgColor: layer.shadowColor!) : nil
     }
@@ -59,7 +59,7 @@ public extension UIView {
       layer.shadowColor = newValue?.cgColor
     }
   }
-  @IBInspectable public var shadowOffset: CGSize {
+  @IBInspectable var shadowOffset: CGSize {
     get {
       return layer.shadowOffset
     }
@@ -68,7 +68,7 @@ public extension UIView {
       layer.shadowOffset = newValue
     }
   }
-  @IBInspectable public var zPosition: CGFloat {
+  @IBInspectable var zPosition: CGFloat {
     get {
       return layer.zPosition
     }

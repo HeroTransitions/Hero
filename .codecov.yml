@@ -1,0 +1,26 @@
+# https://docs.codecov.io/docs/codecov-yaml
+
+codecov:
+  require_ci_to_pass: yes
+
+coverage:
+  precision: 2
+  round: down
+  range: "70...100"
+  ignore:
+    - docs
+    - Examples
+    - LegacyExamples
+    - Resources
+    - TvOSExamples
+  status:
+    patch:
+      default:
+        if_no_uploads: error
+    changes: true
+    project:
+      default:
+        target: auto
+        if_no_uploads: error
+comment: false
+

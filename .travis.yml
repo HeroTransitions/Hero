@@ -1,0 +1,7 @@
+language:
+    - swift
+osx_image: xcode11.0
+script:
+  - xcodebuild -scheme HeroExamples -workspace Hero.xcworkspace -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone X,OS=13.0' build test
+after_success:
+  - bash <(curl -s https://codecov.io/bash)

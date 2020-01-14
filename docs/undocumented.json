@@ -1,0 +1,4464 @@
+{
+  "warnings": [
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Debug Plugin/HeroDebugPlugin.swift",
+      "line": 26,
+      "symbol": "HeroDebugPlugin",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Debug Plugin/HeroDebugPlugin.swift",
+      "line": 27,
+      "symbol": "HeroDebugPlugin.showOnTop",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Debug Plugin/HeroDebugPlugin.swift",
+      "line": 75,
+      "symbol": "HeroDebugPlugin",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Debug Plugin/HeroDebugPlugin.swift",
+      "line": 76,
+      "symbol": "HeroDebugPlugin.onDone()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Debug Plugin/HeroDebugPlugin.swift",
+      "line": 86,
+      "symbol": "HeroDebugPlugin.onProcessSliderChanged(progress:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Debug Plugin/HeroDebugView.swift",
+      "line": 193,
+      "symbol": "HeroDebugView",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Debug Plugin/HeroDebugView.swift",
+      "line": 194,
+      "symbol": "HeroDebugView.gestureRecognizerShouldBegin(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Extensions/CAMediaTimingFunction+Hero.swift",
+      "line": 28,
+      "symbol": "CAMediaTimingFunction.linear",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Extensions/CAMediaTimingFunction+Hero.swift",
+      "line": 28,
+      "symbol": "CAMediaTimingFunction.linear",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Extensions/CAMediaTimingFunction+Hero.swift",
+      "line": 29,
+      "symbol": "CAMediaTimingFunction.easeIn",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Extensions/CAMediaTimingFunction+Hero.swift",
+      "line": 29,
+      "symbol": "CAMediaTimingFunction.easeIn",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Extensions/CAMediaTimingFunction+Hero.swift",
+      "line": 30,
+      "symbol": "CAMediaTimingFunction.easeOut",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Extensions/CAMediaTimingFunction+Hero.swift",
+      "line": 30,
+      "symbol": "CAMediaTimingFunction.easeOut",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Extensions/CAMediaTimingFunction+Hero.swift",
+      "line": 31,
+      "symbol": "CAMediaTimingFunction.easeInOut",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Extensions/CAMediaTimingFunction+Hero.swift",
+      "line": 31,
+      "symbol": "CAMediaTimingFunction.easeInOut",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Extensions/CAMediaTimingFunction+Hero.swift",
+      "line": 34,
+      "symbol": "CAMediaTimingFunction.standard",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Extensions/CAMediaTimingFunction+Hero.swift",
+      "line": 34,
+      "symbol": "CAMediaTimingFunction.standard",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Extensions/CAMediaTimingFunction+Hero.swift",
+      "line": 35,
+      "symbol": "CAMediaTimingFunction.deceleration",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Extensions/CAMediaTimingFunction+Hero.swift",
+      "line": 35,
+      "symbol": "CAMediaTimingFunction.deceleration",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Extensions/CAMediaTimingFunction+Hero.swift",
+      "line": 36,
+      "symbol": "CAMediaTimingFunction.acceleration",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Extensions/CAMediaTimingFunction+Hero.swift",
+      "line": 36,
+      "symbol": "CAMediaTimingFunction.acceleration",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Extensions/CAMediaTimingFunction+Hero.swift",
+      "line": 37,
+      "symbol": "CAMediaTimingFunction.sharp",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Extensions/CAMediaTimingFunction+Hero.swift",
+      "line": 37,
+      "symbol": "CAMediaTimingFunction.sharp",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Extensions/CAMediaTimingFunction+Hero.swift",
+      "line": 40,
+      "symbol": "CAMediaTimingFunction.easeOutBack",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Extensions/CAMediaTimingFunction+Hero.swift",
+      "line": 40,
+      "symbol": "CAMediaTimingFunction.easeOutBack",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Extensions/CAMediaTimingFunction+Hero.swift",
+      "line": 42,
+      "symbol": "CAMediaTimingFunction.from(name:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Extensions/CAMediaTimingFunction+Hero.swift",
+      "line": 42,
+      "symbol": "CAMediaTimingFunction.from(name:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Extensions/UIView+Hero.swift",
+      "line": 120,
+      "symbol": "UIView.heroID",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Extensions/UIView+Hero.swift",
+      "line": 120,
+      "symbol": "UIView.heroID",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Extensions/UIView+Hero.swift",
+      "line": 127,
+      "symbol": "UIView.isHeroEnabled",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Extensions/UIView+Hero.swift",
+      "line": 127,
+      "symbol": "UIView.isHeroEnabled",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Extensions/UIView+Hero.swift",
+      "line": 134,
+      "symbol": "UIView.isHeroEnabledForSubviews",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Extensions/UIView+Hero.swift",
+      "line": 134,
+      "symbol": "UIView.isHeroEnabledForSubviews",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Extensions/UIView+Hero.swift",
+      "line": 140,
+      "symbol": "UIView.heroModifiers",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Extensions/UIView+Hero.swift",
+      "line": 140,
+      "symbol": "UIView.heroModifiers",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Extensions/UIView+Hero.swift",
+      "line": 147,
+      "symbol": "UIView.heroModifierString",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Extensions/UIView+Hero.swift",
+      "line": 147,
+      "symbol": "UIView.heroModifierString",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Extensions/UIViewController+Hero.swift",
+      "line": 63,
+      "symbol": "HeroExtension.modalAnimationTypeString",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Extensions/UIViewController+Hero.swift",
+      "line": 63,
+      "symbol": "HeroExtension.modalAnimationTypeString",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Extensions/UIViewController+Hero.swift",
+      "line": 69,
+      "symbol": "HeroExtension.isEnabled",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Extensions/UIViewController+Hero.swift",
+      "line": 69,
+      "symbol": "HeroExtension.isEnabled",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Extensions/UIViewController+Hero.swift",
+      "line": 126,
+      "symbol": "UIViewController.heroModalAnimationType",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Extensions/UIViewController+Hero.swift",
+      "line": 126,
+      "symbol": "UIViewController.heroModalAnimationType",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Extensions/UIViewController+Hero.swift",
+      "line": 132,
+      "symbol": "UIViewController.heroModalAnimationTypeString",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Extensions/UIViewController+Hero.swift",
+      "line": 132,
+      "symbol": "UIViewController.heroModalAnimationTypeString",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Extensions/UIViewController+Hero.swift",
+      "line": 138,
+      "symbol": "UIViewController.isHeroEnabled",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Extensions/UIViewController+Hero.swift",
+      "line": 138,
+      "symbol": "UIViewController.isHeroEnabled",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Extensions/UIViewController+Hero.swift",
+      "line": 152,
+      "symbol": "HeroExtension.navigationAnimationTypeString",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Extensions/UIViewController+Hero.swift",
+      "line": 152,
+      "symbol": "HeroExtension.navigationAnimationTypeString",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Extensions/UIViewController+Hero.swift",
+      "line": 160,
+      "symbol": "UINavigationController.heroNavigationAnimationType",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Extensions/UIViewController+Hero.swift",
+      "line": 160,
+      "symbol": "UINavigationController.heroNavigationAnimationType",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Extensions/UIViewController+Hero.swift",
+      "line": 167,
+      "symbol": "UINavigationController.heroNavigationAnimationTypeString",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Extensions/UIViewController+Hero.swift",
+      "line": 167,
+      "symbol": "UINavigationController.heroNavigationAnimationTypeString",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Extensions/UIViewController+Hero.swift",
+      "line": 181,
+      "symbol": "HeroExtension.tabBarAnimationTypeString",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Extensions/UIViewController+Hero.swift",
+      "line": 181,
+      "symbol": "HeroExtension.tabBarAnimationTypeString",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Extensions/UIViewController+Hero.swift",
+      "line": 189,
+      "symbol": "UITabBarController.heroTabBarAnimationType",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Extensions/UIViewController+Hero.swift",
+      "line": 189,
+      "symbol": "UITabBarController.heroTabBarAnimationType",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Extensions/UIViewController+Hero.swift",
+      "line": 196,
+      "symbol": "UITabBarController.heroTabBarAnimationTypeString",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Extensions/UIViewController+Hero.swift",
+      "line": 196,
+      "symbol": "UITabBarController.heroTabBarAnimationTypeString",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Extensions/UIViewController+Hero.swift",
+      "line": 230,
+      "symbol": "HeroExtension.unwindToViewController(withSelector:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Extensions/UIViewController+Hero.swift",
+      "line": 230,
+      "symbol": "HeroExtension.unwindToViewController(withSelector:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Extensions/UIViewController+Hero.swift",
+      "line": 336,
+      "symbol": "UIViewController.ht_dismiss(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Extensions/UIViewController+Hero.swift",
+      "line": 336,
+      "symbol": "UIViewController.ht_dismiss(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Extensions/UIViewController+Hero.swift",
+      "line": 341,
+      "symbol": "UIViewController.heroReplaceViewController(with:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Extensions/UIViewController+Hero.swift",
+      "line": 341,
+      "symbol": "UIViewController.heroReplaceViewController(with:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Extensions/UIViewController+Hero.swift",
+      "line": 347,
+      "symbol": "UIViewController.hero_dismissViewController()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Extensions/UIViewController+Hero.swift",
+      "line": 347,
+      "symbol": "UIViewController.hero_dismissViewController()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Extensions/UIViewController+Hero.swift",
+      "line": 353,
+      "symbol": "UIViewController.hero_unwindToRootViewController()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Extensions/UIViewController+Hero.swift",
+      "line": 353,
+      "symbol": "UIViewController.hero_unwindToRootViewController()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Extensions/UIViewController+Hero.swift",
+      "line": 358,
+      "symbol": "UIViewController.hero_unwindToViewController(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Extensions/UIViewController+Hero.swift",
+      "line": 358,
+      "symbol": "UIViewController.hero_unwindToViewController(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Extensions/UIViewController+Hero.swift",
+      "line": 363,
+      "symbol": "UIViewController.hero_unwindToViewController(withSelector:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Extensions/UIViewController+Hero.swift",
+      "line": 363,
+      "symbol": "UIViewController.hero_unwindToViewController(withSelector:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Extensions/UIViewController+Hero.swift",
+      "line": 368,
+      "symbol": "UIViewController.hero_unwindToViewController(withClass:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Extensions/UIViewController+Hero.swift",
+      "line": 368,
+      "symbol": "UIViewController.hero_unwindToViewController(withClass:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Extensions/UIViewController+Hero.swift",
+      "line": 373,
+      "symbol": "UIViewController.hero_unwindToViewController(withMatchBlock:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Extensions/UIViewController+Hero.swift",
+      "line": 373,
+      "symbol": "UIViewController.hero_unwindToViewController(withMatchBlock:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Extensions/UIViewController+Hero.swift",
+      "line": 378,
+      "symbol": "UIViewController.hero_replaceViewController(with:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Extensions/UIViewController+Hero.swift",
+      "line": 378,
+      "symbol": "UIViewController.hero_replaceViewController(with:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroCompatible.swift",
+      "line": 25,
+      "symbol": "HeroCompatible",
+      "symbol_kind": "source.lang.swift.decl.protocol",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroCompatible.swift",
+      "line": 25,
+      "symbol": "HeroCompatible",
+      "symbol_kind": "source.lang.swift.decl.protocol",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroCompatible.swift",
+      "line": 26,
+      "symbol": "HeroCompatible.CompatibleType",
+      "symbol_kind": "source.lang.swift.decl.associatedtype",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroCompatible.swift",
+      "line": 26,
+      "symbol": "HeroCompatible.CompatibleType",
+      "symbol_kind": "source.lang.swift.decl.associatedtype",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroCompatible.swift",
+      "line": 28,
+      "symbol": "HeroCompatible.hero",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroCompatible.swift",
+      "line": 28,
+      "symbol": "HeroCompatible.hero",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroCompatible.swift",
+      "line": 31,
+      "symbol": "HeroCompatible",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroCompatible.swift",
+      "line": 31,
+      "symbol": "HeroCompatible",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroCompatible.swift",
+      "line": 32,
+      "symbol": "HeroCompatible.hero",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroCompatible.swift",
+      "line": 32,
+      "symbol": "HeroCompatible.hero",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroCompatible.swift",
+      "line": 36,
+      "symbol": "HeroExtension",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroCompatible.swift",
+      "line": 36,
+      "symbol": "HeroExtension",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroCompatible.swift",
+      "line": 39,
+      "symbol": "HeroExtension",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroCompatible.swift",
+      "line": 39,
+      "symbol": "HeroExtension",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroCompatible.swift",
+      "line": 40,
+      "symbol": "HeroExtension.base",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroCompatible.swift",
+      "line": 40,
+      "symbol": "HeroExtension.base",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroCompatible.swift",
+      "line": 43,
+      "symbol": "HeroExtension",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroCompatible.swift",
+      "line": 43,
+      "symbol": "HeroExtension",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroCompatible.swift",
+      "line": 144,
+      "symbol": "HeroExtension",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroCompatible.swift",
+      "line": 144,
+      "symbol": "HeroExtension",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroCompatible.swift",
+      "line": 173,
+      "symbol": "HeroExtension",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroCompatible.swift",
+      "line": 173,
+      "symbol": "HeroExtension",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroCompatible.swift",
+      "line": 202,
+      "symbol": "HeroExtension",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroCompatible.swift",
+      "line": 202,
+      "symbol": "HeroExtension",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroContext.swift",
+      "line": 25,
+      "symbol": "HeroContext",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroContext.swift",
+      "line": 25,
+      "symbol": "HeroContext",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroContext.swift",
+      "line": 82,
+      "symbol": "HeroContext",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroContext.swift",
+      "line": 82,
+      "symbol": "HeroContext",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroContext.swift",
+      "line": 293,
+      "symbol": "HeroContext.subscript(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.subscript",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroContext.swift",
+      "line": 293,
+      "symbol": "HeroContext.subscript(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.subscript",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroContext.swift",
+      "line": 302,
+      "symbol": "HeroContext.clean()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroContext.swift",
+      "line": 302,
+      "symbol": "HeroContext.clean()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroContext.swift",
+      "line": 312,
+      "symbol": "HeroContext",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroContext.swift",
+      "line": 312,
+      "symbol": "HeroContext",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroContext.swift",
+      "line": 313,
+      "symbol": "HeroContext.hide(view:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroContext.swift",
+      "line": 313,
+      "symbol": "HeroContext.hide(view:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroContext.swift",
+      "line": 324,
+      "symbol": "HeroContext.unhide(view:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroContext.swift",
+      "line": 324,
+      "symbol": "HeroContext.unhide(view:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroContext.swift",
+      "line": 396,
+      "symbol": "HeroCustomSnapshotView.heroSnapshot",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroContext.swift",
+      "line": 396,
+      "symbol": "HeroCustomSnapshotView.heroSnapshot",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroModifier+Advanced.swift",
+      "line": 41,
+      "symbol": "HeroModifier.beginWith(modifiers:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroModifier+Advanced.swift",
+      "line": 41,
+      "symbol": "HeroModifier.beginWith(modifiers:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroModifier+Advanced.swift",
+      "line": 45,
+      "symbol": "HeroModifier.beginWith(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroModifier+Advanced.swift",
+      "line": 45,
+      "symbol": "HeroModifier.beginWith(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroModifier+HeroStringConvertible.swift",
+      "line": 27,
+      "symbol": "HeroModifier.from(node:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroModifier+HeroStringConvertible.swift",
+      "line": 27,
+      "symbol": "HeroModifier.from(node:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroModifier.swift",
+      "line": 25,
+      "symbol": "HeroModifier",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroModifier.swift",
+      "line": 25,
+      "symbol": "HeroModifier",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroModifier.swift",
+      "line": 25,
+      "symbol": "HeroModifier",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroModifier.swift",
+      "line": 25,
+      "symbol": "HeroModifier",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroModifier.swift",
+      "line": 26,
+      "symbol": "HeroModifier",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroModifier.swift",
+      "line": 26,
+      "symbol": "HeroModifier",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroModifier.swift",
+      "line": 27,
+      "symbol": "HeroModifier.init(applyFunction:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroModifier.swift",
+      "line": 27,
+      "symbol": "HeroModifier.init(applyFunction:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroModifier.swift",
+      "line": 33,
+      "symbol": "HeroModifier",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroModifier.swift",
+      "line": 33,
+      "symbol": "HeroModifier",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroModifier.swift",
+      "line": 72,
+      "symbol": "HeroModifier",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroModifier.swift",
+      "line": 72,
+      "symbol": "HeroModifier",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroModifier.swift",
+      "line": 132,
+      "symbol": "HeroModifier.translate(_:z:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroModifier.swift",
+      "line": 132,
+      "symbol": "HeroModifier.translate(_:z:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroModifier.swift",
+      "line": 151,
+      "symbol": "HeroModifier.rotate(_:z:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroModifier.swift",
+      "line": 151,
+      "symbol": "HeroModifier.rotate(_:z:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroModifier.swift",
+      "line": 165,
+      "symbol": "HeroModifier",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroModifier.swift",
+      "line": 165,
+      "symbol": "HeroModifier",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroModifier.swift",
+      "line": 334,
+      "symbol": "HeroModifier",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroModifier.swift",
+      "line": 334,
+      "symbol": "HeroModifier",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroModifier.swift",
+      "line": 392,
+      "symbol": "HeroModifier",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroModifier.swift",
+      "line": 392,
+      "symbol": "HeroModifier",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroModifier.swift",
+      "line": 463,
+      "symbol": "HeroModifier",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroModifier.swift",
+      "line": 463,
+      "symbol": "HeroModifier",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroModifier.swift",
+      "line": 476,
+      "symbol": "HeroModifier.when(_:_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroModifier.swift",
+      "line": 476,
+      "symbol": "HeroModifier.when(_:_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroModifier.swift",
+      "line": 480,
+      "symbol": "HeroModifier.whenMatched(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroModifier.swift",
+      "line": 480,
+      "symbol": "HeroModifier.whenMatched(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroModifier.swift",
+      "line": 484,
+      "symbol": "HeroModifier.whenPresenting(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroModifier.swift",
+      "line": 484,
+      "symbol": "HeroModifier.whenPresenting(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroModifier.swift",
+      "line": 488,
+      "symbol": "HeroModifier.whenDismissing(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroModifier.swift",
+      "line": 488,
+      "symbol": "HeroModifier.whenDismissing(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroModifier.swift",
+      "line": 492,
+      "symbol": "HeroModifier.whenAppearing(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroModifier.swift",
+      "line": 492,
+      "symbol": "HeroModifier.whenAppearing(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroModifier.swift",
+      "line": 496,
+      "symbol": "HeroModifier.whenDisappearing(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroModifier.swift",
+      "line": 496,
+      "symbol": "HeroModifier.whenDisappearing(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroPlugin.swift",
+      "line": 25,
+      "symbol": "HeroPlugin",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroPlugin.swift",
+      "line": 25,
+      "symbol": "HeroPlugin",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroPlugin.swift",
+      "line": 27,
+      "symbol": "HeroPlugin.hero",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroPlugin.swift",
+      "line": 27,
+      "symbol": "HeroPlugin.hero",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroPlugin.swift",
+      "line": 29,
+      "symbol": "HeroPlugin.context",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroPlugin.swift",
+      "line": 29,
+      "symbol": "HeroPlugin.context",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroPlugin.swift",
+      "line": 45,
+      "symbol": "HeroPlugin.init()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroPlugin.swift",
+      "line": 45,
+      "symbol": "HeroPlugin.init()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroPlugin.swift",
+      "line": 130,
+      "symbol": "HeroPlugin.changeTarget(state:isDestination:to:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroPlugin.swift",
+      "line": 130,
+      "symbol": "HeroPlugin.changeTarget(state:isDestination:to:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroPlugin.swift",
+      "line": 134,
+      "symbol": "HeroPlugin",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroPlugin.swift",
+      "line": 134,
+      "symbol": "HeroPlugin",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroPlugin.swift",
+      "line": 135,
+      "symbol": "HeroPlugin.isEnabled",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroPlugin.swift",
+      "line": 135,
+      "symbol": "HeroPlugin.isEnabled",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroPlugin.swift",
+      "line": 147,
+      "symbol": "HeroPlugin.enable()",
+      "symbol_kind": "source.lang.swift.decl.function.method.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroPlugin.swift",
+      "line": 147,
+      "symbol": "HeroPlugin.enable()",
+      "symbol_kind": "source.lang.swift.decl.function.method.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroPlugin.swift",
+      "line": 150,
+      "symbol": "HeroPlugin.disable()",
+      "symbol_kind": "source.lang.swift.decl.function.method.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroPlugin.swift",
+      "line": 150,
+      "symbol": "HeroPlugin.disable()",
+      "symbol_kind": "source.lang.swift.decl.function.method.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroTargetState.swift",
+      "line": 25,
+      "symbol": "HeroSnapshotType",
+      "symbol_kind": "source.lang.swift.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroTargetState.swift",
+      "line": 25,
+      "symbol": "HeroSnapshotType",
+      "symbol_kind": "source.lang.swift.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroTargetState.swift",
+      "line": 44,
+      "symbol": "HeroCoordinateSpace",
+      "symbol_kind": "source.lang.swift.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroTargetState.swift",
+      "line": 44,
+      "symbol": "HeroCoordinateSpace",
+      "symbol_kind": "source.lang.swift.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroTargetState.swift",
+      "line": 45,
+      "symbol": "HeroCoordinateSpace.global",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroTargetState.swift",
+      "line": 45,
+      "symbol": "HeroCoordinateSpace.global",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroTargetState.swift",
+      "line": 46,
+      "symbol": "HeroCoordinateSpace.local",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroTargetState.swift",
+      "line": 46,
+      "symbol": "HeroCoordinateSpace.local",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroTargetState.swift",
+      "line": 49,
+      "symbol": "HeroTargetState",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroTargetState.swift",
+      "line": 49,
+      "symbol": "HeroTargetState",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroTargetState.swift",
+      "line": 50,
+      "symbol": "HeroTargetState.beginState",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroTargetState.swift",
+      "line": 50,
+      "symbol": "HeroTargetState.beginState",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroTargetState.swift",
+      "line": 51,
+      "symbol": "HeroTargetState.conditionalModifiers",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroTargetState.swift",
+      "line": 51,
+      "symbol": "HeroTargetState.conditionalModifiers",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroTargetState.swift",
+      "line": 53,
+      "symbol": "HeroTargetState.position",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroTargetState.swift",
+      "line": 53,
+      "symbol": "HeroTargetState.position",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroTargetState.swift",
+      "line": 54,
+      "symbol": "HeroTargetState.size",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroTargetState.swift",
+      "line": 54,
+      "symbol": "HeroTargetState.size",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroTargetState.swift",
+      "line": 55,
+      "symbol": "HeroTargetState.transform",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroTargetState.swift",
+      "line": 55,
+      "symbol": "HeroTargetState.transform",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroTargetState.swift",
+      "line": 56,
+      "symbol": "HeroTargetState.opacity",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroTargetState.swift",
+      "line": 56,
+      "symbol": "HeroTargetState.opacity",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroTargetState.swift",
+      "line": 57,
+      "symbol": "HeroTargetState.cornerRadius",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroTargetState.swift",
+      "line": 57,
+      "symbol": "HeroTargetState.cornerRadius",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroTargetState.swift",
+      "line": 58,
+      "symbol": "HeroTargetState.backgroundColor",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroTargetState.swift",
+      "line": 58,
+      "symbol": "HeroTargetState.backgroundColor",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroTargetState.swift",
+      "line": 59,
+      "symbol": "HeroTargetState.zPosition",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroTargetState.swift",
+      "line": 59,
+      "symbol": "HeroTargetState.zPosition",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroTargetState.swift",
+      "line": 61,
+      "symbol": "HeroTargetState.contentsRect",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroTargetState.swift",
+      "line": 61,
+      "symbol": "HeroTargetState.contentsRect",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroTargetState.swift",
+      "line": 62,
+      "symbol": "HeroTargetState.contentsScale",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroTargetState.swift",
+      "line": 62,
+      "symbol": "HeroTargetState.contentsScale",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroTargetState.swift",
+      "line": 64,
+      "symbol": "HeroTargetState.borderWidth",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroTargetState.swift",
+      "line": 64,
+      "symbol": "HeroTargetState.borderWidth",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroTargetState.swift",
+      "line": 65,
+      "symbol": "HeroTargetState.borderColor",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroTargetState.swift",
+      "line": 65,
+      "symbol": "HeroTargetState.borderColor",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroTargetState.swift",
+      "line": 67,
+      "symbol": "HeroTargetState.shadowColor",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroTargetState.swift",
+      "line": 67,
+      "symbol": "HeroTargetState.shadowColor",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroTargetState.swift",
+      "line": 68,
+      "symbol": "HeroTargetState.shadowOpacity",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroTargetState.swift",
+      "line": 68,
+      "symbol": "HeroTargetState.shadowOpacity",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroTargetState.swift",
+      "line": 69,
+      "symbol": "HeroTargetState.shadowOffset",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroTargetState.swift",
+      "line": 69,
+      "symbol": "HeroTargetState.shadowOffset",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroTargetState.swift",
+      "line": 70,
+      "symbol": "HeroTargetState.shadowRadius",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroTargetState.swift",
+      "line": 70,
+      "symbol": "HeroTargetState.shadowRadius",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroTargetState.swift",
+      "line": 71,
+      "symbol": "HeroTargetState.shadowPath",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroTargetState.swift",
+      "line": 71,
+      "symbol": "HeroTargetState.shadowPath",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroTargetState.swift",
+      "line": 72,
+      "symbol": "HeroTargetState.masksToBounds",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroTargetState.swift",
+      "line": 72,
+      "symbol": "HeroTargetState.masksToBounds",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroTargetState.swift",
+      "line": 73,
+      "symbol": "HeroTargetState.displayShadow",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroTargetState.swift",
+      "line": 73,
+      "symbol": "HeroTargetState.displayShadow",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroTargetState.swift",
+      "line": 75,
+      "symbol": "HeroTargetState.overlay",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroTargetState.swift",
+      "line": 75,
+      "symbol": "HeroTargetState.overlay",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroTargetState.swift",
+      "line": 77,
+      "symbol": "HeroTargetState.spring",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroTargetState.swift",
+      "line": 77,
+      "symbol": "HeroTargetState.spring",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroTargetState.swift",
+      "line": 78,
+      "symbol": "HeroTargetState.delay",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroTargetState.swift",
+      "line": 78,
+      "symbol": "HeroTargetState.delay",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroTargetState.swift",
+      "line": 79,
+      "symbol": "HeroTargetState.duration",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroTargetState.swift",
+      "line": 79,
+      "symbol": "HeroTargetState.duration",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroTargetState.swift",
+      "line": 80,
+      "symbol": "HeroTargetState.timingFunction",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroTargetState.swift",
+      "line": 80,
+      "symbol": "HeroTargetState.timingFunction",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroTargetState.swift",
+      "line": 82,
+      "symbol": "HeroTargetState.arc",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroTargetState.swift",
+      "line": 82,
+      "symbol": "HeroTargetState.arc",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroTargetState.swift",
+      "line": 83,
+      "symbol": "HeroTargetState.source",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroTargetState.swift",
+      "line": 83,
+      "symbol": "HeroTargetState.source",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroTargetState.swift",
+      "line": 84,
+      "symbol": "HeroTargetState.cascade",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroTargetState.swift",
+      "line": 84,
+      "symbol": "HeroTargetState.cascade",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroTargetState.swift",
+      "line": 86,
+      "symbol": "HeroTargetState.ignoreSubviewModifiers",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroTargetState.swift",
+      "line": 86,
+      "symbol": "HeroTargetState.ignoreSubviewModifiers",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroTargetState.swift",
+      "line": 87,
+      "symbol": "HeroTargetState.coordinateSpace",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroTargetState.swift",
+      "line": 87,
+      "symbol": "HeroTargetState.coordinateSpace",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroTargetState.swift",
+      "line": 88,
+      "symbol": "HeroTargetState.useScaleBasedSizeChange",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroTargetState.swift",
+      "line": 88,
+      "symbol": "HeroTargetState.useScaleBasedSizeChange",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroTargetState.swift",
+      "line": 89,
+      "symbol": "HeroTargetState.snapshotType",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroTargetState.swift",
+      "line": 89,
+      "symbol": "HeroTargetState.snapshotType",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroTargetState.swift",
+      "line": 91,
+      "symbol": "HeroTargetState.nonFade",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroTargetState.swift",
+      "line": 91,
+      "symbol": "HeroTargetState.nonFade",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroTargetState.swift",
+      "line": 92,
+      "symbol": "HeroTargetState.forceAnimate",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroTargetState.swift",
+      "line": 92,
+      "symbol": "HeroTargetState.forceAnimate",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroTargetState.swift",
+      "line": 93,
+      "symbol": "HeroTargetState.custom",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroTargetState.swift",
+      "line": 93,
+      "symbol": "HeroTargetState.custom",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroTargetState.swift",
+      "line": 99,
+      "symbol": "HeroTargetState.append(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroTargetState.swift",
+      "line": 99,
+      "symbol": "HeroTargetState.append(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroTargetState.swift",
+      "line": 103,
+      "symbol": "HeroTargetState.append(contentsOf:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroTargetState.swift",
+      "line": 103,
+      "symbol": "HeroTargetState.append(contentsOf:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroTargetState.swift",
+      "line": 125,
+      "symbol": "HeroTargetState",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroTargetState.swift",
+      "line": 125,
+      "symbol": "HeroTargetState",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroTypes.swift",
+      "line": 25,
+      "symbol": "HeroPreprocessor",
+      "symbol_kind": "source.lang.swift.decl.protocol",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroTypes.swift",
+      "line": 25,
+      "symbol": "HeroPreprocessor",
+      "symbol_kind": "source.lang.swift.decl.protocol",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroTypes.swift",
+      "line": 26,
+      "symbol": "HeroPreprocessor.hero",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroTypes.swift",
+      "line": 26,
+      "symbol": "HeroPreprocessor.hero",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroTypes.swift",
+      "line": 27,
+      "symbol": "HeroPreprocessor.process(fromViews:toViews:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroTypes.swift",
+      "line": 27,
+      "symbol": "HeroPreprocessor.process(fromViews:toViews:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroTypes.swift",
+      "line": 30,
+      "symbol": "HeroAnimator",
+      "symbol_kind": "source.lang.swift.decl.protocol",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroTypes.swift",
+      "line": 30,
+      "symbol": "HeroAnimator",
+      "symbol_kind": "source.lang.swift.decl.protocol",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroTypes.swift",
+      "line": 31,
+      "symbol": "HeroAnimator.hero",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroTypes.swift",
+      "line": 31,
+      "symbol": "HeroAnimator.hero",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroTypes.swift",
+      "line": 32,
+      "symbol": "HeroAnimator.canAnimate(view:appearing:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroTypes.swift",
+      "line": 32,
+      "symbol": "HeroAnimator.canAnimate(view:appearing:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroTypes.swift",
+      "line": 33,
+      "symbol": "HeroAnimator.animate(fromViews:toViews:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroTypes.swift",
+      "line": 33,
+      "symbol": "HeroAnimator.animate(fromViews:toViews:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroTypes.swift",
+      "line": 34,
+      "symbol": "HeroAnimator.clean()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroTypes.swift",
+      "line": 34,
+      "symbol": "HeroAnimator.clean()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroTypes.swift",
+      "line": 36,
+      "symbol": "HeroAnimator.seekTo(timePassed:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroTypes.swift",
+      "line": 36,
+      "symbol": "HeroAnimator.seekTo(timePassed:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroTypes.swift",
+      "line": 37,
+      "symbol": "HeroAnimator.resume(timePassed:reverse:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroTypes.swift",
+      "line": 37,
+      "symbol": "HeroAnimator.resume(timePassed:reverse:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroTypes.swift",
+      "line": 38,
+      "symbol": "HeroAnimator.apply(state:to:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroTypes.swift",
+      "line": 38,
+      "symbol": "HeroAnimator.apply(state:to:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroTypes.swift",
+      "line": 39,
+      "symbol": "HeroAnimator.changeTarget(state:isDestination:to:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroTypes.swift",
+      "line": 39,
+      "symbol": "HeroAnimator.changeTarget(state:isDestination:to:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroTypes.swift",
+      "line": 42,
+      "symbol": "HeroProgressUpdateObserver",
+      "symbol_kind": "source.lang.swift.decl.protocol",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroTypes.swift",
+      "line": 42,
+      "symbol": "HeroProgressUpdateObserver",
+      "symbol_kind": "source.lang.swift.decl.protocol",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroTypes.swift",
+      "line": 43,
+      "symbol": "HeroProgressUpdateObserver.heroDidUpdateProgress(progress:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroTypes.swift",
+      "line": 43,
+      "symbol": "HeroProgressUpdateObserver.heroDidUpdateProgress(progress:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroTypes.swift",
+      "line": 46,
+      "symbol": "HeroViewOrderingStrategy",
+      "symbol_kind": "source.lang.swift.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroTypes.swift",
+      "line": 46,
+      "symbol": "HeroViewOrderingStrategy",
+      "symbol_kind": "source.lang.swift.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroTypes.swift",
+      "line": 47,
+      "symbol": "HeroViewOrderingStrategy.auto",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroTypes.swift",
+      "line": 47,
+      "symbol": "HeroViewOrderingStrategy.auto",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroTypes.swift",
+      "line": 47,
+      "symbol": "HeroViewOrderingStrategy.destinationViewOnTop",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroTypes.swift",
+      "line": 47,
+      "symbol": "HeroViewOrderingStrategy.destinationViewOnTop",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroTypes.swift",
+      "line": 47,
+      "symbol": "HeroViewOrderingStrategy.sourceViewOnTop",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroTypes.swift",
+      "line": 47,
+      "symbol": "HeroViewOrderingStrategy.sourceViewOnTop",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroViewControllerDelegate.swift",
+      "line": 25,
+      "symbol": "HeroViewControllerDelegate",
+      "symbol_kind": "source.lang.swift.decl.protocol",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroViewControllerDelegate.swift",
+      "line": 25,
+      "symbol": "HeroViewControllerDelegate",
+      "symbol_kind": "source.lang.swift.decl.protocol",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroViewControllerDelegate.swift",
+      "line": 26,
+      "symbol": "HeroViewControllerDelegate.heroWillStartAnimatingFrom(viewController:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroViewControllerDelegate.swift",
+      "line": 26,
+      "symbol": "HeroViewControllerDelegate.heroWillStartAnimatingFrom(viewController:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroViewControllerDelegate.swift",
+      "line": 27,
+      "symbol": "HeroViewControllerDelegate.heroDidEndAnimatingFrom(viewController:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroViewControllerDelegate.swift",
+      "line": 27,
+      "symbol": "HeroViewControllerDelegate.heroDidEndAnimatingFrom(viewController:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroViewControllerDelegate.swift",
+      "line": 28,
+      "symbol": "HeroViewControllerDelegate.heroDidCancelAnimatingFrom(viewController:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroViewControllerDelegate.swift",
+      "line": 28,
+      "symbol": "HeroViewControllerDelegate.heroDidCancelAnimatingFrom(viewController:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroViewControllerDelegate.swift",
+      "line": 30,
+      "symbol": "HeroViewControllerDelegate.heroWillStartTransition()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroViewControllerDelegate.swift",
+      "line": 30,
+      "symbol": "HeroViewControllerDelegate.heroWillStartTransition()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroViewControllerDelegate.swift",
+      "line": 31,
+      "symbol": "HeroViewControllerDelegate.heroDidEndTransition()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroViewControllerDelegate.swift",
+      "line": 31,
+      "symbol": "HeroViewControllerDelegate.heroDidEndTransition()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroViewControllerDelegate.swift",
+      "line": 32,
+      "symbol": "HeroViewControllerDelegate.heroDidCancelTransition()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroViewControllerDelegate.swift",
+      "line": 32,
+      "symbol": "HeroViewControllerDelegate.heroDidCancelTransition()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroViewControllerDelegate.swift",
+      "line": 34,
+      "symbol": "HeroViewControllerDelegate.heroWillStartAnimatingTo(viewController:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroViewControllerDelegate.swift",
+      "line": 34,
+      "symbol": "HeroViewControllerDelegate.heroWillStartAnimatingTo(viewController:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroViewControllerDelegate.swift",
+      "line": 35,
+      "symbol": "HeroViewControllerDelegate.heroDidEndAnimatingTo(viewController:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroViewControllerDelegate.swift",
+      "line": 35,
+      "symbol": "HeroViewControllerDelegate.heroDidEndAnimatingTo(viewController:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroViewControllerDelegate.swift",
+      "line": 36,
+      "symbol": "HeroViewControllerDelegate.heroDidCancelAnimatingTo(viewController:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/HeroViewControllerDelegate.swift",
+      "line": 36,
+      "symbol": "HeroViewControllerDelegate.heroDidCancelAnimatingTo(viewController:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Parser/HeroStringConvertible.swift",
+      "line": 25,
+      "symbol": "HeroStringConvertible",
+      "symbol_kind": "source.lang.swift.decl.protocol",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Parser/HeroStringConvertible.swift",
+      "line": 25,
+      "symbol": "HeroStringConvertible",
+      "symbol_kind": "source.lang.swift.decl.protocol",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Parser/HeroStringConvertible.swift",
+      "line": 26,
+      "symbol": "HeroStringConvertible.from(node:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Parser/HeroStringConvertible.swift",
+      "line": 26,
+      "symbol": "HeroStringConvertible.from(node:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Parser/Lexer.swift",
+      "line": 11,
+      "symbol": "Token",
+      "symbol_kind": "source.lang.swift.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Parser/Lexer.swift",
+      "line": 11,
+      "symbol": "Token",
+      "symbol_kind": "source.lang.swift.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Parser/Lexer.swift",
+      "line": 12,
+      "symbol": "Token.identifier(_:_:)",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Parser/Lexer.swift",
+      "line": 12,
+      "symbol": "Token.identifier(_:_:)",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Parser/Lexer.swift",
+      "line": 13,
+      "symbol": "Token.number(_:_:)",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Parser/Lexer.swift",
+      "line": 13,
+      "symbol": "Token.number(_:_:)",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Parser/Lexer.swift",
+      "line": 14,
+      "symbol": "Token.parensOpen(_:)",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Parser/Lexer.swift",
+      "line": 14,
+      "symbol": "Token.parensOpen(_:)",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Parser/Lexer.swift",
+      "line": 15,
+      "symbol": "Token.parensClose(_:)",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Parser/Lexer.swift",
+      "line": 15,
+      "symbol": "Token.parensClose(_:)",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Parser/Lexer.swift",
+      "line": 16,
+      "symbol": "Token.comma(_:)",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Parser/Lexer.swift",
+      "line": 16,
+      "symbol": "Token.comma(_:)",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Parser/Lexer.swift",
+      "line": 17,
+      "symbol": "Token.other(_:_:)",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Parser/Lexer.swift",
+      "line": 17,
+      "symbol": "Token.other(_:_:)",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Parser/Lexer.swift",
+      "line": 30,
+      "symbol": "Lexer",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Parser/Lexer.swift",
+      "line": 30,
+      "symbol": "Lexer",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Parser/Lexer.swift",
+      "line": 32,
+      "symbol": "Lexer.init(input:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Parser/Lexer.swift",
+      "line": 32,
+      "symbol": "Lexer.init(input:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Parser/Lexer.swift",
+      "line": 35,
+      "symbol": "Lexer.tokenize()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Parser/Lexer.swift",
+      "line": 35,
+      "symbol": "Lexer.tokenize()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Parser/Nodes.swift",
+      "line": 11,
+      "symbol": "ExprNode",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Parser/Nodes.swift",
+      "line": 11,
+      "symbol": "ExprNode",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Parser/Nodes.swift",
+      "line": 12,
+      "symbol": "ExprNode.range",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Parser/Nodes.swift",
+      "line": 12,
+      "symbol": "ExprNode.range",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Parser/Nodes.swift",
+      "line": 13,
+      "symbol": "ExprNode.name",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Parser/Nodes.swift",
+      "line": 13,
+      "symbol": "ExprNode.name",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Parser/Nodes.swift",
+      "line": 17,
+      "symbol": "ExprNode.init(name:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Parser/Nodes.swift",
+      "line": 17,
+      "symbol": "ExprNode.init(name:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Parser/Nodes.swift",
+      "line": 22,
+      "symbol": "==(_:_:)",
+      "symbol_kind": "source.lang.swift.decl.function.free",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Parser/Nodes.swift",
+      "line": 22,
+      "symbol": "==(_:_:)",
+      "symbol_kind": "source.lang.swift.decl.function.free",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Parser/Nodes.swift",
+      "line": 26,
+      "symbol": "NumberNode",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Parser/Nodes.swift",
+      "line": 26,
+      "symbol": "NumberNode",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Parser/Nodes.swift",
+      "line": 27,
+      "symbol": "NumberNode.value",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Parser/Nodes.swift",
+      "line": 27,
+      "symbol": "NumberNode.value",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Parser/Nodes.swift",
+      "line": 28,
+      "symbol": "NumberNode.description",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Parser/Nodes.swift",
+      "line": 28,
+      "symbol": "NumberNode.description",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Parser/Nodes.swift",
+      "line": 31,
+      "symbol": "NumberNode.init(value:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Parser/Nodes.swift",
+      "line": 31,
+      "symbol": "NumberNode.init(value:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Parser/Nodes.swift",
+      "line": 37,
+      "symbol": "VariableNode",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Parser/Nodes.swift",
+      "line": 37,
+      "symbol": "VariableNode",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Parser/Nodes.swift",
+      "line": 38,
+      "symbol": "VariableNode.description",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Parser/Nodes.swift",
+      "line": 38,
+      "symbol": "VariableNode.description",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Parser/Nodes.swift",
+      "line": 43,
+      "symbol": "BinaryOpNode",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Parser/Nodes.swift",
+      "line": 43,
+      "symbol": "BinaryOpNode",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Parser/Nodes.swift",
+      "line": 44,
+      "symbol": "BinaryOpNode.lhs",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Parser/Nodes.swift",
+      "line": 44,
+      "symbol": "BinaryOpNode.lhs",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Parser/Nodes.swift",
+      "line": 45,
+      "symbol": "BinaryOpNode.rhs",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Parser/Nodes.swift",
+      "line": 45,
+      "symbol": "BinaryOpNode.rhs",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Parser/Nodes.swift",
+      "line": 46,
+      "symbol": "BinaryOpNode.description",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Parser/Nodes.swift",
+      "line": 46,
+      "symbol": "BinaryOpNode.description",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Parser/Nodes.swift",
+      "line": 49,
+      "symbol": "BinaryOpNode.init(name:lhs:rhs:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Parser/Nodes.swift",
+      "line": 49,
+      "symbol": "BinaryOpNode.init(name:lhs:rhs:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Parser/Nodes.swift",
+      "line": 56,
+      "symbol": "CallNode",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Parser/Nodes.swift",
+      "line": 56,
+      "symbol": "CallNode",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Parser/Nodes.swift",
+      "line": 57,
+      "symbol": "CallNode.arguments",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Parser/Nodes.swift",
+      "line": 57,
+      "symbol": "CallNode.arguments",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Parser/Nodes.swift",
+      "line": 58,
+      "symbol": "CallNode.description",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Parser/Nodes.swift",
+      "line": 58,
+      "symbol": "CallNode.description",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Parser/Nodes.swift",
+      "line": 61,
+      "symbol": "CallNode.init(name:arguments:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Parser/Nodes.swift",
+      "line": 61,
+      "symbol": "CallNode.init(name:arguments:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Parser/Nodes.swift",
+      "line": 67,
+      "symbol": "PrototypeNode",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Parser/Nodes.swift",
+      "line": 67,
+      "symbol": "PrototypeNode",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Parser/Nodes.swift",
+      "line": 68,
+      "symbol": "PrototypeNode.argumentNames",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Parser/Nodes.swift",
+      "line": 68,
+      "symbol": "PrototypeNode.argumentNames",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Parser/Nodes.swift",
+      "line": 69,
+      "symbol": "PrototypeNode.description",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Parser/Nodes.swift",
+      "line": 69,
+      "symbol": "PrototypeNode.description",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Parser/Nodes.swift",
+      "line": 72,
+      "symbol": "PrototypeNode.init(name:argumentNames:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Parser/Nodes.swift",
+      "line": 72,
+      "symbol": "PrototypeNode.init(name:argumentNames:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Parser/Nodes.swift",
+      "line": 78,
+      "symbol": "FunctionNode",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Parser/Nodes.swift",
+      "line": 78,
+      "symbol": "FunctionNode",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Parser/Nodes.swift",
+      "line": 79,
+      "symbol": "FunctionNode.prototype",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Parser/Nodes.swift",
+      "line": 79,
+      "symbol": "FunctionNode.prototype",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Parser/Nodes.swift",
+      "line": 80,
+      "symbol": "FunctionNode.body",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Parser/Nodes.swift",
+      "line": 80,
+      "symbol": "FunctionNode.body",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Parser/Nodes.swift",
+      "line": 81,
+      "symbol": "FunctionNode.description",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Parser/Nodes.swift",
+      "line": 81,
+      "symbol": "FunctionNode.description",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Parser/Nodes.swift",
+      "line": 84,
+      "symbol": "FunctionNode.init(prototype:body:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Parser/Nodes.swift",
+      "line": 84,
+      "symbol": "FunctionNode.init(prototype:body:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Parser/Parser.swift",
+      "line": 11,
+      "symbol": "ParseError",
+      "symbol_kind": "source.lang.swift.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Parser/Parser.swift",
+      "line": 11,
+      "symbol": "ParseError",
+      "symbol_kind": "source.lang.swift.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Parser/Parser.swift",
+      "line": 12,
+      "symbol": "ParseError.unexpectToken",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Parser/Parser.swift",
+      "line": 12,
+      "symbol": "ParseError.unexpectToken",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Parser/Parser.swift",
+      "line": 13,
+      "symbol": "ParseError.undefinedOperator(_:)",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Parser/Parser.swift",
+      "line": 13,
+      "symbol": "ParseError.undefinedOperator(_:)",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Parser/Parser.swift",
+      "line": 15,
+      "symbol": "ParseError.expectCharacter(_:)",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Parser/Parser.swift",
+      "line": 15,
+      "symbol": "ParseError.expectCharacter(_:)",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Parser/Parser.swift",
+      "line": 16,
+      "symbol": "ParseError.expectExpression",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Parser/Parser.swift",
+      "line": 16,
+      "symbol": "ParseError.expectExpression",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Parser/Parser.swift",
+      "line": 17,
+      "symbol": "ParseError.expectArgumentList",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Parser/Parser.swift",
+      "line": 17,
+      "symbol": "ParseError.expectArgumentList",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Parser/Parser.swift",
+      "line": 18,
+      "symbol": "ParseError.expectFunctionName",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Parser/Parser.swift",
+      "line": 18,
+      "symbol": "ParseError.expectFunctionName",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Parser/Parser.swift",
+      "line": 21,
+      "symbol": "Parser",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Parser/Parser.swift",
+      "line": 21,
+      "symbol": "Parser",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Parser/Parser.swift",
+      "line": 25,
+      "symbol": "Parser.init(tokens:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Parser/Parser.swift",
+      "line": 25,
+      "symbol": "Parser.init(tokens:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Parser/Parser.swift",
+      "line": 156,
+      "symbol": "Parser.parse()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Parser/Parser.swift",
+      "line": 156,
+      "symbol": "Parser.parse()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Parser/Regex.swift",
+      "line": 13,
+      "symbol": "String.match(regex:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Parser/Regex.swift",
+      "line": 13,
+      "symbol": "String.match(regex:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Preprocessors/CascadePreprocessor.swift",
+      "line": 27,
+      "symbol": "CascadeDirection",
+      "symbol_kind": "source.lang.swift.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Preprocessors/CascadePreprocessor.swift",
+      "line": 27,
+      "symbol": "CascadeDirection",
+      "symbol_kind": "source.lang.swift.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Preprocessors/CascadePreprocessor.swift",
+      "line": 28,
+      "symbol": "CascadeDirection.topToBottom",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Preprocessors/CascadePreprocessor.swift",
+      "line": 28,
+      "symbol": "CascadeDirection.topToBottom",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Preprocessors/CascadePreprocessor.swift",
+      "line": 29,
+      "symbol": "CascadeDirection.bottomToTop",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Preprocessors/CascadePreprocessor.swift",
+      "line": 29,
+      "symbol": "CascadeDirection.bottomToTop",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Preprocessors/CascadePreprocessor.swift",
+      "line": 30,
+      "symbol": "CascadeDirection.leftToRight",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Preprocessors/CascadePreprocessor.swift",
+      "line": 30,
+      "symbol": "CascadeDirection.leftToRight",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Preprocessors/CascadePreprocessor.swift",
+      "line": 31,
+      "symbol": "CascadeDirection.rightToLeft",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Preprocessors/CascadePreprocessor.swift",
+      "line": 31,
+      "symbol": "CascadeDirection.rightToLeft",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Preprocessors/CascadePreprocessor.swift",
+      "line": 32,
+      "symbol": "CascadeDirection.radial(center:)",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Preprocessors/CascadePreprocessor.swift",
+      "line": 32,
+      "symbol": "CascadeDirection.radial(center:)",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Preprocessors/CascadePreprocessor.swift",
+      "line": 33,
+      "symbol": "CascadeDirection.inverseRadial(center:)",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Preprocessors/CascadePreprocessor.swift",
+      "line": 33,
+      "symbol": "CascadeDirection.inverseRadial(center:)",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Preprocessors/CascadePreprocessor.swift",
+      "line": 74,
+      "symbol": "CascadeDirection.leadingToTrailing",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Preprocessors/CascadePreprocessor.swift",
+      "line": 74,
+      "symbol": "CascadeDirection.leadingToTrailing",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Preprocessors/CascadePreprocessor.swift",
+      "line": 78,
+      "symbol": "CascadeDirection.trailingToLeading",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Preprocessors/CascadePreprocessor.swift",
+      "line": 78,
+      "symbol": "CascadeDirection.trailingToLeading",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Preprocessors/ConditionalPreprocessor.swift",
+      "line": 25,
+      "symbol": "HeroConditionalContext",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Preprocessors/ConditionalPreprocessor.swift",
+      "line": 25,
+      "symbol": "HeroConditionalContext",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Preprocessors/ConditionalPreprocessor.swift",
+      "line": 27,
+      "symbol": "HeroConditionalContext.view",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Preprocessors/ConditionalPreprocessor.swift",
+      "line": 27,
+      "symbol": "HeroConditionalContext.view",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Preprocessors/ConditionalPreprocessor.swift",
+      "line": 29,
+      "symbol": "HeroConditionalContext.isAppearing",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Preprocessors/ConditionalPreprocessor.swift",
+      "line": 29,
+      "symbol": "HeroConditionalContext.isAppearing",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Preprocessors/ConditionalPreprocessor.swift",
+      "line": 31,
+      "symbol": "HeroConditionalContext.isPresenting",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Preprocessors/ConditionalPreprocessor.swift",
+      "line": 31,
+      "symbol": "HeroConditionalContext.isPresenting",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Preprocessors/ConditionalPreprocessor.swift",
+      "line": 34,
+      "symbol": "HeroConditionalContext.isInTabbarController",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Preprocessors/ConditionalPreprocessor.swift",
+      "line": 34,
+      "symbol": "HeroConditionalContext.isInTabbarController",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Preprocessors/ConditionalPreprocessor.swift",
+      "line": 37,
+      "symbol": "HeroConditionalContext.isInNavbarController",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Preprocessors/ConditionalPreprocessor.swift",
+      "line": 37,
+      "symbol": "HeroConditionalContext.isInNavbarController",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Preprocessors/ConditionalPreprocessor.swift",
+      "line": 40,
+      "symbol": "HeroConditionalContext.isMatched",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Preprocessors/ConditionalPreprocessor.swift",
+      "line": 40,
+      "symbol": "HeroConditionalContext.isMatched",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Preprocessors/ConditionalPreprocessor.swift",
+      "line": 43,
+      "symbol": "HeroConditionalContext.isAncestorViewMatched",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Preprocessors/ConditionalPreprocessor.swift",
+      "line": 43,
+      "symbol": "HeroConditionalContext.isAncestorViewMatched",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Preprocessors/ConditionalPreprocessor.swift",
+      "line": 47,
+      "symbol": "HeroConditionalContext.matchedView",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Preprocessors/ConditionalPreprocessor.swift",
+      "line": 47,
+      "symbol": "HeroConditionalContext.matchedView",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Preprocessors/ConditionalPreprocessor.swift",
+      "line": 50,
+      "symbol": "HeroConditionalContext.matchedAncestorView",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Preprocessors/ConditionalPreprocessor.swift",
+      "line": 50,
+      "symbol": "HeroConditionalContext.matchedAncestorView",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Preprocessors/ConditionalPreprocessor.swift",
+      "line": 61,
+      "symbol": "HeroConditionalContext.fromViewController",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Preprocessors/ConditionalPreprocessor.swift",
+      "line": 61,
+      "symbol": "HeroConditionalContext.fromViewController",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Preprocessors/ConditionalPreprocessor.swift",
+      "line": 64,
+      "symbol": "HeroConditionalContext.toViewController",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Preprocessors/ConditionalPreprocessor.swift",
+      "line": 64,
+      "symbol": "HeroConditionalContext.toViewController",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Preprocessors/ConditionalPreprocessor.swift",
+      "line": 67,
+      "symbol": "HeroConditionalContext.currentViewController",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Preprocessors/ConditionalPreprocessor.swift",
+      "line": 67,
+      "symbol": "HeroConditionalContext.currentViewController",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Preprocessors/ConditionalPreprocessor.swift",
+      "line": 70,
+      "symbol": "HeroConditionalContext.otherViewController",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Preprocessors/ConditionalPreprocessor.swift",
+      "line": 70,
+      "symbol": "HeroConditionalContext.otherViewController",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Preprocessors/DefaultAnimationPreprocessor.swift",
+      "line": 25,
+      "symbol": "HeroDefaultAnimationType",
+      "symbol_kind": "source.lang.swift.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Preprocessors/DefaultAnimationPreprocessor.swift",
+      "line": 25,
+      "symbol": "HeroDefaultAnimationType",
+      "symbol_kind": "source.lang.swift.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Preprocessors/DefaultAnimationPreprocessor.swift",
+      "line": 26,
+      "symbol": "HeroDefaultAnimationType.Direction",
+      "symbol_kind": "source.lang.swift.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Preprocessors/DefaultAnimationPreprocessor.swift",
+      "line": 26,
+      "symbol": "HeroDefaultAnimationType.Direction",
+      "symbol_kind": "source.lang.swift.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Preprocessors/DefaultAnimationPreprocessor.swift",
+      "line": 27,
+      "symbol": "HeroDefaultAnimationType.Direction.down",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Preprocessors/DefaultAnimationPreprocessor.swift",
+      "line": 27,
+      "symbol": "HeroDefaultAnimationType.Direction.down",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Preprocessors/DefaultAnimationPreprocessor.swift",
+      "line": 27,
+      "symbol": "HeroDefaultAnimationType.Direction.left",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Preprocessors/DefaultAnimationPreprocessor.swift",
+      "line": 27,
+      "symbol": "HeroDefaultAnimationType.Direction.left",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Preprocessors/DefaultAnimationPreprocessor.swift",
+      "line": 27,
+      "symbol": "HeroDefaultAnimationType.Direction.right",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Preprocessors/DefaultAnimationPreprocessor.swift",
+      "line": 27,
+      "symbol": "HeroDefaultAnimationType.Direction.right",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Preprocessors/DefaultAnimationPreprocessor.swift",
+      "line": 27,
+      "symbol": "HeroDefaultAnimationType.Direction.up",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Preprocessors/DefaultAnimationPreprocessor.swift",
+      "line": 27,
+      "symbol": "HeroDefaultAnimationType.Direction.up",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Preprocessors/DefaultAnimationPreprocessor.swift",
+      "line": 28,
+      "symbol": "HeroDefaultAnimationType.Direction.from(node:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Preprocessors/DefaultAnimationPreprocessor.swift",
+      "line": 28,
+      "symbol": "HeroDefaultAnimationType.Direction.from(node:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Preprocessors/DefaultAnimationPreprocessor.swift",
+      "line": 40,
+      "symbol": "HeroDefaultAnimationType.Direction.leading",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Preprocessors/DefaultAnimationPreprocessor.swift",
+      "line": 40,
+      "symbol": "HeroDefaultAnimationType.Direction.leading",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Preprocessors/DefaultAnimationPreprocessor.swift",
+      "line": 44,
+      "symbol": "HeroDefaultAnimationType.Direction.trailing",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Preprocessors/DefaultAnimationPreprocessor.swift",
+      "line": 44,
+      "symbol": "HeroDefaultAnimationType.Direction.trailing",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Preprocessors/DefaultAnimationPreprocessor.swift",
+      "line": 49,
+      "symbol": "HeroDefaultAnimationType.Strategy",
+      "symbol_kind": "source.lang.swift.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Preprocessors/DefaultAnimationPreprocessor.swift",
+      "line": 49,
+      "symbol": "HeroDefaultAnimationType.Strategy",
+      "symbol_kind": "source.lang.swift.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Preprocessors/DefaultAnimationPreprocessor.swift",
+      "line": 50,
+      "symbol": "HeroDefaultAnimationType.Strategy.forceLeftToRight",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Preprocessors/DefaultAnimationPreprocessor.swift",
+      "line": 50,
+      "symbol": "HeroDefaultAnimationType.Strategy.forceLeftToRight",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Preprocessors/DefaultAnimationPreprocessor.swift",
+      "line": 50,
+      "symbol": "HeroDefaultAnimationType.Strategy.forceRightToLeft",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Preprocessors/DefaultAnimationPreprocessor.swift",
+      "line": 50,
+      "symbol": "HeroDefaultAnimationType.Strategy.forceRightToLeft",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Preprocessors/DefaultAnimationPreprocessor.swift",
+      "line": 50,
+      "symbol": "HeroDefaultAnimationType.Strategy.userInterface",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Preprocessors/DefaultAnimationPreprocessor.swift",
+      "line": 50,
+      "symbol": "HeroDefaultAnimationType.Strategy.userInterface",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Preprocessors/DefaultAnimationPreprocessor.swift",
+      "line": 63,
+      "symbol": "HeroDefaultAnimationType.auto",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Preprocessors/DefaultAnimationPreprocessor.swift",
+      "line": 63,
+      "symbol": "HeroDefaultAnimationType.auto",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Preprocessors/DefaultAnimationPreprocessor.swift",
+      "line": 64,
+      "symbol": "HeroDefaultAnimationType.push(direction:)",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Preprocessors/DefaultAnimationPreprocessor.swift",
+      "line": 64,
+      "symbol": "HeroDefaultAnimationType.push(direction:)",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Preprocessors/DefaultAnimationPreprocessor.swift",
+      "line": 65,
+      "symbol": "HeroDefaultAnimationType.pull(direction:)",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Preprocessors/DefaultAnimationPreprocessor.swift",
+      "line": 65,
+      "symbol": "HeroDefaultAnimationType.pull(direction:)",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Preprocessors/DefaultAnimationPreprocessor.swift",
+      "line": 66,
+      "symbol": "HeroDefaultAnimationType.cover(direction:)",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Preprocessors/DefaultAnimationPreprocessor.swift",
+      "line": 66,
+      "symbol": "HeroDefaultAnimationType.cover(direction:)",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Preprocessors/DefaultAnimationPreprocessor.swift",
+      "line": 67,
+      "symbol": "HeroDefaultAnimationType.uncover(direction:)",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Preprocessors/DefaultAnimationPreprocessor.swift",
+      "line": 67,
+      "symbol": "HeroDefaultAnimationType.uncover(direction:)",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Preprocessors/DefaultAnimationPreprocessor.swift",
+      "line": 68,
+      "symbol": "HeroDefaultAnimationType.slide(direction:)",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Preprocessors/DefaultAnimationPreprocessor.swift",
+      "line": 68,
+      "symbol": "HeroDefaultAnimationType.slide(direction:)",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Preprocessors/DefaultAnimationPreprocessor.swift",
+      "line": 69,
+      "symbol": "HeroDefaultAnimationType.zoomSlide(direction:)",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Preprocessors/DefaultAnimationPreprocessor.swift",
+      "line": 69,
+      "symbol": "HeroDefaultAnimationType.zoomSlide(direction:)",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Preprocessors/DefaultAnimationPreprocessor.swift",
+      "line": 70,
+      "symbol": "HeroDefaultAnimationType.pageIn(direction:)",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Preprocessors/DefaultAnimationPreprocessor.swift",
+      "line": 70,
+      "symbol": "HeroDefaultAnimationType.pageIn(direction:)",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Preprocessors/DefaultAnimationPreprocessor.swift",
+      "line": 71,
+      "symbol": "HeroDefaultAnimationType.pageOut(direction:)",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Preprocessors/DefaultAnimationPreprocessor.swift",
+      "line": 71,
+      "symbol": "HeroDefaultAnimationType.pageOut(direction:)",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Preprocessors/DefaultAnimationPreprocessor.swift",
+      "line": 72,
+      "symbol": "HeroDefaultAnimationType.fade",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Preprocessors/DefaultAnimationPreprocessor.swift",
+      "line": 72,
+      "symbol": "HeroDefaultAnimationType.fade",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Preprocessors/DefaultAnimationPreprocessor.swift",
+      "line": 73,
+      "symbol": "HeroDefaultAnimationType.zoom",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Preprocessors/DefaultAnimationPreprocessor.swift",
+      "line": 73,
+      "symbol": "HeroDefaultAnimationType.zoom",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Preprocessors/DefaultAnimationPreprocessor.swift",
+      "line": 74,
+      "symbol": "HeroDefaultAnimationType.zoomOut",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Preprocessors/DefaultAnimationPreprocessor.swift",
+      "line": 74,
+      "symbol": "HeroDefaultAnimationType.zoomOut",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Preprocessors/DefaultAnimationPreprocessor.swift",
+      "line": 76,
+      "symbol": "HeroDefaultAnimationType.selectBy(presenting:dismissing:)",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Preprocessors/DefaultAnimationPreprocessor.swift",
+      "line": 76,
+      "symbol": "HeroDefaultAnimationType.selectBy(presenting:dismissing:)",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Preprocessors/DefaultAnimationPreprocessor.swift",
+      "line": 78,
+      "symbol": "HeroDefaultAnimationType.autoReverse(presenting:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Preprocessors/DefaultAnimationPreprocessor.swift",
+      "line": 78,
+      "symbol": "HeroDefaultAnimationType.autoReverse(presenting:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Preprocessors/DefaultAnimationPreprocessor.swift",
+      "line": 82,
+      "symbol": "HeroDefaultAnimationType.none",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Preprocessors/DefaultAnimationPreprocessor.swift",
+      "line": 82,
+      "symbol": "HeroDefaultAnimationType.none",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Preprocessors/DefaultAnimationPreprocessor.swift",
+      "line": 160,
+      "symbol": "HeroDefaultAnimationType.label",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Preprocessors/DefaultAnimationPreprocessor.swift",
+      "line": 160,
+      "symbol": "HeroDefaultAnimationType.label",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Preprocessors/DefaultAnimationPreprocessor.swift",
+      "line": 174,
+      "symbol": "HeroDefaultAnimationType",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Preprocessors/DefaultAnimationPreprocessor.swift",
+      "line": 174,
+      "symbol": "HeroDefaultAnimationType",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Preprocessors/DefaultAnimationPreprocessor.swift",
+      "line": 175,
+      "symbol": "HeroDefaultAnimationType.from(node:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Preprocessors/DefaultAnimationPreprocessor.swift",
+      "line": 175,
+      "symbol": "HeroDefaultAnimationType.from(node:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Transition/HeroTransition+Animate.swift",
+      "line": 26,
+      "symbol": "HeroTransition.animate()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Transition/HeroTransition+Animate.swift",
+      "line": 26,
+      "symbol": "HeroTransition.animate()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Transition/HeroTransition+Complete.swift",
+      "line": 26,
+      "symbol": "HeroTransition.complete(finished:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Transition/HeroTransition+Complete.swift",
+      "line": 26,
+      "symbol": "HeroTransition.complete(finished:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Transition/HeroTransition+CustomTransition.swift",
+      "line": 27,
+      "symbol": "HeroTransition.transition(from:to:in:completion:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Transition/HeroTransition+CustomTransition.swift",
+      "line": 27,
+      "symbol": "HeroTransition.transition(from:to:in:completion:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Transition/HeroTransition+Start.swift",
+      "line": 26,
+      "symbol": "HeroTransition.start()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Transition/HeroTransition+Start.swift",
+      "line": 26,
+      "symbol": "HeroTransition.start()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Transition/HeroTransition+UINavigationControllerDelegate.swift",
+      "line": 26,
+      "symbol": "HeroTransition.navigationController(_:willShow:animated:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Transition/HeroTransition+UINavigationControllerDelegate.swift",
+      "line": 26,
+      "symbol": "HeroTransition.navigationController(_:willShow:animated:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Transition/HeroTransition+UINavigationControllerDelegate.swift",
+      "line": 32,
+      "symbol": "HeroTransition.navigationController(_:didShow:animated:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Transition/HeroTransition+UINavigationControllerDelegate.swift",
+      "line": 32,
+      "symbol": "HeroTransition.navigationController(_:didShow:animated:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Transition/HeroTransition+UINavigationControllerDelegate.swift",
+      "line": 38,
+      "symbol": "HeroTransition.navigationController(_:animationControllerFor:from:to:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Transition/HeroTransition+UINavigationControllerDelegate.swift",
+      "line": 38,
+      "symbol": "HeroTransition.navigationController(_:animationControllerFor:from:to:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Transition/HeroTransition+UINavigationControllerDelegate.swift",
+      "line": 48,
+      "symbol": "HeroTransition.navigationController(_:interactionControllerFor:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Transition/HeroTransition+UINavigationControllerDelegate.swift",
+      "line": 48,
+      "symbol": "HeroTransition.navigationController(_:interactionControllerFor:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Transition/HeroTransition+UITabBarControllerDelegate.swift",
+      "line": 26,
+      "symbol": "HeroTransition.tabBarController(_:shouldSelect:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Transition/HeroTransition+UITabBarControllerDelegate.swift",
+      "line": 26,
+      "symbol": "HeroTransition.tabBarController(_:shouldSelect:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Transition/HeroTransition+UITabBarControllerDelegate.swift",
+      "line": 36,
+      "symbol": "HeroTransition.tabBarController(_:interactionControllerFor:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Transition/HeroTransition+UITabBarControllerDelegate.swift",
+      "line": 36,
+      "symbol": "HeroTransition.tabBarController(_:interactionControllerFor:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Transition/HeroTransition+UITabBarControllerDelegate.swift",
+      "line": 40,
+      "symbol": "HeroTransition.tabBarController(_:animationControllerForTransitionFrom:to:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Transition/HeroTransition+UITabBarControllerDelegate.swift",
+      "line": 40,
+      "symbol": "HeroTransition.tabBarController(_:animationControllerForTransitionFrom:to:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Transition/HeroTransition+UIViewControllerTransitioningDelegate.swift",
+      "line": 30,
+      "symbol": "HeroTransition.animationController(forPresented:presenting:source:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Transition/HeroTransition+UIViewControllerTransitioningDelegate.swift",
+      "line": 30,
+      "symbol": "HeroTransition.animationController(forPresented:presenting:source:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Transition/HeroTransition+UIViewControllerTransitioningDelegate.swift",
+      "line": 39,
+      "symbol": "HeroTransition.animationController(forDismissed:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Transition/HeroTransition+UIViewControllerTransitioningDelegate.swift",
+      "line": 39,
+      "symbol": "HeroTransition.animationController(forDismissed:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Transition/HeroTransition+UIViewControllerTransitioningDelegate.swift",
+      "line": 47,
+      "symbol": "HeroTransition.interactionControllerForDismissal(using:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Transition/HeroTransition+UIViewControllerTransitioningDelegate.swift",
+      "line": 47,
+      "symbol": "HeroTransition.interactionControllerForDismissal(using:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Transition/HeroTransition+UIViewControllerTransitioningDelegate.swift",
+      "line": 51,
+      "symbol": "HeroTransition.interactionControllerForPresentation(using:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Transition/HeroTransition+UIViewControllerTransitioningDelegate.swift",
+      "line": 51,
+      "symbol": "HeroTransition.interactionControllerForPresentation(using:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Transition/HeroTransition+UIViewControllerTransitioningDelegate.swift",
+      "line": 57,
+      "symbol": "HeroTransition.animateTransition(using:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Transition/HeroTransition+UIViewControllerTransitioningDelegate.swift",
+      "line": 57,
+      "symbol": "HeroTransition.animateTransition(using:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Transition/HeroTransition+UIViewControllerTransitioningDelegate.swift",
+      "line": 64,
+      "symbol": "HeroTransition.transitionDuration(using:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Transition/HeroTransition+UIViewControllerTransitioningDelegate.swift",
+      "line": 64,
+      "symbol": "HeroTransition.transitionDuration(using:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Transition/HeroTransition+UIViewControllerTransitioningDelegate.swift",
+      "line": 68,
+      "symbol": "HeroTransition.animationEnded(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Transition/HeroTransition+UIViewControllerTransitioningDelegate.swift",
+      "line": 68,
+      "symbol": "HeroTransition.animationEnded(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Transition/HeroTransition+UIViewControllerTransitioningDelegate.swift",
+      "line": 74,
+      "symbol": "HeroTransition.wantsInteractiveStart",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Transition/HeroTransition+UIViewControllerTransitioningDelegate.swift",
+      "line": 74,
+      "symbol": "HeroTransition.wantsInteractiveStart",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Transition/HeroTransition+UIViewControllerTransitioningDelegate.swift",
+      "line": 77,
+      "symbol": "HeroTransition.startInteractiveTransition(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Transition/HeroTransition+UIViewControllerTransitioningDelegate.swift",
+      "line": 77,
+      "symbol": "HeroTransition.startInteractiveTransition(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Transition/HeroTransition.swift",
+      "line": 25,
+      "symbol": "HeroTransition",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Transition/HeroTransition.swift",
+      "line": 25,
+      "symbol": "HeroTransition",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Transition/HeroTransition.swift",
+      "line": 25,
+      "symbol": "HeroTransition",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Transition/HeroTransition.swift",
+      "line": 25,
+      "symbol": "HeroTransition",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Transition/HeroTransition.swift",
+      "line": 25,
+      "symbol": "HeroTransition",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Transition/HeroTransition.swift",
+      "line": 25,
+      "symbol": "HeroTransition",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Transition/HeroTransition.swift",
+      "line": 25,
+      "symbol": "HeroTransition",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Transition/HeroTransition.swift",
+      "line": 25,
+      "symbol": "HeroTransition",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Transition/HeroTransition.swift",
+      "line": 25,
+      "symbol": "HeroTransition",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Transition/HeroTransition.swift",
+      "line": 25,
+      "symbol": "HeroTransition",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Transition/HeroTransition.swift",
+      "line": 25,
+      "symbol": "HeroTransition",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Transition/HeroTransition.swift",
+      "line": 25,
+      "symbol": "HeroTransition",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Transition/HeroTransition.swift",
+      "line": 25,
+      "symbol": "HeroTransition",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Transition/HeroTransition.swift",
+      "line": 25,
+      "symbol": "HeroTransition",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Transition/HeroTransition.swift",
+      "line": 26,
+      "symbol": "HeroTransition",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Transition/HeroTransition.swift",
+      "line": 26,
+      "symbol": "HeroTransition",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Transition/HeroTransition.swift",
+      "line": 46,
+      "symbol": "HeroTransitionDelegate",
+      "symbol_kind": "source.lang.swift.decl.protocol",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Transition/HeroTransition.swift",
+      "line": 46,
+      "symbol": "HeroTransitionDelegate",
+      "symbol_kind": "source.lang.swift.decl.protocol",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Transition/HeroTransition.swift",
+      "line": 47,
+      "symbol": "HeroTransitionDelegate.heroTransition(_:didUpdate:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Transition/HeroTransition.swift",
+      "line": 47,
+      "symbol": "HeroTransitionDelegate.heroTransition(_:didUpdate:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Transition/HeroTransition.swift",
+      "line": 48,
+      "symbol": "HeroTransitionDelegate.heroTransition(_:didUpdate:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Transition/HeroTransition.swift",
+      "line": 48,
+      "symbol": "HeroTransitionDelegate.heroTransition(_:didUpdate:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Transition/HeroTransition.swift",
+      "line": 51,
+      "symbol": "HeroTransition",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Transition/HeroTransition.swift",
+      "line": 51,
+      "symbol": "HeroTransition",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Transition/HeroTransition.swift",
+      "line": 52,
+      "symbol": "HeroTransition.delegate",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Transition/HeroTransition.swift",
+      "line": 52,
+      "symbol": "HeroTransition.delegate",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Transition/HeroTransition.swift",
+      "line": 54,
+      "symbol": "HeroTransition.defaultAnimation",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Transition/HeroTransition.swift",
+      "line": 54,
+      "symbol": "HeroTransition.defaultAnimation",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Transition/HeroTransition.swift",
+      "line": 55,
+      "symbol": "HeroTransition.containerColor",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Transition/HeroTransition.swift",
+      "line": 55,
+      "symbol": "HeroTransition.containerColor",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Transition/HeroTransition.swift",
+      "line": 56,
+      "symbol": "HeroTransition",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Transition/HeroTransition.swift",
+      "line": 56,
+      "symbol": "HeroTransition",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Transition/HeroTransition.swift",
+      "line": 56,
+      "symbol": "HeroTransition.isUserInteractionEnabled",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Transition/HeroTransition.swift",
+      "line": 56,
+      "symbol": "HeroTransition.isUserInteractionEnabled",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Transition/HeroTransition.swift",
+      "line": 57,
+      "symbol": "HeroTransition.viewOrderingStrategy",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Transition/HeroTransition.swift",
+      "line": 57,
+      "symbol": "HeroTransition.viewOrderingStrategy",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Transition/HeroTransition.swift",
+      "line": 58,
+      "symbol": "HeroTransition.defaultAnimationDirectionStrategy",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Transition/HeroTransition.swift",
+      "line": 58,
+      "symbol": "HeroTransition.defaultAnimationDirectionStrategy",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Transition/HeroTransition.swift",
+      "line": 60,
+      "symbol": "HeroTransition.state",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Transition/HeroTransition.swift",
+      "line": 60,
+      "symbol": "HeroTransition.state",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Transition/HeroTransition.swift",
+      "line": 70,
+      "symbol": "HeroTransition.isTransitioning",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Transition/HeroTransition.swift",
+      "line": 70,
+      "symbol": "HeroTransition.isTransitioning",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Transition/HeroTransition.swift",
+      "line": 71,
+      "symbol": "HeroTransition.isPresenting",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Transition/HeroTransition.swift",
+      "line": 71,
+      "symbol": "HeroTransition.isPresenting",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Transition/HeroTransition.swift",
+      "line": 73,
+      "symbol": "HeroTransition",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Transition/HeroTransition.swift",
+      "line": 73,
+      "symbol": "HeroTransition",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Transition/HeroTransition.swift",
+      "line": 74,
+      "symbol": "HeroTransition.transitioning",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Transition/HeroTransition.swift",
+      "line": 74,
+      "symbol": "HeroTransition.transitioning",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Transition/HeroTransition.swift",
+      "line": 78,
+      "symbol": "HeroTransition.presenting",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Transition/HeroTransition.swift",
+      "line": 78,
+      "symbol": "HeroTransition.presenting",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Transition/HeroTransition.swift",
+      "line": 177,
+      "symbol": "HeroTransition.init()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Transition/HeroTransition.swift",
+      "line": 177,
+      "symbol": "HeroTransition.init()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Transition/HeroTransitionState.swift",
+      "line": 25,
+      "symbol": "HeroTransitionState",
+      "symbol_kind": "source.lang.swift.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Transition/HeroTransitionState.swift",
+      "line": 25,
+      "symbol": "HeroTransitionState",
+      "symbol_kind": "source.lang.swift.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Transition/HeroTransitionState.swift",
+      "line": 27,
+      "symbol": "HeroTransitionState.possible",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Transition/HeroTransitionState.swift",
+      "line": 27,
+      "symbol": "HeroTransitionState.possible",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Transition/HeroTransitionState.swift",
+      "line": 31,
+      "symbol": "HeroTransitionState.notified",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Transition/HeroTransitionState.swift",
+      "line": 31,
+      "symbol": "HeroTransitionState.notified",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Transition/HeroTransitionState.swift",
+      "line": 34,
+      "symbol": "HeroTransitionState.starting",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Transition/HeroTransitionState.swift",
+      "line": 34,
+      "symbol": "HeroTransitionState.starting",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Transition/HeroTransitionState.swift",
+      "line": 37,
+      "symbol": "HeroTransitionState.animating",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Transition/HeroTransitionState.swift",
+      "line": 37,
+      "symbol": "HeroTransitionState.animating",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Transition/HeroTransitionState.swift",
+      "line": 40,
+      "symbol": "HeroTransitionState.completing",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/mattielloj/Workspace/Git/Hero/Sources/Transition/HeroTransitionState.swift",
+      "line": 40,
+      "symbol": "HeroTransitionState.completing",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    }
+  ],
+  "source_directory": "/Users/mattielloj/Workspace/Git/Hero"
+}

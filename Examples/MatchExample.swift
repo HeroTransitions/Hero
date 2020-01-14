@@ -51,7 +51,7 @@ class MatchExampleViewController1: ExampleBaseViewController {
 class MatchExampleViewController2: ExampleBaseViewController {
   let redView = UIView()
   let blackView = UIView()
-  let whiteView = UIView()
+  let backgroundView = UIView()
 
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -65,12 +65,16 @@ class MatchExampleViewController2: ExampleBaseViewController {
     blackView.cornerRadius = 8
     view.addSubview(blackView)
 
-    whiteView.backgroundColor = .white
-    whiteView.cornerRadius = 8
+    if #available(iOS 13.0, *) {
+      backgroundView.backgroundColor = .systemBackground
+    } else {
+      backgroundView.backgroundColor = .white
+    }
+    backgroundView.cornerRadius = 8
     // .useGlobalCoordinateSpace modifier is needed here otherwise it will be covered by redView during transition.
     // see http://lkzhao.com/2018/03/02/hero-useglobalcoordinatespace-explained.html for detail
-    whiteView.hero.modifiers = [.translate(y: 500), .useGlobalCoordinateSpace]
-    view.addSubview(whiteView)
+    backgroundView.hero.modifiers = [.translate(y: 500), .useGlobalCoordinateSpace]
+    view.addSubview(backgroundView)
   }
 
   override func viewDidLayoutSubviews() {
@@ -78,6 +82,6 @@ class MatchExampleViewController2: ExampleBaseViewController {
     redView.frame = view.bounds
     blackView.frame.size = CGSize(width: 250, height: 60)
     blackView.center = CGPoint(x: view.bounds.midX, y: 130)
-    whiteView.frame = CGRect(x: (view.bounds.width - 250) / 2, y: 180, width: 250, height: view.bounds.height - 320)
+    backgroundView.frame = CGRect(x: (view.bounds.width - 250) / 2, y: 180, width: 250, height: view.bounds.height - 320)
   }
 }
