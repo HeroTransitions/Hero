@@ -29,8 +29,8 @@ public enum CascadeDirection {
   case bottomToTop
   case leftToRight
   case rightToLeft
-  case radial(center:CGPoint)
-  case inverseRadial(center:CGPoint)
+  case radial(center: CGPoint)
+  case inverseRadial(center: CGPoint)
   var comparator: (UIView, UIView) -> Bool {
     switch self {
     case .topToBottom:
@@ -70,11 +70,11 @@ public enum CascadeDirection {
       return nil
     }
   }
-  
+
   public static var leadingToTrailing: CascadeDirection {
     return UIApplication.shared.userInterfaceLayoutDirection == .leftToRight ? .leftToRight : .rightToLeft
   }
-  
+
   public static var trailingToLeading: CascadeDirection {
     return UIApplication.shared.userInterfaceLayoutDirection == .leftToRight ? .rightToLeft : .leftToRight
   }

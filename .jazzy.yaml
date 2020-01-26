@@ -1,8 +1,27 @@
+# ---- About ----
 module: Hero
-author: Luke Zhao
-author_url: http://lkzhao.com
-github_url: https://github.com/lkzhao/Hero
-swift_version: 3.0.2
-source_directory: Examples
+module_version: 1.5.0
+author: HeroTransitions
 readme: README.md
+copyright: 'See [license](https://github.com/HeroTransitions/Hero/blob/develop/LICENSE) for more details.'
+
+# ---- URLs ----
+author_url: https://herotransitions.github.io/Hero/
+dash_url: https://herotransitions.github.io/Hero/docsets/Hero.xml
+github_url: https://github.com/HeroTransitions/Hero/
+github_file_prefix: https://github.com/HeroTransitions/Hero/tree/1.5.0/
+
+# ---- Sources ----
+podspec: Hero.podspec
+
+# ---- Generation ----
+clean: true
+output: docs
+min_acl: public
+hide_documentation_coverage: false
+skip_undocumented: false
+objc: false
+# swift_version: 5.1.0 
+
+# ---- Formatting ----
 theme: fullwidth

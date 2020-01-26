@@ -1,0 +1,945 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>HeroPlugin Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset="utf-8">
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+    <script src="../js/lunr.min.js" defer></script>
+    <script src="../js/typeahead.jquery.js" defer></script>
+    <script src="../js/jazzy.search.js" defer></script>
+  </head>
+  <body>
+
+    <a name="//apple_ref/swift/Class/HeroPlugin" class="dashAnchor"></a>
+
+    <a title="HeroPlugin Class Reference"></a>
+
+    <header class="header">
+      <p class="header-col header-col--primary">
+        <a class="header-link" href="../index.html">
+          Hero 1.5.0 Docs
+        </a>
+         (24% documented)
+      </p>
+    
+      <p class="header-col--secondary">
+        <form role="search" action="../search.json">
+          <input type="text" placeholder="Search documentation" data-typeahead>
+        </form>
+      </p>
+    
+        <p class="header-col header-col--secondary">
+          <a class="header-link" href="https://github.com/HeroTransitions/Hero/">
+            <img class="header-icon" src="../img/gh.png"/>
+            View on GitHub
+          </a>
+        </p>
+    
+        <p class="header-col header-col--secondary">
+          <a class="header-link" href="dash-feed://https%3A%2F%2Fherotransitions%2Egithub%2Eio%2FHero%2Fdocsets%2FHero%2Exml">
+            <img class="header-icon" src="../img/dash.png"/>
+            Install in Dash
+          </a>
+        </p>
+    </header>
+
+    <p class="breadcrumbs">
+      <a class="breadcrumb" href="../index.html">Hero Reference</a>
+      <img class="carat" src="../img/carat.png" />
+      HeroPlugin Class Reference
+    </p>
+
+    <div class="content-wrapper">
+      <nav class="navigation">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/BinaryOpNode.html">BinaryOpNode</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/CallNode.html">CallNode</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/ExprNode.html">ExprNode</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/FunctionNode.html">FunctionNode</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/Hero.html">Hero</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/HeroContext.html">HeroContext</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/HeroDebugPlugin.html">HeroDebugPlugin</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/HeroDebugPlugin.html">HeroDebugPlugin</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/HeroExtension.html">HeroExtension</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/HeroModifier.html">HeroModifier</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/HeroPlugin.html">HeroPlugin</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/HeroTransition.html">HeroTransition</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/Lexer.html">Lexer</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/NumberNode.html">NumberNode</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/Parser.html">Parser</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/PrototypeNode.html">PrototypeNode</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Classes/VariableNode.html">VariableNode</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="../Enums.html">Enumerations</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/CascadeDirection.html">CascadeDirection</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/HeroCoordinateSpace.html">HeroCoordinateSpace</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/HeroDefaultAnimationType.html">HeroDefaultAnimationType</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/HeroDefaultAnimationType/Direction.html">– Direction</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/HeroDefaultAnimationType/Strategy.html">– Strategy</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/HeroSnapshotType.html">HeroSnapshotType</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/HeroTransitionState.html">HeroTransitionState</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/HeroViewOrderingStrategy.html">HeroViewOrderingStrategy</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/ParseError.html">ParseError</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Enums/Token.html">Token</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="../Extensions.html">Extensions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Extensions/CAMediaTimingFunction.html">CAMediaTimingFunction</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Extensions/CATransform3D.html">CATransform3D</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Extensions/HeroDebugView.html">HeroDebugView</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Extensions/HeroDebugView.html">HeroDebugView</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Extensions/String.html">String</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Extensions/UINavigationController.html">UINavigationController</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Extensions/UINavigationController.html">UINavigationController</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Extensions/UITabBarController.html">UITabBarController</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Extensions/UIView.html">UIView</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Extensions/UIViewController.html">UIViewController</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="../Functions.html">Functions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Functions.html#/s:4Hero2eeoiySbAA8ExprNodeC_ADtF">==(_:_:)</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="../Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Protocols/HeroAnimator.html">HeroAnimator</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Protocols/HeroCompatible.html">HeroCompatible</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Protocols/HeroCustomSnapshotView.html">HeroCustomSnapshotView</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Protocols/HeroPreprocessor.html">HeroPreprocessor</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Protocols/HeroProgressUpdateObserver.html">HeroProgressUpdateObserver</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Protocols/HeroStringConvertible.html">HeroStringConvertible</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Protocols/HeroTransitionDelegate.html">HeroTransitionDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Protocols/HeroViewControllerDelegate.html">HeroViewControllerDelegate</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a class="nav-group-name-link" href="../Structs.html">Structures</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/HeroConditionalContext.html">HeroConditionalContext</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="../Structs/HeroTargetState.html">HeroTargetState</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+
+        <section class="section">
+          <div class="section-content">
+            <h1>HeroPlugin</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight swift"><code><span class="kd">open</span> <span class="kd">class</span> <span class="kt">HeroPlugin</span> <span class="p">:</span> <span class="kt">NSObject</span><span class="p">,</span> <span class="kt"><a href="../Protocols/HeroPreprocessor.html">HeroPreprocessor</a></span><span class="p">,</span> <span class="kt"><a href="../Protocols/HeroAnimator.html">HeroAnimator</a></span></code></pre>
+
+                </div>
+              </div>
+            <p>Undocumented</p>
+
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="section-content">
+            <div class="task-group">
+              <ul class="item-container">
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:4Hero0A6PluginC4heroAA0A10TransitionCSgvp"></a>
+                    <a name="//apple_ref/swift/Property/hero" class="dashAnchor"></a>
+                    <a class="token" href="#/s:4Hero0A6PluginC4heroAA0A10TransitionCSgvp">hero</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">weak</span> <span class="kd">public</span> <span class="k">var</span> <span class="nv">hero</span><span class="p">:</span> <span class="kt"><a href="../Classes/HeroTransition.html">HeroTransition</a></span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/HeroTransitions/Hero/tree/1.5.0//Sources/HeroPlugin.swift#L">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:4Hero0A6PluginC7contextAA0A7ContextCSgvp"></a>
+                    <a name="//apple_ref/swift/Property/context" class="dashAnchor"></a>
+                    <a class="token" href="#/s:4Hero0A6PluginC7contextAA0A7ContextCSgvp">context</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">context</span><span class="p">:</span> <span class="kt"><a href="../Classes/HeroContext.html">HeroContext</a></span><span class="o">!</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/HeroTransitions/Hero/tree/1.5.0//Sources/HeroPlugin.swift#L29-L31">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:4Hero0A6PluginC23requirePerFrameCallbackSbvp"></a>
+                    <a name="//apple_ref/swift/Property/requirePerFrameCallback" class="dashAnchor"></a>
+                    <a class="token" href="#/s:4Hero0A6PluginC23requirePerFrameCallbackSbvp">requirePerFrameCallback</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Determines whether or not to receive <code>seekTo</code> callback on every frame.</p>
+
+<p>Default is false.</p>
+
+<p>When <strong>requirePerFrameCallback</strong> is <strong>false</strong>, the plugin needs to start its own animations inside <code>animate</code> &amp; <code>resume</code>
+The <code>seekTo</code> method is only being called during an interactive transition.</p>
+
+<p>When <strong>requirePerFrameCallback</strong> is <strong>true</strong>, the plugin will receive <code>seekTo</code> callback on every animation frame. Hence it is possible for the plugin to do per-frame animations without implementing <code>animate</code> &amp; <code>resume</code></p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">open</span> <span class="k">var</span> <span class="nv">requirePerFrameCallback</span><span class="p">:</span> <span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/HeroTransitions/Hero/tree/1.5.0//Sources/HeroPlugin.swift#L43">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@Hero@objc(cs)HeroPlugin(im)init"></a>
+                    <a name="//apple_ref/swift/Method/init()" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@Hero@objc(cs)HeroPlugin(im)init">init()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">override</span> <span class="kd">required</span> <span class="nf">init</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/HeroTransitions/Hero/tree/1.5.0//Sources/HeroPlugin.swift#L">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:4Hero0A6PluginC7process9fromViews02toE0ySaySo6UIViewCG_AItF"></a>
+                    <a name="//apple_ref/swift/Method/process(fromViews:toViews:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:4Hero0A6PluginC7process9fromViews02toE0ySaySo6UIViewCG_AItF">process(fromViews:toViews:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Called before any animation.
+Override this method when you want to preprocess modifiers for views</p>
+
+<p>To check a view&rsquo;s modifiers:</p>
+<pre class="highlight swift"><code><span class="n">context</span><span class="p">[</span><span class="n">view</span><span class="p">]</span>
+<span class="n">context</span><span class="p">[</span><span class="n">view</span><span class="p">,</span> <span class="s">"modifierName"</span><span class="p">]</span>
+</code></pre>
+
+<p>To set a view&rsquo;s modifiers:</p>
+<pre class="highlight swift"><code><span class="n">context</span><span class="p">[</span><span class="n">view</span><span class="p">]</span> <span class="o">=</span> <span class="p">[(</span><span class="s">"modifier1"</span><span class="p">,</span> <span class="p">[</span><span class="s">"parameter1"</span><span class="p">]),</span> <span class="p">(</span><span class="s">"modifier2"</span><span class="p">,</span> <span class="p">[])]</span>
+<span class="n">context</span><span class="p">[</span><span class="n">view</span><span class="p">,</span> <span class="s">"modifier1"</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s">"parameter1"</span><span class="p">,</span> <span class="s">"parameter2"</span><span class="p">]</span>
+</code></pre>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">open</span> <span class="kd">func</span> <span class="nf">process</span><span class="p">(</span><span class="nv">fromViews</span><span class="p">:</span> <span class="p">[</span><span class="kt">UIView</span><span class="p">],</span> <span class="nv">toViews</span><span class="p">:</span> <span class="p">[</span><span class="kt">UIView</span><span class="p">])</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>context</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>object holding all parsed and changed modifiers,</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>fromViews</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A flattened list of all views from source ViewController</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>toViews</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A flattened list of all views from destination ViewController</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/HeroTransitions/Hero/tree/1.5.0//Sources/HeroPlugin.swift#L66">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:4Hero0A6PluginC10canAnimate4view9appearingSbSo6UIViewC_SbtF"></a>
+                    <a name="//apple_ref/swift/Method/canAnimate(view:appearing:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:4Hero0A6PluginC10canAnimate4view9appearingSbSo6UIViewC_SbtF">canAnimate(view:appearing:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">open</span> <span class="kd">func</span> <span class="nf">canAnimate</span><span class="p">(</span><span class="nv">view</span><span class="p">:</span> <span class="kt">UIView</span><span class="p">,</span> <span class="nv">appearing</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>context</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>object holding all parsed and changed modifiers,</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>view</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>the view to check whether or not the plugin can handle the animation</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>appearing</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>true if the view is appearing(i.e. a view in destination ViewController)
+If return true, Hero won&rsquo;t animate and won&rsquo;t let any other plugins animate this view.
+The view will also be hidden automatically during the animation.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>return true if the plugin can handle animating the view.</p>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/HeroTransitions/Hero/tree/1.5.0//Sources/HeroPlugin.swift#L77">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:4Hero0A6PluginC7animate9fromViews02toE0SdSaySo6UIViewCG_AItF"></a>
+                    <a name="//apple_ref/swift/Method/animate(fromViews:toViews:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:4Hero0A6PluginC7animate9fromViews02toE0SdSaySo6UIViewCG_AItF">animate(fromViews:toViews:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Perform the animation.</p>
+
+<p>Note: views in <code>fromViews</code> &amp; <code>toViews</code> are hidden already. Unhide then if you need to take snapshots.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">open</span> <span class="kd">func</span> <span class="nf">animate</span><span class="p">(</span><span class="nv">fromViews</span><span class="p">:</span> <span class="p">[</span><span class="kt">UIView</span><span class="p">],</span> <span class="nv">toViews</span><span class="p">:</span> <span class="p">[</span><span class="kt">UIView</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kt">TimeInterval</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>context</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>object holding all parsed and changed modifiers,</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>fromViews</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A flattened list of all views from source ViewController (filtered by <code>canAnimate</code>)</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>toViews</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A flattened list of all views from destination ViewController (filtered by <code>canAnimate</code>)</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>The duration needed to complete the animation</p>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/HeroTransitions/Hero/tree/1.5.0//Sources/HeroPlugin.swift#L90">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:4Hero0A6PluginC5cleanyyF"></a>
+                    <a name="//apple_ref/swift/Method/clean()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:4Hero0A6PluginC5cleanyyF">clean()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Called when all animations are completed.</p>
+
+<p>Should perform cleanup and release any reference</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">open</span> <span class="kd">func</span> <span class="nf">clean</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/HeroTransitions/Hero/tree/1.5.0//Sources/HeroPlugin.swift#L97">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:4Hero0A6PluginC6seekTo10timePassedySd_tF"></a>
+                    <a name="//apple_ref/swift/Method/seekTo(timePassed:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:4Hero0A6PluginC6seekTo10timePassedySd_tF">seekTo(timePassed:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>For supporting interactive animation only.</p>
+
+<p>This method is called when an interactive animation is in place
+The plugin should pause the animation, and seek to the given progress</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">open</span> <span class="kd">func</span> <span class="nf">seekTo</span><span class="p">(</span><span class="nv">timePassed</span><span class="p">:</span> <span class="kt">TimeInterval</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>timePassed</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>time of the animation to seek to.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/HeroTransitions/Hero/tree/1.5.0//Sources/HeroPlugin.swift#L107">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:4Hero0A6PluginC6resume10timePassed7reverseS2d_SbtF"></a>
+                    <a name="//apple_ref/swift/Method/resume(timePassed:reverse:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:4Hero0A6PluginC6resume10timePassed7reverseS2d_SbtF">resume(timePassed:reverse:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>For supporting interactive animation only.</p>
+
+<p>This method is called when an interactive animation is ended
+The plugin should resume the animation.</p>
+
+<ul>
+<li>timePassed: will be the same value since last <code>seekTo</code></li>
+<li>reverse: a boolean value indicating whether or not the animation should reverse</li>
+</ul>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">open</span> <span class="kd">func</span> <span class="nf">resume</span><span class="p">(</span><span class="nv">timePassed</span><span class="p">:</span> <span class="kt">TimeInterval</span><span class="p">,</span> <span class="nv">reverse</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">TimeInterval</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/HeroTransitions/Hero/tree/1.5.0//Sources/HeroPlugin.swift#L118">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:4Hero0A6PluginC5apply5state2toyAA0A11TargetStateV_So6UIViewCtF"></a>
+                    <a name="//apple_ref/swift/Method/apply(state:to:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:4Hero0A6PluginC5apply5state2toyAA0A11TargetStateV_So6UIViewCtF">apply(state:to:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>For supporting interactive animation only.</p>
+
+<p>This method is called when user wants to override animation modifiers during an interactive animation</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">open</span> <span class="kd">func</span> <span class="nf">apply</span><span class="p">(</span><span class="nv">state</span><span class="p">:</span> <span class="kt"><a href="../Structs/HeroTargetState.html">HeroTargetState</a></span><span class="p">,</span> <span class="n">to</span> <span class="nv">view</span><span class="p">:</span> <span class="kt">UIView</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>state</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>the target state to override</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>view</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>the view to override</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/HeroTransitions/Hero/tree/1.5.0//Sources/HeroPlugin.swift#L129">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:4Hero0A6PluginC12changeTarget5state13isDestination2toyAA0aD5StateV_SbSo6UIViewCtF"></a>
+                    <a name="//apple_ref/swift/Method/changeTarget(state:isDestination:to:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:4Hero0A6PluginC12changeTarget5state13isDestination2toyAA0aD5StateV_SbSo6UIViewCtF">changeTarget(state:isDestination:to:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">open</span> <span class="kd">func</span> <span class="nf">changeTarget</span><span class="p">(</span><span class="nv">state</span><span class="p">:</span> <span class="kt"><a href="../Structs/HeroTargetState.html">HeroTargetState</a></span><span class="p">,</span> <span class="nv">isDestination</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">,</span> <span class="n">to</span> <span class="nv">view</span><span class="p">:</span> <span class="kt">UIView</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/HeroTransitions/Hero/tree/1.5.0//Sources/HeroPlugin.swift#L">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul class="item-container">
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:4Hero0A6PluginC9isEnabledSbvpZ"></a>
+                    <a name="//apple_ref/swift/Variable/isEnabled" class="dashAnchor"></a>
+                    <a class="token" href="#/s:4Hero0A6PluginC9isEnabledSbvpZ">isEnabled</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">static</span> <span class="k">var</span> <span class="nv">isEnabled</span><span class="p">:</span> <span class="kt">Bool</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/HeroTransitions/Hero/tree/1.5.0//Sources/HeroPlugin.swift#L135-L146">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:4Hero0A6PluginC6enableyyFZ"></a>
+                    <a name="//apple_ref/swift/Method/enable()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:4Hero0A6PluginC6enableyyFZ">enable()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="nf">enable</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/HeroTransitions/Hero/tree/1.5.0//Sources/HeroPlugin.swift#L147-L149">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:4Hero0A6PluginC7disableyyFZ"></a>
+                    <a name="//apple_ref/swift/Method/disable()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:4Hero0A6PluginC7disableyyFZ">disable()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="nf">disable</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/HeroTransitions/Hero/tree/1.5.0//Sources/HeroPlugin.swift#L150-L152">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+      </article>
+    </div>
+    <section class="footer">
+      <p>See <a class="link" href="https://github.com/HeroTransitions/Hero/blob/develop/LICENSE" target="_blank" rel="external">license</a> for more details.</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+    </section>
+  </body>
+</div>
+</html>
