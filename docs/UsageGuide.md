@@ -25,7 +25,7 @@ There are two important attributes to understand: `heroID` and `heroModifiers`. 
 | Attribute Name | Description |
 | --- | --- |
 | `heroID`    | Identifier for the view. Hero will automatically transition between views with the same `heroID` |
-| `her.modifiers` | Specifies the extra animations performed alongside the main transition. |
+| `hero.modifiers` | Specifies the extra animations performed alongside the main transition. |
 
 ## HeroID
 
