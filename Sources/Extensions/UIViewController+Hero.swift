@@ -170,7 +170,7 @@ extension UINavigationController {
   }
   
   /// This function call the standard setViewControllers() but it also add a completion callback.
-   func setViewControllers(viewControllers: [UIViewController], animated: Bool, completion: (() -> Void)?) {
+   func setViewControllers(viewControllers: [UIViewController], animated: Bool = true, completion: (() -> Void)? = nil) {
 		setViewControllers(viewControllers, animated: animated)
 		guard animated, let coordinator = transitionCoordinator else {
 			DispatchQueue.main.async { completion?() }
