@@ -73,7 +73,7 @@ class AppleProductViewController: UIViewController, HeroViewControllerDelegate {
 
       if nextState != state {
         Hero.shared.cancel(animate: false)
-        let currentIndex = viewControllerIDs.index(of: self.title!)!
+        let currentIndex = viewControllerIDs.firstIndex(of: self.title!)!
         let nextIndex = (currentIndex + (nextState == .slidingLeft ? 1 : viewControllerIDs.count - 1)) % viewControllerIDs.count
         nextVC = self.storyboard!.instantiateViewController(withIdentifier: viewControllerIDs[nextIndex]) as? AppleProductViewController
 
