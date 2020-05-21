@@ -2,7 +2,7 @@
 
 Pod::Spec.new do |s|
   s.name              = 'Hero'
-  s.version           = '1.5.0'
+  s.version           = '1.5.1'
   s.summary           = 'Elegant transition library for iOS'
 
   s.description       = <<-DESC
@@ -30,7 +30,7 @@ Pod::Spec.new do |s|
   s.ios.frameworks = 'UIKit', 'Foundation', 'QuartzCore', 'CoreGraphics', 'CoreMedia'
   s.tvos.frameworks = 'UIKit', 'Foundation', 'QuartzCore', 'CoreGraphics', 'CoreMedia'
 
-  s.swift_version = '4.2'
+  s.swift_version = '5.0'
 
   s.requires_arc = true
 

@@ -4,6 +4,14 @@ The changelog for `Hero`. Also see the [releases](https://github.com/HeroTransit
 
 --------------------------------------
 
+## [1.5.1](https://github.com/HeroTransitions/Hero/releases/tag/1.5.1)
+
+### Added
+
+- Added swift 5.0 support.
+[#652](https://github.com/HeroTransitions/Hero/pull/652) by [@StefaniOSApps](https://github.com/StefaniOSApps)
+
+
 ## [1.5.0](https://github.com/HeroTransitions/Hero/releases/tag/1.5.0)
 
 ### Added
