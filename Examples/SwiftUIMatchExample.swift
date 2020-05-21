@@ -3,7 +3,7 @@
 import UIKit
 import SwiftUI
 
-@available(iOS 13.0, *)
+@available(macOS 10.15, iOS 13, watchOS 6, tvOS 13, macCatalyst 13, *)
 class SwiftUIMatchExampleViewController: UIHostingController<ImagesTableView> {
 
   required init() {
@@ -33,7 +33,7 @@ struct ImageInfo: Identifiable {
   let name: String
 }
 
-@available(iOS 13.0, *)
+@available(macOS 10.15, iOS 13, watchOS 6, tvOS 13, macCatalyst 13, *)
 struct ImagesTableView: View {
     
   var onTapRow: ((ImageInfo)->())?
