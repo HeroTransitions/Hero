@@ -20,6 +20,9 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
+#if canImport(UIKit)
+
+import QuartzCore
 import UIKit
 
 public enum HeroSnapshotType {
@@ -127,3 +130,5 @@ extension HeroTargetState: ExpressibleByArrayLiteral {
     append(contentsOf: elements)
   }
 }
+
+#endif

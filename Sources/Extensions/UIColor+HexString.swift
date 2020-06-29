@@ -6,6 +6,8 @@
 //  Copyright © 2019 Luke Zhao. All rights reserved.
 //
 
+#if canImport(UIKit)
+
 import UIKit
 
 extension UIColor {
@@ -31,3 +33,5 @@ extension UIColor {
     )
   }
 }
+
+#endif

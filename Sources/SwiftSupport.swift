@@ -6,10 +6,11 @@
 //  Copyright © 2018 Luke Zhao. All rights reserved.
 //
 
-#if !(swift(>=4.2))
+#if canImport(UIKit) && !(swift(>=4.2))
 import Foundation
 import CoreMedia
 import CoreGraphics
+
 import UIKit
 
 extension CMTime {
@@ -46,4 +47,5 @@ extension RunLoop {
     static let common = RunLoopMode.commonModes
   }
 }
+
 #endif
