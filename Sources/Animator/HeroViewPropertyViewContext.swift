@@ -20,6 +20,8 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
+#if canImport(UIKit)
+
 import UIKit
 
 @available(iOS 10, tvOS 10, *)
@@ -72,3 +74,5 @@ internal class HeroViewPropertyViewContext: HeroAnimatorViewContext {
     return duration
   }
 }
+
+#endif

@@ -20,6 +20,8 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
+#if canImport(UIKit)
+
 import UIKit
 
 public final class HeroModifier {
@@ -497,3 +499,5 @@ extension HeroModifier {
     return .when({ !$0.isAppearing }, modifiers)
   }
 }
+
+#endif
