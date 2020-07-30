@@ -128,6 +128,8 @@
 		B1D816EC1EF5A720007B9776 /* HeroTransition+Animate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D816EA1EF5A720007B9776 /* HeroTransition+Animate.swift */; };
 		B1D834041F02E7C0009E1E36 /* ConditionalPreprocessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D834031F02E7C0009E1E36 /* ConditionalPreprocessor.swift */; };
 		B1D834051F02E7C0009E1E36 /* ConditionalPreprocessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D834031F02E7C0009E1E36 /* ConditionalPreprocessor.swift */; };
+		B35264CE2454FEF300D33861 /* Locale+Hero.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35264CD2454FEF300D33861 /* Locale+Hero.swift */; };
+		B35264CF2454FEF300D33861 /* Locale+Hero.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35264CD2454FEF300D33861 /* Locale+Hero.swift */; };
 		DBA05BB41A704A4A17967918 /* Pods_HeroTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 841FFA357ACB279D3F74CDEE /* Pods_HeroTests.framework */; };
 		F482F0BE235D7808002E97ED /* UIColor+HexString.swift in Sources */ = {isa = PBXBuildFile; fileRef = F482F0BD235D7808002E97ED /* UIColor+HexString.swift */; };
 		F482F0BF235D7808002E97ED /* UIColor+HexString.swift in Sources */ = {isa = PBXBuildFile; fileRef = F482F0BD235D7808002E97ED /* UIColor+HexString.swift */; };
@@ -285,6 +287,7 @@
 		B1D816E71EF5A6FE007B9776 /* HeroTransition+Complete.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HeroTransition+Complete.swift"; sourceTree = "<group>"; };
 		B1D816EA1EF5A720007B9776 /* HeroTransition+Animate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HeroTransition+Animate.swift"; sourceTree = "<group>"; };
 		B1D834031F02E7C0009E1E36 /* ConditionalPreprocessor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConditionalPreprocessor.swift; sourceTree = "<group>"; };
+		B35264CD2454FEF300D33861 /* Locale+Hero.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Locale+Hero.swift"; sourceTree = "<group>"; };
 		C377744CBFF1E24426E80F55 /* Pods-HeroExamples.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HeroExamples.release.xcconfig"; path = "Pods/Target Support Files/Pods-HeroExamples/Pods-HeroExamples.release.xcconfig"; sourceTree = "<group>"; };
 		C51A6465EC2CB38D82F28B93 /* Pods-HeroTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HeroTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HeroTests/Pods-HeroTests.debug.xcconfig"; sourceTree = "<group>"; };
 		EEE340F89FF0A49DD23A5A6E /* Pods_HeroExamples.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HeroExamples.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -355,6 +358,7 @@
 				A37D7B471E2C0C9300AC1959 /* CAMediaTimingFunction+Hero.swift */,
 				A37D7B481E2C0C9300AC1959 /* CG+Hero.swift */,
 				A37D7B491E2C0C9300AC1959 /* DispatchQueue+Hero.swift */,
+				B35264CD2454FEF300D33861 /* Locale+Hero.swift */,
 				A37D7B4A1E2C0C9300AC1959 /* UIKit+Hero.swift */,
 				B101B2C91E561408007E7112 /* UIView+Hero.swift */,
 				B101B2CD1E561421007E7112 /* UIViewController+Hero.swift */,
@@ -981,6 +985,7 @@
 				2D1F7FD61E49DD18004D944B /* DispatchQueue+Hero.swift in Sources */,
 				2D1F7FCB1E49DD08004D944B /* HeroTargetState.swift in Sources */,
 				B17D888D1EF5A5500048D3E8 /* HeroTransition+UIViewControllerTransitioningDelegate.swift in Sources */,
+				B35264CF2454FEF300D33861 /* Locale+Hero.swift in Sources */,
 				B1D816E01EF5A5DF007B9776 /* HeroViewControllerDelegate.swift in Sources */,
 				B1193ABA1E525D12005B1C87 /* HeroAnimatorViewContext.swift in Sources */,
 				2D1F7FCA1E49DD08004D944B /* HeroPlugin.swift in Sources */,
@@ -1050,6 +1055,7 @@
 				A37D7B4D1E2C0C9300AC1959 /* CAMediaTimingFunction+Hero.swift in Sources */,
 				A37D7B5D1E2C0CBD00AC1959 /* HeroModifier.swift in Sources */,
 				B17D888C1EF5A5500048D3E8 /* HeroTransition+UIViewControllerTransitioningDelegate.swift in Sources */,
+				B35264CE2454FEF300D33861 /* Locale+Hero.swift in Sources */,
 				B1D816DF1EF5A5DF007B9776 /* HeroViewControllerDelegate.swift in Sources */,
 				B1193AB91E525D12005B1C87 /* HeroAnimatorViewContext.swift in Sources */,
 				A37D7B5B1E2C0CBD00AC1959 /* HeroDefaultAnimator.swift in Sources */,

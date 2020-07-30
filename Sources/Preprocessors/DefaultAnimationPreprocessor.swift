@@ -39,12 +39,20 @@ public enum HeroDefaultAnimationType {
       }
     }
 
+    public static var leadingToTrailing: CascadeDirection {
+      return !Locale.isDeviceLanguageRightToLeft ? .leftToRight : .rightToLeft
+    }
+
+    public static var trailingToLeading: CascadeDirection {
+      return !Locale.isDeviceLanguageRightToLeft ? .rightToLeft : .leftToRight
+    }
+
     public static var leading: Direction {
-      return UIApplication.shared.userInterfaceLayoutDirection == .leftToRight ? .left : .right
+      return !Locale.isDeviceLanguageRightToLeft ? .left : .right
     }
 
     public static var trailing: Direction {
-      return UIApplication.shared.userInterfaceLayoutDirection == .leftToRight ? .right : .left
+      return !Locale.isDeviceLanguageRightToLeft ? .right : .left
     }
   }
 

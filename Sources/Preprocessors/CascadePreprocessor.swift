@@ -74,11 +74,11 @@ public enum CascadeDirection {
   }
 
   public static var leadingToTrailing: CascadeDirection {
-    return UIApplication.shared.userInterfaceLayoutDirection == .leftToRight ? .leftToRight : .rightToLeft
+    return !Locale.isDeviceLanguageRightToLeft ? .leftToRight : .rightToLeft
   }
 
   public static var trailingToLeading: CascadeDirection {
-    return UIApplication.shared.userInterfaceLayoutDirection == .leftToRight ? .rightToLeft : .leftToRight
+    return !Locale.isDeviceLanguageRightToLeft ? .rightToLeft : .leftToRight
   }
 
   private func topToBottomComperator(lhs: UIView, rhs: UIView) -> Bool {
