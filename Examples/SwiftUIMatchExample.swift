@@ -8,7 +8,7 @@ class SwiftUIMatchExampleViewController: UIHostingController<ImagesTableView> {
 
   required init() {
     super.init(rootView: ImagesTableView())
-    
+    rootView.dismiss = self.dismiss
     rootView.onTapRow = { image in
       
       let destinationViewController = UIHostingController(rootView: ImageViewWrapper(name: image.name, heroID: image.name)
@@ -25,6 +25,10 @@ class SwiftUIMatchExampleViewController: UIHostingController<ImagesTableView> {
   @objc required dynamic init?(coder aDecoder: NSCoder) {
     fatalError("init(coder:) has not been implemented")
   }
+    
+  func dismiss(){
+    self.dismiss(animated: true, completion: nil)
+  }
 }
 
 struct ImageInfo: Identifiable {
@@ -35,20 +39,30 @@ struct ImageInfo: Identifiable {
 
 @available(iOS 13.0, *)
 struct ImagesTableView: View {
-    
+  var dismiss: (() -> Void)?
   var onTapRow: ((ImageInfo)->())?
     
   @State var images = (0...9).map{ ImageInfo(id: $0, name: "Unsplash\($0)") }
     
   var body: some View {
-    List(images) { image in
-      
-      HStack {
-        ImageViewWrapper(name: "\(image.name)_cell", heroID: image.name)
+    VStack {
+      HStack{
+        Button(action: {
+            self.dismiss?()
+        }) {
+          Text("Back")
+        }.padding(.leading)
         Spacer()
-        Text("Image number \(image.id)").padding()
-      }.onTapGesture {
-        self.onTapRow?(image)
+      }
+      
+      List(images) { image in
+        HStack {
+          ImageViewWrapper(name: "\(image.name)_cell", heroID: image.name)
+          Spacer()
+          Text("Image number \(image.id)").padding()
+        }.onTapGesture {
+          self.onTapRow?(image)
+        }
       }
     }
   }
