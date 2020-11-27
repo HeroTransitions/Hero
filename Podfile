@@ -1,7 +1,7 @@
 
 
 target 'HeroExamples' do
-  platform :ios, '9.0'
+  platform :ios, '10.0'
   use_frameworks!
   pod 'CollectionKit'
 
@@ -11,6 +11,6 @@ target 'HeroExamples' do
 end
 
 target 'HeroTvOSExamples' do
-  platform :tvos, '9.0'
+  platform :tvos, '10.0'
   use_frameworks!
 end

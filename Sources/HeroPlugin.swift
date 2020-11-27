@@ -157,7 +157,7 @@ extension HeroPlugin {
 // MARK: Plugin Support
 internal extension HeroTransition {
   static func isEnabled(plugin: HeroPlugin.Type) -> Bool {
-    return enabledPlugins.index(where: { return $0 == plugin}) != nil
+    return enabledPlugins.firstIndex(where: { return $0 == plugin}) != nil
   }
 
   static func enable(plugin: HeroPlugin.Type) {
@@ -166,7 +166,7 @@ internal extension HeroTransition {
   }
 
   static func disable(plugin: HeroPlugin.Type) {
-    if let index = enabledPlugins.index(where: { return $0 == plugin}) {
+    if let index = enabledPlugins.firstIndex(where: { return $0 == plugin}) {
       enabledPlugins.remove(at: index)
     }
   }
