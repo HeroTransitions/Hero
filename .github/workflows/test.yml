@@ -12,11 +12,23 @@ on:
       - "Podfile.lock"
       - "test.yml"
 jobs:
+  swiftpm:
+    name: Test iOS (swiftpm)
+    runs-on: macOS-latest
+    env:
+      DEVELOPER_DIR: /Applications/Xcode_12.4.app/Contents/Developer
+    steps:
+      - name: Checkout
+        uses: actions/checkout@master
+      - name: iOS - Swift PM
+        run: |
+          pod install
+          set -o pipefail && swift test --parallel
   iOS:
     name: Test iOS
     runs-on: macOS-latest
     env:
-      DEVELOPER_DIR: /Applications/Xcode_11.2.1.app/Contents/Developer
+      DEVELOPER_DIR: /Applications/Xcode_12.4.app/Contents/Developer
     strategy:
         matrix:
           destination: [
@@ -67,7 +79,7 @@ jobs:
     name: Test tvOS
     runs-on: macOS-latest
     env:
-      DEVELOPER_DIR: /Applications/Xcode_11.2.1.app/Contents/Developer
+      DEVELOPER_DIR: /Applications/Xcode_12.4.app/Contents/Developer
     strategy:
         matrix:
           destination: [
