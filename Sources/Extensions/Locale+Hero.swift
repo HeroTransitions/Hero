@@ -9,7 +9,7 @@
 import Foundation
 
 internal extension Locale {
-  internal static var isDeviceLanguageRightToLeft: Bool {
+  static var isDeviceLanguageRightToLeft: Bool {
     let currentLocale: Locale = Locale.current
     guard let code: String = currentLocale.languageCode else {
       return false
@@ -18,7 +18,7 @@ internal extension Locale {
     return (direction == .rightToLeft)
   }
 
-  internal static var isDeviceLanguageLeftToRight: Bool {
+  static var isDeviceLanguageLeftToRight: Bool {
     return !isDeviceLanguageRightToLeft
   }
 }
