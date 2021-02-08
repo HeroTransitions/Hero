@@ -142,7 +142,7 @@ extension HeroContext {
 
     // capture a snapshot without alpha, cornerRadius, or shadows
     let oldMaskedCorners: CACornerMask = {
-      if #available(iOS 11, *) {
+      if #available(iOS 11, tvOS 11, *) {
         return view.layer.maskedCorners
       } else {
         return []
@@ -229,7 +229,7 @@ extension HeroContext {
       }
     #endif
 
-    if #available(iOS 11, *) {
+    if #available(iOS 11, tvOS 11, *) {
       view.layer.maskedCorners = oldMaskedCorners
     }
     view.layer.cornerRadius = oldCornerRadius
@@ -251,14 +251,14 @@ extension HeroContext {
       if !(view is UINavigationBar), let contentView = snapshot.subviews.get(0) {
         // the Snapshot's contentView must have hold the cornerRadius value,
         // since the snapshot might not have maskToBounds set
-        if #available(iOS 11, *) {
+        if #available(iOS 11, tvOS 11, *) {
           contentView.layer.maskedCorners = view.layer.maskedCorners
         }
         contentView.layer.cornerRadius = view.layer.cornerRadius
         contentView.layer.masksToBounds = true
       }
 
-      if #available(iOS 11, *) {
+      if #available(iOS 11, tvOS 11, *) {
         snapshot.layer.maskedCorners = view.layer.maskedCorners
       }
       snapshot.layer.cornerRadius = view.layer.cornerRadius
