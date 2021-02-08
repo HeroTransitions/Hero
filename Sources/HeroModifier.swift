@@ -39,14 +39,14 @@ extension HeroModifier {
   public static var fade = HeroModifier { targetState in
     targetState.opacity = 0
   }
-  
+
   /**
    Force don't fade view during transition
    */
   public static var forceNonFade = HeroModifier { targetState in
     targetState.nonFade = true
   }
-  
+
   /**
    Set the position for the view to animate from/to.
    - Parameters:
@@ -57,7 +57,7 @@ extension HeroModifier {
       targetState.position = position
     }
   }
-  
+
   /**
    Set the size for the view to animate from/to.
    - Parameters:
@@ -82,7 +82,7 @@ extension HeroModifier {
       targetState.transform = t
     }
   }
-  
+
   /**
    Set the perspective on the transform. use in combination with the rotate modifier.
    - Parameters:
@@ -95,7 +95,7 @@ extension HeroModifier {
       targetState.transform = transform
     }
   }
-  
+
   /**
    Scale 3d
    - Parameters:
@@ -108,7 +108,7 @@ extension HeroModifier {
       targetState.transform = CATransform3DScale(targetState.transform ?? CATransform3DIdentity, x, y, z)
     }
   }
-  
+
   /**
    Scale in x & y axis
    - Parameters:
@@ -117,7 +117,7 @@ extension HeroModifier {
   public static func scale(_ xy: CGFloat) -> HeroModifier {
     return .scale(x: xy, y: xy)
   }
-  
+
   /**
    Translate 3d
    - Parameters:
@@ -130,11 +130,11 @@ extension HeroModifier {
       targetState.transform = CATransform3DTranslate(targetState.transform ?? CATransform3DIdentity, x, y, z)
     }
   }
-  
+
   public static func translate(_ point: CGPoint, z: CGFloat = 0) -> HeroModifier {
     return translate(x: point.x, y: point.y, z: z)
   }
-  
+
   /**
    Rotate 3d
    - Parameters:
@@ -149,11 +149,11 @@ extension HeroModifier {
       targetState.transform = CATransform3DRotate(targetState.transform!, z, 0, 0, 1)
     }
   }
-  
+
   public static func rotate(_ point: CGPoint, z: CGFloat = 0) -> HeroModifier {
     return rotate(x: point.x, y: point.y, z: z)
   }
-  
+
   /**
    Rotate 2d
    - Parameters:
@@ -176,7 +176,7 @@ extension HeroModifier {
       targetState.backgroundColor = backgroundColor.cgColor
     }
   }
-  
+
   /**
    Set the borderColor for the view to animate from/to.
    - Parameters:
@@ -187,7 +187,7 @@ extension HeroModifier {
       targetState.borderColor = borderColor.cgColor
     }
   }
-  
+
   /**
    Set the shadowColor for the view to animate from/to.
    - Parameters:
@@ -198,8 +198,7 @@ extension HeroModifier {
       targetState.shadowColor = shadowColor.cgColor
     }
   }
-  
-  
+
   /**
    Create an overlay on the animating view.
    - Parameters:
@@ -224,7 +223,7 @@ extension HeroModifier {
       targetState.opacity = Float(opacity)
     }
   }
-  
+
   /**
    Set the cornerRadius for the view to animate from/to.
    - Parameters:
@@ -235,7 +234,7 @@ extension HeroModifier {
       targetState.cornerRadius = cornerRadius
     }
   }
-  
+
   /**
    Set the zPosition for the view to animate from/to.
    - Parameters:
@@ -246,7 +245,7 @@ extension HeroModifier {
       targetState.zPosition = zPosition
     }
   }
-  
+
   /**
    Set the contentsRect for the view to animate from/to.
    - Parameters:
@@ -257,7 +256,7 @@ extension HeroModifier {
       targetState.contentsRect = contentsRect
     }
   }
-  
+
   /**
    Set the contentsScale for the view to animate from/to.
    - Parameters:
@@ -268,7 +267,7 @@ extension HeroModifier {
       targetState.contentsScale = contentsScale
     }
   }
-  
+
   /**
    Set the borderWidth for the view to animate from/to.
    - Parameters:
@@ -279,7 +278,7 @@ extension HeroModifier {
       targetState.borderWidth = borderWidth
     }
   }
-  
+
   /**
    Set the shadowOpacity for the view to animate from/to.
    - Parameters:
@@ -290,7 +289,7 @@ extension HeroModifier {
       targetState.shadowOpacity = Float(shadowOpacity)
     }
   }
-  
+
   /**
    Set the shadowOffset for the view to animate from/to.
    - Parameters:
@@ -301,7 +300,7 @@ extension HeroModifier {
       targetState.shadowOffset = shadowOffset
     }
   }
-  
+
   /**
    Set the shadowRadius for the view to animate from/to.
    - Parameters:
@@ -312,7 +311,7 @@ extension HeroModifier {
       targetState.shadowRadius = shadowRadius
     }
   }
-  
+
   /**
    Set the shadowPath for the view to animate from/to.
    - Parameters:
@@ -323,7 +322,7 @@ extension HeroModifier {
       targetState.shadowPath = shadowPath
     }
   }
-  
+
   /**
    Set the masksToBounds for the view to animate from/to.
    - Parameters:
@@ -350,14 +349,14 @@ extension HeroModifier {
       targetState.duration = duration
     }
   }
-  
+
   /**
    Sets the duration of the animation for a given view to match the longest animation of the transition.
    */
   public static var durationMatchLongest: HeroModifier = HeroModifier { targetState in
     targetState.duration = .infinity
   }
-  
+
   /**
    Sets the delay of the animation for a given view.
    - Parameters:
@@ -368,7 +367,7 @@ extension HeroModifier {
       targetState.delay = delay
     }
   }
-  
+
   /**
    Sets the timing function of the animation for a given view. If not used, Hero will use determine the timing function based on whether or not the view is entering or exiting the screen.
    - Parameters:
@@ -379,7 +378,7 @@ extension HeroModifier {
       targetState.timingFunction = timingFunction
     }
   }
-  
+
   /**
    (iOS 9+) Use spring animation with custom stiffness & damping. The duration will be automatically calculated. Will be ignored if arc, timingFunction, or duration is set.
    - Parameters:
@@ -426,12 +425,12 @@ extension HeroModifier {
       targetState.source = heroID
     }
   }
-  
+
   /**
    Works in combination with position modifier to apply a natural curve when moving to the destination.
    */
   public static var arc: HeroModifier = .arc()
-  
+
   /**
    Works in combination with position modifier to apply a natural curve when moving to the destination.
    - Parameters:
@@ -443,12 +442,12 @@ extension HeroModifier {
       targetState.arc = intensity
     }
   }
-  
+
   /**
    Cascade applys increasing delay modifiers to subviews
    */
   public static var cascade: HeroModifier = .cascade()
-  
+
   /**
    Cascade applys increasing delay modifiers to subviews
    - Parameters:
@@ -478,27 +477,27 @@ extension HeroModifier {
       targetState.conditionalModifiers!.append((condition, modifiers))
     }
   }
-  
+
   public static func when(_ condition: @escaping (HeroConditionalContext) -> Bool, _ modifiers: HeroModifier...) -> HeroModifier {
     return .when(condition, modifiers)
   }
-  
+
   public static func whenMatched(_ modifiers: HeroModifier...) -> HeroModifier {
     return .when({ $0.isMatched }, modifiers)
   }
-  
+
   public static func whenPresenting(_ modifiers: HeroModifier...) -> HeroModifier {
     return .when({ $0.isPresenting }, modifiers)
   }
-  
+
   public static func whenDismissing(_ modifiers: HeroModifier...) -> HeroModifier {
     return .when({ !$0.isPresenting }, modifiers)
   }
-  
+
   public static func whenAppearing(_ modifiers: HeroModifier...) -> HeroModifier {
     return .when({ $0.isAppearing }, modifiers)
   }
-  
+
   public static func whenDisappearing(_ modifiers: HeroModifier...) -> HeroModifier {
     return .when({ !$0.isAppearing }, modifiers)
   }

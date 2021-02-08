@@ -37,7 +37,7 @@ class HeroProgressRunner {
   internal var timePassed: TimeInterval = 0.0
   internal var duration: TimeInterval = 0.0
     internal var isReversed: Bool = false
-   
+
   internal var displayLink: CADisplayLink?
 
   @objc func displayUpdate(_ link: CADisplayLink) {

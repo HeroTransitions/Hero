@@ -44,7 +44,6 @@ extension UIViewController {
 }
 #endif
 
-
 extension RunLoop {
   enum Mode {
     static let common = RunLoop.Mode.common
