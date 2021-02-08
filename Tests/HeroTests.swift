@@ -9,7 +9,6 @@
 import XCTest
 import Hero
 
-
 @discardableResult func parse(_ source: String) throws -> [ExprNode] {
   let lexer = Lexer(input: source)
   let tokens = lexer.tokenize()

@@ -21,8 +21,7 @@
 // THE SOFTWARE.
 
 #if canImport(UIKit)
-
-import UIKit
+import QuartzCore
 
 protocol HeroProgressRunnerDelegate: class {
   func updateProgress(progress: Double)
@@ -37,8 +36,9 @@ class HeroProgressRunner {
   }
   internal var timePassed: TimeInterval = 0.0
   internal var duration: TimeInterval = 0.0
+    internal var isReversed: Bool = false
+
   internal var displayLink: CADisplayLink?
-  internal var isReversed: Bool = false
 
   @objc func displayUpdate(_ link: CADisplayLink) {
     timePassed += isReversed ? -link.duration : link.duration
