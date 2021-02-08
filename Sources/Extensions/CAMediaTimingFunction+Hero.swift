@@ -27,10 +27,10 @@ import QuartzCore
 
 public extension CAMediaTimingFunction {
   // default
-  public static let linear = CAMediaTimingFunction(name: convertToCAMediaTimingFunctionName(CAMediaTimingFunctionName.linear.rawValue))
-  public static let easeIn = CAMediaTimingFunction(name: convertToCAMediaTimingFunctionName(CAMediaTimingFunctionName.easeIn.rawValue))
-  public static let easeOut = CAMediaTimingFunction(name: convertToCAMediaTimingFunctionName(CAMediaTimingFunctionName.easeOut.rawValue))
-  public static let easeInOut = CAMediaTimingFunction(name: convertToCAMediaTimingFunctionName(CAMediaTimingFunctionName.easeInEaseOut.rawValue))
+  static let linear = CAMediaTimingFunction(name: convertToCAMediaTimingFunctionName(CAMediaTimingFunctionName.linear.rawValue))
+  static let easeIn = CAMediaTimingFunction(name: convertToCAMediaTimingFunctionName(CAMediaTimingFunctionName.easeIn.rawValue))
+  static let easeOut = CAMediaTimingFunction(name: convertToCAMediaTimingFunctionName(CAMediaTimingFunctionName.easeOut.rawValue))
+  static let easeInOut = CAMediaTimingFunction(name: convertToCAMediaTimingFunctionName(CAMediaTimingFunctionName.easeInEaseOut.rawValue))
   // static let linear = CAMediaTimingFunction(name: CAMediaTimingFunctionName.linear)
   // static let easeIn = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeIn)
   // static let easeOut = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeOut)
