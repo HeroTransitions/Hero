@@ -1,6 +1,6 @@
 # ---- About ----
 module: Hero
-module_version: 1.5.0
+module_version: 1.6.0
 author: HeroTransitions
 readme: README.md
 copyright: 'See [license](https://github.com/HeroTransitions/Hero/blob/develop/LICENSE) for more details.'
@@ -9,7 +9,7 @@ copyright: 'See [license](https://github.com/HeroTransitions/Hero/blob/develop/L
 author_url: https://herotransitions.github.io/Hero/
 dash_url: https://herotransitions.github.io/Hero/docsets/Hero.xml
 github_url: https://github.com/HeroTransitions/Hero/
-github_file_prefix: https://github.com/HeroTransitions/Hero/tree/1.5.0/
+github_file_prefix: https://github.com/HeroTransitions/Hero/tree/1.6.0/
 
 # ---- Sources ----
 podspec: Hero.podspec
