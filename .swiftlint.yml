@@ -1,9 +1,8 @@
 disabled_rules: # rule identifiers to exclude from running
   - missing_docs
   - unused_closure_parameter
-  - force_cast
+  - identifier_name
   - weak_delegate
-  - variable_name
   - cyclomatic_complexity
   - function_body_length
   - todo

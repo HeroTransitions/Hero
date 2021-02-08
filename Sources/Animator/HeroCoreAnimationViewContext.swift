@@ -234,9 +234,11 @@ internal class HeroCoreAnimationViewContext: HeroAnimatorViewContext {
       case "cornerRadius", "contentsRect", "contentsScale":
         addAnimation(anim, for: key, to: snapshot.layer)
         if let contentLayer = contentLayer {
+          // swiftlint:disable:next force_cast
           addAnimation(anim.copy() as! CAAnimation, for: key, to: contentLayer)
         }
         if let overlayLayer = overlayLayer {
+          // swiftlint:disable:next force_cast
           addAnimation(anim.copy() as! CAAnimation, for: key, to: overlayLayer)
         }
       case "bounds.size":
