@@ -170,7 +170,7 @@ extension UINavigationController {
     get { return hero.navigationAnimationTypeString }
     set { hero.navigationAnimationTypeString = newValue }
   }
-  
+
   /// This function call the standard setViewControllers() but it also add a completion callback.
    func setViewControllers(viewControllers: [UIViewController], animated: Bool, completion: (() -> Void)?) {
 		setViewControllers(viewControllers, animated: animated)
