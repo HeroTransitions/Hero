@@ -27,10 +27,14 @@ import QuartzCore
 
 public extension CAMediaTimingFunction {
   // default
-  static let linear = CAMediaTimingFunction(name: CAMediaTimingFunctionName.linear)
-  static let easeIn = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeIn)
-  static let easeOut = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeOut)
-  static let easeInOut = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
+  public static let linear = CAMediaTimingFunction(name: convertToCAMediaTimingFunctionName(CAMediaTimingFunctionName.linear.rawValue))
+  public static let easeIn = CAMediaTimingFunction(name: convertToCAMediaTimingFunctionName(CAMediaTimingFunctionName.easeIn.rawValue))
+  public static let easeOut = CAMediaTimingFunction(name: convertToCAMediaTimingFunctionName(CAMediaTimingFunctionName.easeOut.rawValue))
+  public static let easeInOut = CAMediaTimingFunction(name: convertToCAMediaTimingFunctionName(CAMediaTimingFunctionName.easeInEaseOut.rawValue))
+  // static let linear = CAMediaTimingFunction(name: CAMediaTimingFunctionName.linear)
+  // static let easeIn = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeIn)
+  // static let easeOut = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeOut)
+  // static let easeInOut = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
 
   // material
   static let standard = CAMediaTimingFunction(controlPoints: 0.4, 0.0, 0.2, 1.0)
@@ -63,6 +67,11 @@ public extension CAMediaTimingFunction {
       return nil
     }
   }
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertToCAMediaTimingFunctionName(_ input: String) -> CAMediaTimingFunctionName {
+	return CAMediaTimingFunctionName(rawValue: input)
 }
 
 #endif
