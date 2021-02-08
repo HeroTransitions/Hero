@@ -11,8 +11,6 @@ import Foundation
 import CoreMedia
 import CoreGraphics
 
-import UIKit
-
 extension CMTime {
   static let zero = CMTime.zero
 }
@@ -28,6 +26,9 @@ enum CAMediaTimingFunctionName {
   static let easeInEaseOut = kCAMediaTimingFunctionEaseInEaseOut
 }
 
+#if canImport(UIKit)
+import UIKit
+
 extension UIControl {
   typealias State = UIControlState
 }
@@ -41,6 +42,8 @@ extension UIViewController {
     return childViewControllers
   }
 }
+#endif
+
 
 extension RunLoop {
   enum Mode {

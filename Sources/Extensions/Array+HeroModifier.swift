@@ -20,9 +20,7 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-#if canImport(UIKit)
-
-import UIKit
+import Foundation
 
 internal extension Array {
   func get(_ index: Int) -> Element? {
@@ -59,5 +57,3 @@ internal extension Array where Element: ExprNode {
     return nil
   }
 }
-
-#endif

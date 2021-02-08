@@ -21,8 +21,7 @@
 // THE SOFTWARE.
 
 #if canImport(UIKit)
-
-import Foundation
+import UIKit
 
 extension HeroTransition {
   open func animate() {

@@ -20,9 +20,7 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-#if canImport(UIKit)
-
-import UIKit
+import Foundation
 
 public protocol HeroStringConvertible {
   static func from(node: ExprNode) -> Self?
@@ -53,5 +51,3 @@ extension String {
     return parse()?.last
   }
 }
-
-#endif

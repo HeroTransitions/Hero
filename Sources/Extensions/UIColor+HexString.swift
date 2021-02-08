@@ -7,8 +7,7 @@
 //
 
 #if canImport(UIKit)
-
-import UIKit
+import UIKit.UIColor
 
 extension UIColor {
   convenience init?(hexString hex: String) {
