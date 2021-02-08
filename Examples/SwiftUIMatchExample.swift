@@ -41,7 +41,7 @@ struct ImageInfo: Identifiable {
 struct ImagesTableView: View {
   var dismiss: (() -> Void)?
   var onTapRow: ((ImageInfo)->())?
-    
+
   @State var images = (0...9).map{ ImageInfo(id: $0, name: "Unsplash\($0)") }
     
   var body: some View {
