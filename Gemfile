@@ -3,7 +3,7 @@
 source 'https://rubygems.org'
 #ruby '~> 2.5.1'
 
-gem 'cocoapods', '~> 1.8'
+gem 'cocoapods', '~> 1.10'
 gem 'cocoapods-check'
 gem 'cocoapods-generate'
 gem 'cocoapods-githooks'      # Sync .git-hooks across team members at `pod install` time
