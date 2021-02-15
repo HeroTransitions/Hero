@@ -7,7 +7,7 @@ DEPENDENCIES:
   - CollectionKit
 
 SPEC REPOS:
-  https://cdn.cocoapods.org/:
+  trunk:
     - CollectionKit
 
 SPEC CHECKSUMS:
