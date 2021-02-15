@@ -20,6 +20,8 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
+#if canImport(UIKit)
+
 import UIKit
 
 internal extension CALayer {
@@ -27,6 +29,7 @@ internal extension CALayer {
   // the returned value is mutable
   var animations: [(String, CAAnimation)] {
     if let keys = animationKeys() {
+      // swiftlint:disable:next force_cast
       return keys.map { return ($0, self.animation(forKey: $0)!.copy() as! CAAnimation) }
     }
     return []
@@ -49,3 +52,5 @@ internal extension CALayer {
     }
   }
 }
+
+#endif

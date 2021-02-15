@@ -151,7 +151,7 @@ let package = Package(
             targets: ["MyPackage"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/HeroTransitions/Hero.git", .upToNextMajor(from: "1.5.0"))
+        .package(url: "https://github.com/HeroTransitions/Hero.git", .upToNextMajor(from: "1.6.0"))
     ],
     targets: [
         .target(
@@ -174,7 +174,7 @@ For more up-to-date ones, please see the header-doc. (use **alt+click** in Xcode
 
 ## Interactive Transition Tutorials
 
-[Interactive transitions with Hero (Part 1)](http://lkzhao.com/2017/02/05/hero-interactive-transition.html)
+[Interactive transitions with Hero (Part 1)](https://lkzhao.gitbooks.io/hero/content/docs/InteractiveTransition.html)
 
 ## FAQ
 

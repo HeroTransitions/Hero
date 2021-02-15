@@ -20,6 +20,8 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
+#if canImport(UIKit)
+
 import UIKit
 
 extension CALayer {
@@ -232,9 +234,11 @@ internal class HeroCoreAnimationViewContext: HeroAnimatorViewContext {
       case "cornerRadius", "contentsRect", "contentsScale":
         addAnimation(anim, for: key, to: snapshot.layer)
         if let contentLayer = contentLayer {
+          // swiftlint:disable:next force_cast
           addAnimation(anim.copy() as! CAAnimation, for: key, to: contentLayer)
         }
         if let overlayLayer = overlayLayer {
+          // swiftlint:disable:next force_cast
           addAnimation(anim.copy() as! CAAnimation, for: key, to: overlayLayer)
         }
       case "bounds.size":
@@ -456,3 +460,5 @@ internal class HeroCoreAnimationViewContext: HeroAnimatorViewContext {
     return animate(delay: targetState.delay, duration: duration)
   }
 }
+
+#endif

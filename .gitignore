@@ -70,3 +70,4 @@ node_modules
 _book
 xcodebuild.log
 .swiftpm
+/.bundle

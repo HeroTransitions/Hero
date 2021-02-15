@@ -20,7 +20,9 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
+#if canImport(UIKit)
 import UIKit
+import CoreGraphics
 
 public final class HeroModifier {
   internal let apply:(inout HeroTargetState) -> Void
@@ -48,7 +50,7 @@ extension HeroModifier {
   /**
    Set the position for the view to animate from/to.
    - Parameters:
-     - position: position for the view to animate from/to
+   - position: position for the view to animate from/to
    */
   public static func position(_ position: CGPoint) -> HeroModifier {
     return HeroModifier { targetState in
@@ -59,7 +61,7 @@ extension HeroModifier {
   /**
    Set the size for the view to animate from/to.
    - Parameters:
-     - size: size for the view to animate from/to
+   - size: size for the view to animate from/to
    */
   public static func size(_ size: CGSize) -> HeroModifier {
     return HeroModifier { targetState in
@@ -73,7 +75,7 @@ extension HeroModifier {
   /**
    Set the transform for the view to animate from/to. Will override previous perspective, scale, translate, & rotate modifiers
    - Parameters:
-     - t: the CATransform3D object
+   - t: the CATransform3D object
    */
   public static func transform(_ t: CATransform3D) -> HeroModifier {
     return HeroModifier { targetState in
@@ -84,7 +86,7 @@ extension HeroModifier {
   /**
    Set the perspective on the transform. use in combination with the rotate modifier.
    - Parameters:
-     - perspective: set the camera distance of the transform
+   - perspective: set the camera distance of the transform
    */
   public static func perspective(_ perspective: CGFloat) -> HeroModifier {
     return HeroModifier { targetState in
@@ -97,9 +99,9 @@ extension HeroModifier {
   /**
    Scale 3d
    - Parameters:
-     - x: scale factor on x axis, default 1
-     - y: scale factor on y axis, default 1
-     - z: scale factor on z axis, default 1
+   - x: scale factor on x axis, default 1
+   - y: scale factor on y axis, default 1
+   - z: scale factor on z axis, default 1
    */
   public static func scale(x: CGFloat = 1, y: CGFloat = 1, z: CGFloat = 1) -> HeroModifier {
     return HeroModifier { targetState in
@@ -110,7 +112,7 @@ extension HeroModifier {
   /**
    Scale in x & y axis
    - Parameters:
-     - xy: scale factor in both x & y axis
+   - xy: scale factor in both x & y axis
    */
   public static func scale(_ xy: CGFloat) -> HeroModifier {
     return .scale(x: xy, y: xy)
@@ -119,9 +121,9 @@ extension HeroModifier {
   /**
    Translate 3d
    - Parameters:
-     - x: translation distance on x axis in display pixel, default 0
-     - y: translation distance on y axis in display pixel, default 0
-     - z: translation distance on z axis in display pixel, default 0
+   - x: translation distance on x axis in display pixel, default 0
+   - y: translation distance on y axis in display pixel, default 0
+   - z: translation distance on z axis in display pixel, default 0
    */
   public static func translate(x: CGFloat = 0, y: CGFloat = 0, z: CGFloat = 0) -> HeroModifier {
     return HeroModifier { targetState in
@@ -136,9 +138,9 @@ extension HeroModifier {
   /**
    Rotate 3d
    - Parameters:
-     - x: rotation on x axis in radian, default 0
-     - y: rotation on y axis in radian, default 0
-     - z: rotation on z axis in radian, default 0
+   - x: rotation on x axis in radian, default 0
+   - y: rotation on y axis in radian, default 0
+   - z: rotation on z axis in radian, default 0
    */
   public static func rotate(x: CGFloat = 0, y: CGFloat = 0, z: CGFloat = 0) -> HeroModifier {
     return HeroModifier { targetState in
@@ -155,25 +157,15 @@ extension HeroModifier {
   /**
    Rotate 2d
    - Parameters:
-     - z: rotation in radian
+   - z: rotation in radian
    */
   public static func rotate(_ z: CGFloat) -> HeroModifier {
     return .rotate(z: z)
   }
 }
 
+// MARK: UIKit
 extension HeroModifier {
-  /**
-   Set the opacity for the view to animate from/to.
-   - Parameters:
-     - opacity: opacity for the view to animate from/to
-   */
-  public static func opacity(_ opacity: CGFloat) -> HeroModifier {
-    return HeroModifier { targetState in
-      targetState.opacity = Float(opacity)
-    }
-  }
-
   /**
    Set the backgroundColor for the view to animate from/to.
    - Parameters:
@@ -186,9 +178,56 @@ extension HeroModifier {
   }
 
   /**
+   Set the borderColor for the view to animate from/to.
+   - Parameters:
+   - borderColor: borderColor for the view to animate from/to
+   */
+  public static func borderColor(_ borderColor: UIColor) -> HeroModifier {
+    return HeroModifier { targetState in
+      targetState.borderColor = borderColor.cgColor
+    }
+  }
+
+  /**
+   Set the shadowColor for the view to animate from/to.
+   - Parameters:
+   - shadowColor: shadowColor for the view to animate from/to
+   */
+  public static func shadowColor(_ shadowColor: UIColor) -> HeroModifier {
+    return HeroModifier { targetState in
+      targetState.shadowColor = shadowColor.cgColor
+    }
+  }
+
+  /**
+   Create an overlay on the animating view.
+   - Parameters:
+   - color: color of the overlay
+   - opacity: opacity of the overlay
+   */
+  public static func overlay(color: UIColor, opacity: CGFloat) -> HeroModifier {
+    return HeroModifier { targetState in
+      targetState.overlay = (color.cgColor, opacity)
+    }
+  }
+}
+
+extension HeroModifier {
+  /**
+   Set the opacity for the view to animate from/to.
+   - Parameters:
+   - opacity: opacity for the view to animate from/to
+   */
+  public static func opacity(_ opacity: CGFloat) -> HeroModifier {
+    return HeroModifier { targetState in
+      targetState.opacity = Float(opacity)
+    }
+  }
+
+  /**
    Set the cornerRadius for the view to animate from/to.
    - Parameters:
-     - cornerRadius: cornerRadius for the view to animate from/to
+   - cornerRadius: cornerRadius for the view to animate from/to
    */
   public static func cornerRadius(_ cornerRadius: CGFloat) -> HeroModifier {
     return HeroModifier { targetState in
@@ -237,28 +276,6 @@ extension HeroModifier {
   public static func borderWidth(_ borderWidth: CGFloat) -> HeroModifier {
     return HeroModifier { targetState in
       targetState.borderWidth = borderWidth
-    }
-  }
-
-  /**
-   Set the borderColor for the view to animate from/to.
-   - Parameters:
-   - borderColor: borderColor for the view to animate from/to
-   */
-  public static func borderColor(_ borderColor: UIColor) -> HeroModifier {
-    return HeroModifier { targetState in
-      targetState.borderColor = borderColor.cgColor
-    }
-  }
-
-  /**
-   Set the shadowColor for the view to animate from/to.
-   - Parameters:
-   - shadowColor: shadowColor for the view to animate from/to
-   */
-  public static func shadowColor(_ shadowColor: UIColor) -> HeroModifier {
-    return HeroModifier { targetState in
-      targetState.shadowColor = shadowColor.cgColor
     }
   }
 
@@ -316,18 +333,6 @@ extension HeroModifier {
       targetState.masksToBounds = masksToBounds
     }
   }
-
-  /**
-   Create an overlay on the animating view.
-   - Parameters:
-     - color: color of the overlay
-     - opacity: opacity of the overlay
-   */
-  public static func overlay(color: UIColor, opacity: CGFloat) -> HeroModifier {
-    return HeroModifier { targetState in
-      targetState.overlay = (color.cgColor, opacity)
-    }
-  }
 }
 
 // timing modifiers
@@ -335,7 +340,7 @@ extension HeroModifier {
   /**
    Sets the duration of the animation for a given view. If not used, Hero will use determine the duration based on the distance and size changes.
    - Parameters:
-     - duration: duration of the animation
+   - duration: duration of the animation
    
    Note: a duration of .infinity means matching the duration of the longest animation. same as .durationMatchLongest
    */
@@ -355,7 +360,7 @@ extension HeroModifier {
   /**
    Sets the delay of the animation for a given view.
    - Parameters:
-     - delay: delay of the animation
+   - delay: delay of the animation
    */
   public static func delay(_ delay: TimeInterval) -> HeroModifier {
     return HeroModifier { targetState in
@@ -366,7 +371,7 @@ extension HeroModifier {
   /**
    Sets the timing function of the animation for a given view. If not used, Hero will use determine the timing function based on whether or not the view is entering or exiting the screen.
    - Parameters:
-     - timingFunction: timing function of the animation
+   - timingFunction: timing function of the animation
    */
   public static func timingFunction(_ timingFunction: CAMediaTimingFunction) -> HeroModifier {
     return HeroModifier { targetState in
@@ -377,8 +382,8 @@ extension HeroModifier {
   /**
    (iOS 9+) Use spring animation with custom stiffness & damping. The duration will be automatically calculated. Will be ignored if arc, timingFunction, or duration is set.
    - Parameters:
-     - stiffness: stiffness of the spring
-     - damping: damping of the spring
+   - stiffness: stiffness of the spring
+   - damping: damping of the spring
    */
   @available(iOS 9, *)
   public static func spring(stiffness: CGFloat, damping: CGFloat) -> HeroModifier {
@@ -395,25 +400,25 @@ extension HeroModifier {
    Will also force the view to use global coordinate space.
    
    The following layer properties will be animated from the given view.
-
-       position
-       bounds.size
-       cornerRadius
-       transform
-       shadowColor
-       shadowOpacity
-       shadowOffset
-       shadowRadius
-       shadowPath
-
+   
+   position
+   bounds.size
+   cornerRadius
+   transform
+   shadowColor
+   shadowOpacity
+   shadowOffset
+   shadowRadius
+   shadowPath
+   
    Note that the following properties **won't** be taken from the source view.
-
-       backgroundColor
-       borderWidth
-       borderColor
-
+   
+   backgroundColor
+   borderWidth
+   borderColor
+   
    - Parameters:
-     - heroID: the source view's heroId.
+   - heroID: the source view's heroId.
    */
   public static func source(heroID: String) -> HeroModifier {
     return HeroModifier { targetState in
@@ -429,8 +434,8 @@ extension HeroModifier {
   /**
    Works in combination with position modifier to apply a natural curve when moving to the destination.
    - Parameters:
-     - intensity: a value of 1 represent a downward natural curve ╰. a value of -1 represent a upward curve ╮.
-       default is 1.
+   - intensity: a value of 1 represent a downward natural curve ╰. a value of -1 represent a upward curve ╮.
+   default is 1.
    */
   public static func arc(intensity: CGFloat = 1) -> HeroModifier {
     return HeroModifier { targetState in
@@ -446,9 +451,9 @@ extension HeroModifier {
   /**
    Cascade applys increasing delay modifiers to subviews
    - Parameters:
-     - delta: delay in between each animation
-     - direction: cascade direction
-     - delayMatchedViews: whether or not to delay matched subviews until all cascading animation have started
+   - delta: delay in between each animation
+   - direction: cascade direction
+   - delayMatchedViews: whether or not to delay matched subviews until all cascading animation have started
    */
   public static func cascade(delta: TimeInterval = 0.02,
                              direction: CascadeDirection = .topToBottom,
@@ -497,3 +502,4 @@ extension HeroModifier {
     return .when({ !$0.isAppearing }, modifiers)
   }
 }
+#endif

@@ -20,7 +20,8 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-import UIKit
+#if canImport(UIKit)
+import CoreGraphics
 
 public enum HeroSnapshotType {
   /// Will optimize for different type of views
@@ -127,3 +128,4 @@ extension HeroTargetState: ExpressibleByArrayLiteral {
     append(contentsOf: elements)
   }
 }
+#endif

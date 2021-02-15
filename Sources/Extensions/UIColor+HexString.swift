@@ -6,7 +6,8 @@
 //  Copyright © 2019 Luke Zhao. All rights reserved.
 //
 
-import UIKit
+#if canImport(UIKit)
+import UIKit.UIColor
 
 extension UIColor {
   convenience init?(hexString hex: String) {
@@ -31,3 +32,5 @@ extension UIColor {
     )
   }
 }
+
+#endif

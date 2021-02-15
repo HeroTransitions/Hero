@@ -20,6 +20,8 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
+#if canImport(UIKit)
+
 import UIKit
 
 public class HeroContext {
@@ -139,6 +141,13 @@ extension HeroContext {
     unhide(view: view)
 
     // capture a snapshot without alpha, cornerRadius, or shadows
+    let oldMaskedCorners: CACornerMask = {
+      if #available(iOS 11, tvOS 11, *) {
+        return view.layer.maskedCorners
+      } else {
+        return []
+      }
+    }()
     let oldCornerRadius = view.layer.cornerRadius
     let oldAlpha = view.alpha
 		let oldShadowRadius = view.layer.shadowRadius
@@ -165,7 +174,7 @@ extension HeroContext {
         if superviewToNoSnapshotSubviewMap[superview] == nil {
           superviewToNoSnapshotSubviewMap[superview] = []
         }
-        if let index = superview.subviews.index(of: view) {
+        if let index = superview.subviews.firstIndex(of: view) {
           superviewToNoSnapshotSubviewMap[superview]!.append((index, view))
         }
       }
@@ -220,6 +229,9 @@ extension HeroContext {
       }
     #endif
 
+    if #available(iOS 11, tvOS 11, *) {
+      view.layer.maskedCorners = oldMaskedCorners
+    }
     view.layer.cornerRadius = oldCornerRadius
     view.alpha = oldAlpha
 		view.layer.shadowRadius = oldShadowRadius
@@ -239,12 +251,18 @@ extension HeroContext {
       if !(view is UINavigationBar), let contentView = snapshot.subviews.get(0) {
         // the Snapshot's contentView must have hold the cornerRadius value,
         // since the snapshot might not have maskToBounds set
+        if #available(iOS 11, tvOS 11, *) {
+          contentView.layer.maskedCorners = view.layer.maskedCorners
+        }
         contentView.layer.cornerRadius = view.layer.cornerRadius
         contentView.layer.masksToBounds = true
       }
 
-      snapshot.layer.allowsGroupOpacity = false
+      if #available(iOS 11, tvOS 11, *) {
+        snapshot.layer.maskedCorners = view.layer.maskedCorners
+      }
       snapshot.layer.cornerRadius = view.layer.cornerRadius
+      snapshot.layer.allowsGroupOpacity = false
       snapshot.layer.zPosition = view.layer.zPosition
       snapshot.layer.opacity = view.layer.opacity
       snapshot.layer.isOpaque = view.layer.isOpaque
@@ -270,7 +288,7 @@ extension HeroContext {
      let pairedView = pairedView(for: view),
      let pairedSnapshot = snapshotViews[pairedView],
      let siblingViews = pairedView.superview?.subviews,
-     let index = siblingViews.index(of: pairedView) {
+     let index = siblingViews.firstIndex(of: pairedView) {
       let nextSiblings = siblingViews[index+1..<siblingViews.count]
       containerView.addSubview(pairedSnapshot)
       containerView.addSubview(snapshot)
@@ -402,3 +420,5 @@ extension HeroContext {
 public protocol HeroCustomSnapshotView {
 	var heroSnapshot: UIView? { get }
 }
+
+#endif

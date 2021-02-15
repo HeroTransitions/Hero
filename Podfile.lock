@@ -1,18 +1,18 @@
 PODS:
-  - CollectionKit (2.2.0):
-    - CollectionKit/Core (= 2.2.0)
-  - CollectionKit/Core (2.2.0)
+  - CollectionKit (2.4.0):
+    - CollectionKit/Core (= 2.4.0)
+  - CollectionKit/Core (2.4.0)
 
 DEPENDENCIES:
   - CollectionKit
 
 SPEC REPOS:
-  https://github.com/CocoaPods/Specs.git:
+  https://cdn.cocoapods.org/:
     - CollectionKit
 
 SPEC CHECKSUMS:
-  CollectionKit: 5caa5341860d4c9b748ebfeaab97530b2d02c7c0
+  CollectionKit: 8f01e7629185bb81072c4aa734d105df5c2d1c8b
 
-PODFILE CHECKSUM: efc6b025c2cee81dcc6fa480009618ed1af56837
+PODFILE CHECKSUM: 5c14933c915eeee6fbe5ecdd950d3da01c4a0a86
 
-COCOAPODS: 1.8.4
+COCOAPODS: 1.10.1
