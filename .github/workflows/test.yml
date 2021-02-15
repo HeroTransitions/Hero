@@ -93,6 +93,6 @@ jobs:
       - name: tvOS - ${{ matrix.destination }}
         run: |
           pod install
-          set -o pipefail && xcodebuild clean build -workspace Hero.xcworkspace -scheme "Hero (tvOS)" -destination "${destination}" -parallelizeTargets -showBuildTimingSummary -enableThreadSanitizer YES CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO ONLY_ACTIVE_ARCH=NO | xcpretty
+          set -o pipefail && xcodebuild clean build -workspace Hero.xcworkspace -scheme "Hero (tvOS)" -destination "${destination}" -parallelizeTargets -showBuildTimingSummary -enableThreadSanitizer YES CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO ONLY_ACTIVE_ARCH=YES | xcpretty
         env:
          destination: ${{ matrix.destination }}
