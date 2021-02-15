@@ -29,7 +29,7 @@ private let modifiersRegex = "(\\w+)(?:\\(([^\\)]*)\\))?"
 
 internal extension NSCoding where Self: NSObject {
   func copyWithArchiver() -> Any? {
-		if #available(iOS 11.0, *) {
+		if #available(iOS 11.0, tvOS 11.0, *) {
 			return try? NSKeyedUnarchiver.unarchivedObject(ofClass: type(of: self), from: NSKeyedArchiver.archivedData(withRootObject: self, requiringSecureCoding: false))
 		} else {
 			return NSKeyedUnarchiver.unarchiveObject(with: NSKeyedArchiver.archivedData(withRootObject: self))!
