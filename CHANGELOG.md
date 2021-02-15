@@ -4,8 +4,29 @@ The changelog for `Hero`. Also see the [releases](https://github.com/HeroTransit
 
 --------------------------------------
 
-## [1.5.0](https://github.com/HeroTransitions/Hero/releases/tag/1.5.0)
+## [1.6.0](https://github.com/HeroTransitions/Hero/releases/tag/1.6.0)
+### Added
 
+- #695 - Swift 5 support
+- #628 - Swift Package Manager Support
+- #623 - Swift UI support and example
+- #681 - Application extension target support
+- #595 - Add Accio supported badge
+- #619 - XCode 11/12 support in example
+- CI/CD improvements
+### Changed
+
+- #648 - Updated iOS version support
+- #576 - Usage guide updates
+
+### Fixed
+
+- #698 - Warnings fix
+- #585 - replaceViewControllers now calls the completion
+- #559 - Resuming property animator from current fraction
+- #465 - fix keyboard transition
+
+## [1.5.0](https://github.com/HeroTransitions/Hero/releases/tag/1.5.0)
 ### Added
 
 - Use custom snapshot for views that implement `HeroCustomSnapshotView`.
