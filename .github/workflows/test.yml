@@ -41,7 +41,7 @@ jobs:
       - name: iOS - ${{ matrix.destination }}
         run: |
           pod install
-          set -o pipefail && xcodebuild clean test -workspace Hero.xcworkspace -scheme Hero -destination "${destination}" -parallelizeTargets -showBuildTimingSummary -enableThreadSanitizer YES -enableCodeCoverage YES CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO ONLY_ACTIVE_ARCH=NO | xcpretty
+          set -o pipefail && xcodebuild clean test -workspace Hero.xcworkspace -scheme Hero -destination "${destination}" -configuration "Debug" -showBuildTimingSummary -enableThreadSanitizer YES -enableCodeCoverage YES CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO ONLY_ACTIVE_ARCH=YES | xcpretty
           bash <(curl -s https://codecov.io/bash)
         env:
          destination: ${{ matrix.destination }}
