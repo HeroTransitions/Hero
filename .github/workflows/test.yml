@@ -32,11 +32,12 @@ jobs:
     strategy:
         matrix:
           destination: [
-            'platform=iOS Simulator,OS=13.2.2,name=iPhone 11'
+            'platform=iOS Simulator,OS=14.4,name=iPhone 12'
           ]
     steps:
       - name: Checkout
         uses: actions/checkout@master
+
       - name: iOS - ${{ matrix.destination }}
         run: |
           pod install
@@ -49,32 +50,32 @@ jobs:
           bash <(curl -s https://codecov.io/bash)
         env:
           CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
-  iOS-legacy:
-    name: Test iOS
-    runs-on: macOS-latest
-    env:
-      DEVELOPER_DIR: /Applications/Xcode_10.3.1.app/Contents/Developer
-    strategy:
-        matrix:
-          destination: [
-            'platform=iOS Simulator,OS=10.3.1,name=iPhone 7'
-          ]
-    steps:
-      - name: Checkout
-        uses: actions/checkout@master
-      - name: iOS - ${{ matrix.destination }}
-        run: |
-          xcversion simulators --install='iOS 10.3.1'
-          pod install
-          set -o pipefail && xcodebuild clean test -workspace Hero.xcworkspace -scheme Hero -destination "${destination}" -parallelizeTargets -showBuildTimingSummary -enableThreadSanitizer YES -enableCodeCoverage YES CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO ONLY_ACTIVE_ARCH=NO | xcpretty
-          bash <(curl -s https://codecov.io/bash)
-        env:
-         destination: ${{ matrix.destination }}
-      - name: Upload Code Coverage
-        run: |
-          bash <(curl -s https://codecov.io/bash)
-        env:
-          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+  # iOS-legacy:
+  #   name: Test iOS
+  #   runs-on: macOS-latest
+  #   env:
+  #     DEVELOPER_DIR: /Applications/Xcode_10.3.1.app/Contents/Developer
+  #   strategy:
+  #       matrix:
+  #         destination: [
+  #           'platform=iOS Simulator,OS=10.3.1,name=iPhone 7'
+  #         ]
+  #   steps:
+  #     - name: Checkout
+  #       uses: actions/checkout@master
+  #     - name: iOS - ${{ matrix.destination }}
+  #       run: |
+  #         xcversion simulators --install='iOS 10.3.1'
+  #         pod install
+  #         set -o pipefail && xcodebuild clean test -workspace Hero.xcworkspace -scheme Hero -destination "${destination}" -parallelizeTargets -showBuildTimingSummary -enableThreadSanitizer YES -enableCodeCoverage YES CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO ONLY_ACTIVE_ARCH=NO | xcpretty
+  #         bash <(curl -s https://codecov.io/bash)
+  #       env:
+  #        destination: ${{ matrix.destination }}
+  #     - name: Upload Code Coverage
+  #       run: |
+  #         bash <(curl -s https://codecov.io/bash)
+  #       env:
+  #         CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
   tvOS:
     name: Test tvOS
     runs-on: macOS-latest
@@ -83,7 +84,7 @@ jobs:
     strategy:
         matrix:
           destination: [
-            'platform=tvOS Simulator,OS=13.2,name=Apple TV 4K'
+            'platform=tvOS Simulator,OS=14.3,name=Apple TV 4K'
           ]
 
     steps:
