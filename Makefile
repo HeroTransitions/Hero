@@ -5,7 +5,7 @@ include .makefiles/bundler.mk
 include .makefiles/ios.mk
 
 PLATFORM := 'iOS'
-TEST_SCHEME := 'HeroExample'
+TEST_SCHEME := 'HeroExamples'
 WORKSPACE := 'Hero.xcworkspace'
 
 %:

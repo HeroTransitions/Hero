@@ -130,6 +130,8 @@
 		B1D834051F02E7C0009E1E36 /* ConditionalPreprocessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D834031F02E7C0009E1E36 /* ConditionalPreprocessor.swift */; };
 		B35264CE2454FEF300D33861 /* Locale+Hero.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35264CD2454FEF300D33861 /* Locale+Hero.swift */; };
 		B35264CF2454FEF300D33861 /* Locale+Hero.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35264CD2454FEF300D33861 /* Locale+Hero.swift */; };
+		B383074925D1041A00B7A0D8 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B383074825D1041A00B7A0D8 /* SwiftUI.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		B383074B25D1042C00B7A0D8 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B383074A25D1042C00B7A0D8 /* SwiftUI.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		DBA05BB41A704A4A17967918 /* Pods_HeroTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 841FFA357ACB279D3F74CDEE /* Pods_HeroTests.framework */; };
 		F482F0BE235D7808002E97ED /* UIColor+HexString.swift in Sources */ = {isa = PBXBuildFile; fileRef = F482F0BD235D7808002E97ED /* UIColor+HexString.swift */; };
 		F482F0BF235D7808002E97ED /* UIColor+HexString.swift in Sources */ = {isa = PBXBuildFile; fileRef = F482F0BD235D7808002E97ED /* UIColor+HexString.swift */; };
@@ -288,6 +290,8 @@
 		B1D816EA1EF5A720007B9776 /* HeroTransition+Animate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HeroTransition+Animate.swift"; sourceTree = "<group>"; };
 		B1D834031F02E7C0009E1E36 /* ConditionalPreprocessor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConditionalPreprocessor.swift; sourceTree = "<group>"; };
 		B35264CD2454FEF300D33861 /* Locale+Hero.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Locale+Hero.swift"; sourceTree = "<group>"; };
+		B383074825D1041A00B7A0D8 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		B383074A25D1042C00B7A0D8 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS14.3.sdk/System/Library/Frameworks/SwiftUI.framework; sourceTree = DEVELOPER_DIR; };
 		C377744CBFF1E24426E80F55 /* Pods-HeroExamples.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HeroExamples.release.xcconfig"; path = "Pods/Target Support Files/Pods-HeroExamples/Pods-HeroExamples.release.xcconfig"; sourceTree = "<group>"; };
 		C51A6465EC2CB38D82F28B93 /* Pods-HeroTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HeroTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HeroTests/Pods-HeroTests.debug.xcconfig"; sourceTree = "<group>"; };
 		EEE340F89FF0A49DD23A5A6E /* Pods_HeroExamples.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HeroExamples.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -309,6 +313,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2D1F7FF21E49E043004D944B /* Hero.framework in Frameworks */,
+				B383074B25D1042C00B7A0D8 /* SwiftUI.framework in Frameworks */,
 				A355CEC8D787CF71B0D7CBDA /* Pods_HeroTvOSExamples.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -325,6 +330,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A306D3B91E1C7A2E00B6C23A /* Hero.framework in Frameworks */,
+				B383074925D1041A00B7A0D8 /* SwiftUI.framework in Frameworks */,
 				83043017B73BC66DBB920D5C /* Pods_HeroExamples.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -343,6 +349,8 @@
 		0ED3C727BC790F37EE7BD698 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B383074825D1041A00B7A0D8 /* SwiftUI.framework */,
+				B383074A25D1042C00B7A0D8 /* SwiftUI.framework */,
 				EEE340F89FF0A49DD23A5A6E /* Pods_HeroExamples.framework */,
 				FD2306FDA4E15ADA91EFED44 /* Pods_HeroTvOSExamples.framework */,
 				841FFA357ACB279D3F74CDEE /* Pods_HeroTests.framework */,
@@ -1479,6 +1487,19 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.6.0;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-framework",
+					"\"CollectionKit\"",
+					"-framework",
+					"\"Foundation\"",
+					"-framework",
+					"\"UIKit\"",
+					"-weak_framework",
+					SwiftUI,
+					"-weak_framework",
+					Combine,
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.lkzhao.HeroExamples;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -1499,6 +1520,19 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.6.0;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-framework",
+					"\"CollectionKit\"",
+					"-framework",
+					"\"Foundation\"",
+					"-framework",
+					"\"UIKit\"",
+					"-weak_framework",
+					SwiftUI,
+					"-weak_framework",
+					Combine,
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.lkzhao.HeroExamples;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -1520,6 +1554,19 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-framework",
+					"\"CollectionKit\"",
+					"-framework",
+					"\"Foundation\"",
+					"-framework",
+					"\"UIKit\"",
+					"-weak_framework",
+					Combine,
+					"-weak_framework",
+					SwiftUI,
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.lkzhao.HeroTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -1540,6 +1587,19 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
+				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-framework",
+					"\"CollectionKit\"",
+					"-framework",
+					"\"Foundation\"",
+					"-framework",
+					"\"UIKit\"",
+					"-weak_framework",
+					Combine,
+					"-weak_framework",
+					SwiftUI,
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.lkzhao.HeroTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";

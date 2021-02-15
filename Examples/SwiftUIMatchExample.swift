@@ -2,6 +2,7 @@
 
 import UIKit
 import SwiftUI
+import Hero
 
 @available(iOS 13.0, *)
 class SwiftUIMatchExampleViewController: UIHostingController<ImagesTableView> {
