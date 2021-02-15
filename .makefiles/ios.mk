@@ -90,7 +90,7 @@ pre_setup:
 check_for_ruby:
 	$(info Checking for Ruby ...)
 
-ifeq ($(RUBY),)	
+ifeq ($(RUBY),)
 	$(error Ruby is not installed)
 endif
 
@@ -109,7 +109,7 @@ update_homebrew:
 install_swift_lint:
 	$(info Install swiftlint ...)
 
-ifneq ($(SWIFTLINT),)	
+ifneq ($(SWIFTLINT),)
 	brew install swiftlint
 else
 	$(info Already have, skipping.)
@@ -132,7 +132,7 @@ install_ruby_gems:
 install_carthage:
 	$(info Install Carthage ...)
 
-ifneq ($(CARTHAGE),)	
+ifneq ($(CARTHAGE),)
 	brew install carthage
 else
 	$(info Already have, skipping.)
@@ -141,7 +141,7 @@ endif
 install_carting:
 	$(info Install Carting ...)
 
-ifneq ($(CARTING),)	
+ifneq ($(CARTING),)
 	brew install artemnovichkov/projects/carting
 else
 	$(info Already have, skipping.)
@@ -150,7 +150,7 @@ endif
 install_swiftgen:
 	$(info Install Swift-Gen (https://github.com/SwiftGen/SwiftGen) ...)
 
-ifneq ($(SWIFTGEN),)	
+ifneq ($(SWIFTGEN),)
 	brew install swiftgen
 else
 	$(info Already have, skipping.)
@@ -160,7 +160,7 @@ gitpull:
 	$(info Pulling new commits ...)
 
 	git pull
-	
+
 #> -- QA Task Runners --
 
 codecov_upload:
@@ -170,7 +170,7 @@ codecov_upload:
 danger_pr:
 	bundle exec danger pr "$(GITHUB_URL:/=)/pull/$(PULL)"
 
-danger: 
+danger:
 	bundle exec danger
 
 #> SwiftLint autocorrect
@@ -181,7 +181,7 @@ autocorrect:
 
 #> Run test on all targets
 test:
-	xcodebuild test -scheme $(TEST_SCHEME) -workspace  $(WORKSPACE) | tee xcodebuild.log | xcpretty
+	xcodebuild test -scheme $(TEST_SCHEME) -workspace  $(WORKSPACE) -destination 'platform=iOS Simulator,OS=14.4,name=iPhone 12' -parallelizeTargets -showBuildTimingSummary -enableThreadSanitizer YES CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO ONLY_ACTIVE_ARCH=YES | tee xcodebuild.log | xcpretty
 
 #> -- Building --
 
