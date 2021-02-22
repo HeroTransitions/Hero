@@ -23,6 +23,7 @@
 #if canImport(UIKit)
 import UIKit
 import CoreGraphics
+import QuartzCore
 
 public final class HeroModifier {
   internal let apply:(inout HeroTargetState) -> Void
