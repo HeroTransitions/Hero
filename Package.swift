@@ -3,14 +3,6 @@
 
 import PackageDescription
 
-let ciDependencies: [Package.Dependency] = [
-    .package(url: "https://github.com/danger/swift.git", from: "1.0.0"),
-    .package(url: "https://github.com/nicklockwood/SwiftFormat", from: "0.35.8"),
-    .package(url: "https://github.com/Realm/SwiftLint", from: "0.28.1"),
-    .package(url: "https://github.com/orta/Komondor", from: "1.0.0")]
-
-let dependencies = ciDependencies
-
 let package = Package(
     name: "Hero",
     platforms: [
@@ -22,7 +14,6 @@ let package = Package(
                  type: .dynamic,
                  targets: ["Hero"]),
     ],
-    dependencies: dependencies,
     targets: [
         .target(name: "Hero", path: "Sources"),
         .testTarget(name: "HeroTests",
