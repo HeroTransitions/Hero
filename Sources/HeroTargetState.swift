@@ -22,6 +22,7 @@
 
 #if canImport(UIKit)
 import CoreGraphics
+import QuartzCore
 
 public enum HeroSnapshotType {
   /// Will optimize for different type of views
