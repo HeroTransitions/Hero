@@ -336,9 +336,7 @@ public extension HeroExtension where Base: UIViewController {
             parentVC.present(next, animated: false, completion: completion)
           }
         } else {
-          #if TARGET_IS_EXTENSION
-          UIApplication.shared.keyWindow?.rootViewController = next
-          #endif
+          parentVC?.view.window?.rootViewController = next
         }
       }
     }

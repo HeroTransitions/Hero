@@ -3,6 +3,20 @@
 The changelog for `Hero`. Also see the [releases](https://github.com/HeroTransitions/Hero/releases) on GitHub.
 
 --------------------------------------
+## [1.6.1](https://github.com/HeroTransitions/Hero/releases/tag/1.6.1)
+
+### Added
+
+- git ignore .zip files
+
+### Changed
+
+- closes #703 Move CI depends to Mint
+### Fixed
+
+- Update README.md remove dead link closes #708
+- Update the link to material design's motion duration easing links.
+- fixes #704 SPM missing imports
 
 ## [1.6.0](https://github.com/HeroTransitions/Hero/releases/tag/1.6.0)
 ### Added
@@ -14,6 +28,7 @@ The changelog for `Hero`. Also see the [releases](https://github.com/HeroTransit
 - #595 - Add Accio supported badge
 - #619 - XCode 11/12 support in example
 - CI/CD improvements
+
 ### Changed
 
 - #648 - Updated iOS version support
