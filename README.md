@@ -25,13 +25,9 @@ At view controller level, Hero provides several template transitions that you ca
 <img src="https://cdn.rawgit.com/lkzhao/Hero/ebb3f2c/Resources/defaultAnimations.svg"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 <img src="https://cdn.rawgit.com/lkzhao/Hero/ebb3f2c/Resources/defaultAnimations2.svg"/>
 
-By default, Hero provides **dynamic duration** based on the [Material Design Motion Guide](https://material.io/guidelines/motion/duration-easing.html). Duration is automatically determined by changes to distance and size—saving you the hassle, while providing consistent and delightful animations.
+By default, Hero provides **dynamic duration** based on the [Material Design Motion Guide](https://material.io/design/motion/speed.html#easing). Duration is automatically determined by changes to distance and size—saving you the hassle, while providing consistent and delightful animations.
 
 Hero doesn't make any assumptions about how the view is built or structured. It won't modify any of your views' states other than hiding them during the animation. This makes it work with **Auto Layout**, **programmatic layout**, **UICollectionView** (without modifying its layout object), **UITableView**, **UINavigationController**, **UITabBarController**, etc...
-
-## Example Gallery
-
-Checkout the [Example Gallery Blog Post](http://lkzhao.com/2016/12/28/hero.html) for a general idea of what you can achieve with **Hero**
 
 ## Usage Example 1
 
@@ -151,11 +147,11 @@ let package = Package(
             targets: ["MyPackage"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/HeroTransitions/Hero.git", .upToNextMajor(from: "1.6.0"))
+        .package(url: "https://github.com/HeroTransitions/Hero.git", .upToNextMajor(from: "1.6.1"))
     ],
     targets: [
         .target(
-            name: "MyPackage",
+            name: "MyPackage",1.6.1
             dependencies: ["Hero"])
     ]
 )

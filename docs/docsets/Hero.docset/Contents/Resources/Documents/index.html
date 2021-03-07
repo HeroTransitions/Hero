@@ -20,7 +20,7 @@
     <header class="header">
       <p class="header-col header-col--primary">
         <a class="header-link" href="index.html">
-          Hero 1.6.0 Docs
+          Hero 1.6.1 Docs
         </a>
          (24% documented)
       </p>
@@ -260,12 +260,9 @@
 <p><img src="https://cdn.rawgit.com/lkzhao/Hero/ebb3f2c/Resources/defaultAnimations.svg"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 <img src="https://cdn.rawgit.com/lkzhao/Hero/ebb3f2c/Resources/defaultAnimations2.svg"/></p>
 
-<p>By default, Hero provides <strong>dynamic duration</strong> based on the <a href="https://material.io/guidelines/motion/duration-easing.html">Material Design Motion Guide</a>. Duration is automatically determined by changes to distance and size—saving you the hassle, while providing consistent and delightful animations.</p>
+<p>By default, Hero provides <strong>dynamic duration</strong> based on the <a href="https://material.io/design/motion/speed.html#easing">Material Design Motion Guide</a>. Duration is automatically determined by changes to distance and size—saving you the hassle, while providing consistent and delightful animations.</p>
 
 <p>Hero doesn&rsquo;t make any assumptions about how the view is built or structured. It won&rsquo;t modify any of your views&rsquo; states other than hiding them during the animation. This makes it work with <strong>Auto Layout</strong>, <strong>programmatic layout</strong>, <strong>UICollectionView</strong> (without modifying its layout object), <strong>UITableView</strong>, <strong>UINavigationController</strong>, <strong>UITabBarController</strong>, etc&hellip;</p>
-<h2 id='example-gallery' class='heading'>Example Gallery</h2>
-
-<p>Checkout the <a href="http://lkzhao.com/2016/12/28/hero.html">Example Gallery Blog Post</a> for a general idea of what you can achieve with <strong>Hero</strong></p>
 <h2 id='usage-example-1' class='heading'>Usage Example 1</h2>
 
 <p><img src="https://cdn.rawgit.com/lkzhao/Hero/ebb3f2c/Resources/simple.svg" /></p>
@@ -354,11 +351,11 @@ Here&rsquo;s an example <code>PackageDescription</code>:</p>
             <span class="nv">targets</span><span class="p">:</span> <span class="p">[</span><span class="s">"MyPackage"</span><span class="p">]),</span>
     <span class="p">],</span>
     <span class="nv">dependencies</span><span class="p">:</span> <span class="p">[</span>
-        <span class="o">.</span><span class="nf">package</span><span class="p">(</span><span class="nv">url</span><span class="p">:</span> <span class="s">"https://github.com/HeroTransitions/Hero.git"</span><span class="p">,</span> <span class="o">.</span><span class="nf">upToNextMajor</span><span class="p">(</span><span class="nv">from</span><span class="p">:</span> <span class="s">"1.6.0"</span><span class="p">))</span>
+        <span class="o">.</span><span class="nf">package</span><span class="p">(</span><span class="nv">url</span><span class="p">:</span> <span class="s">"https://github.com/HeroTransitions/Hero.git"</span><span class="p">,</span> <span class="o">.</span><span class="nf">upToNextMajor</span><span class="p">(</span><span class="nv">from</span><span class="p">:</span> <span class="s">"1.6.1"</span><span class="p">))</span>
     <span class="p">],</span>
     <span class="nv">targets</span><span class="p">:</span> <span class="p">[</span>
         <span class="o">.</span><span class="nf">target</span><span class="p">(</span>
-            <span class="nv">name</span><span class="p">:</span> <span class="s">"MyPackage"</span><span class="p">,</span>
+            <span class="nv">name</span><span class="p">:</span> <span class="s">"MyPackage"</span><span class="p">,</span><span class="mf">1.6</span><span class="o">.</span><span class="mi">1</span>
             <span class="nv">dependencies</span><span class="p">:</span> <span class="p">[</span><span class="s">"Hero"</span><span class="p">])</span>
     <span class="p">]</span>
 <span class="p">)</span>

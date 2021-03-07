@@ -71,3 +71,4 @@ _book
 xcodebuild.log
 .swiftpm
 /.bundle
+*.zip
