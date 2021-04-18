@@ -12,7 +12,7 @@ import CoreMedia
 import CoreGraphics
 
 extension CMTime {
-  static let zero = CMTime.zero
+	static let zero = kCMTimeZero
 }
 
 enum CAMediaTimingFillMode {
@@ -46,7 +46,7 @@ extension UIViewController {
 
 extension RunLoop {
   enum Mode {
-    static let common = RunLoop.Mode.common
+		static let common = RunLoopMode.commonModes
   }
 }
 
