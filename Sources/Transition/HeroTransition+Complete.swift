@@ -89,8 +89,23 @@ extension HeroTransition {
       if isPresenting != finished, !inContainerController, transitionContext != nil {
         // only happens when present a .overFullScreen VC
         // bug: http://openradar.appspot.com/radar?id=5320103646199808
-        container.window?.addSubview(isPresenting ? fromView : toView)
+
+        // $workaround(eric): try to restore the view of the prensenting view controller to
+        // where it was otherwise. Simply putting the view back under window will leak the view in
+        // some edge cases, for example, when the presenting view was deeply nested under some
+        // exotic view hierarchy (e.g., react native views). as stated where the transition starts,
+        // `originalSuperview` remembers the original super view when the `presenting` transition
+        // animation starts, now it's safe to restore it where it was if possible.
+        if let superview = originalSuperview, superview.window != nil {
+          superview.addSubview(isPresenting ? fromView : toView)
+        } else {
+          container.window?.addSubview(isPresenting ? fromView : toView)
+        }
       }
+    }
+
+    if !isPresenting {
+      originalSuperview = nil
     }
 
     if container.superview == transitionContainer {

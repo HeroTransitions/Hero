@@ -30,6 +30,12 @@ extension HeroTransition {
     state = .starting
 
     if let toView = toView, let fromView = fromView {
+      // let's remember the superview of the view of the `fromViewController` which is
+      // presenting the `toViewController` with `overFullscreen` `modalPresentationStyle`,
+      // so that we can restore the presenting view controller's view later on dismiss
+      if isPresenting && !inContainerController && toOverFullScreen {
+        originalSuperview = fromView.superview
+      }
       if let toViewController = toViewController, let transitionContext = transitionContext {
         toView.frame = transitionContext.finalFrame(for: toViewController)
       } else {
