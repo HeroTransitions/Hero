@@ -97,15 +97,22 @@ extension HeroTransition {
         // `originalSuperview` remembers the original super view when the `presenting` transition
         // animation starts, now it's safe to restore it where it was if possible.
         if let superview = originalSuperview, superview.window != nil {
-          superview.addSubview(isPresenting ? fromView : toView)
+          let view = isPresenting ? fromView : toView
+          superview.addSubview(view)
+          if let frame = originalFrame {
+            view.frame = frame
+          }
         } else {
           container.window?.addSubview(isPresenting ? fromView : toView)
         }
       }
     }
 
-    if !isPresenting {
+    // clear temporary states only when dismissing finishes.
+    if !isPresenting && finished {
       originalSuperview = nil
+      originalFrame = nil
+      originalFrameInContainer = nil
     }
 
     if container.superview == transitionContainer {
