@@ -28,7 +28,6 @@ The changelog for `Hero`. Also see the [releases](https://github.com/HeroTransit
 - #595 - Add Accio supported badge
 - #619 - XCode 11/12 support in example
 - CI/CD improvements
-
 ### Changed
 
 - #648 - Updated iOS version support
