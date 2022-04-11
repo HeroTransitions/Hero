@@ -30,6 +30,13 @@ extension HeroTransition {
     state = .starting
 
     if let toView = toView, let fromView = fromView {
+      // remember the superview of the view of the `fromViewController` which is
+      // presenting the `toViewController` with `overFullscreen` `modalPresentationStyle`,
+      // so that we can restore the presenting view controller's view later on dismiss
+      if isPresenting && !inContainerController {
+        originalSuperview = fromView.superview
+        originalFrame = fromView.frame
+      }
       if let toViewController = toViewController, let transitionContext = transitionContext {
         toView.frame = transitionContext.finalFrame(for: toViewController)
       } else {
@@ -111,10 +118,35 @@ extension HeroTransition {
     }
 
     if let toView = toView, let fromView = fromView {
+      // if we're presenting a view controller, remember the position & dimension
+      // of the view relative to the transition container so that we can:
+      // - correctly place the view in the transition container when presenting
+      // - correctly place the view back to where it was when dismissing
+      if isPresenting && !inContainerController {
+        originalFrameInContainer = fromView.superview?.convert(
+          fromView.frame, to: container
+        )
+      }
+
+      // when dismiss and before animating, place the `toView` to be animated
+      // with the correct position and dimension in the transition container.
+      // otherwise, there will be an apparent visual jagging when the animation begins.
+      if !isPresenting, let frame = originalFrameInContainer {
+        toView.frame = frame
+      }
+
       context.loadViewAlpha(rootView: toView)
       context.loadViewAlpha(rootView: fromView)
       container.addSubview(toView)
       container.addSubview(fromView)
+
+      // when present and before animating, place the `fromView` to be animated
+      // with the correct position and dimension in the transition container to
+      // prevent any possible visual jagging when animation starts, even though not
+      // that apparent in some cases.
+      if isPresenting, let frame = originalFrameInContainer {
+        fromView.frame = frame
+      }
 
       toView.updateConstraints()
       toView.setNeedsLayout()

@@ -96,6 +96,10 @@ open class HeroTransition: NSObject {
   internal var plugins: [HeroPlugin] = []
   internal var animatingFromViews: [UIView] = []
   internal var animatingToViews: [UIView] = []
+  internal var originalSuperview: UIView?
+  internal var originalFrame: CGRect?
+  internal var originalFrameInContainer: CGRect?
+
   internal static var enabledPlugins: [HeroPlugin.Type] = []
 
   /// destination view controller
