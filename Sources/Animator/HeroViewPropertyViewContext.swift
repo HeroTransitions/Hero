@@ -36,7 +36,8 @@ internal class HeroViewPropertyViewContext: HeroAnimatorViewContext {
   }
 
   override func resume(timePassed: TimeInterval, reverse: Bool) -> TimeInterval {
-    guard let visualEffectView = snapshot as? UIVisualEffectView else { return 0 }
+    guard let visualEffectView = snapshot as? UIVisualEffectView else { return .zero }
+    guard duration > 0 else { return .zero }
     if reverse {
       viewPropertyAnimator?.stopAnimation(false)
       viewPropertyAnimator?.finishAnimation(at: .current)
