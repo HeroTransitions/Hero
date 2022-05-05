@@ -117,7 +117,7 @@ extension HeroTransition {
       animator.hero = self
     }
 
-    if let toView = toView, let fromView = fromView {
+    if let toView = toView, let fromView = fromView, toView != fromView {
       // if we're presenting a view controller, remember the position & dimension
       // of the view relative to the transition container so that we can:
       // - correctly place the view in the transition container when presenting
