@@ -93,9 +93,9 @@ extension HeroTransition {
     }
 
     // There is no covariant in Swift, so we need to add plugins one by one.
-    for plugin in plugins {
-      processors.append(plugin)
-      animators.append(plugin)
+    plugins.forEach {
+      processors.append($0)
+      animators.append($0)
     }
 
     transitionContainer?.isUserInteractionEnabled = isUserInteractionEnabled
@@ -110,11 +110,11 @@ extension HeroTransition {
 
     context = HeroContext(container: container)
 
-    for processor in processors {
-      processor.hero = self
+    processors.forEach {
+      $0.hero = self
     }
-    for animator in animators {
-      animator.hero = self
+    animators.forEach {
+      $0.hero = self
     }
 
     if let toView = toView, let fromView = fromView, toView != fromView {
@@ -160,24 +160,16 @@ extension HeroTransition {
       context.insertToViewFirst = true
     }
 
-    for processor in processors {
-      processor.process(fromViews: context.fromViews, toViews: context.toViews)
+    processors.forEach {
+      $0.process(fromViews: context.fromViews, toViews: context.toViews)
     }
+    
     animatingFromViews = context.fromViews.filter { (view: UIView) -> Bool in
-      for animator in animators {
-        if animator.canAnimate(view: view, appearing: false) {
-          return true
-        }
-      }
-      return false
+      animators.contains { $0.canAnimate(view: view, appearing: false) }
     }
+    
     animatingToViews = context.toViews.filter { (view: UIView) -> Bool in
-      for animator in animators {
-        if animator.canAnimate(view: view, appearing: true) {
-          return true
-        }
-      }
-      return false
+      animators.contains { $0.canAnimate(view: view, appearing: true) }
     }
 
     if let toView = toView {
