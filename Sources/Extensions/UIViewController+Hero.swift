@@ -334,7 +334,7 @@ public extension HeroExtension where Base: UIViewController {
       }
     } else if let baseWindow = base.view.window, baseWindow.rootViewController == base {
       hero.transition(from: base, to: next, in: baseWindow) { [weak base] finished in
-        guard let base = base, finished else { return }
+        guard base != nil, finished else { return }
         baseWindow.rootViewController = next
       }
     }
