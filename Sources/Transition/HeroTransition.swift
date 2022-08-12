@@ -45,7 +45,7 @@ public class Hero: NSObject {
   public static var shared = HeroTransition()
 }
 
-public protocol HeroTransitionDelegate: class {
+public protocol HeroTransitionDelegate: AnyObject {
   func heroTransition(_ hero: HeroTransition, didUpdate state: HeroTransitionState)
   func heroTransition(_ hero: HeroTransition, didUpdate progress: Double)
 }
