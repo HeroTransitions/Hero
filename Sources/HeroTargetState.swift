@@ -59,6 +59,7 @@ public struct HeroTargetState {
   public var cornerRadius: CGFloat?
   public var backgroundColor: CGColor?
   public var zPosition: CGFloat?
+  public var anchorPoint: CGPoint?
 
   public var contentsRect: CGRect?
   public var contentsScale: CGFloat?

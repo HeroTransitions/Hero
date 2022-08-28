@@ -80,6 +80,9 @@ class SourcePreprocessor: BasePreprocessor {
     if view.layer.contentsScale != targetView.layer.contentsScale {
       state.contentsScale = targetView.layer.contentsScale
     }
+    if view.layer.anchorPoint != targetView.layer.anchorPoint {
+      state.anchorPoint = targetView.layer.anchorPoint
+    }
 
     context[view] = state
   }
