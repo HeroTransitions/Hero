@@ -147,11 +147,11 @@ let package = Package(
             targets: ["MyPackage"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/HeroTransitions/Hero.git", .upToNextMajor(from: "1.6.1"))
+        .package(url: "https://github.com/HeroTransitions/Hero.git", .upToNextMajor(from: "1.6.2"))
     ],
     targets: [
         .target(
-            name: "MyPackage",1.6.1
+            name: "MyPackage",
             dependencies: ["Hero"])
     ]
 )
