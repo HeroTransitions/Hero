@@ -422,126 +422,126 @@
     },
     {
       "file": "/Users/jmattiello/Workspace/github/Hero/Sources/Extensions/UIViewController+Hero.swift",
-      "line": 350,
+      "line": 346,
       "symbol": "UIViewController.ht_dismiss(_:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/jmattiello/Workspace/github/Hero/Sources/Extensions/UIViewController+Hero.swift",
-      "line": 350,
+      "line": 346,
       "symbol": "UIViewController.ht_dismiss(_:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/jmattiello/Workspace/github/Hero/Sources/Extensions/UIViewController+Hero.swift",
-      "line": 355,
+      "line": 351,
       "symbol": "UIViewController.heroReplaceViewController(with:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/jmattiello/Workspace/github/Hero/Sources/Extensions/UIViewController+Hero.swift",
-      "line": 355,
+      "line": 351,
       "symbol": "UIViewController.heroReplaceViewController(with:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/jmattiello/Workspace/github/Hero/Sources/Extensions/UIViewController+Hero.swift",
-      "line": 361,
+      "line": 357,
       "symbol": "UIViewController.hero_dismissViewController()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/jmattiello/Workspace/github/Hero/Sources/Extensions/UIViewController+Hero.swift",
-      "line": 361,
+      "line": 357,
       "symbol": "UIViewController.hero_dismissViewController()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/jmattiello/Workspace/github/Hero/Sources/Extensions/UIViewController+Hero.swift",
-      "line": 367,
+      "line": 363,
       "symbol": "UIViewController.hero_unwindToRootViewController()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/jmattiello/Workspace/github/Hero/Sources/Extensions/UIViewController+Hero.swift",
-      "line": 367,
+      "line": 363,
       "symbol": "UIViewController.hero_unwindToRootViewController()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/jmattiello/Workspace/github/Hero/Sources/Extensions/UIViewController+Hero.swift",
-      "line": 372,
+      "line": 368,
       "symbol": "UIViewController.hero_unwindToViewController(_:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/jmattiello/Workspace/github/Hero/Sources/Extensions/UIViewController+Hero.swift",
-      "line": 372,
+      "line": 368,
       "symbol": "UIViewController.hero_unwindToViewController(_:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/jmattiello/Workspace/github/Hero/Sources/Extensions/UIViewController+Hero.swift",
-      "line": 377,
+      "line": 373,
       "symbol": "UIViewController.hero_unwindToViewController(withSelector:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/jmattiello/Workspace/github/Hero/Sources/Extensions/UIViewController+Hero.swift",
-      "line": 377,
+      "line": 373,
       "symbol": "UIViewController.hero_unwindToViewController(withSelector:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/jmattiello/Workspace/github/Hero/Sources/Extensions/UIViewController+Hero.swift",
-      "line": 382,
+      "line": 378,
       "symbol": "UIViewController.hero_unwindToViewController(withClass:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/jmattiello/Workspace/github/Hero/Sources/Extensions/UIViewController+Hero.swift",
-      "line": 382,
+      "line": 378,
       "symbol": "UIViewController.hero_unwindToViewController(withClass:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/jmattiello/Workspace/github/Hero/Sources/Extensions/UIViewController+Hero.swift",
-      "line": 387,
+      "line": 383,
       "symbol": "UIViewController.hero_unwindToViewController(withMatchBlock:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/jmattiello/Workspace/github/Hero/Sources/Extensions/UIViewController+Hero.swift",
-      "line": 387,
+      "line": 383,
       "symbol": "UIViewController.hero_unwindToViewController(withMatchBlock:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/jmattiello/Workspace/github/Hero/Sources/Extensions/UIViewController+Hero.swift",
-      "line": 392,
+      "line": 388,
       "symbol": "UIViewController.hero_replaceViewController(with:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/jmattiello/Workspace/github/Hero/Sources/Extensions/UIViewController+Hero.swift",
-      "line": 392,
+      "line": 388,
       "symbol": "UIViewController.hero_replaceViewController(with:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
@@ -1458,14 +1458,21 @@
     },
     {
       "file": "/Users/jmattiello/Workspace/github/Hero/Sources/HeroTargetState.swift",
-      "line": 63,
-      "symbol": "HeroTargetState.contentsRect",
+      "line": 62,
+      "symbol": "HeroTargetState.anchorPoint",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/jmattiello/Workspace/github/Hero/Sources/HeroTargetState.swift",
-      "line": 63,
+      "line": 62,
+      "symbol": "HeroTargetState.anchorPoint",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jmattiello/Workspace/github/Hero/Sources/HeroTargetState.swift",
+      "line": 64,
       "symbol": "HeroTargetState.contentsRect",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
@@ -1473,27 +1480,27 @@
     {
       "file": "/Users/jmattiello/Workspace/github/Hero/Sources/HeroTargetState.swift",
       "line": 64,
+      "symbol": "HeroTargetState.contentsRect",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jmattiello/Workspace/github/Hero/Sources/HeroTargetState.swift",
+      "line": 65,
       "symbol": "HeroTargetState.contentsScale",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/jmattiello/Workspace/github/Hero/Sources/HeroTargetState.swift",
-      "line": 64,
+      "line": 65,
       "symbol": "HeroTargetState.contentsScale",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/jmattiello/Workspace/github/Hero/Sources/HeroTargetState.swift",
-      "line": 66,
-      "symbol": "HeroTargetState.borderWidth",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/jmattiello/Workspace/github/Hero/Sources/HeroTargetState.swift",
-      "line": 66,
+      "line": 67,
       "symbol": "HeroTargetState.borderWidth",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
@@ -1501,27 +1508,27 @@
     {
       "file": "/Users/jmattiello/Workspace/github/Hero/Sources/HeroTargetState.swift",
       "line": 67,
+      "symbol": "HeroTargetState.borderWidth",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jmattiello/Workspace/github/Hero/Sources/HeroTargetState.swift",
+      "line": 68,
       "symbol": "HeroTargetState.borderColor",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/jmattiello/Workspace/github/Hero/Sources/HeroTargetState.swift",
-      "line": 67,
+      "line": 68,
       "symbol": "HeroTargetState.borderColor",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/jmattiello/Workspace/github/Hero/Sources/HeroTargetState.swift",
-      "line": 69,
-      "symbol": "HeroTargetState.shadowColor",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/jmattiello/Workspace/github/Hero/Sources/HeroTargetState.swift",
-      "line": 69,
+      "line": 70,
       "symbol": "HeroTargetState.shadowColor",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
@@ -1529,13 +1536,13 @@
     {
       "file": "/Users/jmattiello/Workspace/github/Hero/Sources/HeroTargetState.swift",
       "line": 70,
-      "symbol": "HeroTargetState.shadowOpacity",
+      "symbol": "HeroTargetState.shadowColor",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/jmattiello/Workspace/github/Hero/Sources/HeroTargetState.swift",
-      "line": 70,
+      "line": 71,
       "symbol": "HeroTargetState.shadowOpacity",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
@@ -1543,13 +1550,13 @@
     {
       "file": "/Users/jmattiello/Workspace/github/Hero/Sources/HeroTargetState.swift",
       "line": 71,
-      "symbol": "HeroTargetState.shadowOffset",
+      "symbol": "HeroTargetState.shadowOpacity",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/jmattiello/Workspace/github/Hero/Sources/HeroTargetState.swift",
-      "line": 71,
+      "line": 72,
       "symbol": "HeroTargetState.shadowOffset",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
@@ -1557,13 +1564,13 @@
     {
       "file": "/Users/jmattiello/Workspace/github/Hero/Sources/HeroTargetState.swift",
       "line": 72,
-      "symbol": "HeroTargetState.shadowRadius",
+      "symbol": "HeroTargetState.shadowOffset",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/jmattiello/Workspace/github/Hero/Sources/HeroTargetState.swift",
-      "line": 72,
+      "line": 73,
       "symbol": "HeroTargetState.shadowRadius",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
@@ -1571,13 +1578,13 @@
     {
       "file": "/Users/jmattiello/Workspace/github/Hero/Sources/HeroTargetState.swift",
       "line": 73,
-      "symbol": "HeroTargetState.shadowPath",
+      "symbol": "HeroTargetState.shadowRadius",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/jmattiello/Workspace/github/Hero/Sources/HeroTargetState.swift",
-      "line": 73,
+      "line": 74,
       "symbol": "HeroTargetState.shadowPath",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
@@ -1585,13 +1592,13 @@
     {
       "file": "/Users/jmattiello/Workspace/github/Hero/Sources/HeroTargetState.swift",
       "line": 74,
-      "symbol": "HeroTargetState.masksToBounds",
+      "symbol": "HeroTargetState.shadowPath",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/jmattiello/Workspace/github/Hero/Sources/HeroTargetState.swift",
-      "line": 74,
+      "line": 75,
       "symbol": "HeroTargetState.masksToBounds",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
@@ -1599,41 +1606,41 @@
     {
       "file": "/Users/jmattiello/Workspace/github/Hero/Sources/HeroTargetState.swift",
       "line": 75,
+      "symbol": "HeroTargetState.masksToBounds",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jmattiello/Workspace/github/Hero/Sources/HeroTargetState.swift",
+      "line": 76,
       "symbol": "HeroTargetState.displayShadow",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/jmattiello/Workspace/github/Hero/Sources/HeroTargetState.swift",
-      "line": 75,
+      "line": 76,
       "symbol": "HeroTargetState.displayShadow",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/jmattiello/Workspace/github/Hero/Sources/HeroTargetState.swift",
-      "line": 77,
+      "line": 78,
       "symbol": "HeroTargetState.overlay",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/jmattiello/Workspace/github/Hero/Sources/HeroTargetState.swift",
-      "line": 77,
+      "line": 78,
       "symbol": "HeroTargetState.overlay",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/jmattiello/Workspace/github/Hero/Sources/HeroTargetState.swift",
-      "line": 79,
-      "symbol": "HeroTargetState.spring",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/jmattiello/Workspace/github/Hero/Sources/HeroTargetState.swift",
-      "line": 79,
+      "line": 80,
       "symbol": "HeroTargetState.spring",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
@@ -1641,13 +1648,13 @@
     {
       "file": "/Users/jmattiello/Workspace/github/Hero/Sources/HeroTargetState.swift",
       "line": 80,
-      "symbol": "HeroTargetState.delay",
+      "symbol": "HeroTargetState.spring",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/jmattiello/Workspace/github/Hero/Sources/HeroTargetState.swift",
-      "line": 80,
+      "line": 81,
       "symbol": "HeroTargetState.delay",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
@@ -1655,13 +1662,13 @@
     {
       "file": "/Users/jmattiello/Workspace/github/Hero/Sources/HeroTargetState.swift",
       "line": 81,
-      "symbol": "HeroTargetState.duration",
+      "symbol": "HeroTargetState.delay",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/jmattiello/Workspace/github/Hero/Sources/HeroTargetState.swift",
-      "line": 81,
+      "line": 82,
       "symbol": "HeroTargetState.duration",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
@@ -1669,27 +1676,27 @@
     {
       "file": "/Users/jmattiello/Workspace/github/Hero/Sources/HeroTargetState.swift",
       "line": 82,
+      "symbol": "HeroTargetState.duration",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jmattiello/Workspace/github/Hero/Sources/HeroTargetState.swift",
+      "line": 83,
       "symbol": "HeroTargetState.timingFunction",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/jmattiello/Workspace/github/Hero/Sources/HeroTargetState.swift",
-      "line": 82,
+      "line": 83,
       "symbol": "HeroTargetState.timingFunction",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/jmattiello/Workspace/github/Hero/Sources/HeroTargetState.swift",
-      "line": 84,
-      "symbol": "HeroTargetState.arc",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/jmattiello/Workspace/github/Hero/Sources/HeroTargetState.swift",
-      "line": 84,
+      "line": 85,
       "symbol": "HeroTargetState.arc",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
@@ -1697,13 +1704,13 @@
     {
       "file": "/Users/jmattiello/Workspace/github/Hero/Sources/HeroTargetState.swift",
       "line": 85,
-      "symbol": "HeroTargetState.source",
+      "symbol": "HeroTargetState.arc",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/jmattiello/Workspace/github/Hero/Sources/HeroTargetState.swift",
-      "line": 85,
+      "line": 86,
       "symbol": "HeroTargetState.source",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
@@ -1711,27 +1718,27 @@
     {
       "file": "/Users/jmattiello/Workspace/github/Hero/Sources/HeroTargetState.swift",
       "line": 86,
+      "symbol": "HeroTargetState.source",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jmattiello/Workspace/github/Hero/Sources/HeroTargetState.swift",
+      "line": 87,
       "symbol": "HeroTargetState.cascade",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/jmattiello/Workspace/github/Hero/Sources/HeroTargetState.swift",
-      "line": 86,
+      "line": 87,
       "symbol": "HeroTargetState.cascade",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/jmattiello/Workspace/github/Hero/Sources/HeroTargetState.swift",
-      "line": 88,
-      "symbol": "HeroTargetState.ignoreSubviewModifiers",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/jmattiello/Workspace/github/Hero/Sources/HeroTargetState.swift",
-      "line": 88,
+      "line": 89,
       "symbol": "HeroTargetState.ignoreSubviewModifiers",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
@@ -1739,13 +1746,13 @@
     {
       "file": "/Users/jmattiello/Workspace/github/Hero/Sources/HeroTargetState.swift",
       "line": 89,
-      "symbol": "HeroTargetState.coordinateSpace",
+      "symbol": "HeroTargetState.ignoreSubviewModifiers",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/jmattiello/Workspace/github/Hero/Sources/HeroTargetState.swift",
-      "line": 89,
+      "line": 90,
       "symbol": "HeroTargetState.coordinateSpace",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
@@ -1753,13 +1760,13 @@
     {
       "file": "/Users/jmattiello/Workspace/github/Hero/Sources/HeroTargetState.swift",
       "line": 90,
-      "symbol": "HeroTargetState.useScaleBasedSizeChange",
+      "symbol": "HeroTargetState.coordinateSpace",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/jmattiello/Workspace/github/Hero/Sources/HeroTargetState.swift",
-      "line": 90,
+      "line": 91,
       "symbol": "HeroTargetState.useScaleBasedSizeChange",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
@@ -1767,27 +1774,27 @@
     {
       "file": "/Users/jmattiello/Workspace/github/Hero/Sources/HeroTargetState.swift",
       "line": 91,
+      "symbol": "HeroTargetState.useScaleBasedSizeChange",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jmattiello/Workspace/github/Hero/Sources/HeroTargetState.swift",
+      "line": 92,
       "symbol": "HeroTargetState.snapshotType",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/jmattiello/Workspace/github/Hero/Sources/HeroTargetState.swift",
-      "line": 91,
+      "line": 92,
       "symbol": "HeroTargetState.snapshotType",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/jmattiello/Workspace/github/Hero/Sources/HeroTargetState.swift",
-      "line": 93,
-      "symbol": "HeroTargetState.nonFade",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/jmattiello/Workspace/github/Hero/Sources/HeroTargetState.swift",
-      "line": 93,
+      "line": 94,
       "symbol": "HeroTargetState.nonFade",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
@@ -1795,13 +1802,13 @@
     {
       "file": "/Users/jmattiello/Workspace/github/Hero/Sources/HeroTargetState.swift",
       "line": 94,
-      "symbol": "HeroTargetState.forceAnimate",
+      "symbol": "HeroTargetState.nonFade",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/jmattiello/Workspace/github/Hero/Sources/HeroTargetState.swift",
-      "line": 94,
+      "line": 95,
       "symbol": "HeroTargetState.forceAnimate",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
@@ -1809,55 +1816,62 @@
     {
       "file": "/Users/jmattiello/Workspace/github/Hero/Sources/HeroTargetState.swift",
       "line": 95,
+      "symbol": "HeroTargetState.forceAnimate",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jmattiello/Workspace/github/Hero/Sources/HeroTargetState.swift",
+      "line": 96,
       "symbol": "HeroTargetState.custom",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/jmattiello/Workspace/github/Hero/Sources/HeroTargetState.swift",
-      "line": 95,
+      "line": 96,
       "symbol": "HeroTargetState.custom",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/jmattiello/Workspace/github/Hero/Sources/HeroTargetState.swift",
-      "line": 101,
+      "line": 102,
       "symbol": "HeroTargetState.append(_:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/jmattiello/Workspace/github/Hero/Sources/HeroTargetState.swift",
-      "line": 101,
+      "line": 102,
       "symbol": "HeroTargetState.append(_:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/jmattiello/Workspace/github/Hero/Sources/HeroTargetState.swift",
-      "line": 105,
+      "line": 106,
       "symbol": "HeroTargetState.append(contentsOf:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/jmattiello/Workspace/github/Hero/Sources/HeroTargetState.swift",
-      "line": 105,
+      "line": 106,
       "symbol": "HeroTargetState.append(contentsOf:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/jmattiello/Workspace/github/Hero/Sources/HeroTargetState.swift",
-      "line": 127,
+      "line": 128,
       "symbol": "HeroTargetState",
       "symbol_kind": "source.lang.swift.decl.extension",
       "warning": "undocumented"
     },
     {
       "file": "/Users/jmattiello/Workspace/github/Hero/Sources/HeroTargetState.swift",
-      "line": 127,
+      "line": 128,
       "symbol": "HeroTargetState",
       "symbol_kind": "source.lang.swift.decl.extension",
       "warning": "undocumented"
@@ -4398,14 +4412,14 @@
     },
     {
       "file": "/Users/jmattiello/Workspace/github/Hero/Sources/Transition/HeroTransition.swift",
-      "line": 179,
+      "line": 183,
       "symbol": "HeroTransition.init()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/jmattiello/Workspace/github/Hero/Sources/Transition/HeroTransition.swift",
-      "line": 179,
+      "line": 183,
       "symbol": "HeroTransition.init()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"

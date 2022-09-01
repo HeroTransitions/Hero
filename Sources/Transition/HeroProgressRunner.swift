@@ -23,7 +23,7 @@
 #if canImport(UIKit)
 import QuartzCore
 
-protocol HeroProgressRunnerDelegate: class {
+protocol HeroProgressRunnerDelegate: AnyObject {
   func updateProgress(progress: Double)
   func complete(finished: Bool)
 }

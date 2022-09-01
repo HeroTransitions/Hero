@@ -30,6 +30,13 @@ extension HeroTransition {
     state = .starting
 
     if let toView = toView, let fromView = fromView {
+      // remember the superview of the view of the `fromViewController` which is
+      // presenting the `toViewController` with `overFullscreen` `modalPresentationStyle`,
+      // so that we can restore the presenting view controller's view later on dismiss
+      if isPresenting && !inContainerController {
+        originalSuperview = fromView.superview
+        originalFrame = fromView.frame
+      }
       if let toViewController = toViewController, let transitionContext = transitionContext {
         toView.frame = transitionContext.finalFrame(for: toViewController)
       } else {
@@ -86,9 +93,9 @@ extension HeroTransition {
     }
 
     // There is no covariant in Swift, so we need to add plugins one by one.
-    for plugin in plugins {
-      processors.append(plugin)
-      animators.append(plugin)
+    plugins.forEach {
+      processors.append($0)
+      animators.append($0)
     }
 
     transitionContainer?.isUserInteractionEnabled = isUserInteractionEnabled
@@ -103,18 +110,43 @@ extension HeroTransition {
 
     context = HeroContext(container: container)
 
-    for processor in processors {
-      processor.hero = self
+    processors.forEach {
+      $0.hero = self
     }
-    for animator in animators {
-      animator.hero = self
+    animators.forEach {
+      $0.hero = self
     }
 
-    if let toView = toView, let fromView = fromView {
+    if let toView = toView, let fromView = fromView, toView != fromView {
+      // if we're presenting a view controller, remember the position & dimension
+      // of the view relative to the transition container so that we can:
+      // - correctly place the view in the transition container when presenting
+      // - correctly place the view back to where it was when dismissing
+      if isPresenting && !inContainerController {
+        originalFrameInContainer = fromView.superview?.convert(
+          fromView.frame, to: container
+        )
+      }
+
+      // when dismiss and before animating, place the `toView` to be animated
+      // with the correct position and dimension in the transition container.
+      // otherwise, there will be an apparent visual jagging when the animation begins.
+      if !isPresenting, let frame = originalFrameInContainer {
+        toView.frame = frame
+      }
+
       context.loadViewAlpha(rootView: toView)
       context.loadViewAlpha(rootView: fromView)
       container.addSubview(toView)
       container.addSubview(fromView)
+
+      // when present and before animating, place the `fromView` to be animated
+      // with the correct position and dimension in the transition container to
+      // prevent any possible visual jagging when animation starts, even though not
+      // that apparent in some cases.
+      if isPresenting, let frame = originalFrameInContainer {
+        fromView.frame = frame
+      }
 
       toView.updateConstraints()
       toView.setNeedsLayout()
@@ -128,24 +160,16 @@ extension HeroTransition {
       context.insertToViewFirst = true
     }
 
-    for processor in processors {
-      processor.process(fromViews: context.fromViews, toViews: context.toViews)
+    processors.forEach {
+      $0.process(fromViews: context.fromViews, toViews: context.toViews)
     }
+    
     animatingFromViews = context.fromViews.filter { (view: UIView) -> Bool in
-      for animator in animators {
-        if animator.canAnimate(view: view, appearing: false) {
-          return true
-        }
-      }
-      return false
+      animators.contains { $0.canAnimate(view: view, appearing: false) }
     }
+    
     animatingToViews = context.toViews.filter { (view: UIView) -> Bool in
-      for animator in animators {
-        if animator.canAnimate(view: view, appearing: true) {
-          return true
-        }
-      }
-      return false
+      animators.contains { $0.canAnimate(view: view, appearing: true) }
     }
 
     if let toView = toView {

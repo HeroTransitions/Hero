@@ -305,7 +305,7 @@ public extension HeroExtension where Base: UIViewController {
   }
 
   /**
-   Replace the current view controller with another VC on the navigation/modal stack.
+   Replace the current view controller with another VC on the navigation/modal/root view of UIWindow stack.
    */
   func replaceViewController(with next: UIViewController, completion: (() -> Void)? = nil) {
     let hero = next.transitioningDelegate as? HeroTransition ?? Hero.shared
@@ -324,20 +324,18 @@ public extension HeroExtension where Base: UIViewController {
         hero.forceNotInteractive = true
       }
       navigationController.setViewControllers(viewControllers: vcs, animated: true, completion: completion)
-    } else if let container = base.view.superview {
-      let parentVC = base.presentingViewController
+    } else if let container = base.view.superview, let parentVC = base.presentingViewController {
       hero.transition(from: base, to: next, in: container) { [weak base] finished in
-        guard let base = base else { return }
-        guard finished else { return }
-
+        guard let base = base, finished else { return }
         next.view.window?.addSubview(next.view)
-        if let parentVC = parentVC {
-          base.dismiss(animated: false) {
-            parentVC.present(next, animated: false, completion: completion)
-          }
-        } else {
-          parentVC?.view.window?.rootViewController = next
+        base.dismiss(animated: false) {
+          parentVC.present(next, animated: false, completion: completion)
         }
+      }
+    } else if let baseWindow = base.view.window, baseWindow.rootViewController == base {
+      hero.transition(from: base, to: next, in: baseWindow) { [weak base] finished in
+        guard base != nil, finished else { return }
+        baseWindow.rootViewController = next
       }
     }
   }
