@@ -3,6 +3,19 @@
 The changelog for `Hero`. Also see the [releases](https://github.com/HeroTransitions/Hero/releases) on GitHub.
 
 --------------------------------------
+## [1.6.2](https://github.com/HeroTransitions/Hero/releases/tag/1.6.2)
+
+### Fixed
+
+- [#717](https://github.com/HeroTransitions/Hero/issues/717)
+- [#734](https://github.com/HeroTransitions/Hero/issues/734)
+- [#735](https://github.com/HeroTransitions/Hero/issues/735)
+- [#736](https://github.com/HeroTransitions/Hero/issues/736)
+- [#739](https://github.com/HeroTransitions/Hero/issues/739)
+- [#740](https://github.com/HeroTransitions/Hero/issues/740) Fix build warings in XCode 13.4.1 c30a7a867d3bc420e90ad276d9bf12287628ce87
+- [#742](https://github.com/HeroTransitions/Hero/issues/742) Add `anchorPoint` support for transitioning a76e9f6dbeefb530743994634d37235e59401911
+
+
 ## [1.6.1](https://github.com/HeroTransitions/Hero/releases/tag/1.6.1)
 
 ### Added
