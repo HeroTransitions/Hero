@@ -25,7 +25,7 @@
 import UIKit
 
 extension HeroTransition {
-  open func start() {
+  public func start() {
     guard state == .notified else { return }
     state = .starting
 
