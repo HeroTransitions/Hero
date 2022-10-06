@@ -13,6 +13,9 @@
 [![中文 README](https://img.shields.io/badge/%E4%B8%AD%E6%96%87-README-blue.svg?style=flat)](https://github.com/lkzhao/Hero/blob/master/README.zh-cn.md)
 [![Donate](https://img.shields.io/badge/Donate-PayPal-blue.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=NT5F7Y2MPV7RE)
 
+[![Unit Test](https://github.com/HeroTransitions/Hero/actions/workflows/test.yml/badge.svg)](https://github.com/HeroTransitions/Hero/actions/workflows/test.yml)
+[![Swift PM](https://github.com/HeroTransitions/SwiftPMTest/actions/workflows/spm.yml/badge.svg)](https://github.com/HeroTransitions/SwiftPMTest/actions/workflows/spm.yml)
+
 <img src="https://cdn.rawgit.com/lkzhao/Hero/ebb3f2c/Resources/features.svg"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 <img src="https://cdn.rawgit.com/lkzhao/Hero/ebb3f2c/Resources/features2.svg"/>
 
