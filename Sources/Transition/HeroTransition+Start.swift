@@ -25,7 +25,7 @@
 import UIKit
 
 extension HeroTransition {
-  open func start() {
+  public func start() {
     guard state == .notified else { return }
     state = .starting
 
@@ -163,11 +163,11 @@ extension HeroTransition {
     processors.forEach {
       $0.process(fromViews: context.fromViews, toViews: context.toViews)
     }
-    
+
     animatingFromViews = context.fromViews.filter { (view: UIView) -> Bool in
       animators.contains { $0.canAnimate(view: view, appearing: false) }
     }
-    
+
     animatingToViews = context.toViews.filter { (view: UIView) -> Bool in
       animators.contains { $0.canAnimate(view: view, appearing: true) }
     }
