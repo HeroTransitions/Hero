@@ -171,6 +171,8 @@ Checkout the **[WIKI PAGES (Usage Guide)](https://github.com/lkzhao/Hero/wiki/Us
 For more up-to-date ones, please see the header-doc. (use **alt+click** in Xcode)
 <img src="https://cdn.rawgit.com/lkzhao/Hero/master/Resources/headerDoc.png" width="521px"/>
 
+Dash compatible API docs: https://HeroTransitions.github.io/Hero/
+
 ## Interactive Transition Tutorials
 
 [Interactive transitions with Hero (Part 1)](https://lkzhao.gitbooks.io/hero/content/docs/InteractiveTransition.html)
