@@ -98,7 +98,7 @@ extension HeroModifier: HeroStringConvertible {
         let direction = CascadeDirection(directionString) {
         cascadeDirection = direction
       }
-      return .cascade(delta: parameters.getDouble(0) ?? 0.02, direction: cascadeDirection, delayMatchedViews:parameters.getBool(2) ?? false)
+      return .cascade(delta: parameters.getDouble(0) ?? 0.02, direction: cascadeDirection, delayMatchedViews: parameters.getBool(2) ?? false)
     case "source":
       if let heroID = parameters.get(0)?.name {
         return .source(heroID: heroID)
@@ -106,7 +106,7 @@ extension HeroModifier: HeroStringConvertible {
     case "useGlobalCoordinateSpace":
       return .useGlobalCoordinateSpace
     case "ignoreSubviewModifiers":
-      return .ignoreSubviewModifiers(recursive:parameters.getBool(0) ?? false)
+      return .ignoreSubviewModifiers(recursive: parameters.getBool(0) ?? false)
     case "zPosition":
       if let zPosition = parameters.getCGFloat(0) {
         return .zPosition(zPosition)
