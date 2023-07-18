@@ -150,23 +150,21 @@ public extension UIView {
     get { fatalError("Reverse lookup is not supported") }
     set { hero.modifiers = newValue?.parse() }
   }
-
+    
   internal func slowSnapshotView() -> UIView {
-    UIGraphicsBeginImageContextWithOptions(bounds.size, isOpaque, 0)
-    guard let currentContext = UIGraphicsGetCurrentContext() else {
-      UIGraphicsEndImageContext()
-      return UIView()
-    }
-    layer.render(in: currentContext)
-
-    let image = UIGraphicsGetImageFromCurrentImageContext()
-    UIGraphicsEndImageContext()
-
-    let imageView = UIImageView(image: image)
-    imageView.frame = bounds
-    return SnapshotWrapperView(contentView: imageView)
+      var format = UIGraphicsImageRendererFormat()
+      format.opaque =  isOpaque
+      let renderer = UIGraphicsImageRenderer(size: bounds.size, format: format)
+      
+      let image = renderer.image { context in
+          layer.render(in: context.cgContext)
+      }
+      
+      let imageView = UIImageView(image: image)
+      imageView.frame = bounds
+      return SnapshotWrapperView(contentView: imageView)
   }
-
+    
   internal func snapshotView() -> UIView? {
     let snapshot = snapshotView(afterScreenUpdates: true)
     if #available(iOS 11.0, *), let oldSnapshot = snapshot {

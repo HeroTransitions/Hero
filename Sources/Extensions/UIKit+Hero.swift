@@ -38,13 +38,14 @@ internal extension NSCoding where Self: NSObject {
 }
 
 internal extension UIImage {
-  class func imageWithView(view: UIView) -> UIImage {
-    UIGraphicsBeginImageContextWithOptions(view.bounds.size, false, 0.0)
-    view.drawHierarchy(in: view.bounds, afterScreenUpdates: true)
-    let img = UIGraphicsGetImageFromCurrentImageContext()
-    UIGraphicsEndImageContext()
-    return img!
-  }
+    class func imageWithView(view: UIView) -> UIImage {
+        
+        let renderer = UIGraphicsImageRenderer(size: view.bounds.size)
+        let img = renderer.image { _ in
+            view.drawHierarchy(in: view.bounds, afterScreenUpdates: true)
+        }
+        return img
+    }
 }
 
 internal extension UIColor {
