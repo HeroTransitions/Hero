@@ -1,22 +1,23 @@
+# test.yml
+# Unit Test
 name: Unit Test
-
-on:
+'on':
   pull_request:
     paths:
-      - "**.swift"
-      - "**.xcodeproj"
-      - "**.m"
-      - "**.h"
-      - "**.podspec"
-      - "Podfile"
-      - "Podfile.lock"
-      - "test.yml"
+      - '**.swift'
+      - '**.xcodeproj'
+      - '**.m'
+      - '**.h'
+      - '**.podspec'
+      - Podfile
+      - Podfile.lock
+      - '**/test.yml'
 jobs:
   swiftpm:
     name: Test iOS (swiftpm)
     runs-on: macOS-latest
     env:
-      DEVELOPER_DIR: /Applications/Xcode_12.4.app/Contents/Developer
+      DEVELOPER_DIR: /Applications/Xcode_14.2.app/Contents/Developer
     steps:
       - name: Checkout
         uses: actions/checkout@master
@@ -24,75 +25,42 @@ jobs:
         run: |
           pod install
           set -o pipefail && swift test --parallel
-  iOS:
+  XCode:
     name: Test iOS
     runs-on: macOS-latest
     env:
-      DEVELOPER_DIR: /Applications/Xcode_12.4.app/Contents/Developer
+      DEVELOPER_DIR: /Applications/Xcode_14.2.app/Contents/Developer
     strategy:
-        matrix:
-          destination: [
-            'platform=iOS Simulator,OS=14.4,name=iPhone 12'
-          ]
+      matrix:
+        run-config:
+          - scheme: Hero
+            platform: iOS
+            action: test
+            code-coverage: true
+          - scheme: Hero (tvOS)
+            platform: tvOS
+            action: build
+            code-coverage: false
     steps:
       - name: Checkout
         uses: actions/checkout@master
 
-      - name: iOS - ${{ matrix.destination }}
+      - name: CocoaPods - ${{ matrix.run-config.destination }}
         run: |
           pod install
-          set -o pipefail && xcodebuild clean test -workspace Hero.xcworkspace -scheme Hero -destination "${destination}" -configuration "Debug" -showBuildTimingSummary -enableThreadSanitizer YES -enableCodeCoverage YES CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO ONLY_ACTIVE_ARCH=YES | xcpretty
-          bash <(curl -s https://codecov.io/bash)
-        env:
-         destination: ${{ matrix.destination }}
+
+      - name: Test - ${{ matrix.run-config.platform }}
+        uses: mxcl/xcodebuild@v2.0
+        with:
+          platform: ${{ matrix.run-config.platform }}
+          action: ${{ matrix.run-config.action }}
+          code-coverage:  ${{ matrix.run-config.code-coverage }}
+          configuration: Debug
+          scheme: ${{ matrix.run-config.scheme }}
+          workspace: Hero.xcworkspace
+
       - name: Upload Code Coverage
-        run: |
-          bash <(curl -s https://codecov.io/bash)
-        env:
-          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
-  # iOS-legacy:
-  #   name: Test iOS
-  #   runs-on: macOS-latest
-  #   env:
-  #     DEVELOPER_DIR: /Applications/Xcode_10.3.1.app/Contents/Developer
-  #   strategy:
-  #       matrix:
-  #         destination: [
-  #           'platform=iOS Simulator,OS=10.3.1,name=iPhone 7'
-  #         ]
-  #   steps:
-  #     - name: Checkout
-  #       uses: actions/checkout@master
-  #     - name: iOS - ${{ matrix.destination }}
-  #       run: |
-  #         xcversion simulators --install='iOS 10.3.1'
-  #         pod install
-  #         set -o pipefail && xcodebuild clean test -workspace Hero.xcworkspace -scheme Hero -destination "${destination}" -parallelizeTargets -showBuildTimingSummary -enableThreadSanitizer YES -enableCodeCoverage YES CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO ONLY_ACTIVE_ARCH=NO | xcpretty
-  #         bash <(curl -s https://codecov.io/bash)
-  #       env:
-  #        destination: ${{ matrix.destination }}
-  #     - name: Upload Code Coverage
-  #       run: |
-  #         bash <(curl -s https://codecov.io/bash)
-  #       env:
-  #         CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
-  tvOS:
-    name: Test tvOS
-    runs-on: macOS-latest
-    env:
-      DEVELOPER_DIR: /Applications/Xcode_12.4.app/Contents/Developer
-    strategy:
-        matrix:
-          destination: [
-            'platform=tvOS Simulator,OS=14.3,name=Apple TV 4K'
-          ]
-
-    steps:
-      - name: Checkout
-        uses: actions/checkout@master
-      - name: tvOS - ${{ matrix.destination }}
-        run: |
-          pod install
-          set -o pipefail && xcodebuild clean build -workspace Hero.xcworkspace -scheme "Hero (tvOS)" -destination "${destination}" -parallelizeTargets -showBuildTimingSummary -enableThreadSanitizer YES CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO ONLY_ACTIVE_ARCH=YES | xcpretty
-        env:
-         destination: ${{ matrix.destination }}
+        uses: codecov/codecov-action@v3
+        if: ${{ matrix.run-config.code-coverage }}
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
