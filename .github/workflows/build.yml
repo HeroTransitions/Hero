@@ -10,8 +10,13 @@ jobs:
     strategy:
         matrix:
           destination: [
-            'platform=iOS Simulator,OS=16.2,name=iPhone 14',
-            'platform=tvOS Simulator,OS=16.1,name=Apple TV 4']
+            'platform=Any iOS Simulator',
+            'platform=Any tvOS Simulator',
+            'platform=macOS,arch=x86_64',
+            'platform=macOS,arch=arm64',
+            'platform=macCatalyst,arch=x86_64',
+            'platform=macCatalyst,arch=arm64',
+            ]
     steps:
       - name: Checkout
         uses: actions/checkout@master
