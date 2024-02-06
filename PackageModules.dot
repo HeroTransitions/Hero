@@ -1,0 +1,24 @@
+digraph ModuleDependencyGraph {
+    rankdir = LR
+    graph [fontname="Helvetica-light", style = filled, color = "#eaeaea"]
+    node [shape=box, fontname="Helvetica", style=filled]
+    edge [color="#545454"]
+
+    subgraph clusterRegular {
+        label = "Program Modules"
+        node [color="#caecec"]
+        "Hero"
+    }
+    subgraph clusterTest {
+        label = "Test Modules"
+        node [color="#aaccee"]
+        "HeroTests"
+    }
+    subgraph clusterExternal {
+        label = "External Dependencies"
+        node [color="#eeccaa"]
+        ""
+    }
+
+    "HeroTests" -> ""
+}
