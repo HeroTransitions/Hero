@@ -77,7 +77,7 @@ for cell in redCells {
 
 You can do these in the **storyboard** too!
 
-<img src="https://cdn.rawgit.com/lkzhao/Hero/master/Resources/storyboardView.png" width="267px"/> 
+<img src="https://cdn.rawgit.com/lkzhao/Hero/master/Resources/storyboardView.png" width="267px"/>
 <img src="https://cdn.rawgit.com/lkzhao/Hero/master/Resources/storyboardViewController.png" width="267px"/>
 
 ## Installation
@@ -150,7 +150,7 @@ let package = Package(
             targets: ["MyPackage"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/HeroTransitions/Hero.git", .upToNextMajor(from: "1.6.2"))
+        .package(url: "https://github.com/HeroTransitions/Hero.git", .upToNextMajor(from: "1.6.3"))
     ],
     targets: [
         .target(
