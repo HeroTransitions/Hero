@@ -3,6 +3,21 @@
 The changelog for `Hero`. Also see the [releases](https://github.com/HeroTransitions/Hero/releases) on GitHub.
 
 --------------------------------------
+
+## [1.6.3](https://github.com/HeroTransitions/Hero/releases/tag/1.6.3)
+
+- 1ac98e7 Adaption for visionOS.
+- 5e05761 Merge pull request #771 from HeroTransitions/feature/CICDFix
+- c9a98cf CI/CI build and test, matrix platforms fix?
+- 2f8096d build.yml test.yml update github runner env
+- 45aed92 Readme add api docs link
+- a7d2682 README.md update ios/xcode version badges
+- 211df4b README.md Add unit test and swift pm action badges
+- bff4221 swiftlint fix
+- a47dce4 Merge pull request #749 from tadija/feature/xcode14-warnings
+- fd2ba86 Fix lint warnings
+- 5c053a6 Fix build warnings with Xcode 14.0
+
 ## [1.6.2](https://github.com/HeroTransitions/Hero/releases/tag/1.6.2)
 
 ### Fixed
@@ -92,7 +107,7 @@ The changelog for `Hero`. Also see the [releases](https://github.com/HeroTransit
 [#430](https://github.com/HeroTransitions/Hero/pull/430) by [@bradphilips](https://github.com/bradphilips)
 
 ### Fixed
-- Fixed shadows being cutoff by snapshots. 
+- Fixed shadows being cutoff by snapshots.
 [#440](https://github.com/HeroTransitions/Hero/pull/440) by [@2blane](https://github.com/2blane)
 - Fixed animation flickering on CALayer animation.
 [f4dab9](https://github.com/HeroTransitions/Hero/commit/f4dab9ed2ab88ae065605199d5aca7706b07c2ad) by [@lkzhao](https://github.com/lkzhao)
