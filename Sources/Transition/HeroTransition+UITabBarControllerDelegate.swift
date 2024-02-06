@@ -34,7 +34,7 @@ extension HeroTransition: UITabBarControllerDelegate {
     }
     return true
   }
-
+#if !os(visionOS)
   public func tabBarController(_ tabBarController: UITabBarController, interactionControllerFor animationController: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
     return interactiveTransitioning
   }
@@ -50,6 +50,8 @@ extension HeroTransition: UITabBarControllerDelegate {
     self.inTabBarController = true
     return self
   }
+#endif
+
 }
 
 #endif

@@ -25,7 +25,7 @@
 import UIKit
 
 extension HeroTransition {
-  open func complete(finished: Bool) {
+  public func complete(finished: Bool) {
     if state == .notified {
       forceFinishing = finished
     }

@@ -7,11 +7,14 @@
 [![codecov](https://codecov.io/gh/HeroTransitions/Hero/branch/develop/graph/badge.svg)](https://codecov.io/gh/HeroTransitions/Hero)
 [![Version](https://img.shields.io/cocoapods/v/Hero.svg?style=flat)](http://cocoapods.org/pods/Hero)
 [![License](https://img.shields.io/cocoapods/l/Hero.svg?style=flat)](https://github.com/lkzhao/Hero/blob/master/LICENSE?raw=true)
-![Xcode 9.0+](https://img.shields.io/badge/Xcode-9.0%2B-blue.svg)
-![iOS 8.0+](https://img.shields.io/badge/iOS-8.0%2B-blue.svg)
+![Xcode 10.0+](https://img.shields.io/badge/Xcode-10.0%2B-blue.svg)
+![iOS 10.0+](https://img.shields.io/badge/iOS-10.0%2B-blue.svg)
 ![Swift 4.0+](https://img.shields.io/badge/Swift-4.0%2B-orange.svg)
 [![中文 README](https://img.shields.io/badge/%E4%B8%AD%E6%96%87-README-blue.svg?style=flat)](https://github.com/lkzhao/Hero/blob/master/README.zh-cn.md)
 [![Donate](https://img.shields.io/badge/Donate-PayPal-blue.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=NT5F7Y2MPV7RE)
+
+[![Unit Test](https://github.com/HeroTransitions/Hero/actions/workflows/test.yml/badge.svg)](https://github.com/HeroTransitions/Hero/actions/workflows/test.yml)
+[![Swift PM](https://github.com/HeroTransitions/SwiftPMTest/actions/workflows/spm.yml/badge.svg)](https://github.com/HeroTransitions/SwiftPMTest/actions/workflows/spm.yml)
 
 <img src="https://cdn.rawgit.com/lkzhao/Hero/ebb3f2c/Resources/features.svg"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 <img src="https://cdn.rawgit.com/lkzhao/Hero/ebb3f2c/Resources/features2.svg"/>
@@ -74,7 +77,7 @@ for cell in redCells {
 
 You can do these in the **storyboard** too!
 
-<img src="https://cdn.rawgit.com/lkzhao/Hero/master/Resources/storyboardView.png" width="267px"/> 
+<img src="https://cdn.rawgit.com/lkzhao/Hero/master/Resources/storyboardView.png" width="267px"/>
 <img src="https://cdn.rawgit.com/lkzhao/Hero/master/Resources/storyboardViewController.png" width="267px"/>
 
 ## Installation
@@ -147,7 +150,7 @@ let package = Package(
             targets: ["MyPackage"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/HeroTransitions/Hero.git", .upToNextMajor(from: "1.6.2"))
+        .package(url: "https://github.com/HeroTransitions/Hero.git", .upToNextMajor(from: "1.6.3"))
     ],
     targets: [
         .target(
@@ -167,6 +170,8 @@ Checkout the **[WIKI PAGES (Usage Guide)](https://github.com/lkzhao/Hero/wiki/Us
 
 For more up-to-date ones, please see the header-doc. (use **alt+click** in Xcode)
 <img src="https://cdn.rawgit.com/lkzhao/Hero/master/Resources/headerDoc.png" width="521px"/>
+
+Dash compatible API docs: https://HeroTransitions.github.io/Hero/
 
 ## Interactive Transition Tutorials
 

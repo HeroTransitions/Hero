@@ -270,8 +270,8 @@ internal class HeroCoreAnimationViewContext: HeroAnimatorViewContext {
     if let size = targetState.size {
       if targetState.useScaleBasedSizeChange ?? self.targetState.useScaleBasedSizeChange ?? false {
         let currentSize = snapshot.bounds.size
-        targetState.append(.scale(x:size.width / currentSize.width,
-                                  y:size.height / currentSize.height))
+        targetState.append(.scale(x: size.width / currentSize.width,
+                                  y: size.height / currentSize.height))
       } else {
         rtn["bounds.size"] = NSValue(cgSize: size)
       }

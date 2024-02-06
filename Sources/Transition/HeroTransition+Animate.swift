@@ -24,7 +24,7 @@
 import UIKit
 
 extension HeroTransition {
-  open func animate() {
+  public func animate() {
     guard state == .starting else { return }
     state = .animating
 
