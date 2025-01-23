@@ -187,7 +187,7 @@ test:
 
 #> Make a .zip package of frameworks
 package:
-	carthage build --no-skip-current --platform $(PLATFORM)
+	carthage build --no-skip-current --platform $(PLATFORM) --use-xcframeworks --cache-builds
 	carthage archive $(MODULE_NAME)
 
 #> tag and release to github
@@ -207,4 +207,3 @@ open:
 #> Setup the project, git-hooks etc
 init:
 	git config core.hooksPath .githooks
-
