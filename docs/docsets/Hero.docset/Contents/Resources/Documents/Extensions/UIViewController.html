@@ -21,7 +21,7 @@
     <header class="header">
       <p class="header-col header-col--primary">
         <a class="header-link" href="../index.html">
-          Hero 1.6.3 Docs
+          Hero 1.6.4 Docs
         </a>
          (24% documented)
       </p>
@@ -269,7 +269,8 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">heroModalAnimationType</span><span class="p">:</span> <span class="kt"><a href="../Enums/HeroDefaultAnimationType.html">HeroDefaultAnimationType</a></span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">@MainActor</span>
+<span class="k">var</span> <span class="nv">heroModalAnimationType</span><span class="p">:</span> <span class="kt"><a href="../Enums/HeroDefaultAnimationType.html">HeroDefaultAnimationType</a></span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
 
                         </div>
                       </div>
@@ -300,6 +301,7 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">@IBInspectable</span>
+<span class="kd">@MainActor</span>
 <span class="k">var</span> <span class="nv">heroModalAnimationTypeString</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
 
                         </div>
@@ -331,6 +333,7 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">@IBInspectable</span>
+<span class="kd">@MainActor</span>
 <span class="k">var</span> <span class="nv">isHeroEnabled</span><span class="p">:</span> <span class="kt">Bool</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
 
                         </div>
@@ -362,6 +365,7 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">@IBAction</span>
+<span class="kd">@MainActor</span>
 <span class="kd">public</span> <span class="kd">func</span> <span class="nf">ht_dismiss</span><span class="p">(</span><span class="n">_</span> <span class="nv">sender</span><span class="p">:</span> <span class="kt">UIView</span><span class="p">)</span></code></pre>
 
                         </div>
@@ -392,7 +396,8 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">heroReplaceViewController</span><span class="p">(</span><span class="n">with</span> <span class="nv">next</span><span class="p">:</span> <span class="kt">UIViewController</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">@MainActor</span>
+<span class="kd">public</span> <span class="kd">func</span> <span class="nf">heroReplaceViewController</span><span class="p">(</span><span class="n">with</span> <span class="nv">next</span><span class="p">:</span> <span class="kt">UIViewController</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -423,6 +428,7 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">@IBAction</span>
+<span class="kd">@MainActor</span>
 <span class="kd">public</span> <span class="kd">func</span> <span class="nf">hero_dismissViewController</span><span class="p">()</span></code></pre>
 
                         </div>
@@ -454,6 +460,7 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">@IBAction</span>
+<span class="kd">@MainActor</span>
 <span class="kd">public</span> <span class="kd">func</span> <span class="nf">hero_unwindToRootViewController</span><span class="p">()</span></code></pre>
 
                         </div>
@@ -484,7 +491,8 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">hero_unwindToViewController</span><span class="p">(</span><span class="n">_</span> <span class="nv">toViewController</span><span class="p">:</span> <span class="kt">UIViewController</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">@MainActor</span>
+<span class="kd">public</span> <span class="kd">func</span> <span class="nf">hero_unwindToViewController</span><span class="p">(</span><span class="n">_</span> <span class="nv">toViewController</span><span class="p">:</span> <span class="kt">UIViewController</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -514,7 +522,8 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">hero_unwindToViewController</span><span class="p">(</span><span class="nv">withSelector</span><span class="p">:</span> <span class="kt">Selector</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">@MainActor</span>
+<span class="kd">public</span> <span class="kd">func</span> <span class="nf">hero_unwindToViewController</span><span class="p">(</span><span class="nv">withSelector</span><span class="p">:</span> <span class="kt">Selector</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -544,7 +553,8 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">hero_unwindToViewController</span><span class="p">(</span><span class="nv">withClass</span><span class="p">:</span> <span class="kt">AnyClass</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">@MainActor</span>
+<span class="kd">public</span> <span class="kd">func</span> <span class="nf">hero_unwindToViewController</span><span class="p">(</span><span class="nv">withClass</span><span class="p">:</span> <span class="kt">AnyClass</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -574,7 +584,8 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">hero_unwindToViewController</span><span class="p">(</span><span class="nv">withMatchBlock</span><span class="p">:</span> <span class="p">(</span><span class="kt">UIViewController</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">@MainActor</span>
+<span class="kd">public</span> <span class="kd">func</span> <span class="nf">hero_unwindToViewController</span><span class="p">(</span><span class="nv">withMatchBlock</span><span class="p">:</span> <span class="p">(</span><span class="kt">UIViewController</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -604,7 +615,8 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">hero_replaceViewController</span><span class="p">(</span><span class="n">with</span> <span class="nv">next</span><span class="p">:</span> <span class="kt">UIViewController</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">@MainActor</span>
+<span class="kd">public</span> <span class="kd">func</span> <span class="nf">hero_replaceViewController</span><span class="p">(</span><span class="n">with</span> <span class="nv">next</span><span class="p">:</span> <span class="kt">UIViewController</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -623,7 +635,7 @@
     </div>
     <section class="footer">
       <p>See <a class="link" href="https://github.com/HeroTransitions/Hero/blob/develop/LICENSE" target="_blank" rel="external noopener">license</a> for more details.</p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external noopener">jazzy ♪♫ v0.14.4</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external noopener">Realm</a> project.</p>
     </section>
   </body>
 </html>

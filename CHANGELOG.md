@@ -4,6 +4,10 @@ The changelog for `Hero`. Also see the [releases](https://github.com/HeroTransit
 
 --------------------------------------
 
+## [1.6.4](https://github.com/HeroTransitions/Hero/releases/tag/1.6.4)
+
+- Fix XCode 16
+
 ## [1.6.3](https://github.com/HeroTransitions/Hero/releases/tag/1.6.3)
 
 - 1ac98e7 Adaption for visionOS.

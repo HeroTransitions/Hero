@@ -744,84 +744,84 @@
     },
     {
       "file": "/Users/jmattiello/Workspace/github/Hero/Sources/HeroContext.swift",
-      "line": 318,
+      "line": 315,
       "symbol": "HeroContext.subscript(_:)",
       "symbol_kind": "source.lang.swift.decl.function.subscript",
       "warning": "undocumented"
     },
     {
       "file": "/Users/jmattiello/Workspace/github/Hero/Sources/HeroContext.swift",
-      "line": 318,
+      "line": 315,
       "symbol": "HeroContext.subscript(_:)",
       "symbol_kind": "source.lang.swift.decl.function.subscript",
       "warning": "undocumented"
     },
     {
       "file": "/Users/jmattiello/Workspace/github/Hero/Sources/HeroContext.swift",
-      "line": 327,
+      "line": 324,
       "symbol": "HeroContext.clean()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/jmattiello/Workspace/github/Hero/Sources/HeroContext.swift",
-      "line": 327,
+      "line": 324,
       "symbol": "HeroContext.clean()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/jmattiello/Workspace/github/Hero/Sources/HeroContext.swift",
-      "line": 337,
+      "line": 334,
       "symbol": "HeroContext",
       "symbol_kind": "source.lang.swift.decl.extension",
       "warning": "undocumented"
     },
     {
       "file": "/Users/jmattiello/Workspace/github/Hero/Sources/HeroContext.swift",
-      "line": 337,
+      "line": 334,
       "symbol": "HeroContext",
       "symbol_kind": "source.lang.swift.decl.extension",
       "warning": "undocumented"
     },
     {
       "file": "/Users/jmattiello/Workspace/github/Hero/Sources/HeroContext.swift",
-      "line": 338,
+      "line": 335,
       "symbol": "HeroContext.hide(view:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/jmattiello/Workspace/github/Hero/Sources/HeroContext.swift",
-      "line": 338,
+      "line": 335,
       "symbol": "HeroContext.hide(view:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/jmattiello/Workspace/github/Hero/Sources/HeroContext.swift",
-      "line": 349,
+      "line": 346,
       "symbol": "HeroContext.unhide(view:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/jmattiello/Workspace/github/Hero/Sources/HeroContext.swift",
-      "line": 349,
+      "line": 346,
       "symbol": "HeroContext.unhide(view:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/jmattiello/Workspace/github/Hero/Sources/HeroContext.swift",
-      "line": 421,
+      "line": 418,
       "symbol": "HeroCustomSnapshotView.heroSnapshot",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/jmattiello/Workspace/github/Hero/Sources/HeroContext.swift",
-      "line": 421,
+      "line": 418,
       "symbol": "HeroCustomSnapshotView.heroSnapshot",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
