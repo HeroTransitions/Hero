@@ -140,14 +140,6 @@ extension HeroContext {
 
     unhide(view: view)
 
-    // capture a snapshot without alpha, cornerRadius, or shadows
-    let oldMaskedCorners: CACornerMask = {
-      if #available(iOS 11, tvOS 11, *) {
-        return view.layer.maskedCorners
-      } else {
-        return []
-      }
-    }()
     let oldCornerRadius = view.layer.cornerRadius
     let oldAlpha = view.alpha
 		let oldShadowRadius = view.layer.shadowRadius
@@ -229,7 +221,12 @@ extension HeroContext {
       }
     #endif
 
-    if #available(iOS 11, tvOS 11, *) {
+    if #available(iOSApplicationExtension 11.0, tvOSApplicationExtension 11.0, iOS 11, tvOS 11, *) {
+      // capture a snapshot without alpha, cornerRadius, or shadows
+      let oldMaskedCorners: CACornerMask = {
+          return view.layer.maskedCorners
+      }()
+
       view.layer.maskedCorners = oldMaskedCorners
     }
     view.layer.cornerRadius = oldCornerRadius
