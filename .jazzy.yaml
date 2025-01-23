@@ -1,6 +1,6 @@
 # ---- About ----
 module: Hero
-module_version: 1.6.3
+module_version: 1.6.4
 author: HeroTransitions
 readme: README.md
 copyright: 'See [license](https://github.com/HeroTransitions/Hero/blob/develop/LICENSE) for more details.'

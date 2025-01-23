@@ -23,7 +23,7 @@ jazzy:
 
 #> Markdown API using sourcedocs; https://github.com/eneko/SourceDocs
 sourcedocs:
-	@sourcedocs generate -clean --spm-module Hero --output-folder docs
+	@sourcedocs generate --clean --output-folder docs
 
 #> Run tests
 swift_test:
